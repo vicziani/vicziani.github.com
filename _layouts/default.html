@@ -1,0 +1,69 @@
+---
+---
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu">
+	<head>
+		<title>
+            {{ page.title }}
+		</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="Author" lang="hu" content="Viczián István"/>
+		<meta name="Description" lang="hu" content="{{ page.description }}"/>
+		<meta name="Version" lang="hu" content="$Id$"/>
+		<meta name="Date" lang="hu" content="{{ site.time | date: '%Y-%m-%d' }}"/>
+		<meta name="Keywords" lang="hu" content="{{ page.keywords }}"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="revisit-after" content="30 days"/>
+		<meta name="Content-Language" content="HU"/>
+		<link rel="stylesheet" href="viczianihp.css" type="text/css"/>
+		<link rel="SHORTCUT ICON" href="favicon.ico"/>
+		<script type="text/javascript" src="viczianihp.js"></script>
+		<script type="text/javascript">
+  <!--
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-478386-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  // -->
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<p><img src="imgs/top.gif" alt="Viczián István"/></p>
+				<p>
+					<a href="index.html" title="Főoldal önéletrajzzal.">Főoldal</a> | 
+					<a href="http://jtechlog.blogspot.hu" title="Internetes blog, főleg Java témákkal foglalkozik.">
+						<em>JTechLog</em></a> | 
+					<a href="jtechlog.htm" title="Internetes blogom archívuma.">JTechLog archívum</a> | 
+					<a href="cikkek.htm" title="Általam írt cikkek.">Cikkek</a> |
+					<a href="alkalmazasok.htm" title="Általam gyakrabban használt alkalmazások.">Használt alkalmazások</a> |
+					<a href="gemgame.htm" title="Java applet technológiával megvalósított egyszerű ügyességi játék.">Gem Game Java játék</a> | 
+					<a href="fallinggems.htm" title="Java applet technológiával megvalósított egyszerű logikai játék.">Falling Gems Java játék</a> | 
+					<a href="vago.htm" title="Vágó lapszabász optimalizáló program">Vágó lapszabász</a> |
+					<a href="konferenciak.htm" title="Konferenciák, melyeken hallgatóként részt vettem">Konferenciák</a>
+				</p>
+				<script type="text/javascript">
+  <!--
+  document.write('<p>' + lastmod() + '</p>');
+  // -->
+				</script>
+			</div>
+
+	{{ content }}
+
+			<div id="footer">
+				<p>&copy; 2002 - 2012 Viczián István (viczian.istvan a gmail-en)</p>
+			</div>
+
+		</div>
+	</body>
+</html>
