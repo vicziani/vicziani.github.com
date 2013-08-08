@@ -268,3 +268,23 @@ ul li {
 .bad p {
   margin-bottom: 0;
 }
+
+#certTable {
+  width: 100%;
+}
+
+.certLogos {
+  text-align: center;
+}
+
+.certLogoImg {
+  border:1px solid #555; 
+  -moz-border-radius:4px; 
+  -webkit-border-radius:4px; 
+  border-radius:4px; 
+  box-shadow:2px 2px 4px 0 #999; 
+  -moz-box-shadow:2px 2px 4px 0 #999; 
+  -webkit-box-shadow:2px 2px 4px 0 #999; 
+  height:83px; 
+  width:130px;
+}
