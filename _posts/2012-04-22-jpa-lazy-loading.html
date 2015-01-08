@@ -19,9 +19,9 @@ fetching, on-demand fetching, just-in-time reading, indirection, stb.), azonban 
 
 <p>Miért is érdemes lazy loadingot alkalmazni? Alapvetően teljesítménynövelés céljából. Először meg kell különböztetni a két esetet, mikor egy entitás egy mezőjére, vagy egy kapcsolatra tesszük rá. Az előbbi akkor lehet hasznos, amennyiben egy entitás nem minden mezőjét akarjuk mindig betölteni, mert vagy túl sok van neki, vagy túl nagyok. Utóbbi esetre egy példa egy hallgatói nyilvántartásban a hallgatóhoz tartozhat egy fénykép is, de ez nagy, blob-ban tároljuk, és egy listázó képernyőn nem akarjuk megjeleníteni, csak a részletek képernyőn. Ezzel vigyázni kell, mert ha nem megfelelően használjuk, azaz nincs nagy mennyiségű mező vagy nem nagy méretű, akkor többet ártunk, mint használunk. Ugyanis az újbóli adatbázishoz fordulás erőforrás igényesebb lehet, mint pár plusz adat lekérése. Kapcsolódó entitások esetében példa, ha egy listázó képernyőn nem akarjuk a számlához tartozó tételeket megjeleníteni, kivéve a részletek képernyőn, ahol szükséges őket felsorolni. Háttérben ez úgy történik, hogy egy proxy osztály kerül generálásra (EclipseLink és Hibernate esetében eltérően), és nem tölti be a lekérdezés esetén a megfelelő mezőt vagy kapcsolatot, és így kerül példányosításra a proxy objektum. Amikor a proxy objektumtól mégis elkérésre kerül a nem betöltött mező vagy osztály, akkor próbálkozik a persistence provider a betöltéssel.</p>
 
-<p>Postomban a lazy loading viselkedését vizsgálom a két legelterjedtebb provider, az <a href="http://www.eclipse.org/eclipselink/">EclipseLink</a> és a <a href="http://www.hibernate.org/">Hibernate</a> esetében. A <a href="http://jtechlog.blogspot.com/2009/05/hibernate-eclipselink-atallas.html">Hibernate EclipseLink átállás</a> post részletesen leírja, hogyan lehet átállni Hibernate-ről EclipseLink-re, valamint ebben leírom, mi az a weaving, Java agent és instrumentation, így ezekre itt nem térek ki részletesebben.</p>
+<p>Postomban a lazy loading viselkedését vizsgálom a két legelterjedtebb provider, az <a href="http://www.eclipse.org/eclipselink/">EclipseLink</a> és a <a href="http://www.hibernate.org/">Hibernate</a> esetében. A <a href="/2009/05/hibernate-eclipselink-atallas.html">Hibernate EclipseLink átállás</a> post részletesen leírja, hogyan lehet átállni Hibernate-ről EclipseLink-re, valamint ebben leírom, mi az a weaving, Java agent és instrumentation, így ezekre itt nem térek ki részletesebben.</p>
 
-<p>Példaként már egy <a href="http://jtechlog.blogspot.com/2010/09/entitasok-auditalasa-hibernate-envers.html">előző postomban</a> bemutatott esetet használok, kicsit módosítva.</p>
+<p>Példaként már egy <a href="/2010/09/entitasok-auditalasa-hibernate-envers.html">előző postomban</a> bemutatott esetet használok, kicsit módosítva.</p>
 
 <img src="http://yuml.me/0946499a" alt="Osztálydiagram" width="500" height="77" />
 
@@ -144,7 +144,7 @@ Persistence.getPersistenceUtil().isLoaded(
 
 <h3>Hibernate</h3>
 
-<p>Ugyanazzal az alapfelállással indulok, mint az EclipseLink esetében, azaz nincs plusz annotáció, és a @OneToMany annotációnál sincs plusz paraméter. Az előző cikkem óta a Hibernate 3.3.0.CR2-ben a bájtkód módosítását a CGLib helyett a javassist végzi (, amiről szintén írtam <a href="http://jtechlog.blogspot.com/2011/12/instrumentation-javassist-tal.html">korábban</a>) , <a href="https://hibernate.onjira.com/browse/HHH-2506">ugyanis</a> az előbbi nagyon inaktív projekt lett, így leváltották. Mindkét oldalt betöltve a következő hibaüzenetet kapom:</p>
+<p>Ugyanazzal az alapfelállással indulok, mint az EclipseLink esetében, azaz nincs plusz annotáció, és a @OneToMany annotációnál sincs plusz paraméter. Az előző cikkem óta a Hibernate 3.3.0.CR2-ben a bájtkód módosítását a CGLib helyett a javassist végzi (, amiről szintén írtam <a href="/2011/12/instrumentation-javassist-tal.html">korábban</a>) , <a href="https://hibernate.onjira.com/browse/HHH-2506">ugyanis</a> az előbbi nagyon inaktív projekt lett, így leváltották. Mindkét oldalt betöltve a következő hibaüzenetet kapom:</p>
 
 <pre>
 org.hibernate.LazyInitializationException: failed to lazily initialize a 
@@ -256,7 +256,7 @@ select phones0_.employee_id as employee4_0_1_,
 
 <p>Az alkalmazás által gyártott EntityManager használatát nem javaslom, hiszen nagyon oda kell figyelni, bonyolítja a kódot, plusz munkával jár, és az újrafelhasználhatóságot is megnehezíti. Az extended persistence context szintén nem befutó nálam, hiszen egyrész Spring-ezek, másrészt EJB esetén is kerülöm a stateful session bean-ek használatát.</p>
 
-<p>Vizsgáljuk meg most a cv mező működését. Ahogy várható, mindig beolvassa. Azonban az már meglepő, hogy a @Lob, vagy a @Basic(fetch = FetchType.LAZY) vagy mindkét annotáció hatására sem változik semmi, azaz mindig berántja. Erről már <a href="http://jtechlogext.blogspot.com/2010/07/jpa-hibernate-lazy-fetch.html">írtam</a>, ennek az az oka, hogy ez csak akkor működik, ha az osztályok instrumentálva vannak. A példa projektben a pom.xml-ben a maven-antrun-plugin futtat egy org.hibernate.tool.instrument.javassist.InstrumentTask-ot. Amennyiben ezt megtesszük, a következő kerül a konzolra.</p>
+<p>Vizsgáljuk meg most a cv mező működését. Ahogy várható, mindig beolvassa. Azonban az már meglepő, hogy a @Lob, vagy a @Basic(fetch = FetchType.LAZY) vagy mindkét annotáció hatására sem változik semmi, azaz mindig berántja. Erről már <a href="http://ext.jtechlog.hu/2010/07/jpa-hibernate-lazy-fetch.html">írtam</a>, ennek az az oka, hogy ez csak akkor működik, ha az osztályok instrumentálva vannak. A példa projektben a pom.xml-ben a maven-antrun-plugin futtat egy org.hibernate.tool.instrument.javassist.InstrumentTask-ot. Amennyiben ezt megtesszük, a következő kerül a konzolra.</p>
 
 <pre>
 main:
@@ -277,4 +277,4 @@ main:
 
 <p>Bár nem tűnik túl bonyolult témakörnek, a lazy loading kezelése okozott számomra meglepetéseket. Az EclipseLink kicsit jobban elrejti ezt a dolgot, ezért csak ezt a tulajdonságát figyelembe véve jobb választás lehet. Azt azonban mindenképp javaslom, hogy ne hagyatkozzunk az elképzeléseinkre, hogy hogyan történhet a betöltés, hanem mindig állítsuk be azt, hogy a persistence provider írja ki az általa lefuttatott SQL lekérdezéseket, és minden képernyőnél elemezzük azokat, hogy nincs-e felesleges lekérdezés, vagy nem-e lehet úgy megfogalmazni a JPA lekérdezést, hogy több SQL lekérdezés helyett csak egy fusson.</p>
 
-<p>Egy másik <a href="http://jtechlog.blogspot.com/2011/02/ejb-es-jpa-developer-certified-expert.html">postban</a> már említett <a href="http://apress.com/book/view/9781430219569">Apress kiadó Pro JPA 2 Mastering the Java Persistence API</a> könyve elég részletesen ír a lazy loading fogalmáról, de az implementációkat az sem hasonlítja össze.</p>
+<p>Egy másik <a href="/2011/02/ejb-es-jpa-developer-certified-expert.html">posztban</a> már említett <a href="http://apress.com/book/view/9781430219569">Apress kiadó Pro JPA 2 Mastering the Java Persistence API</a> könyve elég részletesen ír a lazy loading fogalmáról, de az implementációkat az sem hasonlítja össze.</p>

@@ -75,7 +75,7 @@ Xalan Java 2.7.0</code></pre>
 
 <p>A JAXP-hez remek <a href="http://docs.oracle.com/javase/tutorial/jaxp/">tutorial</a> is található az Oracle oldalán.</p>
 
-<p>A JAXP-ben három parser található. A Simple API for XML (SAX), Document Object Model (DOM) és a Streaming API for XML (StAX). A <a href="http://www.saxproject.org/">SAX</a> (mely egy de facto szabvány) egy push parser, a <a href="http://www.w3.org/DOM/">DOM</a>  (mely egy W3C szabvány) memóriában felépíti a teljes fát és a StAX pedig egy pull parser, és önmagán belül is még két lehetőséget tartalmaz parse-olásra. Mindegyikre található példa a példa alkalmazásban, és a StAX-ról régebben egy <a href="http://jtechlog.blogspot.hu/2009/11/stax.html">posztot is írtam</a>.</p>
+<p>A JAXP-ben három parser található. A Simple API for XML (SAX), Document Object Model (DOM) és a Streaming API for XML (StAX). A <a href="http://www.saxproject.org/">SAX</a> (mely egy de facto szabvány) egy push parser, a <a href="http://www.w3.org/DOM/">DOM</a>  (mely egy W3C szabvány) memóriában felépíti a teljes fát és a StAX pedig egy pull parser, és önmagán belül is még két lehetőséget tartalmaz parse-olásra. Mindegyikre található példa a példa alkalmazásban, és a StAX-ról régebben egy <a href="/2009/11/stax.html">posztot is írtam</a>.</p>
 
 <p>A <code>TransformerFactory</code> és <code>Transformer</code> osztályok használatával lehet XML transzformációkat végezni.</p>
 
@@ -87,9 +87,9 @@ Xalan Java 2.7.0</code></pre>
 
 <p>Az XML funkciók unit tesztelésére több könyvtár is rendelkezésünkre áll (mindegyikre található példa a példa projektben). Az <a href="http://xmlunit.sourceforge.net/">XMLUnit</a> alkalmas XML összehasonlításra (nem szöveg összehasonlítás), XPath kifejezések futtatására, validációra és transzformációk ellenőrzésére. A Hamcrest is tartalmaz egy HasXPath osztályt, azonban ha komolyabb dolgokra van szükségünk, javasolt az <a href="https://code.google.com/p/xml-matchers/">xml-matchers</a> használata, ami szintén Hamcrest matchereket tartalmaz.</p>
 
-<p>Az XML kezeléshez tartozó következő API a JAXB, melyről már írtam a <a href="http://jtechlog.blogspot.hu/2009/07/jaxb.html">JAXB</a> és <a href="http://jtechlog.blogspot.hu/2009/07/jaxb-trukkok.html">JAXB trükkök</a> cikkben.</p>
+<p>Az XML kezeléshez tartozó következő API a JAXB, melyről már írtam a <a href="/2009/07/jaxb.html">JAXB</a> és <a href="/2009/07/jaxb-trukkok.html">JAXB trükkök</a> cikkben.</p>
 
-<p>A JAX-WS-ről írtam a <a href="http://jtechlog.blogspot.hu/2009/11/jax-ws-melyviz.html">JAX-WS mélyvíz</a> posztban, tesztelésükről a <a href="http://jtechlog.blogspot.hu/2012/08/soapui-junit-teszteles.html">Webszolgáltatások integrációs tesztelése soapUI és JUnit használatával</a> posztban. Könyvről a <a href="http://jtechlog.blogspot.hu/2012/08/soa-using-java-web-services.html">SOA Using Java Web Services</a> posztban, és vizsgáról a <a href="http://jtechlog.blogspot.hu/2012/12/oracle-certified-expert-java-ee-6-web.html">Oracle Certified Expert, Java EE 6 Web Services Developer</a> posztban.</p>
+<p>A JAX-WS-ről írtam a <a href="/2009/11/jax-ws-melyviz.html">JAX-WS mélyvíz</a> posztban, tesztelésükről a <a href="/2012/08/soapui-junit-teszteles.html">Webszolgáltatások integrációs tesztelése soapUI és JUnit használatával</a> posztban. Könyvről a <a href="/2012/08/soa-using-java-web-services.html">SOA Using Java Web Services</a> posztban, és vizsgáról a <a href="/2012/12/oracle-certified-expert-java-ee-6-web.html">Oracle Certified Expert, Java EE 6 Web Services Developer</a> posztban.</p>
 
 <p>Az XML-lel kapcsolatban még érdemes megjegyezni, hogy a properties állományokat is lehet XML formában tárolni, ekkor a <code>Properties</code> osztály <code>loadFromXML</code> metódusát kell meghívni.</p>
 

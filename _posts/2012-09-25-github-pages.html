@@ -14,7 +14,7 @@ blogger_orig_url: http://www.jtechlog.hu/2012/09/github-pages.html
 
 <p>Az új oldal tehát elérhető a <a href="http://vicziani.github.com/">http://vicziani.github.com/</a> címen, valamint a forrása is böngészhető a <a href="https://github.com/vicziani/vicziani.github.com">https://github.com/vicziani/vicziani.github.com</a> címen.</p>
 
-<p>Eddig elég manuális megoldást használtam, <a href="http://jtechlog.blogspot.hu/2009/03/szoveg-generalas.html">Ant-ból hívtam Apache Texen-t</a>, mely a háttérben Velocity-t használ. A GitHub megoldása ennél sokkal jobban kézre esik.</p>
+<p>Eddig elég manuális megoldást használtam, <a href="/2009/03/szoveg-generalas.html">Ant-ból hívtam Apache Texen-t</a>, mely a háttérben Velocity-t használ. A GitHub megoldása ennél sokkal jobban kézre esik.</p>
 
 <p>Amennyiben statikus html oldalakat akarunk kirakni, nagyon egyszerű a használata, létre kell hozni egy username.github.com publikus repository-t, ahol értelemszerűen a username a felhasználónevünk. Kizárólag ezt a címet foglalhatjuk le, más névvel nem működik. Generálhatunk oldalt az automatikus generátor segítségével is, ekkor egy témát kell kiválasztanunk, és a <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> leíró nyelvvel leírni. Én a manuális utat választottam, mikor is a html-t én írom meg. Parancssori klienst használok, a repository-t ugyanúgy kell kezelni, mint bármely mást. Létre kell hozni a könyvtárat, elhelyezni benne az állományainkat, majd kiadni a következő parancsokat (természetesen a felhasználónevet lecserélve):</p>
 
@@ -36,7 +36,7 @@ Your page has been built. If this is the first time you've pushed, it may take
 a few minutes to appear, otherwise your changes should appear immediately.
 </pre>
 
-<p>Amennyiben kicsit bonyolultabb dolgokra van szükségünk, használhatjuk a Ruby-ban implementált <a href="https://github.com/mojombo/jekyll">Jekyll</a> generátort. Ennek használatával valamilyen leíró nyelven meg kell adnunk a tartalmat (HTML, Textile, Markdown, Liquid), és ebből előállítja a HTML kimenetet, melyet bárhová kirakhatunk statikus tartalomként. A Jekyll segítségével akár blogot is írhatunk, amikor csak a blogbejegyzéseket kell megszerkeszteni, hozzá a körítést a Jekyll legenerálja. Könnyebbség ráadásul, hogy nem nekünk kell a generálást meghívni, hanem a push után automatikusan a GitHub szerverein történik, így azonnal láthatjuk az eredményt.</p>
+<p>Amennyiben kicsit bonyolultabb dolgokra van szükségünk, használhatjuk a Ruby-ban implementált <a href="https://github.com/mojombo/jekyll">Jekyll</a> generátort. Ennek használatával valamilyen leíró nyelven meg kell adnunk a tartalmat (HTML, Textile, Markdown, Liquid), és ebből előállítja a HTML kimenetet, melyet bárhová kirakhatunk statikus tartalomként. A Jekyll segítségével akár blogot is írhatunk, amikor csak a posztokat kell megszerkeszteni, hozzá a körítést a Jekyll legenerálja. Könnyebbség ráadásul, hogy nem nekünk kell a generálást meghívni, hanem a push után automatikusan a GitHub szerverein történik, így azonnal láthatjuk az eredményt.</p>
 
 <p>Nézzünk is egy egyszerű példát. A könyvtárstruktúra kötött, a főkönyvtárba opcionálisan elhelyezhető a _config.yml állomány, mellyel a generálást lehet konfigurálni. Az _includes könyvtár tartalmazhatja az újrafelhasználható oldalelemeket ({{ "{%" }} include file.ext %} szintakszissal használandóak), míg a _layouts könyvtár az oldal sablonokat. A _layouts könyvtárba helyezzük el ennek alapján a default.html állományt:</p>
 
