@@ -1,0 +1,374 @@
+---
+layout: post
+title: Spring Security
+date: '2010-01-10T22:27:00.006+01:00'
+author: István Viczián
+tags:
+- Servlet
+- open source
+- JSP
+- biztonság
+- Spring
+modified_time: '2014-12-31T22:11:27.404+01:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-4371095092719584281
+blogger_orig_url: http://www.jtechlog.hu/2010/01/spring-security.html
+---
+
+<p>Frissítve: 2014. december 31.</p>
+
+<p>Technológiák: Spring Framework 4.1.4, Spring Security 3.2.5</p>
+
+<p>A <a href="http://projects.spring.io/spring-security/">Spring Security</a> egy Apache license alatt futó projekt Java alkalmazások autentikációjának és autorizációjának megvalósítására. Az előbbi azt jelenti, hogy a felhasználó tesz egy állítást, hogy ő kicsoda, és azt bizonyítja is. A legtöbbször ez felhasználónév és jelszó párossal történik, de lehet bonyolultabb megoldás, mint tanúsítvány (akár hardver tokenen), ujjlenyomat, stb. Az utóbbi az erőforráshoz való hozzáféréskor ellenőrzi, hogy a felhasználónak van-e hozzá jogosultsága. A Spring Security független projektként indult Acegi Security néven. Legkönnyebben Springes alkalmazásokkal integrálható, de nem kötelező a Spring használata. Persze az összes Springes technológiához illeszthető. Főleg webes alkalmazásoknál szokták használni, de működik vastag klienses környezetben is. Ez alapján egyszerűen beépíthető egy Spring + Spring MVC alkalmazásba, de használható többek között Struts-cal, Swinggel, de gyakorlatilag bármilyen Java alkalmazásban.</p>
+
+<p>Előnye, hogy nem függ a környezettől (pl. alkalmazásszerver), nem kell az üzleti logikát átfűzni a jogosultságkezelést végző kóddal (, hanem aspektus-orientált módon adható meg). Egyszerű módon (XML-lel) konfigurálható, és a legtöbb beállításnak van alapértelmezett értéke is, mellyel működik a biztonság, de tetszőleges mértékben testre szabható, a legtöbb osztály akár saját implementációra is kicserélhető (pluginelhetőség). Implementálva van benne hozzáférési listák kezelése (Access Control Lists).</p>
+
+<p>Támogatja a HTTP BASIC, HTTP Digest és form alapú autentikációt, valamint az OpenID-t és a X.509 tanúsítványt.</p>
+
+<p>A felhasználók és a hozzá kapcsolódó szerepkörök tárolhatóak properties vagy XML állományban, adatbázisban, LDAP-ban, de saját implementáció is megadható. Támogatja a jelszó kódolását pl. SHA vagy MD5 algoritmussal. A felhasználóval kapcsolatos információkat képes cache-elni is. Különböző eseményekre eseménykezelőket lehet aggatni, pl. bejelentkezés, így könnyen megoldható pl. audit naplózás. Könnyen illeszthető a <a href="http://jasig.github.io/cas/4.0.x/index.html">CAS single sign on</a> megoldáshoz.</p>
+
+<p>Kompatibilis a Servlet Security API-val, használhatóak vele az EJB 3 annotációi, valamint a WSS-hez (korábban WS-Security) is illeszthető. Képes a security propagation-re, azaz az alkalmazások különböző rétegei között átvinni a security context-et (pl. a vastag kliensről a szerverre).</p>
+
+<p>Webes környezetben egy filtert kell a <code>web.xml</code>-be betenni. Képes mindarra, amire a <code>web.xml</code>-ben definiálható biztonság, de azt rengeteg egyéb funkcióval egészíti ki, mint pl. a védett URL-eket nem csak a Servlet specifikációban megadott korlátozott URL mintákkal lehet megadni, hanem használható az Ant féle megadási mód is. Konfigurálható, hogy védet tartalmak esetén történjen https-re átirányítás. Alapból implementálva van benne két Remember-Me (Persistent Login) megoldás is, azaz a böngésző cookie-ban jegyezze meg a bejelentkezés tényét. A Spring Security tag library-t is biztosít funkcióinak elérésére JSP oldalból.</p>
+
+<p>Ebben a posztban egy egyszerű Spring MVC-s webes alkalmazásba illesztését fogom bemutatni. A poszthoz egy példa projekt is tartozik, mely <a href="https://github.com/vicziani/jtechlog-spring-security">elérhető a GitHub-on</a>, és a teljes forrás akár egy zip fájlban is letölthető. Egyszerű Spring MVC-s webes alkalmazás JPA perzisztens réteggel.</p>
+
+<p>Első lépésként szerkesszük meg az <code>web.xml</code> állományt, és adjuk meg a Spring Security-t konfiguráló <code>applicationContext-security.xml</code> állományt (a jó elkülöníthetőség kedvéért konfigurálom külön állományban), valamint a filtert, mely a http(s) kéréseket elkapja, és ellenőrzi.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;context-param&gt;</span><span class="pln">
+    </span><span class="tag">&lt;param-name&gt;</span><span class="pln">contextConfigLocation</span><span class="tag">&lt;/param-name&gt;</span><span class="pln">
+    </span><span class="tag">&lt;param-value&gt;</span><span class="pln"> 
+     WEB-INF/applicationContext.xml
+     WEB-INF/applicationContext-security.xml
+    </span><span class="tag">&lt;/param-value&gt;</span><span class="pln">
+</span><span class="tag">&lt;/context-param&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;filter&gt;</span><span class="pln">
+    </span><span class="tag">&lt;filter-name&gt;</span><span class="pln">springSecurityFilterChain</span><span class="tag">&lt;/filter-name&gt;</span><span class="pln">
+    </span><span class="tag">&lt;filter-class&gt;</span><span class="pln">org.springframework.web.filter.DelegatingFilterProxy
+        </span><span class="tag">&lt;/filter-class&gt;</span><span class="pln">
+</span><span class="tag">&lt;/filter&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;filter-mapping&gt;</span><span class="pln">
+    </span><span class="tag">&lt;filter-name&gt;</span><span class="pln">springSecurityFilterChain</span><span class="tag">&lt;/filter-name&gt;</span><span class="pln">
+    </span><span class="tag">&lt;url-pattern&gt;</span><span class="pln">/*</span><span class="tag">&lt;/url-pattern&gt;</span><span class="pln">
+</span><span class="tag">&lt;/filter-mapping&gt;</span></code></pre>
+
+<p>A következő lépésben írjuk meg az <code>applicationContext-security.xml</code> állományt.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;beans:beans</span><span class="pln"> </span><span class="atn">xmlns</span><span class="pun">=</span><span class="atv">"http://www.springframework.org/schema/security"</span><span class="pln">
+    </span><span class="atn">xmlns:beans</span><span class="pun">=</span><span class="atv">"http://www.springframework.org/schema/beans"</span><span class="pln"> 
+    </span><span class="atn">xmlns:xsi</span><span class="pun">=</span><span class="atv">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="pln">
+    </span><span class="atn">xsi:schemaLocation</span><span class="pun">=</span><span class="atv">"http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/security 
+        http://www.springframework.org/schema/security/spring-security.xsd"</span><span class="tag">&gt;</span><span class="pln">
+
+    </span><span class="tag">&lt;http</span><span class="pln"> </span><span class="atn">auto-config</span><span class="pun">=</span><span class="atv">"true"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/"</span><span class="pln"> </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"ROLE_USER, ROLE_ADMIN"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+        </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/index.html"</span><span class="pln"> 
+            </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"ROLE_USER, ROLE_ADMIN"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+        </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/addUser.html"</span><span class="pln"> 
+            </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"ROLE_ADMIN"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+        </span><span class="tag">&lt;logout</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/http&gt;</span><span class="pln">
+
+    </span><span class="tag">&lt;authentication-manager</span><span class="pln"> </span><span class="atn">alias</span><span class="pun">=</span><span class="atv">"authenticationManager"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;authentication-provider&gt;</span><span class="pln">
+            </span><span class="tag">&lt;password-encoder</span><span class="pln"> </span><span class="atn">hash</span><span class="pun">=</span><span class="atv">"md5"</span><span class="tag">/&gt;</span><span class="pln">
+            </span><span class="tag">&lt;user-service&gt;</span><span class="pln">
+                </span><span class="tag">&lt;user</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"jtechlog"</span><span class="pln"> 
+                    </span><span class="atn">password</span><span class="pun">=</span><span class="atv">"26b91b96e2e8adc37cd26cff6a6b2eba"</span><span class="pln"> 
+                    </span><span class="atn">authorities</span><span class="pun">=</span><span class="atv">"ROLE_USER"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/user-service&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/authentication-provider&gt;</span><span class="pln">     
+    </span><span class="tag">&lt;/authentication-manager&gt;</span><span class="pln">
+</span><span class="tag">&lt;/beans:beans&gt;</span></code></pre>
+
+<p>Az <code>auto-config</code> tulajdonság egy rövidítés, a következő alapértelmezett beállításokat tartalmazza:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;http&gt;</span><span class="pln">
+  </span><span class="tag">&lt;form-login</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+  </span><span class="tag">&lt;http-basic</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+  </span><span class="tag">&lt;logout</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;/http&gt;</span></code></pre>
+
+<p>Az <code>authentication-provider</code> elemben az XML szerepel egy <code>jtechlog</code> nevű felhasználó, akinek a jelszava MD5-tel kódolva szerepel (<code>jtechlog12</code>). Ezzel készen is van. Az alkalmazásunkat elindítva bármelyik URL-re egy (Spring Security által generált) bejelentkezési form jön be, hiszen deklarálva lett, hogy a <code>/</code> URL megtekintéséhez a felhasználónak rendelkeznie kell a <code>ROLE_USER</code> vagy <code>ROLE_ADMIN</code> szerepkörrel, a <code>/addUser.html</code>-hez <code>ROLE_ADMIN</code> szerepkörrel (lásd <code>intercept-url</code> elem). Az azonosítás formon, jelszóval történik (<code>form-login</code>).</p>
+
+<p>A <code>security</code> névtérben a következőkre adhatunk meg konfigurációkat:</p>
+
+<ul>
+<li>Web/HTTP Security</li>
+<li>Business Object (Method) Security</li>
+<li>AuthenticationManager</li>
+<li>AccessDecisionManager</li>
+<li>AuthenticationProviders</li>
+<li>UserDetailsService</li>
+</ul>
+
+<p>Amennyiben kijelentkezést is meg akarunk valósítani, a JSP-ben csak helyezzük el a következő linket:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="pln">&lt;a href="</span><span class="tag">&lt;c:url</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'/j_spring_security_logout'</span><span class="tag">/&gt;</span><span class="pln">"&gt;Kijelentkezés</span><span class="tag">&lt;/a&gt;</span></code></pre>
+
+<p>Következő lépésként implementáljuk magunk a felhasználó adatbázisból való betöltését, méghozzá pl. JPA segítségével. Ehhez kell egy <code>User</code> entitás, melynek különlegessége, hogy implementálnia kell a <code>UserDetails</code> interfészt, és annak több metódusát. Pl.:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="lit">@Entity</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">User</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">UserDetails</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Serializable</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="lit">@Id</span><span class="pln">
+   </span><span class="lit">@GeneratedValue</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">Long</span><span class="pln"> id</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> username</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> password</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> roles</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="lit">@Override</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">Collection</span><span class="pun">&lt;</span><span class="typ">GrantedAuthority</span><span class="pun">&gt;</span><span class="pln"> getAuthorities</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="typ">Collection</span><span class="pun">&lt;</span><span class="typ">GrantedAuthority</span><span class="pun">&gt;</span><span class="pln"> authorities </span><span class="pun">=</span><span class="pln"> 
+            </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">GrantedAuthority</span><span class="pun">&gt;();</span><span class="pln">
+        </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">:</span><span class="pln"> roles</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">", "</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            authorities</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SimpleGrantedAuthority</span><span class="pun">(</span><span class="pln">
+                </span><span class="str">"ROLE_"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">toUpperCase</span><span class="pun">()));</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> authorities</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="lit">@Override</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getPassword</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+       </span><span class="kwd">return</span><span class="pln"> password</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="lit">@Override</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getUsername</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+       </span><span class="kwd">return</span><span class="pln"> username</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="lit">@Override</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isAccountNonExpired</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+       </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="lit">@Override</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isAccountNonLocked</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+       </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="lit">@Override</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isCredentialsNonExpired</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+       </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="lit">@Override</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isEnabled</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+       </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="com">// Többi getter és setter metódus</span><span class="pln">
+   </span><span class="com">// ...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Valamint definiáljunk egy <code>UserService</code> nevű <code>@Repository</code> osztályt, és a trükk csak annyi, hogy implementálnia kell a <code>UserDetailsService</code> interfészt.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="lit">@Repository</span><span class="pun">(</span><span class="str">"userService"</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">@Transactional</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">DefaultUserService</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">UserDetailsService</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="lit">@PersistenceContext</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">EntityManager</span><span class="pln"> em</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="lit">@Override</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">UserDetails</span><span class="pln"> loadUserByUsername</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> username</span><span class="pun">)</span><span class="pln"> 
+        </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">UsernameNotFoundException</span><span class="pun">,</span><span class="pln"> </span><span class="typ">DataAccessException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+       </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+           </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="typ">UserDetails</span><span class="pun">)</span><span class="pln"> em
+                </span><span class="pun">.</span><span class="pln">createQuery</span><span class="pun">(</span><span class="str">"select u from User u"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                    </span><span class="str">" where u.username = :username"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">User</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">)</span><span class="pln">
+                </span><span class="pun">.</span><span class="pln">setParameter</span><span class="pun">(</span><span class="str">"username"</span><span class="pun">,</span><span class="pln"> username</span><span class="pun">).</span><span class="pln">getSingleResult</span><span class="pun">();</span><span class="pln">
+       </span><span class="pun">}</span><span class="pln">
+       </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">EntityNotFoundException</span><span class="pln"> enfe</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+           </span><span class="kwd">throw</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">UsernameNotFoundException</span><span class="pun">(</span><span class="pln">
+                </span><span class="str">"A felhasznalo nem talalhato: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> username</span><span class="pun">,</span><span class="pln"> enfe</span><span class="pun">);</span><span class="pln">
+       </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="com">// Többi üzleti metódus</span><span class="pln">
+   </span><span class="com">// ...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Mivel az <code>applicationContext.xml</code>-ben <code>context:annotation-config</code> van beállítva, ami a <code>@Repository</code> annotáció miatt példányosítja a <code>DefaultUserService</code> osztályunkat.</p>
+
+<p>A Spring Security-ben az <code>AuthenticationProvider</code> is cserélhető, és ebben az esetben a <code>DaoAuthenticationProvider</code>-t kell használnunk. Ennek megadhatunk egy <code>userDetailsService</code> tulajdonságot, melynek a <code>UserDetailsService</code>-t kell implementálnia, és ennek fogja meghívni a <code>loadUserByUsername</code> metódusát. Ezt egy rövidebb konfigurációval is megadhatjuk az <code>applicationContext-security.xml</code> állományban a következő módon:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;authentication-provider</span><span class="pln"> </span><span class="atn">user-service-ref</span><span class="pun">=</span><span class="atv">"userService"</span><span class="pln"> </span><span class="tag">/&gt;</span></code></pre>
+
+<p>Egy <code>authentication-manager</code>-en belül több <code>authentication-provider</code>-t is megadhatunk. Ekkor sorban nézi végig a providereket, és ahol először sikerül az autentikáció, az nyer. Így előbb az XML-ben szereplő felhasználókat, majd az adatbázisban szereplő felhasználókat fogja alapul venni, a <code>User</code> entitásunk alapján. Ekkor a jelszó még plain textben kerül letárolásra, de ha mi MD5-öt szeretnénk, konfiguráljuk így:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;authentication-provider</span><span class="pln"> </span><span class="atn">user-service-ref</span><span class="pun">=</span><span class="atv">"userService"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="tag">&lt;password-encoder</span><span class="pln"> </span><span class="atn">hash</span><span class="pun">=</span><span class="atv">"md5"</span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;/authentication-provider&gt;</span></code></pre>
+
+<p>A Java kódból ezután a következőképpen kérhetjük le a bejelentkezés után a felhasználót:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="typ">SecurityContextHolder</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">().</span><span class="pln">getAuthentication</span><span class="pun">().</span><span class="pln">getPrincipal</span><span class="pun">();</span></code></pre>
+
+<p>A <code>Context</code> <code>ThreadLocal</code> változó, így szálanként egyedi. A metódus visszatérési értékét kényszeríthetjük a saját <code>User</code> osztályunkra.</p>
+
+<p>JSP-ben használhatunk tag library-t is, melynek definíciója:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="pun">&lt;%@</span><span class="pln"> taglib prefix</span><span class="pun">=</span><span class="str">"security"</span><span class="pln"> 
+    uri</span><span class="pun">=</span><span class="str">"http://www.springframework.org/security/tags"</span><span class="pln"> %&gt;</span></code></pre>
+
+<p>Az <code>authentication</code> tag visszaadja az <code>Authentication</code> objektumot, és annak tulajdonságait tudjuk lekérni:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code><span class="tag">&lt;security:authentication</span><span class="pln"> </span><span class="atn">property</span><span class="pun">=</span><span class="atv">"principal.username"</span><span class="pln"> </span><span class="tag">/&gt;</span></code></pre>
+
+<p>Valamint az <code>authorize</code> tag törzse csak a feltétel teljesítésekor jelenik meg. A feltételek a következők lehetnek: <code>ifAllGranted</code> - vesszővel megadott szerepkörök mindegyikével rendelkezik, <code>ifAnyGranted</code> - vesszővel megadott szerepkörök egyikével rendelkezik, <code>ifNotGranted</code> - vesszővel megadott szerepkörök egyikével sem rendelkezik.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;security:authorize</span><span class="pln"> </span><span class="atn">ifAllGranted</span><span class="pun">=</span><span class="atv">"ROLE_ADMIN"</span><span class="tag">&gt;</span><span class="pln">
+       </span><span class="com">&lt;!-- Felhasználók felvételére szolgáló form. --&gt;</span><span class="pln">
+</span><span class="tag">&lt;/security:authorize&gt;</span></code></pre>
+
+<p>Ez esetben még mindig nem vagyunk megelégedve a Spring Security által biztosított alapértelmezett bejelentkező képernyővel, emiatt szabjuk azt testre. Az <code>intercept-url</code>-lel kell megadni a védendő URL-eket. Természetesen többet is megadhatunk, egy URL-hez több szerepkört is megadhatunk vesszővel elválasztva, valamint használhatunk Ant típusú mintákat. A Spring Security használatakor a leggyakoribb hiba, hogy a bejelentkezési képernyőt is letiltjuk, így végtelen ciklus alakulhat ki. Erre a Spring Security egy üzenettel figyelmeztet is: </p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="pln">org.springframework.security.config.FilterChainProxyPostProcessor: Anonymous access to the login page doesn't appear to be enabled. This is almost certainly an error. Please check your configuration allows unauthenticated access to the configured login page. (Simulated access was rejected: org.springframework.security.AccessDeniedException: Access is denied).</span></code></pre>
+
+<p>Ekkor be kell állítani, hogy a <code>login.html</code> oldalhoz ne kelljen bejelentkezés. Sikertelen bejelentkezés esetén történjen átirányítás a <code>/login.htm?login_error=1</code> oldalra, sikeres bejelentkezés esetén a <code>/</code> oldalra. Kijelentkezés után ismét a <code>/login.htm</code> oldal jön be. A konfiguráció a következőképpen alakul:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;http</span><span class="pln"> </span><span class="atn">auto-config</span><span class="pun">=</span><span class="atv">"true"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/login.html"</span><span class="pln"> 
+        </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"IS_AUTHENTICATED_ANONYMOUSLY"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/"</span><span class="pln"> </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"ROLE_ADMIN, ROLE_USER"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/addUser.html"</span><span class="pln"> </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"ROLE_ADMIN"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;form-login</span><span class="pln"> </span><span class="atn">login-page</span><span class="pun">=</span><span class="atv">"/login.html"</span><span class="pln"> </span><span class="atn">default-target-url</span><span class="pun">=</span><span class="atv">"/"</span><span class="pln"> 
+        </span><span class="atn">authentication-failure-url</span><span class="pun">=</span><span class="atv">"/login.htm?login_error=1"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;logout</span><span class="pln"> </span><span class="atn">logout-success-url</span><span class="pun">=</span><span class="atv">"/login.html"</span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;/http&gt;</span></code></pre>
+
+<p>Majd nézzük a bejelentkező formot tartalmazó JSP részletet:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;c:if</span><span class="pln"> </span><span class="atn">test</span><span class="pun">=</span><span class="atv">"${not empty param.login_error}"</span><span class="tag">&gt;</span><span class="pln">
+    Sikertelen bejelentkezés
+</span><span class="tag">&lt;/c:if&gt;</span><span class="pln">
+
+&lt;form action="</span><span class="tag">&lt;c:url</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'/j_spring_security_check'</span><span class="tag">/&gt;</span><span class="pln">" method="POST"&gt;
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"j_username"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">""</span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"password"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"j_password"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">""</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Bejelentkezés"</span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;/form&gt;</span></code></pre>
+
+<p>A formot a <code>j_spring_security_check</code> címre kell postolni, amit a filter fogad. Tartalmaznia kell egy <code>j_username</code> és <code>j_password</code> mezőt. Amennyiben nem sikerült a bejelentkezés, a sessionben egy változó lesz <code>SPRING_SECURITY_LAST_EXCEPTION</code> néven.</p>
+
+<p>Régebbi verziókban a sessionbe sikertelen bejelentkezés esetén beletett egy <code>SPRING_SECURITY_LAST_USERNAME</code> nevű változót is, melyet a felhasználónév mezőbe visszaírva nem kellett a felhasználónak beírnia újra a nevét. Azonban ez deprecated lett.</p>
+
+<p>Ennek megoldására a <code>form-login</code> taghez írni kell egy <code>authentication-failure-handler-ref</code> attribútumot egy saját implementációval. A saját osztályunk terjessze ki a <code>SimpleUrlAuthenticationFailureHandler</code> osztályt, és önmaga tegye a felhasználónevet a session scope-ba. Utána a bejelentkező oldalon ezt ki kell venni.</p>
+
+<p>A következő változott tehát az <code>applicationContext-security.xml</code> állományban.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;form-login</span><span class="pln"> </span><span class="atn">login-page</span><span class="pun">=</span><span class="atv">"/login.html"</span><span class="pln"> </span><span class="atn">default-target-url</span><span class="pun">=</span><span class="atv">"/"</span><span class="pln"> 
+    </span><span class="atn">authentication-failure-handler-ref</span><span class="pun">=</span><span class="pln">
+        </span><span class="atv">"usernameInUrlAuthenticationFailureHandler"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+
+...
+
+</span><span class="tag">&lt;beans:bean</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"usernameInUrlAuthenticationFailureHandler"</span><span class="pln"> 
+        </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"jtechlog.springsecurity.service.
+            UsernameInUrlAuthenticationFailureHandler"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;beans:property</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"defaultFailureUrl"</span><span class="pln"> 
+        </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"/login.html?login_error=1"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;/beans:bean&gt;</span></code></pre>
+
+<p>A <code>UsernameInUrlAuthenticationFailureHandler</code> implementációja:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">UsernameInUrlAuthenticationFailureHandler</span><span class="pln"> 
+        </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">SimpleUrlAuthenticationFailureHandler</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> LAST_USERNAME_KEY </span><span class="pun">=</span><span class="pln"> </span><span class="str">"LAST_USERNAME"</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">UsernamePasswordAuthenticationFilter</span><span class="pln"> 
+        usernamePasswordAuthenticationFilter</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="lit">@Autowired</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">UsernameInUrlAuthenticationFailureHandler</span><span class="pun">(</span><span class="pln">
+            </span><span class="typ">UsernamePasswordAuthenticationFilter</span><span class="pln"> 
+            usernamePasswordAuthenticationFilter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">usernamePasswordAuthenticationFilter </span><span class="pun">=</span><span class="pln"> 
+            usernamePasswordAuthenticationFilter</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="lit">@Override</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onAuthenticationFailure</span><span class="pun">(</span><span class="pln">
+            </span><span class="typ">HttpServletRequest</span><span class="pln"> request</span><span class="pun">,</span><span class="pln"> </span><span class="typ">HttpServletResponse</span><span class="pln"> response</span><span class="pun">,</span><span class="pln">
+            </span><span class="typ">AuthenticationException</span><span class="pln"> exception</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">IOException</span><span class="pun">,</span><span class="pln"> </span><span class="typ">ServletException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+        </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">onAuthenticationFailure</span><span class="pun">(</span><span class="pln">request</span><span class="pun">,</span><span class="pln"> response</span><span class="pun">,</span><span class="pln"> exception</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="typ">String</span><span class="pln"> usernameParameter </span><span class="pun">=</span><span class="pln">
+                usernamePasswordAuthenticationFilter</span><span class="pun">.</span><span class="pln">getUsernameParameter</span><span class="pun">();</span><span class="pln">
+        </span><span class="typ">String</span><span class="pln"> lastUserName </span><span class="pun">=</span><span class="pln"> request</span><span class="pun">.</span><span class="pln">getParameter</span><span class="pun">(</span><span class="pln">usernameParameter</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="typ">HttpSession</span><span class="pln"> session </span><span class="pun">=</span><span class="pln"> request</span><span class="pun">.</span><span class="pln">getSession</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">session </span><span class="pun">!=</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> isAllowSessionCreation</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            request</span><span class="pun">.</span><span class="pln">getSession</span><span class="pun">().</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="pln">LAST_USERNAME_KEY</span><span class="pun">,</span><span class="pln"> 
+                lastUserName</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Valamint a megváltozott form:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="pln">&lt;input type="text" name="j_username" 
+    value='</span><span class="tag">&lt;c:if</span><span class="pln"> </span><span class="atn">test</span><span class="pun">=</span><span class="atv">"${not empty param.login_error}"</span><span class="tag">&gt;</span><span class="pln">
+               </span><span class="tag">&lt;c:out</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"${sessionScope.LAST_USERNAME}"</span><span class="tag">/&gt;</span><span class="pln">
+           </span><span class="tag">&lt;/c:if&gt;</span><span class="pln">'/&gt;</span></code></pre>
+
+<p>Ezen kívül a Spring Security képes arra is, hogy különböző metódusok meghívása esetén is végezzen jogosultság ellenőrzést. Ezt deklaratív módon, annotációval is meg lehet adni. Ekkor egyrészt deklarálni kell, hogy metódus szintű hozzáférés ellenőrzést szeretnénk, ekkor a következőt kell elhelyezni az <code>applicationContext-security.xml</code>-ben:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code><span class="tag">&lt;global-method-security</span><span class="pln"> </span><span class="atn">pre-post-annotations</span><span class="pun">=</span><span class="atv">"enabled"</span><span class="pln"> </span><span class="tag">/&gt;</span></code></pre>
+
+<p>Valamint használjuk a <code>@PreAuthorize</code> annotációt a védendő metóduson:</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="lit">@PreAuthorize</span><span class="pun">(</span><span class="str">"hasRole('ROLE_ADMIN')"</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> addUser</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> name</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> password</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> roles</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="com">// ...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>

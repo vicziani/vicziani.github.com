@@ -1,0 +1,105 @@
+---
+layout: post
+title: Instrumentation Javassist-tal
+date: '2011-12-13T00:45:00.005+01:00'
+author: István Viczián
+tags:
+- instrumentation
+- Java SE
+- JMX
+modified_time: '2011-12-29T13:05:43.840+01:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-43432132572840305
+blogger_orig_url: http://www.jtechlog.hu/2011/12/instrumentation-javassist-tal.html
+---
+
+<p>Technológiák: Javassist 3.15</p>
+
+<p>Belefutottam egy olyan <a href="http://stackoverflow.com/questions/7096121/profile-entire-java-program-execution-in-visualvm">problémába</a>, hogy egy alkalmazást szeretnék monitorozni VisualVM-mel (régebben már írtam <a href="http://jtechlog.blogspot.com/2011/04/visualvm-glassfish-monitorozas.html">róla</a>), azonban az alkalmazás számomra szignifikáns része már lefut, mielőtt hozzá tudnák csatlakozni a virtuális géphez. A VisualVM egy monitoring és menedzsment eszköz, nagyon mélyen lehet a virtuális gép működését megfigyelni, és a JDK része. A <code>-Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y</code> parancssori kapcsoló használata nem segít, ugyanis ebben az esetben a megállt alkalmazást csak olyan profiler képes továbblökni, mely beszéli a Java Debug Wire Protocol (JDWP) protokollt, a VisualVM viszont nem ilyen. (Míg a Eclipse TPTP vagy a Netbeans Profiler igen. Más kérdés ugyan, hogy a VisualVM is tartalmaz profiler-t, ráadásul ugyanaz, ami a NetBeans-ben is van, ez utóbbi csak annyival több, hogy a forráskódhoz tud pozícionálni.)</p>
+
+<p>A problémára több megoldási javaslatot is lehet kapni a neten, pl. más profiler (előbb említetteken kívül még sok van, pl. a JDK részeként szállított parancssori HPROF, vagy a kereskedelmi YourKit vagy JProfiler), debug módban indítás IDE-ből, valamint az alkalmazásban várakozás elhelyezése (sleep, Console input).</p>
+
+<p>Gondoltam, ez egy megfelelő alkalom az instrumentation és a Javassist kipróbálására. Így készítettem egy egyszerű példaprogramot, mely elérhető a <a href="https://github.com/vicziani/jtechlog-wait4signal">GitHub</a>-on. A program egy Java agent, melynek segítségével egy Java alkalmazás adott szálának futása a megadott metódusnál felfüggeszthető, és vagy konzolon bevitt, vagy JMX-en feladott jelre vár. Mindezt az alkalmazás forráskódjának módosítása nélkül.</p>
+
+<p>Maven-nel build-elhető, és a letöltést követően a 'mvn package assembly:single' parancs kiadásával a target könyvtárban létrejön egy jtechlog-wait4signal-1.0-SNAPSHOT-bin.zip és egy
+jtechlog-wait4signal-1.0-SNAPSHOT-tar.gz állomány. Valamelyik lib könyvtárában lévő két jar fájlt kell felhasználni.</p>
+
+<p>A következő parancs kiadásával lehet az agent-et aktiválni:</p>
+
+<pre>java -javaagent:jtechlog-wait4signal-1.0-SNAPSHOT.jar=entryPoint=java2d.Java2Demo.main -jar Java2Demo.jar</pre>
+
+<p>Ekkor a konzolon vár egy Enter lenyomásáig, vagy 5 másodperc múlva mindenképp lefuttatja az alkalmazást.</p>
+
+<p>A következő parancs kiadásával lehet JMX-en értesítést aktiválni:</p>
+
+<pre>java -javaagent:jtechlog-wait4signal-1.0-SNAPSHOT.jar=entryPoint=java2d.Java2Demo.main,mode=JMX,timeout=30 -jar Java2Demo.jar</pre>
+
+<p>Ekkor a <code>jtechlog/SignalMBean signal()</code> operációjával lehet a futtatást továbbengedni, vagy 30
+másodperc múltán timeout.</p>
+
+<p>Régebben <a href="http://jtechlog.blogspot.com/2009/05/hibernate-eclipselink-atallas.html">már írtam arról</a>, hogy az instrumentációt, azaz a bytecode módosítását futásidőben, osztálybetöltéskor a <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/instrument/package-summary.html">java.lang.instrument</a> csomag felhasználásával lehet megvalósítani. Az agent fő osztálya a <code>jtechlog.wait4signal.Wait4SignalMain</code> osztály, melynek <code>premain</code> metódusa fut le a saját alkalmazásunk main metódusa előtt. Ahhoz, hogy a -javaagent megadásakor ehhez az osztályhoz kerüljön a vezérlés, a anifest.mf fájlban a Agent-Class bejegyzésnek rá kell hivatkoznia.</p>
+
+<pre class="brush: java">public static void premain(String agentArgs, Instrumentation inst) {
+ System.out.println("Initializing Wait4Signal Java agent.");
+ Wait4SignalMain wait4SignalMain = new Wait4SignalMain();
+ wait4SignalMain.doInstrumentation(agentArgs, inst);
+}
+</pre>
+
+<p>A <code>doInstrumentation</code> metódus feldolgozza a parancssori paramétereket (a JAR neve és egy egyenlőségjel után megadott String), ezek konvenció szerint név és érték párok, köztük egyenlőségjel, vesszővel elválasztva. Lehetséges paraméterek: entryPoint (kötelező megadni, osztály és metódus neve, mely előtt meg kell állítani a program futását), mode (ha nincs megadva CONSOLE mód, azaz konzolon vár Enter billenytű megnyomását, vagy JMX), és timeout (másodpercben, alapértelmezett értéke 5). Majd a következő utasítás megadásával egy új <code>ClassFileTransformer</code> implementációt regisztrál:</p>
+
+<pre class="brush: java">inst.addTransformer(new WaitTransformer(entryPoint, waiting));
+</pre>
+
+<p>Egy ötlet volt az is, hogy a <code>premain</code> metódusban állítom meg a program futását, azonban ez nem volt megfelelő, hiszen a JVM ilyenkor olyannyira nem inicializálta magát, hogy a VisualVM sem tudott hozzá kapcsolódni életciklusának ezen pontján.</p>
+
+<p>A <code>WaitTransformer</code> a <code>transform</code> metódust definiálja felül, és vizsgálja, hogy az osztály neve megegyezik-e a parancssori kapcsolóként megadottal.</p>
+
+<pre class="brush: java">public byte[] transform(ClassLoader loader, String className, 
+ Class&lt;?&gt; classBeingRedefined, ProtectionDomain protectionDomain, 
+ byte[] classfileBuffer) throws IllegalClassFormatException
+</pre>
+
+<p>A transform metódus számunkra érdekes paraméterei az osztály osztálybetöltője (null, ha bootstrap osztálybetöltő), az osztály neve (vigyázat, pontok helyett perjelekkel), valamint az osztály bytecode-jának byte tömbjét. Ezt szabadon módosíthatjuk, és ezt kell visszaadni a metódus visszatérési értékeként. Vigyázat, az ebből a metódusból kilépő kivételeket a JVM elnyeli.</p>
+
+<p>Persze nem kell a byte tömböt közvetlenül módosítani, itt jöhet segítségünkre a <a href="http://www.javassist.org/">Javassist</a> (Java Programming Assistant), mely egy Java bytecode futásidejű manipulálását megkönnyítő programkönyvtár. Két szintű API-t ad a kezünkbe. A forráskód szintű API segítségével Java utasításokat, mint String-eket szúrhatunk be, ezeket a Javassist on-the-fly fogja átfordítani bytecode-dá. Ekkor persze nem szükséges ismernünk a class fájl szerkezetét. Vagy manipulálhatjuk alacsonyabb szinten is, közvetlen a bytecode-ot. Ezen lehetőségek rendkívül alkalmassá teszik a Javassist-ot AOP keretrendszerek fejlesztésére. Remek <a href="http://www.csg.is.titech.ac.jp/%7Echiba/javassist/tutorial/tutorial.html">tutorial</a> is van hozzá.</p>
+
+<p>A következő részben a Javassist érdekesebb kódrészleteit emelem ki, melyek a bytecode-ot módosítják.</p>
+
+<pre class="brush: java">
+ClassPool pool = ClassPool.getDefault();
+CtClass cl = pool.makeClass(new java.io.ByteArrayInputStream(classfileBuffer));
+
+if (cl.isInterface() == false) {
+ CtBehavior[] methods = cl.getDeclaredBehaviors();
+
+ for (int i = 0; i < methods.length; i++) {
+  if (entryPoint.endsWith(methods[i].getName())) {
+   ctBehavior.insertBefore(waiting.insertBeforeMethod());
+  }
+ }
+ classfileBuffer = cl.toBytecode();
+}
+cl.detach();
+</pre>
+
+<p>A fenti kódrészlet először lekér egy ClassPool-t, ez a Javassist-ban lévő osztályok tárolására szolgáló konténer. Ebbe definiál egy CtClass (compile-time class) példányt, mely az osztály absztrakt reprezentációja. Ennek forrása az instrumentálás során átadott byte tömb. Amennyiben ez egy interfész, lekéri ennek metódusait a <code>getDeclaredBehaviors()</code> metódushívással. Ezeken végigiterál, és ha a metódus neve megfelelő, akkor beszúr kódrészletet az <code>insertBefore</code> metódushívással. Ennek érdekessége, hogy egy String-et vár, tehát bármilyen Java forráskódot be lehet illeszteni, mintha csak a .java forrásfájlba tettük volna ezt.</p>
+
+<p>A <code>waiting.insertBeforeMethod()</code> a mode parancssori kapcsoló függvényében más és más String-et ad vissza. Pl. CONSOLE mode esetén példányosít egy <code>ConsoleWaiting</code> objektumot, majd beállítja a timeout property-jét, majd meghívja a <code>wait4signal()</code> metódusát.</p>
+
+<pre class="brush: java">public String insertBeforeMethod() {
+ StringBuilder sb = new StringBuilder();
+ sb.append("jtechlog.wait4signal.Waiting waiting = new jtechlog.wait4signal.ConsoleWaiting();");
+ sb.append(String.format("waiting.setTimeout(%s);", timeout));
+ sb.append("waiting.wait4signal();");
+ return sb.toString();
+}
+
+</pre>
+
+<p>Érdekessége, hogy a wait4signal() metódus a <code>ConsoleInput</code> és <code>ConsoleInputReadTask</code> osztályokat használja a konzolról való beolvasásra, és a Java 5-ben megjelent ExecutorService-t használja a külön szálon való bekérésre. Erre azért van szükség, hogy itt is működjön a timeout (<a href="http://www.javaspecialists.eu/archive/Issue153.html">The Java Specialists' Newsletter</a> cikke alapján).</p>
+
+<p>A <code>JmxWaiting</code> osztály ezzel szemben egy BlockingQueue-t használ, és abba vár egy üzenetet. A <code>BlockingQueue.poll(int, TimeUnit)</code> metódusával vár egy üzenetre, timeout esetén null a visszatérési értéke. A BlockingQueue a <code>SignalMBean</code> MBean-nek is átadásra kerül. Amennyiben a felhasználó meghívja a <code>signal()</code> operációját, egy üzenetet tesz a Queue-ba. A <code>JmxWaiting</code> ekkor beszünteti a várakozást, és fut tovább. A JMX-ről egy <a href="http://jtechlog.blogspot.com/2009/09/java-monitorozas-es-menedzsment.html">korábbi postban</a> tettem említést.</p>
+
+<p>Az agent-nek szüksége van tehát a Javassist JAR fájlra is, ehhez a manifest.mf fájlba fel kell venni a Boot-Class-Path bejegyzésbe a JAR fájl nevét. Abszolút (perjel) nélkül adtam meg, így a jtechlog-wait4signal-1.0-SNAPSHOT.jar állománnyal egy könyvtárban fogja keresni (függetlenül a JVM indítási könyvtárától).</p>
+
+<p>Látható, hogy a JVM induláskor, az osztálybetöltés során a Java class fájlok manipulálása korántsem akkora varázslat, mint első látásra hinnénk. Több nyílt forráskódú alternatíva is létezik bytecode manipulálásra, többek között a <a href="http://cglib.sourceforge.net/">cglib</a>, <a href="http://commons.apache.org/bcel/index.html">Apache Commons BCEL</a>, <a href="http://asm.ow2.org/">ASM</a>.</p>

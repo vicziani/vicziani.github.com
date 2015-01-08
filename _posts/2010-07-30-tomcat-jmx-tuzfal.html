@@ -1,0 +1,45 @@
+---
+layout: post
+title: Tomcat JMX tűzfalon keresztül
+date: '2010-07-30T19:02:00.007+02:00'
+author: István Viczián
+tags:
+- JMX
+- Tomcat
+modified_time: '2012-11-02T23:18:15.398+01:00'
+thumbnail: http://4.bp.blogspot.com/_czKgycLvmNo/TFMRgNbWWbI/AAAAAAAAFV8/nf3za7DfTHw/s72-c/tomcat_jmx.png
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-3361245663649601147
+blogger_orig_url: http://www.jtechlog.hu/2010/07/tomcat-jmx-tuzfal.html
+---
+
+<p>Technológiák: Tomcat 6.0.24, JMX</p>
+
+<p>Elég nagy problémám volt sokáig, hogyha egy Tomcat-et akartam JMX-en monitorozni, melyet tőlem egy tűzfal választott el. Írtam már erről részletesebben egy <a href="http://jtechlog.blogspot.hu/2009/09/java-monitorozas-es-menedzsment.html">korábbi postban</a>, álljon itt csak annyi, hogy le kellett kérdeznem egy menedzsment és monitorozó eszközből a következő értékeket: adatbázis connection pool mérete (várakozó és aktív kapcsolatok száma), session-ök száma az alkalmazáson belül, Connector várakozó és kiszolgáló szálak száma, memóriafelhaszálás, stb.</p>
+<p>Ha nincs tűzfal, a megoldás egyszerű. A Tomcat-et úgy kell indítani, hogy JMX-en keresztül is kapcsolódni lehessen hozzá. Ezt úgy lehet megtenni, hogy bizonyos környezeti paramétereket át kell neki adni. Javasolt a bin könyvtárába egy setenv.sh-t elhelyezni, és a következőt írni:</p>
+<pre>  set CATALINA_OPTS=-Dcom.sun.management.jmxremote \
+   -Dcom.sun.management.jmxremote.port=%my.jmx.port% \
+   -Dcom.sun.management.jmxremote.ssl=false \
+   -Dcom.sun.management.jmxremote.authenticate=false
+</pre>
+<p>Meg kell jegyezni, hogy ezek akár egy külön properties állományban is megadhatóak, akkor a -Dcom.sun.management.config.file paramétert kell átadni a Tomcat-et indító JVM-nek.</p>
+<p>Ekkor akár jconsole, akár jvisualvm (persze csak az MBean plugin telepítése után) kapcsolódni lehet a Tomcat-hez, a host és a port megadásával, és lehet kezelni JMX-en keresztül.</p>
+<p>Tűzfal esetén ez nem működött, nosza engedjük át a %my.jmx.port% helyett megadott port-ot a tűzfalon, vagy SSL tunel-lel hozzuk ki. Sajnos ez sem jó megoldás, ugyanis igaz, hogy a JMX kliens az ott megadott port-on próbál kapcsolódni, de utána megbeszélnek egy port-ot, melyen a további kommunikáció történik. Mivel itt a szerver választ egy következő szabad port-ot, ezt is át kéne engedni, vagy kihozni, csakhogy ez nem definit.</p>
+<p>Egy működő megoldás volt, hogy a JMX klienst az adott szerveren indítjuk el. Webes eszköz esetén böngészőből lehetett csatlakozni, vastag kliens esetén azonban az X-et kellett ssh-n keresztül kihozni. Egyik sem szerencsés megoldás, hiszen viszonylag sok konfigurációt igényel.</p>
+<p>A <a href="http://download.oracle.com/javase/6/docs/technotes/guides/management/agent.html#gdfvv">JDK dokumentációja szerint</a> megvalósítható az, hogy rákényszerítjük a JDK-t arra, hogy az RMIServer-t, melyben a távolról meghívható RMI objektumok vannak, egy már általunk a megadott porton létrehozott RMI registry-be regisztrálja be. Ezt Mimicking Out-of-the-Box Management-nek hívja. Tehát ehhez el kell indítanunk egy RMI registry-t, majd létre kell hoznunk egy JMXServiceURL példányt, valamint egy JMXConnectorServer-t, melynek átadjuk ezt. A környezeti változókat nem írva, ez kb. így néz ki:</p>
+<pre class="brush: java">LocateRegistry.createRegistry(3000);
+MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+JMXServiceURL url = 
+  new JMXServiceURL("service:jmx:rmi://localhost:3001/jndi/rmi://localhost:3000/jmxrmi");
+JMXConnectorServer cs = JMXConnectorServerFactory
+  .newJMXConnectorServer(url, env, mbs);
+cs.start();
+</pre>
+<p>Ekkor a 3000-es porton indul el az RMI registry, és a 3001-esen az RMI server.</p>
+<p>De nekünk arra van szükségünk, hogy a Tomcat végezze el ezt. A Tomcat 6.0.24-es verziójától jelent meg az extras csomagban a org.apache.catalina.mbeans.JmxRemoteLifecycleListener osztály. Ehhez a letöltésnél az <a href="http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.24/bin/extras/">extras</a> könyvtárból le kell töltenünk a catalina-jmx-remote.jar állományt, és elhelyeznünk a $CATALINA_HOME/lib könyvtárunkban. Ha ez megvan, akkor a következő konfigurációt kell beillesztenünk a server.xml állományba:</p>
+<pre class="brush: xml">&lt;Listener 
+  className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" 
+  rmiRegistryPortPlatform="3000" 
+  rmiServerPortPlatform="3001" /&gt;</pre>
+<p>Amennyiben ez megvan, az RMI registry a 3000-es, az RMI server a 3001-es port-on fog elindulni, hasonlóan az előző példához. Innentől kezdve ha a következő URL-t adjuk meg a JMX kliensünkben, és átengedjük a két port-ot a tűzfalon, vagy SSH tunnel-lel kihozzuk, láthatjuk a Tomcat MBean-jeit.</p>
+<pre>service:jmx:rmi://localhost:3001/jndi/rmi://localhost:3000/jmxrmi</hostname></hostname></pre>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_czKgycLvmNo/TFMRgNbWWbI/AAAAAAAAFV8/nf3za7DfTHw/s1600/tomcat_jmx.png"><img style="display: block; margin: 0px auto 10px; text-align: center; cursor: pointer; width: 320px; height: 210px;" src="http://4.bp.blogspot.com/_czKgycLvmNo/TFMRgNbWWbI/AAAAAAAAFV8/nf3za7DfTHw/s320/tomcat_jmx.png" alt="" id="BLOGGER_PHOTO_ID_5499758815007365554" border="0" /></a>

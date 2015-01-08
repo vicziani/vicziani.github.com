@@ -1,0 +1,119 @@
+---
+layout: post
+title: Minősített elektronikus aláírás
+date: '2008-12-02T14:26:00.008+01:00'
+author: István Viczián
+tags:
+- PKI
+modified_time: '2014-01-06T23:38:03.870+01:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-6190185992411799485
+blogger_orig_url: http://www.jtechlog.hu/2008/12/minstett-elektronikus-alrs.html
+---
+
+<p>
+    <b>A post-ot 2013. december 23-án frissítettem.</b>
+</p>
+<p>Több projekt kapcsán is előjött az elektronikus aláírás témakör, hogyan kell minősített aláírást készíteni. Több
+    dokumentum szól arról, hogy mi az az elektronikus aláírás, tanúsítványok, hitelesítésszolgáltatások, de kevés
+    helyen van összefoglalva, hogy Magyarországon milyen lehetőségeink vannak, és ezek milyen szabványokra épülnek.
+</p>
+<p>Mi köze ennek a Java-hoz? Egyrészt feladat lehet elektronikus aláírást készíteni, illetve ellenőrizni Java
+    alkalmazásból, másrészt van olyan elektronikus aláírást létrehozó termék is, melyet Java-ban fejlesztettek.
+</p>
+<p>Ezzel a témakörrel kapcsolatban magyar nyelven rengeteget lehet megtudni <a href="http://www.sansserif.hu/ealairas/konyv.htm ">Almási János "Elektronikus aláírás és társai" című könyvéből</a>.
+</p>
+<p>Én most csak arra térnék ki, hogy mi kell az elektronikus aláírás készítéséhez? Egyrészt kell egy tanúsítvány,
+    mely tartalmazza a tulajdonos személyes adatait, a tulajdonos nyilvános kulcsát, valamint hitelesítve van egy
+    harmadik fél, a hitelesítésszolgáltató által (ez a tanúsítvány hitelesítésszolgáltató általi elektronikus
+    aláírásával történik). Szükség van egy aláíró eszközre, mely általában egy token, mágneskártya, USB eszköz stb.
+    Ez az eszköz végezheti az aláírást oly módon, hogy beküldésre kerül az aláírandó adat, és az aláírást adja
+    vissza (megakadályozva ezzel a magánkulcs másolásának lehetőségét) - ennek neve a BALE, biztonságos
+    aláírás-létrehozó hardver eszköz. Valamint szükség van egy környezetre, melyben az aláírás történik, mondjuk egy
+    személyi számítógépre, és különböző szoftver eszközökre, melyek az aláíró eszközzel kommunikálnak.
+</p>
+<p>A könyv megírása óta a magyar hitelesítésszolgáltatókkal (certificate authority or certification authority - CA)
+    kapcsolatban több változás is történt, melyeket nyomon lehet követni a<a
+            href="http://webold.nhh.hu/esign/index.jsp">Nemzeti Hírközlési Hatóság Elektronikus aláírásokkal
+        kapcsolatos nyilvántartásokat tartalmazó honlapján</a>.
+</p>
+<p>Itt fel vannak sorolva a nem-minősített és minősített szolgáltatók is, a minősítettek a következők:</p>
+<ul>
+    <li><a href="http://hiteles.mavinformatika.hu/">MÁV Szolgáltató Központ Zrt.</a>, mely várhatóan 2014 első félévében
+        véglegesen megszünteti az elektronikus aláírással kapcsolatos szolgáltatásait
+    </li>
+    <li>
+        <a href="http://www.e-szigno.hu/">MICROSEC zrt. e-Szignó</a>
+    </li>
+    <li>
+        <a href="http://www.netlock.hu/">NetLock Kft.</a>
+    </li>
+    <li>
+        <a href="http://hiteles.gov.hu/">NISZ Zrt.</a>
+    </li>
+</ul>
+<p>A
+    <a href="http://www.netlock.hu/giro/">GIRO HIT@LES szolgáltatás</a>
+    és a
+    <a href="http://www.t-systems.hu/nagyvallalatok/hitelesites_szolgaltatasok">Magyar Telekom (volt Matáv)
+        e-Szignó
+    </a>
+    is megszűnt, a megszűnő szolgáltatásokat átvevő szervezet a NetLock.</p>
+<p>Valamint létrehoztak egy Közigazgatási Gyökér Hitelesítés-szolgáltatót (KGYHSZ) is, melynek jellegtelen
+    <a href="http://www.kgyhsz.gov.hu/">honlapján</a>
+    megtudható, hogy az előbb felsorolt hitelesítésszolgáltatók mindegyikét felülminősítette, azaz egyaránt
+    jogosultak közigazgatási felhasználásra szolgáló, hivatali aláíráshoz és ügyfél által használt aláíráshoz
+    kapcsolódó tanúsítványok kibocsátására. Jelenleg tanúsítványt nem bocsát ki.
+</p>
+<p>Ahhoz, hogy minősített aláírást hozzunk létre, a minősített tanúsítványunkon kívül szükség van egy biztonságos
+    tanúsított minősített aláírást létrehozó termékre is, melyet jelenleg két szervezet tanúsít, hogy az adott
+    hardver (ide tartozik a BALE is) és szoftver megfelel-e aláírás létrehozására:
+</p>
+<ul>
+    <li>
+        <a href="http://www.hunguard.hu/">Hunguard</a>
+    </li>
+    <li>
+        <a href="http://www.matrix-tanusito.hu/">Matrix</a>
+    </li>
+</ul>
+<p>Az elektronikus aláírás és annak rokon, kapcsolódó és származékos technológiák népszerűsítésére létrejött a<a
+        href="http://www.melasz.hu/">Magyar Elektronikus Aláírás Szövetség</a>, mely kiadott egy MELASZ-Ready
+    Ajánlást, melynek célja, hogy a magyar közigazgatás számára kidolgozzon egy olyan feltételrendszert az
+    elektronikus aláírás formátumára, és egy olyan tanúsítási eljárást, mellyel biztosítható a különböző eszközök
+    által készített aláírások kompatibilitása. A szabvány a W3C XML Advanced Electronic Signatures (XAdES)
+    szabványon alapul. A XAdES XML formátumú, és hátránya, hogy az aláírt dokumentum megtekintéséhez először ki kell
+    csomagolni azt. Mivel a PDF a PKCS szabványok közül válogatott, az a XAdES-szel nem kompatibilis, előnye
+    viszont, hogy az aláírt dokumentum azonnal megnyitható, kicsomagolás nélkül.
+</p>
+<p>A következő aláírási termékek tanúsítottak, melyek képesek minősített aláírás létrehozására. A Melasz a
+    <a href="http://melasz.hu/lang-hu/tanusitott-termekek">tanúsított termékek között</a> az összeset felsorolja az
+    InfoCA-n kívül.
+</p>
+<ul>
+    <li><a href="http://www.polysys.eu/hu/CryptoSignoInterop/">Polysys CryptoSigno Interop</a>, a Magyarországon első platform
+        független, Java-ban implementált fejlesztő készlet.
+    </li>
+
+    <li><a href="http://noreg.hu/esign-termekcsalad">Noreg eSign Toolkit</a></li>
+
+    <li><a href="http://srv.e-szigno.hu/menu/index.php?lap=eszigno">Microsec e-Szignó</a>
+    </li>
+
+    <li><a href="http://www.infoscope.hu/infoca.html">InfoScope Kft. InfoCA</a>
+    </li>
+
+    <li>
+        <a href="http://www.argeon.hu/infosigno.html">Argeon Infosigno</a>, a cég felszámolás alatt.
+    </li>
+
+    <li>
+        <a href="http://www.netlock.net/">NetLock NCA TWS és NLCAPI3</a>, mely feltehetően a NetLock különböző alkalmazásainak,
+        mint pl. a <a href="http://www.netlock.hu/mokka/">MOKKA</a> magját képezi.
+    </li>
+
+    <li>
+        <a href="http://www.egroup.hu/main/hu/sdx">E-Group SDX</a>
+        egy termékcsalád, mely tartalmaz szerver oldali és kliens oldali (van böngészőbe épülő változata is) aláíró
+        modulokat.
+    </li>
+</ul>

@@ -1,0 +1,39 @@
+---
+layout: post
+title: JPA XML mapping állományok
+date: '2010-05-16T23:20:00.004+02:00'
+author: István Viczián
+tags:
+- JPA
+modified_time: '2010-09-18T00:21:13.472+02:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-861864873460642612
+blogger_orig_url: http://www.jtechlog.hu/2010/05/jpa-xml-mapping-allomanyok.html
+---
+
+<p>Adott egy web alkalmazás, mely perzisztenciához Hibernate JPA provider-t és Oracle 10g adatbázist használ. A JPA nagy ígérete a platformfüggetlenség, azaz az alkalmazás minimális erőfeszítéssel futtatható másik adatbázison.</p><p>Ki is próbáltam, és a Hibernate specifikus databasePlatform beállítást org.hibernate.dialect.Oracle10gDialect értékről átírtam MySQL5Dialect-re (normál esetben ez a persistence.xml-ben van, de én Spring-ből használtam, így az applicationContext.xml-ben).</p><p>Ekkora következő hibaüzeneteket kaptam:</p><pre>Caused by: org.hibernate.MappingException: could not instantiate id generator
+Caused by: org.hibernate.MappingException: Dialect does not support sequences</pre><p>Ez azért van, mert a forráskódban az entitás id attribútumán a következő annotáció szerepelt:</p><pre class="brush: java">public class Employee {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EmployeeSeq")
+  @SequenceGenerator(name="EmployeeSeq", sequenceName = "seq_employee")
+  private Long id;
+
+...
+}</pre><p>Ez azt jelenti, hogy az id értéke automatikusan generált, az EmployeeSeq generátor által, mely egy Oracle szekvencia, seq_employee néven.
+Azonban a MySQL nem ismeri a szekvencia fogalmát, helyette a mezőnek egy tulajdonsága az auto increment.</p><p>Az automatikus azonosító generálásra a JPA a következő lehetőségeket biztosítja:</p><ul><li>Table: ekkor egy tábla tartalmazza a kiosztható azonosítókat - ez minden adatbázison működő megoldás</li><li>Sequence: azonosító generálása szekvencia alapján - pl. az Oracle ismeri</li><li>Identity: elsődleges kulcs identity, vagy más néven autonumber vagy auto increment - a MySQL ezt ismeri</li><li>Auto: a provider választ</li></ul><p>Így tehát a kóddal, a forráskódban szereplő annotációkkal az adatbázishoz kötöttük magunkat, bukva a platformfüggetlenséget. Vagy mégsem?</p><p>A JPA-ban (ugyanúgy mint az EJB3-ban) ugyanis lehetőség van a konfiguráció megadására annotációként, és ezt felül lehet definiálni a kódon kívül XML konfigurációs állományokban (EJB esetén deployment descriptor-nak hívják). Ezek a konfigurációs állományok JPA esetén a JPA XML mapping állományok. Minden egyes annotációval megadható konfigurációt meg lehet adni XML konfigurációval is. Amennyiben nincs sem annotációval, sem XML-ben konfiguráció megadva, un. intelligens default értékek kerülnek alkalmazásra. Ilyen intelligens alapértelmezett érték pl. az, hogy a tábla neve megegyezik az entitás nevével, annyi oszlop van benne, amennyi nem tranziens attribútum.</p><p>Tehát a cél, hogy az alkalmazás kódjának módosítása nélkül képes legyen MySQL adatbázison is működni. Ehhez először a persistence.xml állományban kell megadni az XML konfigurációs állomány helyét. Legyen ez is a persistence.xml állomány mellett, mapping-mysql.xml néven (a WAR állományban a WEB-INF/classes/META-INF könyvtárban kell elhelyezni).</p><p>Ehhez módosítsuk a persistence.xml állományt a következő módon:</p><pre class="brush: xml">&lt;persistence-unit name="jtechlogPU" transaction-type="RESOURCE_LOCAL"&gt;
+      &lt;mapping-file&gt;META-INF/mapping-mysql.xml&lt;/mapping-file&gt;
+&lt;/persistence-unit&gt;</pre><p>Az állomány helyét a CLASSPATH-hoz képest kell megadni.</p><p>A mapping-mysql.xml állományban definiáljuk, hogy az Employee osztály id attribútumának generátora identity típusú legyen:</p><pre class="brush: xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+               http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+               version="1.0"&gt;
+  &lt;entity class="jtechlog.Employee"&gt;
+      &lt;attributes&gt;
+          &lt;id name="id"&gt;
+              &lt;generated-value strategy="IDENTITY" /&gt;
+          &lt;/id&gt;
+      &lt;/attributes&gt;
+  &lt;/entity&gt;
+&lt;/entity-mappings&gt;</pre><p>Ezzel a beállítással az alkalmazás azonnal képes volt MySQL adatbázison is működni. Már csak a build folyamatot kell úgy módosítani, hogy a persistence.xml állományban egy környezeti beállítás alapján helyezze el a mapping állomány hivatkozást.</p>

@@ -1,0 +1,84 @@
+---
+layout: post
+title: Konfigurációs paraméterek EJB és web rétegben Glassfish alkalmazásszerveren
+date: '2011-04-18T00:22:00.008+02:00'
+author: István Viczián
+tags:
+- Servlet
+- JNDI
+- EJB
+- Maven
+- Java EE
+modified_time: '2011-04-18T00:41:13.683+02:00'
+thumbnail: http://2.bp.blogspot.com/-6e7EtuGMqJE/TatoRtBeklI/AAAAAAAAGSQ/WFTCrFa_F0A/s72-c/jndi_glassfish_0.png
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-2002559707916709456
+blogger_orig_url: http://www.jtechlog.hu/2011/04/konfiguracios-parameterek-ejb-es-web.html
+---
+
+<p>Technológiák: Glassfish 3.1, Maven 2.2.1, EJB 3.0 - 3.1, JNDI</p>
+
+<p>A <a href="http://jtechlog.blogspot.com/2011/02/konfiguracios-parameterek-ejb-retegben.html">Konfigurációs paraméterek EJB és web rétegben JBoss alkalmazásszerveren</a> postban leírtam, hogyan lehet JBoss-ban konfigurációs paramétereket felvenni, JNDI segítségével. Ebben a postban leírom, hogy történik mindez Glassfish alatt.</p>
+
+<p>Az aktualizált példaprojekt <a href="http://dl.dropbox.com/u/7683931/jtechlog/earconfig.zip">letöltehető.</a> Ahhoz, hogy lefordítsuk, adjuk ki az mvn package parancsot a főkönyvtárban. Ahhoz, hogy a Glassfish-re telepítsük, a earconfig-ear/target könyvtárban előállt earconfig-ear-1.0-SNAPSHOT.ear kell a Glassfish-re telepítenünk. Persze ezt is megoldhatjuk Maven-ből is, ehhez először indítsuk el a Glassfisht. Az earconfig-ear/pom.xml-ben a glassfish3x profile-ban van definiálva a telepítés, ezért ezzel kell indítani, valamint felül kell definiálnunk jópár paramétert (host, port, stb.). Ehhez átírhatjuk a pom.xml-t, de a -D kapcsolót is használhatjuk a paraméterek felülbírálásához. Tehát adjuk ki a <code>mvn -P glassfish3x cargo:deploy</code> parancsot a earconfig-ear könyvtárban. Érdemes megjegyezni, hogy Glasshfish 3.1-ben az adminisztrátori felhasználónév admin, és nincs jelszó megadva. Régebben ez admin/adminadmint volt. Valamint figyelni kell arra, hogy az asadmin-nak biztonsági okból már nem lehet paraméterként átadni a jelszót, hanem fájlból olvassa fel. A Cargo nem enged Glassfish-re fájl másolásos telepítést, kizárólag az asadmin-t hajlandó hívni. Ezért eltesz egy állományt a temp könyvtárban, nálam a "C:\Documents and Settings\vicziani\Local Settings\Temp\cargo" helyen. Volt olyan, hogy hiába frissítettem a jelszót a pom.xml-ben, ez a fájl nem változott, így nem sikerült a telepítést. Megoldásaként csak le kellett törölni ezt az állományt. Még egy trükk. Ha nem állítottuk át a jelszót, hanem üresen hagytuk a Glassfish telepítés után, akkor is meg kell adni a Cargo-nak az üres String-et (&lt;cargo.remote.password&gt;${glassfish.password}&lt;/cargo.remote.password&gt;), különben nem sikerül a telepítés. A JBoss-sal ellentétben, itt ha az alkalmazást frissíteni akarjuk, nem elegendő a cargo:deploy parancs, hanem a cargo:redeploy parancs kell, mert a Glassfish jelzi, hogy már van alkalmazás telepítve.</p>
+
+<p>Glassfish-ben a paraméterek, azaz a rendszer paraméterek (system properties) és a JNDI nevek megadása is háromféleképpen történhet: webes adminisztrátori felületen, parancssori adminisztrátori felületen, vagy konfigurációs állományban.</p>
+
+<p>A system property megadása a webes felületen a server menüpontban a Properties/System properties képernyőn lehetséges. Itt menet közben tetszőlegesen is át lehet írni.</p>
+
+<a rel="lightbox" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/-6e7EtuGMqJE/TatoRtBeklI/AAAAAAAAGSQ/WFTCrFa_F0A/s1600/jndi_glassfish_0.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 189px;" src="http://2.bp.blogspot.com/-6e7EtuGMqJE/TatoRtBeklI/AAAAAAAAGSQ/WFTCrFa_F0A/s320/jndi_glassfish_0.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5596681615290831442" /></a>
+
+<p><a href="http://download.oracle.com/docs/cd/E18930_01/html/821-2416/ghcjc.html">Parancssorban is</a> fel lehet venni, és listázni.</p>
+
+<pre>
+C:\Kaffe\glassfish3\glassfish\bin>asadmin create-system-properties \
+ earconfig.system.property="Hello System Property!"
+Command create-system-properties executed successfully.
+
+C:\Kaffe\glassfish3\glassfish\bin>asadmin list-system-properties
+The target server contains following 1 system properties
+earconfig.system.property=Hello System Property!
+Command list-system-properties executed successfully.
+</pre>
+
+<p>A konfiguráció a \glassfish3\glassfish\domains\domain1\config\domain.xml XML konfigurációs állományba kerül bele.</p>
+
+<p>A JNDI megadása a webes felületen a Resources/JNDI/Custom Resources menüpontban lehetséges. Itt vegyünk fel egy új erőforrást a megfelelő JNDI névvel. Több típus közül is választhatunk. Az értékek megadása un. factory-kkal történik, és a Glassfish tartalmaz pár <a href="http://download.oracle.com/docs/cd/E19798-01/821-1752/giyvw/index.html">előre gyártott factory-t</a>: JavaBeanFactory, PropertiesFactory, PrimitiviesAndStringFactory, URLFactory. Amennyiben String-et akarunk felvenni, típusnál a "java.lang.String"-et kell kiválasztani, a Factory Class ilyenkor "org.glassfish.resources.custom.factory.PrimitivesAndStringFactory" lesz, és fel kell venni egy property-t value névvel. Legyen az értéke a "Hello JNDI!".</p>
+
+<a rel="lightbox" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/-XY1WEM1doEM/TatoVkooENI/AAAAAAAAGSY/q21lhPVBunY/s1600/jndi_glassfish_1.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 206px;" src="http://4.bp.blogspot.com/-XY1WEM1doEM/TatoVkooENI/AAAAAAAAGSY/q21lhPVBunY/s320/jndi_glassfish_1.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5596681681758589138" /></a>
+
+<p>URL esetén hasonló a helyzet, de a Resource Type java.net.URL és a factory org.glassfish.resources.custom.factory.URLObjectFactory. Itt property-nek a spec-t kell megadni, érték legyen pl. "http://jtechlog.blogspot.com". Properties megadása már érdekesebb. Itt is a Resource Type-nál ki kell választani a java.util.Properties-t (, a factory org.glassfish.resources.custom.factory.PropertiesFactory lesz). Itt a properties-nél megadhatjuk a név és érték párokat is. Amennyiben egy speciálisat adunk meg org.glassfish.resources.custom.factory.PropertiesFactory.fileName néven, az értéknél szereplő properties fájlt fogja betölteni (, szemben a dokumentációval, ami csak fileName-t ír). A fájlnév lehet abszolút, vagy a Glassfish telepítési könyvtárához képest relatív. A properties állományt szerkesztéskor szépen újra is olvassa. Amennyiben a fájlban és a felületen is megadtunk kulcs-érték párokat, a Glassfish összefésüli ezeket. A JBoss-ban definiálható InetAddress típushoz itt nem találtam factory-t.</p>
+
+<p>A JNDI bejegyzések ugyanúgy <a href="http://download.oracle.com/docs/cd/E18930_01/html/821-2416/gglpq.html">parancssorból is konfigurálhatóak</a>. A Glassfish egy régebbi verziójában volt webes JNDI browser felület. Ez most egyelőre csak parancssorból elérhető.</p>
+
+<pre>
+C:\Kaffe\glassfish3\bin>asadmin create-custom-resource \
+--restype java.lang.String \
+--factoryclass org.glassfish.resources.custom.factory.PrimitivesAndStringFactory \
+--property value="Hello JNDI!" earconfig/string
+Custom Resource earconfig/string created.
+Command create-custom-resource executed successfully.
+
+C:\Kaffe\glassfish3\bin>asadmin list-custom-resources
+earconfig/url
+earconfig/properties
+earconfig/string
+Command list-custom-resources executed successfully.
+</pre>
+
+<p>Az értékek ugyanúgy a \glassfish3\glassfish\domains\domain1\config\domain.xml XML konfigurációs állományba kerülnek. Akár saját factory osztályokat is használhatunk.</p>
+
+<p>Ezeket elvégezve az alkalmazás a http://localhost:8080/earconfig/ címen érhető el, és a következőt kell kiírnia:</p>
+
+<pre>
+A projekt bemutatja, hogy hogyan lehet Java EE alkalmazásból konfigurációs paramétereket beolvasni.
+
+    * System property EJB rétegben (kulcs: earconfig.system.property): Hello \
+System Property!
+    * Context lookup (JNDI) EJB rétegben (JNDI nevek: earconfig/string, \
+ earconfig/url, earconfig/inetaddress, earconfig/properties): [Hello JNDI!, \
+http://jtechlog.blogspot.com, null, {key=value, key2=value2, key1=value1}]
+    * System property web rétegben (kulcs: earconfig.system.property): Hello System Property!
+    * Context lookup (JNDI) web rétegben (JNDI nevek: earconfig/string, \
+ earconfig/url, earconfig/inetaddress, earconfig/properties): [Hello JNDI!, \
+http://jtechlog.blogspot.com, null, {key=value, key2=value2, key1=value1}]
+</pre>

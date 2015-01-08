@@ -1,0 +1,22 @@
+---
+layout: post
+title: Java API for JSON processing
+date: '2012-12-26T01:14:00.000+01:00'
+author: István Viczián
+tags:
+- JSR
+- JSON
+- Java EE
+modified_time: '2013-01-02T16:14:48.060+01:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-7792248082197894811
+blogger_orig_url: http://www.jtechlog.hu/2012/12/java-api-for-json-processing.html
+---
+
+<p>Úgy tűnik, az Oracle eléggé felpörgeti a Java EE 7 (<a href="http://jcp.org/en/jsr/detail?id=342">JSR 342</a>) körüli munkálatokat, sorra <a href="https://blogs.oracle.com/jcp/entry/jsr_updates_java_ee_7">jönnek ki a hírek</a> az előrehaladásról. Erre szükség is van, hiszen bár a határidőt <a href="http://jcp.org/en/jsr/detail?id=342#updates">eltolták</a> 2012 harmadik negyedévéről 2013 első negyedévére, még elég sok specifikáció Early Draftban van.</p>
+
+<p>A Java EE 7 újdonságai a JCACHE Java Temporary Caching API (<a href="http://jcp.org/en/jsr/detail?id=107">JSR 107</a>), Concurrency Utilities for Java EE (<a href="http://jcp.org/en/jsr/detail?id=236">JSR 236</a>), Java API for JSON Processing (<a href="http://jcp.org/en/jsr/detail?id=353">JSR 353</a>), Java API for WebSocket (<a href="http://jcp.org/en/jsr/detail?id=356">JSR 356</a>) , és a <a href="http://jtechlog.blogspot.hu/2012/12/batch-application-for-java-platform-jsr.html">már említett</a> Batch Applications for the Java Platform (<a href="http://jcp.org/en/jsr/detail?id=236">JSR 352</a>). A többi specifikáció nem új, hanem csak egy új verzió jön ki belőlük.</p>
+
+<p>A mostani post témája a Java API for JSON Processing (<a href="http://jcp.org/en/jsr/detail?id=353">JSR 353</a>), melynek Public Review-ja 2012. december 22-től zajlik. Az JSR oldalán a megszokottakkal ellentétben semmilyen specifikáció nem olvasható, helyette csak az API-t lehet letölteni. Szerencsére a frissebb JCP-nek megfelelően a szabvány fejlesztése átlátható, minden információ megtalálható a projekt <a href="http://json-processing-spec.java.net/">honlapján</a>. Az API-t a Batch Applications for the Java Platform szabványhoz hasonlóan szintén újra feltalálták, méghozzá Jitendra Kotamraju (Oracle) vezetésével, bár a támogatók között van a FasterXML cég, mely a <a href="http://jackson.codehaus.org/">Jackson streaming JSON parser</a>-ért felelős, valamint Doug Crockford, kinek <a href="http://json.org/">nagy szerepe volt</a> a JSON elterjesztésében. Mivel specifikációról beszélünk, az implementációk cserélhetőek lesznek (plug-in provider), és külön <a href="http://java.net/projects/jsonp/">referencia implementációval</a> is rendelkezik.</p>
+
+<p>A JSON kezelés elég gyakori manapság, ezért kívánják szabványosítani a Java berkein belül. Azonban a JSON kezelést két részre kell felbontani. Az egyik a feldolgozás és parse-olás, a másik a binding, mely Java objektumokat feleltet meg JSON struktúrákkal. (Ez a kettősség fennáll az XML esetén is, az előbbire a JAXP, az utóbbira a JAXB ad megoldást.) A Java API for JSON processing csak az előbbivel foglalkozik, ráadásul kétféle módon. Egyrészt áll egy Streaming API-ból, mely a StAX API-hoz hasonlít, valamint egy Object model-ből, mely a DOM API-ra hajaz. A Streaming API csak olvasásra használatos, és a JsonParser interfész a kulcs, ami egy pull parser, azaz mi tudjuk irányítani a feldolgozást, pl. a next() metódus segítségével. Az Object model esetén a JsonReader és JsonWriter használandó, mellyel írni és olvasni is tudunk, és a DOM-hoz hasonlóan a teljes reprezentáció felépül a memóriában. Modern API-hoz méltóan hemzseg tervezési mintáktól. Ritkán fogunk vele közvetlenül találkozni, hiszen általában valamilyen binding megoldást használunk, de amennyiben mégis natívan akarunk JSON-t feldolgozni, a Java EE 7-től kezdődően már szabványos módon tehetjük.</p>
+

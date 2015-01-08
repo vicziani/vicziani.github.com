@@ -1,0 +1,169 @@
+---
+layout: post
+title: Pre-Authentication Spring Security-vel
+date: '2015-01-03T16:04:00.000+01:00'
+author: István Viczián
+tags:
+- security
+- Spring
+modified_time: '2015-01-03T16:04:40.275+01:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-3454714244361191903
+blogger_orig_url: http://www.jtechlog.hu/2015/01/pre-authentication-spring-security-vel.html
+---
+
+<p>Felhasznált technológiák: Spring Security 3.2.5, Jetty 9.1.0.v20131115</p>
+
+<p>Vannak olyan esetek, mikor ugyan Spring Security-t szeretnénk használni, azonban autentikációra meghagynánk a webkonténer, vagy az alkalmazásszerver mechanizmusát. Ilyen eset lehetséges, mikor alkalmazásszerverben van beállítva az X.509 tanúsítványok kezelése, vagy esetleg az SSO-val való integráció.</p>
+
+<p>Ebben az esetben az alkalmazásszerver végzi a bejelentkeztetést, esetleg még a jogosultságok kiosztását is, de a többit a Spring Security végzi. Az alkalmazásszerver a bejelentkeztetett felhasználót és jogosultságait a szabványos módon adja át, lekérdezni a Servlet API <code>HttpServletRequest</code> példányának <code>getUserPrincipal()</code> és <code>isUserInRole(java.lang.String role)</code> metódusaival lehet. A Spring Security-t tehát arra kell rábeszélni, hogy a megfelelő esetekben ide delegálja a hívásait.</p>
+
+<p>A Spring Security használata azért lehet hasznos ebben az esetben is, mert a Servlet API-hoz képest rengeteg plusz funkciót ad, mint pl. URL-ek védelme, amihez a jogosultságokat bonyolult kifejezésekkel adhatjuk meg. Vagy pl. az annotáció alapú deklaratív jogosultságkezelés, stb. A Spring Security-ről bővebben egy <a href="/2010/01/spring-security.html">előző posztomban</a> olvashatsz, melyet ismét frissítettem, hogy a legfrissebb verziókat tartalmazza. </p>
+
+<p>Jelenlegi poszthoz egy példaprogram is <a href="https://github.com/vicziani/jtechlog-spring-security-container">letölthető a GitHub-ról</a>. Az <code>mvn jetty:run</code> paranccsal indítható. Bejelentkezni az <code>admin1</code>/<code>admin1</code> és a <code>user1</code>/<code>user1</code> felhasználónév jelszó párosokkal lehetséges. és Egy Jetty beépített webkonténert tartalmaz, melybe fel vannak véve a felhasználók, és a hozzá tartozó szerepkörök. Első körben a Jetty Maven pluginnak kell megmondani, hogy hol található a Jetty-hez tartozó konfigurációs állomány.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;plugin&gt;</span><span class="pln">
+    </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.eclipse.jetty</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+    </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">jetty-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+    </span><span class="tag">&lt;version&gt;</span><span class="pln">9.1.0.v20131115</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+    </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+            </span><span class="tag">&lt;webAppXml&gt;</span><span class="pln">src/main/webapp/WEB-INF/jetty.xml</span><span class="tag">&lt;/webAppXml&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+</span><span class="tag">&lt;/plugin&gt;</span></code></pre>
+
+<p>Amennyiben ez megvan, az <code>src/main/webapp/WEB-INF/jetty.xml</code> konfigurációs állományban kell megadni, hogy mely állomány tartalmazza a felhasználókat és szerepköröket.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="pun">&lt;?</span><span class="pln">xml version</span><span class="pun">=</span><span class="str">"1.0"</span><span class="pln"> encoding</span><span class="pun">=</span><span class="str">"ISO-8859-1"</span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="dec">&lt;!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd"&gt;</span><span class="pln">
+</span><span class="tag">&lt;Configure</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"org.eclipse.jetty.webapp.WebAppContext"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;Get</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"securityHandler"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;Set</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"loginService"</span><span class="tag">&gt;</span><span class="pln">
+            </span><span class="tag">&lt;New</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"org.eclipse.jetty.security.HashLoginService"</span><span class="tag">&gt;</span><span class="pln">
+                </span><span class="tag">&lt;Set</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;</span><span class="pln">UserRealm</span><span class="tag">&lt;/Set&gt;</span><span class="pln">
+                </span><span class="tag">&lt;Set</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"config"</span><span class="tag">&gt;</span><span class="pln">
+                    src/main/webapp/WEB-INF/jetty-realm.properties</span><span class="tag">&lt;/Set&gt;</span><span class="pln">
+                </span><span class="tag">&lt;Call</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"start"</span><span class="tag">/&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/New&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/Set&gt;</span><span class="pln">
+        </span><span class="tag">&lt;Set</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"checkWelcomeFiles"</span><span class="tag">&gt;</span><span class="pln">true</span><span class="tag">&lt;/Set&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/Get&gt;</span><span class="pln">
+</span><span class="tag">&lt;/Configure&gt;</span></code></pre>
+
+<p>A <code>src/main/webapp/WEB-INF/jetty-realm.properties</code> egy elég egyszerű állomány, elöl a felhasználónév, majd a jelszó (plain-text-ben), majd a szerepkör. Teszteléshez tökéletes.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">admin1</span><span class="pun">:</span><span class="pln"> admin1</span><span class="pun">,</span><span class="pln">admin
+user1</span><span class="pun">:</span><span class="pln"> user1</span><span class="pun">,</span><span class="pln">user</span></code></pre>
+
+<p>Majd megadjuk a <code>web.xml</code>-ben, hogy Basic autentikációt használjon. Ilyenkor a böngésző feldob egy ablakot, és az autentikációs információk a HTTP kérés fejlécében utaznak, plain textben. Ez már szabványos Servlet API megoldás.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;security-constraint&gt;</span><span class="pln">
+    </span><span class="tag">&lt;web-resource-collection&gt;</span><span class="pln">
+        </span><span class="tag">&lt;web-resource-name&gt;</span><span class="pln">allwebresource</span><span class="tag">&lt;/web-resource-name&gt;</span><span class="pln">
+        </span><span class="tag">&lt;url-pattern&gt;</span><span class="pln">/*</span><span class="tag">&lt;/url-pattern&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/web-resource-collection&gt;</span><span class="pln">
+    </span><span class="tag">&lt;auth-constraint&gt;</span><span class="pln">
+        </span><span class="tag">&lt;role-name&gt;</span><span class="pln">user</span><span class="tag">&lt;/role-name&gt;</span><span class="pln">
+        </span><span class="tag">&lt;role-name&gt;</span><span class="pln">admin</span><span class="tag">&lt;/role-name&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/auth-constraint&gt;</span><span class="pln">
+</span><span class="tag">&lt;/security-constraint&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;login-config&gt;</span><span class="pln">
+    </span><span class="tag">&lt;auth-method&gt;</span><span class="pln">BASIC</span><span class="tag">&lt;/auth-method&gt;</span><span class="pln">
+    </span><span class="tag">&lt;realm-name&gt;</span><span class="pln">UserRealm</span><span class="tag">&lt;/realm-name&gt;</span><span class="pln">
+</span><span class="tag">&lt;/login-config&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;security-role&gt;</span><span class="pln">
+    </span><span class="tag">&lt;role-name&gt;</span><span class="pln">user</span><span class="tag">&lt;/role-name&gt;</span><span class="pln">
+</span><span class="tag">&lt;/security-role&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;security-role&gt;</span><span class="pln">
+    </span><span class="tag">&lt;role-name&gt;</span><span class="pln">admin</span><span class="tag">&lt;/role-name&gt;</span><span class="pln">
+</span><span class="tag">&lt;/security-role&gt;</span></code></pre>
+
+<p>Ezután már csak a Spring Security-t konfiguráltam be az <code>applicationContext-security.xml</code> állományban, hogy a web konténertől vegye át a felhasználót és a hozzá tartozó szerepköröket. Nézzük az ehhez tartozó konfigurációt.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-xml"><span class="tag">&lt;http</span><span class="pln"> </span><span class="atn">entry-point-ref</span><span class="pun">=</span><span class="atv">"entryPoint"</span><span class="pln"> </span><span class="atn">auto-config</span><span class="pun">=</span><span class="atv">"false"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/index.html"</span><span class="pln"> 
+            </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"IS_AUTHENTICATED_ANONYMOUSLY"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+        </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/user.html"</span><span class="pln"> 
+            </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"ROLE_USER,ROLE_ADMIN"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+        </span><span class="tag">&lt;intercept-url</span><span class="pln"> </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"/admin.html"</span><span class="pln"> 
+            </span><span class="atn">access</span><span class="pun">=</span><span class="atv">"ROLE_ADMIN"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+        </span><span class="tag">&lt;custom-filter</span><span class="pln"> </span><span class="atn">position</span><span class="pun">=</span><span class="atv">"PRE_AUTH_FILTER"</span><span class="pln"> 
+            </span><span class="atn">ref</span><span class="pun">=</span><span class="atv">"preAuthFilter"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;/http&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;authentication-manager</span><span class="pln"> </span><span class="atn">alias</span><span class="pun">=</span><span class="atv">"authenticationManager"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;authentication-provider</span><span class="pln"> </span><span class="atn">ref</span><span class="pun">=</span><span class="atv">"authenticationProvider"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;/authentication-manager&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;beans:bean</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"entryPoint"</span><span class="pln">
+    </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"org.springframework.security.web.authentication.Http403ForbiddenEntryPoint"</span><span class="tag">/&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;beans:bean</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"authenticationProvider"</span><span class="pln">
+        </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;beans:property</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"preAuthenticatedUserDetailsService"</span><span class="pln"> 
+        </span><span class="atn">ref</span><span class="pun">=</span><span class="atv">"userDetailsService"</span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;/beans:bean&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;beans:bean</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"userDetailsService"</span><span class="pln"> 
+    </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"jtechlog.springsecurity.service.JpaAuthenticationUserDetailsService"</span><span class="tag">/&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;beans:bean</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"preAuthFilter"</span><span class="pln"> 
+        </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"org.springframework.security.web.authentication.preauth.j2ee.J2eePreAuthenticatedProcessingFilter"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;beans:property</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"authenticationManager"</span><span class="pln"> 
+        </span><span class="atn">ref</span><span class="pun">=</span><span class="atv">"authenticationManager"</span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;beans:property</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"authenticationDetailsSource"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;beans:bean</span><span class="pln"> 
+                </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"org.springframework.security.web.authentication.preauth.j2ee.J2eeBasedPreAuthenticatedWebAuthenticationDetailsSource"</span><span class="tag">&gt;</span><span class="pln">
+            </span><span class="tag">&lt;beans:property</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"mappableRolesRetriever"</span><span class="tag">&gt;</span><span class="pln">
+                </span><span class="tag">&lt;beans:bean</span><span class="pln"> 
+                    </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"org.springframework.security.web.authentication.preauth.j2ee.WebXmlMappableAttributesRetriever"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/beans:property&gt;</span><span class="pln">
+            </span><span class="tag">&lt;beans:property</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"userRoles2GrantedAuthoritiesMapper"</span><span class="tag">&gt;</span><span class="pln">
+                </span><span class="tag">&lt;beans:bean</span><span class="pln"> 
+                        </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"org.springframework.security.core.authority.mapping.SimpleAttributes2GrantedAuthoritiesMapper"</span><span class="tag">&gt;</span><span class="pln">
+                    </span><span class="tag">&lt;beans:property</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"convertAttributeToUpperCase"</span><span class="pln"> 
+                        </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"true"</span><span class="tag">/&gt;</span><span class="pln">
+                </span><span class="tag">&lt;/beans:bean&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/beans:property&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/beans:bean&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/beans:property&gt;</span><span class="pln">
+</span><span class="tag">&lt;/beans:bean&gt;</span></code></pre>
+
+<p>Ez talán már igényelhet némi magyarázatot. Az <code>entryPoint</code> bean mondja meg, hogy a konténerre van bízva az autentikáció. Az <code>authenticationProvider</code> mondja meg, hogy honnan kell a felhasználót feltölteni. Itt egy <code>PreAuthenticatedAuthenticationProvider</code> példányt használunk, ami azt mondja, hogy az autentikációt már elvégezte a konténer, és ennek eredménye alapján tölthetünk be saját <code>User</code> példányt. Ezt a saját <code>JpaAuthenticationUserDetailsService</code> példányunk teszi, adatbázisból a felhasználónév alapján JPA technológiával. A <code>preAuthFilter</code> bean a <code>web.xml</code>-ben talált szerepköröket mappeli át Spring Security-sra, nagybetűsít, és alapértelmezetten hozzáfűzi a <code>ROLE_</code> prefixet. tehát az <code>admin</code> és a <code>user</code> szerepkörből csinál <code>ROLE_ADMIN</code> és <code>ROLE_USER</code> szerepköröket, vagy ahogy a Spring Security hívja, granted authority-ket.</p>
+
+<p>A saját <code>JpaAuthenticationUserDetailsService</code> lényeg része a következőképp néz ki.</p>
+
+
+
+<pre style="" class="prettyprint prettyprinted"><code><span class="lit">@Override</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">UserDetails</span><span class="pln"> 
+        loadUserDetails</span><span class="pun">(</span><span class="typ">PreAuthenticatedAuthenticationToken</span><span class="pln"> token</span><span class="pun">)</span><span class="pln"> 
+        </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">UsernameNotFoundException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">        
+        </span><span class="typ">User</span><span class="pln"> user </span><span class="pun">=</span><span class="pln"> entityManager
+            </span><span class="pun">.</span><span class="pln">createQuery</span><span class="pun">(</span><span class="str">"select u from User u where u.username = :username"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">User</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">.</span><span class="pln">setParameter</span><span class="pun">(</span><span class="str">"username"</span><span class="pun">,</span><span class="pln"> token</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">())</span><span class="pln">
+            </span><span class="pun">.</span><span class="pln">getSingleResult</span><span class="pun">();</span><span class="pln">
+
+        </span><span class="typ">PreAuthenticatedGrantedAuthoritiesWebAuthenticationDetails</span><span class="pln"> details </span><span class="pun">=</span><span class="pln">
+            </span><span class="pun">(</span><span class="typ">PreAuthenticatedGrantedAuthoritiesWebAuthenticationDetails</span><span class="pun">)</span><span class="pln"> token</span><span class="pun">.</span><span class="pln">getDetails</span><span class="pun">();</span><span class="pln">
+
+        user</span><span class="pun">.</span><span class="pln">setAuthorities</span><span class="pun">(</span><span class="pln">details</span><span class="pun">.</span><span class="pln">getGrantedAuthorities</span><span class="pun">());</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> user</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">NoResultException</span><span class="pln"> nre</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">throw</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">UsernameNotFoundException</span><span class="pun">(</span><span class="str">"A felhasználó a megadott felhasználónévvel nem található: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> token</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">(),</span><span class="pln"> nre</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>A paraméterként kapott <code>token</code> már tartalmazza az alkalmazásszerver által meghatározott felhasználónév és szerepkör információkat, ez alapján betöltjük adatbázisból a felhasználót, és beállítjuk a szintén megkapott szerepköröket.</p>

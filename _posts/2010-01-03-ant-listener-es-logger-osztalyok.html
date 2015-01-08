@@ -1,0 +1,43 @@
+---
+layout: post
+title: Ant listener és logger osztályok
+date: '2010-01-03T23:31:00.005+01:00'
+author: István Viczián
+tags:
+- Ant
+modified_time: '2010-09-18T00:26:59.096+02:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-1461810755938682590
+blogger_orig_url: http://www.jtechlog.hu/2010/01/ant-listener-es-logger-osztalyok.html
+---
+
+<p>Az Ant (, a bejegyzés írásakor a legfrissebb verzió a 1.7.1) lehetőséget biztosít arra, hogy futását monitorozzuk, és a folyamat különböző eseményeihez különböző műveleteket rendeljünk. Ehhez a BuildListener és BuildLogger interfészeket kell implementálni, az abban definiált metódusokat megvalósítani, és az Ant-ot úgy indítani, hogy igénybe vegye ezeket. Ezekről a <a href="http://ant.apache.org/manual/listeners.html">kézikönyvön</a> kívül a Manning kiadónál megjelent Erik Hatcher, Steve Loughran: Java Development with Ant könyv 20.2 Listeners and loggers című fejezete is részletesen ír.</p><p>Ezekből léteznek az Ant-ban már implementációk, de írhatunk sajátokat is egyszerű időmérésre, saját naplózás megvalósítására, de akár bonyolultabb műveletekre is, mint pl. IDE fejlesztésekor a fejlesztőeszközzel való kapcsolattartásra, vagy ha az Ant-hoz grafikus felületet fejlesztünk, ezek adhatnak hírt a build folyamat pillanatnyi állásáról.</p><p>A BuildListener interfész leszármazottja a BuildLogger interfész, ahogy a következő UML osztálydiagram is mutatja.</p><div>
+</div><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://yuml.me/diagram/scruffy/class/dir:td/%5BBuildListener%7C%7CbuildStarted%28%29;buildFinished%28%29;targetStarted%28%29;targetFinished%28%29;taskStarted%28%29;taskFinished%28%29;messageLogged%28%29]%5E[BuildLogger%7C%7CsetEmacsMode%28%29;setErrorPrintStream%28%29;setOutputPrintStream%28%29;setMessageOutputLevel%28%29]"><img src="http://yuml.me/diagram/scruffy/class/dir:td/%5BBuildListener%7C%7CbuildStarted%28%29;buildFinished%28%29;targetStarted%28%29;targetFinished%28%29;taskStarted%28%29;taskFinished%28%29;messageLogged%28%29]%5E[BuildLogger%7C%7CsetEmacsMode%28%29;setErrorPrintStream%28%29;setOutputPrintStream%28%29;setMessageOutputLevel%28%29]" border="0" alt="" style="display: block; margin-top: 0px; margin-right: auto; margin-bottom: 10px; margin-left: auto; text-align: center; cursor: pointer; width: 533px; height: 213px; " /></a><p>A BuildListener interfészben a build folyamat különböző lépéseinek elindításához és elvégzéséhez is tartozik egy metódus, melyet az Ant hív meg. Így meghívja a build folyamat indításakor a buildStarted() metódust, és a végén a buildFinished() metódust. Ugyanígy vannak metódusok a target és a task futtatásához is. Mindegyik paramétere a BuildEvent osztály egy példánya, melytől le lehet kérni az éppen feldolgozás alatt álló projektet (BuildEvent.getProject()), target-et (BuildEvent.getTarget()) és task-ot (BuildEvent.getTask()). Természetesen aminek nincs értelme, null-t ad vissza, pl. a buildStarted() esemény esetén a target és a task még null. Külön megjegyzendő, hogy a build folyamat kezdetekor, mikor esemény generálódik (buildStarted() metódus hívásakor) még nem dolgozta fel a build.xml állományt, így a BuildEvent.getProject() is null-t fog visszaadni. Ezen események bekövetkeztekor a BuildEvent.getException() metódussal a kivételt is lekérdezhetjük. A messageLogged() metódus akkor hívódik meg, mikor az Ant üzenetet naplóz. Ekkor az üzenetet a BuildEvent.getMessage() metódussal tudjuk lekérni, és az üzenet prioritását a BuildEvent.getPriority() metódussal. Fontos, hogy a messageLogged() metódusban ne használjuk közvetlen System.out, vagy System.err stream-ekre írást, mivel az Ant úgy működik, hogy ezen stream-ek felett átveszi az irányítást, és ami ezekre kiírásra kerül, azt adja tovább a BuildListener-nek. Így ha ebből ezekre a stream-ekre írunk, végtelenciklus lesz a vége. Az inicializációs kódot javasolt a konstruktorban elhelyezni.</p><p>Írjunk is meg egy egyszerű BuildListener-t, mely azt méri, hogy mely target futása mennyi ideig tartott, névvel együtt.</p><pre class="brush: java">package jtechlog.ant;
+
+import org.apache.tools.ant.BuildEvent;
+import org.apache.tools.ant.BuildListener;
+
+public class MeasureBuildListener implements BuildListener {
+private long startedAt;
+public void buildStarted(BuildEvent be) {
+}
+
+public void buildFinished(BuildEvent be) {
+}
+
+public void targetStarted(BuildEvent be) {
+  startedAt = System.currentTimeMillis();
+}
+
+public void targetFinished(BuildEvent be) {
+  System.out.println("A " + be.getTarget().getName() + " target futási ideje: " + (System.currentTimeMillis() - startedAt) + " ms");
+}
+
+public void taskFinished(BuildEvent be) {
+}
+
+public void taskStarted(BuildEvent be) {
+}
+
+public void messageLogged(BuildEvent be) {
+} 
+}</pre><p>Ahhoz, hogy ezt le is futtassuk, a saját osztályunkat el kell helyezni az Ant classpath-jában, melyre a legegyszerűbb megoldás a -lib kapcsoló használata. Ezen kívül a saját osztályunkat meg kell adni indítási paraméterként a -listener kapcsolóval. Azaz a parancssor, ha az osztályunk a lib/jtechlog-listeners.jar fájlban van, indítsuk így az Ant-ot:</p><pre>ant -lib lib -listener jtechlog.ant.MeasureBuildListener</pre><p>Ekkor a classpath-hoz a lib könyvtárban található összes jar állományt hozzá fogja adni, és így már megtalálja a jtechlog.ant.MeasureBuildListener osztályt is.</p><p>A BuildLogger interfész annyival egészíti ki a BuildListener-t, hogy képes hozzáférni a standard output-hoz, valamint error-hoz. Ezen kívül megkapja a naplózás szintjét, valamint a emacs módot. Indítani a -logger kapcsolóval lehet. Ha ilyent nem adunk meg, a BuildLogger interfészt megvalósító DefaultLogger osztály fog elindulni. Ez egyrészt a naplózás szintje alapján szűri az üzeneteket, valamint az emacs mód is használható, mely arra való, hogy az IDE-k ezt a naplóformátumot könnyen tudják feldolgozni. Egy Ant projekthez csak egy logger kapcsolható, hiszen direkt hozzáférése van az output és error stream-hez. A -emacs kapcsolóval állítható az emacs mód, és a naplózás szintje pedig a -quiet (kevés napló), -verbose (több napló) és -debug (még több napló) kapcsolókkal. Előfordulhat olyan eset is, mikor még a BuildLogger nem kapja meg az üzeneteket, pl. hibás inicializáció esetén, ha hiányzik a build.xml állomány. Ilyenkor az üzenet a konzolra vagy fájlba mehet.</p><p>Több beépített naplózó is van, érdemes ezeket is megvizsgálni, saját írása esetén ezek forráskódját is:</p><ul><li>DefaultLogger: alapértelmezett naplózó</li><li>NoBannerLogger: nem írja ki a target-ek neveit</li><li>MailLogger: e-mail-t küld a build befejezésekor, a különböző beállítások property-kkel adhatóak meg</li><li>AnsiColorLogger: a különböző üzeneteket színkódokkal együtt írja ki, melyeket pl. az XTerm és a Win9x Console is tud értelmezni. A színkódokat felül is lehet definiálni egy properties fájlban, melynek helye property-ben adható meg.</li><li>Log4jListener (ant-apache-log4j.jar állományban): nagyon hasznos naplózó, képes a Log4J-t használni naplózáshoz (ha benne van a CLASSPATH-ban), és ekkor egy log4j.properties állománnyal konfigurálhatjuk, és kihasználható a Log4J teljes funkcionalitása, mint a Layout-ok, Appender-ek, stb.</li><li>XmlLogger: naplózás XML-be</li><li>TimestampedLogger: kiírja az időpontokat is</li><li>BigProjectLogger: nagy projekteknél alkalmazható, pl. minden task nevénél kiírja a projekt nevét is. Ennek akkor van értelme, ha egy build.xml a subant task-kal egy másik build.xml állományt hív meg.</li><li>CommonsLoggingListener (ant-commons-logging.jar állományban): a Commons Logging-ot használja naplózáshoz, ami meg a Log4J-t, ha benne van a classpath-ban</li></ul><p>Ezen naplózók is a -logger kapcsolóval használhatóak, pl.</p><pre>ant -logger org.apache.tools.ant.NoBannerLogger</pre><p>A naplózás szinkron, azaz a lassú naplózás lassíthatja a build folyamatot. Persze ez kivédhető Log4J esetén az AsyncAppender használatával.</p><p>Az itt említett property-k az ANT_OPTS környezeti változóban megadott -D kapcsolóval adhatóak meg, vagy a build.xml-ben az init target-ben megadott <property> tag-gel.</property></p><p> A BuildListener-nek van egy SubBuildListener leszármazottja is, ami olyan metódusokat definiál, melyek akkor hívódnak meg, ha egy gyermek build folyamat elindul vagy befejeződik (pl. ant, subant, antcall task-kal).</p>

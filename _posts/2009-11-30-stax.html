@@ -1,0 +1,131 @@
+---
+layout: post
+title: StAX
+date: '2009-11-30T22:32:00.006+01:00'
+author: István Viczián
+tags:
+- StAX
+modified_time: '2014-01-20T14:17:20.961+01:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-603861174982151559
+blogger_orig_url: http://www.jtechlog.hu/2009/11/stax.html
+---
+
+<p>Frissítve: 2014. január 20.</p>
+
+<p>Technológiák: JAXP 1.4, StAX 1.0</p>
+
+<p>Ha már a web szolgáltatásokról volt szó, mely szorosan kapcsolódik az XML-hez, nézzük, hogy mi újítást hozott a JDK 6-ban bevezetett JAXP 1.4. A legnagyobb újdonság a StAX bevezetése, mely egy nagy teljesítményű stream alapú XML feldolgozó szűréssel (filter), mely támogatja a módosítást is.</p>
+
+<p>A JAXP-ben már a W3C által definiált SAX és DOM feldolgozási modell régóta létezett. A SAX esetében esemény alapú feldolgozást lehet megvalósítani, ahol a feldolgozó (parser) hívja az osztályainkat (parser client). Ezt hívják un. push parser-nek, mikor a parser megy végig az XML-elen, és tolja nekünk az adatokat. Ezt viszonylag nehéz programozni, mert tárolni kell az állapotot, manuálisan kell pl. vermet kezelni, hogy tároljuk, hol tartunk a feldolgozásban. A DOM a teljes XML-t betölti egy faként a memóriába, melyen lehet fabejárást is végezni, sőt tetszőlegesen módosítható is. Ez könnyen használható, a fa adatszerkezetet is a legtöbben ismerik, viszont rengeteg memóriára van szüksége. Ennek feloldására a BEA kezdett el kidolgozni egy API-t, mely a JSR 173 specifikációban lett megfogalmazva, Streaming API for XML címmel.</p>
+
+<p>Célja, hogy egyszerűbben programozható legyen, mint a SAX, de kevesebb memóriát fogyasszon, mint a DOM. Streaming API-nak nevezik, mert a parser XML dokumentumnak csak egy részét látja egyszerre. Itt jön képbe a consume (felemészt) fogalom is, ami azt jelenti, hogy a stream-en nem haladhatunk visszafele, így ha egyszer átment rajta a parser, akkor a stream beolvasásra került, tehát ha újra fel akarjuk dolgozni, valamilyen módon biztosítani kell a stream újra rendelkezésre állását (pl. klónozás). Ezen kívül a parser-t pull parser-nek nevezik, mert a kliens irányítja, ő kéri el az adatokat. Ennek több előnye is van, pl. egyszerre több dokumentumot is lehet párhuzamosan feldolgozni, akár összefésülni az eredményeket, valamint a szálat teljes kontroll alatt lehet tartani, ugyanis akkor szüneteltetjük a végrehajtást, mikor akarjuk. A library is kisebb lesz, és a kliens kód is kisebb lesz.</p>
+
+<p>A StAX további előnye, hogy nem csak olvasni (pl. SAX) képes a dokumentumokat, hanem írni is képes azokat. A StAX alapvetően két API-val is rendelkezik, az egyik a cursor API, a másik az iterator API. E mögötti meggondolás az, hogy inkább két egyszerű API-t készítenek, mint egy bonyolultat. Az előbbihez az XMLStreamReader, és XMLStreamWriter osztályok tartoznak, míg a másodikhoz az XMLEventReader és XMLEventWriter osztályok.</p>
+
+<p>A példa projekt <a href="https://github.com/vicziani/jtechlog-xml">letölthető a GitHubról</a>. Nézzük is a cursor API használatával hogyan dolgoznánk fel a következő XML fájlt:</p>
+
+<pre class="brush:xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;catalog&gt;
+    &lt;book isbn10=&quot;059610149X&quot;&gt;
+        &lt;title&gt;Java and XML&lt;/title&gt;
+        &lt;author&gt;Brett McLaughlin, Justin Edelson&lt;/author&gt;
+        &lt;publisher&gt;O'Reilly Media&lt;/publisher&gt;
+        &lt;year&gt;2006&lt;/year&gt;
+    &lt;/book&gt;
+    &lt;book isbn10=&quot;1590597060&quot;&gt;
+        &lt;title&gt;Pro XML Development with Java Technology&lt;/title&gt;
+        &lt;author&gt;Ajay Vohra&lt;/author&gt;
+        &lt;publisher&gt;Apress&lt;/publisher&gt;
+        &lt;year&gt;2005&lt;/year&gt;
+    &lt;/book&gt;
+    &lt;book isbn10=&quot;1449365116&quot;&gt;
+        &lt;title&gt;Java Web Services: Up and Running&lt;/title&gt;
+        &lt;author&gt;Martin Kalin&lt;/author&gt;
+        &lt;publisher&gt;O'Reilly Media&lt;/publisher&gt;
+        &lt;year&gt;2013&lt;/year&gt;
+    &lt;/book&gt;
+&lt;/catalog&gt;
+</pre>
+
+<p>A kód, mely ezt feldolgozza cursor API használatával:</p>
+
+<pre class="brush:java">List&lt;Book&gt; catalog = new ArrayList&lt;&gt;();
+XMLInputFactory f = XMLInputFactory.newInstance();
+XMLStreamReader r = f.createXMLStreamReader(source);
+Book book = null;
+while (r.hasNext()) {                
+ if (r.getEventType() == XMLStreamConstants.START_ELEMENT) {
+  if (&quot;book&quot;.equals(r.getName().getLocalPart())) {
+   book = new Book();
+   catalog.add(book);
+   book.setIsbn10(r.getAttributeValue(null, &quot;isbn10&quot;));
+  }
+  else if (&quot;title&quot;.equals(r.getName().getLocalPart())) {
+   book.setTitle(r.getElementText());
+  }
+ }
+ r.next();
+}
+return catalog;
+</pre>
+
+<p>Látható, hogy először gyártatunk egy <code>XMLInputFactory</code> példányt, majd egy <code>XMLStreamReader</code> példányt. Amíg tart a feldolgozás, addig feldolgozzuk az adatokat, de mindig mi lépünk a következő adatra a <code>next()</code> metódus segítségével (pull API). Az adat típusa, melyen a reader éppen áll, az XML-nél megszokottak lehetnek: XML deklaráció, nyitó tag, záró tag, karakterek, megjegyzések, stb. Attól függően, hogy mi, hívhatjuk meg a reader többi metódusát. Pl. nyitó tag esetén lekérdezhető a <code>getName</code> metódussal a neve, vagy <code>getText</code>metódussal a tartalma, sőt a <code>getAttribute*</code> kezdetű metódusokkal az attribútumai is. A <code>XMLStreamException</code> kivételt kezelni kell.</p>
+
+<p>Nézzük, hogyan írjunk ki egy hasonló XML dokumentumot:</p><div class="se-section-delimiter"></div>
+
+<pre class="brush:java">StringWriter sw = new StringWriter();
+XMLOutputFactory output = XMLOutputFactory.newInstance();
+XMLStreamWriter writer = output.createXMLStreamWriter(sw);
+writer.writeStartDocument();
+writer.writeStartElement(&quot;catalog&quot;);
+for (Book book: catalog) {
+ writer.writeStartElement(&quot;book&quot;);
+ writer.writeAttribute(&quot;isbn10&quot;, book.getIsbn10());
+ writer.writeStartElement(&quot;title&quot;);
+ writer.writeCharacters(book.getTitle());
+ writer.writeEndElement();
+ writer.writeEndElement();
+}
+writer.writeEndElement();
+writer.flush();
+return sw.toString();</pre>
+
+<p>Nézzük az XML feldolgozást most az iterator API segítségével:</p>
+
+<pre class="brush:java">List&lt;Book&gt; catalog = new ArrayList&lt;&gt;();
+XMLInputFactory f = XMLInputFactory.newInstance();
+XMLEventReader r = f.createXMLEventReader(source);
+Book book = null;
+while (r.hasNext()) {
+ XMLEvent event = r.nextEvent();
+ if (event.getEventType() == XMLStreamConstants.START_ELEMENT) {
+  if (event instanceof StartElement) {
+   StartElement element = (StartElement) event;
+   if (&quot;book&quot;.equals(element.getName().getLocalPart())) {
+    book = new Book();
+    catalog.add(book);
+    book.setIsbn10(element.getAttributeByName(new QName(&quot;isbn10&quot;)).getValue());
+   }
+   else if (&quot;title&quot;.equals(element.getName().getLocalPart())) {
+    book.setTitle(r.getElementText());
+   }
+  }
+ }
+}
+return catalog;
+</pre>
+
+<p>Itt látható, hogy nem közvetlenül a <code>reader</code> példányt szólítjuk meg, hanem az <code>event</code> példányt. Ezt aztán a megfelelő típusra kényszeríteni kell, és már el is érhetjük a megfelelő metódusait.</p>
+
+<p>Ahhoz, hogy eldöntsük, hogy a kettő közül melyiket érdemes választani, érdemes a következőket a fejben tartani:</p>
+
+<ul>
+<li>Az iterator API XMLEvent osztályai nem módosíthatóak, a parse-olás után is megőrzik az értéküket</li>
+<li>Emiatt többlépéses (bővíthető, plug-in-elhető) feldolgozásokat is könnyebben ki lehet dolgozni ezen példányok továbbadásával</li>
+<li>A fentiekből következik, hogy a cursor API kevesebb memóriát használ, és a példányosítások hiánya miatt gyorsabb is</li>
+<li>Az <code>XMLEvent</code> interfészt akár magunk is implementálhatjuk, akár teljesen új eseményt hozhatunk létre, akár egy meglévőt egészíthetünk ki utility metódusokkal</li>
+<li>Az iterator API esetén módosítani is lehet a stream-et </li>
+</ul>
+
+<p>Összességében, ha nem a teljesítmény az elsődleges szempont, érdemes a magasabb szintű iterator API-t használni.</p>
