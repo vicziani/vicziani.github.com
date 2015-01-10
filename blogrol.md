@@ -1,3 +1,10 @@
+---
+layout: default
+title: JTechLog - Viczián István Java blogja
+description: JTechLog - Viczián István Java blogja. Hírek, tapasztalatok a Java platform világából.
+keywords: Viczián István, Java, blog, JTechLog
+---
+
 2002 november 22-én indítottam el a JTechLog-ot, mellyel nem titkolt
 célom, hogy egy magyar nyelvű Java hírforrás legyen. Kötetlen
 stílusú napló, témája a Java platform, és hozzá kapcsolódó
