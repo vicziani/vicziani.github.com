@@ -1,0 +1,28 @@
+---
+layout: post
+title: Model 1 és 2
+date: 2003-09-08T08:00:00.000+01:00
+author: Viczián István
+tags:
+---
+
+<p>
+Ha már tegnap az MVC mintáról volt szó, akkor folytassuk is ott, hiszen az MVC nem csak a vastagkliens
+alkalmazásoknál vethető be, hanem másmilyen prezentációs réteg alkalmazásánál is, mint pl.
+a webes alkalmazásoknál. Említettem már a
+<a href="http://java.sun.com/blueprints/guidelines/designing_enterprise_applications_2e/web-tier/web-tier5.html">Model 1 és Model 2 architektúrát</a>,
+melyen elnevezések a JSP specifikáció egy korai tervezetéből származnak, de a véglegesből eltávolították azokat,
+mégis sokan hivatkoznak rá még most is ezen a néven. Alapvető különbség, hogy a Model 1-nél a lapok megjelenítésére
+csak JSP kódot használnak, és ebben helyezik el, hogy mi legyen a következő lap. Így a logika meglehetősen szét van
+szórva, és csak statikus lapokhoz hasonló felépítésű site-okhoz használható. Abban az esetben, ha
+a karbantartás bonyolultá válik, és a soron következő lap nem határozható meg egyértelműen, érdemes
+áttérni a Model 2 architektúrúra. Ennek alapja, hogy egy központi szervlet dolgoz fel minden kérést
+és paramétert, továbbítja az üzleti logikának, majd kiválasztja a következő lapot, és a JSP
+csak a prezentációt végzi, és legenerálja a dinamikus lapot. Tehát tulajdonképpen ez a központi szervlet
+a controller, ami feldolgozza a kérést, és választja ki a következő view-t. Ez végezheti a biztonsági
+ellenőrzéseket és a loggolást is. A legtöbb framework ezt a mintát követi, mint pl. a Struts és a
+JavaServer Faces is, mindkettőről esett már szó.</p>
+<p>
+Előnye ennek a megoldásnak, hogy szétválasztja a tervezési gondokat, csökkenti a kód
+duplikációt, egy központosított vezérlést vezet be és könnyíti a karbantartást.
+</p>

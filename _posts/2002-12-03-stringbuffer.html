@@ -1,0 +1,47 @@
+---
+layout: post
+title: StringBuffer
+date: 2002-12-03T08:00:00.000+01:00
+author: Viczián István
+tags:
+---
+
+<p>
+Annyira közhely számba megy, hogy most már muszáj itt is
+szerepeltetnem, hogy mennyire nem jó, ha <code>String</code>
+objektumokat + művelettel konkatenálunk, ahelyett, hogy a
+<code>StringBuffer</code> osztályt alkalmaznánk.</p>
+<p>
+Nézzük a következő kódot, ahol az egyik metódus az egyik, a
+másik a másikat használja.
+</p>
+<pre><code>
+public class Test {
+
+public void good() {
+StringBuffer sb = new StringBuffer();
+for (int i = 0; i &lt; 10; i++) {
+sb.append("a");
+}
+System.out.println(sb);
+}
+
+public void bad() {
+String s = new String();
+for (int i = 0; i &lt; 10; i++) {
+s += "a";
+}
+}
+
+}</code></pre>
+<p>
+Ha lefordítjuk, és utána ráengedjük a javap utilt (javap -c
+Test), akkor láthatjuk, a disassemblált kódot.</p>
+<p>
+A rossz megoldásnál a ciklus törzsében mindig létrehoz egy
+<code>StringBuffer</code>-t, és a két szöveget
+hozzákapcsolja, majd meghívja a <code>toString</code>
+metódust. Mint tudjuk, a példányosítás elég
+erőforrásigényes művelet, így sokat takarítunk meg, ha csak
+egyszer fut le.
+</p>

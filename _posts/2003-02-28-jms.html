@@ -1,0 +1,68 @@
+---
+layout: post
+title: JMS
+date: 2003-02-28T08:00:00.000+01:00
+author: Viczián István
+tags:
+---
+
+<p>
+Több hozzászólásomban is említettem már a <a href="http://java.sun.com/products/jms/">JMS</a> fogalmat, de
+bővebben még nem írtam róla. No, épp itt az ideje.</p>
+<p>
+A Java Message Service (JMS) egy Sun által fejlesztett API,
+ami már bekerült a J2EE 1.3-as verzióba is, ami azt jelenti,
+hogy az ezt, vagy ennél magasabb J2EE verziót támogató
+alkalmazásszerverek már megvalósítják. A JMS tulajdonképpen
+megbízható, flexibilis szolgáltatást nyújt kritikus üzenetek
+átvitelére. Eddig is léteztek üzenet átvívő szoftverek
+(szépen mondva üzenetorientált middleware-ek), de a JMS API
+megjelenése biztosítja a hordozhatóságot, illetve azt a
+biztonságot, hogy a köztes szoftver cseréje esetén nem kell
+új API-t megtanulni. A további kapcsolódó újdonságok a J2EE
+1.3 platform esetében az üzenet-vezérelt bean-ek, illetve a
+Java Transaction API (JTA), ami lehetővé teszi, hogy ne csak
+az adatbázis műveleteket lehessen egy tranzakción belül
+kezelni, hanem akár az üzeneteket is.</p>
+<p>
+Az üzenetküldés lehetővé teszi két pont közötti
+kommunikációt, üzenet továbbítást. A JMS tulajdonképpen ez
+üzenet sorakoztatást feltételezi, azaz a komponensek lazán
+kapcsoltak lehetnek, nem muszáj az üzenet küldésekor akár a
+közvetítő közegnek, akár a cél pontnak elérhetőnek lennie.
+Az üzenet csak akkor továbbítódik, ha a kapocslat helyreáll.
+Ezen kívül a JMS biztosítja az asszinkron üzenetküldést,
+azaz a beérkező üzenetet nem kell azonnal feldolgozni, hanem
+akár a cél állomásnál várakozhat, illetve természetesen a
+szinkron átvitelt is, azaz a kliens célállomás futása addig
+szünetel, míg a következő üzenet meg nem érkezik. Garantálja
+a megbízhatóságot, ami azt jelenti, hogy az üzenet a
+feladóhoz egyszer, és csakis egyszer érkezik meg, és biztos,
+hogy megérkezik.</p>
+<p>
+A JMS architektúra következő elemekből épül fel: JMS
+szolgáltató (a JMS-t megvalósító komponens), JMS kliensek
+(melyek igénybe veszik a szolgáltatást), az üzenetek
+(tulajdonképpeni bájt folyamok), az adminisztrált objektumok
+(destination és connection factories), illetve a natív
+kliensek (a JMS szolgáltató szolgáltatásait natív API-n
+keresztül veszik igénybe).</p>
+<p>
+Két felhasználási mód lehetséges, egyik a point-to-point,
+ami két pont közötti üzenetküldést valósítja meg, illetve a
+publish-and-subscribe, ahol tulajdonképpeni topic-ok vannak,
+melyekre az üzenetküldők küldik az üzeneteket, és csak azon
+kliensek kapják meg, melyek az adott topic-ra
+feliratkoztak.</p>
+<p>
+Az J2EE 1.3 szabványt támogató alkalmazásszerverek mellett
+rengeteg JMS implementáció van, ezek közül néhány: <a href="http://www-306.ibm.com/software/integration/wmq/">IBM
+WebSphere MQ</a>, <a href="http://openjms.sourceforge.net/">OpenJMS</a>, <a href="http://www.fiorano.com/products/fmq/overview.htm">FioranoMQ</a>,
+<a href="http://www.sonicsoftware.com/products/sonicmq/index.ssp">SonicMQ</a>,
+<a href="http://www.swiftmq.com/products/router/index.html">SwiftMQ</a>,
+<a href="http://www.recursionsw.com/products/voyager/voyager.asp">Voyager</a>
+<a href="http://www.tibco.com/solutions/products/active_enterprise/enterprise_for_jms/default.jsp">
+TiBCO Enterprise for JMS</a>. Ingyenes megoldásként a fent
+említett OpenJMS vagy <a href="http://www.jboss.org/index.html">JBoss</a> alkalmazásszerver
+említhető.
+</p>
