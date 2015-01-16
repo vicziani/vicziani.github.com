@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Viczián István - Használt alkalmazások
-description: Viczián István - Használt alkalmazások
-keywords: Viczián István, alkalmazások
+title: Android alkalmazások
+description: Android alkalmazások
+keywords: Android, alkalmazások
 ---
 
 # Mobil alkalmazások

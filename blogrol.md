@@ -1,7 +1,7 @@
 ---
 layout: default
-title: JTechLog - Viczián István Java blogja
-description: JTechLog - Viczián István Java blogja. Hírek, tapasztalatok a Java platform világából.
+title: Blogról
+description: Hírek, tapasztalatok a Java platform világából.
 keywords: Viczián István, Java, blog, JTechLog
 ---
 

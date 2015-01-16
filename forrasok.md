@@ -1,8 +1,8 @@
 --
 layout: default
-title: Viczián István - JTechLog források
-description: Viczián István JTechLog források
-keywords: Viczián István, JTechLog, forrás
+title: Források
+description: Források
+keywords: Források
 ---
 
 # Magyar nyelvű tartalmak

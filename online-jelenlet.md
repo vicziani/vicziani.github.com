@@ -1,8 +1,8 @@
 --
 layout: default
-title: Viczián István - Online jelenlét
-description: Viczián István online jelenlét
-keywords: Viczián István, GitHub, Twitter, Delicious, LinkedIn
+title: Online jelenlét
+description: Online jelenlét
+keywords: GitHub, Twitter, Delicious, LinkedIn
 ---
 
 Végre sikeresen rendbe tettem a munkafolyamataimat, és az általam

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Viczián István - Használt alkalmazások
-description: Viczián István - Használt alkalmazások
-keywords: Viczián István, alkalmazások
+title: Windows alkalmazások
+description: Windows alkalmazások
+keywords: Windows, alkalmazások
 ---
 
 A leghasznosabb alkalmazásokat általában nem a neten

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Viczián István - konferenciák
-description: Viczián István konferenciák
-keywords: Viczián István, konferencia
+title: Konferenciák
+description: Konferenciák
+keywords: konferencia
 ---
 
 # Konferenciák és egyéb tevékenységek

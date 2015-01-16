@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Viczián István - Falling Gems játék
-description: Viczián István - Gem Game, Java logikai játék applet
-keywords: Viczián István, Java, applet, logikai játék
+title: Gem Game játék
+description: Gem Game, Java logikai játék applet
+keywords: Java, applet, logikai játék
 ---
 
 # Gem Game

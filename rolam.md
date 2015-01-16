@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Viczián István (programtervező matematikus, Java szoftverfejlesztő)
-description: Viczián István (programtervező matematikus, Java szoftverfejlesztő) önéletrajz
-keywords: Viczián István, programtervező matematikus, programozó, szoftverfejlesztő, architect, önéletrajz, Java, JTechLog, IBM, Websphere, MQ, MQSeries, EAI, SOA
+title: Rólam
+description: Rólam
+keywords: programtervező matematikus, programozó, szoftverfejlesztő, architect, önéletrajz, Java, JTechLog, IBM, Websphere, MQ, MQSeries, EAI, SOA
 ---
 
 # Magamról

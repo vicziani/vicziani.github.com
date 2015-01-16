@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Viczián István - Geocaching
-description: Viczián István - Geocaching
-keywords: Viczián István, geocaching
+title: Geocaching
+description: Geocaching
+keywords: Geocaching
 ---
 
 [Bea, Szabolcs,
