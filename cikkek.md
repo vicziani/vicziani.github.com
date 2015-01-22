@@ -143,8 +143,6 @@ oldal, 3277 szó)*
 
 # Ariadné fonala a Java technológiák útvesztőjében
 
-[![Ariadné fonala a Java technológiák
-útvesztőjében](imgs/pdf_logo.gif)](artifacts/2008_szamalk_eloadas_vi.pdf)
 Java, Web 2.0, AJAX, SOA, szemantikus web. Bűvös, eltérően értelmezett
 és gyakran ismételgetett fogalmak az informatika világában. Több száz
 technológia, szabvány, nyílt forráskódú és kereskedelmi termék áll
@@ -222,8 +220,8 @@ irányvonalakat, főbb technológiákat. *(2006. április, 19 dia)*
 # J2SE 1.5 - Tiger
 
 2004 februárjában az Early Access keretében vált letölthetővé a J2SE
-következő verziója, melynek verziószáma [1.5.0 Beta
-1](http://java.sun.com/j2se/1.5.0/download.jsp). Ennek megjelenését
+következő verziója, melynek verziószáma 1.5.0 Beta
+1. Ennek megjelenését
 hatalmas figyelem kísérte. Már régóta lehetett hallani pletykákat és
 hivatalos nyilatkozatokat arról, hogy mit is fog tartalmazni, milyen
 újításokat fog nyújtani.
@@ -308,7 +306,7 @@ programozásra, hatékony algoritmusok és adatszerkezetek használatára.
 
 A Sun Microsystems, Inc. dolgozói összeállítottak egy kódolási
 konvenciókat tartalmazó
-[dokumentumot](http://java.sun.com/docs/codeconv/), melyet inkább
+dokumentumot, melyet inkább
 iránymutatásnak, mint kötelezően betartandó szabályoknak szánnak.
 Irányelveket ad a fájnevekkel, fájlok felépítésével, behúzással,
 megjegyzésekkel, deklarációkkal, kifejezésekkel, utasításokkal, white
