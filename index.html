@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<div class="container">
+
+	<div class="blog-header">
+		<h1 class="blog-title">JTechLog</h1>
+		<p class="lead blog-description">Viczián István Java blogja</p>
+	</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+
+		{% for post in site.posts limit:5 %}
+		{% assign date = post.date %}
+			<div class="blog-post">
+
+				<h2 class="blog-post-title">{{ post.title }}</h2>
+				<p class="blog-post-meta">{% include date.html %}</p>
+
+				<article class="post-content">
+					{{ post.content }}
+				</article>
+			</div>
+		{% endfor %}
+		</div>
+
+		<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+	        <div class="sidebar-module sidebar-module-inset">
+		        <h4>Rólam és a blogról</h4>
+				<p><img src="/assets/img/viczian_istvan_belyegkep_450x450.png" alt="Viczián István" class="sidebar-img">
+				<p>Java fejlesztőként dolgozom, oktatok és blogot írok.</p>
+				<p>A JTechLog egy kötetlen stílusú blog a Java nyelv és platform érdekességeiről.</p>
+            </div>
+            <div class="sidebar-module">
+            	<h4>Online jelenlét</h4>
+            	<ol class="list-unstyled">
+					<li>viczian.istvan a gmail-en</li>
+					<li><a href="https://github.com/vicziani">GitHub</a></li>
+					<li><a href="http://twitter.com/vicziani">Twitter</a></li>
+					<li><a href="http://www.delicious.com//vicziani/java">Delicious</a></li>
+					<li><a href="http://www.linkedin.com/profile/view?id=67382971&trk=tab_pro">LinkedIn</a></li>
+		        </ol>
+            </div>
+		</div><!-- /.blog-sidebar -->
+
+	</div>
+</div>
+
+
