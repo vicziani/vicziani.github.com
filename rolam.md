@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Rólam
 description: Rólam
 keywords: programtervező matematikus, programozó, szoftverfejlesztő, architect, önéletrajz, Java, JTechLog, IBM, Websphere, MQ, MQSeries, EAI, SOA
@@ -7,7 +7,9 @@ keywords: programtervező matematikus, programozó, szoftverfejlesztő, architec
 
 # Magamról
 
-Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, rendezvényeket szervezek és konferenciákra járok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg az [IP Systemsnél](http://www.ipsystems.hu/) vagyok vezető programozó és a [Training360-nál](http://training360.com/) oktatásokat tartok. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Java EE alkalmazásfejlesztés, valamint a SOA és az IoT technológiákat követem figyelemmel. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben.Szakmai blogot is írok [JTechLog](http://www.jtechlog.hu/) néven. Szabadidőmben sokat túrázok, próbálom felfedezni Magyarország rejtett kincseit.
+Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, rendezvényeket szervezek és konferenciákra járok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg az [IP Systemsnél](http://www.ipsystems.hu/) vagyok vezető programozó és a [Training360-nál](http://training360.com/) oktatásokat tartok. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Java EE alkalmazásfejlesztés, valamint a SOA és az IoT technológiákat követem figyelemmel. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben. Szakmai blogot is írok [JTechLog](http://www.jtechlog.hu/) néven. Szabadidőmben sokat túrázok, próbálom felfedezni Magyarország rejtett kincseit.
+
+[Letölthető magyar nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_HU.pdf), [Letölthető angol nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_EN.pdf)
 
 # Munkatapasztalat
 
@@ -250,17 +252,16 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 	<tr>
 		<td>2009 október</td>
 		<td>
-		    <p>Sun Certified Programmer for the Java Platform, Standard Edition 6 (CX-310-065), 
-				<a href="artifacts/scjp.png">oklevél</a></p>
+		    <p>Sun Certified Programmer for the Java Platform, Standard Edition 6 (CX-310-065)</p>
 		</td>
 	</tr>
 </table>
 
-<img src="imgs/java_cert_prog.gif" alt="Sun Certified Programmer" class="certLogoImg" />
-<img src="imgs/OCE_JavaEE6JavaPersistAPIDev_clr.gif" alt="Java Persistence API Developer" class="certLogoImg" />
-<img src="imgs/OCE_JavaEE6EnterJavaBeansDev_clr.gif" alt="Enterprise JavaBeans Developer" class="certLogoImg" />
-<img src="imgs/OCE_JavaEE6WebServDev_clr.gif" alt="Web Services Developer" class="certLogoImg" />
-<img src="imgs/OCE_JavaEE6WebCompDev_clr.gif" alt="Web Component Developer" class="certLogoImg" />
+<img src="/assets/img/java_cert_prog.gif" alt="Sun Certified Programmer" class="page-cert-logo-img" />
+<img src="/assets/img/OCE_JavaEE6JavaPersistAPIDev_clr.gif" alt="Java Persistence API Developer" class="page-cert-logo-img" />
+<img src="/assets/img/OCE_JavaEE6EnterJavaBeansDev_clr.gif" alt="Enterprise JavaBeans Developer" class="page-cert-logo-img" />
+<img src="/assets/img/OCE_JavaEE6WebServDev_clr.gif" alt="Web Services Developer" class="page-cert-logo-img" />
+<img src="/assets/img/OCE_JavaEE6WebCompDev_clr.gif" alt="Web Component Developer" class="page-cert-logo-img" />
 
 # Tanfolyamok
 
