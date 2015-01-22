@@ -1,0 +1,77 @@
+---
+layout: post
+title: JSF
+date: 2003-02-27T08:00:00.000+01:00
+author: Viczián István
+tags:
+---
+
+<p>
+Sajnos mostanában ritkábban van időm ide írdogálni, de azért
+igyekszem. Nemrég írtam az Ant-ról, és aki azóta megnézte és
+próbálgatta, most egyből ellenőrizheti a tudását ezen a 
+<a href="http://developer.java.sun.com/developer/Quizzes/misc/ant.html">
+teszten</a>. Írtam már a kódolási konvenciók hatékonyságáról
+is, és most a Sun-nál megjelent egy újabb 
+<a href="http://java.sun.com/developer/technicalArticles/javaserverpages/code_convention/">
+cikk</a>, mely azt taglalja, milyen konvenciókat
+alkalmazzunk JavaServer Pages használatakor.</p>
+<p>
+Itt ír a <a href="http://java.sun.com/j2ee/javaserverfaces/">JavaServer
+Faces</a> technológiáról, mely egy programozási modell, és
+lehetővé teszi, hogy újrafelhasználható beviteli
+komponenseket (form elemek) használhassunk, ezekhez a
+komponensekhez rendeljük hozzá az alkalmazás üzleti
+objektumait, illetve szerver oldali eseménykezelőket
+használjunk. A JavaServer faces magába foglal egy API-t,
+mellyel a komponensek állapotát szabályozhatjuk,
+eseménykezelőket írhatunk, adatokat ellenőrizhetünk. Ezen
+kívül tartalmaz egy JSP custom tag library-t, mellyel a JSP
+funkcióit bővíthetjük ki a JavaServer Faces modelljének
+megfelelően. Tulajdonképpen ekkor nem kell a markup nyelvhez
+kötődnünk, azaz a beviteli elemeket nem HTML nyelven adjuk
+meg, hanem ezekkel a custom tag-ekkel. Így egy JSP akár több
+eszközt is kiszolgálhat, mint pl. web vagy wap
+böngészőt.</p>
+<p>
+Gyakorlatban ez úgy néz ki, hogy ez a réteg a prezentációs
+illetve alkalmazás réteget köti össze úgy, hogy élesen el is
+határolja a kettőt egymástól. A JSP-re épül rá a
+prezentációs oldalon, így nem kell nekünk vesződnünk a form
+által küldött paraméterek elemzésével, validálásával és
+feldolgozásával, hanem a ez automatikusan történik, illetve
+egy esemény modellt is vezet be, hasonlóan a vastag kliensek
+építése esetén, azaz a form-on elhelyezkedő gombok eseményt
+generálnak. Ezen kívül a beviteli elemek állapotát is az
+API-n keresztül tudjuk befolyásolni, és nem a HTML nyelvvel
+kell bűvészkednünk.</p>
+<p>
+Egy JavaServer Faces lap életciklusa a következő: a
+böngésző elküldi a kérést, és a szerver oldalon felépül egy
+fa, mely a beviteli komponenseket tartalmazza. Ezután a
+fáben szereplő összes komponens konkrét értéket kap, melynek
+nem változott az értéke, az elküldött paraméterek alapján.
+Ezután lehet olyan eset, hogy az egyik komponens értékének
+függvényében megváltozik egy másik komponens. Ekkor újra
+felépül a fa, és a kliensnek visszakerül az új oldal, immár
+a változott értékekkel. Ha nincs ilyen helyzet, akkor a
+változtatott értékeket validálni, ellenőrizni kell. Ha
+elfogadhatóak, akkor megy tovább a végrehajtás, ha nem,
+akkor hibaüzenet megy a böngészőnek. Ha a megváltoztatott
+adat elfogadható, akkor a fában a megfelelő komponens értéke
+erre változik. Ezután hajtódhat végre az üzleti logika, majd
+a választ a szervlet lerendereli, és elküldi a
+böngészőnek.</p>
+<p>
+Hogy miben más ez, mint a The Sun ONE Application Framework
+(JATO) vagy a Struts? Elég sok átfedés van, de alapjaiban a
+JavaServer Faces egy egyszerű komponens modellt szeretne
+adni, míg a másik két technológia magasabb szinten mozog.
+Ideális eset az lenne, ha a másik két framework a JavaServer
+Faces-re építene, közvetlenül a JSP helyett. Természetesen a
+<a href="http://jcp.org/en/jsr/detail?id=127">szabványosítási
+kérelem</a> is be van adva. Aki jobban meg akar ismerkedni
+vele, ajánlom a <a href="http://java.sun.com/j2ee/javaserverfaces/docs/tutorial.html">
+tutorialt</a>, illetve egy Qusay H. Mahmoud által írt cikket
+<a href="http://java.sun.com/developer/technicalArticles/GUI/JavaServerFaces/">cikket</a>.
+</p>

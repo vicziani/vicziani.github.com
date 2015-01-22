@@ -1,0 +1,87 @@
+---
+layout: post
+title: Naplózás webes környezetben, Log4J-vel, Spring-gel
+date: '2009-01-13T12:36:00.005+01:00'
+author: István Viczián
+tags:
+- Naplózás
+- Java EE
+- Spring
+modified_time: '2010-09-18T00:41:07.871+02:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-3999068897644214024
+blogger_orig_url: http://www.jtechlog.hu/2009/01/naplzs-webes-krnyezetben-log4j-vel.html
+---
+
+<p>Az előző posztomhoz kapcsolódnak a következő elvárásaim egy Log4J alapú naplózással kapcsolatban:</p><ul><li>Az alkalmazást a verziókezelővel checkout-olva, és futtatva azonnal legyen egy viszonylag részletes naplózás, mindenféle konfiguráció nélkül. Ahhoz, hogy a fejlesztőkörnyezet konzolján is megjelenjen, ennek a konzolra kell mennie.
+</li><li>A naplózást az alkalmazáson kívül is lehessen konfigurálni, így minden környezetre feltelepíthető ugyanaz az EAR, WAR állomány, nem az alkalmazást kell a naplózáshoz módosítani.</li><li>Egy default naplózás legyen az alkalmazásban is, ha nincs az alkalmazáson kívül konfigurációs állomány, akkor is legyen valamilyen szintű naplózás.</li></ul><p>Ezen követelmények megvalósításához először tegyünk egy default konzolra naplózó log4j.properties konfig állományt az alkalmazásunkba, lehetőleg ne a CLASSPATH-ra, hogy ne zavarjon be. A WEB-INF könyvtár megfelelő lehet. Az állomány tartalma pl. a következő lehet:</p><pre>
+log4j.rootLogger=WARN, A1
+
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%4d{dd MMM yyyy HH:mm:ss,SSS} %-5p - %c: %m\n
+
+log4j.category.jtechlog=DEBUG
+</pre><p>Ezután ServletContextListener-t definiáljunk, mely a naplózást inicializálni fogja. Valamint implementáljunk egy ListLog4jWebConfigurer osztályt, mely a paraméterként átadott URL listát végignézi, és amelyik URL-en először talál egy konfigurációs állományt, azt tölti be.</p><p>A ListLog4jConfigListener osztály:</p><pre class="brush: java">
+public class ListLog4jConfigListener implements ServletContextListener {
+
+    public void contextInitialized(ServletContextEvent event) {
+        ListLog4jWebConfigurer.initLogging(event.getServletContext());
+    }
+
+    public void contextDestroyed(ServletContextEvent event) {
+        ListLog4jWebConfigurer.shutdownLogging(event.getServletContext());
+    }
+}
+</pre><p>A ListLog4jWebConfigurer osztály:</p><pre class="brush: java">
+public class ListLog4jWebConfigurer {
+
+    public static final String CONFIG_LOCATION_PARAM = "log4jConfigLocation";
+
+    public static void initLogging(ServletContext servletContext) {
+        String locationParams = servletContext.getInitParameter(CONFIG_LOCATION_PARAM);
+
+        if (locationParams != null) {
+            String[] locations = locationParams.split("\\s+");
+            for (String location : locations) {
+                try {
+                    if (!ResourceUtils.isUrl(location)) {
+                        // Resolve system property placeholders before resolving real path.
+                        location = SystemPropertyUtils.resolvePlaceholders(location);
+                        location = WebUtils.getRealPath(servletContext, location);
+                    }
+
+                    File file = ResourceUtils.getFile(location);
+                    if (!file.exists()) {
+                        throw new FileNotFoundException(location);
+                    }
+
+                    servletContext.log("Initializing log4j from [" + location + "]");
+                    Log4jConfigurer.initLogging(location);
+                    
+                    break;
+
+                } catch (FileNotFoundException ex) {
+                    servletContext.log("Cannot initializing log4j from [" + location + "]");
+                }
+            }
+        }
+
+    }
+
+    public static void shutdownLogging(ServletContext servletContext) {
+        Log4jConfigurer.shutdownLogging();
+    }
+}
+</pre><p>A kódban látható, hogy végigiterál az URL-eken, kiírja a ServletContext log metódusával, hogy hol nem, és hol talált konfigurációs állományt. Az is látható, hogy a system property placeholder-ek cseréjét is elvégzi, így a web.xml-ben a következőképp konfigurálható:</p><pre class="brush: xml">
+&lt;context-param&gt;
+    &lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;
+        file:${catalina.home}/conf/jtechlog.log4j.properties
+        /WEB-INF/log4j.properties
+    &lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;listener&gt;
+    &lt;listener-class&gt;hu.kdiv.common.web.logging.ListLog4jConfigListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+</pre><p>Így először feloldja a ${catalina.home} placeholder-t a Tomcat telepítési könyvtárára (pl. /opt/Tomcat6), majd megvizsgálja, hogy ott létezik-e a megadott fájl. Ha létezik, betölti, ha nem létezik, akkor betölti az alkalmazásból a WEB-INF könyvtárból</p><p>Ezzel megoldottuk, hogy mind az IDE-ből való futtatáskor, mind a szerveren legyen egy alapértelmezett naplózás, ami a konzolra ír, de amennyiben környezetenként (pl. teszt, éles) más és más naplózást akarunk beállítani, csak el kell helyeznünk a Tomcat conf könyvtárába egy jtechlog.log4j.properties állományt. És ehhez az alkalmazást nem kell módosítanunk.</p>

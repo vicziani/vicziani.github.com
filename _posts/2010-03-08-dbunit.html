@@ -1,0 +1,213 @@
+---
+layout: post
+title: Perzisztencia réteg tesztelése DbUnit-tal
+date: '2010-03-08T00:40:00.005+01:00'
+author: István Viczián
+tags:
+- open source
+- Tesztelés
+- JPA
+modified_time: '2014-01-05T21:27:55.069+01:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-5721797742125265911
+blogger_orig_url: http://www.jtechlog.hu/2010/03/dbunit.html
+---
+
+<p>Frissítve: 2014. január 5.</p>
+<p>Felhasznált technológiák: DbUnit 2.4.9, Hibernate 4.3.0, HSQLDB 2.3.1, SLF4J 1.7.5, JUnit 4.11, Maven 3.0.3</p>
+<p style="text-align: left;">Gyakran hajlamosak vagyunk a perzisztens rétegre úgy tekinteni (pl. Data Access Object
+    - DAO J2EE tervezési minta), mint egy szükséges, magától érthetődő elemre, azonban ennek tesztelését sem szabad
+    elfelejteni, különösen ha adatintenzív alkalmazásról, vagy egy egyszerű CRUD (create, read, update, delete)
+    felületről van szó.
+</p>
+<p>Azonban ez már nem a unit tesztelés témakörébe tartozik, hiszen itt nem magát a DAO osztály logikáját teszteljük,
+    hanem annak hatását az adatbázisra. Így már legalább két komponens vesz részt aktívan a tesztelésben. Ezen kívül
+    az adatbázis kapcsolatot is fel kell építeni, ami egy webes, vagy Java EE alkalmazás esetén JNDI-ből vett
+    DataSource, vagy JPA esetén egy konténer által (alkalmazásszerver, vagy Spring) injektált EntityManager példány.
+    Egyszerű teszteset írásakor azonban nincs sem JNDI, sem dependency injection, ezért fejlettebb eszközökhöz kell
+    fordulnunk.
+</p>
+<p>A perzisztens réteg tesztelésénél ugyanazt a módszert használjuk, mint általában a tesztelésnél, inicializáljuk
+    az input adatokat, meghívjuk a tesztelendő kódot, majd ellenőrizzük az adatokat. Ezzel kapcsolatban több
+    probléma is felmerül a perzisztencia esetén. Első, hogy az inicializálás jelen esetben adatbázisműveleteket
+    jelent. Sőt, amennyiben egy klasszikus adatbázissal dolgozunk, lehetséges, hogy már vannak benne adatok, amelyek
+    megzavarhatják a tesztet. De lehet, hogy törölni sem akarjuk őket, mert kellhetnek a teszteléshez. Második
+    probléma a tesztelendő kód futtatásakor az előbb említett adatbázis kapcsolat kiépítése. Hiszen tesztelésnél ez
+    teljesen másképpen történhet, mint futás közben. Harmadrészt az assert-ek megírása sem egyszerű feladat, hiszen
+    lehetséges, hogy az adatbázis állapotát akarjuk ellenőrizni, akár több tábla több sorát.
+</p>
+<p>Ezekben segít nekünk a <a href="http://www.dbunit.org/">DbUnit</a>, mely egy JUnit-ra épülő teszteléshez
+    használható library. Segít nekünk az adatbázis inicializálásában (ottmaradt adatok törlése, input adatok
+    betöltése), valamint a aktuális és az elvárt adatok összehasonlításában.
+</p>
+<p>Ezeket un. Helper osztályokkal és metódusokkal teszi. Definiál egy IDataSet interfészt, mely több táblát
+    tartalmazó adathalmaz, valamint egy ITable, mely egy tábla adatai. Azonban az IDataSet interfésznek több
+    megvalósítását is biztosítja. Egyrészt természetesen lehetséges ennek betöltése adatbázisból, de lehetőség van
+    arra, hogy a betöltés XML állományból (két fajta: flat, original), lekérdezésből (SQL select), Excel
+    állományból, stb. történjen. Valamint különböző metódusokat biztosít ezek összehasonlítására.
+</p>
+<p>Ezek felhasználásával egy tipikus teszteset a következőképpen nézhet ki. Definiálunk XML-ben egy DataSet-et, mely
+    a teszt esethez szükséges pár tábla input adatait tartalmazza, és beszúrjuk ezeket. Lefuttatjuk a
+    tesztelendő metódust, majd
+    betöltjük XML állományból az elvárt állapotot is, és összehasonlítjuk magával az adatbázissal.
+</p>
+<p>A DbUnit alapvetően a JUnit 3.x szériára épül, de lehetséges a használata a 4.x verziókban is. A DbUnit JAR
+    állományán kívül az SLF4J API és valamelyik megvalósításának (Log4J, Commons Logging, java.util.logging) JAR
+    állományát is be kell tenni a tesztelés classpath-jába.
+</p>
+<p>Készítettem is egy példa projektet, mely <a href="https://github.com/vicziani/jtechlog-dbunit">elérhető a GitHub-on</a>,
+    az "mvn test" parancs kiadásával indíthatóak a tesztesetek. Van egy Employee osztályt, melynek példányait le
+    szeretnénk menteni és beolvasni, és egy EmployeeDao interfész, és
+    ennek EmployeeDaoJpa implementációja.
+</p>
+<p style="text-align: center;">
+    <img src="http://yuml.me/diagram/scruffy;scale:80;/class/[Employee|-id:long;-name:String]-[EmployeeDao||+persistEmployee(Employee);+listEmployees():List]"/>
+</p>
+<p>A példában HSQLDB beépített adatbáziskezelőt használok. A JUnit 3.x széria esetén a JdbcBasedDBTestCase, DataSourceBasedDBTestCase
+    vagy JndiBasedDBTestCase osztályokból kéne leszármaztatnuk az osztályunk, de amennyiben ez valami miatt nem
+    lehetséges, mert mástól akarunk öröklődni, vagy JUnit 4-et használunk és nem szeretnénk leszármaztatni,
+    elvégezhetjük az inicializációt mi magunk is. Itt hozzunk létre egy adatbázis kapcsolatot, és a JPA számára egy
+    EntityManagerFactory-t. Majd töltsünk be egy XML
+    állományt, mely az Employee tábla adatait tartalmazza, majd ürítsük az adatbázisból az Employee táblát, és
+    szúrjuk be az előbb betöltött adatokat.
+</p>
+<pre class="brush: java">private static DataSource dataSource;
+private static EntityManagerFactory emf;
+
+private EntityManager entityManager;
+
+private EmployeeDao employeeDao;
+
+@BeforeClass
+public static void init() throws Exception {
+ Properties properties = new Properties();
+ properties.put("url", "jdbc:hsqldb:mem:dbunittutor");
+ properties.put("user", "sa");
+ properties.put("password", "");
+
+ dataSource = JDBCDataSourceFactory.createDataSource(properties);
+ emf = Persistence.createEntityManagerFactory("dbunittutorPu");
+}
+
+@Before
+public void setUp() throws Exception {
+ IDatabaseConnection conn = 
+  new DatabaseDataSourceConnection(dataSource);
+ IDataSet data = new XmlDataSet(EmployeeDaoTest.class
+  .getResourceAsStream("/employees.xml"));
+ DatabaseOperation.CLEAN_INSERT.execute(conn, data);
+
+ assertEquals(3, conn.getRowCount("employee"));
+
+ entityManager = emf.createEntityManager();
+ employeeDao = new EmployeeDaoJpa();
+ ((EmployeeDaoJpa) employeeDao).setEm(entityManager);
+}</pre>
+<p>A példában látható, hogy az adatbázis kapcsolatot egy IDatabaseConnection interfészt implementáló
+    DatabaseDataSourceConnection osztály burkolja be, de az IDatabaseConnection interfésznek egyéb megvalósításai is
+    vannak, pl. DatabaseConnection, melynek egy Connection példányt kell átadni.
+</p>
+<p>A employees.xml írja le a kezdeti adatbázis tartalmát:</p>
+<pre class="brush: xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;dataset&gt;
+ &lt;table name=&quot;employee&quot;&gt;
+  &lt;column&gt;id&lt;/column&gt;
+  &lt;column&gt;name&lt;/column&gt;
+  &lt;row&gt;
+   &lt;value&gt;1&lt;/value&gt;
+   &lt;value&gt;name1&lt;/value&gt;
+  &lt;/row&gt;
+  ...
+ &lt;/table&gt;
+&lt;/dataset&gt;</pre>
+<p>A következő teszt eset a listEmployees() metódust teszteli.</p>
+<pre class="brush: java">@Test
+public void testListEmployees() {
+    List&lt;Employee&gt; employees = employeeDao.listEmployees(1, 2);
+    assertEquals(2, employees.size());
+    assertTrue("A name prefixszel kell kezdodnie", 
+        employees.get(0).getName().startsWith("name"));
+}
+</pre>
+<p>A következő metódus a mentést ellenőrzi, de úgy, hogy az adatbázis elvárt állapotát egy XML-ből tölti be, és
+    összehasonlítja az adatbázis tényleges állapotával.
+</p>
+<pre class="brush: java">@Test
+public void testListEmployees() {
+    Employee employee = new Employee("name4");
+    employeeDao.persistEmployee(employee);
+
+    ITable tableDb = new DatabaseDataSourceConnection(ds)
+        .createDataSet().getTable("employee");
+    ITable tableXml = new XmlDataSet(EmployeeDaoTest.class
+        .getResourceAsStream("/expectedEmployees.xml"))
+        .getTable("employee");
+
+    new DbUnitAssert().assertEquals(tableXml, tableDb);
+}</pre>
+<p>Ehhez a expectedEmployees.xml már ki van egészítve a beszúrt Employee adataival.</p>
+<p>Ez lehet, hogy elsőre tökéletesen lefut, de több probléma is van vele. Második futtatásnál már hibát jelezhet a
+    teszteset. A hiba szövege nagyon beszédes, leírja, hogy melyik tábla hanyadik sorában van az eltérés, és kiírja
+    az aktuális és az elvárt értéket is. A hiba ott lehet, hogy egyrészt nem biztos, hogy a sorokat a megfelelő
+    sorrendben kapjuk vissza. Ehhez van a SortedTable osztály, mely a dekorátor tervezési mintát valósítja meg.
+    Ezzel valamelyik oszlopra lehet rendezni. Másrészt az id kiadása is egy szekvencia alapján történik, így erre
+    sem kell ellenőrizni. Erre használjuk a DefaultColumnFilter osztályt, mellyel meg lehet mondani, hogy mely
+    oszlopokat akarunk figyelembe venni az összehasonlításkor. Így a javított kód a következő.
+</p>
+<pre class="brush: java">ITable tableDb = new SortedTable(DefaultColumnFilter
+    .includedColumnsTable(new DatabaseDataSourceConnection(ds)
+    .createDataSet().getTable("employee"), new String[]{"name"}), 
+    new String[]{"name"});
+
+ITable tableXml = new SortedTable(DefaultColumnFilter
+    .includedColumnsTable(new XmlDataSet(EmployeeDaoTest.class
+    .getResourceAsStream("dataset_result.xml")).getTable("employee"),
+    new String[]{"name"}), new String[]{"name"});
+</pre>
+<p>Ez mindkét táblán szűrést és rendezést is végez, és ezután már össze lehet hasonlítani őket.</p>
+<p>Az ITable interfésznek egyéb Helper metódusai is vannak, melyeket érdemes használni, mert megkönnyítik a
+    programozást. Egyrészt a getRowCount() metódus visszaadja a sorok számát, másrészt a getValue(0, "name")
+    visszaadja a 0. sor name oszlopának értékét.
+</p>
+<p>A perzisztens réget tesztelésekor a következő tanácsokat érdemes betartani:</p>
+<ul>
+    <li>Minden fejlesztő kapjon saját adatbázist, vagy használjunk embedded adatbázist. Ezzel kikerülhető az, hogy
+        egyszerre többen használják, így összekeverednek az adatok.
+    </li>
+    <li>Két stratégiát választhatunk teszteléskor: vagy minden teszteset után visszagörgetünk (rollback), vagy
+        minden teszteset előtt inicializáljuk az adatbázist. Az elsőt használják többen is, de én a másodikat
+        javaslom, mert mikor először próbálkoztam az első megközelítéssel, a teszt esetek sikeresen lefutottak, a
+        kivétel pont a commit műveletnél jött. Az utóbbi esetében viszont szintén érdemes megfogadni két tanácsot.
+        Egyrészt kis adathalmazokkal dolgozzunk, hogy a teszt lefutása gyors legyen. Másrészt nem kell a teszteset
+        lefutása után cleanup, hiszen a teszt eseteket úgy kell megírni, hogy az inicializálás (@Before) úgy állítsa
+        be az adatbázist, hogy azon azonnal le lehessen futtatni a tesztesetet. A tesztesetek között sorrendi
+        függőség, állapotátmenet ne legyen lehetséges.
+    </li>
+    <li>Amennyiben read-only adataink is vannak, melyet minden teszt eset használ, javasolt azokat osztályszintű
+        inicializáláskor betölteni, szintén a gyorsítás végett.
+    </li>
+</ul>
+<p>Amennyiben a DataSource JNDI-ből való lekérését is tesztelni akarjuk, használhatunk stub/mock JNDI Context
+    implementációt.
+</p>
+<p>A DbUnit Ant-ból is használható, és Maven plugin-je is van, melynek goal-jai képesek integrációs tesztelés esetén
+    az adatbázis inicializációjára, adatbázis adatainak xml-be exportálására, valamint DataSet-ek
+    összehasonlítására.
+</p>
+<p>Érdemes még megnézni az
+    <a href="http://sqlunit.sourceforge.net/">SQLUnit</a>
+    projektet is, melynek érdekessége, hogy a tesztesetek XML-ben van leírva, és szintén a perzisztencia
+    tesztelésére szolgál. Inkább javasolt pl. tárolt eljárások tesztelésére. Sajnos fejlesztését befejezték, utolsó
+    release 2006. júniusában volt.
+</p>
+<p>Spring használata esetén kötelező olvasmány a <a
+        href="http://docs.spring.io/spring/docs/4.0.0.RELEASE/spring-framework-reference/htmlsingle/#testing">
+    Reference Testing fejezete</a>, különösen a tranzakciókezelés részre.
+</p>
+<p>JPA esetén javasolt az Apress kiadásában készült Pro EJB 3 Java Persistence API könyv, melynek 12. fejezet a JPA
+    teszteléséről szól. Itt a tesztelés különböző szintjeit tárgyalja. Első szint, mikor csak az entitást, mint
+    POJO-t teszteled. Második szinten már a DAO-t teszteled, de adatbázis kapcsolat nélkül, stub/mock
+    EntityManager-rel. Az integrációs teszt során kötöd össze a DAO-t ténylegesen az adatbázissal. Itt lehet
+    trükközni azzal, hogy a teszteset futtatásakor honnan veszel EntityManager példányt (pl. factory), illetve felül
+    lehet írni a teszteset futtatásakor az entitáson elhelyezett annotációkat xml konfigurációval. Különösen
+    érzékeny terület itt is a tranzakciókezelés.
+</p>

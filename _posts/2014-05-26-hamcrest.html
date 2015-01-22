@@ -1,0 +1,217 @@
+---
+layout: post
+title: Hamcrest
+date: '2014-05-26T22:24:00.000+02:00'
+author: István Viczián
+tags:
+- Tesztelés
+modified_time: '2014-05-27T09:54:48.265+02:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-1065281452235807034
+blogger_orig_url: http://www.jtechlog.hu/2014/05/hamcrest.html
+---
+
+<p>Technológiák: JUnit 4.11, Hamcrest 1.3</p>
+
+<h3 id="bevezetés">Bevezetés</h3>
+
+<p>Ahogy egyre többet írok unit teszteket, így foglalkoztat a gondolat, hogyan lehet minél hatékonyabb asserteket írni. Elvárásaim ezekkel kapcsolatban a következők. Rövidek legyenek, azaz gyorsan, gond nélkül lehessen ezeket megírni. Más számára is könnyen olvashatóak legyenek. Amennyiben elbuknak, értelmes hibaüzeneteket adjanak. És össze lehessen fűzni akár őket.</p>
+
+<p>Köszönet Lontay Gábornak, aki sokat segített a Hamcrest megértésében.</p>
+
+<p>A poszthoz készült példaprogram <a href="https://github.com/vicziani/jtechlog-hamcrest">elérhető a GitHub-on</a>.</p>
+
+<p>A Wikipedia <a href="http://en.wikipedia.org/wiki/Hamcrest">szerint</a> az asserteknek már a harmadik generációjánál járunk. Kezdetben az assert csak egy logikai kifejezést várt, ami ha a kiértékelés során hamisat adott vissza, a teszt elbukott. (Üzenetet ennek is lehetett paraméterül adni.) A második generációs assertek azonban külön várták az aktuális és az elvárt eredményt, így az üzenetben ki tudták írni, hogy pontosan mik nem stimmeltek.</p>
+
+<p>A harmadik generációs assertek azonban támogatják az <code>assertThat</code> kifejezést, mely várja az aktuális értéket, valamint egy un. <code>Matcher</code> objektumot.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">([</span><span class="pln">ellen</span><span class="pun">ő</span><span class="pln">rizend</span><span class="pun">ő</span><span class="pln"> </span><span class="pun">é</span><span class="pln">rt</span><span class="pun">é</span><span class="pln">k</span><span class="pun">],</span><span class="pln"> </span><span class="pun">[</span><span class="pln">matcher</span><span class="pun">]);</span></code></pre>
+
+<p>Egy példával talán érthetőbb: </p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">(),</span><span class="pln"> either</span><span class="pun">(</span><span class="pln">containsString</span><span class="pun">(</span><span class="str">"CIB"</span><span class="pun">)).</span><span class="pln">or</span><span class="pun">(</span><span class="pln">containsString</span><span class="pun">(</span><span class="str">"BANK"</span><span class="pun">)));</span></code></pre>
+
+<p>Ebből az látszik, hogy fluent interfésszel rendelkezik, és primitív matcherekből különböző konstrukciókkal, pl. logikai műveletekkel, bonyolultabbakat lehet összerakni. Gyakorlatilag ezzel egy <a href="http://en.wikipedia.org/wiki/Domain-specific_language">DSL-t</a>, azaz egy primitív saját nyelvet rakhatunk össze objektumok (egyezőségének) vizsgálatára, ami inkább deklaratív, mint procedurális. Sőt, a hibaüzenetek is olvashatóak maradnak.</p>
+
+<p>Ehhez képzeljük el, hogy nem csak szöveges összehasonlítások vannak, hanem pl. collectionök kezelésére való mûveletek is, pl. olyan feltételeket tudunk szabni, hogy egy vagy több elem benne van-e a collectionben, megfelelő sorrendben-e, stb. Ezen kívül még saját matchereket is lehet implementálni.</p>
+
+<h3 id="hamcrest-1">Hamcrest</h3>
+
+<p>Javaban erre a <a href="http://hamcrest.org/JavaHamcrest">Hamcrest</a> könyvtár használható (, ami a matchers anagrammája). Ezt az eszközt Joe Walnes fejlesztette ki a <a href="http://jmock.org/">jMock</a> mock keretrendszer részeként, majd kiszervezte és a Hamcrest nevet adta neki. </p>
+
+<p>A Hamcrest <a href="http://code.google.com/p/hamcrest/wiki/HamcrestDistributables">két rétegből</a> áll, egyrészt a <code>core</code>, mely stabil, osztályai nem változnak, valamint a <code>library</code>, mely collectionök, stringek, JavaBeanek, stb. kezelésére való matchereket tartalmaz, és megjelenhetnek újabb és újabb matcherek. Ennek megfelelően érdemes mindkettőt használni, és a <code>org.hamcrest.CoreMatchers</code> osztály helyett a <code>org.hamcrest.Matchers</code> osztály metódusait statikusan importálni.</p>
+
+<p>Ha már az olvashatóság az egyik legnagyobb előny, nézzük, hogy mi történik klasszikus esetben, és mi az <code>assertThat</code>-tel. A JUnit még tartja magát.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code><span class="kwd">assert</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">().</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"CIB BANK"</span><span class="pun">));</span><span class="pln">
+</span><span class="com">// ==&gt; hibaüzenet: </span><span class="pln">
+</span><span class="com">// java.lang.AssertionError</span><span class="pln">
+</span><span class="com">// ... stacktrace</span><span class="pln">
+
+assertEquals</span><span class="pun">(</span><span class="str">"CIB BANK"</span><span class="pun">,</span><span class="pln"> bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">());</span><span class="pln">
+</span><span class="com">// org.junit.ComparisonFailure: expected:&lt;C[IB BA]NK&gt; but was:&lt;C[B B]NK&gt;</span><span class="pln">
+</span><span class="com">// ... stacktrace</span><span class="pln">
+
+assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">(),</span><span class="pln"> </span><span class="kwd">is</span><span class="pun">(</span><span class="pln">equalTo</span><span class="pun">(</span><span class="str">"CIB BANK"</span><span class="pun">)));</span><span class="pln">
+</span><span class="com">// java.lang.AssertionError:</span><span class="pln">
+</span><span class="com">// Expected: is "CIB BANK"</span><span class="pln">
+</span><span class="com">//     but: was "CB BNK"</span><span class="pln">
+</span><span class="com">// ... stacktrace</span></code></pre>
+
+<p>És nézzünk egy bonyolultabb feltételt:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">assertTrue</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">().</span><span class="pln">contains</span><span class="pun">(</span><span class="str">"CIB"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">().</span><span class="pln">contains</span><span class="pun">(</span><span class="str">"BANK"</span><span class="pun">));</span><span class="pln">
+</span><span class="com">// java.lang.AssertionError</span><span class="pln">
+</span><span class="com">// ... stacktrace</span><span class="pln">
+
+assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">(),</span><span class="pln"> either</span><span class="pun">(</span><span class="pln">containsString</span><span class="pun">(</span><span class="str">"CIB"</span><span class="pun">)).</span><span class="kwd">or</span><span class="pun">(</span><span class="pln">containsString</span><span class="pun">(</span><span class="str">"BANK"</span><span class="pun">)));</span><span class="pln">
+</span><span class="com">// java.lang.AssertionError: </span><span class="pln">
+</span><span class="com">// Expected: (a string containing "CIB" or a string containing "BANK")</span><span class="pln">
+</span><span class="com">//     but: was "CB BNK"</span><span class="pln">
+</span><span class="com">// ... stacktrace</span></code></pre>
+
+<p>Sőt, az <code>assertThat</code> egy override-olt metódusa <code>String</code>-et is elfogad.</p><div class="se-section-delimiter"></div>
+
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">assertThat</span><span class="pun">(</span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">(),</span><span class="pln"> either</span><span class="pun">(</span><span class="pln">containsString</span><span class="pun">(</span><span class="str">"CIB"</span><span class="pun">)).</span><span class="kwd">or</span><span class="pun">(</span><span class="pln">containsString</span><span class="pun">(</span><span class="str">"BANK"</span><span class="pun">)));</span><span class="pln">
+</span><span class="com">// java.lang.AssertionError: name</span><span class="pln">
+</span><span class="com">// Expected: (a string containing "CIB" or a string containing "BANK")</span><span class="pln">
+</span><span class="com">//     but: was "CB BNK"</span><span class="pln">
+</span><span class="com">// ... stacktrace</span></code></pre>
+
+<p>Ahogy a <a href="http://code.google.com/p/hamcrest/wiki/Tutorial">tutorial</a> is írja, rengeteg core matcher jön a Hamcresttel, erről egy jó kis egy oldalas <a href="http://www.marcphilipp.de/downloads/posts/2013-01-02-hamcrest-quick-reference/Hamcrest-1.3.pdf">referencia PDF</a> is található. </p>
+
+<p>Nyilván vannak általános célú matcherek, mint egyenlőség ellenőrzés, relációk ellenőrzése, null ellenőrzés, <code>String</code>-ek összehasonlítása, stb. Érdemes <a href="http://edgibbs.com/junit-4-with-hamcrest/">ezt a cikket</a> is elolvasni. Ami talán érdekesebb az a JavaBeanek és a kollekciók kezelése.</p><div class="se-section-delimiter"></div>
+
+<h3 id="hasproperty">HasProperty</h3>
+
+<p>A <code>hasProperty</code> metódussal azt nézhetjük meg, hogy egy adott objektumnak a megadott property-je nekünk megfelelő-e.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">,</span><span class="pln"> hasProperty</span><span class="pun">(</span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> equalTo</span><span class="pun">(</span><span class="str">"CIB BANK"</span><span class="pun">)));</span></code></pre>
+
+<h3 id="collections">Collections</h3>
+
+<p>A collectionök összehasonlítására a leggyakrabban használt metódusok a <code>contains</code>, <code>containsInAnyOrder</code>, <code>hasItem</code>, <code>hasItems</code> és <code>isIn</code>.</p>
+
+<p>A <code>contains</code> elnevezése nagyon megtévesztő, itt ugyanis a két collection pontos egyezőségét várja el, a sorrendet is beleértve.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getCards</span><span class="pun">(),</span><span class="pln"> contains</span><span class="pun">(</span><span class="str">"CIB VISA Inspire"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CIB MasterCard Gold"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CIB Visa Internetkártya"</span><span class="pun">));</span></code></pre>
+
+<p>Más sorrendben adva meg az értékeket, a teszt elbukik, akárcsak akkor, ha egyet kihagyunk. Ekkor szép hibaüzenetet is kapunk:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">java</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.</span><span class="typ">AssertionError</span><span class="pun">:</span><span class="pln"> 
+</span><span class="typ">Expected</span><span class="pun">:</span><span class="pln"> iterable containing </span><span class="pun">[</span><span class="str">"CIB VISA Inspire"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CIB MasterCard Gold"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CIB Vis Internetkártya"</span><span class="pun">]</span><span class="pln">
+     but</span><span class="pun">:</span><span class="pln"> item </span><span class="lit">2</span><span class="pun">:</span><span class="pln"> was </span><span class="str">"CIB Visa Internetkártya"</span><span class="pln">
+</span><span class="pun">...</span><span class="pln"> stacktrace</span></code></pre>
+
+<p>A <code>hasItem</code>, <code>hasItems</code> már az elnevezésének megfelelően működik, itt ugyanis tényleg azt nézi, hogy ténylegesen szerepel-e az elem(ek) a collectionben.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getCards</span><span class="pun">(),</span><span class="pln"> hasItem</span><span class="pun">(</span><span class="str">"CIB MasterCard Gold"</span><span class="pun">));</span><span class="pln">
+
+assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getCards</span><span class="pun">(),</span><span class="pln"> hasItems</span><span class="pun">(</span><span class="str">"CIB VISA Inspire"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CIB MasterCard Gold"</span><span class="pun">));</span></code></pre>
+
+<p>Az <code>isIn</code> metódussal fordítva adhatjuk meg:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="str">"CIB MasterCard Gold"</span><span class="pun">,</span><span class="pln"> isIn</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getCards</span><span class="pun">()));</span></code></pre>
+
+<p>Ha a <code>hasItem</code> metódusnak matchert akarunk paraméterül átadni, hamar meglepetés érhet. A következő kód ugyanis <a href="https://weblogs.java.net/blog/johnsmart/archive/2008/04/on_the_subtle_u.html">nem működik</a>:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getAddresses</span><span class="pun">(),</span><span class="pln"> hasItem</span><span class="pun">(</span><span class="pln">hasProperty</span><span class="pun">(</span><span class="str">"zip"</span><span class="pun">,</span><span class="pln"> equalTo</span><span class="pun">(</span><span class="str">"5600"</span><span class="pun">))));</span></code></pre>
+
+<p>Helyette a következő <em>trükköt</em> kell alkalmaznunk:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">((</span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Object</span><span class="pun">&gt;)(</span><span class="typ">List</span><span class="pun">)</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getAddresses</span><span class="pun">(),</span><span class="pln"> hasItem</span><span class="pun">(</span><span class="pln">hasProperty</span><span class="pun">(</span><span class="str">"zip"</span><span class="pun">,</span><span class="pln"> equalTo</span><span class="pun">(</span><span class="str">"5600"</span><span class="pun">))));</span></code></pre>
+
+<p>Érdekessége, hogy míg a csak <code>List</code>-té castolást az IDEA/Eclipse elfogadja, parancssori fordításkor elszáll, így kell a <code>List&lt;Object&gt;</code>-té castolás is.</p>
+
+<h3 id="saját-matcher-implementálása">Saját Matcher implementálása</h3>
+
+<p>A matcherek a <code>Matcher</code> interfészt implementálják, de mi ne ezt implementáljuk, hanem induljunk ki valami speciális implementáló osztályból, melyből leszármaztathatunk. Amennyiben egy objektum egy értékét akarjuk hasonlítani, akkor <a href="http://www.higherorderlogic.com/2012/09/on-the-composeability-of-hamcrest-matchers/">használjuk</a> a <code>FeatureMatcher</code> osztályt. ennek <code>featureValueOf</code> metódusa adja vissza a kívánt értéket.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">HasNameMatcher</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">FeatureMatcher</span><span class="pun">&lt;</span><span class="typ">Bank</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="lit">@Factory</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="typ">HasNameMatcher</span><span class="pln"> hasName</span><span class="pun">(</span><span class="typ">Matcher</span><span class="pun">&lt;?</span><span class="pln"> </span><span class="kwd">super</span><span class="pln"> </span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> matcher</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HasNameMatcher</span><span class="pun">(</span><span class="pln">matcher</span><span class="pun">,</span><span class="pln"> </span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"name"</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">HasNameMatcher</span><span class="pun">(</span><span class="typ">Matcher</span><span class="pun">&lt;?</span><span class="pln"> </span><span class="kwd">super</span><span class="pln"> </span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> subMatcher</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> featureDescription</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> featureName</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">super</span><span class="pun">(</span><span class="pln">subMatcher</span><span class="pun">,</span><span class="pln"> featureDescription</span><span class="pun">,</span><span class="pln"> featureName</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="lit">@Override</span><span class="pln">
+    </span><span class="kwd">protected</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> featureValueOf</span><span class="pun">(</span><span class="typ">Bank</span><span class="pln"> bank</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> bank</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>És ezt a következőképpen használhatjuk fel:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">,</span><span class="pln"> hasName</span><span class="pun">(</span><span class="pln">equalTo</span><span class="pun">(</span><span class="str">"CIB BANK"</span><span class="pun">)));</span></code></pre>
+
+<p>Vagy hasonlóan egy másik <code>FeatureMatcher</code> implementációt, de már collectionre:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">.</span><span class="pln">getAddresses</span><span class="pun">(),</span><span class="pln"> hasItem</span><span class="pun">(</span><span class="pln">hasZip</span><span class="pun">(</span><span class="pln">equalTo</span><span class="pun">(</span><span class="str">"5600"</span><span class="pun">))));</span></code></pre>
+
+<p>Ha még ennél is messzebb akarunk menni, akkor egy <code>TypeSafeDiagnosingMatcher</code> leszármazottat érdemes készítenünk (, ez amúgy mely a <code>FeatureMatcher</code> őse).</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">HasAddressWithZip</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">TypeSafeDiagnosingMatcher</span><span class="pun">&lt;</span><span class="typ">Bank</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="lit">@Factory</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="typ">HasAddressWithZip</span><span class="pln"> hasAddressWithZip</span><span class="pun">(</span><span class="typ">Matcher</span><span class="pun">&lt;?</span><span class="pln"> </span><span class="kwd">super</span><span class="pln"> </span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> valueMatcher</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HasAddressWithZip</span><span class="pun">(</span><span class="pln">valueMatcher</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">Matcher</span><span class="pun">&lt;?</span><span class="pln"> </span><span class="kwd">super</span><span class="pln"> </span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> valueMatcher</span><span class="pun">;</span><span class="pln">
+
+
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">HasAddressWithZip</span><span class="pun">(</span><span class="typ">Matcher</span><span class="pun">&lt;?</span><span class="pln"> </span><span class="kwd">super</span><span class="pln"> </span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> valueMatcher</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">valueMatcher </span><span class="pun">=</span><span class="pln"> valueMatcher</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="lit">@Override</span><span class="pln">
+    </span><span class="kwd">protected</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> matchesSafely</span><span class="pun">(</span><span class="typ">Bank</span><span class="pln"> bank</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Description</span><span class="pln"> description</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> zips </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;&gt;();</span><span class="pln">
+        </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Address</span><span class="pln"> address</span><span class="pun">:</span><span class="pln"> bank</span><span class="pun">.</span><span class="pln">getAddresses</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">valueMatcher</span><span class="pun">.</span><span class="pln">matches</span><span class="pun">(</span><span class="pln">address</span><span class="pun">.</span><span class="pln">getZip</span><span class="pun">()))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            zips</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">address</span><span class="pun">.</span><span class="pln">getZip</span><span class="pun">());</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        description</span><span class="pun">.</span><span class="pln">appendText</span><span class="pun">(</span><span class="str">" zip codes found: "</span><span class="pun">).</span><span class="pln">appendValueList</span><span class="pun">(</span><span class="str">"["</span><span class="pun">,</span><span class="pln"> </span><span class="str">","</span><span class="pun">,</span><span class="pln"> </span><span class="str">"]"</span><span class="pun">,</span><span class="pln"> zips</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="lit">@Override</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> describeTo</span><span class="pun">(</span><span class="typ">Description</span><span class="pln"> description</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        description</span><span class="pun">.</span><span class="pln">appendText</span><span class="pun">(</span><span class="str">" address with zip code "</span><span class="pun">).</span><span class="pln">appendDescriptionOf</span><span class="pun">(</span><span class="pln">valueMatcher</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>És a használata:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="pln">assertThat</span><span class="pun">(</span><span class="pln">bank</span><span class="pun">,</span><span class="pln"> hasAddressWithZip</span><span class="pun">(</span><span class="pln">equalTo</span><span class="pun">(</span><span class="str">"5600"</span><span class="pun">)));</span></code></pre>
+
+<p>Ha ez sem elég, akkor használjuk a <code>BaseMatcher</code> osztályt, ennek leszármazottja a <code>TypeSafeDiagnosingMatcher</code>.</p>
+
+<p>A példákban látható, hogy factory metódusokat alkalmaztunk, mely lehetővé teszi a könnyebb olvashatóságot az <code>assertThat</code> metódus paraméterként. Valamint elláttuk a <code>@Factory</code> metódussal. Ez arra való, hogy a Hamcrestben van egy <em>generátor</em>, mely képes kigyűjteni ezen metódusokat egy osztályba, így nem kell minden osztályt importálnunk. A <code>org.hamcrest.Matchers</code> oszály is így készül.</p>
+
+<h3 id="jó-tanácsok">Jó tanácsok</h3>
+
+<p>Amennyiben matchereket használ vagy ír az ember, először mindenképp próbáljuk ki a negatív ágat, hogy használható hibaüzenetet ír-e ki.</p>
+
+<p>Megoszlanak arról a vélemények, hogy egy teszt esetben egy assertet lehet-e csak használni. Én nem vagyok ennyire szigorú, szimpatikus a <a href="http://www.owenpellegrin.com/blog/testing/how-do-you-solve-multiple-asserts/comment-page-1/#comment-6469">következő megfogalmazás</a>: “test one logical CONCEPT per test”. Ez általában akkor teljesül, ha ugyanazon az objektumon végzel assertet, logikailag összetartozó feltételeket adsz meg. Gyakran egyszerűbb kifejezni és olvasni, ha több assert kifejezést használsz.</p>
+
+<h3 id="történeti-háttér">Történeti háttér</h3>
+
+<p>A <a href="https://github.com/junit-team/junit">JUnit</a> fejlesztői úgy <a href="https://github.com/junit-team/junit/wiki/Matchers-and-assertthat">döntöttek</a>, hogy a JUnit részévé teszik. A <a href="http://junit.sourceforge.net/doc/ReleaseNotes4.4.html">4.4 verzióban</a> jelent meg, gyakorlatilag a <code>hamcrest-core</code> projekt osztályait a JUnitba másolták. Ez volt az első alkalom, hogy egy third-party library bekerült a JUnitba, ami kifejezetten híres volt arról, hogy nem akart plusz függőségeket. Persze a régi assert metódusok, pl. <code>assertEquals</code>, <code>assertTrue</code>, stb. megmaradtak. Megjelent tehát a <code>org.hamcrest</code> csomag, benne a <code>CoreMatchers</code> osztály, valamint az <code>org.junit.matchers</code> csomagban a <code>JUnitMatchers</code> osztály. Mindez 2007-ben történt.</p>
+
+<p>Sajnos azonban hoztak egy Mavennel szemben álló döntést, ezeket a class-okat elhelyezték a <code>junit-4.4.jar</code> artifact-ba. A JUnit csak a <code>core</code> osztályait tartalmazta. Ha viszont a library osztályaira is szükség volt, és az ember csak berakta a JUnit mellé, és nem volt megfelelő a jar fájlok sorrendje a classpath-on, <a href="http://marxsoftware.blogspot.hu/2012/06/moving-beyond-core-hamcrest-in-junit.html">elég nagy galibát tudott okozni</a>. Ennek megoldására jelent meg a <a href="http://search.maven.org/#artifactdetails%7Cjunit%7Cjunit-dep%7C4.4%7Cjar">junit-dep</a> artifact, mely nem tartalmazza a Hamcrestes osztályokat, viszont van dependency a <code>hamcrest-core-ra</code>. Ezt csak a <a href="https://github.com/junit-team/junit/blob/master/doc/ReleaseNotes4.11.md">JUnit 4.11-ben</a> javították, ahol a <code>junit</code> artifact végre nem tartalmazza a Hamcrestes osztályokat, hanem egy tranzitív függőség van a <code>hamcrest-core</code> 1.3 (jelenleg legfrissebb) verziójára. Így mindenképpen ezt javaslom használni. A <code>JUnitMatchers</code> osztály metódusai deprecated-ek lettek, helyette a <code>org.hamcrest.CoreMatchers</code> metódusai használandók.</p>
+
+<p>Azért is érdemes a legutolsó JUnit-ot használni, mert korábbi verzióban az <code>org.junit.Assert.assertThat</code> nem használta az un. mismatch descriptiont, így a hibaüzenetek nem lettek olyan beszédesek, és figyelni kellett, hogy <code>MatcherAssert.assertThat</code> legyen használva. Szerencsére a JUnt 4.11 verziójában ezt már javították.</p>
+
+<p>Úgy látszik, hogy ebben a körben nagyon népszerű a különböző library-k összecsomagolása. A Mockito esetén is van egy <code>mockito-all</code> <a href="https://code.google.com/p/mockito/wiki/DeclaringMockitoDependency">artifact</a>, mely a Hamcrest és az <a href="https://code.google.com/p/objenesis/">Objenesis</a> osztályait csomagolja egybe. Ez akkor okoz kellemetlen meglepetést, mikor a Hamcrest egy újabb verzióját akarjuk használni, és nem tűnik fel, hogy a régebbi verzió osztályai már ott vannak a classpath-on.</p>
+
+<h3 id="egyebek">Egyebek</h3>
+
+<p>Persze lehet rengeteg matchert találni a neten is, pl. <a href="http://code.google.com/p/hamcrest-text-patterns/">szövegre</a>, <a href="https://github.com/modularit/hamcrest-date">dátumra</a>, <a href="https://github.com/tobyweston/simple-excel">Excel</a>, <a href="https://github.com/hertzsprung/hamcrest-json">JSON</a> és <a href="https://code.google.com/p/xml-matchers/">XML</a> formátumokra is, stb.</p>
+
+<p>Megjegyzendő, hogy a Hamcrest nem csak JUnittal együtt hasznos, hanem <a href="http://code.google.com/p/hamcrest/wiki/UsesOfHamcrest">más eszközök is használják</a>. Több nyelvre is portolták, mint <a href="http://github.com/hamcrest/PyHamcrest">Python</a>, <a href="http://github.com/hamcrest/ramcrest">Ruby</a>, <a href="http://github.com/hamcrest/OCHamcrest">Objective C</a>, <a href="http://code.google.com/p/hamcrest/downloads/list?q=label:PHP">PHP</a>, <a href="http://github.com/hyperthunk/hamcrest-erlang">Erlang</a>, <a href="https://github.com/drewbourne/hamcrest-as3">ActionScript</a>.</p>

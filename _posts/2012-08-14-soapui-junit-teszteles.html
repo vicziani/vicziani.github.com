@@ -1,0 +1,105 @@
+---
+layout: post
+title: Webszolgáltatások integrációs tesztelése soapUI és JUnit használatával
+date: '2012-08-14T23:52:00.000+02:00'
+author: István Viczián
+tags:
+- open source
+- SOA
+- JAX-WS
+- Maven
+modified_time: '2012-08-14T23:54:16.389+02:00'
+thumbnail: http://1.bp.blogspot.com/-G7GW-TvCFB0/UCrHmf3T9LI/AAAAAAAAJGE/usOu3olByI4/s72-c/soapui.png
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-7550091435364332920
+blogger_orig_url: http://www.jtechlog.hu/2012/08/soapui-junit-teszteles.html
+---
+
+<p>Használt technológiák: JAX-WS 2.2.6-2, JUnit 4.10, soapUI 4.5.1, Maven 3.0.3</p>
+
+<p>Már többször említettem a soapUI-t, mely az egyik legelterjedtebb eszköz webszolgáltatások fejlesztéséhez. Alapvetően egy webszolgáltatás teszteléséhez használatos kliensnek indult, de rengeteg mindennel kiegészítették, így szinte minden feladatot képes megoldani ezen a területen. Nagyon intuitív grafikus felülettel rendelkezik, és van ingyenes és kereskedelmi verziója is (<a href="http://www.soapui.org/About-SoapUI/compare-soapui-and-soapui-pro.html">összehasonlítás</a>).</p>
+
+<p>A legegyszerűbb, és leggyakrabban használt funkció, hogy elég megadni a WSDL URL-jét, és ehhez képes példa kéréseket gyártani. A kitöltendő paramétereket kérdőjellel jelöli meg, az opcionálisakat megjegyzéssel, és kitöltés után azonnal be tudjuk küldeni a kérést, melyre kapott választ azonnal megmutatja (a natív HTTP kérést és választ is). Ennél izgalmasabb talán, hogy teszt suite-okat is össze lehet állítani, benne test case-ekkel. Tudunk generáltatni példa kéréseket, és a válaszokra ellenőrzéseket, asserteket tudunk tenni. Ezek lehetnek egyszerű szöveg tartalmazások, XPath, XQuery kifejezések is, de akár Groovy script is. Felvehetünk property-ket, melyek értékét állíthatjuk, illetve a kérésekbe behelyettesíthetjük. Természetesen Groovy script-ből is használhatjuk őket. Ezekkel lehet pl. megoldani, hogy az első webszolgáltatás kérés visszaad egy sessionid-t, és később azt akarjuk küldeni a további webszolgáltatás kérésekben.</p>
+
+<p>Írtam is erre egy apró projektet, mely <a href="https://github.com/vicziani/jtechlog-soapui-testing">elérhető a GitHub-on</a>. Az ötletet a w3schools-ról vettem, ahol ki van ajánlva egy <a href="http://www.w3schools.com/webservices/tempconvert.asmx">TempConvert</a> webszolgáltatás Celsius és Fahrenheit közötti váltásra. Ezt implementálja a TempConvert.java osztály JAX-WS használatával, Maven-nel buildelhető, és a letöltést követően a 'mvn jetty:run' paranccsal futtatható. A webszolgáltatás a http://localhost:8080/services/TempConvert címen érhető el, innen van linkelve a WSDL állomány is. Ezt megadtam a soapUInak, és készítettem két tesztesetet is. A soapUI projekt az src/test/resources/TempConvert-soapui-project.xml állományban található.</p>
+
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-G7GW-TvCFB0/UCrHmf3T9LI/AAAAAAAAJGE/usOu3olByI4/s1600/soapui.png" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="227" width="320" src="http://1.bp.blogspot.com/-G7GW-TvCFB0/UCrHmf3T9LI/AAAAAAAAJGE/usOu3olByI4/s320/soapui.png" /></a></div>
+
+<p>Persze úgy gondolom, hogy a funkcionalitást nem ezen a szinten kell tesztelni, hanem alacsonyabb rétegeket kell megszólítani, viszont nem rossz, ha ilyen jellegű teszt esetek is vannak, melyek gyakorlatilag a webszolgáltatás interfész visszafele kompatibilitását tesztelik. Azért, hogy ne kelljen ezeket kézzel indítgatni, a soapUI fejlesztői lehetővé tették, hogy a soapUI teszteket JUnit-ból is meg lehessen hívni, mi több, egy Maven repositoryt is felállítottak.</p>
+
+<p>Tehát a használathoz először a pom.xml-be kell felvenni a függőségeket. Érdekes, hogy amennyiben a FastInfoset-et nem vettem fel, volt, amikor elszállt.</p>
+
+<pre class="brush: xml">
+&lt;repositories&gt;
+ &lt;repository&gt;
+  &lt;id&gt;eviwareRepository&lt;/id&gt;
+  &lt;url&gt;http://www.eviware.com/repository/maven2/&lt;/url&gt;
+ &lt;/repository&gt;
+&lt;/repositories&gt;
+
+&lt;dependencies&gt;
+ &lt;dependency&gt;
+  &lt;groupId&gt;eviware&lt;/groupId&gt;
+  &lt;artifactId&gt;maven-soapui-plugin&lt;/artifactId&gt;
+  &lt;version&gt;4.5.1&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+ &lt;/dependency&gt;
+
+ &lt;!--&lt;dependency&gt;
+  &lt;groupId&gt;com.sun.xml.fastinfoset&lt;/groupId&gt;
+  &lt;artifactId&gt;FastInfoset&lt;/artifactId&gt;
+  &lt;version&gt;1.2.12&lt;/version&gt;
+ &lt;/dependency&gt; --&gt;
+&lt;/dependencies&gt;
+</pre>
+
+<p>A következő lépés a teszteset előkészítése. Először el kell indítani a webszolgáltatást, majd azon lefuttatni a soapUI teszteseteket. Nagyon jó <a href="http://www.jroller.com/gmazza/entry/junit_web_service_testing">cikk található Glen Mazza's Weblogján</a>, melyben azokat részletezi, hogy hogyan lehet JUnit-ból tesztelni a webszolgáltatásokat. Leírja, hogy hogyan kell webszolgáltatást elindítani az Endpoint osztály segítségével, beágyazott Jettyvel vagy Tomcattel, vagy hogyan lehet külön Tomcatben futó webszolgáltatást tesztelni. Én a már <a href="/2012/08/soa-using-java-web-services.html">előző cikkben</a> is említett Endpointot választottam, mint pehelysúlyú megoldás, mely a Javaban található HTTP serveren indul el.</p>
+
+<pre class="brush: java">
+public class TempConvertIntegrationTest {
+
+    private static String address;
+
+    private static Endpoint ep;
+
+    @BeforeClass
+    public static void beforeClass() throws MalformedURLException {
+        address = "http://localhost:9000/TempConvert";
+        ep = Endpoint.publish(address, new TempConvert());
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        ep.stop();
+    }
+}
+</pre>
+
+<p>Csak elindítjuk a beépített HTTP servert a teszteset indításakor, és telepítjük rá a TempConvert webszolgáltatás, valamint a teszteset végén leállítjuk. Látszik, hogy a tesztelés http protokollon keresztül történik, végig a teljes lokális hálózati stacken, tehát olyan, mintha különálló kliens hívta volna meg.</p>
+
+<p>A következő lépésben már csak a soapUI tesztesetet kell elindítani.</p>
+
+<pre class="brush: java">
+@Test
+public void testTempConvert() throws Exception {
+  SoapUITestCaseRunner runner = new SoapUITestCaseRunner();
+  runner.setProjectFile(
+    "src/test/resources/TempConvert-soapui-project.xml");
+  runner.setEndpoint(address);
+  runner.run();
+}
+</pre>
+
+<p>Gyakorlatilag csak a soapUI projektfájl helyét kellett megadni, valamint a projektben definiált címet (ami a WSDL-ből jött) felül lehet írni a setEndpoint metódussal. Első indításkor ('mvn test') elég sokat kell várni, mert sok függősége van a soapUI-nak ('mvn dependency:tree'). A konzolra kiírt üzenetekből nagyon szépen látszik, hogy éppen mi történik, melyik suite-ot, test case-t futtatja, sikeres-e az assertion, stb. A főkönyvtárba *.log állományokat is írogat, hiba esetén megtalálhatók bennük a teljes http kérés és válasz is.</p>
+
+<p>Érdekességképpen ídeírok egy Groovy assertiont is.</p>
+
+<pre>
+def utils = new com.eviware.soapui.support.GroovyUtils( context )
+def holder = utils.getXmlHolder(messageExchange.responseContentAsXml)
+def celsius = holder["//fahrenheit"]
+log.info(celsius)
+assert Integer.parseInt(celsius) == 212
+</pre>
+
+<p>A soapUI ezen kívül még nagyon sok mindenre képes, kedvencem, hogy önmaga is tud webszolgáltatásként viselkedni, embedded Jetty-t indít, és még a választ is meg tudjuk adni, hogy mit adjon vissza, amit szintén script-ezhetünk, így a bejövő paraméterektől függően eltérő válaszokat adhatunk vissza. Ez rendkívül jól jön, amikor egy olyan webszolgáltatáshoz akarunk klienst fejleszteni, mely nem mindig elérhető. Ezen kívül használható terheléses tesztelésre is, valamint akár REST webszolgáltatásokat is hívhatunk, vagy újonnan JMS is tesztelhető vele.</p> 

@@ -1,0 +1,371 @@
+---
+layout: post
+title: Oracle Certified Expert, Java EE 6 Web Services Developer
+date: '2012-12-22T17:31:00.000+01:00'
+author: István Viczián
+tags:
+- SOA
+- JAX-WS
+- vizsga
+- JAX-RS
+- könyv
+modified_time: '2012-12-23T22:08:45.713+01:00'
+thumbnail: http://2.bp.blogspot.com/-jYtpOSmP_R8/UNYflaj0amI/AAAAAAAAJ4I/PC-wK8B2_tU/s72-c/up_and_running.jpg
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-310150438882392547
+blogger_orig_url: http://www.jtechlog.hu/2012/12/oracle-certified-expert-java-ee-6-web.html
+---
+
+<p>2012. december 12-én tettem le a <a href="http://education.oracle.com/pls/web_prod-plq-dad/db_pages.getpage?page_id=458&amp;get_params=p_track_id:JEE6WSD">Oracle Certified Expert, Java EE 6 Web Services Developer</a> (1Z0-897) vizsgát. Alapvetően a webszolgáltatások (mind SOAP, mind REST) alapfogalmaira, és a JAX-WS 2.2 és JAX-RS 1.1 specifikációkra koncentrál. Ahogy már <a href="/2012/09/oracle-java-vizsgak.html">korábban írtam róla</a>, ez a Oracle Certified Professional, Java (SE 5, SE 6, vagy SE 7) Programmer vizsgára épül, de még a régebbi SCJP-vel is letehető.</p>
+
+<p>A vizsgát a <a href="http://training360.com/">Training360-nál</a> tettem, ők intézték a regisztrációt is. A változatosság kedvéért ez most Pearson VUE-nál történik, küldik is utána szépen a tudnivalókat és a számlát levélben. A vizsga ára jelenleg 63 185 Ft. Hogy ne legyen olyan egyszerű, a Pearson VUE-nál is kell regisztrálni, utána az <a href="http://www.certview.oracle.com/">Oracle CertView programjában</a> is, ugyanis csak ott tudom az eredményt megtekinteni.</p>
+
+<p>A vizsga menete alapvetően változatlan, készítenek rólad egy fényképet, beülsz egy terembe hatodmagaddal egy gép elé minden nélkül, és sorban válaszolsz a feltett kérdésekre. Teszt jellegű, 60 kérdés van, 90 perc alatt kell megoldani, és 60%-ot kell elérni. Bejelölhetők a kérdések, hogy még vissza akarsz rájuk később térni, és bármikor kérheted, hogy vigyen végig újra a bejelölt, vagy az összes kérdéseken. A 90 perc elegendő, belefért, hogy nagyon alaposan végigmenjek az összes kérdésen, majd a bejelölteken, majd gyorsan még átnéztem újra az összeset (a végén már pár kimaradt). Annyi változott mostanság, hogy nem ott nyomtatják ki az eredményt előtted, hanem e-mailben kapsz egy értesítést, és egy PDF-et tudsz letölteni a CertView oldaláról. Gyakorlatilag amint kijöttem, már kaptam az értesítést, annak ellenére, hogy 30 perc türelmet kértek.</p>
+
+<p>A vizsgára felkészülni az SCJP-hez képest sokkal nehezebb volt, hiszen az utóbbihoz rettentő mennyiségű anyag, mock exam, könyv áll rendelkezésre, itt gyakorlatilag csak egy <a href="http://education.oracle.com/pls/web_prod-plq-dad/db_pages.getpage?page_id=609&amp;p_org_id=8&amp;lang=HU&amp;get_params=dc:D65185GC10,p_preview:N">Oracle tanfolyam</a> áll rendelkezésre, aminek nem is teljesen ugyanaz a tematikája, és el sem végeztem. Az eredményben azonban látható, hogy mely témakörben hány kérdést tettek fel, számomra kicsit meglepő:</p>
+
+<ul>
+<li>Legjobb gyakorlatok: 9 kérdés</li>
+<li>RESTful webszolgáltatások: 5 kérdés</li>
+<li>RESTful webszolgáltatások megvalósítása EJB-kkel: 3 kérdés</li>
+<li>SOAP webszolgáltatások EJB-kkel: 4 kérdés</li>
+<li>SOAP webszolgáltatások: 4 kérdés</li>
+<li>Alacsony szintű SOAP webszolgáltatások (Dispatcher): 4 kérdés</li>
+<li>Kliensek implementálása: 4 kérdés</li>
+<li>Java EE webszolgáltatások konfigurációja, biztonság beállítása, telepítése: 8 kérdés</li>
+<li>SOAP üzenetszintű biztonság: 7 kérdés</li>
+<li>MTOM/MIME: 7 kérdés</li>
+<li>WS-Addressing: 7 kérdés</li>
+</ul>
+
+<p>A DOM, SAX, StaX technológiákról csak koncepcionális szinten esett szó, mikor melyiket kell használni, tudjunk a StaX pull parser-jéről. JAX-B kérdésre nem emlékszem. Számomra az volt meglepő, hogy érzésre rengeteg biztonsággal, MTOM-mal és WS-Addressing-gel kapcsolatos kérdés volt, amit ráadásul a különböző könyvek nem jól tárgyalnak. Övön alulinak éreztem a Jersey kliens használatára vonatkozó kérdést is, hiszen az meg nem a szabvány része.</p>
+
+<p>Felkészülésként mindenképpen érdemes felkeresni a JavaRanch <a href="https://www.coderanch.com/how-to/java/ScdjwsLinks">ide vonatkozó oldalát</a>, valamint Mikalai Zaikin <a href="http://java.boot.by/ocewsd6-guide/">felkészítő anyagát</a>, ami kicsit hiányos ugyan, de megéri elolvasni. Kereskedelmi felkészítő anyaga az EPractize-nak és a Whizlabs-nak van, én egyiket sem használtam.</p>
+
+<p>A következő könyvekből készültem: <a href="/2012/08/soa-using-java-web-services.html">már írtam</a> Mark D. Hansen: SOA Using Java Web Services (Prentice Hall) könyvéről, mely egy jó kiinduló alap, bár talán a vizsgához nem elég mély. SOAP fronton ezen kívül a Martin Kalin: Java Web Services Up and Running (O'Reilly) könyvből készültem. Ez utóbbi egy rendkívül jó könyv, és bár sokan ezt mondják magukról, ez tényleg gyakorlatias. Már az elején elmondja, hogy hogyan kell debugolni, hogy lehet a dróton átmenő üzenettartalmaz kiíratni, amit még egy könyvben sem láttam ilyen részletesen kifejtve, különböző operációs rendszereken. A felépítése is ilyen, szóval nem a specifikáció alapján, hanem egy természetes íve van, ahogy kellenek az újabb és újabb feature-ök. A mintapéldák sem voltak annyira mondvacsináltak. Egyedül az nem tetszett, ahogy mind a két könyv a REST-ről beszél, feltehetőleg akkr még nem volt ekkora hype, így egyrészt keveset írnak róla, másrészt a JAX-WS specifikációval próbálják megugrani, ami erre alkalmatlan, pláne a JAX-RS-hez hasonlítva. Az utóbbi könyv említi ugyan a Jersey-t, de nagyon felületesen, ennél a vizsgára jóval több kell.</p>
+
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-jYtpOSmP_R8/UNYflaj0amI/AAAAAAAAJ4I/PC-wK8B2_tU/s1600/up_and_running.jpg" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="320" width="244" src="http://2.bp.blogspot.com/-jYtpOSmP_R8/UNYflaj0amI/AAAAAAAAJ4I/PC-wK8B2_tU/s320/up_and_running.jpg" /></a></div>
+
+<p>Ezen kívül a következő dokumentációkat érdemes elolvasni. A <a href="http://metro.java.net/guide/ch01.html">Metro projekt dokumentációját</a> mindenképp a security, MTOM, WSIT, WS-Addressing fejezetek miatt, máshol erre nem találunk jó dokumentációt. A <a href="http://docs.oracle.com/javaee/6/tutorial/doc/bnayk.html">Java EE 6 tutorial</a> ide vonatkozó fejezete is elég rövid ahhoz, hogy érdemes legyen átlapozni. A SAAJ-ról ugyan nem ír, de az <a href="http://docs.oracle.com/javaee/5/tutorial/doc/bnbhf.html">előző verzió igen</a>. Amennyiben nem tiszta, hogy mi a különbség az RPC/Literal, Document/Literal, Wrapped Document/Literal között, <a href="http://www.ibm.com/developerworks/webservices/library/ws-whichwsdl/">itt egy gyakran idézett cikk</a>. <a href="https://blogs.oracle.com/artf/entry/using_jax_ws_2_1">Ez a poszt</a> pedig a WS-Addressing használatáról ír a JAX-WS 2.1-ben.</p>
+
+<p>A REST témával kapcsolatban a Bill Burke: RESTful Java with JAX-RS (O'Reilly) könyvet ajánlom. Kötelező olvasmány mindenkinek, aki JAX-RS-t fejleszt. Két részből áll. Az egyik leírja a teljes JAX-RS szabványt, 14 fejezetben, példákkal együtt, a másik pedig egy workbook, gyakorlatilag egy tutorial, 10 fejezeten keresztül. Olyan dolgokat mutatott be, melyek létezéséről nem is tudtam a JAX-RS-ben, mindezt példás részletességgel.</p>
+
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-Rh6fHLiDF-k/UNYftpuVQ_I/AAAAAAAAJ4U/DzKhJEA5208/s1600/restful_java.jpg" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="320" width="244" src="http://4.bp.blogspot.com/-Rh6fHLiDF-k/UNYftpuVQ_I/AAAAAAAAJ4U/DzKhJEA5208/s320/restful_java.jpg" /></a></div>
+
+
+
+<p>Még egy kis magyarázkodás, hogy mi értelme is volt letenni a vizsgát, hiszen közvetlen előnye nincs. Egyrészt én oktatom ezt az anyagot, ezért kapóra jött, hogy egyúttal a vizsgát is leteszem. Másrészt nem árt egy kis vizsgadrukk, az ember munkakörnyezetben már ritkán kerül olyan helyzetbe, hogy egy nagyobb átfogó témakört ilyen alaposan fel kelljen dolgoznia, megtanulnia úgy, hogy még számonkérés is van, ezt a rutint sem szeretném elveszíteni. Persze a papírgyűjtés is motivál, újabb <a href="http://en.wikipedia.org/wiki/Achievement_%28video_gaming%29">achivement</a>. Ha a munkahely meg támogatja, akár a vizsgadíj megfizetésével, akár felkészülési idővel, egyszerűen bűn kihagyni.</p>
+
+<p>A további rész azoknak hasznos, akik vagy komolyan foglalkoznak a témával, vagy le akarják tenni a vizsgát. Megpróbáltam minden fogalmat összeszedni, nekem volt egy vázlat. Talán egy öntesztnek sem utolsó, hogy tényleg tisztában vagy-e mindennel.</p>
+
+<p>SOAP webszolgáltatások JAX-WS-sel</p>
+
+<ul>
+<li>Java EE 6 2009. dec. 10-én jött ki: JAX-WS 2.2 (JSR 224), JAX-RS 1.1, Web Services Metadata for the Java Platform 2.0 (JSR 181), SOAP with Attachments API for Java (SAAJ) 1.3</li>
+<li>MEP: Message Exchange Pattern, típusai: request/response, oneway, async callback, async polling</li>
+<li>SOAP: 1.2-től kezdve nem rövidítés</li>
+<li>WSDL felépítése: definitions, types: adattípusok definíciója, message: üzenetek defincíciója, message part-(ok)ból áll, portType: operációk halmaza, binding: protokoll és adatformátum specifikációk, pl. soap, ezen belül operáció, input-tal, output-tal, majd service, port: portType (interfész) és binding (implementáció összekapcsolása)</li>
+<li>WS-I: csak RPC/literal vagy document, de az utóbbinál body-n belül csak max egy elem lehet</li>
+<li>WS-I Basic Profile 1.1 egy dokumentum, mely a SOAP 1.1 és WSDL 1.1 szabványokat </li>
+</ul>
+
+<p>Style és encoding</p>
+
+<ul>
+<li>RPC/Literal
+<ul>
+<li>Paramétereket tartalmaz a híváshoz</li>
+<li>Mindig wrapped</li>
+<li>Wrapper element az operation neve</li>
+<li>Állhat több part-ból az input message</li>
+<li>Part mindig type attribútummal van deklarálva (szemben a document element-tel)</li>
+<li>csak a part-ok vannak a types részben leírva</li>
+<li>Part-nak megfelelő elemek névtér nélkül</li>
+<li>Válasz neve nem deklarált</li>
+</ul>
+</li>
+<li>Document/Literal
+<ul>
+<li>Dokumentumot tartalmaz a híváshoz</li>
+<li>Lehet több part</li>
+<li>Part mindig element-tel van megadva</li>
+<li>A teljes body tartama a sémában van definiálva</li>
+<li>Operation neve nem szerepel a soap üzenetben</li>
+<li>Part-ok közvetlenül a body-ban vannak, nincs wrapper, névtérrel ellátottak</li>
+<li>Response ugyanígy</li>
+</ul>
+</li>
+<li>
+Document/Literal wrapped
+<ul>
+<li>input message-nek csak egy gyereke van, a wrapper</li>
+<li>element-ként leírva, sémával meghatározva</li>
+<li>konvenció szerint operation neve = wrapper neve</li>
+<li>ugyanígy a response-nál is, konvenció szerint a wrapper neve az operation neve + "Response"</li>
+</ul>
+</li>
+</ul>
+
+<p>JAX-WS</p>
+
+<ul>
+<li>SEI</li>
+<li>Kötelező: SIB</li>
+<li>Nem muszáj a SIB-nek implementálnia a SEI-t, megadható az annotációban is, csak nem biztonságos -> futás idejű hiba</li>
+<li>Ha annotációban sincs megadva, implicit SEI</li>
+<li>Opcionális: SEI, WSDL, webservices.xml</li>
+<li>Osztály, public, nem lehet final vagy abstract</li>
+<li>Default public constructor-nak lennie kell, nem lehet finalize, nem tárolhat állapotot</li>
+<li>Metódusai nem lehetnek static vagy final</li>
+<li>Wsgen, wsimport</li>
+<li>A JAX-WS 2.1.6-tól változott az implicit esetén, több esetben lesz kiajánlva a metódus</li>
+<li>Explicit sei esetén az összes publikus metódust kiajánlja, a WebMethod csak további konfigurációkra való</li>
+<li>A wsimport generál: SEI, service, fault-hoz tartozó osztályt, ha kell; paraméter osztályokat, ha kell; Async Reponse Bean, ha kell</li>
+<li>external/embedded binding declaration: sei, exception, service neve, package neve, wrapper style</li>
+<li>JAXB: sémában annotation/appinfo tag-en belül</li>
+<li>JAX-WS kliens: Service.create(url, qname); service.getPort(SEI.class);</li>
+<li>Deploy JDK-ban: Endpoint.publish, egyszálú</li>
+<li>Default: Wrapped Document/Literal, RPC: @SOAPBinding(style = Style.RPC)</li>
+<li>@WebService annotáció targetNamespace attribútuma adja meg a névteret, amúgy a package alapján</li>
+<li>@RequestWrapper, @ResponseWrapper</li>
+<li>WebParam.Mode.OUT, Holder</li>
+<li>Ne wrapper-ek legyenek: customized binding, enableWrapperStyle</li>
+<li>@SoapBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)</li>
+<li>Ha aszinkron klienst akarunk, akkor ismét customized binding: enableAsyncMapping</li>
+<li>AsyncHandler</li>
+<li>Response</li>
+<li>wsimport -extension: SOAP 1.2 esetén</li>
+<li>Overload-olt metódusok esetén problémás</li>
+</ul>
+
+<p>Dynamic Invocation Interface (DII)</p>
+
+<ul>
+<li>Dispatcher, Provider</li>
+<li>@WebServiceProvider</li>
+<li>public Source invoke(Source)</li>
+<li>@ServiceMode: PAYLOAD - csak a tartalom, MESSAGE - az egész http kérés, fejlécestől</li>
+<li>@BindingType() - http</li>
+<li>Dispatch - Service.createDispatch</li>
+<li>Https: HttpsURLConnection, HttpsServer</li>
+<li>@WebService-t felismeri a Glassfish, de a @WebServiceProvider-t nem</li>
+</ul>
+
+
+<p>Handler</p>
+
+<ul>
+<li>Chain of responsibility tervezési minta</li>
+<li>Logical handler: Source, JAXB - protokollfüggetlen - csak a payload-hoz tud hozzáférni</li>
+<li>SOAP/protocol handler: SOAP, SAAJ, hozzáfér a teljes envelope-hoz</li>
+<li>Kliens oldalon a handler chain-ben nem csak a konfig sorrend dönt, hanem előbb futnak le a logical handler-ek, és csak utána a soap handler-ek</li>
+<li>Programozottan handler hozzáadása: HandlerResolver</li>
+<li>SOAPFaultException</li>
+<li>SOAP 1.2: BindingType annotáció</li>
+<li>SOAP 1.2: mustUnderstand</li>
+<li>Szerver oldalon: WebServiceContext.getMessageContext -> hozzáférés a context-hez (map), és abból a http header-ökhöz</li>
+<li>Kliens oldalon: a port BindingProvider-ré cast-olható, van getRequestContext metódusa</li>
+<li>Dependency injection: WebServiceContext</li>
+</ul>
+
+<p>MTOM</p>
+
+<ul>
+<li>MTOM: XSD, @BindingType, publikálásnál: ((SOAPBinding) endpoint.getBinding()).setMTOMEnabled(true); </li>
+<li>Kliens: activation.DataHandler</li>
+<li>Kliens file küldés: ((SOAPBinding)((BindingProvider) port).getBinding()).setMTOMEnabled(true);</li>
+<li>@MTOM annotáció</li>
+</ul>
+
+<p>WSIT</p>
+
+<ul>
+<li>Metro: azon része mely az MS-sel való együttműködés: WSIT - Webservice Interoperability Technologies - Security, Reliability, Transaction, bootstrapping, optimalization (régen project Tango)</li>
+<li>Bootstrapping: WS-MetadataExchange</li>
+<li>Reliable messaging: egyszeri, pontosan egyszeri üzenettovábbítás - acknowledge-al, sorrend (opcionálisan bekapcsolható)</li>
+<li>Atomic: AtomicTransaction, Coordination</li>
+</ul>
+
+<p>Security</p>
+
+<ul>
+<li>XML and WebServices Security Project (XWSS)</li>
+<li>WS-Security: message content integrity and confidentality, Prompter, Verifier implements CallbackHandler</li>
+<li>WS-Security (x) felett: WS-Policy felette WS-SecurityPolicy (x), WS-PolicyAttachment (x), WS-Trust (x), WS-Privacy, afelett WS-Secure Conversation (x), WS-Federation, WS-Authorization</li>
+<li>WS-Secure conversation - shared security context, több kérés/válasz esetén nem kell mindig az összes security információt küldeni - new security token type</li>
+<li>Trust: security token</li>
+<li>SecurityPolicy, mely a Policy-ra épül: security követelmények és tulajdonságok leírására</li>
+<li>WS-Trust: security token, Security Token Service - STS, az STS SAML tokent küld a kliensnek</li>
+<li>Signing and encription: WSDL-be plusz tag-ek</li>
+</ul>
+
+<p>WS-Addressing</p>
+
+<ul>
+<li>WS-Addressing: protokollfüggetlen címzés</li>
+<li>Kettő spec van: W3C WS-Addressing, Member Submission WS-Addressing, a Metro mindkettőt támogatja</li>
+<li>Standard tag-ek: To, From, ReplyTo, FaultTo, MessageID, Action, RealtesTo</li>
+<li>Végpont referencia: EPR</li>
+<li>MI header: message information</li>
+<li>Message Addressing Properties (MAPs) </li>
+<li>Anonymous uri: nem címezhető, pl. request/response request párja</li>
+<li>Annotáció: @javax.xml.ws.soap.Addressing, @Action, @FaultAction</li>
+<li>WSDL-ben: wsdl11:port vagy wsdl11:binding tag-be új tag</li>
+<li>Kliens oldal: WebServiceFeature -> AddressingFeature</li>
+<li>BindingProvider.SOAPACTION_URI_PROPERTY-t kell kliens oldalon beállítani</li>
+<li>Két paraméter: enabled, required</li>
+</ul>
+
+<p>SAAJ</p>
+
+<ul>
+<li>Új SOAPMessage létrehozásánál létrehozza a Part-ot, Envelope-ot és Header-t</li>
+<li>Attachment Part, mime headers, Content</li>
+<li>SOAPConnection</li>
+<li>Attachment: Content-Type, -Id, -Location</li>
+<li>Attachment setContent: String, stream, javax.xml.transform.Source vagy javax.activation.DataHandler</li>
+<li>A SOAP 1.1 specifikáció közvetlenül a header-ben csak a következő attribútumokat engedi: actor and mustUnderstand</li>
+<li>A SOAP 1.2 spec. ellenben: role (actor új neve), mustUnderstand, és relay</li>
+<li>Ha van SOAPFault a Body-n belül, nem lehet más</li>
+<li>code, string kötelező, lehet actor, SOAP 1.2-nél code, role, reasonText (locale-lal)</li>
+<li>A kódok QName-ek - SOAP specifikáció definiálja</li>
+</ul>
+
+<p>RESTful</p>
+
+<ul>
+<li>Roy Fielding: Architectural Styles and the Design of Network-based Software Architectures, 2000 (HTTP specifikáció egyik írója), Apache Software Foundation egyik alapítója</li>
+<li>Egyedileg címezhető erőforrások: resource, URI</li>
+<li>Uniform, constrained interface for manipulate resources</li>
+<li>Representation-oriented, content negotiation</li>
+<li>Stateless</li>
+<li>Hypermedia As The Engine Of Application State (HATEOAS): embedded links</li>
+</ul>
+
+<p>JAX-RS</p>
+
+<ul>
+<li>JAX-RS 1.1 (JSR 311)</li>
+<li>Referencia implementáció: Jersey</li>
+<li>POJO, annotation alapú</li>
+<li>Annotációk öröklése: super-class előnyt élvez az interfészen lévővel szemben</li>
+<li>Ha az implementáción van annotáció, akkor a többi helyen lévő annotációt nem veszi figyelembe</li>
+<li>Application osztály, kiterjeszteni kell, osztályokat ad vissza, melyet a provider példányosít, illetve példányokat, melyeket singleton-ként használ. Mindkettőn elvégzi az injection-t. </li>
+<li>Application erőforrásokat (@Path annotációval ellátott osztályokat), és provider-eket adhat vissza</li>
+<li>A JAX-RS provider cserélhető, erre van a RuntimeDelegate, saját alkalmazásban nem kell használni</li>
+</ul>
+
+<p>Provider</p>
+
+<ul>
+<li>A provider, melyen rajta van a @Provider annotáció, és valamilyen JAX-WS interfészt implementál</li>
+<li>Kell minimum egy publikus konstruktor, akár paraméterezett. Mindig a legtöbb paraméterrel rendelkező konstruktort választja</li>
+<li>Provider pl. a MessageBodyReader, Writer</li>
+<li>Provider pl. a ContextResolver, mellyel saját Context, pl. JAXBContext példányosítható</li>
+<li>ExceptionMapper-ek is provider-ek</li>
+</ul>
+
+<p>Context</p>
+
+<ul>
+<li>Per request esetén nincs párhuzamossági probléma</li>
+<li>Per request esetén attribútum is injektálható</li>
+<li>Konstruktor paraméter mindig injektálható</li>
+<li>A három első olvasó, aki ide eljut, vendégem egy sörre a következő JUM-on. Dobj egy e-mailt!</li>
+<li>@Context annotációval injektálunk</li>
+<li>A következőkbe injektálhatók: resource, provider, Application leszármazott</li>
+<li>A következők injektálhatók: Application (önmagába nem), UriInfo, HttpHeaders, Request, SecurityContext, Providers</li>
+<li>A Providers-en keresztül hozzá tudunk férni a MessageBodyReader, Writer-ekhez, ContextResolver-hez, ExceptionMapper-hez, azaz amit a Provider annotációval elláthatunk</li>
+</ul>
+
+<p>Erőforrások</p>
+
+<ul>
+<li>@Path</li>
+<li>Root resource class: vagy @Path-tal annotált, vagy van legalább egy Path-tal vagy request method designatorral (@GET, stb.) annotált metódusa</li>
+<li>Request method: request method designator-ral annotált metódus</li>
+<li>Egy metóduson csak egy @GET, @PUT, stb. annotáció lehet, különben deployment error</li>
+<li>A @HttpMethod annotáció egy metaannotáció, mely rajta van a @GET, stb. metódusokon</li>
+<li>HEAD kérés esetén először @HEAD metódust keres, ha nincs, akkor a @GET-et hívja, csak nem ad Response-t</li>
+<li>OPTIONS kérés először @OPTIONS metódust keres, ha nincs választ generál az annotációk alapján -> WADL</li>
+<li>@ApplicationPath globális url megadásra, ehhez jön hozzá a resource-onkénti</li>
+<li>A /{foo} path-ra nem illeszkedik a /foo/bar, de a /{foo: .+} path-ra igen (lásd perjelek értelmezése)</li>
+<li>Amennyiben egy url több path-ra is illeszkedik, a provider a legpontosabbra próbálja illeszteni. Van egy nem minden esetet lefedő precedencia szabály, mely általában jó. Először a literálok számát nézi, majd a template-ek számát, majd a reguláris kifejezésekkel ellátott template-ek számát.</li>
+<li>Nem minden karakter megengedett az uri-ban, valamint van, aminek speciális jelentése van. A többit escape-elni kell. A @Path annotációban nem kötelező escape-elni.</li>
+<li>A subresource olyan POJO, melyhez egy resource POJO továbbítja a kiszolgálást. Nem kell rá @Path annotáció, hiszen nem a root uri-hoz képest figyel, valamint nem kell az Application osztályban regisztrálni.</li>
+<li>Ha az illeszkedő path-ban két mátrix paraméter ugyanazon a néven szerepel, akkor PathSegment-et kell használni, mert nem egyértelmű a @MatrixParam injection. @PathParam List &lt;PathSegment&gt; formában</li>
+<li>@FormParam esetén implicit dekódolás van, @Consumes("application/x-www-form-urlencoded")</li>
+<li>Primitív típus, String mappelésén kívül minden olyan típust mappel, melynek van String paramétert váró konstruktora, vagy statikus valueOf metódusa String paraméterrel</li>
+<li>Van automatikus collection konverzió</li>
+<li>@HeaderParam, @CookieParam mappelési hiba esetén 400-as hiba, amúgy 404</li>
+<li>@DefaultValue annotációval adhatjuk meg az alapértelmezett értékeket</li>
+<li>@Encoded annotációval adhatjuk meg, hogy mi akarjuk dekódolni, tehát azt kapjuk, amit a HTTP ad, dekódolás nélkül</li>
+</ul>
+
+<p>Content Handlers</p>
+
+<ul>
+<li>A következő típusokat standard MessageBodyReader-ek és Writer-ek kezelik, ezek entity provider-ek</li>
+<li>StreamingInput, StreamingOutput - callback model, általában performancia okokból jobb, ha a provider hív vissza (pl. lehet, hogy új szálon), valamint illeszkedik az aszinkron modellbe.</li>
+<li>InputStream, Reader</li>
+<li>File, byte[], String, char[] is használható input/output paraméterként</li>
+<li>Activation DataSource is kezelendő</li>
+<li>MultivaluedMap&lt;String, String&gt; form értékekhez, dekódolja a provider, használható az @Encoded annotáció</li>
+<li>javax.xml.transform.Source, a Document-et nem definiálja a specifikáció</li>
+<li>JAXB: XmlRootElement, XmlType annotációval jelölt osztályok és JAXBElement példányba burkolt objektumok leképzését is támogatja</li>
+<li>JAXBContext-et tud példányosítani, de felüldefiniálhatjuk ContextResolver&lt;JAXBContext&gt;-ben (pluggable factories), amit az Application-ben definiálhatunk</li>
+<li>JSON-höz nem kell speciális kezelés, egyedül a mime type-ot kell application/json-ként jelölni</li>
+<li>Saját marshallinghoz: MessageBodyWriter, sorbarendezés, legjobb illesztés a mime type-ra, @Provider annotáció, @Produces annotáció</li>
+<li>MessageBodyReader, @Provider, @Consumes annotáció</li>
+<li>isWritable, isReadable - a paraméterként adott objektumot tudja-e kezelni (+generikus típus, annotáció, media type)</li>
+</ul>
+
+<p>Response code, response, exception</p>
+
+<ul>
+<li>ResponseBuilder-rel előállítható a Response</li>
+<li>WebApplicationException saját kivétel</li>
+<li>Megadható benne saját Response</li>
+<li>Error vagy unchecked exception megy a konténer felé, a többit viszont be kell csomagolni, és úgy megy a konténer felé</li>
+<li>ExceptionMapper a kivételek kezelésére, generikussal paraméterezhető, mindig a kivételre legjobban illeszkedőt keresi</li>
+<li>ExceptionMapper-t a @Provider annotációval kell ellátni</li>
+</ul>
+
+<p>Content Negotiation</p>
+
+<ul>
+<li>@Produces, @Consumes, tehető resource-ra, metódusra, és a content handler-re is</li>
+<li>Variant: media type, language, encoding</li>
+<li>VariantListBuilder: builder</li>
+</ul>
+
+<p>HATEOAS</p>
+
+<ul>
+<li>UriBuilder URI-k összeállítására, template paraméter is használható</li>
+<li>Az UriBuilder egy resource osztályt kapva parmaéterként is képes összeállítani az URI-t</li>
+<li>UriInfo-val is létrehozható UriBuilder, ekkor adott a séma, szerver, port, context</li>
+<li>Cache-elés a CacheControl osztályon keresztül, nincs rá annotáció</li>
+<li>EntityTag osztály az ETag kezelésére</li>
+<li>Szerver oldalon kezelni a If-Modified-Since vagy ETag header-eket: Request interfész (injektálható) evaluatePreconditions metódusai.</li>
+<li>Nem csak cache-elésre használható, hanem konkurrencia kezelésre is, hogy csak akkor történjen a módosítás, ha nem változott az erőforrás</li>
+</ul>
+
+<p>Deploy</p>
+
+<ul>
+<li>Deploy: JAX-RS unaware konténerben egy servlet-et, és annak int-param-ként kell megadni az Application-t, aware konténerben az Application tehető közvetlenül a web.xml-be. Java EE 6-nál nem kell semmi az xml-be, classpath-t bejárja, és nézi az annotációkat.</li>
+<li>@Context annotációval a ServletContext és a ServletConfig injektálható</li>
+<li>Java EE 6 konténerben a szokásos dolgok injektálhatók: @Resource,  @PersistenceContext,  @PersistenceUnit, és  @EJB, támogatja Java EE 6-ban a JSR-299 szabványt.</li>
+<li>Java EE konténer által biztosított autentikáció és authorizáció adott. Programozott esetben a SecurityContext @Context annotációval injektálható</li>
+</ul>
+
+<p>Kliens</p>
+
+<ul>
+<li>Szabvány nem szól róla</li>
+<li>Legegyszerűbb esetben HttpURLConnection</li>
+<li>setDoOutput - request body-ba is lehet írni</li>
+<li>Jersey Client API</li>
+</ul>

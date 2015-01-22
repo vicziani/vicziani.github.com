@@ -1,0 +1,39 @@
+---
+layout: post
+title: E-mail kezelés tesztelése
+date: '2009-08-19T01:15:00.004+02:00'
+author: István Viczián
+tags:
+- Library
+- Tesztelés
+- Java EE
+- Spring
+modified_time: '2010-09-18T00:32:14.789+02:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-4697469845931444657
+blogger_orig_url: http://www.jtechlog.hu/2009/08/email-kezeles-tesztelese.html
+---
+
+<p>Többször kellett már olyan alkalmazást fejleszteni, mely elektronikus levelet küld SMTP protokollon, vagy egy mailbox tartalmát figyeli POP3, esetleg IMAP protokollon. Ilyen alkalmazás tesztelése elég nehézkes, hiszen kell hozzá egy mail szerver, megfelelő e-mail címekkel és folder-ekkel. Vagy rendelkezésre áll ilyenkor az éles környezet, amin nem szerencsés tesztelni, vagy a legrosszabb esetben még egy mail szervert is telepíteni kell.</p><p>Erre ad megoldást a <a href="https://mock-javamail.dev.java.net/">Mock JavaMail</a> projekt. Ez gyakorlatilag négy osztály, mely kihasználja a <a href="http://java.sun.com/products/javamail/">JavaMail API</a> plugin-olhatóságát. Ezt a Session osztály teszi lehetővé, mely lehetőséget biztosít a különböző protocol provider-ekhez. A protocol provider-ek különböző osztályok, melyek a különböző protokollokat kezelik. Ezek lehetnek Transport leszármazottak pl. küldés esetén, melynek egyik leszármazottja a SMTPTransport osztály az SMTP protokoll kezelése, és lehetnek Store leszármazottak, melyek egy üzenet tárolót reprezentálnak, és az üzenetek kezelését, letöltését teszik lehetővé. A Store leszármazottja a POP3Store POP3 protokoll és az IMAPStore az IMAP protokoll kezelésére. A Session osztály a protokollokhoz tartozó provider-eket a javamail.providers vagy javamail.default.providers állományok alapján tölti be, a protokollokhoz tarozó cím típusokat a javamail.address.map vagy a javamail.default.address.map alapján tölti be. Tipikusan a cím típus SMTP esetén rfc822 (rfc-ben meghatározott), NNTP esetén news.</p><p>Ezen állományokat a Session vagy a java.home környezeti változóban meghatározott könyvtár lib alkönyvtárából, vagy a META-INF könyvtárból tölti be. A Mock JavaMail felüldefiniálja az SMTP, POP3 és IMAP protokollokhoz tartozó provider-eket, úgy, hogy a META-INF könyvtárában szerepel a javamail.providers állomány, mely a saját Transport és Store osztályait állítja be. Emiatt a Mock JavaMail nagyon egyszerűen használható, hiszen nem kell mást tenni, mint a JAR állományát (a poszt írásának időpontjában mock-javamail-1.7.jar) el kell helyezni a CLASSPATH-ban.</p><p>Ezután pontosan úgy lehet levelet küldeni, mint a standard JavaMail API használatakor, azaz:</p><pre class="brush: java">MimeMessage msg = new MimeMessage(session);
+msg.addRecipient(RecipientType.TO, new InternetAddress("foo@bar.com"));
+msg.setSubject("Foo subject");
+msg.setText("Foo body");
+Transport.send(msg);</pre><p>Valamint levelet is pontosan ugyanúgy lehet fogadni:</p><pre class="brush: java">Store store = session.getStore();
+store.connect("bar.com", "foo", "bar");
+Folder folder = store.getDefaultFolder();
+folder.open(Folder.READ_WRITE);
+Message[] messages = folder.getMessages();</pre><p>Ez a kód semmiben nem tér el a JavaMail API normál használatától, azaz a kódunkban akár változatlanul is hagyhatjuk. A különbség annyi, hogy a JAR CLASSPATH-ban való elhelyezése után a teszt eset futtatásakor a JavaMail API a Mock JavaMail provider-eit fogja használni, azaz a mailbox-okat és az üzeneteket a memóriában tárolja, amit a org.jvnet.mock_javamail.Mailbox osztály valósít meg, mely a ArrayList&lt;Message&gt; osztály leszármazottja. Egy mailboxes statikus tagja tárolja az e-mail címekhez tartozó Mailbox példányokat, melyeket a get statikus metódussal lehet elérni. Azaz pl. az Assert-nél használhatjuk a következő kódrészletet a levélküldés után:</p><pre class="brush: java">List<message> inbox = Mailbox.get("foo@bar.com");
+assertEquals(1, inbox.size());
+assertEquals("Foo subject", inbox.get(0).getSubject());</message></pre><p>Egy Mailbox példányon meghívhatjuk a setError(true) metódust is, ekkor a Mailbox példányhoz való hozzáférés hibát fog dobni. Ezzel tesztelhetjük az alkalmazásunk hibakezelését is.</p><p>A Session-t lehet direktben is példányosítani, de egy webes alkalmazás esetében a legszebb megoldás, ha a web konténer vagy az alkalmazásszerverben definiáljuk erőforrásként, és az alkalmazásunk JNDI-vel fér hozzá. Persze teszteléskor, ha a teszt esetet out of container futtatjuk, akkor a Session-t magunknak kell példányosítanunk. Én Spring-et használok, így a Session-t a Spring dependency injection-nel állítja be. Viszont a Session-t nem lehet közvetlenül példányosítani, hanem factory metódusai vannak, mint a getDefaultInstance. Emiatt a Spring-ben a következőképp lehet példányosítani:</p><pre class="brush: xml">&lt;bean id="session" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"&gt;
+&lt;property name="targetClass"&gt;&lt;value&gt;javax.mail.Session&lt;/value&gt;&lt;/property&gt;
+&lt;property name="targetMethod"&gt;&lt;value&gt;getDefaultInstance&lt;/value&gt;&lt;/property&gt;
+&lt;property name="arguments"&gt;
+&lt;list&gt;
+  &lt;props&gt;
+      &lt;prop key="mail.store.protocol"&gt;pop3&lt;/prop&gt;
+   &lt;prop key="mail.smtp.host"&gt;bar.com&lt;/prop&gt;
+      &lt;prop key="mail.smtp.user"&gt;foo&lt;/prop&gt;      
+  &lt;/props&gt;
+&lt;/list&gt;
+&lt;/property&gt;
+&lt;/bean&gt;</pre><p>Ahhoz, hogy az alkalmazásunk működjön, a JavaMail API JAR-ját is el kell helyeznünk a CLASSPATH-ban (jelenlegi verzió a 1.4.2, mail.jar), valamint Java 6 előtt a Java Activation Framework legutolsó verzióját (1.1.1, activation.jar). A Java 6-nál ez már nem szükséges, ugyanis már bekerült a javax.activation csomag.
+</p><p>A projekt oldalán lévő letöltés link nekem nem működött, viszont <a href="http://download.java.net/maven/2/org/jvnet/mock-javamail/mock-javamail/1.7/">innen letölthető</a>, forráskóddal együtt.</p><p>A projekt oldala három alternatívát is megemlít: <a href="http://code.google.com/p/subethasmtp/wiki/Wiser">Wiser</a>, <a href="http://quintanasoft.com/dumbster/">Dumbster</a>, és az <a href="https://aspirin.dev.java.net/">Aspirin</a>, de első látásra mindegyik csak egy külön indítható, beépíthető pehelysúlyú SMTP szerver, üzenetek küldésének tesztelésére. Ezzel szemben a Mock JavaMail mock provider-eket tartalmaz, melyekkel a küldésen kívül a fogadás is tesztelhető.</p>

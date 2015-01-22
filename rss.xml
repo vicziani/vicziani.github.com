@@ -1,0 +1,36 @@
+---
+layout: null
+title : RSS Feed
+---
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>{{ site.title }} - {{site.author}}</title>
+        <description>{{ site.lead }}</description>
+		<language>hu-HU</language>
+        <link>{{ site.url }}/rss.xml</link>
+        <link>{{ site.url }}</link>
+        <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>
+        <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
+        <ttl>1800</ttl>
+		<image>
+			<url>{{ site.url }}/favicon.ico</url>
+			<title>{{ site.title }} - {{site.author}}</title>
+			<link>{{ site.url }}</link>
+			<width>16</width>
+			<height>16</height>
+		</image>
+
+{% for post in site.posts limit:25 %}
+        <item>
+                <title>{{ post.title }}</title>
+                <description>{{ post.content | xml_escape }}</description>
+                <link>{{ site.url }}{{ post.url }}</link>
+                <guid>{{ site.url }}{{ post.id }}</guid>
+                <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+        </item>
+{% endfor %}
+
+</channel>
+</rss>

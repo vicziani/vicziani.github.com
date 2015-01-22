@@ -1,0 +1,271 @@
+---
+layout: post
+title: Eseményküldés szerver oldalról
+date: '2012-10-14T23:54:00.001+02:00'
+author: István Viczián
+tags:
+- Design Patterns
+- Ajax
+- Spring
+modified_time: '2012-11-02T22:20:13.018+01:00'
+thumbnail: http://3.bp.blogspot.com/-WsVLmQnVWaA/UHszMAPNQEI/AAAAAAAAJXA/QXlIncO4R_s/s72-c/event-osztalydiagram.png
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-2324167374630342322
+blogger_orig_url: http://www.jtechlog.hu/2012/10/esemenykuldes-szerver-oldalrol.html
+---
+
+<p>Technológiák: Spring 3.1.1, DWR 3.0, Guava 13.0.1</p>
+
+<p>Egy projektben olyan webes keretrendszert használtam, mely képes volt szerver oldalról üzeneteket küldeni a kliens oldal felé. Ezt ugyan a klasszikus http nem teszi lehetővé, hiszen az egy kérés-válasz alapú kommunikációs mód, ahol mindig a kliens kérdez, azonban vannak kerülő megoldások, melyekről később lesz szó. Az első probléma ugyanis nem itt, hanem korábban jelentkezett, méghozzá hogyan lehet egy n-rétegű alkalmazást felkészíteni erre a kommunikációs formára, anélkül, hogy megzavarnánk az eddig kialakult architektúrát és szabályokat. A posztban írok ennek a megoldásáról, de két Springes érdekesség is bemutatásra kerül, a contextek hierarchiája, a beépített eseménykezelés, szó lesz a Guava Event Busról is, valamint hogyan lehet <a href="http://directwebremoting.org/dwr/index.html">Direct Web Remoting</a> (DWR) használatával a kliens oldalt értesíteni.</p>
+
+<p>Az alapvető probléma az, hogy ez ellentmond a legtipikusabb esetnek, mikor van egy webes komponensünk, mely behív az üzleti logikába. Középen helyezkedik el ugyanis az üzleti logika réteg, és arra épül rá a webes réteg. A webes réteg az üzleti logikát egy API-n keresztül éri el, viszont jobb esetben erről az üzleti logika nem tud, ő csak az alatt lévő réteget (perzisztens) réteget hívja. Itt viszont pont az ellentettjére van szükségünk, mikor az üzleti logika hív ki a webes rétegbe. Hogy is oldjuk fel az itt lévő ellentmondást?</p>
+
+<p>Egy megoldás lehet az Observer tervezési minta használata. Gyakori tervezési minta, főleg felhasználói felületeknél használatos, pl. ez húzódik meg az (MVC) Model-View-Controller mögött is, valamint ismerős lehet, ha már használtunk eseménykezelőket, listenereket. Az alapprobléma, hogy van egy objektumunk, és annak állapotának változása esetén egy másik objektumnak el kell valamit végeznie. Ez történhetne úgy is, hogy az egyik objektum közvetlenül hívja a másik objektumot, azonban ennek több hátránya is. Egyrészt szoros kapcsolat van a két objektum között, melyet nem szeretünk, valamint amennyiben újabb és újabb műveleteket kellene elvégeznünk, mindig bővítenünk kell a hívást is. Erre megoldás az, hogy az érdekes állapot változással rendelkező objektumot kinevezzük megfigyeltnek (Observable), és definiálunk egy interfészt, melyeket a megfigyelők implementálnak (Observer). Az Observable objektumon bármennyi Observer implementációt lehet regisztrálni, és amennyiben bekövetkezik az állapotváltozás, az végighívja az összes megfigyelőt. Ezzel megszüntettük a szoros kapcsolatot, a plusz interfész bevezetésével, valamint bármennyi megfigyelőt hozzáadhatunk anélkül, hogy a megfigyeltet módosítani kéne.</p>
+
+<p>Természetesen jelen példánkban a megfigyelt az üzleti logika, és a megfigyelő pedig a webes rétegben egy olyan komponens, mely a böngészőt tudja értesíteni. Több megoldást is meg fogok mutatni, melyek közül az igényeknek megfelelően lehet választani, és tetszőlegesen személyre szabni.<p>
+
+<p>Példaprogram is született, mely <a href="https://github.com/vicziani/jtechlog-event">itt elérhető a GitHub-on.</a> A következő három példát lehet itt találni:</p>
+
+<ul>
+<li>jtechlog-event-eo: java.util.EventObject használatával</li>
+<li>jtechlog-event-ae: Spring ApplicationEvent küldése</li>
+<li>jtechlog-event-geb: Guava Event Busszal</li>
+</ul>
+
+<p>Mindhárom példa Maven-nel buildelhető, és a letöltést követően a 'mvn jetty:run' paranccsal futtatható.</p>
+
+<p>Az alkalmazás a következőképp működik. Be kell hívni egy vagy több böngészőben/böngészőablakban az alkalmazást, majd a szövegbeviteli mezőbe beírni egy szöveget. Ennek a szövegnek az összes kliensen meg kell jelennie.</p>
+
+<p>A választott webes keretrendszer, mely képes kliens oldalra hívni a DWR. A post végén kitérek ennek mikéntjére, de most minket az érdekel, hogy üzleti oldalról hogy jut el az esemény a DWR-ig. A jtechlog-event-eo projektben erre a standard Java megoldást használom, ahogy az AWT eseménykezelés is működik.</p>
+
+<p>A service rétegben lévő StatusService osztály fogadja a felhasználó felől az interakciót, és szeretné ezt a többi webes kliensnek továbbítani. Az első példában (jtechlog-event-eo) a service rétegben deklarálok egy StatusEvent esemény osztályt, mely a Javas EventObject osztály leszármazottja. Valamint egy StatusEventListener interfészt, mely a java.util.EventListener leszármazottja. Ezt implementálja webes rétegben a StatusEventSender osztály, mely a böngészőnek továbbítja az eseményt, az implementált onStatusEvent metódusban:</p>
+
+<pre class="brush: java">
+@Service
+public class StatusEventSender implements StatusEventListener {
+
+    @Override
+    public void onStatusEvent(StatusEvent statusEvent) {
+   // Küldés a böngésző felé, lásd később
+    }
+}
+</pre>
+
+<p>A StatusService ilyen Listenereket képes regisztrálni, és állapotváltozás esetén hívni. Először egy Spring-es trükköt próbáltam elkövetni, méghozzá az Autowired annotációval automatikusan beállítani ezeket a Listenereket:</p>
+
+<pre class="brush: java">
+@Service
+public class StatusService {
+
+  private List&lt;StatusEventListener&gt; statusEventListeners 
+    = new ArrayList&lt;StatusEventListener&gt;();
+
+  public void postStatus(String status) {
+    for (StatusEventListener statusEventListener: 
+      statusEventListeners) {
+        statusEventListener.onStatusEvent(
+          new StatusEvent(this, status));
+      }
+  }
+
+  @Autowired
+  public void setStatusEventListeners(List&lt;StatusEventListener&gt; 
+      statusEventListeners) {
+    this.statusEventListeners = statusEventListeners;
+  }
+}
+</pre>
+
+<p>A Spring ezt alapból tudná, ugyanis amennyiben az Autowired annotáció rajta van a metóduson, próbálja begyűjteni az összes StatusEventListener interfészt implementáló osztályt, és azt tenni a listába, és azt értékül adni az attribútumnak. A szép elképzelést azonban a Spring context kezelése meghiúsította. Röviden a web contextben lévő beanek nem látszanak a service contextben lévő beanek számára. (Ez alapjában véve elfogadható. A Spring context hierarchia kezeléséről amúgy kevés dokumentáció van, itt található <a href="http://techo-ecco.com/blog/spring-application-context-hierarchy-and-contextsingletonbeanfactorylocator/">egy kis kivétel</a>.)</p>
+
+<p>Amennyiben a StatusEventSendert átmozgatjuk a service-ek közé, a probléma megoldódik. De amennyiben a klasszikus modellnél akarunk maradni, nekünk kell gondoskodnunk a listenerek regisztrációjáról. Egyrészt így módosul a StatusService:</p>
+
+<pre class="brush: java">
+@Service
+public class StatusService {
+
+  private List&lt;StatusEventListener&gt; statusEventListeners 
+    = new ArrayList&lt;StatusEventListener&gt;();
+
+  public void postStatus(String status) {
+    for (StatusEventListener statusEventListener: 
+        statusEventListeners) {
+      statusEventListener.onStatusEvent(new StatusEvent(this, status));
+    }
+  }
+
+  public void addStatusEventListener(
+      StatusEventListener statusEventListener) {
+    statusEventListeners.add(statusEventListener);
+  }
+}
+</pre>
+
+<p>Másrészt a StatusEventSendert kell kiegészíteni a regisztráció hívásával. Gyakorlatilag a bean elkészítése után értesítjük a StatusServicet a meglétéről.</p>
+
+<pre class="brush: java">
+@Service
+public class StatusEventSender implements StatusEventListener {
+
+    @Autowired
+    private StatusService statusService;
+
+    @PostConstruct
+    private void register() {
+        statusService.addStatusEventListener(this);
+    }
+
+    @Override
+    public void onStatusEvent(StatusEvent statusEvent) {
+   // Kliens értesítése
+    }
+}
+</pre>
+
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-WsVLmQnVWaA/UHszMAPNQEI/AAAAAAAAJXA/QXlIncO4R_s/s1600/event-osztalydiagram.png" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="155" width="320" src="http://3.bp.blogspot.com/-WsVLmQnVWaA/UHszMAPNQEI/AAAAAAAAJXA/QXlIncO4R_s/s320/event-osztalydiagram.png" /></a></div>
+
+<p>Ezzel már teljesítettük a feladatot, a StatusService lazán csatolt a StatusEventSenderrel, hiszen nincs rá referenciája, de mégis értesíti azt az állapotváltozásáról.</p>
+
+<p>A második példában (jtechlog-event-ae) a Spring beépített eseménykezelését szeretném bemutatni. A Springben bármilyen beanből eseményt lehet küldeni, amit más beanek fogadni tudnak. Először megcsináljuk az Eventünket, mely a org.springframework.context.ApplicationEvent leszármazottja.</p>
+
+<pre class="brush: java">
+public class StatusEvent extends ApplicationEvent {
+
+    private String status;
+
+    public StatusEvent(Object source, String status) {
+        super(source);
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+}
+</pre>
+
+<p>Utána a StatusServicet implementáljuk, mely az eseményt elküldi. Ehhez egy ApplicationEventPublisher-re van szükségünk, melyhez a ApplicationEventPublisherAware használatával lehet hozzáférni. Aztán a publishEvent metódussal tudunk eseményt küldeni.</p>
+
+<pre class="brush: java">
+@Service
+public class StatusService implements ApplicationEventPublisherAware {
+
+  private ApplicationEventPublisher applicationEventPublisher;
+
+  public void postStatus(String status) {
+    applicationEventPublisher
+        .publishEvent(new StatusEvent(this, status));
+  }
+
+  public void setApplicationEventPublisher(ApplicationEventPublisher 
+      applicationEventPublisher) {
+    this.applicationEventPublisher = applicationEventPublisher;
+  }
+}
+</pre>
+
+<p>Utána a StatusEventSendert írjuk meg, mely fogadja az eseményt, és értesíti a böngészőt. Implementálja az ApplicationListener interfészt, az onApplicationEvent metódussal.</p>
+
+<pre class="brush: java">
+@Service
+public class StatusEventSender implements 
+    ApplicationListener&lt;StatusEvent&gt; {
+
+  @Override
+  public void onApplicationEvent(StatusEvent statusEvent) {
+    // Böngésző hívása
+  }
+}
+</pre>
+
+<p>A megoldással pontosan az a baj, melybe az előbbi esetben is belefutottunk, méghozzá a service contextben lévő beanek nem dobhatnak üzenetet a web contextben lévő beaneknek, csupán fordítva. Azaz itt is igaz az állítás, hogy a service réteg nem tudhat a web rétegből. Az a megoldás, hogy a StatusEventSendert áttesszük a service-ek közé, ismét működik.</p>
+
+<p>Amennyiben komolyabb megoldásra van szükségünk, használhatjuk a Guava könyvtár (Google core Java libraryje, collection komponensekkel, cache-eléssel, párhuzamosságot, Stringeket és fájlokat kezelő segédosztályokkal) Guava EventBus komponensét. A <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/eventbus/package-summary.html">csomag leírásában van egy nagyon jó dokumentáció</a>, hogy miért jobb, mint a Java beépített eseménykezelése, ezért erre most nem térnék ki.</p>
+
+<p>Először a Springben definiálni kell az EventBust, majd definiálni kell egy POJO eseményt. Az EventBushoz dependency injectionnel hozzá lehet férni.</p>
+
+<pre class="brush: java">
+@Service
+public class StatusService {
+
+    @Autowired
+    private EventBus eventBus;
+
+    public void postStatus(String status) {
+        eventBus.post(new StatusEvent(status));
+    }
+}
+</pre>
+
+<p>Az EventBusra regisztrálni kell, és eseményt fogadni a @Subscribe annotáció használatával lehet.</p>
+
+<pre class="brush: java">
+@Service
+public class StatusEventSender {
+
+    @Autowired
+    private EventBus eventBus;
+
+    @PostConstruct
+    private void register() {
+        eventBus.register(this);
+    }
+
+    @Subscribe
+    public void onStatusEvent(StatusEvent statusEvent) {
+   // Küldés kliens felé
+    }
+}
+</pre>
+
+<p>A Spring integrációhoz jól jöhet a <a href="https://github.com/armsargis/guava-eventbus-spring">guava-eventbus-spring</a> projekt is, de mivel nincs fenn a központi Maven repositoryban, én nem használtam. Ez definiál Spring névteret, így sokkal könnyebben lehet az EventBust konfigurálni, valamint annotáció alapján automatikusan képes beregisztrálni a subscribereket, nem kell nekünk ezt manuálisan megtennünk.</p>
+
+<p>Most már csak azt az adósságomat kell törleszteni, hogy hogyan lehet DWR-ben a kliens oldal felé üzenetet küldeni. Erre egy nagyon hatékony megoldás áll a rendelkezésünkre: szerver oldali Javaból tudunk JavaScript függvényt hívni! Hogy ez a HTTP-n hogyan történik, a DWR <a href="http://directwebremoting.org/dwr/documentation/reverse-ajax/index.html">három lehetőséget biztosít</a>:</p>
+
+<ul>
+<li>Polling: nem kell magyarázni, szabványos időközönként megkérdezi a szervert, hogy van-e függvényhívás</li>
+<li>Comet: nyit egy HTTP kérést, és az addig blokkolódik, míg nem történik valami, vagy timeout</li>
+<li>Piggyback: ha történik amúgy is egy szerver oldali kérés, abban adott válaszban küldi vissza a DWR a függényhívás tényét is</li>
+</ul>
+
+<p>Mindegyiknek megvan az előnye és hátránya. Alapban csak a Piggyback van bekapcsolva, a web.xml-ben, valamint a JavaScriptben kell kavarni a Reverse Ajax bekapcsolásához.</p>
+
+<p>Nézzük a JavaScript oldalt:</p>
+
+<pre class="brush: js">
+&lt;script type=&quot;text/javascript&quot;&gt;
+ // http://docs.jquery.com/Using_jQuery_with_Other_Libraries
+ $j(function () {
+  dwr.engine.setActiveReverseAjax(true);
+  $j(&quot;#statusForm&quot;).submit(function () {
+   statusDwrService.postStatus($j(&quot;#statusInput&quot;).val());
+   return false;
+  });
+ });
+
+ function showStatus(status) {
+  $j(&quot;#statusDiv&quot;).html(status);
+ }
+&lt;/script&gt;
+</pre>
+
+<p>Egyrészt bekapcsolja a Reverse Ajaxot. Valamint a statusForm HTML form kitöltésekor meghívja a szerver oldali postStatus metódust. Valamint definiál egy showStatus metódust, melyet meghívva megjelenik a szerver oldalról érező üzenet. Mindez JQuery használatával.</p>
+
+<p>A szerver oldali hívás a következőképp néz ki:</p>
+
+<pre class="brush: java">
+    public void onStatusEvent(StatusEvent statusEvent) {
+        ScriptBuffer scriptBuffer = new ScriptBuffer();
+        scriptBuffer.appendCall("showStatus", statusEvent.getStatus());
+        WebContext webContext = WebContextFactory.get();
+        String currentPage = webContext.getCurrentPage();
+        Collection sessions = 
+          webContext.getScriptSessionsByPage(currentPage);
+        for (Iterator i = sessions.iterator(); i.hasNext(); ) {
+            ScriptSession session = (ScriptSession) i.next();
+            session.addScript(scriptBuffer);
+        }
+    }
+</pre>
+
+<p>Ez hívja meg a kliens oldalon a showStatus JavaScript metódust.</p>

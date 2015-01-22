@@ -1,0 +1,74 @@
+---
+layout: post
+title: Glassfish távoli szerveren
+date: '2009-09-15T01:34:00.005+02:00'
+author: István Viczián
+tags:
+- Oktatás
+- Java EE
+- NetBeans
+modified_time: '2010-09-18T00:31:31.165+02:00'
+thumbnail: http://4.bp.blogspot.com/_czKgycLvmNo/Sq7TZzn0DqI/AAAAAAAAEsI/DqQDb_KHokY/s72-c/licence_agreement.png
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-1731600722043428800
+blogger_orig_url: http://www.jtechlog.hu/2009/09/glassfish-tavoli-szerveren.html
+---
+
+<p>Szintén egy oktatás alkalmával szerettem volna demonstrálni a Java platformfüggetlenségét, és a Java EE lokális transzparenciáját. Írtam egy egyszerű Java EE alkalmazást, megy egy Stateless Session Bean-ből állt, valamint egy Message Driven Bean-ből. Valamint írtam hozzá egy kliens osztályt, mely egyrészt távolról meghívja a Session Bean metódusát, valamint egy üzenetet elhelyez abban a JMS sorban, melyen az MDB hallgat.</p><p>A cél az volt, hogy az elkészült EAR-t egy Solaris szerveren futó alkalmazásszerverre telepítsem, és a kliens alkalmazás azt távolról hívja meg.</p><p>Erről a postot egyrészt azért írom meg, hogy az itt szerzett tapasztalatok másnak is jól jöhetnek, másrészt feltehetőleg még meg kell ismételnem későbbi oktatásokon, ezért magamnak is jól fog még jönni. Fontos, hogy nem vagyok Solaris adminisztrátor, így nem biztos, hogy mindent úgy állítok be, ahogy egy szerveren kéne, viszont egy fejlesztői környezet működésre bírásához elegendő.</p><p>Használt verziók:</p><ul><li>Solaris 10 5/08 s10x_u5wos_10 x86</li><li>Java SE Development Kit 6u13, pontosabban 1.6.0_13-b03</li><li>NetBeans 6.5.1</li><li>Glassfish v2.1, melyet a Netbeans Java bundle is tartalmaz, pontos száma v2.1 b60e Promoted Build</li></ul><p>Első feladatként egy működő Solaris-t kellett szerezni. Kaptam egy előre telepített VirtualBox VDI (Virtual Disk Image ) állományt, így azt már csak hálózatba kellett kapcsolni. NAT-tal semmiképp nem tudtam elindítani, így maradt a bridge-elt kártya, PCnet-Fast III virtuális hálózati kártyával. Amíg nem sikerültek a beállítások, a Solaris már boot-oláskor a következő hibaüzenetet adta:</p><p></p><pre>Failed to plumb IPv4 interface(s): pcn0
+Failed to configure IPv4 DHCP interface(s): pcn0
+Sep 13 08:33:29 svc.startd[7]: svc:/network/physical:default: Method "/lib/svc/method/net-physical" failed with exit status 96.
+Sep 13 08:33:29 svc.startd[7]: network/physical:default misconfigured: transitioned to maintenance (see 'svcs -xv' for details)</pre><p>Amennyiben a hálózati kártya helyesen lett beállítva, megjelent a pcn0 interfész, de nem kapott a DHCP-től új ip-címet. Új cím kéréséhez a következő parancsokat kellett kiadni:</p><pre>ifconfig pcn0 dhcp release
+ifconfig pcn0 dhcp start</pre><p>Ekkor a ifconfig –a parancs valami hasonlót adott, amin már látszik a jó ip-cím:</p><pre>lo0: flags=2001000849<up,loopback,running,multicast,ipv4,virtual> mtu 8232 index 1
+inet 127.0.0.1 netmask ff000000
+pcn0: flags=1004843<up,broadcast,running,multicast,dhcp,ipv4> mtu 1500 index 2
+inet 192.168.68.107 netmask ffffff00 broadcast 192.168.68.255
+ether 8:0:27:7b:8e:7c</up,broadcast,running,multicast,dhcp,ipv4></up,loopback,running,multicast,ipv4,virtual></pre><p>Amíg a hálózat nem jól volt beállítva, csak az első sor jelent meg, vagy a második is, rossz ip-címmel.</p><p>Ezután a /etc/hosts fájlban is megjelent a következő sor:</p><pre>192.168.68.107  unknown # Added by DHCP</pre><p>Az unknown lett a host neve, amit meg kell jegyezni, mert később szükség lesz rá (ezt persze már boot közben is kiírja). Amint van hálózat, javasolt nem a VirtualBox-ban bejött konzolon tevékenykedni, hanem pl. putty-tyal SSH-n keresztül bejelentkezve.</p><p>A következő feladat a JDK feltelepítése volt a /opt könyvtárba. Ehhez a jdk-6u13-solaris-i586.sh állományt töltöttem le, mely egy önkicsomagoló állomány. Letöltés után állítsuk futtathatóra (chmod +x), és indítsuk el. Én elkövettem azt a klasszikus hibát, hogy szöveges módban scp-ztem fel a Windows-os gépről a Solaris-ra (az sh kiterjesztés miatt az alapértelmezett mód), és így állandóan hibát jelzett (megsérült az állomány - corrupted), és az állomány mérete sem egyezett. Ezen túllendülve létrejött a jdk1.6.0_13 könyvtár. Ezután a .bash_profile-ba beállítottam a megfelelő környezeti változókat:</p><pre>export JAVA_HOME=/opt/jdk1.6.0_13
+export PATH=$JAVA_HOME/bin:/usr/local/bin:$PATH</pre><p>Ezután következett a Glassfish telepítése. Ehhez a glassfish-installer-v2.1-b60e-sunos_x86.jar állományt töltöttem le. Először próbálkoztam a V2 UR2 verzióval is, de nagyon rejtélyes kivételeket kaptam, mire rájöttem, hogy a V2 UR2, és a NetBeans-emmel telepített 2.1 nem kompatibilis egymással, így a távoli metódushívás nem jött össze. Telepíteni a java -Xmx256m -jar glassfish-installer-v2.1-b60e-sunos_x86.jar parancs kiadásával kell, a 256 mega memória megadása nélkül nem sikerült. Ezt is a /opt könyvtárban indítottam. Mégegy érdekesség, hogy csak parancssort használva képtelen volt elindulni, a következő hibaüzenetet dobta:</p><pre>X connection to localhost:10.0 broken (explicit kill or server shutdown).</pre><p>Igen, egy X-et kellett hozzá indítani, csak azért, hogy kitegye a Licence Agreement képernyőt.</p><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_czKgycLvmNo/Sq7TZzn0DqI/AAAAAAAAEsI/DqQDb_KHokY/s1600-h/licence_agreement.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 274px;" src="http://4.bp.blogspot.com/_czKgycLvmNo/Sq7TZzn0DqI/AAAAAAAAEsI/DqQDb_KHokY/s320/licence_agreement.png" alt="" id="BLOGGER_PHOTO_ID_5381471045061709474" border="0" /></a>Ezután konfigurálni kellett Ant alapú eszközzel a Glassfish-t a következő parancsok kiadásával:<pre>cd glassfish
+chmod -R +x lib/ant/bin
+lib/ant/bin/ant -f setup.xml</pre><p>Eztán már csak el kellett indítani a /opt/glassfish könyvtárban:</p><pre>bin/asadmin start-domain domain1</pre><p>Leállítása:</p><pre>bin/asadmin stop-domain domain1</pre><p>A napló állomány a /opt/glassfish/domains/domain1/logs/server.log. A webes adminisztrációs felületet a http://unknown:4848 címen lehet elérni, ahol a default felhasználónév "admin", és a default jelszó "adminadmin".</p><p>Az alkalmazás egy NetBeans-ben létrehozott Enterprise Application, ami a következőkből állt. Távoli interfész:</p><pre class="brush: java">@Remote
+public interface HelloEJB {
+public String sayHello(String name);
+}</pre><p>Stateless session bean:</p><pre class="brush: java">@Stateless
+public class HelloEJBBean implements HelloEJB {
+public String sayHello(String name) {
+    System.out.println("Invoking sayHello");
+    return "Hello " + name;
+}
+}
+</pre><p>És a Message driven bean:</p><pre class="brush: java">@MessageDriven(mappedName = "jms/MyQueue", activationConfig = {
+@ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge"),
+@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
+})
+public class HelloMDB {
+
+public void onMessage(Message message) {
+    try {
+        System.out.println(((TextMessage) message).getText());
+    } catch (JMSException jmse) {
+        jmse.printStackTrace();
+    }
+}
+}
+</pre><p>Ez utóbbihoz létre kellett hozni az adminisztrációs felületen (Resources/JMS Resources/Connection Factories és Destination resources) egy jms/MyConnectionFactory és egy jms/MyQueue JNDI néven található JMS objektumokat.</p><p>Az alkalmazást a NetBeans EAR-ba csomagolta, amit a következő módok egyikén lehet telepíteni:</p><ul><li>EAR bemásolása a /opt/glassfish/domains/domain1/autodeploy könyvtárba</li><li>Webes adminisztrációs felületen: Applications/Enterprise Applications képernyőn a deploy gombbal</li><li>Meglepően jól működik a NetBeans távoli deploy szolgáltatása is. Ekkor fel kell venni egy új szervert (Tools/Servers képernyő Add server gomb), ki kell választani a lokális telepítési könyvtárat, majd a Register Remote Domain rádiógombot, majd meg kell adni a távoli szerver ip címét és az admin portját (4848). Az alkalmazásnál a Properties ablakban válasszuk ki ezt az alkalmazásszervert, és a projekten a jobb gomb/deploy-ra nyomva települ az alkalmazás a távoli alkalmazásszerverre. Az alkalmazásszerver a Services fülön is megjelenik, ahol alapvető információkat kapunk róla, és alap műveleteket el tudunk végezni.</li></ul><p>Ha telepítettük az alkalmazást, érdemes megnézni, hogy sikerült-e, pl. a globális JNDI nevek megjelentek-e a JNDI fában. Ezt a webes felületen az Application Server képernyőn a JNDI browsing gombra kattintva lehet előhívni. Itt a session bean nevének meg kell jelennie: jtechlog.HelloEJB.</p><p>A kliens elkészítéséhez két megoldás közül választhattam volna. Vagy egy Application Client Container-ben (ACC) futó alkalmazást készíthettem volna, vagy egy különálló alkalmazást. Az előbbinél a deployment descriptor-okban kell leírni, hogy hol vannak a távoli erőforrások, és egy pehelysúlyú alkalmazásszerverben fut. Az utóbbi esetén csak a JNDI context-et kell definiálni, lookup műveletekkel lekérni a távoli referenciákat, és egy egyszerű JVM-ben fut. Emiatt az utóbbira esett a választásom. Tehát a NetBeans-ben elegendő volt egy Java Application projektet létrehozni. Ehhez persze a távoli interfészt is a projektbe kellett másolni. A kliens alkalmazás így nézett ki:</p><pre class="brush: java">public class Main {
+public static void main(String[] args) throws Exception {
+Context ic = new InitialContext();
+HelloEJB helloEJBBean = (HelloEJB) ic.lookup("jtechlog.HelloEJB");
+System.out.println(helloEJBBean.sayHello("jtechlog"));
+}
+}</pre><p>Ehhez persze el kellett helyezni a következő JAR állományokat is a CLASSPATH-ban: $GLASSFISH_HOME/lib/appserv-rt.jar, $GLASSFISH_HOME/lib/javaee.jar (, ahol értelemszerűen a $GLASSFISH_HOME a lokális GlassFish telepítési könyvtára). Ekkor a appserv-rt.jar-ban lévő jndi.properties miatta localhost-hoz csatlakozna, így a következő jndi.properties állományt kellett elhelyezni a CLASSPATH-ban:</p><pre>java.naming.factory.initial=com.sun.enterprise.naming.SerialInitContextFactory
+java.naming.factory.url.pkgs=com.sun.enterprise.naming
+java.naming.factory.state=com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl
+org.omg.CORBA.ORBInitialHost=192.168.68.107</pre><p>Ahol az utolsó sor mutatja a szerver ip címét. Ezután már a Solaris-on futó alkalmazásszerverbe telepített EJB meghívása egy Windows-os kliensről tökéletesen müködött.</p><p>A következő feladat a JMS beállítása volt. Ehhez a következővel egészítettem ki a kliens alkalmazást:</p><pre name="code" class="java">ConnectionFactory connectionFactory = (ConnectionFactory) ic.lookup("jms/MyConnectionFactory");
+Queue queue = (Queue) ic.lookup("jms/MyQueue");
+Connection connection = connectionFactory.createConnection();
+Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+MessageProducer messageProducer = session.createProducer(queue);
+TextMessage message = session.createTextMessage();
+message.setText("Message");
+messageProducer.send(message);
+messageProducer.close();
+session.close();
+connection.close();</pre><p>Az import-ok és a kivételkezelés az olvasó feladata. Ezt elindítva a következő osztályt hiányolta: java.lang.NoClassDefFoundError: org/netbeans/modules/schema2beans/BaseBean. Melyet kicsit furcsálok, hogy mit keres benne netbeans-es osztály. A megoldáshoz a következő JAR állományokat kellett még a CLASSPATH-ba tennem: $GLASSFISH_HOME/lib/appserv-admin.jar, $GLASSFISH_HOME/lib/appserv-ws.jar, $GLASSFISH_HOME/lib/install/applications/jmsra/imqjmsra.jar. Ez után a futtatás a következő hibával szállt el:</p><pre>May 19, 2009 1:36:24 PM com.sun.messaging.jms.ra.ResourceAdapter start
+INFO: MQJMSRA_RA1101: SJSMQ JMS Resource Adapter starting...
+May 19, 2009 1:36:26 PM com.sun.messaging.jmq.jmsclient.ExceptionHandler throwConnectionException
+WARNING: [C4003]: Error occurred on connection creation [unknown:7676]. - cause: java.net.UnknownHostException: unknown</pre><p>Ez ugye azt jelenti, hogy a visszaadott JNDI referencia tartalmazza a JMS server host nevét, ami jelen esetben az unknown. Ezt a /opt/glassfish/domains/domain1/config/sun-acc.xml tartalmazza, valami ilyen formában:</p><pre>&lt;target-server name="unknown" address="unknown" port="3700"/&gt;</pre><p>Ebben a sorban az address értékét kicseréltem a megfelelő ip címre, de ez nem segített, így egyszerűen a Windows host fájljába felvettem a unknown nevet a Solaris virtuális gép ip-címére.</p><p>Ennek megoldására ezen a <a href="http://forums.sun.com/thread.jspa?threadID=5283256&amp;tstart=0">fórumon</a> kaptam tippet.</p><p>Így az alkalmazás lefutott, de a kapcsolat bezárása után sem lépett ki, folyamatosan futott. A futó szálakat elemzve kiderült, hogy imqConnectionFlowControl és iMQReadChannel nevű szálak sokasága fut, melyek miatt nem tud leállni a kliens alkalmazás.</p><p>Erről több írás is van a weben, <a href="http://forums.java.net/jive/thread.jspa?threadID=37143">ez a legérdekesebb fórum</a>, valamint itt van felvéve <a href="https://glassfish.dev.java.net/issues/show_bug.cgi?id=1429">egy Glassfish bug</a> és <a href="https://glassfish.dev.java.net/issues/show_bug.cgi?id=636">mégegy Glassfish bug</a>. Sajnos javítás rájuk még nem érkezett. Addig is a javasolt megoldás a System.exit metódus hívása.</p><p>Összegzésként megállapítható, hogy még mindig nem hiszek az alkalmazásszerverekben, szerintem egy ilyen egyszerű demonstrációnak sokkal gördülékenyebben kellett volna mennie, hiszen nagyon egyszerű alkalmazást próbáltam, és az alkalmazásszerver nagyon alap funkcionalitását szerettem volna kipróbálni. Sajnos az utolsó problémára megoldást sem találtam.</p><p>Hivatkozások:</p><p><a href="http://java.sun.com/javase/6/webnotes/install/jdk/install-solaris.html">JavaTM SE 6 Release Notes Solaris Operating System Installation (32-bit)</a> </p><p><a href="https://glassfish.dev.java.net/downloads/v2.1-b60e.html">GlassFish Project - v2.1 FinalBuild</a></p><p><a href="http://docs.sun.com/app/docs/doc/819-3659/beakt?a=view">Sun Java System Application Server Platform Edition 9 Developer's Guide, Chapter 11 Developing Java Clients</a></p><p><a href="https://glassfish.dev.java.net/javaee5/ejb/EJB_FAQ.html">EJB FAQ</a>
+</p>

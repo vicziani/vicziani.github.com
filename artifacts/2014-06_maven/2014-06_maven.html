@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JTechLog - Maven</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic&subset=latin,latin-ext);
+
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+	.remark-slide-content h1 {
+		font-size: 40px;
+	}
+
+	.remark-slide-content a {
+		color: #736B59;
+	}
+
+	.remark-inline-code {
+		background-color: #F1F1F1;
+		padding: 4px;
+	}
+
+	li {
+		line-height: 2em;
+	}
+
+	.inverse {
+		background-color: #736B59;
+		color: #FFFFFF;
+	}
+
+	.inverse a {
+		color: #DDDDDD;
+		text-decoration: none;
+	}
+
+	div.card {
+		padding-top: 80px;		
+		text-align: left;
+	}
+
+	div.card ul {
+		list-style-type: none;
+	}
+
+	.card-img {	
+		float: left;
+		padding-right: 20px;
+	}
+
+	.card-img img {
+		width: 150px;
+		height: 150px;
+		border: 1px solid;
+		border-color: #FFFFFF;
+	}
+
+	.modules-img img {
+		width: 700px;
+	}
+
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+class: inverse, center, middle
+
+# Maven
+
+budapest.scala - 2014\. július
+
+.card[
+* .card-img[![Viczián István](belyegkep.png)]
+* Viczián István
+* Java fejlesztő
+* @vicziani at Twitter
+* http://jtechlog.hu
+]
+
+---
+class: inverse, center, middle
+
+# Miért szeretjük?
+
+---
+
+> Reg: – Elvették mindenünket a nyomorultak, kiszipolyoztak minket. És nem csak minket, apáinkat is. És apáink apáit is.  
+> Loretta: – És apáink apáinak apáit is.  
+> Reg: – Igen.  
+> Loretta: – És apáink apáinak apáinak az apáit is. És...  
+> Reg: – Jól van, Stan, ne lovald bele magad. És mit adtak nekünk mindezért cserébe?  
+> Xerxes: – Vízvezetéket.  
+> Reg: – Mit?  
+> Xerxes: – Vízvezetéket.  
+> Reg: – Ó, igen, igen. Azt ők adták, igen. Ez igaz.  
+> 3\. katona: – És a csatornázást.  
+> Loretta: – Ó, igen, a csatornázást. Ne feledd, milyen volt a város előtte!  
+> Reg: – Jól van, elfogadom a vízvezetéket meg a csatornát. Ezt a két dolgot ők csinálták.  
+> Matthias: – És az utakat.  
+> Reg: – Persze, nyilvánvalóan az utakat. Ez nem is vita tárgya, ugyebár. De eltekintve az utaktól, a vízvezetéktől, a csatornáktól...  
+> Katona: – Öntözés.  
+> Xerxes: – Gyógyászat.  
+> 2\. katona: – Oktatás.  
+> Reg: – Jó, jó, elég volt. Elég.
+
+---
+
+# Build tool
+
+* Alapértelmezett egység a projekt
+* Projekt leíró a `pom.xml` állomány
+* Maven koordinátákkal azonosított
+* Egy projekt kimenete lehetőleg egy artifact
+
+---
+
+# Common interface for project build
+
+* Mindenki ismeri és használja
+* Akár egy nyílt forráskódú fejlesztésbe is könnyebb beszállni
+* Sonatype
+    * [Szabadon letölthető könyvek](http://www.sonatype.com/resources/books)
+    * Nexus
+* Takari
+    * Jason van Zyl
+
+---
+
+# Convention over configuration
+
+* Intelligent default values (properties)
+* [Életciklus](http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
+
+.lifecycle-img[![Convention over configuration](default-lifecycle-phases.png)]
+
+---
+
+# Pluginek
+
+* Újrafelhasználhatóság
+* MOJO
+* Goal: egyedi funkció, önmagában is futtatható
+* Plugin: összetartozó goal-ok
+
+![Maven plugin](simple-project_phasebinding.png)
+
+---
+
+# Plugin és phase összerendelések
+
+![Maven plugin goalok phase-ekhez rendelése](simple-project_lifecyclebinding.png)
+
+---
+
+# Függőségek kezelése
+
+* Release és snapshot management
+* Tranzitív függések
+* Nearest definition
+* Conflict resolution
+* Version ranges
+
+---
+
+# Repository
+
+* Local Maven Repository
+* Internal repositories: Nexus, Artifactory
+* Public repositories
+    * [Central repository](http://search.maven.org)
+
+---
+
+# Modularizáció
+
+* Projekt öröklődés
+* Multi-module projekt
+* [Multi-module vs. Inheritance](http://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-pom-best-practice.html#pom-relationships-sect-multi-vs-inherit)
+
+.modules-img[![Modulok](modulok.png)]
+
+---
+
+# Fejlesztés modularizált architektúrában
+
+* Csak egy modul fejlesztése
+	* Modul indítása önmagában
+	* Modul indítása alkalmazáson belül
+* Egyszerre több modul fejlesztése
+* Core projekt fejlesztése
+* Parent frissítése
+
+---
+
+# Több, mint build tool
+
+* Archetype: projekt sablonok
+* Project management tool: riportok, site generálás
+
+---
+
+# Toolset
+
+* NetBeans
+* Eclipse
+* IntelliJ IDEA
+* Jenkins
+
+---
+
+# Fejlődik
+
+* Verzióban meghatározható property
+* Inkrementális fordítás
+* Aggressive parallelization, delta protocol
+* Generációk
+* Projekt leírása más nyelveken (polyglot support)
+* Konzolban futó shell eszköz
+
+---
+class: inverse, center, middle
+
+# Java/Scala hibrid projekt
+
+---
+
+# Java/Scala hibrid projekt
+
+* https://github.com/kalmiz/budapest.scala/tree/master/maven-scala
+* `mvn package` parancs kiadásával buildelhető
+* `mvn exec:java` parancs kiadásával futtatható
+
+---
+class: inverse, center, middle
+
+# És miért nem szeretjük?
+
+---
+
+# Körülményes
+
+A probléma
+
+* Kötött
+
+A megoldás
+
+* Hosszú xml állományok
+* Létező plugin használata vagy saját plugin fejlesztése
+* Ant
+* Groovy
+
+---
+
+# pom.xml modularizációja
+
+Adottság
+
+* Túl hosszú xml állományok és konfigurációk
+* Nincs többszörös öröklődés
+* Mixin hiánya: un. okos import
+
+Van helyette
+
+* import scope
+* profile
+
+---
+
+# Multimodul projektek
+
+Hol a baj?
+
+* Több modulból álló rendszer, különböző modul verziószámokkal
+
+Mi a megoldás?
+
+* Külső eszköz, mely Mavent paraméterezetten hívja
+---
+
+# Branch kezelés
+
+Hol a baj?
+
+* Ne kavarodjanak az artifactok
+
+Megoldás
+
+* Verziószámban a branch neve
+
+---
+
+# Continuous Delivery ellentmondások
+
+Hol a baj?
+
+* Minden build egy potenciális release
+* Maven release plugin
+* Integrációs tesztek futtatása külön pipeline stage
+
+Mit tegyünk?
+
+* Maven versions plugin
+* Maven surefire plugin konfigurációja profile-ban
+
+---
+
+# Lassú
+
+Hol a baj?
+
+* Kapacitás véges, processzor, tárhely
+
+Megoldás
+
+* Build optimalizáció
+* Vas, grid
+    </textarea>
+    <script src="remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

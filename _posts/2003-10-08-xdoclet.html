@@ -1,0 +1,43 @@
+---
+layout: post
+title: XDoclet
+date: 2003-10-08T08:00:00.000+01:00
+author: Viczián István
+tags:
+---
+
+<p>
+Mostanában többször találkoztam az <a href="http://www.xdoclet.com">XDoclet</a> kód generátorral, lássuk, mi is ez.
+Kezdem is két nagyon találó lefordíthatatlan kifejezéssel: metadata template engine, attribute-oriented programming,
+ami SZVSZ kicsit túlkapás egy ilyen eszköz esetén máris módszertanhoz hasonló elnevezést használni.
+Jelenleg az 1.2-beta3 a legutolsó
+verzió, de párhuzamosan megkezdődött a XDoclet 2 fejlesztése is. Az XDoclet eredetileg az EJB-k fejlesztésének egyszerűsítésére
+lett kitalálva, de ma már annál általánosabb. Tulajdonképpen különböző új tulajdonságokat adhatunk a Java kódhoz
+(speciális JavaDoc tag-ekkel), és az XDoclet ezek és a hozzájuk tartozó template-ek alapján generálhat különböző
+leíró/telepítő XML fájlokat, illetve Java forráskódot is. Ezzel nem kell párhuzamosan frissíteni a meta-adatokat
+tartalmazó fájlokat és a forráskódot, hanem egy fájlban szerepelnek, így egyrészt szinkronban maradnak, könnyebben átláthatók, mégsem
+keveredik a meta-információ és a forráskód, és
+gyorsabb lesz a fejlesztés. Az XDoclet-nek már rengeteg, dinamikusan betöltődő modulja van (különböző alkalmazásszerverek - Bea, Borland, IBM, JBoss, Oracle,
+stb.; keretrendszerek leíró fájljai - Apache Soap, Struts; EJB interfészek; JavaBean beaninfo; perzisztens rétegek
+konfigurációs fájljai - Castor, Hibernate generálására), de saját modul fejlesztésére is lehetőség van. Az XDoclet jelenleg csak ANT
+build tool-lal használható együtt.</p>
+<p>
+Egy XDoclet tag egy névből áll, mely névtérrel van minősítve, illetve egy tulajdonság név - tulajdonság érték halmazból.
+Ilyen tag-eket lehet kapcsolni oszályhoz és metódushoz, ritkább esetben változóhoz vagy konstruktorhoz. Az XDoclet használatához
+definiálni kell egy ANT taskot, hogy pontosan mire is akarjuk használni (milyen típusú fájlokat akarunk generálni), és beállítani
+a konfigurációs paramétereket (pl. forrás és célkönyvtár, stb.), melyek akár ANT property-k is lehetnek.
+Beágyazott elemekkel tudunk alfeladatokat hívni, pl. EJB-k
+használatakor szükség van érték-objektumok, remote és local interfészek, home interfészek, telepítő fájlok generálására is.</p>
+<p>
+A XDoclet az engine-ből (template engine), XJavaDoc engine-ből (JavaDoc teljes átirata, mely
+hatékonyabb, gyorsabb és rendelkezik néhány extra funkcióval), altaszkokból (mely kapcsolat az engine és a template-k között),
+template-kből (statikus és dinamikus részekkel rendelkezik) és tag handler-ekből áll (tag-eket kezeli).</p>
+<p>
+Az XDoclet 2 projekt keretében teljesen átírják a kódot, egyszerűsítik az API-t saját modul (plug-in) írásához, szintaktikai
+ellenőrző részt építenek bele, támogatni szeretnék a J2EE legújabb szabványait (EJB 2.1, Servlet 2.4, JSP 2.0), template engine-nek
+a Velocity-t és a Jelly-t (XML) használni, függetlenedni
+az ANT-tól, tervezési mintákat, JUnit teszt esetek és dummy objektumok generálását támogatni.</p>
+<p>
+Kíváncsi vagyok, mennyire fog hasonlítani ehhez a 1.5-ös Java-ban bevezetésre kerülő, hasonló problémák megoldására kitalált
+<a href="http://www.jcp.org/en/jsr/detail?id=175">Java Language Metadata (JSR 175)</a>.
+</p>

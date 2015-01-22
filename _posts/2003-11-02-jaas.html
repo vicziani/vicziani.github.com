@@ -1,0 +1,56 @@
+---
+layout: post
+title: JAAS
+date: 2003-11-02T08:00:00.000+01:00
+author: Viczián István
+tags:
+---
+
+<p>
+A Java2 SDK SE 1.4-nek rengeteg újítása volt, ezek közül egy csoport a
+<a href="http://java.sun.com/j2se/1.4.2/docs/guide/security/index.html">biztonsági újdonságok</a>. Több API-t is integráltak a
+fejlesztőkörnyezetbe, mint a Java Cryptography Extension (JCE), Java Secure Socket Extension (JSSE), és
+<a href="http://java.sun.com/products/jaas/index.jsp">Java Authentication and Authorization Service (JAAS)</a>, melyek előzőleg
+opcionális csomagok voltak.
+Ez utóbbiról szeretnék most írni, melynek két fő része a nevéből is kitatálható, autentikáció és autorizáció.</p>
+<p>
+Az előző verziókban biztonsági korlátozásokat csak az alapján lehetett felállítani, hogy az adott kód honnan származik (honnan
+lett letöltve), alá van-e írva, és ha igen, akkor ki által. Ezekre lehetett megszabni, hogy mely erőforrásokhoz férhet hozzá,
+és melyekhez nem. A <a href="http://java.sun.com/security/jaas/doc/acsac.html">JAAS</a> emellé bevezette a felhasználó szintű autentikációt és hozzáférés vezérlést. A szabványos
+<a href="http://java.sun.com/security/jaas/doc/pam.html">Pluggable Authentication Module (PAM)</a> keretrendszer
+Java megvalósítása ez, mely egy API, ami elfedi a felhasználói programok elöl a különböző autentikációs technológiákat,
+és egységes autentikációs felületet nyújt, így egyszerű konfigurációval egyszerre több autentikációs modul használható, illetve
+kicserélhető az egyik a másikra.</p>
+<p>
+A JAAS Subject-nek nevezi a felhasználót, szolgáltatást vagy gépet, mely hozzá akar férni egy szolgáltatáshoz. Ugyanaz a Subject
+más neveken férhet hozzá különböző szolgáltatásokhoz, ezeket a neveket reprezentálja a Principal fogalom. Egy Subjecthez így
+több Principal tartozhat. A Principal sikeres autentikációval rendelődik hozzá a Subjecthez. Az autentikáció az a biztonságos
+folyamat, melynél a Subject igazolja az identitását, vagy egy olyan információval, melyet csak ő tud (jelszó, ujjlenyomat), vagy
+egy olyannal, melyet csak ő tud produkálni (privát kulccsal aláírt adat). A Credential
+single sign-on környezetben használt fogalom, és a Subject-hez társított biztonsággal kapcsolatos tulajdonságok halmaza,
+pl. más szolgáltatáshoz való hozzáféréshez szükséges információk, pl. jelszavak, Kerberos ticketek, nyilvános kulcsú
+bizonyítványok (X.509, PGP, stb.). A Credential nem feltétlenül tartalmazza ezeket az adatokat, egyszerűen tartalmazhat rájuk
+hivatkozásokat, mikor az adat más szerveren vagy hardver elemen (smart card) van. Az ilyen tulajdonságoknak két csoportja van,
+publikus és privát adatok.</p>
+<p>
+A kliens a <code>LoginContext</code>-en keresztül kommunikál a JAAS-sal, mely a <code>Configuration</code> alapján példányosítja
+és hívja a <code>LoginModule</code>-okat, melyek az autentikációt valósítják meg. A <code>Configuration</code> módosításával lehetséges egy <code>LoginModule</code>
+kicserélése az alkalmazás módosítása nélkül. A <code>LoginModule</code> egy <code>Callback</code>-et ad vissza a kliensnek, mely definiálja, hogy mit kell
+bekérni a felhasználótól. Ezt egy <code>CallbackHandler</code>-rel kell kezelni, mely a felveszi a tényleges kapcsolatot a felhasználóval.
+A <code>LoginModule</code>-t írhatunk sajátot, vagy felhasználhatunk előre beépítettet, mely adott JNDI-hez, KeyStore-hoz, Kerberoshoz,
+UNIX rendszerekhez. Az autentikáció két lépésben történik, az első lépésben (login) minden <code>LoginModule</code>-nak ellenőriznie kell
+a belépést, ha minden sikerült, a második lépésben (commit) véglegesíti azt. Ez utóbbi lépésben történik a Principalok és
+Credentialök hozzáfűzése a Subjecthez.</p>
+<p>
+A JAAS azt a konvencionális hozzáférési vezérlést követi,
+hogy definiál védett erőforrások csoportjait, és meghatározza, mely Principalok férhetnek hozzá ezen csoportokhoz. Ennek
+meghatározása a Javaban korábban már jelenlévő policy fájlal történik, melynek szintaktikáját kibővítették a felhasználó
+kezeléssel. A JAAS a csoportokat és szerepeket mint Principal kezeli. A <code>PrincipalComparator</code>-on keresztül szerephierarchiát
+lehet felépíteni. Az erőforrásokhoz való hozzáférést a <code>SecurityManager</code>-ek vezérlik, melyek ezt a feladatot delegálják a
+<code>AccessController</code>-eknek, melyek a megkapott <code>AccessControlContext</code>-ból kinyerik, hogy van-e jog az adott tevékenységre.
+A Subject <code>doAs</code> vagy <code>doAsPrivileged</code> metódusával lehet meghívni azt a kódot, melyet egy Subjectként futtatni fog. Át kell neki adni
+a Subjectet, magát az <code>Action</code>-t, mely run metódusa tartalmazza a kódot, illetve az <code>AccessControlContext</code>-et.</p>
+<p>
+Egy remek <a href="http://java.sun.com/developer/technicalArticles/Security/jaasv2/">tutorial</a> olvasható
+erről a Sun-nál.
+</p>

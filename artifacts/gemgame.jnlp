@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<jnlp 
+  spec="1.0+" 
+  codebase="http://vicziani.github.com/artifacts" 
+  href="gemgame.jnlp"> 
+  <information> 
+    <title>Gem Game</title> 
+    <vendor>Viczián István (viczian.istvan a gmail-en)</vendor> 
+    <homepage href="gemgame.htm"/> 
+    <description>Gem Game ügyességi játék, Java Applet.</description> 
+    <offline-allowed/> 
+  </information> 
+  <resources> 
+    <j2se version="1.6+"/> 
+    <jar href="gem-game.jar"/> 
+  </resources> 
+  <applet-desc 
+    documentBase="http://vicziani.github.com/artifacts"
+    name="Gem Game"
+    main-class="GemGameApplet"
+    width="600"
+    height="200"
+  /> 
+</jnlp> 
+

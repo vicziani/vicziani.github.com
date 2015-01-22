@@ -1,0 +1,223 @@
+---
+layout: post
+title: Konfigurációs paraméterek EJB és web rétegben JBoss alkalmazásszerveren
+date: '2011-02-27T23:33:00.010+01:00'
+author: István Viczián
+tags:
+- EJB
+- Maven
+- JBoss
+- Java EE
+modified_time: '2011-08-24T11:14:59.394+02:00'
+thumbnail: http://3.bp.blogspot.com/-lERPAF8FaWo/TXQUdpgWqEI/AAAAAAAAGBw/EAZE2IweFB4/s72-c/enc_overview.png
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-5695982303749707840
+blogger_orig_url: http://www.jtechlog.hu/2011/02/konfiguracios-parameterek-ejb-retegben.html
+---
+
+<p>Technológiák: JBoss AS 5.1 - 6.0.0, Maven 2.2.1, EJB 3.0 - 3.1, JNDI</p>
+
+<p><emp>Frissítés:</emp> 2011. március 6. - az ismertetett megoldás nem felelt meg a szabványnak, JBoss 6-on nem is működött, javítottam. A példa projektet JBossConfig-ról átneveztem EarConfig-ra. Valamint beletettem egy magyarázó leírást az ENC használatáról.</p>
+
+<p><emp>Frissítés:</emp> 2011. április 18. - ugyanezt leírtam Glassfish-sel is egy későbbi <a href="/2011/04/konfiguracios-parameterek-Glassfish.html">posztban</a>. Ennek megfelelően kicsit módosítottam a projektet, hogy mindkét alkalmazásszerveren működjön a build.</p>
+
+<p>Ha az alkalmazás futtatásához szükséges konfigurációkat paramétereket akarunk tárolni, beolvasni, rengeteg lehetőségünk van. Tapasztalatom szerint szinte mindenhol másképp van megoldva. Ha az alkalmazás tartalmazhatja ezeket a beállításokat, akkor belecsomagolhatjuk, de ekkor figyelembe kell venni, hogy a konfiguráció váltásakor újra kell telepítenünk. Ekkor a konfigurációk szerepelhetnek kódban konstansként, properties állományban (melyet classpath-ról töltünk be), Spring esetén az application context xml-ben, EJB-k esetén enviroment variable-ként (ejb-jar.xml-ben definiálva). Ha különböző környezetek vannak, akkor a build folyamat során kell arról gondoskodni, hogy különböző konfigurációs állományok kerüljenek a különböző környezetekre telepítendő alkalmazásokban.</p>
+<p>Ezen megoldások kevésbé flexibilisek, hiszen módosításkor újra kell telepíteni az alkalmazást, valamint sokkal szebb megoldás, ha környezetenként is ugyanaz a telepítendő alkalmazásunk van, és a környezetfüggő dolgok az alkalmazáson kívül szerepelnek.</p>
+<p>EJB vagy web konténer esetén jó megoldás lehet kevés számú paraméter esetén a system property, több paraméter esetén a JNDI használata is. Semmiképp nem szeretem a fájlrendszerben itt-ott elbújó állományokat, hiszen nagyon nehéz a nyomon követésük, verziókezelésük általában el szokott maradni. Ha nagyon muszáj, talán szóba jöhet az, hogy egy system property, vagy egy JNDI bejegyzés tartalmaz egy referenciát a konfigurációs állományra. A JNDI használatánál arra kell különösen figyelni, hogy konténerek között működő, platformfüggetlen megoldást találjunk.</p>
+<p>Állományt esetén kérdés annak formátuma is. Leggyakoribb a standard properties állomány, melyről páran nem tudják, hogy a Java 1.5 óta kezel XML állományokat is, valamint az 1.6-os Java-tól kezdve képes Writer-ből is tölteni, tehát az állomány karakterkódolása lehet bármilyen, nem kell a native2ascii eszközt használni. Java 1.4-ben megjelent a java.util.prefs is, mely már sokkal több mindent tud, még sem terjedt el, és nem is hallottam jókat felőle. Lehet egyedi XML, de ekkor nekünk kell gondoskodni a beolvasásáról, valamilyen XML könyvtár használatával, netalántán XML binding-gal.</p>
+<p>Persze talán a legteljesebb megoldás az adatbázisban történő tárolás, de az itt tárolt értékek szerkesztése koránt sem olyan triviális.</p>
+<p>A konfigurációs paraméterek kezelése esetén a tárolás után a fő gondom az szokott lenni, hogy hogyan lehet azokhoz hozzáférni, azokat szerkeszteni. A fájl esetén a legegyszerűbb a helyzet, hiszen egy egyszerű szövegszerkesztővel el lehet végezni a módosításokat. Lehet saját webes felület, de ezt külön kell fejleszteni, karbantartani, illetve a parancssorhoz szokott adminisztrátoroknak sem szokott tetszeni, plusz egy probléma, cím, amit meg kell jegyezni. Ha a konténer adminisztrációs felületébe épül, akkor talán kicsit jobb a helyzet. Az adatbázisban tárolt konfigurációs paraméterek esetén lehet nekiesni egy SQL klienssel, de szintén ellenérzést válthat ki, valamint kérdés, hogy milyen gyakran olvassa újra az alkalmazás. Java-ban van persze erre is szabvány, a JDK részét képző JMX, de sajnos én nem nagyon hiszek benne, nem láttam még olyan üzemeltetést, amelyet levett volna a lábáról, és minden probléma nélkül használnák. Talán előrelépés lenne, ha a jelenleg létező felügyeleti rendszerekbe egyszerűen lehetne integrálni.</p>
+<p>Kérdés, hogy a változások mikor lépnek életbe. Hiszen nem biztos, hogy a leghatékonyabb minden esetben újra beolvasni. Általában valamilyen cache mechanizmus használható. Persze itt megadhatunk lejáratot, hogy mennyi idő után olvassa újra, vagy megadhatunk eseményeket, melyek hatására biztos újra megtörténik az újra beolvasás. Állomány szerkesztése esetén ez egyáltalán nem triviális, hiszen vagy az állományt mindig ellenőrizni kell, vagy egy szálat kell indítani, ami megnézi, hogy módosult-e. Ez utóbbi EJB környezetben megint problémás. Erre megoldás lehet a Java 7-ben megjelenő, már régóta várt WatchService API, mely operációs rendszer szinten figyeli az állomány hozzáféréseket, és értesíti az eseményre feliratkozókat.</p>
+<p>Minden megoldásnál még bezavar a <emp>cluster-es működés</emp>, hiszen kérdés esetén minden egyes node-on szerkeszteni kell az állományt (itt az időbeli eltolódás miatt lehet szétcsúszás, illetve érdekes, hogy hogyan lehet a node-okat egyenként címezni), vagy valahogy a node-ok megbeszélik egymás között a módosításokat. Esetleg vannak olyan konfigurációs beállítások, melyek node-onként eltérnek?</p>
+<p>Tehát konfigurációs paraméterek tárolásakor és a hozzáférés szerint a következőket kell mérlegelnünk:</p>
+<ul>
+<li>Értékeik ismertek-e a build folyamatnál?</li>
+<li>Okoz-e problémát, ha a konfigurációs paraméterek csak az alkalmazás újratelepítésével módosíthatóak?</li>
+<li>Milyen gyorsan kell a változnak?</li>
+<li>Milyen gyorsan kell a változásoknak életbe lépniük?</li>
+<li>Milyen szintű felhasználók fogják használni, és nekik mi a megszokott, kényelmes eszköz (parancssor, állomány, adatbázis, felügyeleti rendszer, webes kliens)?</li>
+<li>Egy vagy több helyről jön? Pl. lehet, hogy bizonyos dolgokat a komponens fejlesztők, az application assembler (aki összerakja az alkalmazást darabokból), a telepítő, üzemeltető, netalántán a végfelhasználó is állíthat?<p></p>
+</li><li>Van-e cluster-ezett működés. Okoz-e problémát, ha minden cluster tagot egyenként kell beállítgatni?</li>
+</ul>
+<p>Persze vannak keretrendszerek, melyek segíthetnek a megvalósításban, melyek a következő funkciókkal rendelkezhetnek:</p>
+<ul>
+<li>Típusosság, bonyolultabb adatstruktúrák támogatása</li>
+<li>Paraméter értékek behelyettesítése már paraméter értékekbe</li>
+<li>Default értékek</li>
+<li>Különböző források támogatása</li>
+<li>Különböző forrásból jövő konfigurációk összefésülése, hierarchikus betöltés</li>
+<li>Módosítások mentése</li>
+<li>Újratöltés</li>
+<li>Observer tervezési minta támogatása, értesítés, ha változik egy paraméter érték</li>
+<li>JMX hozzáférés</li>
+</ul>
+<p>Jó ötlet, hogy az alkalmazás rendelkezzen egy default konfigurációval is, amit az alkalmazás tartalmaz, ami a fejlesztői környezetre konfigurált, így egy checkout után azonnal futtatható az alkalmazás, és ezt érdemes teszt és éles környezetben felülbírálni.</p>
+<p>Amennyiben a konfigurációhoz különböző szerepkörrel rendelkező felhasználók is hozzáférhetnek, szükséges lehet bizonyos paraméterek titkosítására is. Ilyen lehet pl. egy adatbázis kapcsolathoz tartozó jelszó. A probléma jellegéből adódóan természetesen nem lehet teljes védelmet elérni, hiszen az alkalmazásnak is hozzá kell férnie valahogy a jelszóhoz, és legdurvább esetben egy kód visszafejtéssel biztos, hogy hozzá lehet férni az érzékeny adatokhoz. Ez inkább csak megnehezíti a visszafejtést. A JASYPT (Java simplified encryption) könyvtárnak van olyan lehetősége, hogy <a href="http://www.jasypt.org/encrypting-configuration.html">titkosít bizonyos értékeket</a> a konfigurációs állományban. Ekkor a konfigurációs paraméter értéke valami hasonló lesz: ENC(G6N718UuyPE5bHyWKyuLQSm02auQPUtm). Képes kezelni properties állományokat, Spring-hez és Hibernate-hez illeszthető.</p>
+<p>Konfigurációs paraméterek kezelésére alkalmas keretrendszerek:</p>
+<ul>
+<li><a href="http://commons.apache.org/configuration/">Commons configuration</a></li>
+<li><a href="http://www.jconfig.org/">jConfig</a></li>
+<li><a href="http://jfig.sourceforge.net/">jFig</a></li>
+<li><a href="http://carbon.sourceforge.net/modules/core/docs/config/index.html">The Carbon Core Config Subsystem</a></li>
+</ul>
+<p>Furcsa, hogy a legfrissebb is 2008-ban frissült utoljára.</p>
+<p>Ti hogyan oldottátok meg a konfigurációs paraméterek tárolását, szerkesztését?</p>
+<p>A következőkben egy olyan megoldást mutatok be, mely JBoss AS specifikus (tesztelve 5.1 és 6 verziókon is). Nem ad választ minden kérdésre, a cikkben kizárólag a JBoss ez irányú egy-két képességét szeretném bemutatni.</p>
+<p>A post-hoz egy példa projekt is <a href="http://dl.dropbox.com/u/7683931/jtechlog/earconfig.zip">letölthető</a>. A projekt Maven-nel fordul, és szépen szemlélteti egy Java EE projekt felépítését Maven környezetben, ahol a build terméke egy EAR állomány. Az alkalmazás négy részből áll. Egy parent project, mely a közös beállításokat tartalmazza (pl. Java 6, UTF-8 kódolás, stb.), valamint három modulja:</p>
+
+<ul>
+<li>earconfig-ejb: EJB réteg</li>
+<li>earconfig-web: web réteg - erre csak azért van szükség, hogy az EJB réteget meg tudjuk hívni</li>
+<li>earconfig-ear: az alkalmazás maga</li>
+</ul>
+
+<p>Az alkalmazást kicsomagolva, majd a gyökér könyvtárban a <code>mvn package</code> parancsot kiadva áll elő az earconfig-ear/target/earconfig-ear-1.0-SNAPSHOT.ear állomány. Ahhoz, hogy telepítsük, vagy másoljuk be a JBoss deploy könyvtárába az alkalmazást, vagy az earconfig-ear könyvtárban a pom.xml-ben írjuk át a jboss.server.dir property értékét arra az elérési útvonalra, ahova a JBoss lett telepítve, és adjuk ki a cargo:deploy parancsot. Ezt bekonfigurálhatjuk fejlesztőeszközben is. A <a href="http://cargo.codehaus.org/">Cargo</a> egy olyan könyvtár, mely egységes felületet biztosít web konténerek, alkalmazásszerverek kezelésére, elindítására, leállítására, alkalmazások telepítésére. Mi a Maven pluging-jét használjuk.</p>
+<p>Az alkalmazásnak az ejb és war modulja is pontosan ugyanúgy működik. A ejb modulban az EarConfigBean EJB Bean, a war modulban a EarConfigServlet servlet felelős a paraméterek kiolvasásáért.</p>
+<p>Az első metódus system property-t olvas be a következő Java SE-ben is működő módon:</p>
+<pre class="brush: java">
+System.getProperty("earconfig.system.property");
+</pre>
+<p>A második metódus Context lookup-pal lekérdezi a globális JNDI-ben lévő értékeket:</p>
+<pre class="brush: java">
+Context context = new InitialContext();
+String[] NAMES = new String[]{"earconfig/string", "earconfig/url", "earconfig/inetaddress", "earconfig/properties"};
+for (String name: NAMES) {
+   Object entry = context.lookup(name);
+   System.out.println(entry.getClass().getName() + " " + entry);
+}
+</pre>
+
+<p>Nagyon sokat kínlódtam azzal, hogy a paramétereket globálisan definiáljam a JNDI-ben, majd azokat elérhetővé tegyem a bean, vagy a web alkalmazás ENC-jében, ahogyan arról <a href="/2009/01/jndi-nevek-ejb-kornyezetben.html">korábban írtam</a>, sőt ehhez akár a @Resource annotációval hozzáférjek. Ezt azonban nem sikerült megoldani.</p>
+
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/-lERPAF8FaWo/TXQUdpgWqEI/AAAAAAAAGBw/EAZE2IweFB4/s1600/enc_overview.png" rel="lightbox"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 134px;" src="http://3.bp.blogspot.com/-lERPAF8FaWo/TXQUdpgWqEI/AAAAAAAAGBw/EAZE2IweFB4/s320/enc_overview.png" border="0" alt="ENC áttekintés" id="BLOGGER_PHOTO_ID_5581108337809205314" /></a>
+
+<p>Klasszikus esetben tehát van az EJB komponens, melyhez a standard deployment descriptor-ban (telepítés leíró) vagy a @Resource annotációval lehet egy lokális nevet az ENC-ben deklarálni. Ehhez az előbbi esetén context lookup-pal, az utóbbi esetén szintén a @Resource annotációval fér hozzá az EJB. Az alkalmazásszerverek gyártófüggő módon engedik az erőforrások felvételét a konténeren belül, és kapnak egy globális nevet. A lokális és a globális neveket a gyártófüggő deployment descriptor-ban lehet összekötni.</p>
+
+<p>Felmerülhet tehát az igény, hogy az ENC-ben deklaráljuk a logikai neveket, és egy gyártófüggő deployment descriptor-ban rendeljük hozzá a konkrét értékeket. Az ENC-ben való deklarációhoz két eszközünk lehet, vagy a standard deployment descriptor, vagy a @Resource annotáció, mely egymásnak alternatívái (, pontosabban a annotációt a deployment descriptor felülírhatja).</p>
+
+<p>A standard deployment descriptor-ban (ejb-jar.xml) a következő XML tag-ek használatosak erre:</p>
+
+<ul>
+<li>resource-ref: Factory-k definiálására, tipikusan DataSource-ra használható. További osztályok: javax.jms.QueueConnectionFactory/javax.jms.TopicConnectionFactory, javax.mail.Session, java.net.URL.</li>
+<li>resource-env-ref: a neten sok példa ide a Queue-t vagy Topic-ot említi, de helytelenül, lásd a következő pont. Amit találtam róla, hogy Connector CCI esetén használható.</li>
+<li>message-destination-ref: valójában ez használandó Queue-t vagy Topic definiálására</li>
+</ul>
+
+<p>Ebből máris látható, hogy a mi egyszerű, JNDI-be bejegyzett értékeinkre nem tudunk mivel hivatkozni. Van ugyan egy env-entry tag, de ennek értékét kizárólag az ejb-jar.xml-ben lehet megadni, és nem lehet felüldefiniálni a JNDI-ben megadott értékkel.</p>
+
+<p>A Java EE szabvány, csak a következő típusokat engedi @Resource annotációval megjelölni:</p>
+
+<ul>
+<li>SessionContext</li>
+<li>DataSource</li>
+<li>UserTransaction</li>
+<li>EntityManager</li>
+<li>TimerService</li>
+<li>Más EJB-k</li>
+<li>Web szolgáltatások</li>
+<li>Sorok és témák (queue/topic)</li>
+<li>Connection factory objektumok a resource adapter-ek számára</li>
+<li>Környezeti változók: String, Character, Byte, Short, Integer, Long, Boolean, Double és Float</li>
+</ul>
+
+<p>Ebből látható, hogy nem lehet akármilyen típushoz, POJO-hoz hozzáférni, ami már beszűkíti a lehetőségeinket. Ezt a tulajdonságát a Resource annotációnak a Spring közönség igen erősen kritizálja, érthető okokból.</p>
+
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/-jb-qsI66nbw/TXQTrHRQeDI/AAAAAAAAGBo/ftdkPUkuO4k/s1600/enc_details.png" rel="lightbox"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 218px;" src="http://3.bp.blogspot.com/-jb-qsI66nbw/TXQTrHRQeDI/AAAAAAAAGBo/ftdkPUkuO4k/s320/enc_details.png" border="0" alt="ENC részletek" id="BLOGGER_PHOTO_ID_5581107469625620530" /></a>
+
+<p>Így hát marad az, hogy a globális JNDI nevekhez férjünk hozzá Context lookup segítségével. Jobb esetben erre Service Locator-t használunk. Még jobb estben az előbb említett konfigurációs keretrendszerek valamelyikét.</p>
+
+<p>De előbb nézzük, hogyan lehet értéket adni egy system property-nek? Vagy parancssorból a Java virtuális gépnek a <code>-D</code> paraméterrel, vagy kódból a System.setProperty metódussal. A JBoss azonban egy SystemPropertiesService szolgáltatást is biztosít, mely a deploy könyvtárban lévő properties-service.xml-ben van definiálva. Ahhoz, hogy a system property-nek értéket adjunk, a következő sorokat illesszük be a SystemPropertiesService mbean tag alá.</p>
+
+<pre class="brush: xml">
+&lt;attribute name="Properties"&gt;
+  earconfig.system.property=Hello System Property!
+&lt;/attribute&gt;
+</pre>
+
+<p>A megoldás szépsége, hogy ezt akkor is megtehetjük, ha éppen fut a JBoss, a -service.xml állományokat a JBoss automatikusan újra felolvassa. Nem csak ebben állíthatjuk be a paramétereket, hanem megadhatunk egy properties állományt is, melyet felolvas.</p>
+
+<p>Hogyan tehetünk értéket a JNDI-be? Megtehetjük parancssori eszközzel, kódbol, de a JBoss erre is biztosít szolgáltatást, méghozzá <code><a href="http://docs.jboss.org/jbossas/docs/Server_Configuration_Guide/4/html/Additional_Naming_MBeans-JNDI_Binding_Manager.html#">JNDIBindingServiceMgr</a></code> néven. Ez alapban nincs konfigurálva a JBoss-ban, ígyhát hozzunk létre egy -service.xml végű állományt, pl. jndi-binding-service.xml, és másoljuk bele a következő tartalmat. (Megtalálható a projektben is a jbossconfig-ear\src\main\jboss\jndi-binding-service.xml állományban.)</p>
+
+<pre class="brush: xml">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;server&gt;
+
+   &lt;mbean code="org.jboss.naming.JNDIBindingServiceMgr"
+      name="jboss.jndi:name=JNDIBindingServiceMgr"&gt;
+       &lt;attribute name="BindingsConfig" serialDataType="jbxb"&gt;
+           &lt;jndi:bindings xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+                      xmlns:jndi="urn:jboss:jndi-binding-service:1.0"
+                      xs:schemaLocation="urn:jboss:jndi-binding-service:1.0 resource:jndi-binding-service_1_0.xsd"&gt;
+
+               &lt;jndi:binding name="earconfig/string"&gt;
+                   &lt;jndi:value trim="true"&gt;
+                   Hello, JNDI!
+                   &lt;/jndi:value&gt;
+               &lt;/jndi:binding&gt;
+
+               &lt;jndi:binding name="earconfig/url"&gt;
+                   &lt;jndi:value type="java.net.URL"&gt;http://www.jboss.org&lt;/jndi:value&gt;
+               &lt;/jndi:binding&gt;
+
+               &lt;jndi:binding name="earconfig/inetaddress"&gt;
+                   &lt;jndi:value editor="org.jboss.util.propertyeditor.InetAddressEditor"&gt;
+                       127.0.0.1
+                   &lt;/jndi:value&gt;
+               &lt;/jndi:binding&gt;
+
+               &lt;jndi:binding name="earconfig/properties"&gt;
+                   &lt;java:properties xmlns:java="urn:jboss:java-properties"
+                    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+                    xs:schemaLocation="urn:jboss:java-properties
+      resource:java-properties_1_0.xsd"&gt;
+                       &lt;java:property&gt;
+                           &lt;java:key&gt;key1&lt;/java:key&gt;
+                           &lt;java:value&gt;value1&lt;/java:value&gt;
+                       &lt;/java:property&gt;
+                       &lt;java:property&gt;
+                           &lt;java:key&gt;key2&lt;/java:key&gt;
+                           &lt;java:value&gt;value2&lt;/java:value&gt;
+                       &lt;/java:property&gt;
+                   &lt;/java:properties&gt;
+               &lt;/jndi:binding&gt;
+
+           &lt;/jndi:bindings&gt;
+       &lt;/attribute&gt;
+   &lt;/mbean&gt;
+
+&lt;/server&gt;
+</pre>
+
+<p>A példa négy értéket illeszt be a JNDI-be:</p>
+<ul>
+<li>earconfig/string: String típusú</li>
+<li>earconfig/url: URL típusú</li>
+<li>earconfig/inetaddress: InetAddress típusú</li>
+<li>earconfig/properties: Properties típusú</li>
+</ul>
+
+<p>Mint látható, nem csak String-et lehet használni, hanem vannak beépített <a href="http://community.jboss.org/wiki/PropertyEditor">beépített PropertyEditor-ok</a>, de sajátot is lehet használni.</p>
+
+<p>Amennyiben ezt az állományt is bemásoljuk a deploy könyvtárba, az értékek a JNDI-ben azonnal megjelennek. Szerkesztés esetén is azonnal látszanak az új értékek, ugyanis a JBoss az állományt automatikusan újraolvassa. Az eredmény megtekinthető a JMX Console-on is (/jmx-console címen), és a service=JNDIView MBean-t kell kiválasztani, és meghívni a list(boolean verbose) metódusát. A következőt kell látnunk:</p>
+
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/-PAO7WAPXFXA/TXQGTPYQylI/AAAAAAAAGBQ/U1Ftl8QG1zo/s1600/jboss-jmx.PNG" rel="lightbox"><img style="display: block; margin: 0px auto 10px; text-align: center; cursor: pointer; width: 320px; height: 224px;" src="http://3.bp.blogspot.com/-PAO7WAPXFXA/TXQGTPYQylI/AAAAAAAAGBQ/U1Ftl8QG1zo/s320/jboss-jmx.PNG" alt="JBoss JMX admin" id="BLOGGER_PHOTO_ID_5581092765834463826" border="0" /></a>
+
+<p>Sajnos ezeket az adminisztrációs felületen nem lehet szerkeszteni, kizárólag a fájlokban. Azonban a Glassfish pl. lehetőséget biztosít ezek megadására grafikus adminisztrációs felületen is.</p>
+
+<p>Így az értékek benne vannak a globális névtérben, lookup-pal már hozzá is tudunk férni. Az alkalmazás az /earconfig címen tekinthető meg, és a következőt kell kiírnia:</p>
+
+<pre>
+A projekt bemutatja, hogy hogyan lehet Java EE alkalmazásból konfigurációs paramétereket beolvasni.
+
+    * System property EJB rétegben (kulcs: earconfig.system.property): Hello \
+System Property!
+    * Context lookup (JNDI) EJB rétegben (JNDI nevek: earconfig/string, \
+ earconfig/url, earconfig/inetaddress, earconfig/properties): [Hello JNDI!, \
+http://jtechlog.blogspot.com, 127.0.0.1, {key2=value2, key1=value1}]
+    * System property web rétegben (kulcs: earconfig.system.property): Hello System Property!
+    * Context lookup (JNDI) web rétegben (JNDI nevek: earconfig/string, \
+ earconfig/url, earconfig/inetaddress, earconfig/properties): [Hello JNDI!, \
+http://jtechlog.blogspot.com, 127.0.0.1, {key2=value2, key1=value1}]
+</pre>
+
+<p>Persze <a href="http://docs.jboss.org/jbossas/docs/Server_Configuration_Guide/4/html/Writing_JBoss_MBean_Services-A_Standard_MBean_Example.html">mi is írhatunk saját MBean-t</a>, mely pakol a JNDI-be.</p>

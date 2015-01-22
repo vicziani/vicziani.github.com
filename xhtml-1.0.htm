@@ -1,0 +1,1268 @@
+---
+layout: page
+title: "XHTML 1.0: The Extensible HyperText Markup Language (Második Kiadás) - magyar fordítás"
+description: "XHTML 1.0: The Extensible HyperText Markup Language (Második Kiadás) - magyar fordítás"
+keywords: "XHTML 1.0, The Extensible HyperText Markup Language (Második Kiadás), magyar fordítás"
+---
+
+            <div id="fullcenter">
+                <div class="centerbox">
+
+                    <div id="trans">
+                        <h1>XHTML 1.0 Extensible HyperText Markup Language (Második Kiadás)</h1>
+                        <h2>A HTML 4 megújítása XML 1.0 alapokon</h2>
+                        <h2>W3C ajánlás 2000. január 26., javítva 2002. augusztus 1-én</h2>
+                        <dl>
+                            <dt>Eredeti angol verzió:</dt>
+                            <dd>
+                                XHTML™ 1.0 The Extensible HyperText Markup Language (Second Edition)<br />
+                                <a href="http://www.w3.org/TR/2002/REC-xhtml1-20020801">http://www.w3.org/TR/2002/REC-xhtml1-20020801</a></dd>
+                            <dt>Fordítás:</dt>
+                            <dd><a href="http://vicziani.github.com/xhtml-1.0.htm">http://vicziani.github.com/~vicziani/xhtml-1.0.htm</a></dd>
+
+                            <dt>Fordította:</dt>
+                            <dd>Viczián István &lt;viczian.istvan a gmail-en&gt;</dd>
+                            <dt>Fordítás státusza:</dt>
+                            <dt>Fordítás dátuma: 2001. január 22.<br />
+                                Utolsó módosítás dátuma: 2010. szeptember 19.<br />
+                                Ez a fordítás a <a href="http://www.w3.org">W3C</a> tudta és engedélye nélkül, saját szorgalomból készült. A lefordított dokumentum fordításból eredő hibákat tartalmazhat.
+                                A magyar fordítás nem is követi az eredeti angol nyelvű dokumentumon végrehajtott jövőbeli változtatásokat. Ezért a fordítás nem tekinthető normatív W3C dokumentumnak. A dokumentum normatív, mindenkori legújabb, hivatalos, angol nyelvű változatát lásd a W3C megfelelő weblapján: <a href="http://www.w3.org/TR/xhtml1">http://www.w3.org/TR/xhtml1</a>
+                            </dt>
+                            <dt>Megjegyzések a fordításhoz:</dt>
+                            <dd>
+	1.) A fordítással kapcsolatos olvasói észrevételeket a fordító e-mail címére kérjük.<br />
+                                2.) A fordító a saját megjegyzéseit feltűnően elkülöníti a dokumentum szövegében.<br />
+                                3.) A dokumentumból kifelé mutató összes link angol nyelvű dokumentumra mutat, hiszen ezek fordítása még nem készült el.
+                            </dd>
+                        </dl>
+                    </div>
+
+
+                    <h1>XHTML 1.0 Extensible HyperText Markup Language (Második Kiadás)</h1>
+                    <h2>A HTML 4 megújulása XML 1.0 alapokon</h2>
+                    <h2>W3C ajánlás 2000. január 26., javítva 2002. augusztus 1-én</h2>
+                    <dl>
+                        <dt>Ez a verzió (angol - a ford.):</dt>
+                        <dd><a href="http://www.w3.org/TR/2002/REC-xhtml1-20020801">http://www.w3.org/TR/2002/REC-xhtml1-20020801</a></dd>
+                        <dt>Legfrissebb verzió (angol): </dt>
+                        <dd><a href="http://www.w3.org/TR/xhtml1">http://www.w3.org/TR/xhtml1</a></dd>
+                        <dt>Előző verzió (angol - a ford.): </dt>
+                        <dd><a
+                                href="http://www.w3.org/TR/2000/REC-xhtml1-20000126">http://www.w3.org/TR/2000/REC-xhtml1-20000126</a></dd>
+
+                        <dt>A legfrissebb verzió, a legfrissebb és az előző verzió különbségeinek kiemelésével:</dt>
+                        <dd><a href="http://www.w3.org/TR/2002/REC-xhtml1-20020801/xhtml1-diff.html">http://www.w3.org/TR/2002/REC-xhtml1-20020801/xhtml1-diff.html</a></dd>
+
+                        <dt>Szerzők:</dt>
+                        <dd>Lásd <a
+                                href="#acks">köszönetnyilvánítások</a></dd>.
+                    </dl>
+                    <p>A dokumentumhoz <a href="http://www.w3.org/2002/08/REC-xhtml1-20020801-errata">hibajegyzék</a> is kapcsolódik, mely tartalmazhat néhány normatív javítást. A dokumentumról tovább <a href="http://www.w3.org/MarkUp/translations">fordítások</a> is rendelkezésre állnak.</p>
+                    <p>Ez a dokumentum elérhető különböző nem normatív formátumokban is: <a href="http://www.w3.org/TR/xhtml1/Cover.html">több állományból álló XHTML</a>, <a href="http://www.w3.org/TR/xhtml1/xhtml1.ps">PostScript formátum</a>, <a href="http://www.w3.org/TR/xhtml1/xhtml1.pdf">PDF</a>, <a href="http://www.w3.org/TR/xhtml1/xhtml1.zip">ZIP tömörített állomány</a> és <a href="http://www.w3.org/TR/xhtml1/xhtml1.tgz">GZip-pel tömörített TAR állomány</a>.</p>
+
+                    <p><a
+                            href="http://www.w3.org/Consortium/Legal/ipr-notice-20000612#Copyright"> Copyright</a>
+	 ©2002 <a href="http://www.w3.org/"><abbr
+                                title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a
+                            href="http://www.lcs.mit.edu/"><abbr
+                                title="Massachusetts Institute of Technology">MIT</abbr></a>,
+                        <a href="http://www.inria.fr/"><abbr lang="fr"
+                                                             title="Institut National de Recherche en Informatique et Automatique">INRIA</abbr></a>,
+                        <a href="http://www.keio.ac.jp/">Keio</a>), Minden jog fenntartva. Alkalmazandók a W3C
+                        <a
+                            href="http://www.w3.org/Consortium/Legal/ipr-notice-20000612#Legal_Disclaimer">felelősségi</a>,
+                        <a
+                            védjegyoltalmi</a>,
+                        <a
+                            href="http://www.w3.org/Consortium/Legal/copyright-documents-19990405">dokumentumhasználati</a> és
+                        <a
+                            href="http://www.w3.org/Consortium/Legal/copyright-software-19980720">szoftverlicensz</a> előírásai.</p>
+
+                    <h2>Absztrakt</h2>
+                    <p>Ez a specifikáció definiálja az XHTML 1.0 Második Kiadását, mely a
+	 HTML 4 XML 1.0 alkalmazásként történő megújítása, valamint három <abbr title="Document Type Definitions">DTD</abbr>-t, melyek megfelelnek a HTML 4-ben meghatározottnak. Az elemek tartalmi jelentése, illetve attribútumai a HTML 4 W3C ajánlásában kerültek meghatározásra. Ezek a tartalmi jelentések biztosítják az XHTML jövőbeni fejleszthetőségének alapját. A kompatibilitás a már létező HTML felhasználói alkalmazásokkal néhány irányelv betartásával lehetséges.</p> 
+                    <h2>A dokumentum státusza</h2>
+                    <p><em>Ez a rész leírja a dokumentum státuszát a megjelenésének időpontjában. Más dokumentumok hatálytalaníthatják ezt a dokumentumot. Eme dokumentumsorozat legutolsó státuszát a W3C tartja karban.</em></p>
+                    <p>Ez a dokumentum az XHMTL 1.0 második kiadása, mely megában foglalja a hibajegyzék javításait 2002 augusztus 1-éig. A különbségek a jelenlegi és az előző verzió között kiemeltek egy <a href="http://www.w3.org/TR/xhtml1/xhtml1-diff.html">külön verzióban</a>.</p>
+                    <p>A második kiadás az XHTML 1.0 ajánlásnak (mely először 2000 január 26-án jelent meg). A módosítások a közösség által küldött megjegyzések, és a HTML Working Group további munkájának folyománya. Ebben a dokumentumban nincsenek lényegi változások - csupán a hibajegyzékben említett hibák lettek javítva.</p>
+                    <p>Az ebben a specifikációban ismert hibák listája elérhető a <a href="http://www.w3.org/2002/08/REC-xhtml1-20020801-errata">http://www.w3.org/2002/08/REC-xhtml1-20020801-errata</a> címen.</p>
+                    <p>Az ebben a verzióban talált hibákat a <a href="mailto:www-html-editor@w3.org">www-html-editor@w3.org</a> (<a href="http://lists.w3.org/Archives/Public/www-html/">archívum</a>) címen lehet bejelenteni. A <abbr title="HyperText Markup Language">HTML</abbr> lehetőségeinek megvitatása a <a href="mailto:www-html@w3.org">www-html@w3.org</a> (<a href="http://lists.w3.org/Archives/Public/www-html/">archívum</a>) levelezési listán történik. (A fordítással kapcsolatos hibákat a fordító e-mail címére lehet küldeni - a ford.)</p>
+                    <p>Ez a dokumentum a <a href="http://www.w3.org/MarkUp/Activity">W3C HTML Activity</a> tevékenység keretein belül készült. A <a href="http://www.w3.org/MarkUp/Group/">HTML Working Group</a> csoport (<em><a href="http://cgi.w3.org/MemberAccess/">csak tagoknak</a></em>) céljai a <a href="http://www.w3.org/MarkUp/2000/Charter">HTML Working Group charter</a> iratban vannak lefektetve.</p>
+                    <p>A megjelenés időpontjában a munkacsoport hisz abban, hogy egy felfedett szabadalmi igény sem létezik a specifikációval kapcsolatban. A jelenlegi felfedett szabadalmi igények listája a Working Group <a href="http://www.w3.org/2002/07/HTML-IPR">ezzel foglalkozó oldalán</a> található.</p>
+                    <p>A jelenlegi W3C ajánlások és egyéb technikai dokumentációk a <a href="http://www.w3.org/TR">http://www.w3.org/TR</a> címen találhatóak.</p>
+
+                    <h1>Rövid tartalomjegyzék</h1>
+                    <div class="toc">
+                        <ul class="toc">
+                            <li class="tocline">1. <a class="tocxref" href="#xhtml">Mi az az XHTML?</a></li>
+                            <li class="tocline">2. <a class="tocxref" href="#defs">Definíciók</a></li>
+                            <li class="tocline">3. <a class="tocxref" href="#normative">Az XHTML 1.0
+		  normatív definíciója</a></li>
+                            <li class="tocline">4. <a class="tocxref" href="#diffs">Különbségek az
+		  XHTML 1.0 és a HTML 4 között</a> </li> 
+                            <li class="tocline">5. <a class="tocxref" href="#issues">Kompatibilitási
+		  kérdések</a> </li>
+                            <li class="tocline">A. <a class="tocxref" href="#dtds">
+		  DTD-k</a></li> 
+                            <li class="tocline"><a class="tocxref" href="#prohibitions">B.
+		  Elemek tilalma</a></li> 
+                            <li class="tocline"><a class="tocxref" href="#guidelines">C. HTML
+		  kompatibilitási irányelvek</a></li> 
+                            <li class="tocline"><a class="tocxref" href="#acks">D.
+		  Köszönetnyilvánítások</a></li> 
+                            <li class="tocline"><a class="tocxref" href="#refs">E.
+		  Referenciák</a></li> 
+                        </ul>
+                    </div>
+
+                    <h2>Teljes tartalomjegyzék</h2>
+                    <div class="contents">
+                        <ul class="toc">
+                            <li class="tocline">1. <a class="tocxref" href="#xhtml">Mi az az XHTML?</a>
+                                <ul class="toc">
+                                    <li class="tocline">1.1 <a class="tocxref" href="#html4">Mi az a HTML 4?</a></li>
+                                    <li class="tocline">1.2 <a class="tocxref" href="#xml">Mi az az XML?</a></li>
+                                    <li class="tocline">1.3 <a class="tocxref" href="#why">Miért van
+				szükség az XHTML-re?</a></li> 
+                                </ul> </li>
+                            <li class="tocline">2. <a class="tocxref" href="#defs">Definíciók</a>
+                                <ul class="toc">
+                                    <li class="tocline">2.1 <a class="tocxref" href="#terms">Terminológia</a></li>
+
+                                    <li class="tocline">2.2 <a class="tocxref" href="#general">Általános
+				szakkifejezések</a></li> 
+                                </ul> </li>
+                            <li class="tocline">3. <a class="tocxref" href="#normative">Az XHTML 1.0
+		  normatív definíciója</a> 
+                                <ul class="toc">
+                                    <li class="tocline">3.1 <a class="tocxref" href="#docconf">Dokumentum
+				megfelelések</a>
+                                        <ul class="toc">
+                                            <li class="tocline">3.1.1 <a class="tocxref" href="#strict">Szigorúan megfelelő dokumentumok</a></li>
+                                            <li class="tocline">3.1.3 <a class="tocxref" href="#well-formed">XHTML használata más névterekkel</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="tocline">3.2 <a class="tocxref" href="#uaconf">Felhasználói
+				alkalmazás megfelelések</a></li> 
+                                </ul> </li>
+                            <li class="tocline">4. <a class="tocxref" href="#diffs">Különbségek az
+		  XHTML 1.0 és a HTML 4 között</a> 
+
+                                <ul class="toc">
+
+                                    <li class="tocline">4.1. <a class="tocxref" href="#h-4.1">A dokumentumnak jól formázottnak kell lennie</a></li>
+                                    <li class="tocline">4.2. <a class="tocxref" href="#h-4.2">Az elemeknek, illetve a tulajdonságoknak kisbetűvel kell szerepelniük</a></li>
+                                    <li class="tocline">4.3. <a class="tocxref" href="#h-4.3">A nem üres elemeknél a záró tag-ek kötelezőek</a></li>
+                                    <li class="tocline">4.4. <a class="tocxref" href="#h-4.4">A tulajdonságoknak mindig idézőjelek között kell szerepelniük</a></li>
+                                    <li class="tocline">4.5. <a class="tocxref" href="#h-4.5">Tulajdonságok minimalizációja</a></li>
+                                    <li class="tocline">4.6. <a class="tocxref" href="#h-4.6">Üres elemek</a></li>
+                                    <li class="tocline">4.7. <a class="tocxref" href="#h-4.7">Whitespace karakterek kezelése a tulajdonságok értékeinél</a></li>
+                                    <li class="tocline">4.8. <a class="tocxref" href="#h-4.8">Szkriptek és stíluselemek</a></li>
+                                    <li class="tocline">4.9. <a class="tocxref" href="#h-4.9">SGML kivételek</a></li>
+                                    <li class="tocline">4.10. <a class="tocxref" href="#h-4.10">Elemek 'id' illetve 'name' tulajdonságokkal</a></li>
+                                    <li class="tocline">4.11. <a class="tocxref" href="#h-4.11">Tulajdonságok előredefiniált értékkészlettel</a></li>
+                                    <li class="tocline">4.12. <a class="tocxref" href="#h-4.12">Elemhivatkozások, mint hexadecimális értékek</a></li>
+                                </ul>
+
+                            </li>
+                            <li class="tocline">5. <a class="tocxref" href="#issues">Kompatibilitási
+		  kérdések</a> 
+                                <ul class="toc">
+                                    <li class="tocline">5.1 <a class="tocxref" href="#media">Internet
+				médiatípusok</a></li> 
+                                </ul> </li>
+                            <li class="tocline">A. <a class="tocxref" href="#dtds">DTD-k</a>
+                                <ul class="toc">
+                                    <li class="tocline">A.1. <a class="tocxref" href="#h-A1">Dokumentum Típus Definíciók</a>
+                                        <ul class="toc">
+                                            <li class="tocline">A.1.1. <a class="tocxref" href="#a_dtd_XHTML-1.0-Strict">XHTML-1.0-Strict</a></li>
+                                            <li class="tocline">A.1.2. <a class="tocxref" href="#a_dtd_XHTML-1.0-Transitional">XHTML-1.0-Transitional</a></li>
+                                            <li class="tocline">A.1.3. <a class="tocxref" href="#a_dtd_XHTML-1.0-Frameset">XHTML-1.0-Frameset</a></li>
+                                        </ul>
+
+                                    </li>
+                                    <li class="tocline">A.2. <a class="tocxref" href="#h-A1">Egyedhalmazok </a>
+                                        <ul class="toc">
+                                            <li class="tocline">A.2.1. <a class="tocxref" href="#a_dtd_Latin-1_characters">Latin-1 karakterek</a></li>
+                                            <li class="tocline">A.2.2. <a class="tocxref" href="#a_dtd_Special_characters">Speciális karakterek</a></li>
+                                            <li class="tocline">A.2.3. <a class="tocxref" href="#a_dtd_Special_characters">Szimbólumok</a></li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tocline">B. <a class="tocxref" href="#prohibitions">Elemek tilalma</a></li>
+                            <li class="tocline">C. <a class="tocxref" href="#guidelines">HTML
+		  kompatibilitási irányelvek</a> 
+                                <ul class="toc">
+                                    <li class="tocline">C.1. <a class="tocxref" href="#C_1">Feldolgozói utasítások </a></li>
+                                    <li class="tocline">C.2. <a class="tocxref" href="#C_2">Üres elemek </a></li>
+                                    <li class="tocline">C.3. <a class="tocxref" href="#C_3">Elem minimalizáció és üres elem tartalom </a></li>
+                                    <li class="tocline">C.4. <a class="tocxref" href="#C_4">Beágyazott stíluslapok és szkriptek </a></li>
+                                    <li class="tocline">C.5. <a class="tocxref" href="#C_5">Sortörés a tulajdonságértékeken belül</a></li>
+                                    <li class="tocline">C.6. <a class="tocxref" href="#C_6">Isindex</a></li>
+                                    <li class="tocline">C.7. <a class="tocxref" href="#C_7">A lang és a xml:lang tulajdonságok</a></li>
+                                    <li class="tocline">C.8. <a class="tocxref" href="#C_8">Töredékazonosítók</a></li>
+                                    <li class="tocline">C.9. <a class="tocxref" href="#C_9">Karakterkódolás</a></li>
+                                    <li class="tocline">C.10. <a class="tocxref" href="#C_10">Logikai tulajdonságok </a></li>
+                                    <li class="tocline">C.11. <a class="tocxref" href="#C_11">Dokumentum Objektum Modell és az XHTML</a></li>
+                                    <li class="tocline">C.12. <a class="tocxref" href="#C_12">&amp;-jel használata tulajdonság értékekben</a></li>
+                                    <li class="tocline">C.13. <a class="tocxref" href="#C_13">Kaszkádolt Stíluslapok (CSS) és az XHTML</a></li>
+                                    <li class="tocline">C.14. <a class="tocxref" href="#C_14">Hivatkozás a stílus elemekre, amennyiben XML-en belül jelennek meg</a></li>
+                                    <li class="tocline">C.15. <a class="tocxref" href="#C_15">White space karakterek használatának különbsége HTML és XML dokumentumban</a></li>
+                                    <li class="tocline">C.16. <a class="tocxref" href="#C_16">Az &amp;pos; Nevesített Karakter Hivatkozás</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="tocline">D. <a class="tocxref" href="#acks">Köszönetnyilvánítások</a></li>
+                            <li class="tocline">E. <a class="tocxref" href="#refs">Hivatkozások</a></li>
+                        </ul> </div>
+
+                    <h1><a name="xhtml" id="xhtml">1. Mi az az XHTML?</a></h1>
+                    <p>XHMTL a jelenlegi és jövőbeli dokumentumtípusok és modulok egy
+	 családja, mely átveszi, a HTML 4-et [<a href="#ref-html4">HTML</a>], illetve
+	 annak egy részét, valamint kiterjeszti azt. XHTML
+	 családba tartozó dokumentumtípusok <abbr title="Extensible Markup Language">XML</abbr> alapúak, és arra
+	 lettek tervezve, hogy együttműködjenek az XML-alapú
+	 felhasználói alkalmazásokkal. A dokumentumcsalád
+	 részletei, illetve a fejlődés iránya nagyobb
+	 részletességgel a [<a href="#ref-xhtmlmod">XHTMLMOD</a>] dokumentumban vannak leírva.</p>
+                    <p>XHTML 1.0 (ez a specifikáció) az első dokumentumtípus az
+	 XHTML dokumentumcsaládban. Ez a három HTML 4 dokumentumtípus
+	 megreformálása, mint XML 1.0 alkalmazások [<a
+                            href="#ref-xml">XML</a>]. Ez egy olyan nyelvnek lett tervezve, mellyel leírható tartalom mind XML formátumú, illetve néhány
+                        <a href="#guidelines">irányelv</a> betartásával együttműködjön
+	 a HTML 4-et használó felhasználói
+	 alkalmazásokkal. A fejlesztők, akik áttérnek az
+	 XHTML 1.0-ra, a következő előnyöket fogják élvezni:</p> 
+                    <ul>
+                        <li> XHTML dokumentumok XML alapúak. Ezért könnyebben megnézhetőek,
+		szerkeszthetőek, és érvényesíthetőek
+		szabványos XML eszközökkel.</li> 
+                        <li> XHTML dokumentumok ugyanolyan jól (, ha nem jobban) együttműködnek
+		korábbi, HTML-4-et támogató felhasználói
+		alkalmazásokkal, vala,omt az új, XHTML 1.0-t támogató
+		felhasználói alkalmazásokkal.</li> 
+                        <li> XHTML dokumentumokban használhatóak olyan
+		alkalmazások (pl. szkriptek, appletek), melyek valamelyik HTML
+		Document Object Model-re, vagy XML Document Object Model-re támaszkodnak
+		[<a href="ref-dom">DOM</a>].</li> 
+                        <li> Ahogy az XHTML család fejlődik a XHTML 1.0 dokumentumok
+		jobban együtt fognak működni XHTML környezeteken belül, illetve azok között.</li> 
+                    </ul>
+                    <p>Az XHTML család a következő lépés az
+	 Internet fejlődésében. Az XHTML-re való
+	 áttéréssel a tartalomszolgáltatók
+	 beléphetnek az XML világába annak minden
+	 velejáró előnyével együtt, miközben
+	 mégis kompatibilisek maradnak mind vissza-, mind
+	 előrefelé.</p> 
+                    <h2> <a name="html4" id="html4">1.1 Mi is az a HTML 4?</a> </h2>
+                    <p>HTML4 [<a href="#ref-html4">HTML</a>] egy <abbr title="Standard Generalized
+	 Markup Language"> SGML</abbr> (Standard Generalized
+	 Markup Language) alkalmazás, mely alkalmazkodik az International
+	 Standard ISO 8879 szabványhoz, és széles körben elterjedt, mint a
+	 World Wide Web szabványos publikáló nyelve.</p> 
+                    <p>SGML egy nyelv a leíró nyelvek
+	 leírására, mely különösen
+	 használatos az elektronikus dokumentumok cseréjében, 
+                        dokumentumkezelésben és dokumentum
+	 publikálásban. HTML egy példa az SGML-ben
+	 definiált nyelvekre.</p> 
+                    <p>Az SGML körülbelül az 1980-as évek
+	 közepén keletkezett, és még mindig elég
+	 stabilan tartja pozícióját. Eme stabilitás
+	 abból a tényből következik, hogy ez a nyelv egyszerre funkciógazdag és flexibilis.
+	 Habár ez a flexibilitás magas árral jár,
+	 mégpedig a bonyolultság szintjével, mely meggátolja
+	 az adoptálását különféle
+	 környezetekbe, beleértve a World Wide Web-et is.</p> 
+                    <p>A HTML, ahogy azt kezdetben elképzelték, egy nyelv lett
+	 volna a tudományos és technikai
+	 dokumentumok cseréjáre, mely megfelelő lett volna dokumentumok
+	 leírásában nem járatos specialistáknak. A
+	 HTML csökkentette az SGML bonyolultságát azzal, hogy egy
+	 kisebb halmazát specifikálta a struktúrális
+	 és szemantikai tag-eknek, mellyel relatív egyszerű
+	 dokumentumokat lehet készíteni. Túl azon, hogy 
+	 egyszerűsítette a dokumentum struktúráját, a
+	 HTML-be bekerült a hypertext támogatás. A multimédia
+	 képességeket később kapta meg.</p> 
+                    <p>Rendkívül rövid idő alatt a HTML széles
+	 körben elterjedt, és gyorsan kinőtte a kezdeti
+	 célokat. A HTML elkészítése után nagy sebességgel nőtt a HTML-ben, mint szabványban
+	 használható elemek száma, hogy alkalmazkodni tudjon a
+	 vertikális, magasan specializált piachoz. Az új elemek e
+	 bősége kompatibilitási problémákhoz vezetett
+	 különböző platformokon.</p> 
+                    <h2> <a name="xml" id="xml">1.2 Mi az az XML?</a> </h2>
+                    <p>XML&trade; az Extensible Markup Language rövidítése,
+	 mozaikszó [<a href="#ref-xml">XML</a>].</p> 
+                    <p>Az XML-t úgy lett kitalálva, hogy megtartja az SGML erejét
+	 és flexibilitását viszont elhagyja annak
+	 bonyolultságát. Habár az XML korlátozott
+	 formája az SGML-nek, mégis megőrizte az SGML
+	 erejének és gazdagságának nagy részét,
+	 és még mindig tartalmazza az SGML gyakran használt
+	 tulajdonságait.</p> 
+                    <p>Miközben megőrizte az előnyös
+	 tulajdonságait, az XML eltávolított sok komplex
+	 tulajdonságot, mely az SGML-t alkalmazó szoftverek írását és tervezését bonyolulttá és költségessé tette.</p> 
+                    <h2> <a name="why" id="why">1.3 Miért van szükség az
+	 XHTML-re?</a> </h2> 
+                    <p>Az XHTML 1.0-ra való áttérés előnyei
+	 a fentiekben kerültek kifejtésre. Az XHTML néhány
+	 általános előnye azonban álljon itt:</p> 
+                    <ul>
+                        <li> A dokumentum fejlesztők és a felhasználói
+		alkalmazások tervezői folyamatosan új utakat fedeznek fel,
+		hogyan valósítsák meg az ötleteiket az új
+		leírás által. Az XML-ben relatív egyszerű
+		új elemeket vagy tulajdonságokat
+		bevezetni. Az XHTML család úgy lett tervezve, hogy
+		ezeket a kiegészítéseket az XHTML modulokkal illetve XHTML-alapú modulok fejlesztésére való technikákkal valósítsa meg (az XHTML
+		Modularization specifikációban leírt módon). Ezek a modulok
+		engedélyezni fogják a létező és új
+		lehetőségek halmazát, a tartalom fejlesztésekor, illetve
+		az új felhasználói alkalmazások
+		írásakor.</li> 
+                        <li> Az Internet eléréséhez folyamatosan alternatív
+		módszerek kerülnek bevezetésre. A XHTML család az általános
+		felhasználói alkalmazásokkal való
+		együttműködés észben tartásával lett megtervezve. Az új
+		felhasználói alkalmazások és dokumentum
+		megjelenítési mechanizmusok által a szerverek, proxik,
+		és felhasználói alkalmazások képesek lesznek a
+		legjobb hatékonyságú tartalom transzformációra.
+		Végül lehetséges lesz XHTML alapú tartalmak
+		kifejlesztése, mely használható bármely
+		XHTML-alapú felhasználói alkalmazással.</li> 
+                    </ul>
+                    <h1> <a name="defs" id="defs">2. Definíciók</a> </h1>
+                    <p><strong>Ez a fejezet normatív.</strong></p>
+                    <h2> <a name="terms" id="term">2.1 Terminológia</a> </h2>
+                    <p>A következő kifejezések lesznek használva ebben
+	 a specifikációban. Ezek a kifejezések
+	 kiegészítik az [<a href="#ref-rfc2119">RFC2119</a>]-beli
+	 definíciókat bizonyos értelemben az ISO/IEC 994501:1990
+	 [<a href="#ref-posix">POSIX. 1</a>] definícióira
+	 támaszkodva:</p> 
+                    <dl>
+                        <dt>Lehet (may)</dt>
+                        <dd>Az implementációk vonatkozásában a
+		"lehet" szó úgy értelmezhető, hogy ez egy
+		opcionális jellemző, melyet nem követel meg a
+		specifikáció, de létezhet. A <a
+                                href="#docconf">Dokumentum Megfelelések</a>
+		vonatkozásában a "lehet" szó azt jelenti, hogy az
+		opcionális jellemzőt nem muszáj használni. Az
+		"opcionális" kifejezés azonos a "lehet" kifejezés
+		használatával.</dd> 
+                        <dt>Kell (must)</dt>
+                        <dd>Ebben a specifikációban a "kell" szót úgy
+		kell értelmezni, mint egy kötelező igény az
+		implementációban, vagy a Szigorúan Megfelelő XHTML
+		Dokumentumokban, környezettől függően. A
+		"kell (shall)" definíciója megegyezik a "kell (must)"
+		definíciójával.</dd> 
+                        <dt>Opcionális (optional)</dt>
+                        <dd>Lásd "Lehet (may)".</dd>
+                        <dt>Fenntartott (reserved)</dt>
+                        <dd>Az érték vagy a viselkedés nem specifikált,
+		de nem megengedett sem a Megfelelő Dokumentumokban, sem nem támogatott a
+		Megfelelő Felhasználói Alkalmazásokban.</dd> 
+                        <dd>Kell (shall)</dd>
+                        <dt>Lásd "Kell (must).</dt>
+                        <dt>Kellene (should)</dt>
+                        <dd>Az implementációk vonatkozásában a
+		"kellene" szó értelmezése implementációs
+		ajánlás, de nem kötelező. A dokumentumok
+		vonatkozásában a "kellene" szó úgy
+		értelmezhető, hogy ajánlott programozói
+		szokás a dokumentumoknál, és ajánlott a
+		Szigorúan Megfelelő XHTML Dokumentumoknál.</dd> 
+                        <dt>Támogatott (supported)</dt>
+                        <dd>Bizonyos lehetőség ebben a specifikációban
+		opcionális. Ha egy lehetőség támogatott, úgy
+		viselkedik, mintha ebben a specifikációban lenne
+		specifikálva.</dd> 
+                        <dt>Specifikálatlan (unspecified)</dt>
+                        <dd>Ha egy érték vagy a viselkedés
+		specifikálatlan, a specifikáció nem definiál
+		hordozhatósági követelményeket a
+		könnyedség kedvéért az implementáció
+		számára, még olyan dokumentummal szemben sem, mely
+		használja ezt a könnyítést. Egy dokumentum, mely
+		inkább megkövetel bizonyos viselkedéseket bizonyos
+		esetekben, minthogy eltűrjön bármiféle
+		viselkedést mikor használja ezt a könnyítést,
+		nem Szigorúan Megfelelő XHTML Dokumentum.</dd> 
+                    </dl>
+                    <h2> <a name="general" id="general">2.2 Általános
+	 kifejezések</a> </h2> 
+                    <dl>
+                        <dt>Tulajdonság (attribute)</dt>
+                        <dd>A tulajdonság a DTD-ben definiált elem egy
+		paramétere. Egy tulajdonság típusa, lehetséges
+		értékei, beleértve a lehetséges
+		alapértelmezett értéket is, a DTD-ben vannak
+		definiálva.</dd> 
+                        <dt>DTD</dt>
+                        <dd>Egy DTD, vagy Dokumentum Típus Definíció (Document Type
+		Definition), az XML-t leíró deklarációk egy gyűjteménye,
+		definiálja a megengedett struktúrát, <span
+                                class="term">elemeket</span> és <span
+                                class="term">tulajdonságokat</span>, melyek a DTD-t betartó dokumentumokban
+		elérhetőek.</dd> 
+                        <dt>Dokumentum (document)</dt>
+                        <dd>Egy dokumentum az adatok egy folyama, mely kombinálva van
+		egyéb adatfolyamokkal, melyre hivatkozik, és úgy
+		épül fel, hogy olyan információt tartalmazó
+                            <span class="term">elemeket</span> tartalmaz, melyek a hozzá
+		tartozó <span class="term">DTD</span> definíciója
+		szerint szerveződnek. Lásd a <a href="#docconf">Dokumentum
+		Megfeleléseket</a> több információért.</dd> 
+                        <dt>Elem (element)</dt>
+                        <dd>Az elem a dokumentum struktúrális egysége, mely a
+                            <span class="term">DTD</span>-ben van deklarálva. Az elem
+		tartalmi modellje a <span class="term">DTD</span>-ben van
+		definiálva, és járulékos szemantika definiálható az elem szöveges
+		leírásában.</dd> 
+                        <dt>Lehetőségek (facilities)</dt>
+                        <dd>A lehetőségek tartalmazzák az <span
+                                class="term">elemeket</span>, <span
+                                class="term">tulajdonságokat</span>, és az ezekkel kapcsolatos szemantikát.</dd>
+                        <dt>Implementáció (implementation)</dt>
+                        <dd>Lásd Felhasználói alkalmazás.</dd>
+                        <dt>Szintaktikai elemzés (parsing)</dt>
+                        <dd>Szintaktikai elemzés az a tevékenység, aminek
+		végrehajtása által a <span
+                                class="term">dokumentum</span> meg lesz vizsgálva, és a
+                            <span class="term">dokumentum</span> által tartalmazott
+		információ azon <span class="term">elemek</span>
+		környezetén lesz átszűrve, melyekkel az
+		információ struktúrálva van.</dd> 
+                        <dt>Ábrázolás (rendering)</dt>
+                        <dd>Az ábrázolás az a tevékenység,
+		melynek végeredményeképp a <span
+                                class="term">dokumentum</span> által hordozott információ megjelenik. A megjelenítés a környezetnek (pl. hangban, vizuálisan, nyomtatva) megfelelő formátumban történik meg.</dd>
+                        <dt>Felhasználói alkalmazás (user agent)</dt>
+                        <dd>A felhasználói alkalmazás egy rendszer, mely feldolgozza az XHTML dokumentumot ezen specifikáció szerint. Több
+		információért lásd a <a
+                                href="#uaconf">Felhasználói Alkalmazás
+		Megfelelések</a> fejezetet.</dd> 
+                        <dt>Érvényesítés (validation)</dt>
+                        <dd>Az érvényesítés az az
+		eljárás, melynek során a <span
+                                class="term">dokumentum</span> összevetésre kerül a hozzá kapcsolt
+                            <span class="term">DTD</span>-vel, biztosítva, hogy
+		az <span class="term">elemeket</span> és
+		a <span class="term">tulajdonságokat</span> tartalmazó struktúra
+		konzisztens a <span class="term">DTD</span>-ben
+		definiáltakkal.</dd> 
+                        <dt>Jól formázott (well-formed)</dt>
+                        <dd>Egy <span class="term">dokumentum</span> jól
+		formázott, ha struktúrája megfelel az XML 1.0
+		ajánlás [<a href="#ref-xml">XML</a>]
+                            <a href="http://www.w3.org/TR/REC-xml#sec-well-formed">2.1. fejezetében</a>
+		definiált szabályoknak.</dd> 
+                    </dl>
+                    <h1> <a name="normative" id="normative">3. XHTML 1.0 normatív
+	 definíciója</a> </h1> 
+                    <p>Ez a fejezet normatív.</p>
+                    <h2> <a name="docconf" id="docconf"> 3.1 Dokumentum megfelelések </a>
+                    </h2>
+                    <p>Az XHTML e verziója tartalmazza a Szigorúan Megfelelő
+	 XHTML 1.0 dokumentumok definícióját, melyaz XML és XHTML 1.0 névterek elemeire és tulajdonságaira vannak korlátozva. Lásd a
+                        <a href="#well-formed">3.1.2 fejezetet</a> további
+	 információkhoz, hogy hogy használható az XHTML
+	 más névterekkel, például az <abbr title="Resource Description Format">RDF</abbr>-ben meghatározott metaadatkat hogyan lehet beilleszteni XHTML
+	 dokumentumokba.</p> 
+                    <h3>3.1.1 Szigorúan Megfelelő Dokumentumok </h3>
+                    <p>Egy Szigorúan Megfelelő XHTML Dokumentum egy olyan XML dokumentum,
+	 mely csak azokat a lehetőségeket követeli meg, melyek
+	 kötelezőnek vannak leírva ebben a specifikációban. Egy ilyen dokumentumnak a következő kritériumoknak kell megfelelnie:</p> 
+                    <ol>
+                        <li>Meg kell felelnie a háromból az egyik DTD-ben szereplő megszorításoknak, mely a <a href="#dtds">DTD-k</a> fejezetben vannak leírva, valamint a <a href="#prohibitions">B függelékben</a> leírtaknak.</li>
+                        <li> A <code>html</code> legyen a dokumentum
+		gyökéreleme.</li> 
+                        <li> A dokumentum gyökérelemének tartelmezni kell egy <code>xmlns</code> deklarációt az XHTML [<a href="ref-xmlns">XMLNAMES</a>] névtér meghatározására.
+		Az XHTML névterének definíciója a következő:
+                            <code>http://www.w3.org/1999/xhtml</code>. Egy példa gyökérelem így nézhet ki:
+                            <div class="good">
+                                &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+                            </div>
+                        </li>
+                        <li> A gyökérelemet megelőzően egy DOCTYPE
+		definíciónak kell szerepelnie. A DOCTYPE
+		deklarációban szereplő nyilvános
+		azonosítónak hivatkoznia kell a három DTD egyikére,
+		melyek az <a href="#dtds">DTD-k</a> fejezetben
+		találhatóak, használva a saját Formális
+		Nyilvános Azonosítóját. A
+		rendszerazonosító megváltoztatható, hogy a
+		lokális rendszer konvenciókat tükrözze.
+                            <pre>
+&lt;!DOCTYPE html 
+     PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+
+&lt;!DOCTYPE html 
+     PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;!DOCTYPE html 
+     PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;		
+                            </pre>
+                        </li>
+                        <li>A DTD részhalmaz nem használható egyetlen DTD-ben szereplő paraméter egyed felülírására sem.</li>
+
+                    </ol>
+                    <p>Az XML deklaráció nem szükséges minden XML dokumentumban, habár minden XHTML dokumentum szerző számára annak használata. A deklaráció szükséges, ha a dokumentum kódolása nem az alapértelmezett UTF-8 vagy UTF-16, és magasabb szintű protokollban nem lett az definiálva. Álljon itt egy példa XHTML dokumentum. Ebben a példában szerepel az XML deklaráció.</p>
+                    <div class="good">
+                        <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE html 
+     PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+    &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Virtual Library&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Moved to &lt;a href=&quot;http://example.org/&quot;&gt;example.org&lt;/a&gt;.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre> </div>
+                    <h3>3.1.2 XHTML használata egyéb névterekkel</h3>
+                    <p>Az XHTML névtér együtt használható
+                        más XML névterekkel az [<a href="#ref-xmlns">XMLNS</a>]
+                        szerint, habár ezek a dokumentumok nem lesznek fentebb definiált Szigorúan
+                        Megfelelő XHTML 1.0 Dokumentumok.
+                        A W3C a munkája során
+                        különböző módokat céloz meg olyan dokumentumok megfelelőségének, melyekben több
+                        névtér található.</p>
+                    <p>A következő példa egy módot mutat arra, hogy lehet jelenleg
+                        az XHTML 1.0-t párosítani a MathML ajánlással:</p>
+                    <div class="good">
+                        <pre>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;A Math Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;The following is MathML markup:&lt;/p&gt;
+    &lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
+      &lt;apply&gt; &lt;log/&gt;
+        &lt;logbase&gt;
+          &lt;cn&gt; 3 &lt;/cn&gt;
+        &lt;/logbase&gt;
+        &lt;ci&gt; x &lt;/ci&gt;
+      &lt;/apply&gt;
+    &lt;/math&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre> </div>
+                    <p>A következő példa megmutatja, hogyan lehet az XHTML 1.0 jelölést
+                        használni egy másik XML névtérben:</p>
+                    <div class="good">
+                        <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!-- initially, the default namespace is &quot;books&quot; --&gt;
+&lt;book xmlns='urn:loc.gov:books'
+    xmlns:isbn='urn:ISBN:0-395-36341-6' xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+  &lt;title&gt;Cheaper by the Dozen&lt;/title&gt;
+  &lt;isbn:number&gt;1568491379&lt;/isbn:number&gt;
+  &lt;notes&gt;
+    &lt;!-- make HTML the default namespace for a hypertext commentary --&gt;
+    &lt;p xmlns='http://www.w3.org/1999/xhtml'&gt;
+        This is also available &lt;a href=&quot;http://www.w3.org/&quot;&gt;online&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/notes&gt;
+&lt;/book&gt;</pre> </div>
+                    <h2> <a name="uaconf" id="uaconf"> 3.2 Felhaszálói
+                            alkalmazás megfelelések </a> </h2>
+                    <p>A megfelelő felhasználói alkalmazásoknak a
+                        következő kritériumoknak kell eleget tenniük:</p>
+                    <ol>
+                        <li> Azért, hogy az XML 1.0 ajánlásnak [<a
+                                href="#ref-xml">XML</a>] megfeleljenek, a felhasználói
+                            alkalmazásoknak szintaktikailag elemezniük és kiértékelniük kell az XHTML dokumentumot, hogy helyesen-formázottak-e. Ha a felhasználói alkalmazás
+                            érvényesítő felhasználói alkalmazás kíván lenni, akkor
+                            érvényesítenie kell a dokumentumokat az általuk
+                            hivatkozott DTD-k szerint, összhangban az [<a
+                                href="#ref-xml">XML</a>]-lel. </li>
+                        <li> Ha a felhasználói alkalmazás támogatni
+                            kívánja azokat a <a href="#facilities">lehetőségeket</a>, melyek ebben a
+                            specifikációban vannak definiálva, vagy
+                            eme specifikáció megköveteli ezeket a
+                            normatív referenciák által, úgy kell azokat megvalósítani, hogy konzisztensek maradjanak a lehetőségek definíciójával.</li>
+                        <li>Ha egy felhasználói alkalmazás egy XHTML dokumentumot
+                            hagyományos XML-ként dolgoz fel, akkor csak az <code>ID</code>
+                            típusú tulajdonságokat (azaz az <code>id</code>
+                            tulajdonság a legtöbb XHTML elemben) kell töredék azonosítónak felismernie.</li>
+                        <li>Ha egy felhasználói alkalmazás egy olyan elembe
+                            ütközik, melyet nem ismer fel, fel kell dolgoznia annak
+                            tartalmát.</li>
+                        <li>Ha egy felhasználói alkalmazás egy olyan
+                            tulajdonságba ütközik, melyet nem ismer fel, el kell
+                            utasítania a tulajdonság teljes
+                            specifikációját (azaz a tulajdonságot és
+                            annak értékét is).</li>
+                        <li>Ha egy felhasználói alkalmazás egy olyan
+                            tulajdonság értékbe ütközik, melyet nem ismer
+                            fel, az alapértelmezett tulajdonság értéket kell
+                            használnia.</li>
+                        <li> Ha egy olyan egyedhivatkozással találkozik (olyannal, mely
+                            nem ebben vagy az XML ajánlásban szerepel), melyre a
+                            felhasználói alkalmazás nem talált
+                            deklarációt (ami úgy történhet meg, hogy a
+                            deklaráció külső részhalmazban van, melyet a
+                            felhasználói alkalmazás még nem olvasott be), az
+                            egyedhivatkozást karakterenként kell feldolgozni
+                            ('&amp;' jellel kezdődően, és pontosvesszővel
+                            zárva), mely jelöli az egyedhivatkozást.</li>
+                        <li>A feldolgozás közben, ha a felhasználói
+                            alkalmazás olyan karakterekkel, vagy karakter egyedhivatkozásokkal
+                            találkozik, melyek felismerhetőek, de nem ábrázolhatóak,
+                            oly módon kell a dokumentumban megjeleníteni, mely ugyanazt a jelentést hordozza, vagy oly módon, hogy nyilvánvaló legyen a felhasználó számára, hogy az normál megjelenítés nem elvégezhető.</li>
+                        <li><p>A white space karakterekre a következő szabályok alkalmazandóak. Az [<a href="#ref-xml">XML</a>] a következő karaktereket
+                                definiálja white space karaktereknek:</p>
+                            <ul>
+                                <li>Szóköz (&amp;#x0020;)</li>
+                                <li>Tabulátor (&amp;#x0009;)</li>
+                                <li>Kocsivissza (&amp;#x000D;)</li>
+                                <li>Soremelés (&amp;#x000A;)</li>
+                            </ul>
+                            <p> Az XML feldolgozó különböző rendszerek
+                                sorvége karaktereit normalizálják egyetlen
+                                soremelés karakterré, és továbbítják az alkalmazásnak.</p>
+                            <p>A felhasználói alkalmazásnak a CSS szabványban [<a class="nref" href="#ref-css2">CSS</a>]
+                                definiált white space karakter feldolgozást kell követnie.
+                                <em>Megjegyzendő, hogy a CSS2 ajánlás egyértelműen nem definiálja a white space karakterek kezelését
+                                    nem Latin karakterkészletekben. Ez a CSS következő verziójában lesz definiálva, melynek megjelenésekor ez a
+                                    hivatkozás frissítésre kerül.</em></p>
+                        </li>
+                    </ol>
+                    <h1> <a name="diffs" id="diffs"> 4. Különbségek az XHTML 1.0
+                            és a HTML 4 között </a> </h1>
+                    <p><strong>Ez a fejezet tájékoztató jellegű.</strong></p>
+                    <p>Mivel az XHTML tulajdonképpen egy XML alkalmazás,
+                        néhány dolgot, mely az SGML-alapú
+                        HTML 4-ben [<a href="#ref-html4">HTML</a>] legális, meg kellett változtatni.</p>
+                    <h2> <a id="h-4.1" name="h-4.1">4.1.</a> A dokumentumnak jól formázottnak kell lennie </h2>
+                    <p>A <a href="#wellformed">jól formázottság</a> egy
+                        új fogalom az [<a href="#ref-xml">XML</a>]-ben. Ez tulajdonképpen
+                        azt jelenti, hogy minden elemnek kell lennie záró
+                        tag-jének, vagy speciális formában kell leírni
+                        (lásd lejjebb), és az összes elemnek egymásba
+                        ágyazva kell szerepelnie.</p>
+                    <p>Habár az átlapolás határozottan tiltott az
+                        SGML-ben, széles körben támogatott a létező
+                        böngészőkben.</p>
+                    <p><strong><em>HELYES: egymásba ágyazott elemek.</em></strong></p>
+                    <div class="good"><p>
+                            &lt;p&gt;ez egy kihangsúlyozott
+                            &lt;em&gt;szövegrészlet&lt;/em&gt;&lt;/p&gt; </p></div>
+                    <p><strong><em>HELYTELEN: átlapolt elemek</em></strong></p>
+                    <div class="bad">
+                        <p>&lt;p&gt;ez egy kihangsúlyozott
+                            &lt;em&gt;szövegrészlet&lt;/p&gt;&lt;/em&gt;</p> </div>
+                    <h2> <a id="h-4.2" name="h-4.2">4.2.</a> Az elemeknek, illetve a tulajdonságoknak kisbetűvel kell szerepelniük </h2>
+                    <p>Az XHTML dokumentumokban a HTML elemeknek és tulajdonságoknak
+                        kisbetűvel kell szerepelniük. Ez a különbség
+                        azért szükséges, mivel az XML megkülönbözteti
+                        a kis- és nagybetűket, pl. az &lt;li&gt; és az &lt;LI&gt;
+                        két különböző tag.</p>
+                    <h2> <a id="h-4.3" name="h-4.3">4.3.</a> A nem üres elemeknél a záró tag-ek
+                        kötelezőek </h2>
+                    <p>Az SGML alapú HTML 4-ben bizonyos elemek olyanok voltak, hogy
+                        nyugodtan nélkülözhették a záró tag-eket,
+                        mivel magukba foglalták azt. Ez a mulasztás nem megengedett az
+                        XML alapú XHTML-ben. Minden elemnek, kivéve azokat, melyek a
+                        DTD-kben <code>EMPTY</code>-nek lettek definiálva, kötelező
+                        zárótag-jének lennie. A DTD-ben <code>EMPTY</code>-nek deklarált elemnek lehet bezáró párja, <em>vagy</em> használható az üres elem rövidítés (lásd <a href="#h-4.6">Üres elemek</a> fejezet).</p>
+                    <p><strong><em>HELYES: lezárt elemek</em></strong></p>
+                    <div class="good">&lt;p&gt;ez egy
+                        bekezdés&lt;/p&gt;&lt;p&gt;ez egy másik bekezdés&lt;/p&gt;
+                    </div>
+                    <p><strong><em>HELYTELEN: nem lezárt elemek</em></strong></p>
+                    <div class="bad">
+                        <p>&lt;p&gt;ez egy bekezdés&lt;p&gt;ez egy másik
+                            bekezdés</p> </div>
+                    <h2> <a id="h-4.4" name="h-4.4">4.4.</a> A tulajdonságoknak mindig idézőjelek
+                        között kell szerepelniük </h2>
+                    <p>Minden tulajdonságnak idézőjel között kell
+                        szerepelnie, még a numerikus tulajdonságnak is.</p>
+                    <p><strong><em>HELYES: idézőjelek között</em></strong></p>
+                    <div class="good">
+                        <p>&lt;table rows="3"&gt;</p></div>
+                    <p><strong><em>HELYTELEN: idézőjelek elhagyásával</em></strong></p>
+                    <div class="bad">
+                        <p>&lt;table rows=3&gt;</p>
+                    </div>
+                    <h2> <a id="h-4.5" name="h-4.5">4.5.</a> Tulajdonságok minimalizációja </h2>
+                    <p>XML nem támogatja a tulajdonságok
+                        minimalizációját. A tulajdonságnak, és a
+                        hozzá tartozó értéknek párban kell
+                        szerepelnie. A tulajdonság nevét, mint a <code>compact</code>,
+                        vagy <code>checked</code>, nem szabad szerepeltetni anélkül, hogy
+                        az értékét kiírnánk.</p>
+                    <p><strong><em>HELYES: minimalizálatlan tulajdonságok</em></strong></p>
+                    <div class="good"><p>&lt;dl compact="compact"&gt;</p></div>
+                    <p><strong><em>HELYTELEN: minimalizált tulajdonságok</em></strong></p>
+                    <div class="bad">
+                        <p>&lt;dl compact&gt;</p>
+                    </div>
+                    <h2> <a id="h-4.6" name="h-4.6">4.6.</a> Üres elemek </h2>
+                    <p>Az üres elemnek is muszáj zárótag-jének
+                        lennie, vagy a nyitótag-nek kell <code>/&gt;</code> karakterekkel
+                        végződnie. Pl. a <code>&lt;br/&gt;</code>, vagy
+                        <code>&lt;hr&gt;&lt;/hr&gt;</code>. Lásd a <a href="#guidelines">HTML kompatibilitási
+                            útmutatót</a> a HTML 4 felhasználói alkalmazásokkal való kompatibilitási információkért.</p>
+                    <p><strong><em>HELYES: lezárt üres tag-ek</em></strong></p>
+                    <div class="good">
+                        <p>&lt;br/&gt;&lt;hr/&gt;</p></div>
+                    <p><strong><em>HELYTELEN: nem lezárt üres tag-ek</em></strong></p>
+                    <div class="bad">
+                        <p>&lt;br&gt;&lt;hr&gt;</p> </div>
+                    <h2> <a id="h-4.7" name="h-4.7">4.7.</a> White space karakterek kezelése a tulajdonságok
+                        értékeinél </h2>
+                    <p>Ha a felhasználói alkalmazások a tulajdonságokat dolgozzák fel, meg kell felelniük az [<a href="#ref-xml">XML</a>] <a href="http://www.w3.org/TR/REC-xml#AVNormalize">3.3.3 fejezetének</a>:</p>
+                    <ul>
+                        <li>Kezdő, illetve bezáró white space karakterek levágása.</li>
+                        <li>White space karakterek egy vagy több karakterből álló sorozatát (a sortöréseket is beleértve) egy szóközi sóköz karakterré konvertálása.</li>
+                    </ul>
+
+                    <h2> <a id="h-4.8" name="h-4.8">4.8.</a> Szkriptek és stíluselemek </h2>
+                    <p>Az XHTML-ben a szkript és stíluselemek úgy vannak
+                        definiálva, hogy tartalmazzák a <code>#PCDATA</code> tartalmat.
+                        Ennek eredményeképpen a <code>&lt;</code> és a
+                        <code>&amp;</code> karakterek a jelölés kezdeteként lesznek
+                        értelmezve, és az egyedeket, mint az <code>&amp;lt</code>
+                        és az <code>&amp;amp</code>, egyedhivatkozásnak ismeri fel az XML
+                        feldolgozó a <code>&lt;</code>-ra és az <code>&amp;</code>-ra
+                        külön-külön. A szkript vagy stípuselem tartalma <code>CDATA</code>-val jelölve megakadályozza ezen egyedek kifejtését.</p>
+                    <div class="good">
+                        <pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;![CDATA[
+... unescaped script content ...
+]]&gt;
+&lt;/script&gt;</pre>
+                    </div>
+                    <h2> <a id="h-4.9" name="h-4.9">4.9.</a> SGML kivételek </h2>
+                    <p>SGML a DTD írójának megengedi, hogy kizárjon
+                        megadott elemeket egy elemen belül. Hasonló tiltások
+                        (nevezzük kivételeknek) nem megengedettek az XML-ben.</p>
+                    <p>Például a HTML 4-ben a DTD szigorúan tiltja, hogy az
+                        '<code>a</code>' elem tartalmazzon egy másik '<code>a</code>' elemet
+                        bármilyen mélységben. Az XML-ben nincs hasonló
+                        kivételekre lehetőség. Még akkor is, ha ezek a
+                        kivételek nincsenek definiálva a DTD-ben, bizonyos elemeket
+                        mégsem lehet egymásba ágyazni. Ezen elemek, illetve azon
+                        elemek listája, melyeket nem ajánlott egymásba
+                        ágyazni, megtalálható az <a href="#prohibitions">Elemek tilalmánál</a>.</p>
+
+                    <h2> <a id="h-4.10" name="h-4.10">4.10.</a> Elemek 'id' illetve 'name' tulajdonságokkal </h2>
+                    <p>A HTML 4 a következő elemeket definiálja, melyek
+                        rendelkezhetnek a <code>name</code> tulajdonsággal: <code>a</code>,
+                        <code>applet</code>, <code>form</code>, <code>frame</code>,
+                        <code>iframe</code>, <code>img</code> és <code>map</code>. A HTML 4
+                        bevezette az <code>id</code> tulajdonságot is. Mindkettő
+                        tulajdonság töredék azonosítónak lett tervezve.</p>
+                    <p>XML-ben a töredék azonosítók <code>ID</code>
+                        típusúak, és csak egy <code>ID</code> típusú
+                        tulajdonság lehet elemenként. Ezért az XHTML 1.0-ban az
+                        <code>id</code> tulajdonság <code>ID</code> típusúnak van
+                        deklarálva. Azért, hogy az XHTML 1.0 dokumentumok
+                        jól-formázott XML dokumentumok legyenek, az XHTML 1.0
+                        dokumentumoknak az <code>id</code> tulajdonságot kell
+                        használniuk a fentebb említett elemeknél. Lásd az <a href="guidelines">HTML
+                            kompatibilitási útmutatót</a> további információkért, hogy hogyan lehet biztosítani a visszafele kompatibilitást, ha az XHTML <code>text/html</code>
+                        médiatípusként szolgáltatott.</p>
+                    <p>Megjegyzendő,
+                        hogy az XHTML 1.0-ban a <code>name</code> tulajdonság ezeknél az
+                        elemeknél lejárt, és el lesz távolítva az XHTML további verzióiban.</p>
+                    <h2>
+                        <a id="h-4.11" name="h-4.11">4.11.</a>
+                        Tulajdonságok előre definiált értékkészlettel
+                    </h2>
+                    <p>Mind a HTML 4, mind az XHTML rendelkezik előre definiált, vagy korlátozott értékkészlettel rendelkező tulajdonságokkal (pl. az <code>input</code> elem <code>type</code> tulajdonsága). SGML-ben és XML-ben ezeket <em>felsorolt tulajdonságnak</em> nevezik. A HTML 4-ben ezek értelmezése kis- és nagybetű érzéketlen, azaz a <code>TEXT</code> érték megegyezik a <code>text</code> értékkel. Az XML-ben ezen értékek értelmezése kis- és nagybetű érzékeny, és az XHTML 1-ben az összes ilyen érték kisbetűvel deklarált.</p>
+                    <h2>
+                        <a id="h-4.12" name="h-4.12">4.12.</a>
+                        Elemhivatkozások, mint hexadecimális értékek
+                    </h2>
+                    <p>Mind az SGML, mind az XML megengedi a karakterekre való hivatkozást hexadecimális értékekkel. SGML-ben ezek a hivatkozások használhatóak &amp;#Xnn; vagy &amp;#xnn; formátumban. Az XML dokumentumokban a kisbetűs formát kell használni (azaz &amp;#xnn;).</p>
+
+                    <h1> <a name="issues" id="issues"> 5. Kompatibilitási
+                            kérdések </a> </h1>
+
+                    <p><strong>Ez a fejezet normatív.</strong></p>
+
+                    <p>Habár nem szükséges, hogy az XHTML 1.0 dokumentumok
+                        kompatibilisek legyenek a létező felhasználói
+                        alkalmazásokkal, a gyakorlatban könnyű ennek
+                        megvalósítása. Egy útmutató
+                        található a <a href="#guidelines">C függelékben</a> a kompatibilis dokumentumok készítéséhez.</p>
+                    <h2> <a name="media" id="media">5.1</a> Internet Média Típus
+                    </h2>
+                    <p>Azokat a dokumentumokat, melyek követik a <a href="#guidelines">C függelékben</a> közölt "HTML kompatibilitási irányelvek"
+                        című útmutatót, a "text/html" Internet Média
+                        Típussal kell címkézni, így kompatibilisek maradnak
+                        a legtöbb HTML böngészővel. Azok a dokumentumot, valamint
+						az összes, ezen specifikációnak megfelelő dokumentumot az [<a href="#ref-rfc3236" class="nref">RFC3236</a>] szabványban definiált "application/xhtml+xml" Internet Média Típussal is el lehet látni. További információért az XHTML használatáról a média típusokkal kapcsolatban lásd a [<a href="#ref-xhtmlmime" class="nref">XHTMLMIME</a>] tájékoztató jellegű megjegyzést.</p>
+
+                    <h1> <a name="dtds" id="dtds">A.</a> DTD-k  </h1>
+                    <p><b>Ez a függelék normatív.</b></p>
+                    <p>Ezek a DTD-k és egyedhalmazok adják a
+                        specifikáció normatív részét. A DTD
+                        fájlok teljes halmaza az XML deklarációval és az
+                        SGML Open Catalog-gal megtalálható az ehhez a
+                        specifikációhoz csatolt <a href="http://www.w3.org/TR/xhtml1/xhtml1.zip">zip</a>,
+						vagy <a href="http://www.w3.org/TR/xhtml1/xhtml1.tgz">gzip-elt tar</a> állományban. Azon felhasználók, akik ezen DTD-k lokális másolatait igénylik, le kell tölteniük és használniuk ezeket a csomagolt állományokat, ahelyett, hogy közvetlenül a lentebb hivatkozott állományokat használnák.</p>
+                    <h2> A.1 Dokumentum Típus Definíciók </h2>
+                    <p>Ezek a DTD-k hasonlítanak a HTML
+                        4 DTD-khez. A W3C javasolja ezen DTD-k hiteles verzióinak használatát az érvényesítés során, azok SYSTEM azonosítóivel definiálva. Amennyiben lokálisan van rájuk szükség, <a href="Overview.html#thisVersion">ezen verziójuk</a> letölthetőek tömörített formában. A teljesség kedvéért álljanak itt a DTD-k normatív verziói:</p>
+                    <h3><a id="a_dtd_XHTML-1.0-Strict" name="a_dtd_XHTML-1.0-Strict">A.1.1.</a> XHTML-1.0-Strict</h3>
+                    <p>A <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">DTD/xhtml1-strict.dtd</a> állomány a specifikáció normatív része. A teljesség kedvéért az állomány megjegyzésekkel ellátva <a href="http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_XHTML-1.0-Strict">külön fejezetben</a> található.</p>
+                    <h3><a id="a_dtd_XHTML-1.0-Transitional" name="a_dtd_XHTML-1.0-Transitional">A.1.2.</a> XHTML-1.0-Transitional</h3>
+                    <p>A <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">DTD/xhtml1-transitional.dtd</a> állomány a specifikáció normatív része. A teljesség kedvéért az állomány megjegyzésekkel ellátva <a href="http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_XHTML-1.0-Transitional">külön fejezetben</a> található.</p>
+                    <h3><a id="a_dtd_XHTML-1.0-Frameset" name="a_dtd_XHTML-1.0-Frameset">A.1.3.</a> XHTML-1.0-Frameset</h3>
+                    <p>A <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">DTD/xhtml1-frameset.dtd</a> állomány a specifikáció normatív része. A teljesség kedvéért az állomány megjegyzésekkel ellátva <a href="http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_XHTML-1.0-Frameset">külön fejezetben</a> található.</p>
+
+                    <h2><a id="h-A2" name="h-A2">A.2.</a> Egyedhalmazok</h2>
+                    <p>Az XHTML egyedhalmazai megegyeznek a HTML 4-gyel, de módosítva
+                        lettek, hogy érvényes XML 1.0 egyeddeklarációk
+                        legyenek. Megjegyezendő, hogy az Euro pénznem jeléhez
+                        tartozó egyed (<code>&amp;euro;</code> vagy <code>&amp;#8364;</code>
+                        vagy <code>&#x20AC;</code>) a speciális karakterek
+                        között van definiálva.</p>
+                    <h3><a id="a_dtd_Latin-1_characters" name="a_dtd_Latin-1_characters">A.2.1.</a> Latin-1 karakterek</h3>
+                    <p>A <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent">DTD/xhtml-lat1.ent</a> állomány a specifikáció normatív része. A teljesség kedvéért az állomány megjegyzésekkel ellátva <a href=http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Latin-1_characters">külön fejezetben</a> található.</p>
+                    <h3><a id="a_dtd_Special_characters" name="a_dtd_Special_characters">A.2.2.</a> Speciális karakterek</h3>
+                    <p>A <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml-special.ent">DTD/xhtml-special.ent</a> állomány a specifikáció normatív része. A teljesség kedvéért az állomány megjegyzésekkel ellátva <a href=http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Special_characters">külön fejezetben</a> található.</p>
+                    <h3><a id="a_dtd_Symbols" name="a_dtd_Symbols">A.2.3.</a> Szimbólumok</h3>
+                    <p>A <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml-symbol.ent">DTD/xhtml-symbol.ent</a> állomány a specifikáció normatív része. A teljesség kedvéért az állomány megjegyzésekkel ellátva <a href=http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Symbols">külön fejezetben</a> található.</p>
+
+                    <h1> <a name="prohibitions" id="prohibitions">B.</a> Elemek
+                        tilalma  </h1>
+                    <p><b>Ez a függelék normatív.</b></p>
+                    <p>A következő elemekhez tiltások tartoznak, hogy milyen
+                        elemeket nem tartalmazhatnak (lásd <a href="#h-4.9">SGML kivételek</a>). Ezek a tiltások a beágyazások teljes mélységére vonatkoznak,
+                        azaz vonatkoznak az összes leszármazott utódra.</p>
+                    <dl>
+                        <dt><code>a</code></dt>
+                        <dd>nem tartalmazhat másik <code>a</code> elemet.</dd>
+                        <dt><code>pre</code></dt>
+                        <dd>nem tartalmazhat <code>img</code>, <code>object</code>, <code>big</code>,
+                            <code>small</code>, <code>sub</code> vagy <code>sup</code> elemet.</dd>
+                        <dt><code>button</code></dt>
+                        <dd>nem tartalmazhat <code>input</code>, <code>select</code>,
+                            <code>textarea</code>, <code>label</code>, <code>button</code>,
+                            <code>form</code>, <code>fieldset</code>, <code>iframe</code> vagy
+                            <code>isindex</code> elemet.</dd>
+                        <dt><code>label</code></dt>
+                        <dd>nem tartalmazhat másik <code>label</code> elemet.</dd>
+                        <dt><code>form</code></dt>
+                        <dd>nem tartalmazhat másik <code>form</code> elemet.</dd>
+                    </dl>
+
+                    <h1> <a name="guidelines" id="guidelines">C.</a> HTML
+                        kompatibilitási irányelvek  </h1>
+                    <p><b>Ez a függelék iránymutató jellegű.</b></p>
+                    <p>Ez a függelék összegzi a tervezési
+                        útmutatókat azon szerzők számára, akik
+                        azt akarják, hogy XHTML dokumentumaikat a létező
+                        felhasználói alkalmazások is meg tudják
+                        jeleníteni. <em>Megjegyzendő, hogy ez az ajánlás nem definiálja, hogy a HTML felhasználói alkalmazásoknak hogy kell feldolgozniuk a HTML dokumentumokat. Ugyanúgy nem definiálja a <code>text/html</code> Internet Média Típus jelentését. Ezek definíciójáért lásd a [<a href="#ref-html4" class="nref">HTML4</a>] és a [<a href="#ref-rfc2854" class="nref">RFC2854</a>] hivatkozásokat.</em></p>
+                    <h2> <a id="C_1" name="C_1">C.1.</a> Feldolgozói utasítások és az XML deklaráció</h2>
+                    <p>
+					Tudatában kell lenni annak, hogy a feldolgozói utasításokat néhány felhasználói alkalmazás megjeleníti. Más felhasználói alkalmazások az XML deklarációt úgy értelmezik, hogy a dokumentum egy HTML, hanem egy fel nem ismert XML dokumentum, és ezért nem úgy jelenítik meg, ahogy kéne. Ezen régi böngészőkkel való kompatibilitás miatt lehet a feldolgozói utasítások és az XML deklarációk elhagyása mellett dönteni. 
+					Azonban ha az XML deklaráció nem szerepel a
+                        dokumentumban, akkor az csak az alapértelmezett UTF-8 vagy UTF-16
+                        karakter enkódolást használható.</p>
+                    <h2><a id="C_2" name="C_2">C.2.</a>Üres elemek</h2>
+                    <p>Szóközt ajánlott használni az üres elem záró
+                        <code>/</code> és <code>&gt;</code> jelei előtt, pl.
+                        <code>&lt;br /&gt;</code>, <code>&lt;hr /&gt;</code> és
+                        <code>&lt;img src="karen.jpg" alt="Karen" /&gt;</code>. A
+                        minimalizált tag használata ajánlott, ugyanis pl. a
+                        <code>&lt;br /&gt;</code> alternatív alakja a
+                        <code>&lt;br&gt;&lt;/br&gt;</code> megengedett az XML-ben, viszont számos létező felhasználói alkalmazás bizonytalan eredményt adhat.</p>
+                    <h2><a id="C_3" name="C_3">C.3.</a> Elem minimalizáció és üres elem tartalom
+                    </h2>
+                    <p>Adott elem üres előfordulása, melynek tartalmi modellje
+                        nem <code>EMPTY</code> (pl. üres cím vagy bekezdés). Ebben
+                        az esetben nem ajánlott alkalmazni a rövidített formát (pl.
+                        <code>&lt;p&gt; &lt;/p&gt;</code> alkalmazandó a
+                        <code>&lt;p /&gt;</code> helyett).</p>
+                    <h2><a id="C_4" name="C_4">C.4.</a> Beágyazott stíluslapok és szkriptek </h2>
+                    <p>Külső stíluslapot ajánlott alkalmazni, ha a stíluslap
+                        tartalmazza a következő jeleket: <code>&lt;</code>
+                        vagy <code>&amp;</code> vagy <code>]]&gt;</code> vagy <code>--</code>. Külső szkriptet ajánlott alkalmazni, ha a szkript
+                        tartalmazza a következő jeleket: <code>&lt;</code>
+                        vagy <code>&amp;</code> vagy <code>]]&gt;</code> vagy <code>--</code>.
+                        Megjegyezendő, hogy az XML feldolgozóknak megengedett, hogy a
+                        megjegyzések tartalmát eltávolítsák.
+                        Ezért az elterjedt módszer a stíluslapok és
+                        szkriptek "elrejtése" a "megjegyzésekbe", így téve a
+                        dokumentumokat visszafele kompatibilissá. Bár ez nem úgy
+                        működik az XML-alapú felhasználói alkalmazásokban, ahogyan
+                        az elvárható.</p>
+                    <h2> <a id="C_5" name="C_5">C.5.</a> Sortörés a tulajdonságértékeken
+                        belül</h2>
+                    <p>Tartózkodjunk a sortörésektől és a
+                        redundáns szóközöktől a
+                        tulajdonságértékeken belül, ugyanis a
+                        felhasználói alkalmazások nem következetesen kezelik
+                        ezeket.</p>
+                    <h2> <a id="C_6" name="C_6">C.6.</a> Isindex </h2>
+                    <p>Nem tartalmazhat a dokumentum fejrésze (<code>head</code>) több
+                        <code>isindex</code> elemet. Az <code>isindex</code> elem elévült az <code>input</code> elem miatt.</p>
+                    <h2> <a id="C_7" name="C_7">C.7.</a> A <code>lang</code> és a <code>xml:lang</code>
+                        tulajdonságok</h2>
+                    <p>Használjuk mind a <code>lang</code>, mind a <code>xml:lang</code>
+                        tulajdonságokat az elem nyelvének
+                        meghatározásához. A <code>xml:lang</code>
+                        tulajdonság erősebb.</p>
+                    <h2><a id="C_8" name="C_8">C.8.</a> Töredékazonosítók </h2>
+                    <p>XML-ben, azok az <abbr title="Uniform Resource Identifiers">URI</abbr> referenciák [<a
+                            href="#ref-rfc2396">RFC2396</a>], melyek <code>"#foo"</code>
+                        formájú töredékazonosítókkal
+                        végződnek, nem a <code>name="foo"</code>
+                        tulajdonságú elemre hivatkoznak, hanem arra az elemre, melynek
+                        tulajdonsága <code>ID</code> típusú, pl. az
+                        <code>id</code> tulajdonság a HTML 4-ben. Sok létező HTML
+                        kliens nem támogatja az <code>ID</code> típusú
+                        tulajdonságok használatát ilyen módon, így az
+                        azonosító értékeket mindkét
+                        tulajdonságnak eredményül kell adni biztosítva a
+                        maximális kompatibilitást mind előre, mind hátra
+                        (pl. <code>&lt;a id="foo" name="foo"&gt;...&lt;/a&gt;</code>).</p>
+                    <p>Továbbá az <code>ID</code> típusú
+                        tulajdonságok számára az érvényes
+                        értékek halmaza sokkal kisebb, mint a <code>CDATA</code>
+                        típusúak számára érvényes értékek halmaza, a <code>name</code> tulajdonság
+                        <code>NMTOKEN</code>-re változott. E tulajdonsággal kapcsolatos megszorítás, hogy csak az <code>ID</code> típusúakkal vagy az XML 1.0 2.3 fejezetében az 5. képzésben a <code>Name</code> képzéssel azonos
+                        értékeket vehessen fel. Sajnos ez a
+                        megszorítást nem lehet kifejezni az XHTML 1.0 DTD-iben. E
+                        változás miatt vigyázni kell a létező HTML-ek
+                        konvertálásánál. Ezen tulajdonságok
+                        értékeinek egyedieknek kell lenniük a dokumentumon
+                        belül, érvényesnek, és az összes
+                        hivatkozást erre a töredék azonosítóra (mind
+                        belső, mind külső) frissíteni kell, ha az
+                        értéke változott a konvertálás
+                        során.</p>
+                    <p>Megjegyzendő, hogy az XML 1.0 2.3 fejezetében az 5. képzésben szereplő lehetséges értékek halmaza sokkal nagyobb, mint a HTML <code>ID</code> és <code>NAME</code> típusainál megadottak. Töredékazonosítók definiálásánál a visszafele kompatibilitás érdekében csak a <code>[A-Za-z][A-Za-z0-9:_.-]*</code> mintának megfelelő szövegek alkalmazhatóak. Lásd a [<a href="#ref-html4">HTML4</a>] <a href="http://www.w3.org/TR/html4/types.html#h-6.2">6.2</a> fejezetét.</p>
+                    <p>Végezetül megjegyezendő, hogy az XHTML 1.0-ben elévült
+                        az <code>a</code>, <code>applet</code>, <code>form</code>,
+                        <code>frame</code>, <code>iframe</code>, <code>img</code> és
+                        <code>map</code> elemek <code>name</code> tulajdonsága,
+                        és a következő verziókból eltávolításra kerül.</p>
+                    <h2><a id="C_9" name="C_9">C.9.</a> Karakterkódolás </h2>
+
+                    <p>Történelmi okokból a HTML dokumentum karakterkódolását megadhatja a web szerver a HTTP Content-Type fejlécben, vagy megadható magában a dokumentumban a <code>meta</code> elemben. Egy XML dokumentumban a karakterkódolás az XML deklarációban van megadva (pl. <code>&lt;?xml version="1.0" encoding="EUC-JP"?&gt;</code>). A hordozhatóságot szem előtt tartva a legjobb megközelítés, ha a web szerver a megfelelő fejléct biztosítja. Amennyiben ez nem lehetséges, és a dokumentum maga szeretné definiálni a kódolását, mind a karakterkódolást megadó deklaráció, mind a <code>meta</code> elem http-equiv tulajdonsága beállítandó (pl. <code>&lt;meta http-equiv="Content-type" content="text/html; charset=EUC-JP" /&gt;</code>). Az XHTML szabványnak megfelelő felhasználói alkalmazásokban az XML deklarációban megadott kódolás élvez elsőbbséget.</p>
+
+                    <p>Megjegyzendő, hogy amennyiben a dokumentum karakterkódolása a meta elem http-equiv tulajdonságában szerepel, a HTTP szerverek és/vagy felhasználói alkalmazások mindig az ugyanitt definiált internet média típust használhatják. Ha a dokumentumot több média típusként is ki kell szolgálni, a HTTP szervernek kell a dokumentum kódolását beállítani.</p>
+
+                    <h2><a id="C_10" name="C_10">C.10.</a> Logikai tulajdonságok </h2>
+                    <p>Néhány HTML felhasználói alkalmazás
+                        képtelen értelmezni a logikai tulajdonságokat, ha azok
+                        teljes (nem minimalizált) formájukban vannak jelen, ahogy azt az
+                        XML 1.0 megköveteli. Megjegyezzük, hogy ez a probléma nem
+                        érinti a HTML 4 kompatibilis felhasználói
+                        alkalmazásokat. A következő tulajdonságok tartoznak
+                        ide: <code>compact</code>, <code>nowrap</code>, <code>ismap</code>,
+                        <code>declare</code>, <code>noshade</code>, <code>checked</code>,
+                        <code>disabled</code>, <code>readonly</code>, <code>multiple</code>,
+                        <code>selected</code>, <code>noresize</code>, <code>defer</code>.</p>
+                    <h2><a id="C_11" name="C_11">C.11.</a> Dokumentum Objektum Modell és az XHTML </h2>
+                    <p>A Dokumentum Objektum Modell level 1 ajánlás
+                        [<a href="#ref-dom">DOM</a>] definiálja a dokumentum objektum modell
+                        interfészeket az XML és a HTML 4 számára. A HTML 4
+                        dokumentum objektum modell specifikálja, hogy a HTML elemeket és
+                        tulajdonságneveket nagybetűsen kell visszaadni. Az XML dokumentum
+                        objektum modell specifikálja, hogy az elemeket és
+                        tulajdonságneveket olyan formátumban kell visszaadni, ahogyan
+                        specifikálva lettek. XHTML 1.0-ban az elemek és
+                        tulajdonságnevek kisbetűvel lettek specifikálva. Ez a
+                        nyilvánvaló különbség kétféleképpen kezelhető:</p>
+                    <ol>
+                        <li>Azon alkalmazások, melyek az XHTML-t úgy érik el, mint
+                            <code>text/html</code> Internet média típust alkalmazhatják a HTML DOM-ot <abbr title="Document Object Model">DOM-ként</abbr>, és biztosan nagybetűs formában adják vissza az elemeket és
+                            tulajdonságneveket az interfészen keresztül.</li>
+                        <li>Azon alkalmazások, melyek az XHTML-t úgy érik el, mint
+                            <code>text/xml</code> vagy <code>application/xml</code> Internet média
+                            típust, alkalmazhatják az XML DOM-ot. Az elemeket és
+                            tulajdonságneveket kisbetűs formában adják vissza.
+                            Tehát néhány XHTML elem megjelenhet vagy eltűnhet az
+                            objektumfából, mivel opcionálisak a tartalmi modellben
+                            (pl. a <code>tbody</code> elem a <code>table</code> elemen belül). Ez
+                            bekövetkezhet, ugyanis a HTML 4-ben néhány elemre
+                            engedélyezett, hogy minimalizálva legyenek mind a nyitó,
+                            mind a záró tagjeik elhagyásával (ez egy SGML
+                            lehetőség). Ez nem lehetséges az XML-ben. Ahelyett, hogy a dokumentum szerzője extra elemeket illesszen be, az XHTML ezeket az elemeket opcionálissá tette. A felhasználói alkalmazásokat erre kell felkészíteni. Ezzel a témával kapcsolatos bővebb információkat lásd a [<a class="nref" href="#ref-dom2">DOM2</a>] hivatkozásban.</li>
+                    </ol>
+                    <h2> <a id="C_12" name="C_12">C.12.</a> &amp;-jel használata tulajdonság értékekben
+                    </h2>
+                    <p>SGML-ben és XML-ben a &amp; karakter az egyedhivatkozás kezdetét jelöli (pl. &amp;reg; a registered trademark szimbólum &reg;). Sajnos több HTML felhasználói alkalmazás csendben figyelmen kívül veszi a &amp; karakter hibás használatát - a &amp; karaktert, amennyiben nem valós egyedhivatkozás, úgy kezelik, mint egy &amp; literált. Az XML-alapú felhasználói alkalmazások nem engedik meg ezt a hibás használatot, hanem az ilyen dokumentumot érvénytelennek tekintik, mely nem felel meg ennek a specifikációnak. A dokumentum régi HTML és az XML-alapú felhasználói alkalmazásokkal való kompatibilitásának biztosításához a &amp; karakter literált magát is egyedhivathozásként kell megadni (azaz &amp;amp;). Például, ha egy <code>a</code> elem
+                        <code>href</code> tulajdonsága hivatkozik egy CGI szkriptre, amelyik tartalmaz paramétereket, akkor a következőképpen kell
+                        kifejteni:
+                        <code>http://my.site.dom/cgi-bin/myscript.pl?class=guest&amp;amp;name=user</code>
+                        a <code>http://my.site.dom/cgi-bin/myscript.pl?class=guest&amp;name=user</code>
+                        helyett.</p>
+
+
+                    <h2> C.13 Kaszkádolt Stíluslapok (CSS) és az XHTML </h2>
+                    <p>A Kaszkádolt Stíluslapok level 2
+                        ajánlása [<a href="#ref-css2">CSS2</a>]
+                        stílusjellemzőket definiál, melyeket alkalmazni kell a
+                        HTML vagy XML dokumentum elemző fájára. Az
+                        elemzésbeli különbségek különböző
+                        vizuális vagy megjelenési hatásokat válthatnak ki,
+                        a kiválasztott selectortól függően. A
+                        következő tanácsok csökkenteni fogják ezeket a
+                        hatásokat azon dokumentumoknál, melyeket
+                        módosítás nélkül mindkét
+                        médiatípusként kiszolgálnak:</p>
+                    <ol>
+                        <li>XHTML számára készített CSS
+                            stíluslapoknak kisbetűs elemeket és
+                            tulajdonságneveket kell alkalmazniuk.</li>
+                        <li>Táblázatokban a tbody elemet a HTML
+                            felhasználói alkalmazás figyelembe veszi, míg az
+                            XML felhasználói alkalmazás nem. Ezért mindig
+                            explicit meg kell adni a tbody elemet, ha ez hivatkozik egy CSS
+                            selectorra.</li>
+                        <li>Az XHTML névtéren belül a felhasználói
+                            alkalmazásoktól elvárható, hogy az id
+                            tulajdonságot ID típusú tulajdonságnak
+                            ismerjék fel. Ezért a stíluslapoknak képeseknek
+                            kell lenniük használni a rövidített "#"
+                            szelektort, még akkor is, ha a felhasználói
+                            alkalmazás nem olvassa a DTD-t.</li>
+                        <li> Az XHTML névtéren belül a felhasználói
+                            alkalmazásoktól elvárható, hogy felismerjék
+                            a class tulajdonságot. Ezért a stíluslapoknak
+                            képeseknek kell lenniük használni a
+                            rövidített "." szelektor szintaxist.</li>
+                        <li>CSS definiál különböző megfelelőségi
+                            szabályokat a HTML és XML dokumentumok számára; de
+                            vigyázni kell, hogy a HTML szabályok alkalmazása az XHTML
+                            dokumentumokra a HTML-hez vezet és az XML szabályok
+                            alkalmazása az XHTML dokumentumokra a XML-hez.</li>
+                    </ol>
+
+                    <h2>
+                        <a id="C_14" name="C_14">C.14.</a>
+			Hivatkozás a stílus elemekre, amennyiben XML-en belül jelennek meg
+                    </h2>
+                    <p>HTML 4-ben és XHTML-ben a <code>style</code> elem használható stílus megadásra a dokumentumon belül. XML-ben, egy XML stíluslap deklaráció használható stílus megadására. Ezzel a szabállyal való kompatibilitás miatt a <code>style</code> elemnek rendelkeznie kell egy töredék azonosítóval a <code>id</code> tulajdonságban, és az XML stíluslap deklarációnak erre kell hivatkoznia. Pl.:</p>
+                    <div class="good">
+                        <pre>
+&lt;?xml-stylesheet href=&quot;http://www.w3.org/StyleSheets/TR/W3C-REC.css&quot; type=&quot;text/css&quot;?&gt;
+&lt;?xml-stylesheet href=&quot;#internalStyle&quot; type=&quot;text/css&quot;?&gt;
+&lt;!DOCTYPE html 
+     PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;An internal stylesheet example&lt;/title&gt;
+&lt;style type=&quot;text/css&quot; id=&quot;internalStyle&quot;&gt;
+  code {
+    color: green;
+    font-family: monospace;
+    font-weight: bold;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;
+  This is text that uses our 
+  &lt;code&gt;internal stylesheet&lt;/code&gt;.
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+
+
+                    <h2>
+                        <a id="C_15" name="C_15">C.15.</a>
+			White space karakterek használatának különbsége HTML és XML dokumentumban
+                    </h2>
+                    <p>Néhány karakter, mely megengedett HTML dokumentumokban, nem megengedett XML dokumentumokban. Pl. HTML-ben a formfeed karakter (U+000C) white space karakterként kezelt, míg XHTML-ben, az XML karakter definíciói miatt, szabálytalan.</p>
+                    <h2>
+                        <a id="C_16" name="C_16">C.16.</a>
+			Az &amp;pos; Nevesített Karakter Hivatkozás
+                    </h2>
+                    <p>A &amp;pos; Nevesített Karakter Hivatkozás (aposztróf, U+0027) az XML 1.0-ban került bevezetésre, de nem létezik a HTML-ben. Emiatt a szerzőknek javasolt a <code>&amp;#39;</code> használata a <code>&amp;apos;</code> helyett a HTML 4 felhasználói alkalmazásokkal való kompatibilitás miatt.</p>
+
+                    <h1> <a name="acks" id="acks">D</a>
+                        Köszönetnyilvánítások </h1>
+                    <p><b>Ez a függelék tájékoztató jellegű.</b></p>
+                    <p> Ez a specifikáció a W3C HTML Working Group tagjainak
+                        részvételével íródott.</p>
+                    <p>A második kiadás megjelenésekor tagjai voltak:</p>
+                    <dl>
+                        <dd>Steven Pemberton, CWI/W3C (HTML Working Group Chair)<br />
+                            Daniel Austin, Grainger<br />
+                            Jonny Axelsson, Opera Software<br />
+                            Tantek &#199;elik, Microsoft<br />
+                            Doug Dominiak, Openwave Systems<br />
+                            Herman Elenbaas, Philips Electronics<br />
+                            Beth Epperson, Netscape/<acronym title="America Online">AOL</acronym><br />
+                            Masayasu Ishikawa, W3C (HTML Activity Lead)<br />
+
+                            Shin'ichi Matsui, Panasonic<br />
+                            Shane McCarron, Applied Testing and Technology<br />
+                            Ann Navarro, WebGeek, <abbr title="Incorporated">Inc.</abbr><br />
+                            Subramanian Peruvemba, Oracle<br />
+                            Rob Relyea, Microsoft<br />
+                            Sebastian Schnitzenbaumer, SAP<br />
+                            Peter Stark, Sony Ericsson
+                        </dd>
+                    </dl>
+                    <p>Az első kiadás megjelenéskor tagjai voltak:</p>
+
+                    <dl>
+                        <dd>Steven Pemberton, CWI (HTML Working Group Chair)<br /> Murray Altheim, Sun
+                            Microsystems<br /> Daniel Austin, AskJeeves (CNET: The Computer Network through
+                            July 1999)<br /> Frank Boumphrey, HTML Writers Guild<br /> John Burger,
+                            Mitre<br /> Andrew W. Donoho, IBM<br /> Sam Dooley, IBM<br /> Klaus Hofrichter,
+                            GMD<br /> Philipp Hoschka, W3C<br /> Masayasu Ishikawa, W3C<br /> Warner ten Kate,
+                            Philips Electronics<br /> Peter King, Phone.com<br /> Paula Klante, JetForm<br />
+                            Shin'ichi Matsui, Panasonic (W3C visiting engineer through September 1999)<br />
+                            Shane McCarron, Applied Testing and Technology (The Open Group through August
+                            1999)<br /> Ann Navarro, HTML Writers Guild<br /> Zach Nies, Quark<br /> Dave
+                            Raggett, W3C/HP (W3C lead for HTML)<br /> Patrick Schmitz, Microsoft<br />
+                            Sebastian Schnitzenbaumer, Stack Overflow<br /> Peter Stark, Phone.com<br />
+                            Chris Wilson, Microsoft<br /> Ted Wugofski, Gateway 2000<br /> Dan Zigmond, WebTV
+                            Networks</dd>
+                    </dl>
+                    <h1> <a name="refs" id="refs"> E.</a> Hivatkozások 
+                    </h1>
+                    <p><b>Ez a függelék tájékoztató jellegű.</b></p>
+                    <dl>
+                        <dt><a name="ref-css2" id="ref-css2"><strong>[CSS2]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.w3.org/TR/1998/REC-CSS2-19980512">Cascading Style Sheets, level 2 (CSS2) Specification</a></cite>", B. Bos, H. W. Lie, C. Lilley, I. Jacobs, 12 May 1998.<br />
+                            <a href="http://www.w3.org/TR/REC-CSS2">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/REC-CSS2</dd>
+
+                        <dt><a name="ref-dom" id="ref-dom"><strong>[DOM]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001">Document Object Model (DOM) Level 1 Specification</a></cite>", Lauren Wood <em lang="lt" xml:lang="lt">et al.</em>, 1 October
+                            1998.<br />
+
+                            <a href="http://www.w3.org/TR/REC-DOM-Level-1">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/REC-DOM-Level-1</dd>
+
+                        <dt><a name="ref-dom2" id="ref-dom2"><strong>[DOM2]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113">Document Object Model (DOM) Level 2 Core Specification</a></cite>", A. Le&#160;Hors, <em lang="lt" xml:lang="lt">et
+                                al.</em>, 13 November 2000.<br />
+                            <a href="http://www.w3.org/TR/DOM-Level-2-Core">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/DOM-Level-2-Core</dd>
+
+                        <dt><a name="ref-html4" id="ref-html4"><strong>[HTML]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.w3.org/TR/1999/REC-html401-19991224">HTML 4.01 Specification</a></cite>", D. Raggett, A. Le&#160;Hors, I. Jacobs, 24 December 1999.<br />
+                            <a href="http://www.w3.org/TR/html401">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/html401</dd>
+
+                        <dt><a name="ref-posix.1" id="ref-posix.1"><strong>[POSIX.1]</strong></a></dt>
+
+                        <dd>"<cite>ISO/IEC 9945-1:1990 Information Technology - Portable Operating System Interface (POSIX) - Part 1: System Application Program Interface (API) [C Language]</cite>", Institute of Electrical
+                            and Electronics Engineers, Inc, 1990.</dd>
+
+                        <dt><a id="ref-rfc2045" name="ref-rfc2045"><strong>[RFC2045]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.ietf.org/rfc/rfc2045.txt">Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</a></cite>", N. Freed and N. Borenstein, November
+                            1996. Note that this RFC obsoletes RFC1521, RFC1522, and RFC1590.</dd>
+
+                        <dt><a name="ref-rfc2046" id="ref-rfc2046"><strong>[RFC2046]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.ietf.org/rfc/rfc2046.txt">RFC2046: Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types</a></cite>", N. Freed and N. Borenstein, November 1996.<br />
+
+                            Elérhető a <a href="http://www.ietf.org/rfc/rfc2046.txt">http://www.ietf.org/rfc/rfc2046.txt</a> címen. Megjegyzendő hogy ez az RFC elavulttá teszi a RFC1521, RFC1522, és RFC1590 szabványokat.</dd>
+
+                        <dt><a name="ref-rfc2119" id="ref-rfc2119"><strong>[RFC2119]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.ietf.org/rfc/rfc2119.txt">RFC2119: Key words for use in RFCs to Indicate Requirement Levels</a></cite>", S. Bradner, March 1997.<br />
+                            Elérhető: http://www.ietf.org/rfc/rfc2119.txt</dd>
+
+                        <dt><a name="ref-rfc2376" id="ref-rfc2376"><strong>[RFC2376]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.ietf.org/rfc/rfc2376.txt">RFC2376: XML Media Types</a></cite>", E. Whitehead, M. Murata, July 1998.<br />
+                            Ez a dokumentum elavult a [<a href="#ref-rfc3023">RFC3023</a>] szabvány miatt.<br />
+                            Elérhető: http://www.ietf.org/rfc/rfc2376.txt</dd>
+
+                        <dt><a name="ref-rfc2396" id="ref-rfc2396"><strong>[RFC2396]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.ietf.org/rfc/rfc2396.txt">RFC2396: Uniform Resource Identifiers (URI): Generic Syntax</a></cite>", T. Berners-Lee, R. Fielding, L. Masinter, August 1998.<br />
+
+                            This document updates RFC1738 and RFC1808.<br />
+                            Elérhető: http://www.ietf.org/rfc/rfc2396.txt</dd>
+
+                        <dt><a name="ref-rfc2854" id="ref-rfc2854"><strong>[RFC2854]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.ietf.org/rfc/rfc2854.txt">RFC2854: The text/html Media Type</a></cite>", D. Conolly, L. Masinter, June 2000.<br />
+                            Elérhető: http://www.ietf.org/rfc/rfc2854.txt</dd>
+
+                        <dt><a name="ref-rfc3023" id="ref-rfc3023"><strong>[RFC3023]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.ietf.org/rfc/rfc3023.txt">RFC3023: XML Media Types</a></cite>", M. Murata, S. St.Laurent, D. Kohn, January 2001.<br />
+                            Ez a dokumentum elavulttá teszi a [<a href="#ref-rfc2376">RFC2376</a>] szabványt.<br />
+                            Elérhető: http://www.ietf.org/rfc/rfc3023.txt</dd>
+
+                        <dt><a id="ref-rfc3066" name="ref-rfc3066"><strong>[RFC3066]</strong></a></dt>
+
+                        <dd>"<a href="http://www.ietf.org/rfc/rfc3066.txt">Tags for the Identification of Languages</a>", H. Alvestrand, January 2001.<br />
+
+                            Elérhető: http://www.ietf.org/rfc/rfc3066.txt</dd>
+
+                        <dt><a id="ref-rfc3236" name="ref-rfc3236"><strong>[RFC3236]</strong></a></dt>
+
+                        <dd>"<a href="http://www.ietf.org/rfc/rfc3236.txt">The 'application/xhtml+xml' Media Type</a>", M. Baker, P. Stark, January 2002.<br />
+                            Elérhető: http://www.ietf.org/rfc/rfc3236.txt</dd>
+
+                        <dt><a id="ref-xhtml-mathml" name="ref-xhtml-mathml"><strong>[XHTML+MathML]</strong></a></dt>
+
+                        <dd><cite>"<a href="http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd">XHTML plus Math 1.1 <abbr title="Document Type Definition">DTD</abbr></a></cite>", "A.2 MathML as a DTD Module", Mathematical
+                            Markup Language (MathML) Version 2.0. Elérhető: http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd</dd>
+
+                        <dt><a id="ref-xhtmlmime" name="ref-xhtmlmime"><strong>[XHTMLMIME]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.w3.org/TR/2002/NOTE-xhtml-media-types-20020801">XHTML Media Types</a></cite>", Masayasu Ishikawa, 1 August 2002.<br />
+                            <a href="http://www.w3.org/TR/xhtml-media-types">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/xhtml-media-types</dd>
+
+                        <dt><a id="ref-xhtmlmod" name="ref-xhtmlmod"><strong>[XHTMLMOD]</strong></a></dt>
+
+                        <dd>"<cite><a href="http://www.w3.org/TR/2001/REC-xhtml-modularization-20010410">Modularization of XHTML</a></cite>", M. Altheim et al., 10 April 2001.<br />
+
+                            <a href="http://www.w3.org/TR/xhtml-modularization">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/xhtml-modularization</dd>
+
+                        <dt><a name="ref-xml" id="ref-xml"><strong>[XML]</strong></a></dt>
+
+                        <dd>"<a href="http://www.w3.org/TR/2000/REC-xml-20001006">Extensible Markup Language (XML) 1.0 Specification (Second Edition)</a>", T. Bray, J. Paoli, C. M. Sperberg-McQueen, E. Maler, 6 October
+                            2000.<br />
+                            <a href="http://www.w3.org/TR/REC-xml">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/REC-xml</dd>
+
+                        <dt><a name="ref-xmlns" id="ref-xmlns"><strong>[XMLNS]</strong></a></dt>
+
+                        <dd>"<a href="http://www.w3.org/TR/1999/REC-xml-names-19990114">Namespaces in XML</a>", T. Bray, D. Hollander, A. Layman, 14 January 1999.<br />
+                            Az XML névterek használatával minősíthetőek az XML dokumentumban használt nevek, URI-val azonosított névterek hozzárendelésével.<br />
+                            <a href="http://www.w3.org/TR/REC-xml-names">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/REC-xml-names</dd>
+
+                        <dt><a name="ref-xmlc14n" id="ref-xmlc14n"><strong>[XMLC14N]</strong></a></dt>
+
+                        <dd>"<a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315">Canonical XML Version 1.0</a>", J. Boyer, 15 March 2001.<br />
+                            Ez a dokumentum leír egy metódust egy XML dokumentum egy fizikai ábrázolására, a kanonikus formát.
+                            <br />
+                            <a href="http://www.w3.org/TR/xml-c14n">Legfrissebb verzió</a> elérhető: http://www.w3.org/TR/xml-c14n</dd>
+                    </dl>
+
+                    <!-- END OF FILE references.mhtml -->
+                    <p><a href="http://www.w3.org/WAI/WCAG1AAA-Conformance" title="Explanation of Level Triple-A Conformance"><img height="32" width="88" src="http://www.w3.org/WAI/wcag1AAA.png" alt=
+                                                                                                                                   "Level Triple-A conformance icon, W3C-WAI Web Content Accessibility Guidelines 1.0" /></a></p>
+
+
+                </div>
+            </div>

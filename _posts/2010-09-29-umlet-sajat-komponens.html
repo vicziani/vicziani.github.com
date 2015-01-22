@@ -1,0 +1,145 @@
+---
+layout: post
+title: UMLet saját komponens
+date: '2010-09-29T02:01:00.007+02:00'
+author: István Viczián
+tags:
+- UML
+modified_time: '2010-09-29T02:08:24.238+02:00'
+thumbnail: http://3.bp.blogspot.com/_czKgycLvmNo/TKKCjNWCLPI/AAAAAAAAFhk/tNFezsMZ7Ks/s72-c/umlet_screenshot.png
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-309890508077704267
+blogger_orig_url: http://www.jtechlog.hu/2010/09/umlet-sajat-komponens.html
+---
+
+<p>Már egy előző posztban (<a href="/2009/05/uml-tevekenysegdiagram.html">UML tevékenységdiagram</a>) írtam az <a href="http://www.umlet.com/">UMLet</a> UML diagram rajzoló eszközről, és több diagramot is ezzel készítettem, mint pl. a <a href="/2009/08/fa-abrazolasa-adatbazisban.html">Fa ábrázolása adatbázisban</a> posztban lévőt is. Ez utóbbiban látható, hogy olyan komponenst használtam, mely nincs az UMLet-ben (lekerekített sarkú téglalap, árnyékkal és színátmenettel).</p>
+<p>Ezen eszköz alapvető előnye két dologban rejlik. Egyrészt, ahogy már írtam, kellően egyszerű, nem kell dialógusablakok garmadán keresztülvergődni egy UML diagram elkészítéséhez, hanem ki kell tenni a komponenst, melyhez egy darab Properties beviteli mező tartozik. Ebben lehet minden leírni, gyakorlatilag egy kötött formátumot használva (script-szerűen). Másik előnye, hogy saját komponenseket nagyon egyszerű benne megvalósítani, Java nyelven, így gyakorlatilag tetszőlegesen testre szabható, bármilyen saját komponens létrehozható.</p>
+<p>Az UMLet-ben saját elem létrehozására a Custom Element való, melyről az UMLet honlapján egy <a href="http://www.umlet.com/ce/ce.htm">tutorial</a> is található.</p>
+<p>Custom Element szerkesztéséhez először a Custom Elements/New... menüpontot válasszuk ki. Ekkor megjelenik az alsó szerkesztő ablak, három szövegmezővel. Az első szövegmezőben a komponens tulajdonságait adhatjuk meg. A másodikban a forráskódját, a harmadikban pedig látunk egy előnézeti képet.</p>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_czKgycLvmNo/TKKCjNWCLPI/AAAAAAAAFhk/tNFezsMZ7Ks/s1600/umlet_screenshot.png"><img style="display: block; margin: 0px auto 10px; text-align: center; cursor: pointer; width: 320px; height: 233px;" src="http://3.bp.blogspot.com/_czKgycLvmNo/TKKCjNWCLPI/AAAAAAAAFhk/tNFezsMZ7Ks/s320/umlet_screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5522119634498759922" border="0" /></a>
+<p>A példában a következő forráskód szerepel:</p>
+<pre class="brush: java">
+int y=textHeight();
+
+drawRectangle(0,0,width,height);
+
+for(String textline : textlines) {
+ printCenter(textline,y);
+ y = y + textHeight();
+}
+</pre>
+<p>Gyakorlatilag a kód kirajzol egy téglalapot, és beleírja a szöveget. A width, height, textlines változók lokális változók, míg a textHeight(), drawRectangle() metódusok.</p>
+<p>Ha valami szebb megjelenítést akarunk, akkor írjuk ide  következő kódot:</p>
+<pre class="brush: java">
+// Változó inicializációk
+int dontHideBorder = 1;
+int roundedCorner = 5;
+int shadowOffset = (int) (5 * zoom);
+Color bg = new Color(Integer.decode("#58ACFA"));
+
+// Árnyék 
+g2.setColor(new Color(200, 200, 200));
+g2.fillRoundRect(shadowOffset, shadowOffset, getWidth() - shadowOffset - dontHideBorder, getHeight() - shadowOffset - dontHideBorder, 10, 10);  
+
+// Színátmenettel feltöltött téglalap
+g2.setPaint(new GradientPaint(1, 0, bg, getWidth() + 1, 0, Color.WHITE, false));
+g2.fillRoundRect(dontHideBorder, dontHideBorder, getWidth() - shadowOffset, getHeight() - shadowOffset, roundedCorner, roundedCorner);
+
+// Keret
+g2.setColor(Color.BLACK);
+g2.drawRoundRect(dontHideBorder, dontHideBorder, getWidth() - shadowOffset, getHeight() - shadowOffset, roundedCorner, roundedCorner);
+
+// Szöveg
+int y = textHeight();
+for (String textline : textlines) {
+ if (!textline.contains("=")) {
+  printCenter(textline, y);
+  y = y + textHeight();
+ }
+}
+</pre>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_czKgycLvmNo/TKKCYcnRISI/AAAAAAAAFhM/S2mP1qyZ1R0/s1600/umlet_custom_element.png"><img style="display: block; margin: 0px auto 10px; text-align: center; cursor: pointer; width: 228px; height: 89px;" src="http://3.bp.blogspot.com/_czKgycLvmNo/TKKCYcnRISI/AAAAAAAAFhM/S2mP1qyZ1R0/s320/umlet_custom_element.png" alt="" id="BLOGGER_PHOTO_ID_5522119449619013922" border="0" /></a>
+<p>Itt a legérdekesebb, hogy a g2 egy Graphics2D objektum, melyre lehet rajzolni, ez egy standard JDK-ban található osztály. Ez gyakorlatilag a komponens vászna. A 0,0 a bal felső sarka. Bizonyos számolásoknál figyelembe kell venni azt is, hogy nemrég jelent meg a zoom-olás lehetősége az UMLet-ben, így a helyes koordináták meghatározásakor a zoom-mal való szorzás elengedhetetlen (zoom = 1 a 100%-nál, zoom = 0.5 az 50%-nál).</p>
+<p>Látható, hogy a forráskód írása közben fordítás történik, a hibás sorok pirossal kerülnek kiemelésre, és az egeret felé víve megjelenik a hibaüzenet. A háttérben ugyanis az történik, hogy a custom_elements könyvtárba van egy Default.java, mely a default package-ben van, osztályának nevét (<!--CLASSNAME-->) kicseréli a CustomElementImpl-re, valamint a /****CUSTOM_CODE START****/ és /****CUSTOM_CODE END****/ szöveg közötti szöveget kicseréli a szöveges mezőbe beírt értékre. Ezt elmenti a custom_elements/tmp könyvtárba, és futás közben lefordítja az <a href="http://www.eclipse.org/jdt/">Eclipse Java development tools (JDT)</a> Core komponensével.  Ez a com.umlet.custom.CustomElementCompiler csomagban található. A Default.java forráskódja a következő:</p>
+<pre class="brush: java">import java.awt.*;
+import java.util.*;
+
+import com.umlet.constants.Constants;
+
+@SuppressWarnings(&quot;serial&quot;)
+public class &lt;!CLASSNAME!&gt; extends com.umlet.custom.CustomElement {
+
+ public CustomElementImpl()
+ {
+  
+ }
+ 
+ @Override
+ public void paint() {
+  Vector&lt;String&gt; textlines = Constants.decomposeStrings(this.getState());
+ 
+  /****CUSTOM_CODE START****/
+//Modify the code below to
+//define the element's behavior.
+//
+//Example:  Change the line
+//  y = y + textHeight();
+//to
+//  y = y + 2 * textHeight();
+//and observe the element preview.
+
+int y=textHeight();
+
+drawRectangle(0,0,width,height);
+
+for(String textline : textlines) {
+ printCenter(textline,y);
+ y = y + textHeight();
+}
+  /****CUSTOM_CODE END****/
+ }
+}</pre>
+<p>Ebből a következő dolgok következnek. Az új komponens a com.umlet.custom.CustomElement osztály leszármazottja, mely a com.umlet.element.base.Entity leszármazottja. Ezért ezekből származott (nem private) változóit és metódusait el lehet érni.  A java.awt és java.util csomagban lévő osztályok használhatóak közvetlenül, a többit teljes névvel (csomaggal együtt) kell megadni. A textlines változó is elérhető a kódból, ami a Custom Code előtt lett definiálva.</p>
+<p>Láthattuk azt is, hogy automatikus kódkiegészítés van a szövegszerkesztő mezőben. Ez úgy lett megvalósítva, hogy a megfelelő metódusok a CustomElement osztályban @CustomFunction annotációval vannak ellátva.</p>
+<p>Persze ebben a környezetben kényelmetlen szerkeszteni, megtehetjük azt is, hogy kedvenc IDE-nkbe csináljuk ugyanezt. Ehhez a umlet.jar-t kell a CLASSPATH-ba tenni, és a Default.java-t létrehozni, átmásolni, és a Custom Code közé írni a saját kódot, és ezt másolgatni az UMLet-be.</p>
+
+<p>Ha bonyolultabb dolgokat akarunk megvalósítani, akkor gyakran kaphatunk kivételt, mely a teljes GUI-t lefagyasztja. Ehhez javasolt a Custom Code-ot try-catch-be rakni.</p>
+<pre class="brush: java">
+try {
+...
+} catch (Exception e) {
+printLeft(e.getMessage(), textHeight());
+}
+</pre>
+<p>Ennek leggyakrabban akkor vesszük hasznát, mikor olyan metódust szeretnénk meghívni, melyre nincs jogosultságunk. Ugyanis az UMLet egy saját SecurityManager-t implementált (com.umlet.custom.CustomElementSecurityManager), mely a következőket engedi: java.lang, java.util, com.umlet.custom, com.umlet.constants, java.awt.geom, java.awt.font, java.awt), ebből a legfájóbb pont a com.umlet.control.diagram.DiagramHandler hiánya, ugyanis ebben rengeteg hasznos metódus található, de nem lehet e miatt elérni. Ekkor a következő hibaüzenetet kapjuk: No security critical tasks allowed in customized elements. Sajnos ugyanez igaz a debug-olásra is, a Log4J csomagja sem engedélyezett. (A Log4J bekapcsolásához amúgy csak a főkönyvtárban kell elhelyezni egy log4j.properties állományt.)</p>
+<p>Ha szeretnénk meta információkat is elhelyezni a komponens mezői között, akkor nekünk kell azt parse-olnunk. Érdemes kulcs érték párokat használni, és Properties-ként beolvasni. Pl. ha módosítani szeretnénk a háttér színét, akkor a bg=#5F04B4 megadásával lehet. Ezt értelmezni a következő kód tudja:</p>
+<pre class="brush: java">
+// Properties mező feldolgozása
+Properties props = new Properties();
+props.load(new java.io.StringReader(getPanelAttributes()));
+bg = new Color(Integer.decode(props.getProperty("bg")));
+</pre>
+<p>Hasznos metódus még a textWidth metódus is, nézzük meg pl, ha a szöveget nem középre, hanem lépcsőzetesen akarjuk elhelyezni:</p>
+<pre class="brush: java">
+int x = 2 * zoom;
+int y = textHeight();
+for (String textline : textlines) {
+ if (!textline.contains("=")) {
+  print(textline, x, y);
+  y = y + textHeight();
+  x = textWidth(textline);
+ }
+}
+</pre>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_czKgycLvmNo/TKKCcQIeSvI/AAAAAAAAFhU/KPtBB9_0cfw/s1600/umlet_custom_element_step.png"><img style="display: block; margin: 0px auto 10px; text-align: center; cursor: pointer; width: 200px; height: 104px;" src="http://4.bp.blogspot.com/_czKgycLvmNo/TKKCcQIeSvI/AAAAAAAAFhU/KPtBB9_0cfw/s320/umlet_custom_element_step.png" alt="" id="BLOGGER_PHOTO_ID_5522119514988104434" border="0" /></a>
+<p>Ha elmentjük a diagramot, akkor a Custom Element kódját is bele menti, tehát hordozható.</p>
+<p>Ha gyakran használunk egy bonyolultabb struktúrát (több komponenst), akkor érdemes egy új komponenst létrehozni, mintegy sablonként, saját szöveges konvenciót kitalálni a komponensek leírására, azt parse-olni, és a megjelenítését megvalósítani. Példaképp vegyünk egy csomagdiagramot. Ennek hierarchikus szerkezetét összerakhatjuk komponensekből egyenként, a csomag komponensekből és a közöttük lévő kapcsolatokból, de használhatunk összetett komponenst is. A következő leíráson látható, hogy a struktúrát a behúzás mértéke adja meg:</p>
+<pre>root
+ name
+ name
+  name
+  name
+root
+ name</pre>
+<p>Ennek grafikus reprezentációja:</p>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_czKgycLvmNo/TKKCgZMiaAI/AAAAAAAAFhc/-76BSdiUBt4/s1600/umlet_package_tree.png"><img style="display: block; margin: 0px auto 10px; text-align: center; cursor: pointer; width: 242px; height: 320px;" src="http://4.bp.blogspot.com/_czKgycLvmNo/TKKCgZMiaAI/AAAAAAAAFhc/-76BSdiUBt4/s320/umlet_package_tree.png" alt="" id="BLOGGER_PHOTO_ID_5522119586140547074" border="0" /></a>
+<p>Jó egy kicsit elszakadni a webes alkalmazásoktól, HTML-től, és kézben tartani minden pixelt. A <a href="http://dl.dropbox.com/u/7683931/jtechlog/umlet_custom_elements.zip">forráskód letölthető</a>, mely tartalmazza azt a bonyolultabb komponenst is, mely lehetővé teszi, hogy a téglalap mellé balra és jobbra is egy számot lehessen kiírni.</p>

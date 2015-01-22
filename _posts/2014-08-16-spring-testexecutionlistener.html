@@ -1,0 +1,90 @@
+---
+layout: post
+title: Spring TestExecutionListener
+date: '2014-08-16T21:58:00.000+02:00'
+author: István Viczián
+tags:
+- Tesztelés
+modified_time: '2014-08-16T21:58:23.382+02:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-7077911891492137156
+blogger_orig_url: http://www.jtechlog.hu/2014/08/spring-testexecutionlistener.html
+---
+
+<p>Használt technológiák: Spring Framework 4.0.4, Joda-Time 2.3, Hamcrest  <br>
+Date 1.0.1</p>
+
+<p>Ebben a posztban három library három apró de érdekes képességét szeretném bemutatni, és hogy hogyan tudnak ezek együttműködni. A poszthoz tartozó  mintakód megtalálható a <a href="https://github.com/vicziani/jtechlog-spring-listener">GitHubon</a>.</p>
+
+<p>Nálunk gyakran van szükség arra, hogy a teszt esetek különböző dátumokkal dolgozzanak. Mivel van, hogy a tesztelendő funkció a mai napot veszi alapul, jól jön egy olyan lehetőség, hogy az aktuális időt be tudjuk állítani, és utána már könnyebb az asserteket megfogalmazni. Időgépnek nevezzük, mellyel ide-oda lehet ugrálni az időben.</p>
+
+<p>A Java <code>Date</code> magában nem alkalmas erre, általában egy factory metódust szoktunk létrehozni, mely lekéri az aktuális időt. Ilyenkor figyelni kell arra, hogy csak ezen metódus meghívásával hozzunk létre dátumot, ne használjuk a <code>Date</code> konstruktorát.</p>
+
+<p>Azonban a <a href="http://www.joda.org/joda-time/">Joda-Time</a>, mely kibővíti a Java szerény dátumkezelési képességeit, tartalmaz ilyen lehetőséget.</p>
+
+<p>Amennyiben a <code>DateTimeUtils</code> <code>setCurrentMillisOffset</code> metódusát hívjuk, a rendszeridőhöz mindig hozzáad annyi ezredmásodpercet, mint amennyit paraméterként megadtunk. Így nem mindig egy fix időt ad vissza, hanem az időugrás után gyakorlatilag tovább “jár” az óra. Mivel pl. a <code>DateTime</code> létrehozásakor is a <code>DateTimeUtils</code> <code>currentTimeMillis</code> metódusát használja, annak példányosításakor is már a módosított időt kapjuk. Nézzük tehát, hogy hogy lehet az időugrást elvégezni.</p><div class="se-section-delimiter"></div>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> engage</span><span class="pun">(</span><span class="typ">DateTime</span><span class="pln"> targetTime</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">DateTime</span><span class="pln"> realTime </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DateTime</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">());</span><span class="pln">
+    </span><span class="kwd">long</span><span class="pln"> offset </span><span class="pun">=</span><span class="pln"> targetTime</span><span class="pun">.</span><span class="pln">getMillis</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> realTime</span><span class="pun">.</span><span class="pln">getMillis</span><span class="pun">();</span><span class="pln">
+    </span><span class="typ">DateTimeUtils</span><span class="pun">.</span><span class="pln">setCurrentMillisOffset</span><span class="pun">(</span><span class="pln">offset</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Valahol láttam, és megtetszett, hogy JUnit teszt esetre vonatkozó állításokat deklaratív módon, annotációkkal fogalmaztak meg. Kíváncsi voltam, hogy lehet ezt megvalósítani Spring Framework használatakor.</p>
+
+<p>A megoldás, hogy egy <code>TestExecutionListener</code> kell implementálni. Ez deklarál különböző metódusokat, callbackeket, melyek különböző eseményekkor lefutnak, pl. teszt osztály/metódus előtt/után, stb. Létezik egy <code>AbstractTestExecutionListener</code> absztrakt osztály is, mely az interfész minden metódusát üres implementációval valósít meg, és a leszármazott osztályunknak csak a megfelelő metódust kell felülírnia.</p>
+
+<p>Azt szeretném tehát, ha annotációval tudnám megadni, hogy a teszt eset futtatásakor mennyi legyen az idő. Pl. a következő kódrészlettel:</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="lit">@Test</span><span class="pln">
+</span><span class="lit">@TimeMachine</span><span class="pun">(</span><span class="pln">targetDate </span><span class="pun">=</span><span class="pln"> </span><span class="str">"2014-01-01 10:00"</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> travelToPast</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// ...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Ehhez implementáljuk a megfelelő listenert. A <code>beforeTestMethod</code> metódust írjuk felül, hogy minden teszt metódus futtatása előtt ellenőrizze, hogy a metóduson van-e <code>@TimeMachine</code> annotáció.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">TimeMachineTestExecutionListener</span><span class="pln"> 
+    </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">AbstractTestExecutionListener</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="lit">@Override</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> beforeTestMethod</span><span class="pun">(</span><span class="typ">TestContext</span><span class="pln"> testContext</span><span class="pun">)</span><span class="pln"> 
+            </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">Exception</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="typ">TimeMachine</span><span class="pln"> timeMachine </span><span class="pun">=</span><span class="pln"> testContext</span><span class="pun">.</span><span class="pln">getTestMethod</span><span class="pun">()</span><span class="pln">
+            </span><span class="pun">.</span><span class="pln">getAnnotation</span><span class="pun">(</span><span class="typ">TimeMachine</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">timeMachine </span><span class="pun">!=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">DateTimeFormatter</span><span class="pln"> formatter </span><span class="pun">=</span><span class="pln"> 
+                </span><span class="typ">DateTimeFormat</span><span class="pun">.</span><span class="pln">forPattern</span><span class="pun">(</span><span class="str">"yyyy-MM-dd hh:mm"</span><span class="pun">);</span><span class="pln">
+            </span><span class="typ">DateTime</span><span class="pln"> targetTime </span><span class="pun">=</span><span class="pln"> formatter
+                </span><span class="pun">.</span><span class="pln">parseDateTime</span><span class="pun">(</span><span class="pln">timeMachine</span><span class="pun">.</span><span class="pln">targetDate</span><span class="pun">());</span><span class="pln">
+            engage</span><span class="pun">(</span><span class="pln">targetTime</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Ezen kívül már csak annyit kell tennünk, hogy a teszt osztályunkra rá kell tenni a <code>@TestExecutionListeners</code> annotációt.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="lit">@RunWith</span><span class="pun">(</span><span class="typ">SpringJUnit4ClassRunner</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">@ContextConfiguration</span><span class="pln">
+</span><span class="lit">@TestExecutionListeners</span><span class="pun">(</span><span class="typ">TimeMachineTestExecutionListener</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">TimeMachineTest</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// ...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Most már csak annyit szeretnék, hogy letesztelni, hogy működik-e az időgép. Írtam már a <a href="/2014/05/hamcrest.html">Hamcrestről</a>, így Hamcrest matchert kerestem, és meg is találtam a <a href="https://github.com/eXparity/hamcrest-date">Hamcrest Date</a> projektet, mellyel hatékonyan tudunk dátumokat összehasonlítani.</p>
+
+<p>Nézzük meg, hogy hogyan is néz ki a teszt metódus, azon belül is koncentráljunk az assertre.</p>
+
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="lit">@Test</span><span class="pln">
+</span><span class="lit">@TimeMachine</span><span class="pun">(</span><span class="pln">targetDate </span><span class="pun">=</span><span class="pln"> </span><span class="str">"2014-01-01 10:00"</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> travelToPast</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// When</span><span class="pln">
+    </span><span class="typ">DateTime</span><span class="pln"> now </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DateTime</span><span class="pun">();</span><span class="pln">
+
+    </span><span class="com">// Then</span><span class="pln">
+    </span><span class="typ">DateTime</span><span class="pln"> expected </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DateTime</span><span class="pun">(</span><span class="lit">2014</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+    assertThat</span><span class="pun">(</span><span class="pln">now</span><span class="pun">.</span><span class="pln">toDate</span><span class="pun">(),</span><span class="pln"> 
+        within</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="typ">TimeUnit</span><span class="pun">.</span><span class="pln">SECONDS</span><span class="pun">,</span><span class="pln"> expected</span><span class="pun">.</span><span class="pln">toDate</span><span class="pun">()));</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>A <code>DateMatchers</code> <code>within</code> metódusát használva ellenőrizhetjük, hogy két dátum között mennyi a differencia, itt most max. 5 másodpercet adtunk meg, feltételezve, hogy ennyi idő alatt biztos lefut a teszteset.</p>

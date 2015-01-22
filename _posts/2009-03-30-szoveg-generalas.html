@@ -1,0 +1,100 @@
+---
+layout: post
+title: Szöveg generálás
+date: '2009-03-30T00:26:00.006+02:00'
+author: István Viczián
+tags:
+- Utils
+modified_time: '2010-09-18T00:37:02.161+02:00'
+blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-3270912925337717490
+blogger_orig_url: http://www.jtechlog.hu/2009/03/szoveg-generalas.html
+---
+
+<p>Lehet olyan eset, mikor egy weboldalnak nem kell dinamikusnak lennie, egyszerűen elegendő, ha dinamikusan generáljuk a statikus HTML oldalakat. Ez lehet egyszerű eset, mikor csak nem akarunk HTML kódot ismételni, és ezért a fejlécet, láblécet külön állományba tesszük ki, mert gyakrabban változik (persze ha a web szerverünk ismeri a server side include-ot az is jó választás lehet, de abban az esetben az összeállt oldalt csak a web szerveren tudjuk megnézni). Ezt használom például a honlapom előállításakor, valamint több felhasználói interfész prototípust is így készítettem. Gondoljuk el, elkészítjük a HTML terveket, majd a felhasználó a menüben kér egy módosítást. Persze ez is kikerülhető, ha már rögvest egy dinamikus prototípust állítunk össze (pl. kizárólag JSP alapokon), de ahhoz már környezet kell, valamint kicsit több munkabefektetés, és nem lehet az egészet egy ZIP állományban átküldeni. Ezzel megoldhatóak apróbb trükkök is, pl. lapozás, de akár bizonyos tartalmak esetén adatbázisból való kiolvasás.</p><p>Ennek egy továbbgondolt változata, a statikus HTML tartalom dinamikus előállításának, hogy egy CMS-be visszük fel a tartalmat, ami viszonylag ritkán változik, és az generál ki statikus tartalmat. Akár több formátumban is. Az Atlassian Confluence nagyvállalati wiki pl. képes HTML vagy PDF exportra is. Használható belső szerkesztőségi rendszernek, és a tartalmat módosítás esetén elegendő kipublikálni a web szerverre. Ekkor a szerveren egy web szerveren kívül semmilyen más szoftvert nem kell telepíteni, üzemeltetni, kevéssé terheli az erőforrásokat, stb.</p><p>Szóval gondoljuk meg, ha ritkán változó tartalmunk van, nem érdemes-e dinamikus forrásból időnként kigenerálni, és azt publikálni.</p><p>Ennek megvalósítására kitűnő eszköz lehet a <a href="http://velocity.apache.org/texen/releases/texen-1.0/">Apache Texen</a>, mely a Velocity projekt része. Valójában egy nagyon egyszerű Ant task, mely a Velocity-t hívja szöveg generálására. Persze nem csak HTML tartalom kigenerálására használható, hanem bármilyen, sablon alapú szövegre. Pl. ezt használja a Turbine web framework Torque ORM része SQL és a mapping file kigenerálására. De generálhatunk vele XML-t, Java forráskódot, így akár egy MDA keretrendszerbe is beilleszthető lenne, stb.</p><p>A Texen-t egy control template irányítja, amiben a Velocity nyelvén kell leírnunk, hogy hogyan is történjen a generálás. Ez tipikusan végigmegy a szintén Velocity nyelvén írt sablon állományokon (egyen akár többször is), és kigenerálja a szöveges állományokat. A Velocity context-be több segédobjektumot is elhelyez a Texen, pl. a generálást végző <a href="http://velocity.apache.org/texen/releases/texen-1.0/apidocs/org/apache/texen/Generator.html">generátor</a> objektumot, az output könyvtár nevét, egy szövegműveletekre használható <a href="http://jakarta.apache.org/commons/lang/apidocs/org/apache/commons/lang/StringUtils.html">StringUtils</a> példányt, fájlműveletekre használható <a href="http://velocity.apache.org/texen/releases/texen-1.0/apidocs/org/apache/texen/util/FileUtil.html">FileUtil</a> példányt, vagy property-k kezelésére való <a href="http://velocity.apache.org/texen/releases/texen-1.0/apidocs/org/apache/texen/util/PropertiesUtil.html">PropertiesUtil</a> példányt. A Velocity nyelve azért alkalmas különösen erre, mert a context-be rakott objektumokat nem csak olvasni tudjuk, hanem tetszőleges metódusukat is meg tudjuk hívni (szemben pl. a JSP-vel).</p><p>Egy példa Velocity vezérlő állomány lehet a következő:
+</p><pre>Generating mockups for templates in $generator.getTemplatePath() directory.
+
+#foreach ($file in $files.file($generator.getTemplatePath()).list()) 
+ #if ($file.endsWith(".htm") || $file.endsWith(".html"))
+Generating file to $file template.
+   $generator.parse($file, "UTF-8", $file, "UTF-8", null, null)
+ #end
+#end
+</pre><p>Az állomány végigmegy a sablonokat tartalmazó könyvtár összes állományán, és ha htm-re vagy html-re végződik, akkor végrehajtja azokat (látszik, hogy itt kell a kódolást is megadni). A generálás kimenete egy riport lesz, mely ezen vezérlő állomány alapján keletkezik.</p><p>A Texen-t futtatni Ant-tal lehetséges, melynek egy példa build.xml állománya:
+</p><pre class="brush: xml">&lt;project name="generator" default="gen" basedir="."&gt;
+
+ &lt;path id="classpath"&gt;
+   &lt;fileset dir="lib" includes="*.jar"/&gt;
+ &lt;/path&gt;
+
+ &lt;taskdef name="texen" 
+   classname="org.apache.texen.ant.TexenTask" 
+   classpathref="classpath"/&gt;
+
+ &lt;target name="gen"&gt;
+   &lt;texen controlTemplate="control.vm"
+          outputDirectory="build"
+          templatePath="templates"    
+          outputFile="generation.report"
+          outputEncoding="UTF-8" inputEncoding="UTF-8"/&gt; 
+ &lt;/target&gt;
+&lt;/project&gt;
+</pre><p>Ekkor a Texen-hez szükséges JAR-okat a lib könyvtárban helyezzük el (commons-collections, commons-lang, texen, velocity). A templates könyvtárban kell elhelyezni a control.vm állományt és a HTML sablonokat is. Az állományokat, és a riportot tartalmazó (generation.report) állományt a build könyvtárban fogja elhelyezni. Figyeljük meg, hogy itt adható meg a kódolás is. A következő példa egy egyszerű sablon állományt mutat, mely beemeli a fejlécet és láblécet, valamint kiírja a generálás dátumát, mert a Texen Ant task alapértelmezetten még date névvel elhelyez egy Date objektumot is:
+</p><pre class="brush: xml">&lt;html&gt;
+ &lt;body&gt;
+   #parse('header.vm')
+   Content. $date
+   #parse('footer.vm')
+ &lt;/body&gt;
+&lt;/html&gt;
+</pre><p>Amennyiben személyre akarjuk szabni a Texen-t, a org.apache.texen.ant.TexenTask Ant task-ot kell leszármaztatnunk, és a populateInitialContext metódusát implementálnunk. Ennek a metódusnak a feladata a Velocity context feltöltése. Ide akár egyszerű szöveg konstruálásától kezdve adatbázisból való lekérdezéséig bármit implementálhatunk. Példánkban írjuk ki magyar formátumban a generálás dátumát. A szükséges Java osztályt a következő kódrészlet mutatja:
+</p><pre class="brush: xml">package jtechlog.mytexentask;
+
+import java.util.Date;
+import java.util.Locale;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import org.apache.texen.ant.TexenTask;
+import org.apache.velocity.context.Context;
+
+public class MyTexenTask extends TexenTask {
+
+private static final String FORMAT = "yyyy MMMM dd. hh:mm";
+
+private static final Locale HU = new Locale("hu", "HU");
+
+   protected void populateInitialContext(Context context)
+                                  throws Exception {
+       DateFormat df = new SimpleDateFormat(FORMAT, HU);
+    context.put("dateOfGeneration", df.format(new Date()));
+   }
+
+}
+</pre><p>Ez a dateOfGeneration névvel fog betenni egy String objektumot a context-be. Ahhoz, hogy ebből egy Ant task legyen, használjuk az Ant 1.7-től rendelkezésre álló antlib lehetőséget, a jtechlog.mytexentask package-ben hozzunk létre egy antlib.xml állományt, majd csomagoljuk a lefordított class, valamint az xml állományt egy mytexentask.jar állományba.  Az antlib.xml tartalma:
+</p><pre class="brush: xml">&lt;?xml version="1.0" ?&gt;
+&lt;antlib&gt;
+ &lt;typedef name="MyTexenTask" 
+  classname="jtechlog.mytexentask.MyTexenTask" /&gt;
+&lt;/antlib&gt;
+</pre><p>Hogy ezt felhasználhassuk, az mytexentask.jar állományt tegyük az eredeti projektünk lib könyvtárába, és a build.xml állományba módosítsuk a project, taskdef és a texen tag-et.
+</p><pre class="brush: xml">&lt;project name="name="generator" " default="gen" basedir="." 
+  xmlns:mytexentask="antlib:jtechlog.mytexentask"&gt;
+...
+&lt;taskdef uri="antlib:jtechlog.mytexentask"
+  resource="jtechlog/mytexentask/antlib.xml"
+  classpathref="classpath"/&gt;
+
+&lt;mytexentask:MyTexenTask
+ controlTemplate="control.vm"
+ outputDirectory="build"
+ templatePath="templates"
+ outputFile="generation.report"
+ outputEncoding="UTF-8" inputEncoding="UTF-8"/&gt;
+</pre><p>Eztán máris használhatjuk a dateOfGeneration változót a sablonunkban:
+</p><pre class="brush: xml">&lt;html&gt;
+ &lt;body&gt;
+   #parse('header.vm')
+   Content. $dateOfGeneration
+   #parse('footer.vm')
+ &lt;/body&gt;
+&lt;/html&gt;
+</pre>

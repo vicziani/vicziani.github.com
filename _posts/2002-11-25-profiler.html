@@ -1,0 +1,43 @@
+---
+layout: post
+title: Profiler
+date: 2002-11-25T08:00:00.000+01:00
+author: Viczián István
+tags:
+---
+
+<p>
+Nem tudom, kinek volt már ideje, hogy profilerekkel
+játszon, mert általában egy project keretein belül nem
+tesztelésre szokták a legtöbb időt fordítani, ha meg nem
+megfelelő a szoftver teljesítménye, vegyünk alá hardvert.
+Aki igényesebb, vagy valami nagyon nem stimmel a
+rendszerében sebesség, memóriahasználat vagy szinkronizáció
+terén, vagy alaposabban ki akarja tesztelni, azoknak valók a
+profilerek. Létezik erre fapados módszer is, a JVM-et
+megfelelően indítva stacktrace kérésekor (tipikusan Ctrl +
+Break), vagy kilépéskor szöveges vagy bináris fájlba íródik
+a dump. A szöveges fájlt nézhetjük bármilyen
+szövegszerkesztőből, abszolút emészthetetlen. Vagy a bináris
+fájlra ereszthetünk a Heap Analysis
+Tool eszközt, mely indít egy beépített webszervert, és
+az adatokat HTML formátumban kapjuk, szépen összelinkelve.
+No ezzel dolgozni; halál. Azért érdemes belenézni, mit 
+<a href="http://java.sun.com/developer/onlineTraining/Programming/JDCBook/perf3.html">
+ír erről</a> a Sun. De aki kevésbé mazohista, használhat
+színes, szagos eszközt, ami grafikusan, realtime jelez ki
+minden szükséges információt (betöltött osztályok, aktív
+objektumok száma, memóriahasználat, szálak, kód
+kihasználtsága, egyéb csilli-villik). Azért ezeknek is van
+hátrányuk, drágák, és iszonyatosan belassítják az
+alkalmazást (ez kisebb mértékben jellemző a fapados
+megoldásra). Erre a Borland 
+<a href="http://www.borland.com/optimizeit/">OptimizeIt</a>
+szoftverét ajánlom (már említettem a Studio-ban benne van),
+illetve ódákat zengnek a <a href="http://www.sitraka.com/software/jprobe/">JProbe</a> nevűről
+is, amit még nem próbáltam, illetve a <a href="http://www.ej-technologies.com/products/jprofiler/overview.html">
+JProfiler</a> melyet sehogy sem sikerült felraknom.</p>
+<p>
+Mellesleg a Macromedia-nak is Studioja van. Kiváncsi
+vagyok, mi lesz az újabb trendi...
+</p>
