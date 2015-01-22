@@ -1,5 +1,5 @@
---
-layout: default
+---
+layout: page
 title: Online jelenlét
 description: Online jelenlét
 keywords: GitHub, Twitter, Delicious, LinkedIn
@@ -17,18 +17,19 @@ Amennyiben RSS-en akarsz követni, két lehetőséged van:
 
 [JTechLog blog RSS](http://feeds2.feedburner.com/JTechLog)
 
-[Java tartalmak, összes szolgáltatás -
-RSS](http://feeds.feedburner.com/viczianijava)
+[Java tartalmak, összes szolgáltatás - RSS](http://feeds.feedburner.com/viczianijava)
 
 Használt webes szolgáltatásokról részletesen:
 
--   JTechLog a Blogger-en: itt jelennek meg a hosszabb, kidolgozott
-    cikkek. ([web](http://jtechlog.blogspot.com/),
-    [RSS](http://feeds2.feedburner.com/JTechLog))
+-   GitHub: Jelenleg a blogot és a teljes tartalmat ez szolgálja ki, és 
+    használom forráskódok tárolására és megosztására.
+    ([JTechLog blog](http://www.jtechlog.hu/),
+    [JTechLog RSS](http://feeds2.feedburner.com/JTechLog),
+    [GitHub web](https://github.com/vicziani))
 -   JTechLog szösszentek a Blogger-en: ide írom a munka közben talált
     megoldásokat, melyek később is jól jöhetnek. Olyan rövid cikkek,
     írások kerülnek ide, amiket nem akarok bővebben kifejteni a
-    JTechLog-on, csak leírni, hogy legközelebb ne kelljen keresgetni. A
+    JTechLogon, csak leírni, hogy legközelebb ne kelljen keresgetni. A
     "java" tag alatt vannak a Java-val kapcsolatos dolgok. Régebben
     Tumblr-t használtam, de nagyon sok problémám volt vele.
     ([web](http://jtechlogext.blogspot.com/),
@@ -45,8 +46,6 @@ Használt webes szolgáltatásokról részletesen:
     Delicious Extension Firefox Add-on-t használom.
     ([web](http://delicious.com/vicziani),
     [RSS](http://feeds.delicious.com/v2/rss/vicziani?count=15))
--   GitHub: forráskódok tárolására és megosztására.
-    ([web](https://github.com/vicziani))
 -   LinkedIn: szakmai önéletrajz.
     ([web](http://www.linkedin.com/profile/view?id=67382971&trk=tab_pro))
 
