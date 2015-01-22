@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Cikkek és prezentációk
 description: Cikkek és prezentációk
 keywords: Java, cikk, RMI, ASP, Servlet, IBM, WebSphere, MQ, Apache, Jakarta, Velocity, OJB, Lucene, Log4J, J2SE 1.5, Tiger, Ant, Kódolási konvenciók, alkalmazásintegráció, OLAP, Mondrian, üzemeltetés, JAX-WS, Redirect After Post, Synchronizer Token, Workflow, Activiti, Continuous Integration, Continuous Delivery, Maven, Spring, Spring Data
@@ -62,6 +62,8 @@ eszközöket választottunk, az egyiket Anttal, a másikat Activitivel
 valósítottuk meg. Főleg a gyakorlati tapasztalatokra, best practice-ekre
 helyeztem a hangsúlyt. *(2012., 16 dia)*
 
+<iframe width="420" height="315" src="//www.youtube.com/embed/66FavTUB7AM?rel=0" frameborder="0" allowfullscreen></iframe>
+
 [Letöltés](artifacts/2012-09_workflow.pdf)
 
 # Szabad navigáció okozta problémák webes környezetben
@@ -120,6 +122,8 @@ technológiákat, ajánlásokat, nyílt forráskódú eszközöket, valamint a
 témával kapcsolatos tapasztalatokat. Az előadásnak csak a prezentációja
 érhető el, cikk hozzá nem készült.
 
+<object id="prezi_gmyp8jz3v3aw" name="prezi_gmyp8jz3v3aw" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400"> <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>  <param name="allowfullscreen" value="true"/>  <param name="allowscriptaccess" value="always"/>  <param name="bgcolor" value="#ffffff"/>  <param name="flashvars" value="prezi_id=gmyp8jz3v3aw&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"/>  <embed id="preziEmbed_gmyp8jz3v3aw" name="preziEmbed_gmyp8jz3v3aw" src="http://prezi.com/bin/preziloader.swf" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="400" bgcolor="#ffffff" flashvars="prezi_id=gmyp8jz3v3aw&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"> </embed> </object>
+
 # Adattárház és jelentéskészítés OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök használatával
 
 Jelen cikk
@@ -132,6 +136,8 @@ elvégezhető. A cikknek nem célja a fogalmak és technológiák alapos,
 precíz ismertetése, inkább egy bevezetőt nyújt ezen eszközök
 használatába, egy gyakorlati példán keresztül. *(2009. március, 13
 oldal, 3277 szó)*
+
+<object id="prezi_5hqg4hd6jahb" name="prezi_5hqg4hd6jahb" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400"> <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>  <param name="allowfullscreen" value="true"/>  <param name="allowscriptaccess" value="always"/>  <param name="bgcolor" value="#ffffff"/>  <param name="flashvars" value="prezi_id=5hqg4hd6jahb&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"/>  <embed id="preziEmbed_5hqg4hd6jahb" name="preziEmbed_5hqg4hd6jahb" src="http://prezi.com/bin/preziloader.swf" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="400" bgcolor="#ffffff" flashvars="prezi_id=5hqg4hd6jahb&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"> </embed> </object>
 
 [Letöltés](artifacts/Java_OLAP.pdf)
 
