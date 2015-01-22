@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Konferenciák
 description: Konferenciák
 keywords: konferencia
@@ -112,8 +112,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="cikkek.htm#
                         harmadszor megrendezett versenyen a szokásos csapattal 
                         (KergeBirge) ismét 3.
                         helyezést értünk el. A másik két tag: Erdei Szabolcs,
-                        Klampeczki Zsolt. Az eredményről 
-				<a href="artifacts/24bme3.jpg">oklevél</a> tanúskodik.</p>
+                        Klampeczki Zsolt.</p>
 		</td>
 	</tr>
 	<tr>
@@ -125,8 +124,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="cikkek.htm#
 			<p>2002. áprilisában
                         megrendezett 24 órás programozó verseny, melyen csapatunk 3.
                         helyezést ért el. A másik két tag: Erdei Szabolcs,
-                        Klampeczki Zsolt. Az eredményről 
-				<a href="artifacts/24bme2.gif">oklevél</a> tanúskodik.</p>
+                        Klampeczki Zsolt.</p>
 		</td>
 	</tr>
 	<tr>
@@ -143,6 +141,8 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="cikkek.htm#
 		</td>
 	</tr>
 </table>
+
+# További konferenciák
 
 Itt szerepelnek azok a konferenciák, melyeken mint hallgató vettem részt.
 
