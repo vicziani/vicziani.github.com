@@ -15,9 +15,9 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 
 # Általános alkalmazások
 
-<dl>
-	<dt><a href="https://gist.github.com/vszakats/4b7992d6ddd7c84d5577">CIB Internet Bank non-applet runner (Windows batch)</a></dt>
-	<dd>Így nem böngészőben kell futtatnom a CIB Internet Bankot.</dd>
+<dl class="dl-horizontal">
+	<dt><a href="https://gist.github.com/vszakats/4b7992d6ddd7c84d5577">CIB</a></dt>
+	<dd>CIB Internet Bank non-applet runner (Windows batch). Így nem böngészőben kell futtatnom a CIB Internet Bankot.</dd>
 
 	<dt><a href="http://www.dopdf.com/">doPDF</a></dt>
 	<dd>Ha PDF dokumentumot kell gyártani.</dd>
@@ -25,24 +25,21 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dd>Különböző programok (pl. Internet Explorer, Firefox, stb.) személyes
 	beállításait törölni képes program.</dd>
 	<dt><a href="http://www.daemon-tools.cc/eng/home">DAEMON Tools</a></dt>
-	<dd>CD/DVD image-eket mount-olni képes program.</dd>
+	<dd>CD/DVD image-eket mountolni képes program.</dd>
 	<dt><a href="http://www.farmanager.com/">Far Manager</a></dt>
-	<dd>Fájlmenedzser, végre megjelent a v2.0 széria, mely már nyílt forráskódú. Plugin-eket lásd később.</dd>
+	<dd>Fájlmenedzser, végre megjelent a v2.0 széria, mely már nyílt forráskódú. Plugineket lásd később.</dd>
 
 	<dt><a href="http://www.dropbox.com/">Dropbox</a></dt>
 	<dd>Állományok tárolása felhőben. Több gépen is egy könyvtárat lehet megosztani, és amint módosítjuk
 	annak tartalmát, szinkronizálja a felhőbe, majd az összes többi gépre.</dd>
 
 	<dt><a href="http://www.evernote.com/">Evernote</a></dt>
-	<dd>Jegyzetek tárolása felhőben.</dd>										
+	<dd>Jegyzetek tárolása felhőben.</dd>
 
 	<dt><a href="http://www.fiddler2.com/fiddler2/">Fiddler2</a></dt>
 	<dd>Egyszerű HTTP proxy HTTP forgalom monitorozására, esetleg módosítására. A Live
 		HTTP Headers Firefox plugin mellett szoktam használni, mert ez a teljes kérést és
 	választ is mutatja.</dd>
-
-	<dt>Flickr Uploadr</dt>
-	<dd>Flickrre való képfeltöltéshez. Még nem laktam be teljesen.</dd>
 
 	<dt><a href="http://www.foxitsoftware.com/pdf/reader/">Foxit Reader</a></dt>
 	<dd>Gyors és kicsi PDF olvasó, a nehézkes Adobe Acrobat Reader
@@ -52,7 +49,7 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dd>Nagyszerű mind map rajzolására alkalmas szoftver, mostanában sokminden feljegyzésére ezt használom.</dd>
 
 	<dt><a href="http://www.freerip.com/">FreeRIP3</a></dt>
-	<dd>Audió CD-k MP3-ba grab-belésére használom.</dd>
+	<dd>Audió CD-k MP3-ba grabbelésére használom.</dd>
 
 	<dt><a href="http://www.officerecovery.com/freeundelete/">FreeUndelete</a></dt>
 	<dd>Ritka véletlen törlések esetén van esély arra, hogy
@@ -62,17 +59,10 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dd>Videók letöltésére. De remek még a <a href="http://offliberty.com/">Offliberty</a>
 	oldal is.</dd>
 							
-	<dt><a href="http://www8.garmin.com/support/download_details.jsp?id=209">Garmin MapSource</a>, <a href="http://www8.garmin.com/products/poiloader/">POI Loader</a> és <a href="http://www.garmin.hu/naviguide-magyarorszag-52">NaviGuide Magyarország</a></dt>
-	<dd>Garmin Nüvi 250 és GPSMap 60 GPS eszközeimhez
-	térkép és POI kezelésére használom a Garmin szoftvereket, melyek 
-	az eszközökhöz járnak. A legtöbbször a NaviGuide Magyarország, <a href="http://openmaps.eu/udv">OpenMaps</a> és
-	a <a href="http://www.turistautak.hu">Túristautak.Hu</a> térképeket használom.</dd>
-
-	<dt><a href="http://earth.google.com/">Google Earth</a></dt>
-	<dd>Rögzített track-ek későbbi elemzéséhez.</dd>                            
-
-	<dt><a href="http://earth.google.com/">IETester</a></dt>
-	<dd>Az Internet Explorer különböző verzióinak teszteléséhez.</dd>                            
+	<dt>GPS</dt>
+	<dd>Garmin Nüvi 250 és GPSMap 60 GPS eszközeimhez a <a href="http://www8.garmin.com/support/download_details.jsp?id=209">Garmin MapSource</a>, <a href="http://www8.garmin.com/products/poiloader/">POI Loader</a> és a <a href="http://www.garmin.hu/naviguide-magyarorszag-52">NaviGuide Magyarország</a> szoftvereket használom
+	térképek és POI-k kezelésére. A legtöbbször a NaviGuide Magyarország, <a href="http://openmaps.eu/udv">OpenMaps</a> és
+	a <a href="http://www.turistautak.hu">Turistautak.hu</a> térképeket használom.</dd>
 
 	<dt><a href="http://www.imgburn.com/">ImgBurn</a></dt>
 	<dd>CD/DVD írásra.</dd>
@@ -91,21 +81,14 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	de tartalmaz sok egyéb hasznos funkciót, pl. átméretezhető ablak, konfiguráció fájlba tárolása, jelszó
 	tárolása, stb.</dd>
 
-	<dt>Magyar Bélyegek Katalógusa</dt>
-	<dd>Könnyen kereshető bélyegkatalógus.</dd>
-
 	<dt><a href="http://office.microsoft.com/hu-hu/downloads/default.aspx">Microsoft Office</a></dt>
 	<dd>Kereskedelmi termék. Használom belőle a Word, Excel, PowerPoint, Project,
 		Visio, Access komponenseket, kb. ilyen sorrendben gyakoriság szerint. Sajnos
 		tapasztalat alapján nem hiszek az ingyenes alternatíváiban egy
-	munkakörnyezetben. Ettől függetlenül cseppet sem vagyok velük megelégedve.</dd>                            
-
-	<dt><a href="http://www.microsoft.com/hun/windows/default.mspx">Microsoft Windows</a></dt>
-	<dd>Igen. Használhattok nyugodtan kliens oldalon Linux-ot, MacOS-t, de engem még ne
-	próbáljatok meggyőzni róla. Szerver oldalon persze napi szinten Linux-ozom.</dd>
+	munkakörnyezetben. Ettől függetlenül cseppet sem vagyok velük megelégedve.</dd>
 
 	<dt><a href="http://www.utorrent.com/">µTorrent</a></dt>
-	<dd>Torrentezésre.</dd>							
+	<dd>Torrentezésre.</dd>
 
 	<dt><a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a></dt>
 	<dd>A böngésző, plugin-eket lásd később. Igaz, hogy lassú, de ehhez található
@@ -116,10 +99,10 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dd>MP3 fájlok tagjeinek szerkesztésére, sajnos az iTunes alkalmatlan, bugos erre.</dd>
 
 	<dt><a href="http://europe.nokia.com/get-support-and-software/download-software/nokia-pc-suite">Nokia PC Suite</a></dt>
-	<dd>A mobiltelefonomon tárolt adatok elmentésére használom.</dd>
+	<dd>A Nokia butatelefonomon tárolt adatok elmentésére használom.</dd>
 
 	<dt><a href="http://notepad-plus.sourceforge.net/hu/site.htm">Notepad++</a></dt>
-	<dd>A Windows-os Notepad kiváltására egy nagyon gazdag funkcionalitású
+	<dd>A Windowsos Notepad kiváltására egy nagyon gazdag funkcionalitású
 	szövegszerkesztő.</dd>
 
 	<dt><a href="http://www.getpaint.net/">Paint.NET</a></dt>
@@ -127,10 +110,10 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 
 	<dt><a href="http://www.skype.com/intl/hu/">Skype</a></dt>
 	<dd>Először az MSN-nel próbálkoztam, majd jött a Skype,
-	végül a Google Talk plugin-t próbáltam ki, mely a Google chat funkcióját kiegészíti hang és videóátvitellel is.
-	Sajnos nagyon sok probléma volt vele, mind programként, mind hangminőségben, így visszaálltam Skype-ra.</dd>
+	végül a Google Talk plugint próbáltam ki, mely a Google chat funkcióját kiegészíti hang és videóátvitellel is.
+	Sajnos nagyon sok probléma volt vele, mind programként, mind hangminőségben, így visszaálltam Skypera.</dd>
 	<dt><a href="http://picasaweb.google.hu/">PicasaWeb</a></dt>
-	<dd>Fényképalbumok kezelésére, feltöltésére, online megosztására.</dd>
+	<dd>Fényképalbumok kezelésére, feltöltésére, online megosztására. Próbáltam a Flickrt, de nem jött be.</dd>
 	<dt><a href="http://www.windowsstartup.com/">Startup Inspector for Windows</a></dt>
 	<dd>Sajnos telepítéskor sok program titokban beregisztrálja magét, hogy induljon el
 	rendszerindításkor. Ezeket lehet ezzel a programmal kikapcsolni.</dd>
@@ -142,23 +125,21 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dd>Videólejátszásra, feliratokkal.</dd>
 </dl>
 
-# Far plugin-ek
+# Far pluginek
                
-<dl>
+<dl class="dl-horizontal">
     <dt><a href="http://colorer.sourceforge.net/farplugin.html">Far Colorer</a></dt>
-    <dd>Különböző típusú állományokat képes syntax highlight-olva
+    <dd>Különböző típusú állományokat képes syntax highlightolva
     megmutatni és szerkeszteni.</dd>
     <dt><a href="http://winscp.net/eng/index.php">WinSCP</a></dt>
     <dd>SCP kliens.</dd>
 </dl>
 
-# Firefox plugin-ek
+# Firefox pluginek
 
-<dl>
+<dl class="dl-horizontal">
     <dt><a href="http://www.adobe.com/products/flashplayer/">Adobe Flash Player</a></dt>
     <dd>Elengedhetetlen.</dd>
-    <dt><a href="https://addons.mozilla.org/en-US/firefox/addon/delicious-extension/">Delicious Extension</a></dt>
-    <dd>Delicious könyvjelzők kezeléséhez.</dd>
     <dt><a href="http://getfirebug.com/">FireBug</a></dt>
     <dd>Elengedhetetlen segédeszköz webes fejlesztésekhez. Tartalmaz
     JavaScript debuggert is.</dd>
@@ -180,7 +161,7 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 
 # Fejlesztői alkalmazások
 
-<dl>
+<dl class="dl-horizontal">
 	<dt><a href="http://ant.apache.org/">Apache Ant</a></dt>
 	<dd>Java build eszköz.</dd>
 	<dt><a href="http://jakarta.apache.org/jmeter/">Apache JMeter</a></dt>
@@ -197,7 +178,7 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	megoldást találni. Az alkalmazásszerverekben nem bízom.</dd>
 
 	<dt><a href="http://code.google.com/p/commitmonitor/">commitmonitor</a></dt>
-	<dd>A Windows tray-en figyeli a Subversion commit-okat.</dd>
+	<dd>A Windows tray-en figyeli a Subversion commitokat.</dd>
 
 	<dt><a href="http://www.cygwin.com/">Cygwin</a></dt>
 	<dd>Igaz, hogy kliens oldalon nem használnék Linux-ot, de a benne található
@@ -214,7 +195,7 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 		oriented middleware. Java-ból a saját API-ján, valamint JMS API-n
 	keresztül is el lehet érni. A IBM WebSphere Message Broker Display Test and Performance utilities
 	(IH03) kötelező tartozéka. Valamint külön telepíthető az IBM WebSphere MQ Explorer
-	adminisztrációs eszköz is.</dd>							
+	adminisztrációs eszköz is.</dd>
 
 	<dt><a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a></dt>
 	<dd>A fejlesztőeszköz, sajnos az ingyenes változata számomra nem megfelelő, hiányzik belőle a webes alkalmazások és
@@ -226,14 +207,14 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dt><a href="http://www.varaneckas.com/jad">JAD</a></dt>
 	<dd>Egyszerű, jól használható Java Decompiler. Fejlesztése megszűnt, oldala eltűnt és már csak
 	egy mirror van fenn.</dd>
-	<dt><a href="http://java.sun.com/javase/downloads/index.jsp">Java Development Kit (JDK)</a></dt>
-	<dd>Kötelező darab.</dd>
+	<dt><a href="http://java.sun.com/javase/downloads/index.jsp">JDK</a></dt>
+	<dd>Java Development Kit, kötelező darab.</dd>
 
 	<dt>Luke</dt>
 	<dd>Lucene indexek nézegetésére.</dd>
 
 	<dt><a href="http://mqtoolkit.sourceforge.net/">MQToolkit</a></dt>
-	<dd>Java-s alkalmazás IBM WebSphere MQ kezeléséhez.</dd>
+	<dd>Javas alkalmazás IBM WebSphere MQ kezeléséhez.</dd>
 
 	<dt><a href="http://www.mysql.com/">MySQL Server</a></dt>
 	<dd>Relációs adatbáziskezelő és hozzá tartozó grafikus menedzsment eszköz.
@@ -245,23 +226,23 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	oktatások ezzel történnek.</dd>
 
 	<dt><a href="http://www.oracle.com/technology/software/products/sql/index.html">Oracle SQLDeveloper</a></dt>
-	<dd>Ingyenes, Java-ban implementált eszköz Oracle adatbázisokkal
+	<dd>Ingyenes, Javaban implementált eszköz Oracle adatbázisokkal
 	történő munkához. Felülete
-	hasonlít a JDeveloper-hez. Nekem jobban bevállt, mint a Toad, vagy
+	hasonlít a JDeveloperhez. Nekem jobban bevállt, mint a Toad, vagy
 	a fejlesztőeszközökbe épített JDBC kliensek.</dd>
 
-	<dt>Python, Jython, Google App Engine</dt>
+	<dt>Python, Google App Engine</dt>
 	<dd>Programozási platformok.</dd>
 
 	<dt><a href="http://www.soapui.org/">SOAPUi</a></dt>
-	<dd>Web szolgáltatások teszteléséhez. Mock-olni is képes.</dd>
+	<dd>Web szolgáltatások teszteléséhez. Mockolni is képes.</dd>
 	<dt><a href="http://subversion.tigris.org/">Subversion</a></dt>
 	<dd>Verziókezelő szerver és parancssori kliens.</dd>
 	<dt><a href="http://technet.microsoft.com/en-us/sysinternals/default.aspx">Sysinternals</a></dt>
-	<dd>Windows rendszerközeli eszközök. A Windows Task Manager-ét mindig kicserélem az ebben található 
-	Process Explorer-re.</dd>
+	<dd>Windows rendszerközeli eszközök. A Windows Task Managerét mindig kicserélem az ebben található 
+	Process Explorerre.</dd>
 	<dt><a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a></dt>
-	<dd>Explorer-be épülő Windows-os SVN kliens. Nem tetszik, hogy az Explorer-be
+	<dd>Explorerbe épülő Windows-os SVN kliens. Nem tetszik, hogy az Explorerbe
 		épül, viszont annyival bővebb funkcionalitásban, mint a többi kliens, hogy ezt
 		használom. Tapasztalat alapján, összevetve a fejlesztőeszközökbe épített, vagy
 		integrálható eszközökkel is megállja a helyét (pl. NetBeans beépített, vagy
@@ -273,6 +254,6 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dd>Parancssori XML kezeléshez, validáció, XPath, formázás.</dd>
 
 	<dt><a href="http://www.wireshark.org/">Wireshark</a></dt>
-	<dd>Hálózati protokollok dump-olására. Régebben Ethereal.</dd>
+	<dd>Hálózati protokollok dumpolására. Régebben Ethereal.</dd>
 </dl>
 

@@ -9,7 +9,7 @@ keywords: Android, alkalmazások
 
 Alapvetően nem vagyok az okostelefonok megszállott rabja (butatelefonom is van aktív használatban),így az Android platformot választottam.
 
-<dl>
+<dl class="dl-horizontal">
     <dt>3G Watchdog</dt>
                 <dd>Net forgalom figyelésére.</dd>
     <dt>Evernote</dt>
@@ -26,6 +26,4 @@ Alapvetően nem vagyok az okostelefonok megszállott rabja (butatelefonom is van
                 <dd>Androidos geocaching kliens.</dd>
     <dt>Időkép</dt>
                 <dd>Időjárás előrejelzés.</dd>
-    <dt>Magyar Rádio Hangtár</dt>
-                <dd>Az MR1 Kossuth rádió adásait lehet visszahallgatni.</dd>
 </dl>
