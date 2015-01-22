@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Falling Gems játék
 description: Falling Gems, Java ügyességi játék applet
 keywords: Java, applet, ügyességi játék

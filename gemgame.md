@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Gem Game játék
 description: Gem Game, Java logikai játék applet
 keywords: Java, applet, logikai játék

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Android alkalmazások
 description: Android alkalmazások
 keywords: Android, alkalmazások
@@ -8,7 +8,7 @@ keywords: Android, alkalmazások
 # Mobil alkalmazások
 
 Alapvetően nem vagyok az okostelefonok megszállott rabja (butatelefonom is van aktív használatban),így az Android platformot választottam.
-                        
+
 <dl>
     <dt>3G Watchdog</dt>
                 <dd>Net forgalom figyelésére.</dd>

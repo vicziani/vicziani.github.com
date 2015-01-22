@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Windows alkalmazások
 description: Windows alkalmazások
 keywords: Windows, alkalmazások
