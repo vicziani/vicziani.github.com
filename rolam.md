@@ -11,249 +11,181 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 
 # Munkatapasztalat
 
-<table>
-	<tr>
-		<td>2012. március - </td>
-		<td>
+<dl class="dl-horizontal">
+		<dt>2012 - </dt>
+		<dd>
 			<p><a href="https://www.ipsystems.hu/">IP Systems Kft.</a>, vezető programozó</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2007. június - 2012. március</td>
-		<td>
+		</dd>
+		<dt>2007 - 2012</dt>
+		<dd>
 			<p>Szabadúszó szoftverfejlesztő</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2005. április - 2007. június</td>
-		<td>
+		</dd>
+		<dt>2005 - 2007</dt>
+		<dd>
 			<p>Kopint-Datorg Zrt., vezető szoftverfejlesztő, megbízott osztályvezető</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2005. január - 2006. január</td>
-		<td>
+		</dd>
+		<dt>2005 - 2006</dt>
+		<dd>
 			<p><a href="http://vam.gov.hu">Vám- és Pénzügyőrség Rendszerfejlesztő Központ</a>, programozó</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2003. augusztus - 2004. december</td>
-		<td>
+		</dd>
+		<dt>2003 - 2004</dt>
+		<dd>
 			<p><a href="http://www.kdiv.hu">Kopint-Datorg Rt.</a>, programozó</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2001. szeptember - 2003. augusztus</td>
-		<td>
+		</dd>
+		<dt>2001 - 2003</dt>
+		<dd>
 			<p><a href="http://www.infobal.com/">Information Balance Európa Kft.</a>, szoftverfejlesztő</p>
-		</td>
-	</tr>
-</table>
+		</dd>
+</dl>
 
 # Projektek
 
-<table>
-	<tr>
-		<td>2012. március - </td>
-		<td>
+<dl class="dl-horizontal">
+		<dt>2012 - </dt>
+		<dd>
 			<p>
-                        FGSZ Informatikai platform Szerződéskezelő modul - vezető fejlesztő
+                        TSO-IP - vezető fejlesztő
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-                    2011. szeptember -
-		</td>
-		<td>
+		</dd>
+		<dt>
+                    2011 -
+		</dt>
+		<dd>
 			<p>Training360 keretein belül Java oktatás a 
                         következő témakörökben: Java EE, web szolgáltatások, Spring, Design Patterns, Maven</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2010. október - 2012. március</td>
-		<td>
+		</dd>
+		<dt>2010 - 2012</dt>
+		<dd>
 			<p>
                         Központi Statisztikai Hivatal, KSH elektronikus adatgyűjtési rendszerének fejlesztése, kiterjesztése - vezető fejlesztő
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2009. január - 2011. május</td>
-		<td>
+		</dd>
+		<dt>2009 - 2011</dt>
+		<dd>
 			<p>
                         Magyar Kereskedelmi és Engedélyezési Hivatal (MKEH) az egyablakos vámügyintézés megvalósítása - architect, tervező, vezető fejlesztő
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2005. október - 2010. április</td>
-		<td>
+		</dd>
+		<dt>2005 - 2010</dt>
+		<dd>
 			<p>
                         Központi Statisztikai Hivatal, <a href="https://intrastat.ksh.gov.hu/">Intrastat e-star elektronikus adatgyűjtő alkalmazás</a> - fejlesztő
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-                    2006. - 2009.
-		</td>
-		<td>
+		</dd>
+		<dt>
+                    2006 - 2009
+		</dt>
+		<dd>
 			<p>SZÁMALK Továbbképzés keretein belül Java oktatás a 
                         következő témakörökben: Java és J2EE technológiai áttekintés, Java SE alapok,
                     webes fejlesztés, szoftverfejlesztés ingyenes eszközökkel, valamint Java EE programozás</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2007. június – 2008. március</td>
-		<td>
+		</dd>
+		<dt>2007 – 2008</dt>
+		<dd>
 			<p>
-                        multinacionális telekommunikációs cég tagvállalatai közötti üzleti és rendszerintegráció – integrációs szakértő, tervező
+                        Multinacionális telekommunikációs cég tagvállalatai közötti üzleti és rendszerintegráció – integrációs szakértő, tervező
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2005. december - 2007. június</td>
-		<td>
+		</dd>
+		<dt>2005 - 2007</dt>
+		<dd>
 			<p>
 				<a href="https://www.magyarorszag.hu">Magyarország.Hu</a> - A Kormányzati Portál - szoftverfejlesztő
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2005. április - 2007. június</td>
-		<td>
+		</dd>
+		<dt>2005 - 2007</dt>
+		<dd>
 			<p>
 				<a href="https://ugyfelkapu.magyarorszag.hu/">Ügyfélkapu</a>, egységes beléptetés az elektronikus 
                         közigazgatási ügyintézéshez - tesztelő, integrátor, alkalmazásüzemeltető
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2003. augusztus - 2006. január</td>
-		<td>
+		</dd>
+		<dt>2003 - 2006</dt>
+		<dd>
 			<p>
                         Vám- és Pénzügyőrség interoperabilitási programjának vámrendszerei - 
                         Országos szintű webes J2EE alkalmazás Oracle környezetben - vezető fejlesztő 
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2000. november - 2003. augusztus
-                (Budapest)</td>
-		<td>
+		</dd>
+		<dt>2000 - 2003</dt>
+		<dd>
 			<p>Intranetes
                         szállodai felügyeleti rendszer - GUI tervező, Java és
                     VBScript fejlesztő, tesztelő</p>
-		</td>
-	</tr>
-</table>
+		</dd>
+</dl>
 
 # Tapasztalatok
 
-<table>
-	<tr>
-		<td>Operációs rendszerek:</td>
-		<td>
-			<p>Windows, Linux.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>Nyelvek:</td>
-		<td>
+<dl class="dl-horizontal">
+		<dt>Nyelvek:</dt>
+		<dd>
 			<p>Java, Python, JavaScript, ActionScript, SQL, XML, HTML, CSS.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>Technológiák:</td>
-		<td>
+		</dd>
+		<dt>Technológiák:</dt>
+		<dd>
 			<p>Java SE, Java EE, Continuous Integration, Design Patterns, 
 		UML, SOAP és REST webszolgáltatások, unit testing.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>Fejlesztőeszközök,
-                környezetek, middleware:</td>
-		<td>
+		</dd>
+		<dt>Eszközök:</dt>
+		<dd>
 			<p>
 IntelliJ IDEA, Oracle JDeveloper, NetBeans IDE, Eclipse, Subversion, Maven, Ant, Tomcat, Glassfish, JBoss, BEA WebLogic Server, JMeter, Spring Framework, Hibernate, EclipseLink, Activiti, JUnit, TestNG, Mockito, JasperReports, Jenkins, Nexus, Sonar, 
 IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>Adatbázis kezelők:</td>
-		<td>
+		</dd>
+		<dt>Adatbázis kezelők:</dt>
+		<dd>
 			<p>
                         Oracle, MySQL, H2.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>Egyéb:</td>
-		<td>
+		</dd>
+		<dt>Egyéb:</dt>
+		<dd>
 			<p>Hibakövetés, wiki (Mantis, JIRA, Confluence, RedMine).</p>
-		</td>
-	</tr>
-</table>
+		</dd>
+</dl>
 
 # Iskolák
 
-<table>
-	<tr>
-		<td class="nowrap">1996 - 2001</td>
-		<td>
+<dl class="dl-horizontal">
+		<dt>1996 - 2001</dt>
+		<dd>
 			<p>Debreceni Egyetem (Kossuth Lajos Tudományegyetem), Debrecen, 
                         Programtervező matematikus, 2000/2001-es tanévben tagja voltam a
                         Hatvani István Szakkollégiumnak</p>
-		</td>
-	</tr>
-	<tr>
-		<td>1992 - 1996</td>
-		<td>
+		</dd>
+		<dt>1992 - 1996</dt>
+		<dd>
 			<p>Rózsa Ferenc Gimnázium, Békéscsaba, emelt szintű matematika tagozat</p>
-		</td>
-	</tr>
-</table>
+		</dd>
+</dl>
 
 # Vizsgák
 
-<table>
-	<tr>
-		<td class="nowrap">2014 március</td>
-		<td>
+<dl class="dl-horizontal">
+		<dt>2014 március</dt>
+		<dd>
 			<p>M101P - MongoDB for Developers</p>
-		</td>
-	</tr>
-	<tr>
-		<td class="nowrap">2013 november</td>
-		<td>
+		</dd>
+		<dt>2013 november</dt>
+		<dd>
 			<p>Oracle Certified Expert, Java EE 6 Web Component Developer (1Z0-899)</p>
-		</td>
-	</tr>
-	<tr>
-		<td class="nowrap">2012 december</td>
-		<td>
+		</dd>
+		<dt>2012 december</dt>
+		<dd>
 			<p>Oracle Certified Expert, Java EE 6 Web Services Developer (1Z0-897)</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2010 szeptember</td>
-		<td>
+		</dd>
+		<dt>2010 szeptember</dt>
+		<dd>
 		    <p>Java Platform, Enterprise Edition 6 Enterprise JavaBeans Developer (1Z0-895)</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2010 szeptember</td>
-		<td>
+		</dd>
+		<dt>2010 szeptember</dt>
+		<dd>
 		    <p>Java Platform, Enterprise Edition 6 Java Persistence API Developer  (1Z0-898) </p>
-		</td>
-	</tr>
-	<tr>
-		<td>2009 október</td>
-		<td>
+		</dd>
+		<dt>2009 október</dt>
+		<dd>
 		    <p>Sun Certified Programmer for the Java Platform, Standard Edition 6 (CX-310-065)</p>
-		</td>
-	</tr>
-</table>
+		</dd>
+</dl>
 
 <img src="/assets/img/java_cert_prog.gif" alt="Sun Certified Programmer" class="page-cert-logo-img" />
 <img src="/assets/img/OCE_JavaEE6JavaPersistAPIDev_clr.gif" alt="Java Persistence API Developer" class="page-cert-logo-img" />
@@ -263,86 +195,64 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 
 # Tanfolyamok
 
-<table>
-	<tr>
-		<td class="nowrap">2009. szeptember 21 - 24.</td>
-		<td>
+<dl class="dl-horizontal">
+		<dt>2009. szeptember</dt>
+		<dd>
 			<p>WM210 - IBM WebSphere MQ V7 System Administration (ALBACOMP Számítástechnikai Zrt.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2008. február</td>
-		<td>
+		</dd>
+		<dt>2008. február</dt>
+		<dd>
 			<p>Trénerképzés (Számalk Zrt.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2007. március</td>
-		<td>
+		</dd>
+		<dt>2007. március</dt>
+		<dd>
 			<p>An Introduction to the Rational Unified Process (RUP-001) (Sun Microsystems Kft.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2006. október</td>
-		<td>
+		</dd>
+		<dt>2006. október</dt>
+		<dd>
 			<p>Architecting and Designing J2EE Applications (SL-425) (Sun Microsystems Kft.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2006. március</td>
-		<td>
+		</dd>
+		<dt>2006. március</dt>
+		<dd>
 			<p>Oracle BPEL Process Manager: Szolgáltatások összehangolása (Oracle Hungary Oktatóközpont).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2004. október</td>
-		<td>
+		</dd>
+		<dt>2004. október</dt>
+		<dd>
 			<p>J2EE patterns (SL-500), a 
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2004. október</td>
-		<td>
+		</dd>
+		<dt>2004. október</dt>
+		<dd>
 			<p>Developing Mobile Phone Applications With J2ME(TM) Technology (DTJ-365), a 
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2004. október</td>
-		<td>
+		</dd>
+		<dt>2004. október</dt>
+		<dd>
 			<p>Web Services for Java Programmers (SL-385), a 
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2004. október</td>
-		<td>
+		</dd>
+		<dt>2004. október</dt>
+		<dd>
 			<p>Web Component Developement with Servlet and JSP Technologies (SL-314), a 
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2004. szeptember</td>
-		<td>
+		</dd>
+		<dt>2004. szeptember</dt>
+		<dd>
 			<p>Enterprise JavaBeans Programming (SL-351), a 
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
-		</td>
-	</tr>
-	<tr>
-		<td>2004. szeptember</td>
-		<td>
+		</dd>
+		<dt>2004. szeptember</dt>
+		<dd>
 			<p>Developing J2EE Compilant Applications (FJ-310), a 
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
-		</td>
-	</tr>
-</table>
+		</dd>
+</dl>
 
 # Érdeklődési területek
 
