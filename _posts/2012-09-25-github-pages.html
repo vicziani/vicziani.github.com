@@ -10,11 +10,11 @@ blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-19141865094971684
 blogger_orig_url: http://www.jtechlog.hu/2012/09/github-pages.html
 ---
 
-<p>Az egyetemi szerveren lévő honlapom a diploma megszerzése után tizenegy évvel egyik napról a másikra leállt. Így másik megoldás után kellett néznem. A legkézenfekvőbb választásnak a <a href="http://pages.github.com/">GitHub Pages</a> tűnt, hiszen egyre többet használom, ráadásul ingyenes. Azért tetszik különösen, mert egyrészt egyszerre meg van oldva az oldalam verziókezelése és publikálása. Valamint sablonokon alapul, így megvalósítható a különböző oldalrészek újrafelhasználása, azaz a fejlécet, menüt és láblécet csak egyszer kell definiálni, ez különösen jól jön karbantartáskor. Az első lépések megtételében segít a kellően részletes <a href="https://help.github.com/categories/20/articles">dokumentáció</a>.</p>
+<p>Az egyetemi szerveren lévő honlapom a diploma megszerzése után tizenegy évvel egyik napról a másikra leállt. Így másik megoldás után kellett néznem. A legkézenfekvőbb választásnak a <a href="https://pages.github.com/">GitHub Pages</a> tűnt, hiszen egyre többet használom, ráadásul ingyenes. Azért tetszik különösen, mert egyrészt egyszerre meg van oldva az oldalam verziókezelése és publikálása. Valamint sablonokon alapul, így megvalósítható a különböző oldalrészek újrafelhasználása, azaz a fejlécet, menüt és láblécet csak egyszer kell definiálni, ez különösen jól jön karbantartáskor. Az első lépések megtételében segít a kellően részletes <a href="https://help.github.com/categories/20/articles">dokumentáció</a>.</p>
 
-<p>Az új oldal tehát elérhető a <a href="http://vicziani.github.com/">http://vicziani.github.com/</a> címen, valamint a forrása is böngészhető a <a href="https://github.com/vicziani/vicziani.github.com">https://github.com/vicziani/vicziani.github.com</a> címen.</p>
+<p>Az új oldal forrása böngészhető a <a href="https://github.com/vicziani/vicziani.github.com">https://github.com/vicziani/vicziani.github.com</a> címen.</p>
 
-<p>Eddig elég manuális megoldást használtam, <a href="/2009/03/szoveg-generalas.html">Ant-ból hívtam Apache Texen-t</a>, mely a háttérben Velocity-t használ. A GitHub megoldása ennél sokkal jobban kézre esik.</p>
+<p>Eddig elég manuális megoldást használtam, <a href="/2009/03/29/szoveg-generalas.html">Ant-ból hívtam Apache Texen-t</a>, mely a háttérben Velocity-t használ. A GitHub megoldása ennél sokkal jobban kézre esik.</p>
 
 <p>Amennyiben statikus html oldalakat akarunk kirakni, nagyon egyszerű a használata, létre kell hozni egy username.github.com publikus repository-t, ahol értelemszerűen a username a felhasználónevünk. Kizárólag ezt a címet foglalhatjuk le, más névvel nem működik. Generálhatunk oldalt az automatikus generátor segítségével is, ekkor egy témát kell kiválasztanunk, és a <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> leíró nyelvvel leírni. Én a manuális utat választottam, mikor is a html-t én írom meg. Parancssori klienst használok, a repository-t ugyanúgy kell kezelni, mint bármely mást. Létre kell hozni a könyvtárat, elhelyezni benne az állományainkat, majd kiadni a következő parancsokat (természetesen a felhasználónevet lecserélve):</p>
 
@@ -81,7 +81,7 @@ title: GitHub pages
 Hello GitHub Pages!
 </pre>
 
-<p>A Jekyll a <a href="http://liquidmarkup.org/">Liquid</a> template engine-t használja. A standard Liquid <a href="http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html">filtereket</a> a Jekyll <a href="https://github.com/mojombo/jekyll/wiki/liquid-extensions">továbbiakkal egészítette ki</a>. Például régóta szerettem volna, hogyha generáláskor bekerül az aktuális dátum a Date html meta tag-be. Ráadásul nem is akárhogyan, henm a HTML szabvány által ajánlott ISO 8601 formátumban (pl. 2012-09-25). Ehhez a következőt kellett csinálni:</p>
+<p>A Jekyll a <a href="http://liquidmarkup.org/">Liquid</a> template engine-t használja. A standard Liquid <a href="http://www.rubydoc.info/gems/liquid/2.2.2/Liquid/StandardFilters">filtereket</a> a Jekyll <a href="https://github.com/mojombo/jekyll/wiki/liquid-extensions">továbbiakkal egészítette ki</a>. Például régóta szerettem volna, hogyha generáláskor bekerül az aktuális dátum a Date html meta tag-be. Ráadásul nem is akárhogyan, henm a HTML szabvány által ajánlott ISO 8601 formátumban (pl. 2012-09-25). Ehhez a következőt kellett csinálni:</p>
 
 <pre class="brush: xml">
 &lt;meta name=&quot;Date&quot; lang=&quot;hu&quot; content=&quot;{{ "{{" }} site.time | date: '%Y-%m-%d' }}&quot;/&gt;

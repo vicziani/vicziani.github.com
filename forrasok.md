@@ -23,7 +23,7 @@ keywords: Források
 - [Seamplex](http://seamplex.blogspot.com/)
 - [Szimeonov György Java blogja](http://szimijava.blogspot.com/)
 - [tifyty](http://tifyty.wordpress.com)
-- [Webstar Blog | Webstar Csoport Kft. blogja](http://blog.webstar.hu)
+- [Webstar Csoport Kft. blogja](http://blog.webstar.hu)
 
 # Angol nyelvű tartalmak
 

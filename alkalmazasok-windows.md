@@ -60,7 +60,7 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	oldal is.</dd>
 							
 	<dt>GPS</dt>
-	<dd>Garmin Nüvi 250 és GPSMap 60 GPS eszközeimhez a <a href="http://www8.garmin.com/support/download_details.jsp?id=209">Garmin MapSource</a>, <a href="http://www8.garmin.com/products/poiloader/">POI Loader</a> és a <a href="http://www.garmin.hu/naviguide-magyarorszag-52">NaviGuide Magyarország</a> szoftvereket használom
+	<dd>Garmin Nüvi 250 és GPSMap 60 GPS eszközeimhez a <a href="http://www8.garmin.com/support/download_details.jsp?id=209">Garmin MapSource</a>, <a href="http://www8.garmin.com/products/poiloader/">POI Loader</a> és a <a href="http://www.garmin.hu/naviguide-magyarorszag-0">NaviGuide Magyarország</a> szoftvereket használom
 	térképek és POI-k kezelésére. A legtöbbször a NaviGuide Magyarország, <a href="http://openmaps.eu/udv">OpenMaps</a> és
 	a <a href="http://www.turistautak.hu">Turistautak.hu</a> térképeket használom.</dd>
 
@@ -81,7 +81,7 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	de tartalmaz sok egyéb hasznos funkciót, pl. átméretezhető ablak, konfiguráció fájlba tárolása, jelszó
 	tárolása, stb.</dd>
 
-	<dt><a href="http://office.microsoft.com/hu-hu/downloads/default.aspx">Microsoft Office</a></dt>
+	<dt>Microsoft Office</dt>
 	<dd>Kereskedelmi termék. Használom belőle a Word, Excel, PowerPoint, Project,
 		Visio, Access komponenseket, kb. ilyen sorrendben gyakoriság szerint. Sajnos
 		tapasztalat alapján nem hiszek az ingyenes alternatíváiban egy
@@ -213,7 +213,7 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dt>Luke</dt>
 	<dd>Lucene indexek nézegetésére.</dd>
 
-	<dt><a href="http://mqtoolkit.sourceforge.net/">MQToolkit</a></dt>
+	<dt><a href="http://sourceforge.net/projects/mqtoolkit/">MQToolkit</a></dt>
 	<dd>Javas alkalmazás IBM WebSphere MQ kezeléséhez.</dd>
 
 	<dt><a href="http://www.mysql.com/">MySQL Server</a></dt>

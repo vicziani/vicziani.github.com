@@ -62,7 +62,7 @@ eszközöket választottunk, az egyiket Anttal, a másikat Activitivel
 valósítottuk meg. Főleg a gyakorlati tapasztalatokra, best practice-ekre
 helyeztem a hangsúlyt. *(2012., 16 dia)*
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/66FavTUB7AM?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/66FavTUB7AM?rel=0" frameborder="0" allowfullscreen></iframe>
 
 [Letöltés](artifacts/2012-09_workflow.pdf)
 
@@ -321,7 +321,7 @@ november, 17 oldal, 3520 szó)*
 
 # Jakarta Lucene keresőmotor
 
-A [Jakarta Lucene](http://jakarta.apache.org/lucene/) egy
+A [Jakarta Lucene](http://lucene.apache.org/core/) egy
 nagyteljesítményű, minden alkalmazási területet lefedő Java nyelven
 implementált ingyenes, nyílt forráskódú keresőmotor (Apache Software
 Licence alatt). A Lucene keresőmotor alapvetően dokumentumokat kezel,
@@ -337,7 +337,7 @@ frissítve lett. *(Frissítve: 2008. január, 5 oldal, 1195 szó)*
 
 # Log4J naplózó rendszer
 
-A [Log4J](http://jakarta.apache.org/log4j/docs/index.html) naplózó
+A [Log4J](http://logging.apache.org/log4j/docs/index.html) naplózó
 rendszer széles körben elterjedt, könnyen használható Java nyelven
 implementált naplózó rendszer, mely a Jakarta project része. Kód
 módosítása nélkül módosítható a konfigurációja, a loggerek da struktúrát
@@ -396,7 +396,7 @@ forráskódú, mind kereskedelmi termékként.
 Én elsősorban az ingyenes termékek között kutakodtam, bemutatásra a
 [Jakarta Project](http://jakarta.apache.org/) keretein belül fejlesztett
 [Velocity Template
-Engine](http://jakarta.apache.org/velocity/index.html)-t választottam,
+Engine](http://velocity.apache.org/)-t választottam,
 hiszen az [Apache Software Foundation](http://www.apache.org) név már
 bizonyított a szabad szoftverek világában, a Jakarta Project-es
 termékeket megbízhatóság, megfelelő komplexitás, kidolgozottság,
@@ -410,7 +410,7 @@ szó)*
 # IBM Websphere MQ
 
 A dolgozat fő témája az [IBM Websphere
-MQ](http://www-3.ibm.com/software/integration/wmq/) (korábban IBM
+MQ](http://www.ibm.com/software/products/en/ibm-mq) (korábban IBM
 MQSeries) nevű termék, mely egy üzenet központú middleware, azon belül
 is az üzenet sorakoztató middleware (message oriented middleware - MOM),
 mely támogatja a közzétesz és előfizet (publish and subscribre) modellt

@@ -13,21 +13,21 @@ Itt szerepelnek azok a konferenciák, melyeken mint előadó vettem részt.
 	<tr>
 		<td>2014 - HOUG Szakmai nap 2014</td>
 		<td>
-                    Előadást tartottam a HOUG Szakmai napon, "Spring Framework 4.0 és 4.1 verzióinak újdonságai" címmel. <a href="cikkek.htm#spring4">Az előadás diái.</a>
+                    Előadást tartottam a HOUG Szakmai napon, "Spring Framework 4.0 és 4.1 verzióinak újdonságai" címmel. <a href="/cikkek.html#spring4">Az előadás diái.</a>
 		</td>
 	</tr>
 	<tr>
 		<td>2014 - budapest.scala</td>
 		<td>
                     Előadást tartottam a budapest.scala meetupon, "Hogyan buildeljünk Java/Scala hibrid projektet Mavennel,
-avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="cikkek.htm#maven">Az előadás diái és videók.</a>
+avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.html#maven">Az előadás diái és videók.</a>
 		</td>
 	</tr>
 	<tr>
 		<td>2014 - HOUG.j</td>
 		<td>
                     Előadást tartottam a HOUG konferencián, "Continuous Delivery: Problémák és megoldások"
-					címmel. <a href="cikkek.htm#continuous_delivery">Az előadás diái.</a>
+					címmel. <a href="/cikkek.html#continuous_delivery">Az előadás diái.</a>
 		</td>
 	</tr>
 	<tr>
@@ -35,7 +35,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="cikkek.htm#
 		<td>
                     Előadást tartottam a <a href="http://wiki.javaforum.hu/display/JAVAFORUM/JUM">Java User Meetings</a> 
 			<a href="http://wiki.javaforum.hu/display/JAVAFORUM/JUM1209">19. alkalmán</a> "Workflow esettanulmányok"
-					címmel. <a href="cikkek.htm#workflow">Prezentáció és videó.</a>
+					címmel. <a href="/cikkek.html#workflow">Prezentáció és videó.</a>
 		</td>
 	</tr>
 	<tr>
@@ -48,7 +48,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="cikkek.htm#
 		<td>2009 - Aktuális 2009</td>
 		<td>
                      Előadást tartottam az Aktuális 2009 SZÁMALK Továbbképzés Konferencián 
-					 "Hol a határ? Java alkalmazások üzemeltetéséről fejlesztőknek és üzemeltetőknek" címmel. <a href="cikkek.htm#devops">Diák.</a>
+					 "Hol a határ? Java alkalmazások üzemeltetéséről fejlesztőknek és üzemeltetőknek" címmel. <a href="/cikkek.html#devops">Diák.</a>
 		</td>
 	</tr>
 	<tr>
@@ -56,14 +56,14 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="cikkek.htm#
 		<td>
                     Előadást tartottam a <a href="http://jum.javaforum.hu/">Java User Meetings</a> 
 			<a href="http://wiki.javaforum.hu/display/JAVAFORUM/JUM0903">9. alkalmán</a> "Adattárház és jelentéskészítés OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök használatával"
-					címmel. <a href="cikkek.htm#olap">Prezentáció és cikk.</a>
+					címmel. <a href="/cikkek.html#olap">Prezentáció és cikk.</a>
 		</td>
 	</tr>
 	<tr>
 		<td>2008 - Aktuális 2008</td>
 		<td>
                      Előadást tartottam az Aktuális 2008 SZÁMALK Továbbképzés Konferencián 
-					 "Ariadné fonala a Java technológiák útvesztőjében" címmel. <a href="cikkek.htm#devops">Prezentáció.</a>
+					 "Ariadné fonala a Java technológiák útvesztőjében" címmel. <a href="/cikkek.html#devops">Prezentáció.</a>
 		</td>
 	</tr>
 	<tr>
@@ -99,7 +99,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="cikkek.htm#
                     2006 - HOUG 2006
 		</td>
 		<td>
-			<p>Előadást tartottam "És felszáll a köd: alkalmazásintegrációs megoldás fejlesztése a gyakorlatban Oracle Application Server és IBM WebSphere MQ környezetben" címmel. <a href="cikkek.htm#eai">Prezentáció.</a></p>
+			<p>Előadást tartottam "És felszáll a köd: alkalmazásintegrációs megoldás fejlesztése a gyakorlatban Oracle Application Server és IBM WebSphere MQ környezetben" címmel. <a href="/cikkek.html#eai">Prezentáció.</a></p>
 		</td>
 	</tr>
 	<tr>
@@ -165,13 +165,13 @@ Ujhelyi Zoltán - Eclipse plug-in fejlesztés: lehetőségek és tapasztalatok, 
 	<tr>
         <td>2012. október 20.</td>
         <td>
-            <p><a href="http://web.conf.hu/">Magyarországi Web Konferencia 2012</a> (Óbudai Egyetem, 1034 Budapest, Bécsi út 96/B)</p>
+            <p>Magyarországi Web Konferencia 2012 (Óbudai Egyetem, 1034 Budapest, Bécsi út 96/B)</p>
         </td>
     </tr>
 	<tr>
         <td>2011. október 8.</td>
         <td>
-            <p><a href="http://web.conf.hu/2011">Magyarországi Web Konferencia 2011</a> (Bethlen Gábor Alap épülete a Budai Várban (1014 Budapest, Szentháromság tér 6.))</p>
+            <p>Magyarországi Web Konferencia 2011 (Bethlen Gábor Alap épülete a Budai Várban (1014 Budapest, Szentháromság tér 6.))</p>
         </td>
     </tr>
 	<tr>
@@ -207,7 +207,7 @@ Ujhelyi Zoltán - Eclipse plug-in fejlesztés: lehetőségek és tapasztalatok, 
 	<tr>
         <td>2010. május 20.</td>
         <td>
-            <p><a href="http://blogs.sun.com/sunhu/entry/oracle_sun_java_roadshow_budapest">Oracle - Sun Java Roadshow Budapest</a> (Ramada Plaza Budapest Hotel, 1036 Budapest, Árpád fejedelem útja 94.).</p>
+            <p>Oracle - Sun Java Roadshow Budapest (Ramada Plaza Budapest Hotel, 1036 Budapest, Árpád fejedelem útja 94.).</p>
         </td>
 	</tr>
 	<tr>
@@ -249,7 +249,7 @@ Ujhelyi Zoltán - Eclipse plug-in fejlesztés: lehetőségek és tapasztalatok, 
 	<tr>
         <td>2009. október 31.</td>
         <td>
-            <p><a href="http://konf.fsf.hu/cgi-bin/ossc">Szabad Szoftver Konferencia és Kiállítás 2009</a> (BME Informatikai Központ, Budapest, XI. kerület, Magyar tudósok körútja).</p>
+            <p>Szabad Szoftver Konferencia és Kiállítás 2009 (BME Informatikai Központ, Budapest, XI. kerület, Magyar tudósok körútja).</p>
         </td>
 	</tr>
 	<tr>
@@ -261,7 +261,7 @@ Ujhelyi Zoltán - Eclipse plug-in fejlesztés: lehetőségek és tapasztalatok, 
 	<tr>
         <td>2009. október 3.</td>
         <td>
-            <p><a href="http://web.conf.hu/2009">Magyarországi Web Konferencia 2009</a> (CEU Konferencia Központ, Budapest, 1106, X. kerület, Kerepesi út 87.)</p>
+            <p>Magyarországi Web Konferencia 2009 (CEU Konferencia Központ, Budapest, 1106, X. kerület, Kerepesi út 87.)</p>
         </td>
     </tr>
 	<tr>
@@ -354,7 +354,7 @@ Ekler Péter: Mobiltelefonos mozgás és a zaj érzékelő alkalmazás hálózat
     <tr>
         <td>2007. március 31.</td>
         <td>
-            <p><a href="http://archives.web.conf.hu/2007/">Magyarországi Web Konferencia 2007</a> (CEU Konferencia Központ, Budapest, 1106, X. kerület, Kerepesi út 87.)</p>
+            <p>Magyarországi Web Konferencia 2007 (CEU Konferencia Központ, Budapest, 1106, X. kerület, Kerepesi út 87.)</p>
         </td>
     </tr>
     <tr>
@@ -388,7 +388,7 @@ Ekler Péter: Mobiltelefonos mozgás és a zaj érzékelő alkalmazás hálózat
     <tr>
         <td>2005. október 13.</td>
         <td>
-            <p><a href="http://hu.sun.com/sunnews/press/2005/2005-10-13.html">5. Sun Java Fejlesztői Konferencia</a> (Palace Cinemas, MOM Park, 1123 Budapest, Alkotás utca 53.) 
+            <p>5. Sun Java Fejlesztői Konferencia (Palace Cinemas, MOM Park, 1123 Budapest, Alkotás utca 53.) 
             - 10 éves a Java, Java EE 5, Java SE 6, NetBeans 5.0, Sun Java Studio Creator és Enterprise, esettanulmányok, SeeBeyond ICAN.</p>
         </td>
     </tr>
@@ -439,7 +439,7 @@ Ekler Péter: Mobiltelefonos mozgás és a zaj érzékelő alkalmazás hálózat
         <td>2004. május 27.</td>
         <td>
             <p>
-                <a href="http://hu.sun.com/sunnews/press/2004.zip">Sun Fejlesztői Konferencia</a> 
+                Sun Fejlesztői Konferencia
             (MOM Park, 1123 Budapest, Alkotás u. 53.) - Mobil korszak alkotó Java fejlesztések.</p>
         </td>
     </tr>
