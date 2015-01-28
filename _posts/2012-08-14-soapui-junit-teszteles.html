@@ -53,7 +53,7 @@ blogger_orig_url: http://www.jtechlog.hu/2012/08/soapui-junit-teszteles.html
 &lt;/dependencies&gt;
 </pre>
 
-<p>A következő lépés a teszteset előkészítése. Először el kell indítani a webszolgáltatást, majd azon lefuttatni a soapUI teszteseteket. Nagyon jó <a href="http://www.jroller.com/gmazza/entry/junit_web_service_testing">cikk található Glen Mazza's Weblogján</a>, melyben azokat részletezi, hogy hogyan lehet JUnit-ból tesztelni a webszolgáltatásokat. Leírja, hogy hogyan kell webszolgáltatást elindítani az Endpoint osztály segítségével, beágyazott Jettyvel vagy Tomcattel, vagy hogyan lehet külön Tomcatben futó webszolgáltatást tesztelni. Én a már <a href="/2012/08/soa-using-java-web-services.html">előző cikkben</a> is említett Endpointot választottam, mint pehelysúlyú megoldás, mely a Javaban található HTTP serveren indul el.</p>
+<p>A következő lépés a teszteset előkészítése. Először el kell indítani a webszolgáltatást, majd azon lefuttatni a soapUI teszteseteket. Nagyon jó <a href="http://www.jroller.com/gmazza/entry/junit_web_service_testing">cikk található Glen Mazza's Weblogján</a>, melyben azokat részletezi, hogy hogyan lehet JUnit-ból tesztelni a webszolgáltatásokat. Leírja, hogy hogyan kell webszolgáltatást elindítani az Endpoint osztály segítségével, beágyazott Jettyvel vagy Tomcattel, vagy hogyan lehet külön Tomcatben futó webszolgáltatást tesztelni. Én a már <a href="/2012/08/12/soa-using-java-web-services.html">előző cikkben</a> is említett Endpointot választottam, mint pehelysúlyú megoldás, mely a Javaban található HTTP serveren indul el.</p>
 
 <pre class="brush: java">
 public class TempConvertIntegrationTest {

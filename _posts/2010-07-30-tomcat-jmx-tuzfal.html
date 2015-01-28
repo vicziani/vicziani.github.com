@@ -14,7 +14,7 @@ blogger_orig_url: http://www.jtechlog.hu/2010/07/tomcat-jmx-tuzfal.html
 
 <p>Technológiák: Tomcat 6.0.24, JMX</p>
 
-<p>Elég nagy problémám volt sokáig, hogyha egy Tomcat-et akartam JMX-en monitorozni, melyet tőlem egy tűzfal választott el. Írtam már erről részletesebben egy <a href="/2009/09/java-monitorozas-es-menedzsment.html">korábbi posztban</a>, álljon itt csak annyi, hogy le kellett kérdeznem egy menedzsment és monitorozó eszközből a következő értékeket: adatbázis connection pool mérete (várakozó és aktív kapcsolatok száma), session-ök száma az alkalmazáson belül, Connector várakozó és kiszolgáló szálak száma, memóriafelhaszálás, stb.</p>
+<p>Elég nagy problémám volt sokáig, hogyha egy Tomcat-et akartam JMX-en monitorozni, melyet tőlem egy tűzfal választott el. Írtam már erről részletesebben egy <a href="/2009/09/19/java-monitorozas-es-menedzsment.html">korábbi posztban</a>, álljon itt csak annyi, hogy le kellett kérdeznem egy menedzsment és monitorozó eszközből a következő értékeket: adatbázis connection pool mérete (várakozó és aktív kapcsolatok száma), session-ök száma az alkalmazáson belül, Connector várakozó és kiszolgáló szálak száma, memóriafelhaszálás, stb.</p>
 <p>Ha nincs tűzfal, a megoldás egyszerű. A Tomcat-et úgy kell indítani, hogy JMX-en keresztül is kapcsolódni lehessen hozzá. Ezt úgy lehet megtenni, hogy bizonyos környezeti paramétereket át kell neki adni. Javasolt a bin könyvtárába egy setenv.sh-t elhelyezni, és a következőt írni:</p>
 <pre>  set CATALINA_OPTS=-Dcom.sun.management.jmxremote \
    -Dcom.sun.management.jmxremote.port=%my.jmx.port% \

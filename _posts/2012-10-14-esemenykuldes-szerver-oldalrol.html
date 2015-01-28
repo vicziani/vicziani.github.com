@@ -35,7 +35,7 @@ blogger_orig_url: http://www.jtechlog.hu/2012/10/esemenykuldes-szerver-oldalrol.
 
 <p>Az alkalmazás a következőképp működik. Be kell hívni egy vagy több böngészőben/böngészőablakban az alkalmazást, majd a szövegbeviteli mezőbe beírni egy szöveget. Ennek a szövegnek az összes kliensen meg kell jelennie.</p>
 
-<p>A választott webes keretrendszer, mely képes kliens oldalra hívni a DWR. A post végén kitérek ennek mikéntjére, de most minket az érdekel, hogy üzleti oldalról hogy jut el az esemény a DWR-ig. A jtechlog-event-eo projektben erre a standard Java megoldást használom, ahogy az AWT eseménykezelés is működik.</p>
+<p>A választott webes keretrendszer, mely képes kliens oldalra hívni a DWR. A poszt végén kitérek ennek mikéntjére, de most minket az érdekel, hogy üzleti oldalról hogy jut el az esemény a DWR-ig. A jtechlog-event-eo projektben erre a standard Java megoldást használom, ahogy az AWT eseménykezelés is működik.</p>
 
 <p>A service rétegben lévő StatusService osztály fogadja a felhasználó felől az interakciót, és szeretné ezt a többi webes kliensnek továbbítani. Az első példában (jtechlog-event-eo) a service rétegben deklarálok egy StatusEvent esemény osztályt, mely a Javas EventObject osztály leszármazottja. Valamint egy StatusEventListener interfészt, mely a java.util.EventListener leszármazottja. Ezt implementálja webes rétegben a StatusEventSender osztály, mely a böngészőnek továbbítja az eseményt, az implementált onStatusEvent metódusban:</p>
 

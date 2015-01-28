@@ -18,7 +18,7 @@ blogger_orig_url: http://www.jtechlog.hu/2011/02/konfiguracios-parameterek-ejb-r
 
 <p><emp>Frissítés:</emp> 2011. március 6. - az ismertetett megoldás nem felelt meg a szabványnak, JBoss 6-on nem is működött, javítottam. A példa projektet JBossConfig-ról átneveztem EarConfig-ra. Valamint beletettem egy magyarázó leírást az ENC használatáról.</p>
 
-<p><emp>Frissítés:</emp> 2011. április 18. - ugyanezt leírtam Glassfish-sel is egy későbbi <a href="/2011/04/konfiguracios-parameterek-Glassfish.html">posztban</a>. Ennek megfelelően kicsit módosítottam a projektet, hogy mindkét alkalmazásszerveren működjön a build.</p>
+<p><emp>Frissítés:</emp> 2011. április 18. - ugyanezt leírtam Glassfish-sel is egy későbbi <a href="/2011/04/17/konfiguracios-parameterek-Glassfish.html">posztban</a>. Ennek megfelelően kicsit módosítottam a projektet, hogy mindkét alkalmazásszerveren működjön a build.</p>
 
 <p>Ha az alkalmazás futtatásához szükséges konfigurációkat paramétereket akarunk tárolni, beolvasni, rengeteg lehetőségünk van. Tapasztalatom szerint szinte mindenhol másképp van megoldva. Ha az alkalmazás tartalmazhatja ezeket a beállításokat, akkor belecsomagolhatjuk, de ekkor figyelembe kell venni, hogy a konfiguráció váltásakor újra kell telepítenünk. Ekkor a konfigurációk szerepelhetnek kódban konstansként, properties állományban (melyet classpath-ról töltünk be), Spring esetén az application context xml-ben, EJB-k esetén enviroment variable-ként (ejb-jar.xml-ben definiálva). Ha különböző környezetek vannak, akkor a build folyamat során kell arról gondoskodni, hogy különböző konfigurációs állományok kerüljenek a különböző környezetekre telepítendő alkalmazásokban.</p>
 <p>Ezen megoldások kevésbé flexibilisek, hiszen módosításkor újra kell telepíteni az alkalmazást, valamint sokkal szebb megoldás, ha környezetenként is ugyanaz a telepítendő alkalmazásunk van, és a környezetfüggő dolgok az alkalmazáson kívül szerepelnek.</p>
@@ -86,7 +86,7 @@ for (String name: NAMES) {
 }
 </pre>
 
-<p>Nagyon sokat kínlódtam azzal, hogy a paramétereket globálisan definiáljam a JNDI-ben, majd azokat elérhetővé tegyem a bean, vagy a web alkalmazás ENC-jében, ahogyan arról <a href="/2009/01/jndi-nevek-ejb-kornyezetben.html">korábban írtam</a>, sőt ehhez akár a @Resource annotációval hozzáférjek. Ezt azonban nem sikerült megoldani.</p>
+<p>Nagyon sokat kínlódtam azzal, hogy a paramétereket globálisan definiáljam a JNDI-ben, majd azokat elérhetővé tegyem a bean, vagy a web alkalmazás ENC-jében, ahogyan arról <a href="/2009/01/09/jndi-nevek-ejb-kornyezetben.html">korábban írtam</a>, sőt ehhez akár a @Resource annotációval hozzáférjek. Ezt azonban nem sikerült megoldani.</p>
 
 <a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/-lERPAF8FaWo/TXQUdpgWqEI/AAAAAAAAGBw/EAZE2IweFB4/s1600/enc_overview.png" rel="lightbox"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 134px;" src="http://3.bp.blogspot.com/-lERPAF8FaWo/TXQUdpgWqEI/AAAAAAAAGBw/EAZE2IweFB4/s320/enc_overview.png" border="0" alt="ENC áttekintés" id="BLOGGER_PHOTO_ID_5581108337809205314" /></a>
 

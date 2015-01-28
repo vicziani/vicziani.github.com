@@ -13,9 +13,9 @@ blogger_orig_url: http://www.jtechlog.hu/2011/08/maven-plugin-ek-verzioszama.htm
 
 <p>Technológiák: Maven 2.1.1, Maven 3.0.3</p>
 
-<p>Egy régebbi <a href="/2010/04/maven-kezdolepesek.html">posztban</a> már említettem, hogy a Maven moduláris felépítésű, és minden plugin-ben van megvalósítva. Az életciklus különböző fázisaiban (phase) különböző plugin-ok különböző céljai (goal) futnak le. Minden feladatot tehát valójában egy-egy plugin végez el, ezen plugin-okból <a href="http://maven.apache.org/plugins/index.html">rengeteg támogatott</a> és egyedi plugin is létezik. A compiler plugin végzi a fordítást, a jar, war és ear például a csomagolást, stb. A plugin-ek két csoportra oszthatók, build plugin-ek és reporting plugin-ek.</p>
+<p>Egy régebbi <a href="/2010/04/28/maven-kezdolepesek.html">posztban</a> már említettem, hogy a Maven moduláris felépítésű, és minden plugin-ben van megvalósítva. Az életciklus különböző fázisaiban (phase) különböző plugin-ok különböző céljai (goal) futnak le. Minden feladatot tehát valójában egy-egy plugin végez el, ezen plugin-okból <a href="http://maven.apache.org/plugins/index.html">rengeteg támogatott</a> és egyedi plugin is létezik. A compiler plugin végzi a fordítást, a jar, war és ear például a csomagolást, stb. A plugin-ek két csoportra oszthatók, build plugin-ek és reporting plugin-ek.</p>
 
-<p>A következő post azt demonstrálja, hogy miért szükséges a plugin-ek verziószámát is deklarálni a pom.xml-ben. Egy nem általunk készített alkalmazás Maven 3.0.3-ra migrációjánál a következő hibaüzenetet vettem észre egy projektnél:</p>
+<p>A következő poszt azt demonstrálja, hogy miért szükséges a plugin-ek verziószámát is deklarálni a pom.xml-ben. Egy nem általunk készített alkalmazás Maven 3.0.3-ra migrációjánál a következő hibaüzenetet vettem észre egy projektnél:</p>
 
 <pre>
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which 

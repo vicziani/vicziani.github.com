@@ -13,7 +13,7 @@ blogger_orig_url: http://www.jtechlog.hu/2011/09/maven-legjobb-gyakorlatok.html
 
 <p>Technológiák: Maven 3.0.3</p>
 
-<p>Maven-nel foglalkozó sorozatom részét azzal zárnám, hogy milyen legjobb gyakorlatokat érdemes betartani. Lehet, hogy bizonyos dolgokat ismételni fogok a <a href="/2010/04/maven-kezdolepesek.html">Maven kezdőlépések</a> post-omból, de álljanak itt összegyűjtve. Lehet, hogy bizonyos szabályok túl szigorúak, azért van lehetőség egy-két helyen lazábbra engedni.</p>
+<p>Maven-nel foglalkozó sorozatom részét azzal zárnám, hogy milyen legjobb gyakorlatokat érdemes betartani. Lehet, hogy bizonyos dolgokat ismételni fogok a <a href="/2010/04/28/maven-kezdolepesek.html">Maven kezdőlépések</a> post-omból, de álljanak itt összegyűjtve. Lehet, hogy bizonyos szabályok túl szigorúak, azért van lehetőség egy-két helyen lazábbra engedni.</p>
 
 <h3>Projekt granularitás</h3>
 
@@ -33,7 +33,7 @@ blogger_orig_url: http://www.jtechlog.hu/2011/09/maven-legjobb-gyakorlatok.html
 
 <h3>DRY, KISS</h3>
 
-<p>Forrásokhoz megfelelően próbáljuk a pom.xml-ekben az ismétlődéseket kerülni (Don't Repeat Yourself). Ez megoldható öröklődéssel, azaz a szülőben definiált a gyermek örökli. Használjunk property-ket, akár beépítetteket, akár saját magunk által definiáltakat. Legyenek a pom.xml-ek egyszerűek (Keep it short and simple). Persze ez főleg akkor lehetséges, ha a projektünk alkalmazkodik a konvenciókhoz, és nem használ semmiféle egzotikus megoldást, ami követendő. Használjunk szabványos megoldásokat, a Maven beépített eszközeit és plugin-jeit. (Pl. verziószám megjelenítését <a href="/2011/09/verzioszam-megjelenitese-az.html">resource filtering</a> segítségével.) Használjuk a default értékeket, ahelyett, hogy konfigurálnánk (convention over configuration). Pl. standard könyvtárstruktúra.</p>
+<p>Forrásokhoz megfelelően próbáljuk a pom.xml-ekben az ismétlődéseket kerülni (Don't Repeat Yourself). Ez megoldható öröklődéssel, azaz a szülőben definiált a gyermek örökli. Használjunk property-ket, akár beépítetteket, akár saját magunk által definiáltakat. Legyenek a pom.xml-ek egyszerűek (Keep it short and simple). Persze ez főleg akkor lehetséges, ha a projektünk alkalmazkodik a konvenciókhoz, és nem használ semmiféle egzotikus megoldást, ami követendő. Használjunk szabványos megoldásokat, a Maven beépített eszközeit és plugin-jeit. (Pl. verziószám megjelenítését <a href="/2011/09/13/verzioszam-megjelenitese.html">resource filtering</a> segítségével.) Használjuk a default értékeket, ahelyett, hogy konfigurálnánk (convention over configuration). Pl. standard könyvtárstruktúra.</p>
 
 <h3>Felelős</h3>
 
@@ -67,7 +67,7 @@ blogger_orig_url: http://www.jtechlog.hu/2011/09/maven-legjobb-gyakorlatok.html
 
 <p>A függőségeinket tartsuk karban. Ne engedjük őket elburjánzani (lsd. "Felelős" fejezet). Futtassuk a dependency:analyze goal-t, feltárva ezzel a deklarált, de nem használt függőségeket (töröljük), valamint a használt, de nem deklarált függőségeket. Ez utóbbi akkor jelentkezhet, ha egy függőségre csak tranzitív függőség van, és mégis használjuk az osztályait. Ekkor javítsuk direkt függőségre.</p>
 
-<p>Plugin-ek esetén is mindig deklaráljuk a verziószámot, szülő projekt létezése esetén annak pluginManagement szekciójában, hiszen az öröklődik, ahogy egy régebbi <a href="/2011/08/maven-plugin-ek-verzioszama.html">posztban</a> írtam.</p>
+<p>Plugin-ek esetén is mindig deklaráljuk a verziószámot, szülő projekt létezése esetén annak pluginManagement szekciójában, hiszen az öröklődik, ahogy egy régebbi <a href="/2011/08/04/maven-plugin-ek-verzioszama.html">posztban</a> írtam.</p>
 
 <p>Amennyiben ugyanazt a függőséget több modul is használja, érdemes a szülő projektben felsorolni a függőségek verziószámát, és exclude tag-eket a dependencyManagement szekcióban, melyet a gyermek projektek örökölnek, így azokban elegendő csak a groupId-t és artifactId-t deklarálni.</p>
 
@@ -91,7 +91,7 @@ blogger_orig_url: http://www.jtechlog.hu/2011/09/maven-legjobb-gyakorlatok.html
 
 <h3>Verziókezelő struktúra</h3>
 
-<p>Bár nem így kéne lennie, egy kicsit kényszerpályán vagyunk azzal kapcsolatban, hogy hogyan szervezzük a verziókezelőben a projektjeinket, Subversion esetén trunk-ot, tag-eket, branch-eket, stb. Erről már írtam egy korábbi <a href="/2010/10/release-mavennel-es-hudsonnel.html">posztban</a>. Egyszerű szabály, hogy a projekt neve és a könyvtár neve egyezzen meg. Nagyon tervezzük meg, dokumentáljuk, és teszteljük a választott struktúrát, különösen a release folyamat esetén.</p>
+<p>Bár nem így kéne lennie, egy kicsit kényszerpályán vagyunk azzal kapcsolatban, hogy hogyan szervezzük a verziókezelőben a projektjeinket, Subversion esetén trunk-ot, tag-eket, branch-eket, stb. Erről már írtam egy korábbi <a href="/2010/10/24/release-mavennel-es-hudsonnel.html">posztban</a>. Egyszerű szabály, hogy a projekt neve és a könyvtár neve egyezzen meg. Nagyon tervezzük meg, dokumentáljuk, és teszteljük a választott struktúrát, különösen a release folyamat esetén.</p>
 
 <h3>Teszt, release és deployment</h3>
 
