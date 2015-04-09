@@ -16,12 +16,14 @@ layout: default
 		{% assign date = post.date %}
 			<div class="blog-post">
 
-				<h2 class="blog-post-title">{{ post.title }}</h2>
+				<h2 class="blog-post-title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>
 				<p class="blog-post-meta">{% include date.html %}</p>
 
 				<article class="post-content">
 					{{ post.content }}
 				</article>
+
+				<p><a href="{{ post.url }}#disqus_thread">Megjegyzések</a></p>
 			</div>
 		{% endfor %}
 		</div>
@@ -48,4 +50,15 @@ layout: default
 	</div>
 </div>
 
-
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'jtechlog';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
