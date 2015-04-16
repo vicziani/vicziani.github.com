@@ -43,7 +43,7 @@ nem követi le a dokumentáció. Amennyiben a különböző dokumentációkat k�
 emberek készítik (pl. üzleti elemző, tesztelő, fejlesztő), ezek nem lesznek feltétlen szinkronban.
 
 Ezen problémák megoldására alakult ki a Specification By Example (SBE) módszer, melyről
-[magyar nyelven](﻿http://beu.hu/blog/specification-by-example-a-modszertan/) is lehet olvasni, vagy
+[magyar nyelven](http://beu.hu/blog/specification-by-example-a-modszertan/) is lehet olvasni, vagy
 javaslom Gojko Adzic kiváló Specification by example: How successful teams deliver the right software 
 könyvét a témában. Kicsit jobban tanulmányozva ezt a módszert felfedezhető, hogy eléggé összefonódnak
 a manapság olyan divatos szoftverfejlesztési módszertanok, mint a TDD, ATTD, BDD, DDD.
