@@ -5,8 +5,6 @@ date: '2015-06-09T22:00:20.000+02:00'
 author: István Viczián
 ---
 
-JPA Entity Graph
-
 Használt technológiák: EclipseLink 2.6.0, Hibernate 4.3.9.Final
 
 Már két posztot is írtam arról, hogy hogyan lehet optimalizálni a JPA-ban az entitások betöltését.
