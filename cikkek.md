@@ -5,6 +5,14 @@ description: Cikkek és prezentációk
 keywords: Java, cikk, RMI, ASP, Servlet, IBM, WebSphere, MQ, Apache, Jakarta, Velocity, OJB, Lucene, Log4J, J2SE 1.5, Tiger, Ant, Kódolási konvenciók, alkalmazásintegráció, OLAP, Mondrian, üzemeltetés, JAX-WS, Redirect After Post, Synchronizer Token, Workflow, Activiti, Continuous Integration, Continuous Delivery, Maven, Spring, Spring Data
 ---
 
+# G1 szemétgyűjtő
+
+A G1 szemétgyűjtő algoritmus a legfiatalabb a HotSpot JVM-ben. A már ismert fogalmakra
+épít, azonban pár trükkel próbál a többiek felé kerekedni, biztosítva az alkalmazás
+magasabb áteresztőképességét, és a GC futása miatti leállás minimalizálását.
+
+[Diák](artifacts/2015-07_G1/2015-07_G1.html)
+
 # Spring Framework 4.0 és 4.1 verzióinak újdonságai
 
 Az előadás 2014. október 2-án hangzott el a [HOUG Szakmai
