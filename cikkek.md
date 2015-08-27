@@ -5,6 +5,14 @@ description: Cikkek és prezentációk
 keywords: Java, cikk, RMI, ASP, Servlet, IBM, WebSphere, MQ, Apache, Jakarta, Velocity, OJB, Lucene, Log4J, J2SE 1.5, Tiger, Ant, Kódolási konvenciók, alkalmazásintegráció, OLAP, Mondrian, üzemeltetés, JAX-WS, Redirect After Post, Synchronizer Token, Workflow, Activiti, Continuous Integration, Continuous Delivery, Maven, Spring, Spring Data
 ---
 
+# Modularizáció Servlet 3, Spring és Maven környezetben
+
+A HWSW free! Java meetupon adtam elő a modularizációról. Szó esett a modularizáció alapfogalmairól, tervezési mintákról és azok technológiai megvalósításairól.
+*(2015. augusztus 26.)*
+
+[Diák](/artifacts/2015-08-modularization/modularization.html)
+
+
 # G1 szemétgyűjtő
 
 A G1 szemétgyűjtő algoritmus a legfiatalabb a HotSpot JVM-ben. A már ismert fogalmakra
