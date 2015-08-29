@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.custom.SimpleComponent</type>
+    <coordinates>
+      <x>50</x>
+      <y>90</y>
+      <w>380</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Monolitic application</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.SimpleComponent</type>
+    <coordinates>
+      <x>590</x>
+      <y>90</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Service 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Node</type>
+    <coordinates>
+      <x>560</x>
+      <y>50</y>
+      <w>420</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Node</type>
+    <coordinates>
+      <x>40</x>
+      <y>50</y>
+      <w>420</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.SimpleComponent</type>
+    <coordinates>
+      <x>590</x>
+      <y>190</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Service 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.SimpleComponent</type>
+    <coordinates>
+      <x>770</x>
+      <y>90</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Service 3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.SimpleComponent</type>
+    <coordinates>
+      <x>780</x>
+      <y>190</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Service 4</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
