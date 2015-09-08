@@ -46,7 +46,7 @@ JavaPackage controller =
   constraint.addPackage("jtechlog.funct1.controller");
 
 controller.dependsUpon(service);
-service.dependsUpon(controller);
+service.dependsUpon(repository);
 
 jdepend.analyze();
 
