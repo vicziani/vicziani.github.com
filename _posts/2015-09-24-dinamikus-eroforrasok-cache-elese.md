@@ -43,7 +43,7 @@ public ResponseEntity<List<Employee>> findAll() {
 {% endhighlight %}
 
 Itt az Etag értékét a `hashToEtag` metódus az objektum hashkódja alapján 
-számolja. Amire vigyázni kell, hogy aposztrófok között kell szerepelnie.
+számolja. Amire vigyázni kell, hogy idézőjelek között kell szerepelnie.
 
 {% highlight java %}
 private String hashToEtag(Object o) {
