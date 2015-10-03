@@ -11,7 +11,7 @@ blogban olvasok róluk. Emiatt én is közzéteszem gyakran
 használt alkalmazásaim listáját, hátha más merít belőle ötleteket.
 Amelyiknél nem írom külön, az ingyenes szoftver.
 
-Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
+Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
 
 # Általános alkalmazások
 
@@ -181,9 +181,7 @@ Jelenleg mivel Ubuntu Linuxot használok, ez egy kicsit idejét múlta.
 	<dd>A Windows tray-en figyeli a Subversion commitokat.</dd>
 
 	<dt><a href="http://www.cygwin.com/">Cygwin</a></dt>
-	<dd>Igaz, hogy kliens oldalon nem használnék Linux-ot, de a benne található
-	parancssori eszközökre gyakran szükségem van. Ezért a Windows Cygwin-nel
-	kombinálva mindkettő előnyét nyújtja.</dd>
+	<dd>Linuxhoz hasonló környezet Windowsra.</dd>
 	<dt><a href="http://www.eclipse.org/">Eclipse</a></dt>
 	<dd>Nem hiszek benne. Azért van fenn, mert ebben is vállalunk oktatást.</dd>
 
