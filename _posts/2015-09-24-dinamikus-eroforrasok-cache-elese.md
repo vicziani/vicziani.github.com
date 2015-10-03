@@ -118,7 +118,7 @@ Majd újra lekérjük az alkalmazottak listáját.
 Láthatjuk, hogy most már `200 OK` státuszt kapunk, és az erőforrás újra 
 letöltésre kerül új Etaggel.
 
-![HTTPie](/artifacts/posts/2015-09-24-dinamikus-eroforrasok-cache-elese/httpie.png)
+![HTTPie](/artifacts/posts/2015-09-24-dinamikus-eroforrasok-cache-elese/httpie_600.png)
 
 Ugyanez megfogalmazva a [Spring MVC Test Frameworkkel](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#spring-mvc-test-framework) a következőképp néz 
 ki.
