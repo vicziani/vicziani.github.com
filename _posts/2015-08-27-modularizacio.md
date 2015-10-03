@@ -190,3 +190,5 @@ Említésre került, hogy az interfészek mellé kerülhetnek a default implemen
 Az integrációs teszteseteket a funkcionális modulokon belül külön almodulba érdemes tenni. A modult interfészen keresztül lehet meghajtani. A modulokon átívelő integrációs tesztek tehetők a konténer modul külön almoduljaként. A Spring az ApplicationContextet cache-eli, ezért nem érdemes más-más teszteseteket különböző konfigurációval futtatni, és ugyanezért nem érdemes az ApplicationContext állapotát sem változtatni a teszt során.
 
 Összefoglalásként elmondható, hogy az OSGi vagy Jigsaw a modularizáció szempontjából csak egy implementációs választás, sokkal fontosabb, hogy tiszta objektumorientált elveket alkalmazzunk. Egyszerű felépítéssel induljunk, és ne féljünk ezen módosítani. Csomagokkal szervezett monolitikus alkalmazással induljunk, melyet később szétrobbanthatunk külön modulokra, vagy akár szolgáltatásokra is. A Maven és a Spring néha nem annyira ismert tulajdonságai támogatják a modularizációs tervezési mintákat.
+
+![Fotó](/artifacts/posts/2015-08-27-modularizacio/photo_600.jpg)
