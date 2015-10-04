@@ -1,0 +1,1384 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:apachebigdata2015
+X-WR-CALDESC:Event Calendar
+METHOD:PUBLISH
+CALSCALE:GREGORIAN
+PRODID:-//Sched.org Apache: Big Data 2015//EN
+X-WR-TIMEZONE:UTC
+BEGIN:VEVENT
+DTSTART:20150928T060000Z
+DTEND:20150928T070000Z
+SUMMARY:Registration						
+DESCRIPTION:For those staying in the hotel\, please proceed to the Brasserie Restaurant for breakfast. For those not staying in the hotel\, continental breakfast will be available in the Valletta II Foyer and Attendee Lounge daily.
+CATEGORIES:BREAK/MEAL
+LOCATION:Valletta 1 Foyer\, Budapest\, Hungary
+SEQUENCE:0
+UID:86cbae3e59ded98bd0b7c3327a923b54
+URL:http://apachebigdata2015.sched.org/event/86cbae3e59ded98bd0b7c3327a923b54
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T070000Z
+DTEND:20150928T072000Z
+SUMMARY:Keynote: The State of the Feather - Shane Curcuru\, VP Brand Management\, The Apache Software Foundation
+DESCRIPTION:An update on the Apache Software Foundation and an overview of its projects. A quick look at how the ASF works and the key events affecting the foundation in recent history.  
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:4a44176564b680f2838ba6ffd23819f4
+URL:http://apachebigdata2015.sched.org/event/4a44176564b680f2838ba6ffd23819f4
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T072000Z
+DTEND:20150928T074000Z
+SUMMARY:Keynote: Big Science and Big Data at CERN - Dirk Duellmann\, CERN
+DESCRIPTION:Dirk Duellmann\, deputy leader of the data and storage services group in the IT department at CERN\, will discuss the large scale (100 PB) data management and analysis infrastructure for physics data at the Large Hadron Collider (LHC).He will compare the established scientific workflow with more recent deployments of hadoop ecosystem components at CERN\, which are rapidly gaining popularity for computing infrastructure analytics / optimisation studies and as an alternative to traditionaldatabase deployments. The presentation will conclude with an outlook on how big data analysis experience from scientific and mainstream applications may further complement each other.
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:566ff209f55f361d9185d2c4ff0f6d92
+URL:http://apachebigdata2015.sched.org/event/566ff209f55f361d9185d2c4ff0f6d92
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T074000Z
+DTEND:20150928T081000Z
+SUMMARY:Keynote: Apache's Key Role in the Big Data Industry - Arun Murthy\, Hortonworks
+DESCRIPTION:
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:15b1a6f910e9f538872460161754d68b
+URL:http://apachebigdata2015.sched.org/event/15b1a6f910e9f538872460161754d68b
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T081000Z
+DTEND:20150928T083000Z
+SUMMARY:Morning Break
+DESCRIPTION:
+CATEGORIES:BREAK/MEAL
+LOCATION:Valletta 2 Foyer\, Budapest\, Hungary
+SEQUENCE:0
+UID:213148d2ea2b895ca1e0d88172e4e663
+URL:http://apachebigdata2015.sched.org/event/213148d2ea2b895ca1e0d88172e4e663
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T083000Z
+DTEND:20150928T092000Z
+SUMMARY:Data Science in the Travel Industry: Real-World Experience with Current Leading Frameworks - Paul Balm\, Amadeus IT Group
+DESCRIPTION:Amadeus IT Group is a leading IT provider in the travel industry\, processing 525 million bookings per year and boarding 700 million passengers on its airline IT systems. The Travel Intelligence Unit was formed in 2013 with the objective to organize the travel information of the world. Amadeus Travel Intelligence is leveraging big data to help all parties in the travel industry make more effective and quicker decisions. We will show how Amadeus Travel Intelligence employs open source technologies to achieve its objective: processing based on Hadoop; visualization layer based on Ruby-on-Rails and HTML5; streaming based on Spark and Flink; and API level access through web-services. We will review typical project requirements and our experiences\, such as the pitfalls of immature projects\, missing functionalities\, and communities that have moved on.
+CATEGORIES:DATA SCIENCE
+LOCATION:Arany\, Budapest\, Hungary
+SEQUENCE:0
+UID:ff418ab13b2b252d0eb3cc33bd78608a
+URL:http://apachebigdata2015.sched.org/event/ff418ab13b2b252d0eb3cc33bd78608a
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T083000Z
+DTEND:20150928T092000Z
+SUMMARY:Apache Bigtop: Where it Came From and Where It's Going - Nate DAmico
+DESCRIPTION:Following the mantra\, &ldquo;best tool for the job\,&rdquo; you seldom use a single Open Source tool for data processing. The more tools you use\, however\, the more you start to realize the difficulties of managing dependencies and configuring packages across components\, projects\, and versions. This is where the Apache Bigtop project and community comes in. Come get an overview of the origins of Apache Bigtop and why organizations like Cloudera\, Wandisco\, and Amazon Web Services rely on Bigtop for their own bigdata component distribution efforts\, and where the project is going post its summer 1.0 release.
+CATEGORIES:DEVOPS - DISTRIBUTION - TESTING
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:a6266742dbe6dff3e5a674a6fd4a0428
+URL:http://apachebigdata2015.sched.org/event/a6266742dbe6dff3e5a674a6fd4a0428
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T083000Z
+DTEND:20150928T092000Z
+SUMMARY:Geospatial querying in Apache Marmotta - Sergio Fernández\, Redlink GmbH
+DESCRIPTION:Apache Marmotta provides different means of querying: SPARQL\, LDPath\, LDP\, etc. GeoSPARQL provides an extension to the SPARQL constructs to represent and query geospatial data. The talk will present the ongoing effort to add GeoSPARQL support in Marmotta\, going through the challenges and potential of this new set of features\, demoing some of then during the talk. The work is currently being developed in the context of the Google Summer of Code 2015\, further details at https://wiki.apache.org/marmotta/GSoC/2015/MARMOTTA-584
+CATEGORIES:FREE-TEXT - SEARCH - GEOSPATIAL
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:05bc9807661a93f44c1a94bf921d2525
+URL:http://apachebigdata2015.sched.org/event/05bc9807661a93f44c1a94bf921d2525
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T083000Z
+DTEND:20150928T092000Z
+SUMMARY:HBase: State of the Database - Nick Dimiduk\, Hortonworks
+DESCRIPTION:HBase is a mature\, low-latency\, distributed "big data" store. It is used in production by companies large and small\, in all manner of industries. There is a vibrant and active developer and user community supporting HBase\, which means it's constantly improving\, adapting to user need and challenging deployments. In this talk\, Nick provides an update of the latest happenings in core HBase\, recent and pending releases.
+CATEGORIES:NOSQL
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:bb5d8eb1a9db4684d9f08246e90b49c8
+URL:http://apachebigdata2015.sched.org/event/bb5d8eb1a9db4684d9f08246e90b49c8
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T083000Z
+DTEND:20150928T092000Z
+SUMMARY:OpenPower\, OpenStack & Big Data - Luis Ramirez\, OpenCloud.es
+DESCRIPTION:OpenPower\, OpenStack & Big Data (Luis Ramirez) - Show how we could deploy a big data solution where all components (infrastructure\, OS\, Hypervisor\, Frameworks & apps) are based in opensource and integrated with the cloud. In this lab i will show a different approach to this kind solutions and show how we could use other kind of architectures to reach or improve the performance of our Big Data environment.
+CATEGORIES:RESOURCE MANAGEMENT
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:01bd918949b158eee26796b4860ee4b5
+URL:http://apachebigdata2015.sched.org/event/01bd918949b158eee26796b4860ee4b5
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T083000Z
+DTEND:20150928T092000Z
+SUMMARY:Cascading 3 and Beyond - André Kelpe\, Concurrent
+DESCRIPTION:Cascading is a mature\, robust and proven open source Java framework for developing data driven applications. Cascading focuses on developer productivity by providing an easy to use API which enables developers to solve business problems without the need to become a distributed systems expert. In this presentation\, Andr&eacute; Kelpe will introduce the Cascading ecosystem and will focus on Cascading 3\, the new major version of Cascading. Cascading 3 features are brand new query planner and rule engine\, which enable Cascading to run on Apache Tez and make it possible to port it to any computational platform like Apache Flink\, Hazelcast and others. Changing the computational platform enables developers to benefit from newer developments in the Big Data space without having to rewrite their applications.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:db2c287fa6f0f259f46cf4f79c665be1
+URL:http://apachebigdata2015.sched.org/event/db2c287fa6f0f259f46cf4f79c665be1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T083000Z
+DTEND:20150928T092000Z
+SUMMARY:Large-Scale Stream Processing in the Hadoop Ecosystem - Gyula Fóra\, SICs and Márton Balassi\, Hungarian Academy of Sciences
+DESCRIPTION:Distributed stream processing is one of the hot topics in big data analytics today. An increasing number of applications are shifting from traditional static data sources to processing the incoming data in real-time. Performing large scale stream processing or analysis requires specialized tools and techniques which have become publicly available in the last couple of years. This talk will give a deep\, technical overview of the top-level Apache stream processing landscape. We compare several frameworks including Spark\, Storm\, Samza and Flink. Our goal is to highlight the strengths and weaknesses of the individual systems in a project-neutral manner to help selecting the best tools for the specific applications. We will touch on the topics of API expressivity\, runtime architecture\, performance\, fault-tolerance and strong use-cases for the individual frameworks.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:e93c649c2d82ac2af98fd198841e86d9
+URL:http://apachebigdata2015.sched.org/event/e93c649c2d82ac2af98fd198841e86d9
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T093000Z
+DTEND:20150928T102000Z
+SUMMARY:Data Science Lifecycle with Apache Zeppelin (incubating) - Moon soo Lee\, NFLabs and Alexander Bezzubov
+DESCRIPTION:Apache Zeppelin (incubating) is interactive data analytics environment for distributed data processing system. It provides beautiful interactive web-based interface\, data visualization\, collaborative work environment and many other nice features to make your data analytics more fun and enjoyable. LeeMoonSoo will going to demo Zeppelin's features to show how it helps data science lifecycle. Zeppelin provides pluggable architecture for backend integration\, visualization\, notebook persistence storage. This presentation will describe how these pluggable architecture works and how your project can leverage them. Also will discuss about the future roadmap.
+CATEGORIES:DATA SCIENCE
+LOCATION:Arany\, Budapest\, Hungary
+SEQUENCE:0
+UID:b57e65bea7856f42648b6da1223b1af0
+URL:http://apachebigdata2015.sched.org/event/b57e65bea7856f42648b6da1223b1af0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T093000Z
+DTEND:20150928T102000Z
+SUMMARY:One-Click Hadoop Clusters - Anywhere (Using Docker) - Janos Matyas\, Hortonworks
+DESCRIPTION:This session presents the provisioning of Hadoop clusters running inside Docker containers on different environments - let it be public/private cloud or bare metal. We share the same processes\, automations and zero-configuration approach across all environments and allow users to span up SLA policy based autoscaling clusters of arbitrary sizes in minutes - all built on open source components exclusively. We will discuss the architecture\, main building blocks (Docker\, Consul\, Apache Ambari\, YARN) and the tools we made available (API\, CLI and UI). The session will end up with a quick demonstration. Be your own Hadoop as a Service provider.
+CATEGORIES:DEVOPS - DISTRIBUTION - TESTING
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:c5a4f7e15709a7ac65ed4812a12bd15f
+URL:http://apachebigdata2015.sched.org/event/c5a4f7e15709a7ac65ed4812a12bd15f
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T093000Z
+DTEND:20150928T102000Z
+SUMMARY:Combining Solr and Elasticsearch to Improve Autosuggestion for Local Search on Mobile - Toan Luu\, local.ch AG
+DESCRIPTION:Many search applications simply suggest queries or data items with a prefix match on what the user is typing sorted by popularity. With the advent of the mobile era\, local.ch becomes one of the most used applications for local search in Switzerland. Some characteristics of a mobile application e.g. (a) difficulty of typing on small screen\, and (b) more available personalized data from users (e.g. location)\, generated challenges for us when implementing the autosuggest feature. We finally brought a better autosuggest experience to our users based on: their search history\, popularity of internal and external data\, user context awareness (language\, location)\, spellchecker... In this talk we will describe the architecture of our autosuggest feature\, how did we use Solr as a search component and Elasticsearch as a data aggregation component to improve autosuggest in our mobile application.
+CATEGORIES:FREE-TEXT - SEARCH - GEOSPATIAL
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:dd4f12577ed3cfcf8a1dc9ed1f312fb4
+URL:http://apachebigdata2015.sched.org/event/dd4f12577ed3cfcf8a1dc9ed1f312fb4
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T093000Z
+DTEND:20150928T102000Z
+SUMMARY:Managing Distributed Databases with Apache Mesos - Chris Ward\, Crate.IO
+DESCRIPTION:Managing Distributed Databases with Mesos (Chris Ward\, Crate.IO) - Apache Mesos is a fantastic tool for abstracting CPU\, memory\, storage\, and other compute resources away from machines (physical or virtual). Alongside these features is Mesos-DNS\, which provides service discovery for all applications and services running in a Mesos cluster. These features combined lets you program against your datacenter like it's a single pool of resources\, a useful tool when building highly scalable applications stacks. In this presentation we will show how to use Mesos so you can treat a distributed database of any size as if it were one instance. We will cover: - Installation and configuration of a Mesos Cluster - How to create and manage cluster sizes - Managing upgrades across a cluster - Setting data locations - Managing compute resources
+CATEGORIES:RESOURCE MANAGEMENT
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:398e0a3ac9ec4f9fbf96f0a97716257e
+URL:http://apachebigdata2015.sched.org/event/398e0a3ac9ec4f9fbf96f0a97716257e
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T093000Z
+DTEND:20150928T102000Z
+SUMMARY:Hadoop Elephant in Active Directory Forest - Marek Gawiński\, Allegro Group Sp. z o.o.
+DESCRIPTION:Active Directory (AD) is a well known industry standard to authenticate employees in back office services. It assures password management and clear policies for requesting and gaining access to secured resources. Integrating AD with Hadoop infrastructure brings those benefits to Big Data world. It also includes other features that make big data developers&rsquo; tasks much easier. For example our developers can submit Spark applications that use HDFS\, YARN and Hive directly from their IDE. In this talk we provide technical details which include: Making AD users and groups visible to Linux via System Security Services Daemon. Integrating new Linux servers automatically with AD forest on Kerberos level with all credentials needed. Making whole architecture non-vulnerable to AD service unavailabilities. Auto-deployment and autoconfiguration of Hadoop clients&rsquo; software on users desktops.
+CATEGORIES:SECURITY
+LOCATION:Kond\, Budapest\, Hungary
+SEQUENCE:0
+UID:7434455963664948d82f8e8f4da02538
+URL:http://apachebigdata2015.sched.org/event/7434455963664948d82f8e8f4da02538
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T093000Z
+DTEND:20150928T102000Z
+SUMMARY:Apache Tez - Helping You Build Your Hadoop Big Data Engines - Bikas Saha\, Hortonworks
+DESCRIPTION:YARN has opened up Hadoop to a variety of high performance purpose-built applications specialized for specific domains. Many of these need a common set of capabilities like scheduling\, fault tolerance & scalability while not giving up on important aspects like multi-tenancy & security. We will provide an overview of how Apache Tez provides these capabilities via a dataflow based API to model these applications and an extensible orchestration framework for optimal performance. We will cover broad ecosystem adoption by Apache Hive\, Pig\, Cascading\, Scalding\, Flink & commercial vendors and provide some experiment results. We will look at the Tez Web UI for progress monitoring and performance debugging tools. Finally\, we will look ahead at upcoming Tez features like hybrid execution which enables new types of integration with existing systems.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:5dd2d089b10ec87e03af0ceae59ddf02
+URL:http://apachebigdata2015.sched.org/event/5dd2d089b10ec87e03af0ceae59ddf02
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T093000Z
+DTEND:20150928T102000Z
+SUMMARY:Magellan: Geospatial Analytics on Spark - Ram Sriharsha\, Hortonworks
+DESCRIPTION:Geospatial data is pervasive\, and spatial context is a very rich signal of user intent and relevance in search and targeted advertising and an important variable in many predictive analytics applications. In this talk\, we describe the motivation and the internals of an open source library that we are building for Geospatial Analytics using Spark SQL\, DataFrames and Catalyst as the underlying engine. We outline how we leverage Catalyst&rsquo;s pluggable optimizer to efficiently execute spatial joins\, how SparkSQL&rsquo;s powerful operators allow us to express geometric queries in a natural DSL\, and discuss some of the geometric algorithms that we implemented in the library. We also describe the Python bindings that we expose\, leveraging Pyspark&rsquo;s Python integration.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:e6cda53610bb8d03e7d6381425f657b8
+URL:http://apachebigdata2015.sched.org/event/e6cda53610bb8d03e7d6381425f657b8
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T102000Z
+DTEND:20150928T120000Z
+SUMMARY:Lunch
+DESCRIPTION:
+CATEGORIES:BREAK/MEAL
+LOCATION:Brasserie Restaurant\, Budapest\, Hungary
+SEQUENCE:0
+UID:a1cae3a1ca28518759c411a08a7fe91c
+URL:http://apachebigdata2015.sched.org/event/a1cae3a1ca28518759c411a08a7fe91c
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T120000Z
+DTEND:20150928T125000Z
+SUMMARY:Catch Them in the Act: Fraud Detection in Real-Time - Seshika Fernandom WS02
+DESCRIPTION:Fraud is getting more complex and dangerous every minute\, with Fraudsters countering anti-fraud measures through technology and advanced statistical models. On the converse\, overprotective fraud solutions are driving customers away. Finding the right level of fraud prevention is more an art than a science. As data scientists our duty is not to master the art\, but to enable our customers to draw this fine line in a simple yet effective manner. In this session\, Seshika will take you through &bull; How to detect anomalies in real time using Complex Event Processing &bull; Why Markov Modelling is great\, in detecting rare activity sequences &bull; How Scoring Functions can be used to reduce False Positives &bull; How Machine Learning can be used to intensify fraud detection &bull; What visualizations will enable Analysts to further crackdown relationships in large fraud rings
+CATEGORIES:DATA SCIENCE
+LOCATION:Arany\, Budapest\, Hungary
+SEQUENCE:0
+UID:20f8326c04e757074cc874c7a4e5f281
+URL:http://apachebigdata2015.sched.org/event/20f8326c04e757074cc874c7a4e5f281
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T120000Z
+DTEND:20150928T125000Z
+SUMMARY:Dynamics of Benchmarking Distributed Key-Value(KV) Store (Hbase\, Cassandra\, Accumulo\, Hypertable\, Aerospike) for Hosting TeraBytes of Data - Pracheer Agarwal\, Inmobi & Kunal Gautam\, Inmobi
+DESCRIPTION:Identifying a KV store to host terabytes of data\, from wide range of choices\, for a set of given use cases\, is a daunting proposition. Even after crossing the fearsome first step and narrowing down the candidates\, it is non-trivial to explain and reason the actual results of benchmarking experiments with the expected results. There are multiple variables at play and it is not often clear on how these interplay at run time. In this talk\, we present our experiences and methodology of how to analyze and effectively benchmark a distributed KV store. This involves monitoring and characterizing key server parameters like RAM\, CPU\, network\, storage\, page cache\, IO scheduler\, JVM size\, GC tuning and logically reason out their effects on the overall performance and capabilities of the underlying KV store. These parameters were monitored by utilities like iostat\, dstat\, iftop\, jstat and cachestat
+CATEGORIES:DEVOPS - DISTRIBUTION - TESTING
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:24dfaaee83c74a3747108766be802490
+URL:http://apachebigdata2015.sched.org/event/24dfaaee83c74a3747108766be802490
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T120000Z
+DTEND:20150928T125000Z
+SUMMARY:What's New in Apache HTrace - Colin McCabe\, Cloudera
+DESCRIPTION:Apache HTrace is a distributed tracing framework\, currently in the incubator\, which makes it easier to monitor and understand the performance of distributed systems. In this talk\, I'll give an overview of the HTrace project. I'll also talk about how developers can engage with the HTrace community\, and potentially integrate HTrace into their own projects. The last few months have been an exciting time in the HTrace project. I'll talk about the new web interface\, htraced trace sink\, improvements to the client API\, and other exciting new work . Finally\, I'll give a demo of using HTrace to find problems and optimize performance in a Hadoop cluster.
+CATEGORIES:FREE-TEXT - SEARCH - GEOSPATIAL
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:01dc7272a852c10bf7712a484f9b3dcb
+URL:http://apachebigdata2015.sched.org/event/01dc7272a852c10bf7712a484f9b3dcb
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T120000Z
+DTEND:20150928T125000Z
+SUMMARY:Spark/Cassandra Integration\, Theory and Practice - DuyHai DOAN\, Datastax
+DESCRIPTION:Apache Spark is a general data processing framework which allows you perform map-reduce tasks (but not only) in memory. Apache Cassandra is a highly available and massively scalable NoSQL data-store. By combining Spark flexible API and Cassandra performance\, we get an interesting alternative to the Hadoop eco-system for both real-time and batch processing. During this talk we will highlight the tight integration between Spark & Cassandra and demonstrate some usages with live code demo using Apache Zeppelin.
+CATEGORIES:NOSQL
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:727afd3331ba66a520768e71140d34be
+URL:http://apachebigdata2015.sched.org/event/727afd3331ba66a520768e71140d34be
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T120000Z
+DTEND:20150928T125000Z
+SUMMARY:Protecting Enterprise Data In Apache Hadoop - Owen O'Malley\, Hortonworks
+DESCRIPTION:Hadoop has long had strong authentication via integration with Kerberos\, authorization via User/Group/Other HDFS permissions\, and auditing via the audit log. Recent developments in Hadoop have added HDFS file access control lists\, pluggable encryption key provider APIs\, HDFS snapshots\, and HDFS encryption zones. These features combine to give important new data protection features that every company should be using to protect their data. This talk will cover what the new features are and when and how to use them in enterprise production environments. Upcoming features including columnar encryption in the ORC columnar format will also be covered. By encrypting particular columns\, enterprises can control which users have access to particularly sensitive columns that contain personally identifiable information or financial information.
+CATEGORIES:SECURITY
+LOCATION:Kond\, Budapest\, Hungary
+SEQUENCE:0
+UID:409d99dc2c39493dd2302d55c63e9ba3
+URL:http://apachebigdata2015.sched.org/event/409d99dc2c39493dd2302d55c63e9ba3
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T120000Z
+DTEND:20150928T125000Z
+SUMMARY:Leveraging the Power of SOLR with SPARK - Johannes Weigend\, QAware GmbH
+DESCRIPTION:SOLR is a distributed NoSQL database with impressive search capabilities. SPARK is the new star in the distributed computing universum. In this code-intense session we show how to combine both to solve realtime search and processing problems. We show how to setup a SOLR/SPARK combination from the scratch and develop first jobs with runs distributed on shared SOLR data. We also show how to use this combination for your next generation BI platform.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:9e6281d9c1c70d3e9a654507f939c1a2
+URL:http://apachebigdata2015.sched.org/event/9e6281d9c1c70d3e9a654507f939c1a2
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T120000Z
+DTEND:20150928T125000Z
+SUMMARY:Apache Kafka for High-Throughput Systems - Jane Wyngaard\, Jet Propulsion Laboratory
+DESCRIPTION:While designed to provide high-throughput\, low-latency real-time data feeds of relatively small messages on a large scale Apache Kafka could offer a valuable service to alternative communities if operated at the even greater scale managing on the order of 10Gb/s streams. While others have achieved this level of throughput via topic scaling using greater node counts\, this presentation will discuss achieving such rates over a single topic and where hardware resource scaling is more limited.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:b8b7cdc3cc22438b30ee2797f0915878
+URL:http://apachebigdata2015.sched.org/event/b8b7cdc3cc22438b30ee2797f0915878
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T120000Z
+DTEND:20150928T125000Z
+SUMMARY:Overcoming the Many-to-Many Data Mapping Mess With Apache Streams - Steve Blackmon\, People Pattern
+DESCRIPTION:These days we have the tools and resources to collect and wrangle data at unprecedented scale\, yet we remain plagued by compatibility gaps and semantic nuances with every new source we invite into our domain. Despite the best efforts of well meaning folks for decades\, data integration remains a many-to-many problem. Apache Streams (incubating) is an open-source real-time reference implementation for the Activity Streams specification. Streams contains libraries and patterns for specifying\, publishing\, and inter-linking schemas\, and assists with conversion of activities and objects between the representation\, format\, and encoding preferred by supported data providers\, processors\, and indexes. In this talk I will explain what Streams does\, how it works (more or less)\, and how it can be used to compile a real-time\, multi-network\, polyglot content repository of profiles\, posts\, etc.
+CATEGORIES:WILDCARD
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:868c4847f346ea85338f62f3953f6b12
+URL:http://apachebigdata2015.sched.org/event/868c4847f346ea85338f62f3953f6b12
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T130000Z
+DTEND:20150928T135000Z
+SUMMARY:Apache Bigtop Unconference (Everybody welcome)
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Kond\, Budapest\, Hungary
+SEQUENCE:0
+UID:1e246dfa48288d27910e847661d9cd9e
+URL:http://apachebigdata2015.sched.org/event/1e246dfa48288d27910e847661d9cd9e
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T130000Z
+DTEND:20150928T135000Z
+SUMMARY:IPython Notebook as a Unified Data Science Interface for Hadoop - Casey Stella\, Hortonworks
+DESCRIPTION:Data Science on Hadoop can be a daunting journey as you generally are spanning multiple tools and different interfaces. Furthermore\, while there are people out there doing data science\, worked examples are few and far between. As part of the Social Security Act\, the Center for Medicare and Medicaid Services has begun to publish data detailing the relationship between physicians and medical institutions. This data has been analyzed cursorily in the press\, but an in-depth outlier and benford's law analysis hasn't been attempted (to my knowledge). I will present an example of using Apache Spark and Hive on Hadoop to do the above analysis without leaving IPython notebook. This should motivate iPython and the Python bindings of Spark as a fantastic environment to do data science.
+CATEGORIES:DATA SCIENCE
+LOCATION:Arany\, Budapest\, Hungary
+SEQUENCE:0
+UID:2f50b2c662985f70c62e16507df75089
+URL:http://apachebigdata2015.sched.org/event/2f50b2c662985f70c62e16507df75089
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T130000Z
+DTEND:20150928T135000Z
+SUMMARY:Leveraging Ambari to Build Comprehensive Management UIs For Your Hadoop Applications - Christian Tzolov\, Pivotal
+DESCRIPTION:This presentation will demonstrate how to leverage modern HTML5 technologies with the flexibility of Apache Ambari to build a comprehensive\, responsive and attractive management interfaces for your Hadoop applications. In the process we will walk you through the reference implementation of an management interface for SQL-on-Hadoop application and integrate it with Apache Ambari. We will share our experience in using technologies like Google Polymer\, Spring Boot and Apache Ambari.
+CATEGORIES:DEVOPS - DISTRIBUTION - TESTING
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:46e022803bc3561a7c452f494793e20d
+URL:http://apachebigdata2015.sched.org/event/46e022803bc3561a7c452f494793e20d
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T130000Z
+DTEND:20150928T135000Z
+SUMMARY:Apache Tika for Enabling Metadata Interoperability - Michael Starch\, NASA Jet Propulsion Laboratory and Nick Burch
+DESCRIPTION:Apache Tika is the de facto standard technology for textual content and metadata extraction from over a thousand different file types. Given the growing importance of metadata\, Tika has become a fundamental tool\, providing support for many metadata models. However\, enabling uniform access to very large sets of heterogeneous documents requires dealing with most accurate interoperability techniques\, such as metadata mapping. In this talk\, Michael and Nick will review existing solutions based on Tika that make possible to obtain consistent metadata across file formats (i.e.\, TikaCoreProperties\, Solr&rsquo;s ExtractingRequestHandler) and then present a new component for Tika. This integration provides an extension of Metadata object in order to achieve metadata interoperability by using a highly configurable\, fine-grained mapping technique that subsumes schema mapping and instance transformation.This work has been proposed by Giuseppe Totaro (&ldquo;Sapienza" University of Rome) and Chris Mattmann (NASA JPL). 
+CATEGORIES:FREE-TEXT - SEARCH - GEOSPATIAL
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:bdff25342f7ebb711761ff2be86f4a4a
+URL:http://apachebigdata2015.sched.org/event/bdff25342f7ebb711761ff2be86f4a4a
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T130000Z
+DTEND:20150928T135000Z
+SUMMARY:A Tale of Two Graphs: Property Graphs and RDF - Andy Seaborne and Paolo Castagna\, Cloudera
+DESCRIPTION:Property Graphs and the Resource Description Framework (RDF) are both graph data models. Property Graphs originated with data practitioners while RDF was developed at W3C as an information model for the web. Both graph data models are "schema-neutral"\, there is no rigid organization of data up-front. Applications decide which part of the data graph to use and how to view it. New data and new applications can be introduced at any time without disturbing existing usage. In this talk we will introduce both data models and look at some uses to show where they are (and are not) used. We will look at contrasting features of the data models by looking at use cases. We will then look at two systems\, Apache Spark/GraphX\, for property graphs\, and Apache Jena\, for RDF databases\, and how they deal with graph structure and how they can scale to big data.
+CATEGORIES:NOSQL
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:ae134addcd6482ed1be80e126e3c3bcf
+URL:http://apachebigdata2015.sched.org/event/ae134addcd6482ed1be80e126e3c3bcf
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T130000Z
+DTEND:20150928T135000Z
+SUMMARY:Apache Zeppelin - The Missing Component for the Spark Ecosystem - DuyHai Doan\, Datastax
+DESCRIPTION:If you are interested in Big Data\, you surely has heard about Spark\, but do you know Apache Zeppelin ? Do you know that it is possible to draw out beautiful graph using an user-friendly interface out of your Spark RDD ? In this session\, I will introduce Zeppelin by live coding example and highlight its modular architecture which allows you to plug-in any interpreter for the back-end of your choice.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:63cb0dc08779d650f76504531041b5f1
+URL:http://apachebigdata2015.sched.org/event/63cb0dc08779d650f76504531041b5f1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T130000Z
+DTEND:20150928T135000Z
+SUMMARY:Unified Access to All Your Data Points With Apache MetaModel - Kasper Sørense\, Human Inference
+DESCRIPTION:The wave of Big Data has overwhelming potential\, but has also revealed an overwhelming challenge in the need to combine multiple sources. The representation of data is growing immensely just like the amount of data is &ndash; you might very well be ingesting as many sources as this: Relational\, NoSQL\, Hadoop\, XML/JSON/CSV files\, Cloud/SaaS systems and search indexes. In this presentation\, Kasper S&oslash;rensen will introduce Apache MetaModel. With this project metadata has been put first and querying is based on this concept too. Apache MetaModel allows for a uniformed view of data from many sources\, but just as important it also enables Data Federation and Data Integration patterns that are automatically adapting based on the metadata available in the source. The talk will be practically oriented\, showing running code with MetaModel and examples of production usage in multiple business cases.
+CATEGORIES:WILDCARD
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:9d23c92b6f034b714092e085865e28b8
+URL:http://apachebigdata2015.sched.org/event/9d23c92b6f034b714092e085865e28b8
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T140000Z
+DTEND:20150928T145000Z
+SUMMARY:R as a Language For Big Data Analytics - Andrie de Vries\, Microsoft
+DESCRIPTION:R is the language of data science\, used by more than 2 million statisticians\, data scientists and quantitative analysts around the world. Many projects and companies have implemented libraries and solutions to make R available to the data scientist working with big data in Hadoop. Foremost among these is Revolution Analytics / Microsoft that sponsored the popular RHadoop project. In this talk\, I'll present - A high level overview of R: its history\, capabilities and community - An introduction to predictive analytics\, and some applications from industry\, especially some examples from inside Microsoft - Connections between R and big-data platforms including Hadoop and Spark - The Revolution R Open and Revolution R Enterprise distributions\, and the unique capabilities they bring to R. - Using R in the Azure cloud and (coming soon) within the SQL Server 2016 database.
+CATEGORIES:DATA SCIENCE
+LOCATION:Arany\, Budapest\, Hungary
+SEQUENCE:0
+UID:c915bc81bffebbe3bb305d6b60b8b114
+URL:http://apachebigdata2015.sched.org/event/c915bc81bffebbe3bb305d6b60b8b114
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T140000Z
+DTEND:20150928T145000Z
+SUMMARY:Testing Big Data Pipelines Made Super Easy - Pallavi Rao\, Inmobi & Pavan Kumar Kolamuri\, Inmobi
+DESCRIPTION:Your company has developed a system that crunches humongous data from multiple data sources. It involves multiple and varied processing modules. Each of the individual modules has been well tested. But\, when you try to deploy these modules and connect them either in an integration or a staging environment\, you face issues. To debug these errors and re-test them requires you to set up a mirror environment and is time consuming. So\, you write complex integration tests and equally complex setup scripts. Apache Falcon and Falcon Unit to your rescue! While Apache Falcon alleviates some of the problems of pipeline orchestration\, Falcon Unit\, a feature of Falcon\, helps users test their entire pipeline and data lifecycle without even setting up a test environment. This talk will outline the capabilities of Falcon Unit and how it helps users test data pipelines early on in the development phase.
+CATEGORIES:DEVOPS - DISTRIBUTION - TESTING
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:9784e6152e575b4351c9a0b1bbd884b9
+URL:http://apachebigdata2015.sched.org/event/9784e6152e575b4351c9a0b1bbd884b9
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T140000Z
+DTEND:20150928T145000Z
+SUMMARY:Recent Evolution of Standards for Geospatial Applications and TheirIimplementation in Apache SIS - Martin Desruisseaux\, Geomatys
+DESCRIPTION:Apache Spatial Information System (SIS) is a Java library for developing geospatial applications which conform to international standards. SIS implements interfaces derived from UML published jointly by the Open Geospatial Consortium (OGC) and the International Organization for Standardization (ISO). In the North America ApacheCon 2014 we introduced the OGC vision and how SIS implements the &ldquo;geospatial metadata&rdquo; and &ldquo;referencing by coordinates&rdquo; international standards. In this presentation we will present what is new on the standards front: the &ldquo;metadata&rdquo; revision published in 2014\, and the &ldquo;Well-Known Text 2&rdquo; format which can be seen as an evolution of &ldquo;referencing by coordinates&rdquo;. We will present which problems the new standards solve\, and how SIS preserves compatibility between the old and new standards. Finally we will present the plan for next SIS developments.
+CATEGORIES:FREE-TEXT - SEARCH - GEOSPATIAL
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:28e5e0bd5b95508346305d00c31f7ee0
+URL:http://apachebigdata2015.sched.org/event/28e5e0bd5b95508346305d00c31f7ee0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T140000Z
+DTEND:20150928T145000Z
+SUMMARY:S2Graph : A Large-Scale Graph Database with HBase - Doyung Yoon\, Daumkakao
+DESCRIPTION:As dominant social network service provider\, Daumkakao confronted several technical challenges to store and traverse large graph data. First\, our social network has 10 billion edges and 200 million vertices and users create 1 billion new edges everyday by interacting with our services so our system needed to be distributed and scalable. Second\, our system needed to provide low-latency and high concurrency to meet our quality of service. Third\, for viral effect\, user`s activities should be delivered to right place at right time in real time so simple result cache can`t be used. Lastly\, there are about a hundred of services that daumkakao is operating and our system needed to provide common way to store and traverse data for synergy between services. S2Graph successfully solved these technical challenges\, so we'd like to introduce the methodology and architecture we used.
+CATEGORIES:NOSQL
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:de6abfbd8f0b9e66b1c03feb2b9e2078
+URL:http://apachebigdata2015.sched.org/event/de6abfbd8f0b9e66b1c03feb2b9e2078
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T140000Z
+DTEND:20150928T145000Z
+SUMMARY:Encryption and Anonymization in Hadoop - Current and Future - Balaji Ganesan\, Hortonworks and Don Bosco Durai
+DESCRIPTION:As enterprises expand usage of Hadoop as a platform to store and process data\, data security and compliance needs in the platform are becoming more pertinent. Beyond the traditional Hadoop security controls of authentication through Kerberos\, or access management through Apache Ranger\, users are increasingly asking for encrypting data when it is being transmitted or when data is stored in disk. In relation to this\, there is a movement towards anonymizing the data by tokenizing or masking it\, with the intent of using the data in the query processing while protecting the sensitivity by hiding the original value from the end user. The community has recently built encryption in HDFS file system. In this talk we look at the current encryption capabilities in Hadoop and areas where the community need to focus to further enhance Hadoop as an enterprise ready data platform.
+CATEGORIES:SECURITY
+LOCATION:Kond\, Budapest\, Hungary
+SEQUENCE:0
+UID:c317167fa8a6158ad5749262d778e67a
+URL:http://apachebigdata2015.sched.org/event/c317167fa8a6158ad5749262d778e67a
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T140000Z
+DTEND:20150928T145000Z
+SUMMARY:Integrating Apache Spark with an Enterprise Data Warehouse - Michael Wurst\, IBM
+DESCRIPTION:This session will discuss the challenges and opportunities of integrating Apache Spark with enterprise data warehouses\, especially the impact of columnar storage on the example of IBM DB2 and IBM dashDB. We will show how columnar storage can help to increase scalability and reduce response time\, especially when pushing down processing of projections and aggregates to the database instead of processing them in Spark natively. Key takeaways from the session are: 1.How to benefit from the features of closed-source data warehouses from Spark without access to internal data structures\, 2.the role of storage when working with large warehouses from Spark\, 3. Opportunities of columnar storage vs. row based storage\, 4. How such an integration impacts end-to-end analytics based on Spark MLlib.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:8e7f9495e129d97231a575b8abf4f69c
+URL:http://apachebigdata2015.sched.org/event/8e7f9495e129d97231a575b8abf4f69c
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T145000Z
+DTEND:20150928T163000Z
+SUMMARY:Pivotal Drinks Reception
+DESCRIPTION:
+CATEGORIES:BREAK/MEAL
+LOCATION:Pivotal Hacker Lounge\, Budapest\, Hungary
+SEQUENCE:0
+UID:e79c8b2397f4017a22f7bed9332a5733
+URL:http://apachebigdata2015.sched.org/event/e79c8b2397f4017a22f7bed9332a5733
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T150000Z
+DTEND:20150928T170000Z
+SUMMARY:Onsite Attendee Reception & Technology Showcase Booth Crawl
+DESCRIPTION:
+CATEGORIES:BREAK/MEAL
+LOCATION:Valletta 2 Foyer\, Budapest\, Hungary
+SEQUENCE:0
+UID:d20fa2fcb5ebcdcc8b7da3e1735ae728
+URL:http://apachebigdata2015.sched.org/event/d20fa2fcb5ebcdcc8b7da3e1735ae728
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T163000Z
+DTEND:20150928T190000Z
+SUMMARY:Budapest Big Data Meetup
+DESCRIPTION:The Apache Big Data Europe conference is in town\, and we are organizing an event where you can listen to and meet with the international speakers and attendees.  We plan to have the following talks: Dive deeper\, Soar higher: MADlib + HAWQ for advanced SQL machine learning on Hadoop  The growing Apache ecosystem just got bigger and better -- now with the ability to crunch vast volumes of data using fully ANSI-compliant SQL and at-scale machine learning algorithms. Apache HAWQ has been years in the making and derives its heritage from Greenplum Database and PostgreSQL. HAWQ enables developers\, analysts\, data scientists and engineers to run advanced SQL queries\, transforming data sets of extreme size\, visualizing data with standard tools\, and seamlessly running R and Python in a highly-distributed fashion all in the same environment. Invoke powerful machine learning and advanced statistical functions using Apache MADlib\, and build models on billions of rows of data. Speakers from Pivotal and Hortonworks will discuss the following: - Introduction to Apache HAWQ & Apache MADlib - All about the Open Data Platform initiative - Data science in the Hadoop ecosystem - Live\, end-to-end data science demo using Apache HAWQ\, Apache MADLib\, and Hortonworks Data Platform Our Speakers: Caleb Welton is Director for SQL on Hadoop at Pivotal covering the Pivotal HAWQ database. He has spent the last 18 years developing database technology for Oracle\, Greenplum\, EMC and Pivotal. In addition to his contributions in database technology he is one of the founding members of the open source MADlib project for in-database machine learning. Caleb is named inventor for 11 patents in database technology and has presented papers at SIGMOD\, VLDB and KDD. Michael Natusch leads Pivotal's Data Science team in EMEA. His experience lies in predictive analytics and his area of specialization is the application of statistical methods to large-scale data sets\, in particular through the application of machine learning algorithms. Michael holds a PhD in theoretical physics from the University of Cambridge and an MBA. He is a Fellow of the Royal Statistical Society and lectures at the Open University.  Janos Matyas is a Sr. Director of Engineering at Hortonworks and former CTO at SequenceIQ (acquired by Hortonworks). Before co-founding SequenceIQ he was a Solutions Architect at EPAM Systems. He is an open source advocate and Apache Ambari committer\, a Hadoop YARN evangelist and a keen surfer and freeskier. He holds a Master's Degree in Computer Science\, specialized on distributed systems.    Planned schedule: 18:30 Doors open  19:00 Talks begin  21:00 Meetup finishes  Afterparty: After the meetup we'll visit a nearby pub (exact location to be announced). Join us there\, have some drinks and talk data (or anything else) even if you can't make it to the meetup! This will be an English speaking event.  The meetup will be hosted by LogMeIn.  
+CATEGORIES:MEETUP
+LOCATION:LogMeIn\, 1061 Paulay Ede u. 12.\, Ground floor\, Budapest
+SEQUENCE:0
+UID:5762242ddd927131d05d7dd4c21a4102
+URL:http://apachebigdata2015.sched.org/event/5762242ddd927131d05d7dd4c21a4102
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150928T190000Z
+DTEND:20150928T210000Z
+SUMMARY:Big Data Meetup AfterParty
+DESCRIPTION:International and Hungarian friends of Big Data\, unite! After our September meetup on Monday evening\,  we are heading for drinks and discussions to An'kert\, a fine example of the world-famous ruin pubs of Budapest.  This AfterParty is open to everyone loving Big Data\, and we are especially looking forward to meet and greet the attendees of the Apache Big Data Europe conference. If you are staying at Hotel Corinthia - the venue of the conference - then you can easily walk to the pub. Here's a Google map link showing the route and distance: goo.gl/maps/RWtbxGN27qT2  If you are also attending the earlier Big Data Meetup at LogMeIn\, then getting to An'kert is even simpler: just walk a block (200m) on Paulay street. For more information\, click here.
+CATEGORIES:
+LOCATION:Ankert\, 1061\, Paulay Ede u. 33.\, Budapest
+SEQUENCE:0
+UID:76be9814768f1c9960f2a1344a40a461
+URL:http://apachebigdata2015.sched.org/event/76be9814768f1c9960f2a1344a40a461
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T060000Z
+DTEND:20150929T070000Z
+SUMMARY:Registration						
+DESCRIPTION:For those staying in the hotel\, please proceed to the Brasserie Restaurant for breakfast. For those not staying in the hotel\, continental breakfast will be available in the Valletta II Foyer and Attendee Lounge daily.
+CATEGORIES:BREAK/MEAL
+LOCATION:Valletta 1 Foyer\, Budapest\, Hungary
+SEQUENCE:0
+UID:a0927802b63a2401f442ab5cb7fbc853
+URL:http://apachebigdata2015.sched.org/event/a0927802b63a2401f442ab5cb7fbc853
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T070000Z
+DTEND:20150929T072000Z
+SUMMARY:Keynote: How Apache Drives Spotify's Music Recommendations - Josh Baer\, Spotify
+DESCRIPTION:Hear from Josh Baer\, Hadoop Product Owner at Spotify on how Apache drives Spotify's music recommendations.
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:2a65daf0baa4cfbc227a8cb74a9103a2
+URL:http://apachebigdata2015.sched.org/event/2a65daf0baa4cfbc227a8cb74a9103a2
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T072000Z
+DTEND:20150929T074000Z
+SUMMARY:Keynote: Keeping the Elephant in the Room - Gary Richardson\, KPMG UK
+DESCRIPTION:Gary Richardson\, Head of Data Engineering for KPMG in the UK will discuss strategies for keeping the elephant in room; moving from proof of concept to full scale enterprise Hadoop adoption.
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:0ed745bdac9369b552ab24d2b0987ab1
+URL:http://apachebigdata2015.sched.org/event/0ed745bdac9369b552ab24d2b0987ab1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T074000Z
+DTEND:20150929T081000Z
+SUMMARY:Keynote Panel: ODPi: Advancing Open Data for the Enterprise Panel - Anjul Bhambri\, IBM; Konstantin Boudnik\, WANdisco; Owen O'Malley\, Hortonworks; Roman Shaposhnik\, Pivotal - Moderated by Jim Zemlin\, The Linux Foundation
+DESCRIPTION:This panel will be an opportunity for members of the Open Data Platform Initiative to share the benefits of ODP with the Apache community.
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:7e5ff8855aab3bbe0d9e8aec0d879a86
+URL:http://apachebigdata2015.sched.org/event/7e5ff8855aab3bbe0d9e8aec0d879a86
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T081000Z
+DTEND:20150929T083000Z
+SUMMARY:Morning Break
+DESCRIPTION:
+CATEGORIES:BREAK/MEAL
+LOCATION:Valletta 2 Foyer\, Budapest\, Hungary
+SEQUENCE:0
+UID:d981526ae73326f0e0999a414980d61a
+URL:http://apachebigdata2015.sched.org/event/d981526ae73326f0e0999a414980d61a
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T083000Z
+DTEND:20150929T092000Z
+SUMMARY:Synthetic Data Generation for Realistic Analytics Examples and Testing - RJ Nowling\, Red Hat
+DESCRIPTION:Big Data users are faced with an enormous gap between trivial tutorial applications and real-world analytics pipelines. Word count and TeraSort have limited value as blueprints and may not exercise enough of the data processing stack to be useful for testing deployments. Since real data are typically encumbered by privacy or intellectual property concerns\, tutorials and test cases often use small or unrepresentative data sets. Generative models can enable a new class of realistic example and test applications by synthesizing rich and complex data sets. Furthermore\, synthetic data can be scaled from a single laptop to data centers. We will present on data generators\, such as BigPetStore from Apache BigTop\, influenced by data we&rsquo;ve analyzed in the Emerging Technologies team at Red Hat. We also discuss realistic example applications and usage for smoke-testing deployments.
+CATEGORIES:DEVOPS - DISTRIBUTION - TESTING
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:dd0250f0ed8328774cf3e1b96507f629
+URL:http://apachebigdata2015.sched.org/event/dd0250f0ed8328774cf3e1b96507f629
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T083000Z
+DTEND:20150929T092000Z
+SUMMARY:Search-Based Business Intelligence and Reverse Data Engineering with Apache Solr - Mario-Leander Reimer\, QAware GmbH
+DESCRIPTION:We are searching the unknown. How can you find hidden and unknown relationships in unrelated data silos? How can you find relevant information in a 10^56 dimensional space? Sounds impossible? This talk will present a case study and success story about how Apache Solr has been used to build a search based business intelligence and information research application to answer these questions for a major German car manufacturer.
+CATEGORIES:FREE-TEXT - SEARCH - GEOSPATIAL
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:36c39a7452bb72cd1452dd6bab7fbc1d
+URL:http://apachebigdata2015.sched.org/event/36c39a7452bb72cd1452dd6bab7fbc1d
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T083000Z
+DTEND:20150929T092000Z
+SUMMARY:Architecture of Flink's Streaming Runtime - Robert Metzger
+DESCRIPTION:Apache Flink is an open-source framework for parallel data analysis. The core of Flink is a distributed stream processing engine that provides exactly-once semantics\, low-latency processing\, and system-managed operator state. Flink's high-level programming APIs and support for batch processing\, make Flink a good choice for real-time data analysis. Apache Flink is one of the most active big data project in the Apache Software Foundation and has more than 100 contributors. This talk presents Flink's architecture and design decisions that result in Flink's unique set of features. It discusses the pipelined execution engine for low latency processing\, the operator state management and fault tolerance mechanisms. It will cover master high availability and system monitoring and also show a performance evaluation of the system.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:74ac8c1c08290db9d138fdc1d347287c
+URL:http://apachebigdata2015.sched.org/event/74ac8c1c08290db9d138fdc1d347287c
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T083000Z
+DTEND:20150929T092000Z
+SUMMARY:Apache Phoenix: The Evolution of a Relational Database Layer over HBase - Nick Dimiduk\, Hortonworks
+DESCRIPTION:This presentation will begin by giving a "State of the Union" of Apache Phoenix\, a relational database layer on top of HBase for low latency applications\, with a brief overview of new and existing features. Next\, the approach for transaction support\, a work in-progress will be discussed. Lastly\, the current means of integrating with the rest of the Hadoop ecosystem will be examined\, including the vision for how this will evolve going forward.
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:e0c82283b2b6d6505b055eb1889755f3
+URL:http://apachebigdata2015.sched.org/event/e0c82283b2b6d6505b055eb1889755f3
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T083000Z
+DTEND:20150929T092000Z
+SUMMARY:High-Throughput Processing With Streaming-OODT - Michael Starch\, NASA Jet Propulsion Laboratory
+DESCRIPTION:Upcoming customers of Streaming-OODT have predicted that their system will operate at data throughputs of 10Gb/s. Thus in order to use Streaming-OODT at these throughputs\, the system must be characterized and well understood in order to support customers&rsquo; needs. This presentation discusses Streaming-OODT&rsquo;s performance processing non-trivial data at these scales and the lessons learned from operation in this environment. Streaming-OODT uses various other Apache technologies to support its mission to provide a high-performance data system. These technologies include: Apache Kafka\, Apache Spark\, Spark Streaming\, and Apache Mesos. This presentation will therefore discuss the performance of these technologies working together at high-throughputs and will discuss lessons learned orchestrating these technologies for high-performance as part of the Streaming OODT system.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:18eb9f9d2ff359d804c0142787d9c41a
+URL:http://apachebigdata2015.sched.org/event/18eb9f9d2ff359d804c0142787d9c41a
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T083000Z
+DTEND:20150929T092000Z
+SUMMARY:Data Ethics - Louis Suárez-Potts\, Age of Peers\, Inc.
+DESCRIPTION:I examine the ethics of Big Data in several ongoing projects and the possibilities of engaging subject communities in the processes and projects. As background: The ethics of data\, especially "Big Data\," can be considered as the linked ethics of gathering the data and then interpreting it. Big Data--the data and interpretation dyad--complicates this otherwise dull as dishwater process in part by obscuring acquisition and reading it as discovery\, and in part by abstracting the particular elements making up the data even as those may refer to persons and their doings. That is: Were an experiment conducted on any population\, the persons objectified would likely have to sign their consent. This talk looks to ways to engage (and so form) communities as subjects and not just objects of Big Data projects. Apache's important projects are key here.
+CATEGORIES:USE CASES
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:a504c8511293682edfef604ab2686b9a
+URL:http://apachebigdata2015.sched.org/event/a504c8511293682edfef604ab2686b9a
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T093000Z
+DTEND:20150929T102000Z
+SUMMARY:Spark and Machine Learning to the aid of the Data Scientist - Frank Ketelaars\, IBM and Andrey Vykhodtsev\,IBM
+DESCRIPTION:In this talk\, Andrey Vykhodtsev and Frank Ketelaars will talk about how data scientists benefit from the scalable machine learning capabilities of Spark. They will demonstrate a machine learning workflow and how this is executed using Apache Spark and MLlib. The ability to answer to the needs of data scientists will improve further with the contribution of IBM Research's Machine Learning system (also known as System ML) to the Apache Spark project\, making is easier and quicker to express machine learning algorithms.
+CATEGORIES:BREAK/MEAL\, SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:d328026536baf4b6575768c4d5965629
+URL:http://apachebigdata2015.sched.org/event/d328026536baf4b6575768c4d5965629
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T093000Z
+DTEND:20150929T102000Z
+SUMMARY:How Bigtop Leveraged Docker for Build Automation and One-Click Hadoop Provisioning - Evans Ye\, Trend Micro
+DESCRIPTION:Apache Bigtop as an open source Hadoop distribution\, focuses on developing packaging\, testing and deployment solutions that helps infrastructure engineers to build up their own customized bigdata platform as easy as possible. However\, packages deployed in production require a solid CI testing framework to ensure its quality. Numbers of Hadoop component must be ensured to work perfectly together as well. In this presentation\, we'll talk about how Bigtop deliver its containerized CI framework which can be directly replicated by Bigtop users. The core revolution here is the newly developed Hadoop provisioner that leveraged Docker for infra automation. The content of this talk includes the technical details of Bigtop Hadoop provisinoer\, a hierarchy of docker images we designed\, and several components we developed such as Bigtop Toolchain to achieve build automation.
+CATEGORIES:DEVOPS - DISTRIBUTION - TESTING
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:aaa45862aec3ade2d1bf9a36ac045577
+URL:http://apachebigdata2015.sched.org/event/aaa45862aec3ade2d1bf9a36ac045577
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T093000Z
+DTEND:20150929T102000Z
+SUMMARY:What's New With Apache Tika? - Nick Burch
+DESCRIPTION:Apache Tika detects and extracts metadata and text from a huge range of file formats and types. From Search to Big Data\, single file to internet scale\, if you've got files\, Tika can help you get out useful information! Apache Tika has been around for nearly 10 years now\, and in that time\, a lot has changed. Not only has the number of formats supported gone up and up\, but the ways of using Tika have expanded\, and some of the philosophies on the best way to handle things have altered with experience. Tika has gained support for a wide range of programming languages to\, and more recently\, Big-Data scale support\, and ways to automatically compare effects of changes to the library. Whether you're an old-hand with Tika looking to know what's hot or different\, or someone new looking to learn more about the power of Tika\, this talk will have something in it for you!
+CATEGORIES:FREE-TEXT - SEARCH - GEOSPATIAL
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:aea73448629e4b2763f1b7b383821b51
+URL:http://apachebigdata2015.sched.org/event/aea73448629e4b2763f1b7b383821b51
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T093000Z
+DTEND:20150929T102000Z
+SUMMARY:Adding Insert\, Update\, and Delete to Apache Hive - Owen O'Malley\, Hortonworks
+DESCRIPTION:Apache Hive provides a convenient SQL query engine and table abstraction for data stored in Hadoop. Hive uses Hadoop to provide highly scalable bandwidth to the data\, but until recently did not support updates\, deletes\, or transaction isolation. This has prevented many desirable use cases such as updating of dimension tables or doing data cleanup. We have implemented the standard SQL commands insert\, update\, and delete allowing users to insert new records as they become available\, update changing dimension tables\, repair incorrect data\, and remove individual records. This also allows very low latency ingestion of streaming data from tools like Storm and Flume. Additionally\, we have added ACID-compliant snapshot isolation between queries so that queries will see a consistent view of the committed transactions when they are launched.
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:6cd0289ed137ab5a5cb5260b4a32d9f3
+URL:http://apachebigdata2015.sched.org/event/6cd0289ed137ab5a5cb5260b4a32d9f3
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T093000Z
+DTEND:20150929T102000Z
+SUMMARY:The Best of Apache Kafka Architecture - Ranganathan B\, ThoughtWorks
+DESCRIPTION:Big data event streaming is very common part of any big data Architecture. Of the available open source big data streaming technologies Apache Kafka stands out because of it realtime\, distributed\, and reliable characteristics. This is possible because of the Kafka Architecture. This talk highlights those features.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:e4a71479e0bbd73772cac3df7fdd3903
+URL:http://apachebigdata2015.sched.org/event/e4a71479e0bbd73772cac3df7fdd3903
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T093000Z
+DTEND:20150929T102000Z
+SUMMARY:Deriving Business Value From Large Image Collections on Hadoop - Michael Natusch\, Pivotal
+DESCRIPTION:Image collections are rapidly growing in size. Efficient image management is necessary for large image collections to ensure easy searching and browsing. In this talk\, we will describe how large image collections can be efficiently managed by presenting a content-based image retrieval (CBIR) system built on Hadoop. A CBIR system takes as an input a query image and returns images depicting content most similar to the input query image. Putting together a CBIR system involves building many components: the image collection\, a feature extractor\, and machine learning models for mining similar images. In this talk\, we will present how a CBIR system can be easily and efficiently realized using Hadoop and SQL on Hadoop technologies. The system we present here discovers latent visual topics associated with each image and retrieves images based on similarity between corresponding visual topics.
+CATEGORIES:USE CASES
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:41c1cb4db4a6b2ec547d901421880dc1
+URL:http://apachebigdata2015.sched.org/event/41c1cb4db4a6b2ec547d901421880dc1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T102000Z
+DTEND:20150929T120000Z
+SUMMARY:Lunch
+DESCRIPTION:
+CATEGORIES:BREAK/MEAL
+LOCATION:Brasserie Restaurant\, Budapest\, Hungary
+SEQUENCE:0
+UID:50db5572a53ff0627ffb46f35fdb0103
+URL:http://apachebigdata2015.sched.org/event/50db5572a53ff0627ffb46f35fdb0103
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T120000Z
+DTEND:20150929T125000Z
+SUMMARY:An Introduction to Apache Geode (incubating) - William Markito Oliveira\, Pivotal
+DESCRIPTION:Companies using Apache Geode (incubating)\, previously GemFire\, have deployed it in some of the most mission critical time sensitive applications in their enterprises\, making sure tickets are purchased in a timely fashion\, hotel rooms are booked\, financial trades are made\, and credit card transactions are cleared. Come to this session to learn about becoming a contributor to this powerful and fascinating technology: - A brief history of Geode - Architecture and use cases - Why we going Open Source - Design philosophy and principles - Code walk-through - How to contribute - How to create your first application
+CATEGORIES:FAST DATA - IN-MEMORY
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:b6ae343d491927e3a01af45b7d998828
+URL:http://apachebigdata2015.sched.org/event/b6ae343d491927e3a01af45b7d998828
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T120000Z
+DTEND:20150929T125000Z
+SUMMARY:CouchDB 2.0: The Awkward Bits - Mike Wallace\, IBM
+DESCRIPTION:Apache CouchDB 2.0 will bring Dynamo-style clustering to CouchDB\, allowing data and applications to scale out over hundreds of nodes for increased throughput and storage. While operation of a single-node CouchDB instance will remain largely unaffected\, the addition of clustering and sharding introduces some new annoyances which have the potential to complicate operational life. In this talk\, Mike will identify the parts of clustered CouchDB 2.0 that could be considered to be particularly awkward from an operations perspective so that we can be better prepared when things start to get real.
+CATEGORIES:NOSQL
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:df41f3c70dc518d5df82eb0dcbc4b365
+URL:http://apachebigdata2015.sched.org/event/df41f3c70dc518d5df82eb0dcbc4b365
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T120000Z
+DTEND:20150929T125000Z
+SUMMARY:Apache Sentry (incubating) : Fine-Grained Access Control to Hadoop Ecosystem - Sravya Tirukkovalur\, Cloudera
+DESCRIPTION:Historically\, each Hadoop component offers its own method of access control so each one needs its own set of permissions rules - even when they are accessing the same data in Hadoop. This is an administrative nightmare that slows the adoption of Hadoop when sensitive data is involved. Apache Sentry is a framework that enables fine grained\, role based authorization for multiple Hadoop ecosystem components. Apache Sentry is a highly modular system that support authorization for various data models like Database style schemas\, search indexes etc. It comes with out of the box support for SQL query frameworks like Apache Hive and Cloudera Impala Apache Hive\, extending the table privileges to underlying HDFS storage\, as well as open source search framework Apache Solr. This session will present an overview of Apache Sentry.
+CATEGORIES:SECURITY
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:e56cf40f591f7473879bc765a95c9372
+URL:http://apachebigdata2015.sched.org/event/e56cf40f591f7473879bc765a95c9372
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T120000Z
+DTEND:20150929T125000Z
+SUMMARY:Drilling into Data with Apache Drill - Tugdual Grall\, MapR Technologies
+DESCRIPTION:Apache Drill is a next-generation SQL engine for Hadoop and NoSQL. Its unique schema-free approach enables self-service data exploration with the agility that organizations need in this new era of rapidly growing and evolving data. In this talk\, based on demonstrations\, you will understand the key features and architecture of Apache Drill. You will also see how to get started with Drill; and start query\, using SQL\, various data sources such as HBase\, Hive\, Parquet\, and Avro\, but also more complex data structure stored in JSON documents.
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:38a86e3861db63dd17424ad988d6c892
+URL:http://apachebigdata2015.sched.org/event/38a86e3861db63dd17424ad988d6c892
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T120000Z
+DTEND:20150929T125000Z
+SUMMARY:Being Ready for Apache Kafka: Today's Ecosystem and Future Roadmap - Michael Noll\, Confluent
+DESCRIPTION:Apache Kafka is a high-throughput distributed messaging system that has become a mission-critical infrastructure component for modern data platforms. Kafka is used across a wide range of industries by thousands of companies such as Twitter\, Netflix\, Cisco\, PayPal\, and many others. After a brief introduction to Kafka this talk will provide an update on the growth and status of the Kafka project community. Rest of the talk will focus on walking the audience through what's required to put Kafka in production. We&rsquo;ll give an overview of the current ecosystem of Kafka\, including: client libraries for creating your own apps; operational tools; peripheral components required for running Kafka in production and for integration with other systems like Hadoop. We will cover the upcoming project roadmap\, which adds key features to make Kafka even more convenient to use and more robust in production.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:1dddf7627d0f5e94dd8f84b6159ac98a
+URL:http://apachebigdata2015.sched.org/event/1dddf7627d0f5e94dd8f84b6159ac98a
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T120000Z
+DTEND:20150929T125000Z
+SUMMARY:More Data\, More Problems - A Practical Guide to Testing on Hadoop - Michael Miklavcic\, Hortonworks
+DESCRIPTION:Just because the data is big doesn't mean you can't test. We believe it's probably even more critical to your SDLC on Hadoop to automate testing of your Hive\, Pig\, and MapReduce code than almost any other time investment you can make. We provide a soup-to-nuts\, practical exposition on testing a variety of Hadoop application types to enable you to get better results faster.
+CATEGORIES:USE CASES
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:2bdfbdfd8b2cfd2aba7ed464110c46f7
+URL:http://apachebigdata2015.sched.org/event/2bdfbdfd8b2cfd2aba7ed464110c46f7
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T130000Z
+DTEND:20150929T135000Z
+SUMMARY:Apache Ignite - JCache and Beyond - Dmitriy Setrakyan\, GridGain
+DESCRIPTION:This presentation will provide a good overview of Apache Ignite project including a detailed look into distributed in-memory Data Grid\, Compute Grid\, Streaming\, in memory SQL\, and many other components provided by Apache Ignite. We will also go into detail of how existing in-memory caching products and data grids can be used to share memory across Apache Spark jobs and applications. We will also present a hands on demo demonstrating performance benefits of querying shared memory using SQL.
+CATEGORIES:FAST DATA - IN-MEMORY
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:1645072dff4e70f17dad01ab221d013a
+URL:http://apachebigdata2015.sched.org/event/1645072dff4e70f17dad01ab221d013a
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T130000Z
+DTEND:20150929T135000Z
+SUMMARY:Decentralized Document Delivery - Benjamin Young\, The Hypothesis Project
+DESCRIPTION:Apache CouchDB is a document-centric database. It also replicates. It can make exact copies of a database and keep them in sync--even as the network comes and goes. Both (or more) databases can be actively written too and changes synchronized across them. There is no center. Add PouchDB\, a CouchDB compatible database that lives inside the browser or node.js\, and you have an architecture ready to survive the fickleness of technology\, businesses\, and other regimes. The end result is data where you need it. We'll take a look at architecting for a decentralized future built of documents delivered democratically across all the divides.
+CATEGORIES:NOSQL
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:e336214dd13e4bbc558c58885f9b445c
+URL:http://apachebigdata2015.sched.org/event/e336214dd13e4bbc558c58885f9b445c
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T130000Z
+DTEND:20150929T135000Z
+SUMMARY:Hive on Spark: What It Means to You? - Xuefu Zhang\, Cloudera
+DESCRIPTION:Apache Hive has wide use cases for batch-oriented SQL workloads for ETL and data analytics in the Hadoop ecosystem. Up to now\, most of the workloads are still executed by a 10 year old technology\, MapReduce. On the other hand\, Apache Spark as a general\, open-source data processing framework is positioned to replace MapReduce with faster data processing and efficient memory utilization. The Hive on Spark initiative introduced Spark as Hive's new execution engine\, providing faster SQL on Hadoop while maintaining Hive's feature richness. With a joint effort from the Hive community and feedback from early adopters and beta users\, Hive on Spark is ready for production deployment! This presentation will share with you the motivation\, architecture\, deployment practice\, and performance tuning. A live demo will be given to conclude the presentation.
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:be0e3e383663c637b8c7c419485db7be
+URL:http://apachebigdata2015.sched.org/event/be0e3e383663c637b8c7c419485db7be
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T130000Z
+DTEND:20150929T135000Z
+SUMMARY:Building a Highly-Scalable Open-Source Real-time Streaming Analytics System Using Spark SQL\, Apache Geode (incubating)\, SpringXD and Apache Zeppelin (incubating) - Fred Melo\, Pivotal
+DESCRIPTION:The Internet of Things requires new applications to consume data that streams in from connected devices\, and apply advanced real-time analytics. It also demands the ability to scale horizontally in order to support a large number of devices\, while keeping extreme low latency for immediate data insights. How can you leverage open source software like Apache Geode (incubating)\, Spring XD\, Docker\, Apache Zeppelin (incubating)\, Apache Spark and Cloud Foundry/Lattice to quickly build a complete IoT solution? This presentation will walk you through the construction of a system leveraging these technologies and a Raspberry PI with sensors including a live demo of data captured during the conference and perform some real-time analytics.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:67372fe5f01079fefa0bf748872ab6ef
+URL:http://apachebigdata2015.sched.org/event/67372fe5f01079fefa0bf748872ab6ef
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T130000Z
+DTEND:20150929T135000Z
+SUMMARY:Unified Analytics @InMobi Through Apache Lens - Amareshwari Sriramadasu\, Inmobi
+DESCRIPTION:Apache Lens enables multi-dimensional queries in a unified way over datasets stored in multiple warehouses. Apache Lens allows queries to be executed where the data resides providing logical data cube abstraction. In a typical enterprise multiple data warehouses co-exist\, as single one does not address the needs of all workload requirements in cost-effective way. Apache Lens unifies the underlying storages and allows multiple execution engines to access underlying data. It picks the right engine for execution at query time. In this talk\, speakers will share the experience of running Apache Lens in production and discuss upcoming features in Apache Lens.
+CATEGORIES:USE CASES
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:1a7794c260f1d33f6c0de4976773432c
+URL:http://apachebigdata2015.sched.org/event/1a7794c260f1d33f6c0de4976773432c
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T140000Z
+DTEND:20150929T145000Z
+SUMMARY:Open-Source In-Memory Platforms - Konstantin Boudnik\, WANdisco
+DESCRIPTION:Apache Bigtop has created the de-facto standard in how Hadoop-based stacks are developed\, delivered\, and managed. We are at it again! The track will present the composition of the next generation of in-memory computing stack that is completely built out of open-source components. The next generation of the Apache data processing stack will focus on in-memory and transactional processing of large amounts of data. We will also be talking about performance benefits that legacy data-processing software based on MapReduce\, Hive\, and similar\, can derive from in-memory computing. This session will discuss and analyze the benefits of practicing Fast Data in the open. 
+CATEGORIES:FAST DATA - IN-MEMORY
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:c47217c6fb7204dbb9280e8b36358b4b
+URL:http://apachebigdata2015.sched.org/event/c47217c6fb7204dbb9280e8b36358b4b
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T140000Z
+DTEND:20150929T145000Z
+SUMMARY:Hands-On with Apache CouchDB 2.0 - Mike Wallace\, IBM; Michelle Phung\, IBM; Glynn Bird\, IBM
+DESCRIPTION:This is a hands-on introduction to Apache CouchDB. We'll tour the user-facing API and Fauxton dashboard while looking at the concepts behind it. You'll learn what it means to build an application on top of CouchDB and make it shine within an hour's time. You will learn basic data storage and retrieval\, data-design\, querying\, replication and various neat features on the edges of CouchDB. If you are coming from the relational world\, this talk will help you understand how to "think in CouchDB".
+CATEGORIES:NOSQL
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:8f276f2e983ee1809e1242201e210317
+URL:http://apachebigdata2015.sched.org/event/8f276f2e983ee1809e1242201e210317
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T140000Z
+DTEND:20150929T145000Z
+SUMMARY:Netflix: Integrating Spark at Petabyte Scale - Cheolsoo Park\, Netflix and Ashwin Shankar\, Netflix
+DESCRIPTION:The Big Data Platform team at Netflix maintains a cloud-based data warehouse with over 10 petabytes of data stored predominantly in Parquet format. Our platform has traditionally leveraged Pig for ETL processing\, Hive for large analytic workloads\, and Presto for interactive and exploratory use cases. For a long time\, Spark seemed attractive to complement our platform\, but technical gaps prevented effective use at scale in our environment. Recent improvements have allowed us to add Spark to our cloud data architecture and interoperate seamlessly with the other tools and services in our stack. We will go into detail about our deployment configuration and what it takes to run Spark alongside traditional workloads on YARN. We will share examples of a few of our largest workflows translated to Spark for comparison in terms of both performance and complexity.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:bbb8b3c0e048d790fa29ded3db37ef67
+URL:http://apachebigdata2015.sched.org/event/bbb8b3c0e048d790fa29ded3db37ef67
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T140000Z
+DTEND:20150929T145000Z
+SUMMARY:Help Build the most Advanced SQL Database on Hadoop: HAWQ - Lei Chang\, Pivotal
+DESCRIPTION:HAWQ is a massively parallel processing SQL engine sitting on top of HDFS. As a hybrid of MPP database and Hadoop\, it inherits the merits from both parties. It is standard SQL compliant\, extremely fast and scalable\, and unlike other SQL engines on Hadoop\, it is fullytransactional. HAWQ is currently being proposed as an Apache incubating project.In this talk\, Dr. Lei Chang will give an overview on HAWQ architecture and the major exciting areas that are soliciting contributions from open source community. And he will also introduce the easiest way contributors can work with HAWQ developers to bring their innovative ideas to the HAWQ kernels.
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:5f67dc396fb205b83303f686cdf4bcb0
+URL:http://apachebigdata2015.sched.org/event/5f67dc396fb205b83303f686cdf4bcb0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T140000Z
+DTEND:20150929T145000Z
+SUMMARY:Fly the Coop! - Getting Big Data to Soar With Apache Falcon - Michael Miklavcic\, Hortonworks
+DESCRIPTION:Getting your Data Lake to function like a reservoir doesn't happen by accident. From ETL to analytics\, all enterprise-level big data jobs eventually need a reliable platform for automation and data lifecycle management. In this presentation we walk you through Apache Falcon and show real working code examples of data pipelines in action.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:828a9e071bdb39ea3b0c6c6f6ddc8032
+URL:http://apachebigdata2015.sched.org/event/828a9e071bdb39ea3b0c6c6f6ddc8032
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T140000Z
+DTEND:20150929T145000Z
+SUMMARY:Collecting User's Data in a Socially-Responsible Manner - Konark Modi\, Cliqz
+DESCRIPTION:Data from users is needed to build great products. Google\, Facebook\, Doubleclick would not be able to offer their services unless they had tons of data. Cliqz is no exception\, it needs massive amounts of query-logs\, browsing patterns\, etc. to build its search engine and phishing protection. Such data is also collected by other search engines like Google\, Yandex and Bing. Industry standard is to send raw data and sanitize and filter out at the 'backend'\, however\, this approach implies absolute trust on the company's good intentions\, more so there is always a risk of a data-breach or a government subpoena. Cliqz developed a framework called 'Human Web' that combines algorithms and an open infrastructure to collect data in an anonymous way by removing any trace of user identifiability. The 'Human Web' will be open-sourced to encourage others to collect user's data in a safer manner.
+CATEGORIES:USE CASES
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:570ea64b9bfa4aef628a867ce43bf57b
+URL:http://apachebigdata2015.sched.org/event/570ea64b9bfa4aef628a867ce43bf57b
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T150000Z
+DTEND:20150929T170000Z
+SUMMARY:BoFs:  Next Generation Data Processing
+DESCRIPTION:This session is an informal meeting about post-map reduce frameworks such as Spark or Flink. We will also talk about the ecosystem\, architectural patterns (eg. Lambda & Kappa)\, Programming(Scala et al) and abstraction/SQL framework on general purpose data engines.  After hours of listening\, it is about time that you have a chance talk. Share your thoughts\, ideas and questions. Remember\, there is no such thing as a stupid questions. This is also the perfect place to ask questions to session topics that came up after the session was closed. Agenda 1.       Recap and introduction to the topic 2.       General discussion in the big room 3.       Fork into sub-bofs into smaller room on demand (If you want to talk about details on a certain topics and have a deep-dive into technical details\, we invite you to gather some people and create a &ldquo;sub-bof&rdquo;)  
+CATEGORIES:USE CASES
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:c0bf0586db9005eb5dc4f0c737e30bcb
+URL:http://apachebigdata2015.sched.org/event/c0bf0586db9005eb5dc4f0c737e30bcb
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150929T160000Z
+DTEND:20150929T170000Z
+SUMMARY:Apache HAWQ's Nest Community Meeting
+DESCRIPTION:This meeting will also be available online at https://pivotalcommunity.adobeconnect.com/hawqnest/
+CATEGORIES:
+LOCATION:Pivotal Hacker Lounge\, Budapest\, Hungary
+SEQUENCE:0
+UID:2f498376d1125fe043acbbbbc6623ecf
+URL:http://apachebigdata2015.sched.org/event/2f498376d1125fe043acbbbbc6623ecf
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T060000Z
+DTEND:20150930T073000Z
+SUMMARY:Registration						
+DESCRIPTION:For those staying in the hotel\, please proceed to the Brasserie Restaurant for breakfast. For those not staying in the hotel\, continental breakfast will be available in the Valletta II Foyer and Attendee Lounge daily.
+CATEGORIES:BREAK/MEAL
+LOCATION:Valletta 1 Foyer\, Budapest\, Hungary
+SEQUENCE:0
+UID:dcf2ed7b9246e3f7df062d123cb00233
+URL:http://apachebigdata2015.sched.org/event/dcf2ed7b9246e3f7df062d123cb00233
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T070000Z
+DTEND:20150930T072000Z
+SUMMARY:Keynote: Creating a Market for Rapid Shared Innovation in Analytics - Mark Shuttleworth\, Canonical
+DESCRIPTION:The focus of this talk will be to help the community and the many startups around the fieldreduce the friction in the ecosystem\, spreading their ideas and their code faster\, and reducing the time to commercial success. 
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:8bf44a0a5f0645e269afb29d67888094
+URL:http://apachebigdata2015.sched.org/event/8bf44a0a5f0645e269afb29d67888094
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T072000Z
+DTEND:20150930T073000Z
+SUMMARY:Keynote: It Takes a Community to Build a Platform - Greg Chase\, Pivotal
+DESCRIPTION:This era of IT is full of stories of fast growing startups disruptingindustry stalwarts leveraging big data new user experiences built fromopen source software. While these startups merely need to findengineers with the talent to build these new services\, existingenterprises need to find this expertise while helping bridge theirexisting business and customer relationships into these newexperiences.Large enterprise customers turn to Pivotal to create innovationplatforms because they recognize Pivotal's leadership in open sourceand openly governed communities\, ranging from the self-governed SpringSource community\, to creating the Cloud Foundry Foundation\, and mostrecently making some significant contributions of new projects to ASF.Hear the latest about how Pivotal is working with ASF to growin-memory computing with Apache Geode\, SQL on Hadoop with Apache HAWQ\,Data Science with Apache MADlib. Find out about the Open Data Platform(ODP) and how this community of communities enhances the core missionof ASF for the betterment of big data technology users.
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:294182eee37506c031de0d87616d93a6
+URL:http://apachebigdata2015.sched.org/event/294182eee37506c031de0d87616d93a6
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T073000Z
+DTEND:20150930T074000Z
+SUMMARY:Apache Spark - Making the Unthinkable Possible - Anjul Bhambhri\, Vice President\, Big Data\, IBM Silicon Valley Lab
+DESCRIPTION:In this keynote\, IBM's Anjul Bhambhri will highlight how Spark is stretching the boundaries of big data thinking\, and how IBM is contributing to the movement.
+CATEGORIES:KEYNOTE
+LOCATION:Grand Ballroom\, Budapest\, Hungary
+SEQUENCE:0
+UID:e963dc640b36f845c5191ab71cf2d28e
+URL:http://apachebigdata2015.sched.org/event/e963dc640b36f845c5191ab71cf2d28e
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T074000Z
+DTEND:20150930T080000Z
+SUMMARY:Morning Break
+DESCRIPTION:
+CATEGORIES:BREAK/MEAL
+LOCATION:Valletta 2 Foyer\, Budapest\, Hungary
+SEQUENCE:0
+UID:691f7216965ce3c3db9cfcf5f313d82b
+URL:http://apachebigdata2015.sched.org/event/691f7216965ce3c3db9cfcf5f313d82b
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T080000Z
+DTEND:20150930T120000Z
+SUMMARY:BarCampApache
+DESCRIPTION:Join us for an &lsquo;unconference&rsquo; with no set schedule\, facilitated by those involved in various Apache projects. More details and registration information can be found here:https://wiki.apache.org/apachecon/BarCampBudapest
+CATEGORIES:BARCAMP
+LOCATION:Kond\, Budapest\, Hungary
+SEQUENCE:0
+UID:7acb75634bed495126a447e52779af42
+URL:http://apachebigdata2015.sched.org/event/7acb75634bed495126a447e52779af42
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T080000Z
+DTEND:20150930T095000Z
+SUMMARY:Tutorial: DIY Continous Delivery Pipeline for Big/Fast Data Apps - Nate DAmico
+DESCRIPTION:You have a data processing service you want/need to deploy\, you have picked your Apache Foundation components you want to leverage\, and begin to start developing and deploy your apps. As you iterate you start you quickly learn that ASF projects and best practices move pretty fast and you have to deal with the various issues with changes in versions/configurations not only in the ASF components you depend on\, but also in your application itself. This tutorial session will walk users through Apache Bigtop tooling and reference examples provided by the community to put together a framework and processes that empower users to better handle change management and improve confidence when deploying their data applications/services. General knowledge of software testing and tools such as Jenkins is helpful\, but not required.
+CATEGORIES:FAST DATA - IN-MEMORY
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:54bba5d6e449a4175bccf6b1a7ff9dea
+URL:http://apachebigdata2015.sched.org/event/54bba5d6e449a4175bccf6b1a7ff9dea
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T080000Z
+DTEND:20150930T085000Z
+SUMMARY:Upholstering Apache CouchDB - Benjamin Young\, The Hypothesis Project
+DESCRIPTION:Apache CouchDB does two things other databases don't: it replicates and it speaks HTTP as it's primary protocol. These unique qualities all you to build applications that are "of the Web" but that can also move "off the Web"--into your local network\, your farm equipment\, or the phone you're carrying. In this tutorial we'll take a look at CouchApps. CouchApps are application logic (index definitions\, document and result templates\, validation functions) that live inside a CouchDB database along with the static HTML\, JS\, CSS\, and images needed for the UI. In this tutorial we'll take a look at various tools for building\, integrating\, and deploying CouchApps. We'll take a deep dive into building a CouchApp: both the thought process and the code. Near the end\, we'll throw a replication party--moving the app between attendee devices sharing the app and it's accumulated data.
+CATEGORIES:NOSQL
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:b0adf565b69674ed03f5a20128a3a1f7
+URL:http://apachebigdata2015.sched.org/event/b0adf565b69674ed03f5a20128a3a1f7
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T080000Z
+DTEND:20150930T085000Z
+SUMMARY:How to Deploy a Secure\, High-Available\, Hadoop Platform - Olaf Flebbe\, science+computing ag
+DESCRIPTION:We demonstrate the fully automatic installation of a hadoop cluster including infrastructure. The basic building blocks of the Demonstration are the Debian Distribution incl. puppet\, configuration with hiera\, a list of community puppet modules and deploy scripts and packages from the apache bigtop distribution. The automatically installed cluster sports an HA MIT Kerberos and openLDAP setup\, apache zookeeper fencing\, HA Hadoop ( journalling\, and RM). WebGUI&rsquo;s are authenticated with SPNEGO\, Hive is configured with standard SQL authorization and Hue is provided as frontend. One of the advanced features is the use of puppets CA via PKINIT for preauthentication and bootstrapping a secure kerberos KDC and securing hadoop with it.
+CATEGORIES:SECURITY
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:71779ffe84e86f7126ee66182cd88398
+URL:http://apachebigdata2015.sched.org/event/71779ffe84e86f7126ee66182cd88398
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T080000Z
+DTEND:20150930T085000Z
+SUMMARY:Configuring and Optimizing Spark Applications with Ease - Nishkam Ravi\, Cloudera
+DESCRIPTION:Spark API exports intuitive and performant one-liners for data processing\, which hide complexity and allow applications to be developed quickly. As an in-memory system\, Spark has to be configured properly for performance and stability. This can sometimes be challenging. Based on internal deployments and interaction with customers\, we conclude that (i) most Spark woes can be traced back to misconfiguration\, and (ii) there is a need for tools that can aid configuration\, performance optimization and debugging. In this talk\, we will discuss common Spark configuration pitfalls and show how they can be avoided with the help of the auto-configuration and optimization tool being developed at Cloudera.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:55afa6d65370a56bdbcb5eba5166f010
+URL:http://apachebigdata2015.sched.org/event/55afa6d65370a56bdbcb5eba5166f010
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T080000Z
+DTEND:20150930T085000Z
+SUMMARY:Apache Kylin - Extreme OLAP engine for Hadoop - Seshu Adunuthula\, eBay Cloud Services
+DESCRIPTION:Apache Kylin is an open source Distributed Analytics Engine contributed by eBay Inc. that provides SQL interface and multi-dimensional analysis (OLAP) on Hadoop supporting extremely large datasets. Kylin&rsquo;s pre-built MOLAP cubes\, distributed architecture\, and high concurrency helps users analyze multidimensional queries using Kylin&rsquo;s SQL interface as well as via other BI tools like Tableau and Microstrategy. Kylin is successfully deployed and used in eBay for a variety of production use cases\, including web traffic analysis and geographical expansion analysis. It was open sourced on Oct 1\, 2014 and has 320 stars and 125 forks. Kylin has been accepted as Apache Incubator Project on Nov 25\, 2014.
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:d1ff9953ec6cc7a125d6099ba18baa0d
+URL:http://apachebigdata2015.sched.org/event/d1ff9953ec6cc7a125d6099ba18baa0d
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T080000Z
+DTEND:20150930T085000Z
+SUMMARY:How We Use Kappa Architecture in all of Our Projects - Juantomas Garcia\, Aspgems 
+DESCRIPTION:As the CDO of ASPGems we use Kappa Architecture in every project we did the last 15 months. We want to explain what kappa architecture is\, how we use it and what kind of problems we are solving in real projects. From small projects to very big ones (millions records per seconds). We will explain also why scala + kafka + spark are the key technologies that help to do successful projects.
+CATEGORIES:USE CASES
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:5774da4861919f1327467b440159ed43
+URL:http://apachebigdata2015.sched.org/event/5774da4861919f1327467b440159ed43
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T090000Z
+DTEND:20150930T095000Z
+SUMMARY:HBase and Drill: How Loosely Typed SQL is Ideal for NoSQL - Tugdual Grall\, MapR Technologies
+DESCRIPTION:The Apache HBase approach to data has a huge potential for expressing NoSQL-y\, non-relational programs. Apache Drill supports SQL for non-relational data. Paradoxically\, combining this NoSQL with this SQL tool results in something even better. Using concrete examples such as Time Series and Music Database applications\, I will show how and why you should combine HBase and Drill to create highly scalable and available applications exposing NoSQL data to any SQL compliant tool.
+CATEGORIES:NOSQL
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:aa0f74ac8366874933cc9f99aa348667
+URL:http://apachebigdata2015.sched.org/event/aa0f74ac8366874933cc9f99aa348667
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T090000Z
+DTEND:20150930T095000Z
+SUMMARY:Hadoop and Kerberos: the Madness Beyond the Gate - Steve Loughran\, Hortonworks
+DESCRIPTION:When HP Lovecraft wrote of forbidden knowledge about non-human deities\, knowledge which would reduce the reader to insanity\, most people assumed that he was making up a fantasy world. In fact he was documenting Kerberos and its Hadoop integration. There are some things humanity was not meant to know. Most people are better off living lives of naive innocence\, never having to see an error message about SASL or GSS\, to never stare in terror at classes only whose initials\, UGI\, are ever spoken aloud -or more accurately\, whispered. This talk goes into the depths\, to the knowledge which you need to write applications in a secure Hadoop cluster\, knowledge that may drive you insane. Forever more\, you shall fear voices calling out in the night\, voices saying things like "we have an urgent Kerberos-related support call -can you help?"
+CATEGORIES:SECURITY
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:a10da43d16686f049ee6e25640ee3e8b
+URL:http://apachebigdata2015.sched.org/event/a10da43d16686f049ee6e25640ee3e8b
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T090000Z
+DTEND:20150930T095000Z
+SUMMARY:Shared Memory Layer for Spark Applications - Dmitriy Setrakyan\, GridGain
+DESCRIPTION:In this presentation we will talk about the need to share state across different Spark jobs and applications and several technologies that make it possible\, including Tachyon and Apache Ignite. We will dive into importance of In Memory File Systems\, Shared In-Memory RDDs with Apache Ignite\, as well as present a hands on demo demonstrating advantages and disadvantages of one approach over another. We will also discuss requirements of storing data off-heap in order to achieve large horizontal and vertical scale of the applications using Spark and Ignite.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:663d580c6f95d7567868678d7900a93d
+URL:http://apachebigdata2015.sched.org/event/663d580c6f95d7567868678d7900a93d
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T090000Z
+DTEND:20150930T095000Z
+SUMMARY:Federated SQL on Hadoop and Beyond: Leveraging Apache Geode to Build a Poor Man's SAP HANA - Christian Tzolov\, Pivotal
+DESCRIPTION:In the space of Big Data\, two powerful data processing tools compliment each other. Namely HAWQ and Geode. HAWQ is a scalable OLAP SQL-on-Hadoop system\, while Geode is OLTP like\, in-memory data grid and event processing system. This presentation will show different integration approaches that allow integration and data exchange between HAWQ and Geode. Presentation will walking you through the implementation of the different Integration strategies demonstrating the power of combining various OSS technologies for processing bit and fast data. Presentation will touch upon OSS technologies like HAWQ\, Geode\, SpringXD\, Hadoop and Spring Boot.
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:6a057fc83c5426beeefd4638837c634f
+URL:http://apachebigdata2015.sched.org/event/6a057fc83c5426beeefd4638837c634f
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T090000Z
+DTEND:20150930T095000Z
+SUMMARY:Profiting From Apache Projects Without Losing Your Soul - Shane Curcuru\, Apache Software Foundation
+DESCRIPTION:Does your company want to capitalize on the Apache brand? Are you interested in seeing how closely you can tie your marketing into the latest Apache projects? Do you recognize the importance of supporting the Apache ecosystem\, not just with code contributions but other actions? As VP of Brand Management for all Apache projects\, Shane can help show business and technical leaders some of the ways they can respectfully and successfully market and position their own services and products in relation to Apache project brands. The key message is: Apache project governance is independent; but we are happy to have businesses build their software and services on any Apache software products. You may incorporate Apache brands within your brands\, but in specific ways that still give our communities credit. We're here to help!
+CATEGORIES:USE CASES
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:a9c48643473168fb9db0fd3816ef3439
+URL:http://apachebigdata2015.sched.org/event/a9c48643473168fb9db0fd3816ef3439
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T100000Z
+DTEND:20150930T105000Z
+SUMMARY:SAMOA: A Platform for Mining Big Data Streams - Nicolas Kourtellis\, Telefonica I+D\, Barcelona
+DESCRIPTION:In this talk\, Nicolas Kourtellis will introduce Apache SAMOA (Scalable Advanced Massive Online Analysis)\, an open-source platform for mining big data streams (http://samoa.incubator.apache.org). Apache SAMOA provides a collection of distributed streaming algorithms for data mining tasks such as classification\, regression\, and clustering. The models built can be updated as new data arrive without the need to define data batches or update frequencies. The platform features a pluggable architecture that can run on existing and well-tested distributed stream processing engines such as Storm\, S4\, Samza and Flink\, for scalability and fault tolerance.
+CATEGORIES:DATA SCIENCE
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:6fc31abcea2cb68d9288a642515c109c
+URL:http://apachebigdata2015.sched.org/event/6fc31abcea2cb68d9288a642515c109c
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T100000Z
+DTEND:20150930T105000Z
+SUMMARY:Securing Hadoop in an Enterprise Context - Hellmar Becker\, ING
+DESCRIPTION:Hadoop clusters can be secured using Kerberos and LDAP\, and tools like Ranger and Sentry facilitate security administration. How do you connect a cluster to an enterprise directory with 100\,000+ users and centralized role and access management? Hellmar will present ING's approach to synchronize Hadoop role management with the central repository\, emphasizing aspects of performance and system stability. He will discuss specific changes to the Ranger security tool that ING introduced to mitigate directory server load\, and general aspects of the security model.
+CATEGORIES:SECURITY
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:b887caa7a98116b69dfd201780cd7619
+URL:http://apachebigdata2015.sched.org/event/b887caa7a98116b69dfd201780cd7619
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T100000Z
+DTEND:20150930T105000Z
+SUMMARY:Apache Ignite: In-Memory Data Fabric in Action - Dmitriy Setrakyan\, GridGain
+DESCRIPTION:In this talk Dmitriy will dissect the Apache Ignite architecture. We will focus on how Apache Ignite data partitioning and replication works\, how computations are distributed and failed over in case of crashes. We will also talk about in-memory streaming in Ignite and various techniques we can employ to make it fault tolerant. To demonstrate how easy it is to get started with Ignite\, Dmitriy will also run several Ignite coding examples live during the presentation.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:ef8636a3da61eb3d46935ffe117e7d7b
+URL:http://apachebigdata2015.sched.org/event/ef8636a3da61eb3d46935ffe117e7d7b
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T100000Z
+DTEND:20150930T105000Z
+SUMMARY:Realtime Reactive Apps with Actor Model and Apache Spark - Rahul Kumar\, Sigmoid Analytics
+DESCRIPTION:Developing Application with Big Data is really challenging work\, scaling\, fault tolerance and responsiveness some are the biggest challenge. Realtime bigdata application that have self healing feature is a dream these days. Apache Spark is a fast in-memory data processing system that gives a good backend for realtime application.In this talk I will show how to use reactive platform\, Actor model and Apache Spark stack to develop a system that have responsiveness\, resiliency\, fault tolerance and message driven feature.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:c2764a64b9b613bd094bc577066c6578
+URL:http://apachebigdata2015.sched.org/event/c2764a64b9b613bd094bc577066c6578
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T100000Z
+DTEND:20150930T105000Z
+SUMMARY:Introduction to Pivotal HAWQ[1]: A Deep Drive Into the Architecture of an Advanced SQL Engine - Caleb Welton\, Pivotal
+DESCRIPTION:The Pivotal HAWQ[1] project\, planned for incubation into an Apache project\, is designed to provide a highly performant ANSI SQL compliant query engine supporting a sophisticated resource management model\, transactional DML and DDL operations\, window functions\, grouping sets\, complex sub-queries\, common table expressions\, and strong extensibility capabilities for customized analytics and machine learning. In this session we will present an overview of the product features\, describe the key architectural components\, and walk through the overall project structure. [1] Project incubation and Apache project name pending approval by the Apache Foundation.
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:0d905cdba67d04635a1a06e03038a3af
+URL:http://apachebigdata2015.sched.org/event/0d905cdba67d04635a1a06e03038a3af
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T100000Z
+DTEND:20150930T105000Z
+SUMMARY:Data Quality on Mars - ISO 80000 and other Standards -Werner Keil
+DESCRIPTION:Big Data without Data Quality becomes messy and meaningless in most cases. Therefore\, data and measurements have to be stored and transferred in a standard way. We all know that when representing a temperature\, for example\, we normally have it as decimal/float. But\, is this float in Celsius? Fahrenheit? Kelvin? One of the most vivid examples was Mars Climate Orbiter being lost as the spacecraft went into orbital insertion\, due to ground-based computer software which produced output in non-SI units of pound-seconds (lbf&times;s) instead of the metric units of newton-seconds (N&times;s) specified in the contract between NASA and Lockheed. In this session we're going to explore data quality and measurement standards like ISO 80000 or UCUM (Unified Code for Units of Measure)\, Unit support for programming languages and APIs plus projects using them like Apache SIS\, Performance Co-Pilot or uDig.
+CATEGORIES:USE CASES
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:66de18397b935b7790625f69e6aaacb3
+URL:http://apachebigdata2015.sched.org/event/66de18397b935b7790625f69e6aaacb3
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T105000Z
+DTEND:20150930T122000Z
+SUMMARY:Lunch
+DESCRIPTION:
+CATEGORIES:BREAK/MEAL
+LOCATION:Brasserie Restaurant\, Budapest\, Hungary
+SEQUENCE:0
+UID:9eff5fa019ebbcce280a3165e20de97d
+URL:http://apachebigdata2015.sched.org/event/9eff5fa019ebbcce280a3165e20de97d
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T123000Z
+DTEND:20150930T132000Z
+SUMMARY:Implementing a Highly Scalable In-Memory Stock Prediction System with Apache Geode (incubating)\, R and Spring XD - William Markito Oliveira\, Pivotal and Fred Melo\, Pivotal
+DESCRIPTION:Finance market prediction has always been one of the hottest topics in Data Science and Machine Learning. However\, the prediction algorithm is just a small piece of the puzzle. Building a data stream pipeline that is constantly combining the latest price info with high volume historical data is extremely challenging using traditional platforms\, requiring a lot code and thinking about how to scale or move into the cloud. This session is going to walk-through the architecture and implementation details of an application built on top of open-source tools that demonstrate how to easily build a stock prediction solution with almost no source code - except a few lines of R and the UI interface based on JavaFX\, using Apache Geode for fast data and real-time notifications\, combining streaming and distributed processing for stock indicator algorithms.
+CATEGORIES:DATA SCIENCE
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:ae8f06c2e71e0b8996bb9698ae3a6c6d
+URL:http://apachebigdata2015.sched.org/event/ae8f06c2e71e0b8996bb9698ae3a6c6d
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T123000Z
+DTEND:20150930T132000Z
+SUMMARY:Using Natural Language Processing on Non-Textual Data with MLLib - Casey Stella\, Hortonworks
+DESCRIPTION:Natural language processing techniques are well established due to their obvious utility. Further\, the rise in unstructured textual data has resulted in mature\, distributed and scalable implementations beginning to be seen. While textual data is extremely common\, there is apparently unstructured data which has underlying structure in the same way words which compose sentences have an underlying grammatical structure. This talk explores borrowing some natural language programming techniques to analyze the structure in non-textual data. In particular\, we consider the Word2Vec implementation in MLLib to help us organize and analyze non-textual clinical event data (I.e. Diagnoses\, drugs prescribed\, etc.). We will explore connections between diseases and drugs in an unsupervised way with Python\, Spark and MLLib.
+CATEGORIES:DATA SCIENCE
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:0fff88e34f2a1a15694f5442e12dcc9b
+URL:http://apachebigdata2015.sched.org/event/0fff88e34f2a1a15694f5442e12dcc9b
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T123000Z
+DTEND:20150930T132000Z
+SUMMARY:Faster ETL Workflows Using Apache Pig & Spark - Praveen Rachabattuni\, Sigmoid Analytics
+DESCRIPTION:Pig on Spark aims to combine the simplicity of Pig with faster execution engine Spark and make Pig more promising to developers. Currently\, with the help of Apache foundation\, various contributions are working on the project for a release quality build. With Pig on spark\, significant performance benefit has been observed in ETL workflows already running on MapReduce. Our initial benchmarks have shown 2x-5x improvement over Mapreduce. For a benchmarking test\, we considered the &lsquo;distinct&rsquo; operation. We used the wikistats dump for 25 days with a size of 270G\, on a cluster involving one master and four worker machines (16 cores and 64GB RAM each). It took about 14 mins with Pig on Spark\, compared to about 30 mins on Mapreduce. In this talk\, Praveen would be sharing the progress of the project with the community and help people take advantage of Pig-Spark in their workflows.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:21d201de02fc0b2c311b08d8def84ebf
+URL:http://apachebigdata2015.sched.org/event/21d201de02fc0b2c311b08d8def84ebf
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T123000Z
+DTEND:20150930T132000Z
+SUMMARY:Apache Trafodion (incubating) brings operational workloads to Hadoop - Rohit Jain\, Esgyn
+DESCRIPTION:Trafodion is a world class Transactional SQL RDBMS running on HBase/Hadoop\, currently in Apache incubation. In this talk we will discuss: How operational workloads are different from BI and analytical workloads The operational (OLTP & Operational Data Store) use cases Trafodion addresses Why Trafodion is the right solution for these use cases.  That is\, what is the recipe for a world class database engine\, and how Trafodion implements the ingredients that make up that recipe:  Time\, money\, and talent! World class query optimizer World class parallel data flow execution engine World class distributed transaction management system Other important aspects such as performance\, scale\, availability\, and future directions
+CATEGORIES:SQL
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:15ef691e8d5791f24ee3883796416251
+URL:http://apachebigdata2015.sched.org/event/15ef691e8d5791f24ee3883796416251
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T123000Z
+DTEND:20150930T132000Z
+SUMMARY:Integrating Fully-Managed Data Streaming Services with Apache Samza - Renato Marroquinm ETH Zurich
+DESCRIPTION:Recently\, the interest in highly scalable stream processing engines has risen\, thus many projects have appeared. Apache Samza is a distributed stream-processing framework that uses Apache Kafka for messaging\, and Apache Hadoop YARN to provide fault tolerance\, and resource management. It is one of the most popular stream processing engines out there used by many high-profile companies. On the other hand\, we have Amazon Kinesis that is a fully managed service for real-time processing of streaming data which allows users to scale the amount of data ingested by Kinesis without worrying about the infrastructure details. This presentation gives a brief introduction about the very popular Samza-Kafka integration\, then focuses on the new Samza-Kinesis integration\, and explains users the new opportunities they have due to the new Samza-Kinesis integration.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:a385f59bba4c290527d06df4c05693f6
+URL:http://apachebigdata2015.sched.org/event/a385f59bba4c290527d06df4c05693f6
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T123000Z
+DTEND:20150930T132000Z
+SUMMARY:Hot 100 on Spark - Analyzing Trends in the Billboard Charts - Michael Miklavcic\, Hortonworks
+DESCRIPTION:Are you a fan of data and music? It may be common knowledge that Taylor Swift and Katy Perry land a lot of number one singles\, but are there other more subtle truths that we can find if we dig a little deeper? In this talk we dive into the Billboard charts using Spark and Spark SQL to look for trends and chart outliers using popular statistical analysis techniques like median absolute deviation (MAD).
+CATEGORIES:USE CASES
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:8cfb1d1e4b2ceb334eafc3af57e9c151
+URL:http://apachebigdata2015.sched.org/event/8cfb1d1e4b2ceb334eafc3af57e9c151
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T133000Z
+DTEND:20150930T142000Z
+SUMMARY:HDFS 2015: Past\, Present and Future - Akira Ajisaka\, NTT DATA
+DESCRIPTION:Hadoop Distributed File System (HDFS) has plenty of functions for collecting and processing big data and therefore used by a lot of companies. As they have been using Hadoop and HDFS\, some heavy users become to have new demands such as scalability\, resource efficiency\, and security. To satisfy these demands\, heterogeneous storages\, object storage\, data encryption\, and many features have been developed. This presentation will introduce these new features developed in 2015 from developer's and vendor-neutral view. This talk will cover the main purpose (What is the problem to solve?)\, the architecture (How to solve the problem?)\, and the development progress (When users will be able to use the feature?) for each new feature.
+CATEGORIES:FILESYSTEMS - DATASTORES
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:959e816ef57e87a2a4df56d009a529db
+URL:http://apachebigdata2015.sched.org/event/959e816ef57e87a2a4df56d009a529db
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T133000Z
+DTEND:20150930T142000Z
+SUMMARY:Apache Spark for High-Throughput Systems - Michael Starch\, NASA Jet Propulsion Laboratory
+DESCRIPTION:Data systems are increasingly expected to support data rates nearing network bandwidth limitations around 10Gb/s. Apache Spark is capable of high-throughputs via distributed computing and thus is a good choice to support a data system in this environment; however\, most technologies breakdown under these conditions. Thus it is essential that Apache Spark be characterized for production use at these scales. This talk will discuss the approach to running Apache Spark at throughputs on the order of 10Gb/s while performing non-trivial processing. This will give users a feel for Apache Spark&rsquo;s performance under the most demanding conditions. Setup of Apache Spark\, configuration used\, and resource requirements to process at this scale will be discussed. In addition\, concrete take-aways will be provided to users desiring to push Apache Spark to this scale.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:57ca615d71f4650bd5619990278d5a56
+URL:http://apachebigdata2015.sched.org/event/57ca615d71f4650bd5619990278d5a56
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T133000Z
+DTEND:20150930T142000Z
+SUMMARY:Introduction to Apache Tajo: Data Warehouse for Big Data - Jihoon Son\, Gruter
+DESCRIPTION:Apache Tajo is a data warehouse system for Web-scale data. It provides virtual integration of a multitude of diverse data sources\, thereby facilitating easy and rapid data integration which has been regarded as an essential\, but heavy step in business intelligence. In addition\, it has a fault-tolerable distributed query engine for accelerating query speed. With the &ldquo;query federation&rdquo; and &ldquo;distributed processing&rdquo; capacities\, Tajo is capable of providing users with reliable and efficient analysis of Web-scale data spread on multiple sources. Jihoon Son will introduce Apache Tajo including its overall architecture\, current state and challenges\, and discuss advantages what Tajo can bring to users. In addition\, he will give a demo of integrated data analysis with Tajo.
+CATEGORIES:SPARK - FLINK - TAJO - CASCADING
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:aa8e2cc2c8e73c83bfeeabe09b76b778
+URL:http://apachebigdata2015.sched.org/event/aa8e2cc2c8e73c83bfeeabe09b76b778
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T133000Z
+DTEND:20150930T142000Z
+SUMMARY:Deploying Spark Streaming with Kafka: Gotchas and Performance Analysis - Nishkam Ravi\, Cloudera
+DESCRIPTION:Apache Spark is an in-memory compute engine that supports real time data processing through the streaming API. Kafka is a popular publish-subscribe messaging system used for data ingest and distribution. The performance of Spark streaming with Kafka is barely understood. In this talk\, we will discuss different Spark streaming APIs that can be used for receiving data from Kafka and evaluate their performance for complex event processing. We will also highlight some caveats and corresponding workarounds for best performance. We find that Spark+Kafka yields high throughput and sub-second latencies for complex events when configured properly.
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:2e82e73c97de104ccef73346e4b7773b
+URL:http://apachebigdata2015.sched.org/event/2e82e73c97de104ccef73346e4b7773b
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T133000Z
+DTEND:20150930T142000Z
+SUMMARY:Hadoop Backup and Scaling in Hybrid Environment - Pawel Leszczynski\, Robert Mroczkowski\, Mariusz Strzelecki\, Allegro Group
+DESCRIPTION:In event sourcing architecture there is a single source of truth and Hadoop is the tool to fulfil that. We use Apache Kafka and Hermes message bus as a single entry point of events. There is no efficient solution for live backup of data with CRUD operations enabled. However when handling immutable events\, we can backup data live to multiple locations like Hadoop cluster in another data center or any storage provider that supports S3 API. Storing exact copies of data in different locations allows to extend compute power of private data center with public platform provider. Such a hybrid solution benefits from cloud elasticity\, so we can easily scale on demand. In this presentation architectural design patterns for backup and compute power scaling will be presented. We also focus on technical aspects of our architecture built on the top of open source software.
+CATEGORIES:USE CASES
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:d4d4fe1816a8c060a450d78ad3df3818
+URL:http://apachebigdata2015.sched.org/event/d4d4fe1816a8c060a450d78ad3df3818
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T133000Z
+DTEND:20150930T142000Z
+SUMMARY:Leveraging Arm64 for Big Data Scale Out - Martin Stadtler\, Linaro
+DESCRIPTION:ARM 64-bit servers are a true implementation of the scale-out architecture and a very good fit for distributed processing frameworks like Hadoop\, Spark and big data analytics in general. The session will provide a summary of the workloads running on ARM servers\, the status of Aarch64 support in JDK9 and it will describe the set up\, build and testing of Hadoop on ARM\, the optimizations achieved so far\, plans to be a reference citizen in the big data analytics community\, collaborations with the ecosystem and next steps.
+CATEGORIES:USE CASES
+LOCATION:Tohotom\, Budapest\, Hungary
+SEQUENCE:0
+UID:85da4f865841cbe0143966fe9f07dc41
+URL:http://apachebigdata2015.sched.org/event/85da4f865841cbe0143966fe9f07dc41
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T140000Z
+DTEND:20150930T150000Z
+SUMMARY:Apache Geode Clubhouse Community Meeting
+DESCRIPTION:This community meeting will also be available online at https://pivotalcommunity.adobeconnect.com/clubhouse/
+CATEGORIES:
+LOCATION:Pivotal Hacker Lounge\, Budapest\, Hungary
+SEQUENCE:0
+UID:b6af740e21fed08a4d0263e29281f7b8
+URL:http://apachebigdata2015.sched.org/event/b6af740e21fed08a4d0263e29281f7b8
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T143000Z
+DTEND:20150930T152000Z
+SUMMARY:Data Science: A View from the Trenches - Ram Sriharsha\, Hortonworks and Vinay Shukla\,Hortonworks
+DESCRIPTION:At Hortonworks\, we have been working closely with a group of customers to onboard Data Science and Predictive Analytics applications on the Hortonworks Data Platforms using Spark. In this talk\, we discuss the use cases and explore some of the challenges and solutions that arise in building real-world predictive analytics systems on top of Spark. These include useful tricks for memory savings\, tradeoffs on the choice of the learning and feature engineering algorithms\, tips and tricks to avoid performance bottlenecks\, methods for assessing and visualizing accuracy\, methods for providing confidence estimates for predictions and methods for managing retraining and deployment of trained models to production.
+CATEGORIES:DATA SCIENCE
+LOCATION:Huba\, Budapest\, Hungary
+SEQUENCE:0
+UID:b260e35a5eb35254365e3432b955cf20
+URL:http://apachebigdata2015.sched.org/event/b260e35a5eb35254365e3432b955cf20
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T143000Z
+DTEND:20150930T152000Z
+SUMMARY:How Cognitive Computing is Changing Data Science for the Better - Michael Ludden\, IBM
+DESCRIPTION:During this session\, attendees will learn about the emerging field of Cognitive Computing and how it can assist humans in crunching through big data sets and ultimately making deep insights accessible to the next generation of app develoeprs without requiring massive resources.
+CATEGORIES:DATA SCIENCE
+LOCATION:Dery/Mikszath\, Budapest\, Hungary
+SEQUENCE:0
+UID:ffb2a2633878b03ecd919e720c3ce032
+URL:http://apachebigdata2015.sched.org/event/ffb2a2633878b03ecd919e720c3ce032
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T143000Z
+DTEND:20150930T152000Z
+SUMMARY:Apache Ignite: The Journey from Incubation to Graduation - Konstantin Boudnik\, WANdisco & Roman Shaposhnik\, Pivotal
+DESCRIPTION:Following up on the recent graduation of Apache Ignite into TLP\, Konstantin and Roman will talk about Apache Incubation process from the mentor's point of view. What were the challenges and bumps in the process of helping people to adopt and appreciate the "Apache Way"? Was it worthy of bringing a successful commercial platform to open source and what were the motivations? What we could do differently? How the open source model changed the mind set of the contributors and customers of the project?
+CATEGORIES:FAST DATA - IN-MEMORY
+LOCATION:Petofi\, Budapest\, Hungary
+SEQUENCE:0
+UID:85c155aa610cd488b77133ad74529c88
+URL:http://apachebigdata2015.sched.org/event/85c155aa610cd488b77133ad74529c88
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T143000Z
+DTEND:20150930T152000Z
+SUMMARY:Near Real Time Indexing Kafka Messages to Apache Blur using Spark Streaming - Dibyendu Bhattacharya\, Pearson North America
+DESCRIPTION:Pearson is building a next generation adaptive learning platform and their Near Real Time architecture is powered by Kafka and Spark Streaming. Pearson also building a search infrastructure to index various learners data to Apache Blur\, which is a Lucene based distributed search solution on Hadoop. For supporting NRT indexing into Apache Blur\, Pearson has designed a fault-tolerant and reliable low-level Kafka Consumer for Spark Streaming. This talk will cover why Pearson chosen Apache Blur and how they designed this Kafka Consumer for Spark which helped NRT indexing into Blur. This talk will also cover the implementation details of Spark to Blur connector for doing bulk indexing to Apache Blur using Spark Hadoop API. This Spark-Blur connector is contributed to Apache Blur Project (http://bit.ly/1HVWk7G) and Kafka-Spark consumer is contributed to spark-packages (http://bit.ly/1PRNNtM)
+CATEGORIES:STREAMING - PIPELINING - IOT
+LOCATION:Krudy/Jokai\, Budapest\, Hungary
+SEQUENCE:0
+UID:f256268b6ae78650511960ed25c38c9d
+URL:http://apachebigdata2015.sched.org/event/f256268b6ae78650511960ed25c38c9d
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T143000Z
+DTEND:20150930T152000Z
+SUMMARY:How to Transform Data into Money Using Big Data Technologies - Jorge Lopez-Malla\, Stratio
+DESCRIPTION:We are used to hearing that we live in the Age of Data but we have to face the truth: we live in the Age of &ldquo;Big Data&rdquo;. Companies are starting to realize that traditional technologies are not enough to accomplish their usual tasks with the massive amount of information that we are generating every day. Big Data processes are not as brand new as people think. Nonetheless\, what we\, the developers\, as well as the companies aren&rsquo;t used to seeing\, is getting value out of their own data. To illustrate this fact\, we are going to show a successful use case in which using Apache Spark\, HDFS and Apache Parquet\, a Middle-East Telco company could not only start a new business line getting prized information for third parties from their own data\, but also improve its own coverage network through the analysis of these data
+CATEGORIES:USE CASES
+LOCATION:Tas\, Budapest\, Hungary
+SEQUENCE:0
+UID:5d19ec5c274cf34d979cb802bf46f9ec
+URL:http://apachebigdata2015.sched.org/event/5d19ec5c274cf34d979cb802bf46f9ec
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150930T160000Z
+DTEND:20150930T193000Z
+SUMMARY:Closing Attendee Reception with ApacheCon: Core Attendees 
+DESCRIPTION:
+CATEGORIES:EVENING EVENT
+LOCATION:Ötkert Ruin Pub\, Budapest\, Hungary
+SEQUENCE:0
+UID:05bd9c1e7736fa43e12bf9d39d12f697
+URL:http://apachebigdata2015.sched.org/event/05bd9c1e7736fa43e12bf9d39d12f697
+END:VEVENT
+END:VCALENDAR
