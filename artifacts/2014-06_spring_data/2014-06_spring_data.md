@@ -144,7 +144,8 @@ public interface EmployeeRepositoryCustom {
 }
 ```
 
-Saját implementáció:
+A saját implementáció neve kötelezően a repository interfész neve 
+az `Impl` posztfixszel:
 
 ```java
 public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
