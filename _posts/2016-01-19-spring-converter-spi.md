@@ -13,6 +13,8 @@ A Spring nagyon könnyen bővíthető, és ezen konverziós mechanizmus mögött
 
 Ezen használati helyeket tekinti át ez a poszt, melyhez példaprogram is készült, és elérhető a [GitHubon](https://github.com/vicziani/jtechlog-spring-converter).
 
+<!-- more -->
+
 Példának vegyünk egy gázóra (`GasHour`) osztályt. Ennek a különlegessége, hogy 6:00 az első órája, és a nyári és téli időszámítás miatt létezik egy 23, és egy 25 órás gáznap is. Ennek szöveges reprezentációja pl. `2015-01-01 9.`, ami a 2015. január 1-ei gáznap 9. gázóráját jelenti.
 
 Ez az osztály legyen valami hasonló:

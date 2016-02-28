@@ -1,7 +1,7 @@
 # Site settings
 title: JTechLog
-lead: Viczián István Java blogja
-description: Viczián István Java blogja
+lead: Viczián István blogja
+description: Viczián István blogja
 url: "http://www.jtechlog.hu"
 author: Viczián István
 twitter_username: vicziani
@@ -9,3 +9,4 @@ github_username: vicziani
 
 # Build settings
 markdown: kramdown
+excerpt_separator: "<!-- more -->"

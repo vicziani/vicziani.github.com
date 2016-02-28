@@ -9,6 +9,8 @@ Webes alkalmazások esetén statikus erőforrásnak nevezzük a JavaScript, vala
 
 A cache-elés egészen HTTP protokoll szinten támogatott, erről a Google is részletesen ír a [HTTP caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=en) oldalán. A cache-elés szabályozására alapvetően három eszköz áll rendelkezésünkre. Az egyik a `Cache-Control` szerepeltetése a válasz HTTP fejlécében. A másik ugyanott az `ETag` érték. A harmadik tulajdonképpen egy trükk, miszerint a változott erőforrást más URL-en publikáljuk.
 
+<!-- more -->
+
 Talán a legismertebb a `Cache-Control` használata. Az alapötlet az, hogy utasítjuk a böngészőt, hogy a letöltött erőforrást a meghatározott ideig ne töltse le újra, hanem amennyiben hivatkozás van rá, azt a lokális cache-ből szolgálja ki. Ehhez gyakorlatilag a `Cache-Control` fejléc bejegyzésnél meg kell adnunk a `max-age` értéket.
 
 A következő fejléc bejegyzés tehát azt mondja meg a böngészőnek, hogy amennyiben a következő órában (60 * 60 másodperc) újra hivatkozás történik az adott erőforrásra, azt ne kérje el újra a szervertől.

@@ -28,6 +28,8 @@ A GitHubon lévő
 szemlélteti, hogy hogyan használhatjuk az ETaget Springes controller
 osztályból.
 
+<!-- more -->
+
 Az Etag beállítása a `ResponseEntity` használatával történhet, ahogy a 
 következő példa is mutatja.
 

@@ -13,6 +13,8 @@ Az objektumorientált programozás megjelenése óta az alkalmazásaink alap ép
 
 A kettő között hiányzik azonban egy szint, olyan komponensek, melyek újrafelhasználhatóak és használatuk viszonylag egyszerű. Ez a szint [Kirk Knoernschild: Java Application Architecture](http://www.amazon.com/Java-Application-Architecture-Modularity-Patterns/dp/0321247132) könyve szerint a modul szint. A könyvről már írtam a [Java Application Architecture posztomban](http://www.jtechlog.hu/2014/10/04/java-application-architecture.html). Definíciója szerint a modulok a következő tulajdonságokkal rendelkeznek. Külön telepíthető. Külön kezelhető, mely futás közben annyit jelent, hogy külön lehet elindítani és leállítani. Fejlesztési aspektusa, hogy külön lehet fejleszteni, buildelni, release-elni. Külön tesztelhető. Különösebb plusz architektúra nélkül használhatóak, azaz egyszerű metódushívásokon keresztül. Több kisebb modulból  összetett funkcionalitású összetett modul építhető. Modul, mint olyan nem példányosítható, állapottal nem rendelkezik, csupán a benne lévő komponensek, az objektumok léteznek a virtuális gépen belül. Tömör, jól definiált és egyszerűen használható interfésszel rendelkeznek a külvilág felé.
 
+<!-- more -->
+
 Az is látható, hogy ezen szintek megalkotásánál ugyanazon objektumorientált elveket kell figyelembe venni, úgymint a high cohesion, low coupling, single reposibility principle, well defined interfaces. 
 
 A  könyv szerint a felsorolt tulajdonságok alapján a modul Java platformon nem más, mint a JAR állományok.

@@ -7,7 +7,7 @@ keywords: Források
 
 # Magyar nyelvű tartalmak
 
-- [DPC Consulting](http://dpc.hu/blog/hu/java.xml)
+- [DPC Consulting](http://blog.dpc.hu/)
 - [EPAM Systems Kft. - Debreceni iroda](http://epam-debrecen.blogspot.com/)
 - [Home :: blog.anzix.net](http://blog.anzix.net)
 - [HUP - Java](http://hup.hu/taxonomy/term/155/0)

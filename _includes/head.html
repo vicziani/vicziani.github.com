@@ -5,11 +5,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>{% if page.title %}{{site.author}} - {{ site.title }} - {{ page.title }}{% else %}{{site.author}} - {{ site.title }}{% endif %}</title>
+	<title>{% if page.title %}{{ site.title }} - {{ site.lead }} - {{ page.title }}{% else %}{{ site.title }} - {{ site.lead }}{% endif %}</title>
 
 	<meta name="Author" lang="hu" content="{{site.author}}"/>
 	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 	{% if page.keywords %}<meta name="Keywords" lang="hu" content="{{page.keywords}}"/>{% endif %}
+
+	<meta property="og:locale" content="hu_HU" />
+	<meta property="og:url" content="{{ site.url }}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{ site.title }} - {{ site.lead }}" />
+	<meta property="og:description" content="Kötetlen hangvételű blog a Java világából" />
+	<meta property="og:image" content="{{ site.url }}/assets/img/logo.png" />
+
 
 	<meta name="robots" content="index, follow"/>
 	<meta name="revisit-after" content="5 days"/>
@@ -17,9 +25,11 @@
 	<link rel="stylesheet" href="{{ "/assets/css/bootstrap.min.css" | prepend: site.baseurl }}">
 	<link rel="stylesheet" href="{{ "/assets/css/blog.css" | prepend: site.baseurl }}">
 	<link rel="stylesheet" href="{{ "/assets/css/syntax.css" | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ "/assets/css/font-awesome.min.css" | prepend: site.baseurl }}">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-	<link rel="alternate" type="application/atom+xml" title="{{ site.title }} -  {{site.author}}" href="http://feeds.feedburner.com/JTechLog" />
+	<link rel="alternate" type="application/atom+xml" title="{{ site.title }} - {{ site.lead }}" href="http://feeds.feedburner.com/JTechLog" />
 	<link rel="SHORTCUT ICON" href="/favicon.ico"/>
 
 	<script>
