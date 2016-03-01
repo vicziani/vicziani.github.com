@@ -27,6 +27,10 @@ a:hover,a:focus {
   color: #f39c12;
 }
 
+blockquote {
+  font-style: italic;
+}
+
 
 /*
  * Override Bootstrap's default container.
@@ -151,6 +155,15 @@ a:hover,a:focus {
 .about img {
   margin: 15px;
 }
+
+.about a {
+  color: #9797a5;
+}
+
+.about a:hover, .about a:focus {
+  color: #f39c12;
+}
+
 
 .about .fa {
   font-size: 50px;
