@@ -2,35 +2,44 @@
 layout: default
 ---
 
+<main>
 <div class="container">
 
     <div class="row">
+
         <div class="col-sm-10 blog-main">
 
 		{% for post in site.posts limit:5 %}
 		{% assign date = post.date %}
+    <article>
 			<div class="blog-post">
 
-				<h2 class="blog-post-title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>
+        <header>
+				<h1 class="blog-post-title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
 				<p class="blog-post-meta">{% include date.html %}</p>
+        </header>
 
-				<article class="post-content">
-					{{ post.excerpt }}
-				</article>
+				{{ post.excerpt }}
 
+        <footer>
 				<p><a href="{{ BASE_PATH }}{{ post.url }}">Tovább a teljes cikkre...</a></p>
+      </footer>
 			</div>
+    </article>
 		{% endfor %}
 		</div>
 	</div>
 </div>
+</main>
 
+<footer>
 {% include about.html %}
+</footer>
 
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'jtechlog';
-    
+
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function () {
         var s = document.createElement('script'); s.async = true;

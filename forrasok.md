@@ -5,7 +5,9 @@ description: Források
 keywords: Források
 ---
 
-# Magyar nyelvű tartalmak
+# Források
+
+## Magyar nyelvű tartalmak
 
 - [DPC Consulting](http://blog.dpc.hu/)
 - [EPAM Systems Kft. - Debreceni iroda](http://epam-debrecen.blogspot.com/)
@@ -25,7 +27,7 @@ keywords: Források
 - [tifyty](http://tifyty.wordpress.com)
 - [Webstar Csoport Kft. blogja](http://blog.webstar.hu)
 
-# Angol nyelvű tartalmak
+## Angol nyelvű tartalmak
 
 - [Adam Bien](http://www.adam-bien.com/roller)
 - [Artima Developer Spotlight](http://www.artima.com/spotlight/)

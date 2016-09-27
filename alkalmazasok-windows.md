@@ -5,6 +5,8 @@ description: Windows alkalmazások
 keywords: Windows, alkalmazások
 ---
 
+# Windows alkalmazások
+
 A leghasznosabb alkalmazásokat általában nem a neten
 találom, hanem valamelyik ismerősöm mutatja, vagy valamilyen
 blogban olvasok róluk. Emiatt én is közzéteszem gyakran
@@ -13,7 +15,7 @@ Amelyiknél nem írom külön, az ingyenes szoftver.
 
 Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
 
-# Általános alkalmazások
+## Általános alkalmazások
 
 <dl class="dl-horizontal">
 	<dt><a href="https://gist.github.com/vszakats/4b7992d6ddd7c84d5577">CIB</a></dt>
@@ -58,7 +60,7 @@ Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
 	<dt><a href="http://www.freemake.com/free_video_downloader/">Free Video Downloader</a></dt>
 	<dd>Videók letöltésére. De remek még a <a href="http://offliberty.com/">Offliberty</a>
 	oldal is.</dd>
-							
+
 	<dt>GPS</dt>
 	<dd>Garmin Nüvi 250 és GPSMap 60 GPS eszközeimhez a <a href="http://www8.garmin.com/support/download_details.jsp?id=209">Garmin MapSource</a>, <a href="http://www8.garmin.com/products/poiloader/">POI Loader</a> és a <a href="http://www.garmin.hu/naviguide-magyarorszag-0">NaviGuide Magyarország</a> szoftvereket használom
 	térképek és POI-k kezelésére. A legtöbbször a NaviGuide Magyarország, <a href="http://openmaps.eu/udv">OpenMaps</a> és
@@ -92,7 +94,7 @@ Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
 
 	<dt><a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a></dt>
 	<dd>A böngésző, plugin-eket lásd később. Igaz, hogy lassú, de ehhez található
-	a legtöbb kiegészítő. Egy időben a Chrome-mal is próbálkoztam, de 
+	a legtöbb kiegészítő. Egy időben a Chrome-mal is próbálkoztam, de
 	a kompatibilitási problémái (konkrétan bugos) miatt abbahagytam a használtatát.</dd>
 
 	<dt><a href="http://www.mp3tag.de/en/">MP3TAG</a></dt>
@@ -125,8 +127,8 @@ Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
 	<dd>Videólejátszásra, feliratokkal.</dd>
 </dl>
 
-# Far pluginek
-               
+## Far pluginek
+
 <dl class="dl-horizontal">
     <dt><a href="http://colorer.sourceforge.net/farplugin.html">Far Colorer</a></dt>
     <dd>Különböző típusú állományokat képes syntax highlightolva
@@ -135,7 +137,7 @@ Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
     <dd>SCP kliens.</dd>
 </dl>
 
-# Firefox pluginek
+## Firefox pluginek
 
 <dl class="dl-horizontal">
     <dt><a href="http://www.adobe.com/products/flashplayer/">Adobe Flash Player</a></dt>
@@ -159,14 +161,14 @@ Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
     <dd>Elengedhetetlen segédeszköz webes fejlesztésekhez.</dd>
 </dl>
 
-# Fejlesztői alkalmazások
+## Fejlesztői alkalmazások
 
 <dl class="dl-horizontal">
 	<dt><a href="http://ant.apache.org/">Apache Ant</a></dt>
 	<dd>Java build eszköz.</dd>
 	<dt><a href="http://jakarta.apache.org/jmeter/">Apache JMeter</a></dt>
-	<dd>Terhelés tesztre kiváló, de ha csak gyorsan össze kell dobni egy integrációs 
-	teszt esetet, vagy akár csak monitorozni kell egy alkalmazást, a JMeter erre kiválóan 
+	<dd>Terhelés tesztre kiváló, de ha csak gyorsan össze kell dobni egy integrációs
+	teszt esetet, vagy akár csak monitorozni kell egy alkalmazást, a JMeter erre kiválóan
 	alkalmas, és könnyen bővíthető.</dd>
 	<dt>Apache Flex</dt>
 	<dd>Igen, UI technológiára bizonyos projektekben Apache Flexet használunk.</dd>
@@ -237,7 +239,7 @@ Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
 	<dt><a href="http://subversion.tigris.org/">Subversion</a></dt>
 	<dd>Verziókezelő szerver és parancssori kliens.</dd>
 	<dt><a href="http://technet.microsoft.com/en-us/sysinternals/default.aspx">Sysinternals</a></dt>
-	<dd>Windows rendszerközeli eszközök. A Windows Task Managerét mindig kicserélem az ebben található 
+	<dd>Windows rendszerközeli eszközök. A Windows Task Managerét mindig kicserélem az ebben található
 	Process Explorerre.</dd>
 	<dt><a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a></dt>
 	<dd>Explorerbe épülő Windows-os SVN kliens. Nem tetszik, hogy az Explorerbe
@@ -254,4 +256,3 @@ Jelenleg csak munkában használok Windowst, otthon Ubuntu Linuxot.
 	<dt><a href="http://www.wireshark.org/">Wireshark</a></dt>
 	<dd>Hálózati protokollok dumpolására. Régebben Ethereal.</dd>
 </dl>
-

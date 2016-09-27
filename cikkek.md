@@ -5,15 +5,16 @@ description: Cikkek és prezentációk
 keywords: Java, cikk, RMI, ASP, Servlet, IBM, WebSphere, MQ, Apache, Jakarta, Velocity, OJB, Lucene, Log4J, J2SE 1.5, Tiger, Ant, Kódolási konvenciók, alkalmazásintegráció, OLAP, Mondrian, üzemeltetés, JAX-WS, Redirect After Post, Synchronizer Token, Workflow, Activiti, Continuous Integration, Continuous Delivery, Maven, Spring, Spring Data
 ---
 
-# Modularizáció Servlet 3, Spring és Maven környezetben
+# Cikkek és prezentációk
+
+## Modularizáció Servlet 3, Spring és Maven környezetben
 
 A HWSW free! Java meetupon adtam elő a modularizációról. Szó esett a modularizáció alapfogalmairól, tervezési mintákról és azok technológiai megvalósításairól.
 *(2015. augusztus 26.)*
 
 [Diák](/artifacts/2015-08-modularization/modularization.html)
 
-
-# G1 szemétgyűjtő
+## G1 szemétgyűjtő
 
 A G1 szemétgyűjtő algoritmus a legfiatalabb a HotSpot JVM-ben. A már ismert fogalmakra
 épít, azonban pár trükkel próbál a többiek felé kerekedni, biztosítva az alkalmazás
@@ -21,7 +22,7 @@ magasabb áteresztőképességét, és a GC futása miatti leállás minimalizá
 
 [Diák](artifacts/2015-07_G1/2015-07_G1.html)
 
-# Spring Framework 4.0 és 4.1 verzióinak újdonságai
+## Spring Framework 4.0 és 4.1 verzióinak újdonságai
 
 Az előadás 2014. október 2-án hangzott el a [HOUG Szakmai
 napon](http://houg.hu/pls/apex/f?p=201:houg_szakmai_nap_2014:0).
@@ -29,7 +30,7 @@ napon](http://houg.hu/pls/apex/f?p=201:houg_szakmai_nap_2014:0).
 
 [Diák](artifacts/2014-10_spring_4/2014-10_spring_4.html)
 
-# Spring Data
+## Spring Data
 
 A Spring Data alapvetően egy Spring Frameworkre épülő projekt, és segít
 abban, hogy egyszerűbben implementálhassuk alkalmazásaink perzisztens
@@ -40,7 +41,7 @@ Neo4j, Redis, Hadoop, stb. *(2014.)*
 
 [Diák](artifacts/2014-06_spring_data/2014-06_spring_data.html)
 
-# Maven
+## Maven
 
 Az előadás 2014. július 1-én hangzott el
 [budapest.scala](http://www.meetup.com/budapest-scala/events/191380332/)
@@ -56,7 +57,7 @@ Hallhattok az alternatív lehetőségekről, sőt a Maven árnyoldalairól is.
 [Diák](artifacts/2014-06_maven/2014-06_maven.html),
 [videó](http://www.ustream.tv/recorded/49430874)
 
-# Continuous Delivery: Problémák és megoldások
+## Continuous Delivery: Problémák és megoldások
 
 A Continuous Delivery bevezetése nagyvállalati Java környezetben
 fejlesztett, több modulból álló alkalmazás esetén nagy kihívást
@@ -70,7 +71,7 @@ tanulás és fejlődés. *(2006 - 2011, 947 szó)*
 
 [Letöltés](artifacts/HOUG.j_2014_Viczian_Istvan_Continuous_Delivery.pdf)
 
-# Workflow esettanulmányok
+## Workflow esettanulmányok
 
 Az előadás keretében két projekt tapasztalatait mutattam be. Mindkét
 esetben munkafolyamatokat kellett implementálni. Teljesen ellentétes
@@ -82,7 +83,7 @@ helyeztem a hangsúlyt. *(2012., 16 dia)*
 
 [Letöltés](artifacts/2012-09_workflow.pdf)
 
-# Szabad navigáció okozta problémák webes környezetben
+## Szabad navigáció okozta problémák webes környezetben
 
 Ez a cikk azon
 problémával foglalkozik, mely a legtöbb webes alkalmazás fejlesztésekor
@@ -107,7 +108,7 @@ vagy Synchronizer Token. *(2006 - 2011, 2951 szó)*
 
 [Letöltés](artifacts/repost.pdf)
 
-# JAX-WS mélyvíz
+## JAX-WS mélyvíz
 
 A SOA már nem olyan divatos fogalom, mint rég volt. Több éve létezik,
 csakúgy mint az ezzel kapcsolatos platformfüggetlen szabványok, mint a
@@ -120,7 +121,7 @@ hogy ez nem teljesen így van. *(2009. november, 27 dia)*
 
 [Letöltés](artifacts/JUM12-Viczian-Istvan-JAX-WS-melyviz.pdf)
 
-# Hol a határ? Java alkalmazások üzemeltetéséről fejlesztőknek és üzemeltetőknek
+## Hol a határ? Java alkalmazások üzemeltetéséről fejlesztőknek és üzemeltetőknek
 
 Napjaink egyik égető problémája, hogy egyre több és egyre bonyolultabb
 alkalmazás készül Java platformon, melyeket évekig kell üzemeltetni, és
@@ -140,7 +141,7 @@ témával kapcsolatos tapasztalatokat. Az előadásnak csak a prezentációja
 
 <object id="prezi_gmyp8jz3v3aw" name="prezi_gmyp8jz3v3aw" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400"> <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>  <param name="allowfullscreen" value="true"/>  <param name="allowscriptaccess" value="always"/>  <param name="bgcolor" value="#ffffff"/>  <param name="flashvars" value="prezi_id=gmyp8jz3v3aw&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"/>  <embed id="preziEmbed_gmyp8jz3v3aw" name="preziEmbed_gmyp8jz3v3aw" src="http://prezi.com/bin/preziloader.swf" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="400" bgcolor="#ffffff" flashvars="prezi_id=gmyp8jz3v3aw&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"> </embed> </object>
 
-# Adattárház és jelentéskészítés OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök használatával
+## Adattárház és jelentéskészítés OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök használatával
 
 Jelen cikk
 betekintést ad az adattárházak és a többdimenziós adatmodell
@@ -157,7 +158,7 @@ oldal, 3277 szó)*
 
 [Letöltés](artifacts/Java_OLAP.pdf)
 
-# Ariadné fonala a Java technológiák útvesztőjében
+## Ariadné fonala a Java technológiák útvesztőjében
 
 Java, Web 2.0, AJAX, SOA, szemantikus web. Bűvös, eltérően értelmezett
 és gyakran ismételgetett fogalmak az informatika világában. Több száz
@@ -177,7 +178,7 @@ Számalk Továbbképzés ezt a tudást hatékonyan továbbadni. *(2008.
 
 [Letöltés](artifacts/2008_szamalk_eloadas_vi.pdf)
 
-# Alkalmazásintegrációs megoldás
+## Alkalmazásintegrációs megoldás
 
 Napjainkban elterjedt informatikai fogalom a nagyvállalati
 alkalmazásintegráció (Enterprise Application Integration - EAI),
@@ -233,7 +234,7 @@ irányvonalakat, főbb technológiákat. *(2006. április, 19 dia)*
 
 [Letöltés](artifacts/06-04-06_KD_alk_int_viczian.pdf)
 
-# J2SE 1.5 - Tiger
+## J2SE 1.5 - Tiger
 
 2004 februárjában az Early Access keretében vált letölthetővé a J2SE
 következő verziója, melynek verziószáma 1.5.0 Beta
@@ -278,7 +279,7 @@ interfész generálás elhagyása. *(2004. február, 7 oldal, 2201 szó)*
 
 [Letöltés](artifacts/tiger.pdf)
 
-# Apache Ant - Java-based build tool
+## Apache Ant - Java-based build tool
 
 Bármilyen jellegű és
 bonyolultságú szoftver fejlesztésekor a programozó gyakran találkozik
@@ -306,7 +307,7 @@ oldal, 1206 szó)*
 
 [Letöltés](artifacts/ant.pdf)
 
-# Java kódolási konvenciók
+## Java kódolási konvenciók
 
 Kódolási konvenciók
 kialakítására és betartására tagadhatatlan szükség van mai világunkban,
@@ -335,7 +336,7 @@ november, 17 oldal, 3520 szó)*
 
 [Letöltés](artifacts/jkk.pdf)
 
-# Jakarta Lucene keresőmotor
+## Jakarta Lucene keresőmotor
 
 A [Jakarta Lucene](http://lucene.apache.org/core/) egy
 nagyteljesítményű, minden alkalmazási területet lefedő Java nyelven
@@ -351,7 +352,7 @@ frissítve lett. *(Frissítve: 2008. január, 5 oldal, 1195 szó)*
 
 [Letöltés](artifacts/lucene.pdf)
 
-# Log4J naplózó rendszer
+## Log4J naplózó rendszer
 
 A [Log4J](http://logging.apache.org/log4j/docs/index.html) naplózó
 rendszer széles körben elterjedt, könnyen használható Java nyelven
@@ -365,7 +366,7 @@ A cikk megjelent a CodeX 6. számában. *(2003. május, 4 oldal, 1297 szó)*
 
 [Letöltés](artifacts/log4j.pdf)
 
-# OJB
+## OJB
 
 Az [ObJectRelationalBridge](http://db.apache.org/ojb/) (OJB) az Apache
 Software Foundation támogatásával, az The Apache DB project (korábban
@@ -387,7 +388,7 @@ szó)*
 
 [Letöltés](artifacts/ojb.pdf)
 
-# Jakarta Velocity
+## Jakarta Velocity
 
 Bizonyára sokunk
 került már szembe azzal a problémával, hogy adott egy szöveges formátumú
@@ -423,7 +424,7 @@ szó)*
 
 [Letöltés](artifacts/velocity.pdf)
 
-# IBM Websphere MQ
+## IBM Websphere MQ
 
 A dolgozat fő témája az [IBM Websphere
 MQ](http://www.ibm.com/software/products/en/ibm-mq) (korábban IBM
@@ -448,7 +449,7 @@ kiválóan alkalmas lehet. *(2002. október, 47 oldal, 14694 szó)*
 
 [Letöltés](artifacts/ws_mq_middleware.pdf)
 
-# ASP és szervlet technológia összehasonlítása
+## ASP és szervlet technológia összehasonlítása
 
 Az Internet széleskörű elterjedésével, a technológiák fejlődésével, a hagyományos
 vállalatok Interneten való megjelenésével egyre nő az igény, hogy ne
@@ -463,7 +464,7 @@ szó)*
 
 [Letöltés](artifacts/asp_servlet.pdf)
 
-# Diplomamunka
+## Diplomamunka
 
 A diplomamunkám Java alkalmazásfejlesztésről szól, a főbb technológiák
 bemutatásáról és egy GUI framework kifejlesztéséről. A fő építőköve az
@@ -479,7 +480,7 @@ megszorításokkal és kötöttségekkel. *(2001., 41 oldal, 9447 szó)*
 
 [Letöltés](artifacts/vi_diplomamunka_rmi.pdf)
 
-# XHTML 1.0 Extensible HyperText Markup Language (Második Kiadás) - magyar fordítás
+## XHTML 1.0 Extensible HyperText Markup Language (Második Kiadás) - magyar fordítás
 
 Egyetemi éveimben fordítottam az XHTML 1.0 Extensible HyperText Markup
 Language (Második Kiadás) dokumentumot. Vannak benne hibák, nem minden

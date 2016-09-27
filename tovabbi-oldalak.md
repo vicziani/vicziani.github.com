@@ -5,6 +5,8 @@ description: További oldalak
 keywords: További oldalak
 ---
 
+# További oldalak
+
 - [Források](/forrasok.html)
 - [Konferenciák](/konferenciak.html)
 - [Könyvek](/konyvek.html)
@@ -14,4 +16,3 @@ keywords: További oldalak
 - [Geocaching Linuxon](/geolinuxhu/)
 - [Windows alkalmazasok](/alkalmazasok-windows.html)
 - [Android alkalmazasok](/alkalmazasok-android.html)
-

@@ -5,6 +5,8 @@ description: Online jelenlét
 keywords: GitHub, Twitter, Delicious, LinkedIn
 ---
 
+# Online jelenlét
+
 Végre sikeresen rendbe tettem a munkafolyamataimat, és az általam
 megosztott információkat. Követelmény volt, hogy alapvetően engem
 szolgáljon, azaz bármilyen információt könnyen vissza tudjak keresni, de
@@ -21,7 +23,7 @@ Amennyiben RSS-en akarsz követni, két lehetőséged van:
 
 Használt webes szolgáltatásokról részletesen:
 
--   GitHub: Jelenleg a blogot és a teljes tartalmat ez szolgálja ki, és 
+-   GitHub: Jelenleg a blogot és a teljes tartalmat ez szolgálja ki, és
     használom forráskódok tárolására és megosztására.
     ([JTechLog blog](http://www.jtechlog.hu/),
     [JTechLog RSS](http://feeds2.feedburner.com/JTechLog),

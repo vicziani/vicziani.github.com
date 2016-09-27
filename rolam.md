@@ -5,11 +5,13 @@ description: Rólam
 keywords: programtervező matematikus, programozó, szoftverfejlesztő, architect, önéletrajz, Java, JTechLog, IBM, Websphere, MQ, MQSeries, EAI, SOA
 ---
 
+# Rólam
+
 Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, rendezvényeket szervezek és konferenciákra járok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg az [IP Systemsnél](http://www.ipsystems.hu/) vagyok vezető programozó és a [Training360-nál](http://training360.com/) oktatásokat tartok. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Java EE alkalmazásfejlesztés, valamint a SOA és az IoT technológiákat követem figyelemmel. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben. Szakmai blogot is írok [JTechLog](http://www.jtechlog.hu/) néven. Szabadidőmben sokat túrázok, próbálom felfedezni Magyarország rejtett kincseit.
 
 [Letölthető magyar nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_HU.pdf), [Letölthető angol nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_EN.pdf)
 
-# Munkatapasztalat
+## Munkatapasztalat
 
 <dl class="dl-horizontal">
 		<dt>2012 - </dt>
@@ -38,7 +40,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		</dd>
 </dl>
 
-# Projektek
+## Projektek
 
 <dl class="dl-horizontal">
 		<dt>2012 - </dt>
@@ -51,7 +53,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
                     2011 -
 		</dt>
 		<dd>
-			<p>Training360 keretein belül Java oktatás a 
+			<p>Training360 keretein belül Java oktatás a
                         következő témakörökben: Java EE, web szolgáltatások, Spring, Design Patterns, Maven</p>
 		</dd>
 		<dt>2010 - 2012</dt>
@@ -76,7 +78,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
                     2006 - 2009
 		</dt>
 		<dd>
-			<p>SZÁMALK Továbbképzés keretein belül Java oktatás a 
+			<p>SZÁMALK Továbbképzés keretein belül Java oktatás a
                         következő témakörökben: Java és J2EE technológiai áttekintés, Java SE alapok,
                     webes fejlesztés, szoftverfejlesztés ingyenes eszközökkel, valamint Java EE programozás</p>
 		</dd>
@@ -95,15 +97,15 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		<dt>2005 - 2007</dt>
 		<dd>
 			<p>
-				<a href="https://ugyfelkapu.magyarorszag.hu/">Ügyfélkapu</a>, egységes beléptetés az elektronikus 
+				<a href="https://ugyfelkapu.magyarorszag.hu/">Ügyfélkapu</a>, egységes beléptetés az elektronikus
                         közigazgatási ügyintézéshez - tesztelő, integrátor, alkalmazásüzemeltető
 			</p>
 		</dd>
 		<dt>2003 - 2006</dt>
 		<dd>
 			<p>
-                        Vám- és Pénzügyőrség interoperabilitási programjának vámrendszerei - 
-                        Országos szintű webes J2EE alkalmazás Oracle környezetben - vezető fejlesztő 
+                        Vám- és Pénzügyőrség interoperabilitási programjának vámrendszerei -
+                        Országos szintű webes J2EE alkalmazás Oracle környezetben - vezető fejlesztő
 			</p>
 		</dd>
 		<dt>2000 - 2003</dt>
@@ -114,7 +116,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		</dd>
 </dl>
 
-# Tapasztalatok
+## Tapasztalatok
 
 <dl class="dl-horizontal">
 		<dt>Nyelvek:</dt>
@@ -123,13 +125,13 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		</dd>
 		<dt>Technológiák:</dt>
 		<dd>
-			<p>Java SE, Java EE, Continuous Integration, Design Patterns, 
+			<p>Java SE, Java EE, Continuous Integration, Design Patterns,
 		UML, SOAP és REST webszolgáltatások, unit testing.</p>
 		</dd>
 		<dt>Eszközök:</dt>
 		<dd>
 			<p>
-IntelliJ IDEA, Oracle JDeveloper, NetBeans IDE, Eclipse, Subversion, Maven, Ant, Tomcat, Glassfish, JBoss, BEA WebLogic Server, JMeter, Spring Framework, Hibernate, EclipseLink, Activiti, JUnit, TestNG, Mockito, JasperReports, Jenkins, Nexus, Sonar, 
+IntelliJ IDEA, Oracle JDeveloper, NetBeans IDE, Eclipse, Subversion, Maven, Ant, Tomcat, Glassfish, JBoss, BEA WebLogic Server, JMeter, Spring Framework, Hibernate, EclipseLink, Activiti, JUnit, TestNG, Mockito, JasperReports, Jenkins, Nexus, Sonar,
 IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 		</dd>
 		<dt>Adatbázis kezelők:</dt>
@@ -143,12 +145,12 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 		</dd>
 </dl>
 
-# Iskolák
+## Iskolák
 
 <dl class="dl-horizontal">
 		<dt>1996 - 2001</dt>
 		<dd>
-			<p>Debreceni Egyetem (Kossuth Lajos Tudományegyetem), Debrecen, 
+			<p>Debreceni Egyetem (Kossuth Lajos Tudományegyetem), Debrecen,
                         Programtervező matematikus, 2000/2001-es tanévben tagja voltam a
                         Hatvani István Szakkollégiumnak</p>
 		</dd>
@@ -158,7 +160,7 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 		</dd>
 </dl>
 
-# Vizsgák
+## Vizsgák
 
 <dl class="dl-horizontal">
 		<dt>2014 március</dt>
@@ -193,7 +195,7 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 <img src="/assets/img/OCE_JavaEE6WebServDev_clr.gif" alt="Web Services Developer" class="page-cert-logo-img" />
 <img src="/assets/img/OCE_JavaEE6WebCompDev_clr.gif" alt="Web Component Developer" class="page-cert-logo-img" />
 
-# Tanfolyamok
+## Tanfolyamok
 
 <dl class="dl-horizontal">
 		<dt>2009. szeptember</dt>
@@ -218,46 +220,46 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 		</dd>
 		<dt>2004. október</dt>
 		<dd>
-			<p>J2EE patterns (SL-500), a 
+			<p>J2EE patterns (SL-500), a
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
 		</dd>
 		<dt>2004. október</dt>
 		<dd>
-			<p>Developing Mobile Phone Applications With J2ME(TM) Technology (DTJ-365), a 
+			<p>Developing Mobile Phone Applications With J2ME(TM) Technology (DTJ-365), a
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
 		</dd>
 		<dt>2004. október</dt>
 		<dd>
-			<p>Web Services for Java Programmers (SL-385), a 
+			<p>Web Services for Java Programmers (SL-385), a
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
 		</dd>
 		<dt>2004. október</dt>
 		<dd>
-			<p>Web Component Developement with Servlet and JSP Technologies (SL-314), a 
+			<p>Web Component Developement with Servlet and JSP Technologies (SL-314), a
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
 		</dd>
 		<dt>2004. szeptember</dt>
 		<dd>
-			<p>Enterprise JavaBeans Programming (SL-351), a 
+			<p>Enterprise JavaBeans Programming (SL-351), a
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
 		</dd>
 		<dt>2004. szeptember</dt>
 		<dd>
-			<p>Developing J2EE Compilant Applications (FJ-310), a 
+			<p>Developing J2EE Compilant Applications (FJ-310), a
                         JavaMaster kurzusa keretében
                     (Sun Microsystems Kft.).</p>
 		</dd>
 </dl>
 
-# Érdeklődési területek
+## Érdeklődési területek
 
-Objektumorientált tervezés és programozás, UML, agilis módszertanok, elosztott rendszerek, middleware, üzenetorientált köztesrétegek (MOM), szolgáltatás orientált architektúra (SOA), Java SE, Java EE, felhasználói felület, szoftver minőség, csoportmunka, alkalmazás optimalizáció, tesztelés, alkalmazás menedzsment, Continuous Integration, TDD, elektronikus közigazgatás, cloud computing, IoT. 
+Objektumorientált tervezés és programozás, UML, agilis módszertanok, elosztott rendszerek, middleware, üzenetorientált köztesrétegek (MOM), szolgáltatás orientált architektúra (SOA), Java SE, Java EE, felhasználói felület, szoftver minőség, csoportmunka, alkalmazás optimalizáció, tesztelés, alkalmazás menedzsment, Continuous Integration, TDD, elektronikus közigazgatás, cloud computing, IoT.
 
-# Szabadidő
+## Szabadidő
 
 Szabadidőmben próbálok túrázgatni, mind gyalog, mind kerékpárral (Kelly's Axis Red trekking, valamint egy országúti kerékpárral), és hobbiként [geocacheeléssel](http://www.geocaching.hu/users.geo?id=7420) (Garmin GPSMAP 60), PMR-rel (Oregon Scientific TP380) és újabban sárkányeregetéssel (Symphony Beach 2.1) is foglalkozom. Szívesen focizom, röplabdázom, kosárlabdázom és pingpongozom, telente egy hetet legalább síelek, többször korcsolyázom. Szívesen utazom, akár belföldre hétvégente, akár külföldre. Sokat olvasom, gyakran járok színházba, koncertre.
