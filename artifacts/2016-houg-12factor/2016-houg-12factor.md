@@ -59,7 +59,7 @@ HOUG Szakmai Nap - 2016. október
 # Konfigurációkezelés
 
 * Kód és konfiguráció különválasztása
-* Konfiguráció a kódhoz tartozik
+* Konfiguráció a környezethez tartozik
 * Ne alkossunk csoportokat, "környezeteket"
 * Környezeti változók
 * Backing service
@@ -98,7 +98,7 @@ HOUG Szakmai Nap - 2016. október
 
 * Adatbázis migráció: [Liquibase](http://www.liquibase.org/), [Flyway](https://flywaydb.org/)
 * Spring Boot Actuator
-* `info` endpoint
+* `info`, `env`, `beans` endpoint
 * Metrics, Healthcheck
 * Audit
 * Trace
