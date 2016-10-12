@@ -7,6 +7,18 @@ keywords: Java, cikk, RMI, ASP, Servlet, IBM, WebSphere, MQ, Apache, Jakarta, Ve
 
 # Cikkek és prezentációk
 
+## Üzemeltethető Java alkalmazások
+
+A 2016 októberében megrendezett HOUG Szakmai Nap keretében tartottam előadást. Bűvszavak: Twelve-factor app, cloud native, Spring Boot.
+
+[Diák](/artifacts/2016-houg-12factor/2016-houg-12factor.html)
+
+## Modern unit és integrációs tesztelés
+
+Április 4-én a HOUG-on tartottam előadást. Olyan technológiákról esett szó, mint JUnit, Mockito, Hamcrest, Spring MockMvc és Concordion.
+
+[Diák](/artifacts/2016-04-teszteles/teszteles.html)
+
 ## Modularizáció Servlet 3, Spring és Maven környezetben
 
 A HWSW free! Java meetupon adtam elő a modularizációról. Szó esett a modularizáció alapfogalmairól, tervezési mintákról és azok technológiai megvalósításairól.

@@ -10,10 +10,24 @@ keywords: konferencia
 Itt szerepelnek azok a konferenciák, melyeken mint előadó vettem részt.
 
 <table>
+<tr>
+	<td>2016 - HOUG 2016 Szakmai nap</td>
+	<td>
+					A HOUG Szakmai nap 2016 rendezvényen "Üzemeltethető Java alkalmazások"
+		címmel tartottam előadást.
+	</td>
+</tr>
+<tr>
+	<td>2016 - HOUG 2016 Siófok</td>
+	<td>
+					A HOUG 2016 rendezvényen "Modern unit és integrációs tesztelés"
+		címmel tartottam előadást. <a href="/2016/03/06/houg-diak.html">Poszt is készült</a>, ahol a diák is letölthetőek.
+	</td>
+</tr>
 	<tr>
 		<td>2015 - HWSW free!</td>
 		<td>
-            A Java meetupon "Modularizációs megoldások Javaban" 
+            A Java meetupon "Modularizációs megoldások Javaban"
 			címmel tartottam előadást. <a href="/2015/08/27/modularizacio.html">Poszt is készült</a>, ahol a diák is letölthetőek.
 		</td>
 	</tr>
@@ -40,7 +54,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.htm
 	<tr>
 		<td>2012 - JUM 19.</td>
 		<td>
-                    Előadást tartottam a <a href="http://wiki.javaforum.hu/display/JAVAFORUM/JUM">Java User Meetings</a> 
+                    Előadást tartottam a <a href="http://wiki.javaforum.hu/display/JAVAFORUM/JUM">Java User Meetings</a>
 			<a href="http://wiki.javaforum.hu/display/JAVAFORUM/JUM1209">19. alkalmán</a> "Workflow esettanulmányok"
 					címmel. <a href="/cikkek.html#workflow">Prezentáció és videó.</a>
 		</td>
@@ -54,14 +68,14 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.htm
 	<tr>
 		<td>2009 - Aktuális 2009</td>
 		<td>
-                     Előadást tartottam az Aktuális 2009 SZÁMALK Továbbképzés Konferencián 
+                     Előadást tartottam az Aktuális 2009 SZÁMALK Továbbképzés Konferencián
 					 "Hol a határ? Java alkalmazások üzemeltetéséről fejlesztőknek és üzemeltetőknek" címmel. <a href="/cikkek.html#devops">Diák.</a>
 		</td>
 	</tr>
 	<tr>
 		<td>2009 - JUM 9.</td>
 		<td>
-                    Előadást tartottam a <a href="http://jum.javaforum.hu/">Java User Meetings</a> 
+                    Előadást tartottam a <a href="http://jum.javaforum.hu/">Java User Meetings</a>
 			<a href="http://wiki.javaforum.hu/display/JAVAFORUM/JUM0903">9. alkalmán</a> "Adattárház és jelentéskészítés OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök használatával"
 					címmel. <a href="/cikkek.html#olap">Prezentáció és cikk.</a>
 		</td>
@@ -69,7 +83,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.htm
 	<tr>
 		<td>2008 - Aktuális 2008</td>
 		<td>
-                     Előadást tartottam az Aktuális 2008 SZÁMALK Továbbképzés Konferencián 
+                     Előadást tartottam az Aktuális 2008 SZÁMALK Továbbképzés Konferencián
 					 "Ariadné fonala a Java technológiák útvesztőjében" címmel. <a href="/cikkek.html#devops">Prezentáció.</a>
 		</td>
 	</tr>
@@ -86,7 +100,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.htm
                     2006 - <a href="http://www.iir-hungary.hu/rendezvenynaptar?id=309">SOA Fórum 2006</a>
 		</td>
 		<td>
-			<p>Előadást tartottam 
+			<p>Előadást tartottam
                         "Az e-governance létrejötte: ügyfélkapu-rendszerek"
                     címmel az IIR SOA Fórum 2006 keretében.</p>
 		</td>
@@ -96,7 +110,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.htm
                     2006 - OOKlub - ObjektumOrientált szoftverfejlesztés Klubja
 		</td>
 		<td>
-			<p>Előadást tartottam 
+			<p>Előadást tartottam
                         "Nagyvállalati alkalmazásintegráció elméletben és gyakorlatban (fogalmak, szabványok, eszközök)"
                         címmel az OOKlub - ObjektumOrientált szoftverfejlesztés Klubja keretein belül.</p>
 		</td>
@@ -116,7 +130,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.htm
 		</td>
 		<td>
 			<p>2003. májusában immár
-                        harmadszor megrendezett versenyen a szokásos csapattal 
+                        harmadszor megrendezett versenyen a szokásos csapattal
                         (KergeBirge) ismét 3.
                         helyezést értünk el. A másik két tag: Erdei Szabolcs,
                         Klampeczki Zsolt.</p>

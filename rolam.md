@@ -134,7 +134,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 IntelliJ IDEA, Oracle JDeveloper, NetBeans IDE, Eclipse, Subversion, Maven, Ant, Tomcat, Glassfish, JBoss, BEA WebLogic Server, JMeter, Spring Framework, Hibernate, EclipseLink, Activiti, JUnit, TestNG, Mockito, JasperReports, Jenkins, Nexus, Sonar,
 IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 		</dd>
-		<dt>Adatbázis kezelők:</dt>
+		<dt>Adatbázisok:</dt>
 		<dd>
 			<p>
                         Oracle, MySQL, H2.</p>
@@ -163,6 +163,10 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 ## Vizsgák
 
 <dl class="dl-horizontal">
+		<dt>2016 október</dt>
+		<dd>
+			<p>Front-End JavaScript Frameworks: AngularJS by The Hong Kong University of Science and Technology on Coursera.</p>
+		</dd>
 		<dt>2014 március</dt>
 		<dd>
 			<p>M101P - MongoDB for Developers</p>
