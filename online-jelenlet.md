@@ -43,11 +43,6 @@ Használt webes szolgáltatásokról részletesen:
     közeli dolgokról írok. A webes és mobilos felületét is használom.
     ([web](http://twitter.com/vicziani),
     [RSS](http://twitter.com/statuses/user_timeline/28844467.rss))
--   Delicious: könyvjelzők, olyan cikkek, melyek később még jól
-    jöhetnek. A "java" tag alatt vannak a Java-val kapcsolatos dolgok. A
-    Delicious Extension Firefox Add-on-t használom.
-    ([web](http://delicious.com/vicziani),
-    [RSS](http://feeds.delicious.com/v2/rss/vicziani?count=15))
 -   LinkedIn: szakmai önéletrajz.
     ([web](http://www.linkedin.com/profile/view?id=67382971&trk=tab_pro))
 
