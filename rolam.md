@@ -202,6 +202,10 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 ## Tanfolyamok
 
 <dl class="dl-horizontal">
+	<dt>2016 október</dt>
+	<dd>
+		<p>Single Page Web Applications with AngularJS by Johns Hopkins University on Coursera</p>
+	</dd>
 		<dt>2009. szeptember</dt>
 		<dd>
 			<p>WM210 - IBM WebSphere MQ V7 System Administration (ALBACOMP Számítástechnikai Zrt.).</p>
