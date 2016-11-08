@@ -211,7 +211,7 @@ Háttérfolyamatok esetén hasonló megoldásokkal biztosítjuk azt is, hogy vá
 Törekedni kell arra, hogy a különböző környezetek, beleértve a fejelsztői környezetet is a lehető legnagyobb mértékben hasonlítsanak egymásra. Nézzük, hogy melyek lehetnek a legnagyobb különbségek:
 
 * Időbeli eltolódás: egy megírt kód lehet hogy hónapokkal később megy élesbe
-* Személyi különbségek: a fejlesztő nem feltétlenül rá az éles környezetre és az ott használt eszközökre
+* Személyi különbségek: a fejlesztő nem feltétlenül lát rá az éles környezetre és az ott használt eszközökre
 * Eszközbeli különbségek: lehet, hogy a fejlesztő más, pehelysúlyúbb komponenseket használ, pl. operációs rendszert, adatbázist, stb.
 
 Ezek a különbségek a modern módszertanokkal már jobban kezelhetőek, mint pl. a continuous delivery, DevOps. Szerencsére trend éles környezetekben is egyszerűbb eszközök használata. Valamint a már fentebb említett konténerizáció (Docker), és Infrastructure as Code, vagy Vagrant használata is sokat segít ezen.
