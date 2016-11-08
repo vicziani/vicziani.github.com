@@ -232,6 +232,6 @@ Bizonyos esetekben szükség van felügyeleti, üzemeltetési folyamatok futtat�
 
 Ezen kívül preferálja azokat a környezeteket, melyek az adminisztrációs teendők ellátására REPL felületet adnak, ami valójában egy interaktív shell, mely lehetőleg valamilyen elterjedt protokollon keresztül (pl. ssh) elérhető.
 
-Az adatbázis migráció Java környezetben annyira képes az alkalmazás részévé válni, hogy gyakorlatilag beleépül abba, használható a [Flyway](https://flywaydb.org/) vagy [Liquibase](http://www.liquibase.org/).
+Az adatbázis migrációra Java környezetben használható a [Flyway](https://flywaydb.org/) vagy [Liquibase](http://www.liquibase.org/), melyeket az alkalmazásba is beáagyazhatunk, így az alkalmazás maga végzi el a séma módosítását. Persze ki is lehet szervezni, akár parancssori alkalmazásként, vagy Maven/Gradle pluginként.
 
 Java alkalmazásokhoz, sőt Spring Boothoz illeszthető shell a [CRaSH](http://www.crashub.org/), melyhez többek között lehet ssl-en keresztül kapcsolódni, és parancssorban lekérdezni olyan információkat, mint a JVM állapota (memóra, CPU, szálak, stb.), adatbázishoz kapcsolódni, sőt tetszőlegesen bővíthető, szóval saját parancsokat is implementálhatunk.
