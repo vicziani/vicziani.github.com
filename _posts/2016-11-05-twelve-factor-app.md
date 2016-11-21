@@ -84,7 +84,7 @@ explicit deklarálni kell, és valamilyen eszközt használni ezek beszerzésér
 
 Java alkalmazások esetén ez eléggé egyértelmű a virtuális gép működése miatt. A csomagolás alapegysége a JAR, ami
 rajta van a classpath-on, az adott, ami nem, az nem elérhető. Tehát semmilyen JAR-t
-nem lehet a környezetre manuálisan másolni. Java alkalmazások szerencsére ritkán függnek natív csomagokon.
+nem lehet a környezetre manuálisan másolni. Java alkalmazások szerencsére ritkán függnek natív csomagoktól.
 
 Spring Boot esetén ez megint csak egyértelmű, ugyanis főleg az olyan JAR-t preferálják, mely tartalmaz minden függőséget,
 még a futtató környezetet is, mint pl. Tomcat web konténert, így létrejön az un. "uberjar" vagy "fat jar". Ennek előállítását ismét csak
@@ -208,7 +208,7 @@ Háttérfolyamatok esetén hasonló megoldásokkal biztosítjuk azt is, hogy vá
 
 ## Éles és fejlesztői környezet hasonlósága
 
-Törekedni kell arra, hogy a különböző környezetek, beleértve a fejelsztői környezetet is a lehető legnagyobb mértékben hasonlítsanak egymásra. Nézzük, hogy melyek lehetnek a legnagyobb különbségek:
+Törekedni kell arra, hogy a különböző környezetek, beleértve a fejlesztői környezetet is a lehető legnagyobb mértékben hasonlítsanak egymásra. Nézzük, hogy melyek lehetnek a legnagyobb különbségek:
 
 * Időbeli eltolódás: egy megírt kód lehet hogy hónapokkal később megy élesbe
 * Személyi különbségek: a fejlesztő nem feltétlenül lát rá az éles környezetre és az ott használt eszközökre
