@@ -7,7 +7,7 @@ keywords: programtervező matematikus, programozó, szoftverfejlesztő, architec
 
 # Rólam
 
-Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, rendezvényeket szervezek és konferenciákra járok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg az [IP Systemsnél](http://www.ipsystems.hu/) vagyok vezető programozó és a [Training360-nál](http://training360.com/) oktatásokat tartok. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Java EE alkalmazásfejlesztés, valamint a SOA és az IoT technológiákat követem figyelemmel. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben. Szakmai blogot is írok [JTechLog](http://www.jtechlog.hu/) néven. Szabadidőmben sokat túrázok, próbálom felfedezni Magyarország rejtett kincseit.
+Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, rendezvényeket szervezek és konferenciákra járok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg a [Training360-nál](http://training360.com/) tartok oktatásokat. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Java EE alkalmazásfejlesztés. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben. Szakmai blogot is írok [JTechLog](http://www.jtechlog.hu/) néven. Szabadidőmben sokat túrázok, próbálom felfedezni Magyarország rejtett kincseit.
 
 [Letölthető magyar nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_HU.pdf), [Letölthető angol nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_EN.pdf)
 
@@ -15,6 +15,10 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 
 <dl class="dl-horizontal">
 		<dt>2012 - </dt>
+		<dd>
+			<p><a href="http://www.training360.com">Training360</a>, oktató</p>
+		</dd>
+		<dt>2012 - 2016</dt>
 		<dd>
 			<p><a href="https://www.ipsystems.hu/">IP Systems Kft.</a>, vezető programozó</p>
 		</dd>
@@ -43,18 +47,18 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 ## Projektek
 
 <dl class="dl-horizontal">
-		<dt>2012 - </dt>
+		<dt>
+										2012 -
+		</dt>
+		<dd>
+			<p>Training360 keretein belül Java oktatás a
+												következő témakörökben: Java EE, web szolgáltatások, Spring, Design Patterns, Maven</p>
+		</dd>
+		<dt>2012 - 2016</dt>
 		<dd>
 			<p>
                         TSO-IP - vezető fejlesztő
 			</p>
-		</dd>
-		<dt>
-                    2011 -
-		</dt>
-		<dd>
-			<p>Training360 keretein belül Java oktatás a
-                        következő témakörökben: Java EE, web szolgáltatások, Spring, Design Patterns, Maven</p>
 		</dd>
 		<dt>2010 - 2012</dt>
 		<dd>
