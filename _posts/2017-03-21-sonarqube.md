@@ -9,7 +9,7 @@ Bár a SonarQube (korábban egyszerűen csak Sonar) a Java fejlesztés alap eszk
 szeretném bepótolni.
 
 A SonarQube egy olyan komplex szoftverrendszer, mely azt biztosítja, hogy folyamatosan nyomon tudjuk
-figyelni a kódunk minőségét (ezt Continuous Code Quality-nek nevezi). A projektünkre
+követni a kódunk minőségét (ezt Continuous Code Quality-nek nevezi). A projektünkre
 statikus kódelemzőket lehet futtatni, melyek elemzik a forráskódot, és annak feltérképezésével
 próbálnak hibás részeket keresni. (Ezek általában rossz programozási gyakorlatok, az idők során
 kialakult programozási konvencióknak ellentmondó kódrészletek, vagy tipikus - nem olyan gyakorlott
@@ -87,7 +87,7 @@ utasítások lefutásának tényét egy riport fájlba írja (`target/jacoco.exe
 
 ## Fogalmak
 
-A SonarQube elég sok fogalmat definiál. Alapvetően rengeteg *szabályt* (rule) tartalmaz a különböző programozási nyelvekre. Nézzünk meg néhány szabály említés jelleggel Java esetén:
+A SonarQube elég sok fogalmat definiál. Alapvetően rengeteg *szabályt* (rule) tartalmaz a különböző programozási nyelvekre. Nézzünk meg néhány szabályt említés jelleggel Java esetén:
 
 * squid:S2975 - "clone" should not be overridden - Hatékony Java könyv alapján nem érdemes a clone metódust felülírni
 * squid:S2095 -  Resources should be closed - Erőforrásokat le kell zárni
@@ -109,7 +109,7 @@ Az *Issues* az adott projekten felmerülő szabálysértések. Egy adott issue-t
 
 <a href="/artifacts/posts/2017-03-21-sonarqube/source.png" rel="sonarqube">![Issues](/artifacts/posts/2017-03-21-sonarqube/source_600.png)</a>
 
-A *Measures* különböző mérőszámokat rendel a projekthez, melyeket tovább lehet utána bontani akár osztály szintre is. Ilyen pl. a különböző típusú issue-k száma, a kód lefedettséggel kapcsolatos mérőszámok (lefedettség, tesztesetek, száma, futás hossza, stb.), duplikált kód (copy-paste), a kódbázis mérete (osztályok, metódusok, sorok száma), komplexitás és a különböző státuszú issue-k száma. A projektet hibák száma (Reliability/Bugs), biztonsági hibák száma (Security/Vulnerabilities) és gyanús kód (Maintainability/Code Smells) különböző osztályokba sorolja (*rating*). Ez A - E értékeket vehet fel, ahol az A legjobb, és E a legrosszabb. Próbálja mérni a *Technical Debtet* is, azáltal, hogy megbecsüli, hogy egy Issue kijavítása mennyi időbe telik. A Technical Debt valójában az a munkamennyiség, mely ahhoz kell, hogy kijavítsuk a határidő nyomás és egyéb körülmények miatti (eufemisztikusan) nem a legmegfelelőbb megoldásokat. Ezektől még lehet, hogy az alkalmazás funkcionálisan megfelelő, azonban a kód minősége hagyhat kívánnivalót maga után, tipikusan nehezebben érthető, módosítható, továbbfejleszthető.
+A *Measures* különböző mérőszámokat rendel a projekthez, melyeket tovább lehet utána bontani akár osztály szintre is. Ilyen pl. a különböző típusú issue-k száma, a kód lefedettséggel kapcsolatos mérőszámok (lefedettség, tesztesetek, száma, futás hossza, stb.), duplikált kód (copy-paste), a kódbázis mérete (osztályok, metódusok, sorok száma), komplexitás és a különböző státuszú issue-k száma. A projektet hibák száma (Reliability/Bugs), biztonsági hibák száma (Security/Vulnerabilities) és gyanús kód (Maintainability/Code Smells) mennyisége alapján különböző osztályokba sorolja (*rating*). Ez A - E értékeket vehet fel, ahol az A legjobb, és E a legrosszabb. Próbálja mérni a *Technical Debtet* is, azáltal, hogy megbecsüli, hogy egy Issue kijavítása mennyi időbe telik. A Technical Debt valójában az a munkamennyiség, mely ahhoz kell, hogy kijavítsuk a határidő nyomás és egyéb körülmények miatti (eufemisztikusan) nem a legmegfelelőbb megoldásokat. Ezektől még lehet, hogy az alkalmazás funkcionálisan megfelelő, azonban a kód minősége hagyhat kívánnivalót maga után, tipikusan nehezebben érthető, módosítható, továbbfejleszthető.
 
 Következő fogalom a *Quality Gate*, mely olyan feltételgyűjtemény, melyet ha nem teljesít a projekt, nem engedjük kiadni. Több Quality Gate-et is definiálhatunk, és ezeket projektekhez rendelhetjük. Olyanokat adhatunk meg, hogy mekkora legyen a megengedhető issue-k száma, a minimális tesztlefedettség, a duplikált kód maximális mérete, a maximális komplexitás, stb. Valójában az összes mérőszámra lehet határértékeket beállítani. Nem csak a régi kódra, hanem az újonnan bekerült kódra vonatkozóan is.
 
