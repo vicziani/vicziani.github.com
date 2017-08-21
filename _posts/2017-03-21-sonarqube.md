@@ -27,7 +27,7 @@ licensz is vásárolható, mellyel támogatást kapunk, illetve más nyelvhez is
 Nézzük meg, hogy milyen komponensekből áll a SonarQube, hogyan lehet telepíteni, és hogyan elemezhetünk
 ki vele egy projektet, és hogyan integrálható a fejlesztőeszközünkkel (IDEA, Eclipse és NetBeans).
 
-<a href="/artifacts/posts/2017-03-21-sonarqube/project.png" rel="sonarqube">![Issues](/artifacts/posts/2017-03-21-sonarqube/project_600.png)</a>
+<a href="/artifacts/posts/2017-03-21-sonarqube/project.png">![Issues](/artifacts/posts/2017-03-21-sonarqube/project_600.png)</a>
 
 <!-- more -->
 
