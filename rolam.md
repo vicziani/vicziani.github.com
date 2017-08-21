@@ -206,7 +206,11 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 ## Tanfolyamok
 
 <dl class="dl-horizontal">
-	<dt>2016 október</dt>
+<dt>2017. május</dt>
+<dd>
+	<p>JDK 8 Massive Open and Online Course: Lambdas and Streams Introduction, 2016 (Oracle Learning Library)</p>
+</dd>
+	<dt>2016. október</dt>
 	<dd>
 		<p>Single Page Web Applications with AngularJS by Johns Hopkins University on Coursera</p>
 	</dd>
@@ -274,4 +278,4 @@ Objektumorientált tervezés és programozás, UML, agilis módszertanok, eloszt
 
 ## Szabadidő
 
-Szabadidőmben próbálok túrázgatni, mind gyalog, mind kerékpárral (Kelly's Axis Red trekking, valamint egy országúti kerékpárral), és hobbiként [geocacheeléssel](http://www.geocaching.hu/users.geo?id=7420) (Garmin GPSMAP 60), PMR-rel (Oregon Scientific TP380) és újabban sárkányeregetéssel (Symphony Beach 2.1) is foglalkozom. Szívesen focizom, röplabdázom, kosárlabdázom és pingpongozom, telente egy hetet legalább síelek, többször korcsolyázom. Szívesen utazom, akár belföldre hétvégente, akár külföldre. Sokat olvasom, gyakran járok színházba, koncertre.
+Szabadidőmben próbálok túrázgatni, mind gyalog, mind kerékpárral (Kelly's Axis Red trekking, valamint egy országúti kerékpárral), és hobbiként [geocacheeléssel](http://www.geocaching.hu/users.geo?id=7420) (Garmin GPSMAP 60), PMR-rel (Oregon Scientific TP380) és újabban sárkányeregetéssel (Symphony Beach 2.1) is foglalkozom. Szívesen focizom, röplabdázom, kosárlabdázom és pingpongozom, telente egy hetet legalább síelek, többször korcsolyázom. Szívesen utazom, akár belföldre hétvégente, akár külföldre. Sokat olvasok, gyakran járok színházba, koncertre.
