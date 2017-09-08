@@ -30,7 +30,7 @@ is használhatunk, ekkor azonban a Hackerranken publikált kódvázat kell
 másolhassuk le a kódot, készítettem egy JUnit rule-t, mely a standard inputra
 irányítja a példa bemenetet tartalmazó állomány tartalmát, naplózza a standard
 kimenetre az írásokat, és szabályos assert hívással összehasonlítja a kimenetre
-írt tartalmat a megoldást tartamazó állomány tartalmával.
+írt tartalmat a megoldást tartalmazó állomány tartalmával.
 
 Így ezen poszt bemutatja a JUnit rule-ok használatát, valamint egy eszközt biztosít,
 mellyel kényelmesebben lehet Hackerrank feladatokat megoldani.
@@ -123,7 +123,7 @@ public static class HasTempFolder {
 {% endhighlight %}
 
 Ezzel létrehozunk egy ideiglenes könyvtárat, és ebben létrehozhatunk újabb
-könyvtárokat és fájlokat. Ezeket paraméterül beadhatjuk a tesztelendő metódusainknak.
+könyvtárakat és fájlokat. Ezeket paraméterül beadhatjuk a tesztelendő metódusainknak.
 A rule fog arról gondoskodni, hogy ezt a könyvtárat letörölje (a finally ágban). Az
 ideiglenes könyvtárat az operációs rendszer temp könyvtárában hozza létre.
 
@@ -152,7 +152,7 @@ public interface TestRule {
 }
 {% endhighlight %}
 
-A `Statement` egy absztakt osztály, mely `evaluate()` metódusát kell implementálni.
+A `Statement` egy absztrakt osztály, mely `evaluate()` metódusát kell implementálni.
 
 {% highlight java %}
 public abstract class Statement {
@@ -181,7 +181,7 @@ private Statement statement(final Statement base) {
 }
 {% endhighlight %}
 
-Remekül látszik, hogy egyrészt delegálja a hívást az eredeti `Statement` példánynakés a finally-ágban
+Remekül látszik, hogy egyrészt delegálja a hívást az eredeti `Statement` példánynak és a finally-ágban
 hívja az `after()` metódust.
 
 És most nézzük is meg, hogyan implementáltam a Hackerrank használatához egy
@@ -190,7 +190,7 @@ elérhető a [Gitub-on](https://github.com/vicziani/junit-rule).
 
 A Hackerranken a legegyszerűbb feladat a
 [Java Stdin and Stdout I](https://www.hackerrank.com/challenges/java-stdin-and-stdout-1/problem),
-ahol az a feladat, hogy olvassuk fel sorokat a standard bementről, majd írjuk vissza a standard kimenetre.
+ahol az a feladat, hogy olvassuk fel sorokat a standard bemenetről, majd írjuk vissza a standard kimenetre.
 
 A példában kizárólag egy `main` metódust kell implementálni. Valamint le lehet tölteni egy
 `input00.txt` és egy `output00.txt` állományt, melyek rendre a standard bemenetről
