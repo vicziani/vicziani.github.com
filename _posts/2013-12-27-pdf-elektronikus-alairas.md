@@ -47,9 +47,8 @@ aláírás](/2008/12/02/minositett-elektronikus-alairas.html).
 
 Valamint érdekelt, hogy a különböző szolgáltatók, mint pl. Elmű, Főgáz,
 Tigáz, stb. az elektronikusan kiadott számláikat milyen módon írják alá,
-ennek összesítése megtalálható egy [Google Drive
-Táblázatban](https://docs.google.com/spreadsheet/ccc?key=0Avxdl4mpIvJEdGZuVHJaMWtTbmlwNkdVWS0wYUd4VlE&usp=sharing).
-Örülnék, ha ki tudnátok egészíteni más szolgáltatókkal is.
+ennek összesítése megtalálható 
+[GitHubon](https://github.com/vicziani/jtechlog-articles/blob/master/elektronikus-alairas/szolgaltatok-ea.adoc).
 
 Először az iText jutott eszembe, de annak a 4.x verziója lett kiadva MPL
 és LGPL licensz alatt, míg az 5.x sorozatért keményen fizetnünk kell, ha
