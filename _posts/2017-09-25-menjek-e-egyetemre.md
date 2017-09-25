@@ -13,6 +13,8 @@ Következő posztomban a manapság egyre jobban terjedő fejlesztőképzésről 
 
 **Disclaimer:** Mivel a Debreceni Egyetemen végeztem 2001-ben, főleg erről van tapasztalatom. Azóta Java fejlesztőként, architektként dolgoztam, és rengeteg embert, köztük végzős egyetemistát is interjúztattam, és rengeteget oktattam. Jelenleg a junior fejlesztőképzéssel foglalkozó [Yellowroad](http://yellowroad.hu/) egyik mentora vagyok. Az itt közölt poszt csak a saját személyes véleményemet tükrözi. Fenntartom a jogot, hogy a posztot folyamatosan bővítgessem, javítgassam.
 
+<!-- more -->
+
 Most végeztél szakközépiskolában vagy gimnáziumban, programozó akarsz lenni, és az érdekel, javaslom-e, hogy egyetemre menj?
 
 A rövid válasz az, hogy igen. Ki is fejtsem? Az egyetem olyan élményeket ad, melyeket későbbi életed során bőségesen tudsz kamatoztatni. Tehát ad az egyetem annyi szakmai tudást, amellyel el lehet helyezkedni, és be tudsz állni a napi munkába? A válaszom erre sajnos az, hogy nem. Akkor miért is érdemes oda járni?
