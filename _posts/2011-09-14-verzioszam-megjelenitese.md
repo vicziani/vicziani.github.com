@@ -58,7 +58,7 @@ Ekkor a [Apache Maven Archiver](http://maven.apache.org/shared/maven-archiver/in
 Ezt a következőképp tudjuk kiolvasni, pl. JAR futtatása esetén a classpath-ról a `getResourceAsStream()` metódussal.
 Egy példa alkalmazás [elérhető a GitHubon](https://github.com/vicziani/jtechlog-versioninfo).
 
-{% highlight xml %}
+{% highlight java %}
 try (InputStream is = VersionInfo.class.getResourceAsStream("/META-INF/MANIFEST.MF")) {
     Manifest manifest = new Manifest(is);
     Attributes attributes = manifest.getMainAttributes();
@@ -127,10 +127,10 @@ a `maven-jar-plugin` konfigurációjánál:
 
 {% highlight xml %}
 <archive>
-...
-<manifestEntries>
-   <Implementation-Build>${buildNumber} ${jenkinsBuildNumber}</Implementation-Build>
-</manifestEntries>
-...
+  ...
+  <manifestEntries>
+     <Implementation-Build>${buildNumber} ${jenkinsBuildNumber}</Implementation-Build>
+  </manifestEntries>
+  ...
 </archive>
 {% endhighlight %}
