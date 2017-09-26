@@ -10,54 +10,32 @@ blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-66323485048027979
 blogger_orig_url: http://www.jtechlog.hu/2011/09/verzioszam-megjelenitese-az.html
 ---
 
-Technológiák: Maven 3.0.3, Build Number Maven Plugin 1.0
+Utoljára frissítve: 2017. szeptember 26.
+
+Technológiák: Maven 3.5.0, Maven JAR Plugin 3.0.2, Build Number Maven Plugin 1.4
 
 Kocka írt nem olyan régen egy [posztjában](http://iwillworkforfood.blogspot.com/2011/08/verzioszam.html) arról,
 hogy hogyan lehet az alkalmazás verziószámát kiírni a felületre. Mivel én is nemrég csináltam meg több
 projektünkben is, álljon itt az én megoldásom.
 
-Új projektjeink már Mavent használnak buildeléshez, ahol a `pom.xml` tartalmazza a verziószámot. 
-Én azt javaslom, hogy ez legyen is elég. Ez egyértelműen azonosít egy artifactot, azaz egy alkalmazást
+Új projektjeink már Mavent használnak buildeléshez, ahol a `pom.xml` tartalmazza a verziószámot.
+Ez a legtöbb esetben elég is. Ez egyértelműen azonosít egy artifactot, azaz egy alkalmazást
 (vagy annak moduljait). Maven használata esetén a SNAPSHOT verziószámmal rendelkező artifactból lehet több is,
 de a release-elt artifactból csak egy lehet, ha egyszer kiadtuk, az már többet nem módosulhat. Javasolt
 tesztelésre, élesre csakis release-elt artifactot kitenni, így egyértelműen azonosítható, így elég lesz az
-azonosításra a verziószám is. Abban az esetben, ha mi SNAPSHOT verziókat is ki akarunk adni tesztelésre
-(amit nem javaslok), érdemes még valamilyen plusz azonosítót társítani a verziószám mellé. Ez lehet egy egyedileg
+azonosításra a verziószám is. Continuous delivery esetén is minden build egy potenciális release,
+saját verziószámmal. Abban az esetben, ha mégis SNAPSHOT verziókat akarunk kiadni tesztelésre, érdemes
+még valamilyen plusz azonosítót társítani a verziószám mellé. Ez lehet egy egyedileg
 kézzel megadott érték (ekkor elég nagy a hibalehetőség), egy automatikusan növelt egész szám (ennek a tárolásával
-lehetnek gondok), timestamp, vagy a legegyszerűbb esetben az SCM revision number. De ismétlem, erre csak akkor
-van szükség, ha snapshotokat is kiadunk tesztelésre, és azokat akarjuk egyedileg azonosítani, ellenkező esetben
-elég a verziószám. A verziószámhoz tartozó információkat pedig lehetőleg az issue tracker tartalmazza. Ebből is
-látszik, hogy az SCM-et én egyszerű tárolónak tekintem, ott nem szeretek plusz meta információkat tárolni, vagy
-pl. a revision numbert venni bármi alapjául.
+lehetnek gondok), timestamp, verziókezelő rendszerre jellemző egyedi azonosító (pl. Subversion revision, Git commit hash), vagy egy környezeti változóban átadott érték.
+Ez utóbbi például használható akkor, ha a Jenkins Continuous Integration rendszer a `BUILD_NUMBER`-t
+környezeti változóban adja át. (A Jenkins mellesleg átadja a verziókövető rendszerre jellemző egyedi azonosítót is, Subversion
+esetén `SVN_REVISION`, Git esetén `GIT_COMMIT` néven.)
 
-Amennyiben csak a release-elt alkalmazás verziószámát akarjuk kiírni, elegendő egy properties állományt létrehozni,
-és a Mavent rávenni, hogy ebbe az állományba írja bele a verziószámot. Utána az alkalmazásba ezt a properties
-állományt kell becsomagolni, majd ezt beolvasni (pl. classpath-ról, `getResourceAsStream` metódussal). Egy példa
-alkalmazás [elérhető a GitHubon](https://github.com/vicziani/jtechlog-versioninfo). Nem javaslom a
-`MANIFEST.MF` állomány beolvasását classpath-ról, mert ez csak akkor működik, ha a jar be van csomagolva, ha pl.
-az alkalmazásszerver deploy-kor kicsomagolja a war alkalmazást, akkor nem fog működni. A verziószám beírását a
-properties állományba a Maven a resource-ok filterelésével képes megoldani. Ekkor definiáljuk a következőt a
-`pom.xml` fájlban:
+Mivel a `META-INF/MANIFEST.MF` állomány pont ilyen információk tárolására alkalmas, érdemes oda beírni és
+onnan kiolvasni.
 
-{% highlight xml %}
-<build>
- <resources>
-  <resource>
-   <directory>src/main/resources</directory>
-   <filtering>true</filtering>
-  </resource>
- </resources>
-</build>
-{% endhighlight %}
-
-Valamint a properties állományban:
-
-	version=${project.version}
-
-Ekkor látni fogjuk, hogy amikor a Maven átmásolja a properties állományt, kicseréli benne a
-`${project.version}` szöveget a projekt verziószámára.
-
-Amennyiben a `MANIFEST.MF` állományban is látni szeretnénk a verziószámot, a következővel egészítsük ki a
+Ahhoz, hogy a `MANIFEST.MF` állományban is szerepeljen a verziószám, a következővel egészítsük ki a
 `pom.xml`-t.
 
 {% highlight xml %}
@@ -75,90 +53,74 @@ Amennyiben a `MANIFEST.MF` állományban is látni szeretnénk a verziószámot,
 </plugin>
 {% endhighlight %}
 
+Ekkor a [Apache Maven Archiver](http://maven.apache.org/shared/maven-archiver/index.html) oldalon leírtaknak megfelelően elhelyezi a `MANIFEST.MF` állományban a megfelelő bejegyzéseket, köztük az `Implementation-Version` bejegyzést a projekt verziószámával.
+
+Ezt a következőképp tudjuk kiolvasni, pl. JAR futtatása esetén a classpath-ról a `getResourceAsStream()` metódussal.
+Egy példa alkalmazás [elérhető a GitHubon](https://github.com/vicziani/jtechlog-versioninfo).
+
+{% highlight xml %}
+try (InputStream is = VersionInfo.class.getResourceAsStream("/META-INF/MANIFEST.MF")) {
+    Manifest manifest = new Manifest(is);
+    Attributes attributes = manifest.getMainAttributes();
+
+    version = attributes.getValue(Attributes.Name.IMPLEMENTATION_VERSION);
+}
+catch (IOException e) {
+    throw new RuntimeException("Error loading META-INF/MANIFEST.MF file from classpath", e);
+}
+{% endhighlight %}
+
+Ez fejlesztőeszközből indítva nem fog működni, csak ha JAR-ból futtatjuk. Ha web konténerben (pl. Tomcat) vagyunk,
+és a `META-INF` könyvtár nincs a classpath-on, akkor a `ServletContext.getRealPath()` metódusát használjuk.
+
 Ha mégis úgy döntünk, hogy szükségünk van build numberre is, mert SNAPSHOT verziót is azonosítani akarunk, akkor
-használhatjuk a [Build Number Maven Plugin](http://mojo.codehaus.org/buildnumber-maven-plugin/)-t. Ennek két
-üzemmódja van. A build numbernek vagy az SCM revizióját használja, vagy megadhatunk neki egy formátumot. A
-formátumot a `MessageFormat` osztályban leírtaknak megfelelően lehet megadni. Itt behelyettesíthető egy vagy több
-egész szám, melye(ke)t automatikusan növel, a timestamp, valamint konstans értékek (szöveg és szám is).
+használhatjuk a [Build Number Maven Plugin](http://www.mojohaus.org/buildnumber-maven-plugin/)-t. Ez a bevezetőben
+említett összes forrásból képes kiolvasni a verzió paramétereket.
 
-Érdekes, hogy mindkét esetben definiálni kell az `scm` taget a `pom.xml`-ben, mert mindenképp lefuttat egy
-SCM parancsot. Ha nem adjuk meg az `scm` tag-et, a következő hibajelzést kapjuk:
-
-	Failed to execute goal org.codehaus.mojo:buildnumber-maven-plugin:1.0:create (default) on project jtechlog-versioninfo: Execution default of goal org.codehaus.mojo:buildnumber-maven-plugin:1.0:create failed: The scm url cannot be null. -> [Help 1]
-
-Először nézzük, hogy mi történik, ha a build numbert a revisionből akarjuk venni. Ehhez a következőt illesszük a
-`pom.xml`-be:
+Amennyiben a következő konfigurációt használjuk, a verziókövető rendszert, pl. Gitet használ a
+verzió információk kinyerésére. A `buildNumber` property-be tárolja a commit hash-t, és
+feltölti a `timestamp` és `buildScmBranch` property-ket is. Ehhez a háttérben egy Git parancsot ad ki.
+Ehhez azonban kötelezően ki kell töltenünk az `scm` tag-et a `pom.xml` fájlban.
 
 {% highlight xml %}
 <plugin>
- <groupId>org.codehaus.mojo</groupId>
- <artifactId>buildnumber-maven-plugin</artifactId>
- <version>1.0</version>
- <executions>
-  <execution>
-   <id>buildNumber</id>
-   <phase>validate</phase>
-   <goals>
-    <goal>create</goal>
-   </goals>
-   <configuration>
-    <doCheck>true</doCheck>
-    <doUpdate>true</doUpdate>
-   </configuration>
-  </execution>
- </executions>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>buildnumber-maven-plugin</artifactId>
+    <version>1.4</version>
+    <executions>
+        <execution>
+            <id>buildNumber</id>
+            <phase>validate</phase>
+            <goals>
+                <goal>create</goal>
+            </goals>
+        </execution>
+    </executions>
 </plugin>
 {% endhighlight %}
 
-Subversion SCM esetén ekkor egyrészt lefuttat egy `svn status` parancsot, és ellenőrzi, hogy van-e módosított
-állomány. Majd egy `svn update` parancsot, és egy `svn info` parancsot. Ez alapján eltárolja a revision numbert a
-`${buildNumber}` property-be, az aktuális timestampet a `${timestamp}` property-be és a branch-et, amin vagyunk a
-`${scmBranch}` property-be (ez lehet a trunk is). Ezeket a property-ket aztán a properties fájlba írva a Maven
-filtereli.
-
-Furcsa mód amennyiben a formátumos megadást is használni akarjuk, akkor azt nem tudjuk itt konfigurálni, hanem fel
-kell venni egy újabb `execution` tag-et.
+Ha pl. környezeti változóból is szeretnénk értéket kinyerni, akkor a következő konfigurációval
+egészítsük ki:
 
 {% highlight xml %}
 <execution>
- <id>buildInfo</id>
- <phase>validate</phase>
- <goals>
-  <goal>create</goal>
- </goals>
- <configuration>
-  <buildNumberPropertyName>buildInfo</buildNumberPropertyName>
-  <format>Incremental build number {0}.{1}
-at {2,time} on {2,date}, build on build server {3}{4}, env var: {5}.</format>
-  <items>
-   <item>buildNumber0</item>
-   <item>buildNumber1</item>
-   <item>timestamp</item>
-   <item>jupiter</item>
-   <item implementation="java.lang.Integer">8</item>
-   <item>${envVar}</item>
-  </items>
- </configuration>
+    <id>jenkinsBuildNumber</id>
+    <phase>validate</phase>
+    <goals>
+        <goal>create</goal>
+    </goals>
+    <configuration>
+        <buildNumberPropertyName>jenkinsBuildNumber</buildNumberPropertyName>
+        <format>{0}</format>
+        <items>
+            <item>${BUILD_NUMBER}</item>
+        </items>
+    </configuration>
 </execution>
 {% endhighlight %}
 
-Látható, hogy hogyan lehet megadni a formátumot a `format` tagben, és ekkor meg kell adni az `items` taget is,
-felsorolva a behelyettesítendő értékeket. A `buildNumber/d*` (ami azt jelenti, hogy a `buildNumber` szó, megtoldva
-egy egész számmal) azt fogja eredményezni, hogy létrejön egy `buildNumber.properties` állomány (helye, neve
-konfigurálható), és ebben fogja tárolni az aktuális verziót, és build esetén megnöveli egyel. Az előző példában
-két ilyen verziószámot növelget, és jegyez be ebbe az állományba. A timestampet is ki lehet írni, méghozzá
-formázva (még érdekesebb formátum pl. `{0,date,yyyy-MM-dd HH:mm:ss}`), valamint konstansokat is meg lehet adni.
-Ebbe az a jó, hogy akár egy Maven property-t is, ahogy az `${envVar}` property mutatja. Ekkor a build-et a
-`mvn -D envVar=CI install` paranccsal indítva a CI szót fogja a formátumba behelyettesíteni. Ez azért jó, mert
-akár a build szerveren, a CI (pl. Hudson/Jenkins) is be tudja ezt külön-külön állítani.
-
-A fenti konfigurációval futtatva a build-et a következőt kapjuk:
-
-	Incremental build number 1.1 at 23:50:06 on 2011.09.13., build on build server jupiter8, env var: CI.
-
-Ezt az értéket, ahogy a `buildNumberPropertyName` tagben láthatjuk, a `${buildInfo}` property-be fogja eltenni
-(hogy ne üsse az előző `${buildNumber}` proerty-t). Ezt a properties állományunkban a Maven megintcsak tudja
-filterelni.
+Ekkor a `jenkinsBuildNumber` property értékét tölti fel a `BUILD_NUMBER` környezeti változó
+értékével.
 
 Amennyiben ezeket az értékeket a `MANIFEST.MF`-ben is szerepeltetni akarjuk, a következőt kell a `pom-xml`-be írni
 a `maven-jar-plugin` konfigurációjánál:
@@ -166,9 +128,9 @@ a `maven-jar-plugin` konfigurációjánál:
 {% highlight xml %}
 <archive>
 ...
- <manifestEntries>
-  <Implementation-Build>${buildNumber}</Implementation-Build>
- </manifestEntries>
+<manifestEntries>
+   <Implementation-Build>${buildNumber} ${jenkinsBuildNumber}</Implementation-Build>
+</manifestEntries>
 ...
 </archive>
 {% endhighlight %}
