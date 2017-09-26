@@ -65,4 +65,4 @@ Ahogy ígértem, hadd említsek meg pár dolgot, amire mindenképp érdemes odaf
 * UML Distilled - Martin Fowler, Kendall Scott
 * Working Effectively with Legacy Code - 	Michael Feathers 
 * Code Complete: A Practical Handbook of Software Construction - Steve McConnell
-* The Pragmatic Programmer: From Journeyman to Master - by Andrew Hunt, David Thomas
+* The Pragmatic Programmer: From Journeyman to Master - Andrew Hunt, David Thomas
