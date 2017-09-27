@@ -3,6 +3,7 @@ layout: post
 title: Programozó szeretnék lenni, menjek-e egyetemre?
 date: '2017-09-25T22:00:00.000+02:00'
 author: István Viczián
+description: Egyre többször hangzik el a kérdés, hogy érdemes-e egyetemre mennie annak, aki programozó szeretne lenni. Ez a poszt próbálja összefoglalni az előnyöket és hátrányokat.
 ---
 
 Ez a poszt, a címéből is következik, egy könnyedebb témával foglalkozik. Manapság különböző fórumokon jön elő a kérdés, hogy érdemes-e egyetemre mennie annak, aki programozó szeretne lenni. Most itt próbálom részletesen összefoglalni, hogy később tudjak hivatkozni rá.
@@ -51,18 +52,18 @@ Mindenkinek jó az egyetem? Nem, de bármikor abba tudod hagyni. Egy próbát me
 
 Ahogy ígértem, hadd említsek meg pár dolgot, amire mindenképp érdemes odafigyelned (ezek lehet, hogy az én időm óta névben változtak): matematikai alapok, valószínűségszámítás, kombinatorika, geometria. Nem, természetesen nem fog olyan mélységben kelleni, mint ahogy tanítják. Számomra a leghasznosabb az adatszerkezetek és algoritmusok, programozás. Igen, azon programozási nyelvek megismerése is, amelyeket aztán sosem használtam. Amire később jöttem rá, hogy mennyire hasznos lett volna, ha odafigyelek, a fordítóprogramok és automaták. Sokáig nem volt olyan év, hogy ne vettem volna elő a mesterséges intelligencia jegyzetemet (állapottér reprezentáció, kereső algoritmusok). Számítógépes grafika, mely segített egy csomó módszerrel, hogy az analóg és a digitális világ közötti szakadékot megértsem, és át tudjam hidalni. Hálózatok (OSI-modell, Ethernet, TCP/IP). Adatbázisok, ne hidd, hogy nem fogsz kapcsolatba kerülni vele, és megúszod az SQL nyelvet. Operációs rendszerek. Logika és számításelmélet (Turing-gépek, P, NP osztályok, NP-teljesség). A funkcionális programozás egyre nagyobb szerepet kap. Webes alkalmazások. Elosztott rendszerek.
 
-Álljanak itt azok, melyeket tapasztalatom alapján nem sikerül az egyetemen kellő mértékben elsajátítani. Mivel én Javaban dolgozom, főleg ilyen eszközöket fogok felsorolni, de más platformon is megvan ezeknek a párja. Iparban használatos eszközök, mint build rendszerek (Maven, Gradle), Continuous Integration, Continuous Delivery. Fejlesztőeszközök mélyebb szintű ismerete (Eclipse, NetBeans, IntelliJ IDEA). Magasabb szintű nagyvállalati technológiák, mint Java EE, Spring Framework, Spring Boot. Az ezek mögött húzódó elméleti háttér, mint dependency injection, vagy inversion of control. Verziókezelő mélyebb szintű használata (Git, GitLab). Teszt vezérelt fejlesztés, tesztelési technikák, automatizált unit tesztelés, mockolás (JUnit, Mockito). Performancia hangolás. Tervezési minták, refactoring, Clean Code, Effective Java. Olyan nagyon gyakorlati ismeretek, mint dátum kezelés (időzónák), fájl írás-/olvasás, XML, JSON állományok kezelése, naplózás, audit naplózás. ORM eszközök. Webes technológiák, webes architektúrák (http, http(s), HTML, CSS, JavaScript), alkalmazás architektúrák, modularizáció. Middleware-ek. Webszolgáltatások, manapság már RESTful API-k. Webes biztonság. Többszálú alkalmazásfejlesztés. 
+Álljanak itt azok, melyeket tapasztalatom alapján nem sikerül az egyetemen kellő mértékben elsajátítani. Mivel én Javaban dolgozom, főleg ilyen eszközöket fogok felsorolni, de más platformon is megvan ezeknek a párja. Iparban használatos eszközök, mint build rendszerek (Maven, Gradle), Continuous Integration, Continuous Delivery. Fejlesztőeszközök mélyebb szintű ismerete (Eclipse, NetBeans, IntelliJ IDEA). Magasabb szintű nagyvállalati technológiák, mint Java EE, Spring Framework, Spring Boot. Az ezek mögött húzódó elméleti háttér, mint dependency injection, vagy inversion of control. Verziókezelő mélyebb szintű használata (Git, GitLab). Teszt vezérelt fejlesztés, tesztelési technikák, automatizált unit tesztelés, mockolás (JUnit, Mockito). Performancia hangolás. Tervezési minták, refactoring, Clean Code, Effective Java. Olyan nagyon gyakorlati ismeretek, mint dátum kezelés (időzónák), fájl írás-/olvasás, XML, JSON állományok kezelése, naplózás, audit naplózás. ORM eszközök. Webes technológiák, webes architektúrák (http, http(s), HTML, CSS, JavaScript), alkalmazás architektúrák, modularizáció. Middleware-ek. Webszolgáltatások, manapság már RESTful API-k. Webes biztonság. Többszálú alkalmazásfejlesztés.
 
 És akkor pár könyv, amit mindenképp érdemes elolvasnod, még munkába állás előtt:
- 	
+
 * Test Driven: TDD and Acceptance TDD for Java Developers - Lasse Koskela
 * Design Patterns: Elements of Reusable Object-Oriented Software - Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
 * Head First Design Patterns - Bert Bates, Kathy Sierra, Eric Freeman, Elisabeth Robson
-* Refactoring: Improving the Design of Existing Code - Martin Fowler 
-* Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Martin 
-* The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin 
-* Effective Java - Joshua Bloch 
+* Refactoring: Improving the Design of Existing Code - Martin Fowler
+* Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Martin
+* The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
+* Effective Java - Joshua Bloch
 * UML Distilled - Martin Fowler, Kendall Scott
-* Working Effectively with Legacy Code - 	Michael Feathers 
+* Working Effectively with Legacy Code - 	Michael Feathers
 * Code Complete: A Practical Handbook of Software Construction - Steve McConnell
 * The Pragmatic Programmer: From Journeyman to Master - Andrew Hunt, David Thomas
