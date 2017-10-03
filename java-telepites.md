@@ -33,5 +33,5 @@ A JRE telepítéséhez keressük fel a https://java.com/ oldalt, ahol
 az oldal felajánlja a használt operációs rendszerünknek megfelelő JRE
 verziótletöltésre.
 Amennyiben nem azon az operációs rendszerre akarjuk telepíteni a JRE-t,
-mellyel éppen dolgozunk, és letöltjük a JRE-t, lehetőség van letölteni más
+mellyen éppen dolgozunk, letölthetjük a JRE-t más
 operációs rendszerre is.
