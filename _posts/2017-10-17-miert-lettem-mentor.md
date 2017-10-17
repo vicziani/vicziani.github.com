@@ -3,7 +3,6 @@ layout: post
 title: Miért lettem mentor egy Java fejlesztő képzésben?
 date: '2017-10-17T11:00:00.000+02:00'
 author: István Viczián
-description: Egyre több junior programozóképzés indul Magyarországon. Egy ilyenben, a Yellowroadban vállaltam Java mentor szerepet. Hogy miért? Erről szól ez a poszt. Szó esik arról, hogy mit is jelent, hogy junior fejlesztő, milyen képességekkel kell rendelkeznie, vagy mik szoktak az oktatás során nehézséget okozni.
 ---
 
 Magyarországon egyre több junior programozóképzés indul. Ahogy egyre többekhez jut el, egyre több tévhit és félreértés terjed az interneten. Mivel egy ilyenben veszek részt, mint mentor, szeretném egy kicsit erről az oldalról is bemutatni. Minden reklámtól mentesen, és sokszor a technológiára koncentrálva, hiszen ez az én fő területem. 2016 végén kerestek meg a Training360-tól, hogy csatlakozzak a [Yellowroadhoz](http://www.yellowroad.hu/), kidolgozni a Java junior képzés tematikáját, valamint mentorként részt venni a csoportok munkájában,  embereket hozzásegíteni egy új karrierhez. Kis gondolkozási idő után igent mondtam. Hogy miért? És hogyan próbálok minden nap helyt állni? Erről szól ez a poszt.
