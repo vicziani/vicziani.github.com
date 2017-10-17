@@ -203,3 +203,4 @@ mögötte érdemi előkészítés, komoly munka, vendégem egy kávéra, szíves
 ennyi idő alatt.
 
 Ha a mentorálás esetleg felkeltette az érdeklődésedet, és szeretnél részt venni a programban, keress meg!
+
