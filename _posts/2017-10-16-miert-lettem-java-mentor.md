@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Miért lettem mentor egy Java fejlesztő képzésben?
-date: '2017-10-17T11:00:00.000+02:00'
+date: '2017-10-16T11:00:00.000+02:00'
 author: István Viczián
 description: Ez a poszt arról szól, miért lettem Java mentor a Yellowroad junior programozóképzésben. Szó esik arról, hogy mit is jelent, hogy junior fejlesztő, milyen képességekkel kell rendelkeznie, vagy mik szoktak az oktatás során nehézséget okozni.
 ---
