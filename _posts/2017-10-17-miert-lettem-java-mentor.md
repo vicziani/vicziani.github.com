@@ -133,7 +133,7 @@ lankad a figyelem. Persze, lehetne mondani, hogy érdekessé kell tenni az oktat
 szórakoztatás zajlik, hanem oktatás, és igenis vannak száraz anyagrészek, nem standup van, a generikus 
 wildcardok esetén az upper bound használatát nem lehet könnyű musical betétként előadni. Amúgy is 
 mindenkinek más az érdekes. Van angol nyelvű könyv is, valamint rengeteg hivatkozás, az önálló, olvasni 
-szerető diákoknak. És van a mentorált oktatás, ahol mindenki maga dolgozza fel az előre videóra anyagot, 
+szerető diákoknak. És van a mentorált oktatás, ahol mindenki maga dolgozza fel az előre videóra felvett anyagot, 
 és oldja meg mentori segítséggel a feladatokat. Itt mindenki a saját tempójában tud haladni. Érdekes, 
 hogy vannak ismétlő kérdések az anyagban, ami arra való, hogy át lehessen venni segítségükkel az anyag 
 elméleti részét. Ezeket a diákok többsége olvasás nélkül átugorja.
