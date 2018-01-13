@@ -72,7 +72,7 @@ legelterjedtebb, Sun (már Oracle) által gyártott, a Java 2 Platform,
 Standard Edition JDK-ban megtalálható Java HotSpot virtuális gépről
 fogok írni, továbbiakban JVM. Jó referencia a [Memory Management in Java
 HotSpot Virtual
-Machine](http://java.sun.com/j2se/reference/whitepapers/memorymanagement_whitepaper.pdf)
+Machine](http://www.oracle.com/technetwork/java/javase/tech/memorymanagement-whitepaper-1-150020.pdf)
 dokumentum. A JVM-nek három fő része van: runtime, JIT, és a
 memóriakezelést végző szemétgyűjtő mechanizmus.
 
@@ -162,7 +162,7 @@ Amennyiben az objektum túlélése elért egy megfelelő számot, átkerül az
 old generationbe.
 
 A [Garbage Collection in the Java HotSpot Virtual
-Machine](http://www.devx.com/Java/Article/21977/1954) cikk ábráit
+Machine](http://www.devx.com/Java/Article/21977) cikk ábráit
 használva a következő lépésekből áll tehát a young generationön a
 szemétgyűjtés. Az eden és az egyik survivor területen is gyűltek az
 objektumok.
@@ -443,7 +443,7 @@ következő tulajdonságok alapján lehet vizsgálni:
 összehasonlítása](/artifacts/posts/2011-12-30-java-memoriakezeles-szemetgyujto/tablazat.png)
 
 [Our
-Collectors](http://blogs.oracle.com/jonthecollector/entry/our_collectors)
+Collectors](https://blogs.oracle.com/jonthecollector/our-collectors)
 címmel egy elég jó cikket és grafikát találunk a young és old generation
 szemétgyűjtő algoritmusainak, valamint parancssori paramétereinek
 kapcsolatáról.

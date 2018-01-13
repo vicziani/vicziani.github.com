@@ -55,7 +55,7 @@ persistence provider a betöltéssel.
 
 Postomban a lazy loading viselkedését vizsgálom a két legelterjedtebb
 provider, az [EclipseLink](http://www.eclipse.org/eclipselink/) és a
-[Hibernate](http://www.hibernate.org/) esetében. A [Hibernate
+[Hibernate](http://hibernate.org/) esetében. A [Hibernate
 EclipseLink átállás](/2009/05/10/hibernate-eclipselink-atallas.html)
 poszt részletesen leírja, hogyan lehet átállni Hibernate-ről
 EclipseLinkre, valamint ebben leírom, mi az a weaving, Java agent és
@@ -71,15 +71,15 @@ A példaprogram letölthető a
 [GitHub-ról](https://github.com/vicziani/jtechlog-lazy). A példaprogram
 a `mvn test` parancs kiadásával már futtathatók a tesztesetek, `mvn jetty:run`
 parancs hatására pedig elindul a webes alkalmazás. (Azért webes alkalmazás, mert
-demonstrálni szeretném az "Open EntityManager in View" tervezési mintát is.) 
+demonstrálni szeretném az "Open EntityManager in View" tervezési mintát is.)
 A példaprogram jó példa arra is, hogyan lehet az EclipseLinket vagy a Hibernate-et
 Springgel integrálni. Az alkalmazásba beágyazott HyperSQL
 adatbáziskezelő biztosítja a perzisztenciát, melybe a `testdata.sql` szkript
-szúr be két `employee` rekordot, mindkettőt 2-2 telefonszámmal. 
+szúr be két `employee` rekordot, mindkettőt 2-2 telefonszámmal.
 Az `Employee` esetén egyrészt a `cv`
 mezőt vizsgáljuk, másrészt a `List<Phone>` kapcsolatot. A `DefaultEmployeeService`
-metódusain van a `@Transactional` annotáció, így azok hívásakor jön létre a 
-persistence context, majd azok lefutásakor az lezárásra kerül. 
+metódusain van a `@Transactional` annotáció, így azok hívásakor jön létre a
+persistence context, majd azok lefutásakor az lezárásra kerül.
 Az entitások a persistence context
 lezárásakor detached állapotba kerülnek. A kódot bőséges naplózással
 láttam el, valamint bekapcsoltam, hogy a persistence provider írja ki a
@@ -97,15 +97,15 @@ fordítási időben instrumentálja a class fájlokat. Ehhez a pom.xml-ben a
 kapcsolatban:
 
     [EL Finest]: 2012-04-22 01:41:28.453--ServerSession(3980107)--
-    Thread(Thread[main,5,main])--Begin predeploying Persistence 
-    Unit lazyPersistenceUnit; session lazyPersistenceUnit; state 
+    Thread(Thread[main,5,main])--Begin predeploying Persistence
+    Unit lazyPersistenceUnit; session lazyPersistenceUnit; state
     Initial; factoryCount 0
 
     [EL Finest]: 2012-04-22 01:41:29.062--ServerSession(3980107)--
-    Thread(Thread[main,5,main])--Begin weaver class transformer 
+    Thread(Thread[main,5,main])--Begin weaver class transformer
     processing class [jtechlog/lazy/service/Phone].
     [EL Finest]: 2012-04-22 01:41:29.078--ServerSession(3980107)--
-    Thread(Thread[main,5,main])--End weaver class transformer 
+    Thread(Thread[main,5,main])--End weaver class transformer
     processing class [jtechlog/lazy/service/Phone].
 
 Alapértelmezetten az EclipseLink cache be van kapcsolva, ezért a
@@ -123,9 +123,9 @@ kaptuk:
 {% highlight sql %}
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE
 -- Persistence context lezárása
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
 {% endhighlight %}
 
@@ -134,7 +134,7 @@ Az adott alkalmazott kilistázásakor hasonlóképp működik.
 {% highlight sql %}
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 -- Persistence context lezárása
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
 {% endhighlight %}
 
@@ -149,12 +149,12 @@ vagy sem).
 SELECT ID, EMP_NAME FROM EMPLOYEE
 -- Persistence context lezárása
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 {% endhighlight %}
@@ -165,7 +165,7 @@ Valamint egy entitást lekérdezésekor:
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 -- Persistence context lezárása
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 {% endhighlight %}
@@ -215,8 +215,8 @@ eldobja. A distinct használata tehát szükséges ilyenkor, ekkor az
 alkalmazottak listázásakor a következő select futott le:
 
 {% highlight sql %}
-SELECT DISTINCT t1.ID, t1.CV, t1.EMP_NAME, t0.ID, t0.PHONE_NUMBER, 
-  t0.PHONE_TYPE, t0.EMPLOYEE_ID 
+SELECT DISTINCT t1.ID, t1.CV, t1.EMP_NAME, t0.ID, t0.PHONE_NUMBER,
+  t0.PHONE_TYPE, t0.EMPLOYEE_ID
   FROM PHONE t0, EMPLOYEE t1 WHERE (t0.EMPLOYEE_ID = t1.ID)
 {% endhighlight %}
 
@@ -243,8 +243,8 @@ melyek lazyvel vannak jelölve, betöltésre kerültek-e. A következőképpen
 használhatjuk:
 
 {% highlight java %}
-Persistence.getPersistenceUtil().isLoaded( 
-            em.find(Employee.class, 42), "phoneNumbers"); 
+Persistence.getPersistenceUtil().isLoaded(
+            em.find(Employee.class, 42), "phoneNumbers");
 {% endhighlight %}
 
 ### Hibernate
@@ -254,12 +254,12 @@ azaz nincs plusz annotáció, és a `@OneToMany` annotációnál sincs plusz
 paraméter. Az előző cikkem óta a Hibernate 3.3.0.CR2-ben a bájtkód
 módosítását a CGLib helyett a javassist végzi (, amiről szintén írtam
 [korábban](/2011/12/12/instrumentation-javassisttal.html)) ,
-[ugyanis](https://hibernate.onjira.com/browse/HHH-2506) az előbbi nagyon
+[ugyanis](https://hibernate.atlassian.net/browse/HHH-2505) az előbbi nagyon
 inaktív projekt lett, így leváltották. Mindkét service hívás esetén
 következő hibaüzenetet kapom:
 
-    org.hibernate.LazyInitializationException: failed to lazily initialize a 
-    collection of role: jtechlog.lazy.service.Employee.phones, no session or 
+    org.hibernate.LazyInitializationException: failed to lazily initialize a
+    collection of role: jtechlog.lazy.service.Employee.phones, no session or
     session was closed
      at org.hibernate.collection.internal.AbstractPersistentCollection.
     throwLazyInitializationException(AbstractPersistentCollection.java:393)
@@ -313,14 +313,14 @@ okosabb, mint az EclipseLink, egy left outer joint is tartalmazó
 lekérdezést futtat:
 
 {% highlight sql %}
-select employee0_.id as id0_1_, employee0_.cv as cv0_1_, 
-  employee0_.EMP_NAME as EMP3_0_1_, phones1_.employee_id 
-  as employee4_0_3_, phones1_.id as id3_, phones1_.id as id1_0_, 
-  phones1_.employee_id as employee4_1_0_, 
-  phones1_.PHONE_NUMBER as PHONE2_1_0_, 
-  phones1_.PHONE_TYPE as PHONE3_1_0_ 
-  from Employee employee0_ 
-  left outer join Phone phones1_ 
+select employee0_.id as id0_1_, employee0_.cv as cv0_1_,
+  employee0_.EMP_NAME as EMP3_0_1_, phones1_.employee_id
+  as employee4_0_3_, phones1_.id as id3_, phones1_.id as id1_0_,
+  phones1_.employee_id as employee4_1_0_,
+  phones1_.PHONE_NUMBER as PHONE2_1_0_,
+  phones1_.PHONE_TYPE as PHONE3_1_0_
+  from Employee employee0_
+  left outer join Phone phones1_
   on employee0_.id=phones1_.employee_id where employee0_.id=?
 {% endhighlight %}
 
@@ -342,15 +342,15 @@ esetén, itt a legenerált SQL kicsit másképp néz ki, a Hibernate az inner
 join kulcsszót használja.
 
 {% highlight sql %}
-select distinct employee0_.id as id0_0_, phones1_.id as id1_1_, 
-  employee0_.cv as cv0_0_, employee0_.EMP_NAME as EMP3_0_0_, 
-  phones1_.employee_id as employee4_1_1_, 
-  phones1_.PHONE_NUMBER as PHONE2_1_1_, 
-  phones1_.PHONE_TYPE as PHONE3_1_1_, 
-  phones1_.employee_id as employee4_0_0__, 
-  phones1_.id as id0__ 
-  from Employee employee0_ 
-  inner join Phone phones1_ 
+select distinct employee0_.id as id0_0_, phones1_.id as id1_1_,
+  employee0_.cv as cv0_0_, employee0_.EMP_NAME as EMP3_0_0_,
+  phones1_.employee_id as employee4_1_1_,
+  phones1_.PHONE_NUMBER as PHONE2_1_1_,
+  phones1_.PHONE_TYPE as PHONE3_1_1_,
+  phones1_.employee_id as employee4_0_0__,
+  phones1_.id as id0__
+  from Employee employee0_
+  inner join Phone phones1_
   on employee0_.id=phones1_.employee_id
 {% endhighlight %}
 
@@ -366,7 +366,7 @@ return em.createNamedQuery("findEmployeeById", Employee.class)
 Valamint a NamedQuery:
 
 {% highlight sql %}
-@NamedQuery(name = "findEmployeeById", 
+@NamedQuery(name = "findEmployeeById",
   query = "select distinct e from Employee e join fetch e.phones where e.id = :id")
 {% endhighlight %}
 
@@ -390,7 +390,7 @@ hátrányokkal rendelkezik. Ehhez a következőt kell hozzáadni a
 </filter-mapping>
 {% endhighlight %}
 
-Itt az történik, hogy a http kérés beérkeztekor a filter nyit egy 
+Itt az történik, hogy a http kérés beérkeztekor a filter nyit egy
 persistence contextet, és az adott szálhoz
 rendeli. A tranzakció kezdésekor a szolgáltatásrétegben a szálhoz
 rendelt `EntityManager`-hez kapcsolódik. Lefut a `flush`, majd a `commit` a
@@ -409,20 +409,20 @@ jön létre, így hozzáfér az abban lévő bean-ekhez.
 Itt még figyeljük meg a lekérdezéseket:
 
 {% highlight sql %}
-select employee0_.id as id0_, employee0_.cv as cv0_, 
+select employee0_.id as id0_, employee0_.cv as cv0_,
   employee0_.EMP_NAME as EMP3_0_ from Employee employee0_
 -- Persistence context lezárása
-select phones0_.employee_id as employee4_0_1_, 
-  phones0_.id as id1_, phones0_.id as id1_0_, 
-  phones0_.employee_id as employee4_1_0_, 
-  phones0_.PHONE_NUMBER as PHONE2_1_0_, 
-  phones0_.PHONE_TYPE as PHONE3_1_0_ from Phone phones0_ 
+select phones0_.employee_id as employee4_0_1_,
+  phones0_.id as id1_, phones0_.id as id1_0_,
+  phones0_.employee_id as employee4_1_0_,
+  phones0_.PHONE_NUMBER as PHONE2_1_0_,
+  phones0_.PHONE_TYPE as PHONE3_1_0_ from Phone phones0_
   where phones0_.employee_id=?
-select phones0_.employee_id as employee4_0_1_, 
-  phones0_.id as id1_, phones0_.id as id1_0_, 
-  phones0_.employee_id as employee4_1_0_, 
-  phones0_.PHONE_NUMBER as PHONE2_1_0_, 
-  phones0_.PHONE_TYPE as PHONE3_1_0_ 
+select phones0_.employee_id as employee4_0_1_,
+  phones0_.id as id1_, phones0_.id as id1_0_,
+  phones0_.employee_id as employee4_1_0_,
+  phones0_.PHONE_NUMBER as PHONE2_1_0_,
+  phones0_.PHONE_TYPE as PHONE3_1_0_
   from Phone phones0_ where phones0_.employee_id=?
 {% endhighlight %}
 

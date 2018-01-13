@@ -22,7 +22,7 @@ JUnit-ra épülő EJB-k és entitások (entity bean-eknek nevezi, szerintem tév
 public interface BankEJB {
 
  public Client createClient(String name);
-  
+
  public Account openAccount(Client client, long balance);
 
  public void credit(long accountId, long balance);
@@ -36,7 +36,7 @@ public interface BankEJB {
 public interface TransferEJB {
 
  public void doTransfer(long srcAccountId, long destAccountId, long amount);
-  
+
  ...
 }
 </pre>A bean-ek teszteléséhez a következő teszt esetet készíthetjük el:
@@ -88,4 +88,4 @@ ejb3unit.persistenceUnit.name=BankEJB
 </pre><p>Ennek pontosságára figyeljünk, mert a hibaüzenet sajnos nem mindig nyomravezető. Ebben az esetben egy memóriában futó relációs adatbázis (Derby) indul be, és az SQL parancsokat is képes naplózni. Utána a session bean-ek konfigurációja történik (osztály neve, session bean-e, JNDI neve), majd meg lehet adni, hogy töltse be a persistence.xml állományt is, megadva az abban definiált persistence unit nevét.</p><p>A jndi a classpath-ban lévő jndi.properties állománnyal konfigurálható:
 </p><pre>java.naming.factory.initial=com.bm.jndi.MemoryContextFactory
 </pre><p>Ekkor a JNDI fa a memóriában fog elhelyezkedni.</p><p>A példát ha NetBeans-ben akarjuk kipróbálni, akkor figyelni kell arra, hogy a test környvtárban elhelyezett két (ejb3unit.properties, jndi.properties) állományt egyszerű futtatás esetén nem másolja a build/test/classes könyvtárba, így nem fogja azokat megtalálni. Érdekes, hogy a nbproject/build-impl.xml fájlban a -do-compile-test target-ben benne van, de a -do-compile-test-single target-ben viszont nincs, ezt pótolva futtatható a teszt esetünk.</p>Ennél az Ejb3unit többet is tud, pl. entitások automatikus példányosítását, véletlen adatokkal való feltöltését, perzisztálását és visszaolvasását, vagy az adatbázis feltöltését CSV fájl alapján az entitásokon keresztül.
-<p>Az Ejb3unit egyik általam felfedezett hiányossága pl., hogy a teszt eseteinkben nem használhatunk DI annotációkat. Erre a JTechnics blogban láttam <a href="http://jtechnics.anzix.net/tag/ejb3-test/">példát</a>, de sajnos csak a <a href="http://unitils.org/">Unitils</a> keretrendszerhez.</p>
+<p>Az Ejb3unit egyik általam felfedezett hiányossága pl., hogy a teszt eseteinkben nem használhatunk DI annotációkat.

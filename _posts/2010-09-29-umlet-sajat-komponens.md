@@ -223,7 +223,4 @@ Ennek grafikus reprezentációja:
 ![UMLet könyvtárstruktúra](/artifacts/posts/2010-09-29-umlet-sajat-komponens/umlet_package_tree.png)
 
 Jó egy kicsit elszakadni a webes alkalmazásoktól, HTML-től, és kézben
-tartani minden pixelt. A [forráskód
-letölthető](http://dl.dropbox.com/u/7683931/jtechlog/umlet_custom_elements.zip),
-mely tartalmazza azt a bonyolultabb komponenst is, mely lehetővé teszi,
-hogy a téglalap mellé balra és jobbra is egy számot lehessen kiírni.
+tartani minden pixelt.
