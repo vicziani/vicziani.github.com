@@ -1,0 +1,16 @@
+---
+layout: post
+title: JExcelAPI kivétel
+date: '2009-10-07T17:04:00.000'
+author: István Viczián
+tags:
+- java
+modified_time: '2011-01-14T12:29:58.181-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-6781532377621144296
+blogger_orig_url: http://ext.jtechlog.hu/2009/10/jexcelapi-kivetel.html
+---
+
+<p>Amikor a JExcelAPI-t használva be akartam tölteni egy fájlt, írni bele, majd elmenteni, kivételt kaptam Linux-on (Windows-on tökéletesen működött):</p>
+<p>Caused by: java.lang.ArrayIndexOutOfBoundsException<br/> at java.lang.System.arraycopy(Native Method)<br/> at jxl.biff.StringHelper.getBytes(StringHelper.java:127)<br/> at jxl.write.biff.WriteAccessRecord.&lt;init&gt;(WriteAccessRecord.java:60)<br/> at jxl.write.biff.WritableWorkbookImpl.write(WritableWorkbookImpl.java:726)</p>
+<p>A nyomozás azt derítette ki, hogy a write access hossza túl nagy volt, bármit jelentsen is ez. Megoldás:</p>
+<p>WorkbookSettings workbookSettings = new WorkbookSettings();<br/> workbookSettings.setWriteAccess(&#8220;rövidnév&#8221;);<br/> WritableWorkbook w = Workbook.createWorkbook(out, template, workbookSettings);<br/><br/></p>

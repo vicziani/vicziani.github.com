@@ -1,0 +1,15 @@
+---
+layout: post
+title: Rendezés Display taggel
+date: '2009-09-07T13:11:00.000-07:00'
+author: István Viczián
+tags:
+- jsp
+- java
+modified_time: '2011-01-14T12:29:58.222-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-5760455802254803634
+blogger_orig_url: http://ext.jtechlog.hu/2009/09/rendezes-display-tag-gel.html
+---
+
+<p>Táblázat megjelenítésére a <a href="http://displaytag.sourceforge.net/1.2/">Display tag</a> JSP taglib-et használjuk. Rengeteg hasznos funkciója van, könnyű használat, CSS testre szabhatóság, rendezés, lapozás, export különböző formátumokba, stb.</p>
+<p>Amennyiben rendezést akarunk, egy oszlopnak be kell állítani a sortable attribútumát true-ra. Ekkor azonban a DefaultComparator szerint rendez. Ez amiatt nem jó, mert egyrészt megkülönbözteti a kis és nagybetűket (utóbbi van előrébb a ábécében), és nem kezeli az ékezetes karaktereket. Ehhez egy saját Comperator-t kell implementálnunk, egy saját HU locale szerinti Collator-ral. A Display tag azonban nem képes a column tag-ek közötti értékre rendezni, csak a megadott property attribútumra.</p>

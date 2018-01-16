@@ -1,0 +1,19 @@
+---
+layout: post
+title: Spring MVC String null-ként
+date: '2010-10-05T08:58:00.000-07:00'
+author: István Viczián
+tags:
+- spring
+- java
+modified_time: '2011-01-14T12:30:06.496-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-5158423956866225858
+blogger_orig_url: http://ext.jtechlog.hu/2010/10/spring-mvc-string-null-kent.html
+---
+
+<p>Amennyiben azt akarjuk, hogy a Spring MVC űrlap esetén, ha nem töltünk ki egy beviteli mezőt, ne üres String-et (&#8220;&#8221;), hanem null-t állítson be a megfelelő form objektum attribútumának, a <a href="&lt;a%20href=%22http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/validation.html#beans-beans-conversion%22&gt;">StringTrimmerEditor</a>-t kell használnunk.</p>
+<pre>@InitBinder
+public void initBinder(WebDataBinder binder) {
+  binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+}
+</pre>

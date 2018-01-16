@@ -1,0 +1,15 @@
+---
+layout: post
+title: JAX-WS kötelező paraméter
+date: '2009-08-27T02:09:00.000-07:00'
+author: István Viczián
+tags:
+- jax-ws
+- java
+modified_time: '2011-01-14T12:29:13.458-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-7784354070892114775
+blogger_orig_url: http://ext.jtechlog.hu/2009/08/jax-ws-kotelezo-parameter.html
+---
+
+<p>Egy web szolgáltatás operációnál annak meghatározása, hogy egy paraméter kötelező legyen, azaz a WSDL-ben a minOccurs=&#8221;1&#8221; szerepeljen nem egyszerű feladat. Alapban nincs rá annotáció, hanem wrapper osztályt kell írni. Ez a legegyszerűbben úgy kivitelezhető, ha java2wsdl/java2ws eszközt a -wrapperClasses kapcsolóval hívod, ami legenerálja a wrapper osztály vázát, amit aztán meg lehet szerkeszteni. Az @XmlElement annotáció required=true attribútumát kell ott használni.</p>
+<p>A JAX-WS jelenleg a 2.1-nél tart, és lehet, hogy a 2.2-esben megjelenik, hogy a paramétert @XmlElement annotációval is el lehessen látni.</p>

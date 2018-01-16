@@ -1,0 +1,17 @@
+---
+layout: post
+title: Method Chaining
+date: '2009-08-31T10:31:00.000-07:00'
+author: István Viczián
+tags:
+- java se
+- java
+modified_time: '2011-01-14T12:29:13.408-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-1866106398459705623
+blogger_orig_url: http://ext.jtechlog.hu/2009/08/method-chaining.html
+---
+
+<p>Method Chaining, vagy a Spring dokumentáció szerint &#8220;fluid&#8221; style az a stílus, mikor az objektumot módosító metódus visszatérési értéke maga az objektum, így a metódushívásokat egy utasításban, sorba lehet fűzni. Jó példa erre a StringBuilder, melynek append, delete, insert, reverse, stb. metódusai is StringBuilder objektumot adnak vissza, így egyszerűen leírható:</p>
+<p>System.out.println(new StringBuilder(&#8220;Classic&#8221;).append(&#8220;World&#8221;).delete(0, 7).insert(0, &#8220;Hello&#8221;).reverse().toString());</p>
+<p>Volt egy olyan javaslat is, hogy a Java következő verziójában a void visszatérésű metódusok automatikusan adják vissza a példányt, melyen hívva lettek, így a method chaining még könnyebben használható.</p>
+<p>Egy darabig fun, de mikor egy utasítás 20-30 soros, akkor kezd átláthatatlanná válni. Védekezni ellene sortörésekkel lehet.</p>

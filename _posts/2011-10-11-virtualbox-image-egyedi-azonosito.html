@@ -1,0 +1,23 @@
+---
+layout: post
+title: VirtualBox image egyedi azonosító
+date: '2011-10-11T05:16:00.000-07:00'
+author: István Viczián
+tags:
+- virtualization
+modified_time: '2012-04-16T13:17:08.061-07:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-7152520503270460359
+blogger_orig_url: http://ext.jtechlog.hu/2011/10/virtualbox-image-egyedi-azonosito.html
+---
+
+<p>Történt, hogy egy VirtualBox image-et úgy akartam klónozni, hogy lemásolom, és újra hozzáadom. Azért nem sikerült, mert minden image-hez egy egyedi belső azonosítót (UUID) rendel, és ennek egyediségét ellenőrzi. Egy image-hez új egyedi azonosítót a következő paranccsal lehet rendelni:</p>
+
+<pre>
+VBoxManage.exe internalcommands setvdiuuid image.vdi
+</pre>
+
+<p>Későbbi verzióban:</p>
+
+<pre>
+VBoxManage.exe internalcommands sethduuid image.vdi 
+</pre>

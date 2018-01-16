@@ -1,0 +1,21 @@
+---
+layout: post
+title: IBM WebSphere MQ bekötése Nagios-ba
+date: '2010-10-01T07:48:00.000-07:00'
+author: István Viczián
+tags:
+- mq
+- java
+- nagios
+modified_time: '2011-01-14T12:30:06.498-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-1232754081314517821
+blogger_orig_url: http://ext.jtechlog.hu/2010/10/ibm-websphere-mq-bekotese-nagios-ba.html
+---
+
+<p>Ahhoz, hogy bekössük az MQ-t a Nagios-ba, egy plugin-t kell választatnunk a <a href="http://exchange.nagios.org/">Nagios Exchange</a>-ről, vagy egy sajátot implementálnunk.</p>
+<p>Sokat szenvedtünk a PERL-esekkel, de addig sikerült eljutni, hogy ki-timeout-olt a plugin, és a hibaüzenet: Unexpected error.</p>
+<p>Végül a Java-s <a href="http://exchange.nagios.org/directory/Plugins/Uncategorized/Operating-Systems/Linux/check_mq-IBM-WebSphere-MQSeries-Queues-Monitor/details">check_mq IBM WebSphere MQSeries Queues Monitor</a> mellett döntöttünk. Ez egy egyszerű JAR (mq-utils.jar), mely tartalmazza az összes szükséges osztályt (az MQ jar-jaiból átemelve), így nem kell a függőségekkel sem foglalkozni.</p>
+<p>Gyakorlatilag képes visszaadni egy sorban lévő üzenetek számát, melyhez warning és error riasztási szintet lehet definiálni. A használata magáért beszél:</p>
+<pre>java -jar mq-utils.jar [qmgr] [port] [mqServerName] [channelName] [queueName] {-w [warning threshold]} {-c [critical threshold]} {-debug}
+</pre>
+<p>Ehhez persze kell Java a gépre, ahol fut. Viszont, mivel képes hálózaton is csatlakozni, tehetjük arra a gépre, ahol a Nagios van, és arra a gépre is, ahol az MQ.</p>

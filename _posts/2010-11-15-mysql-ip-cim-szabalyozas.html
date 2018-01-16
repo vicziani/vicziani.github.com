@@ -1,0 +1,26 @@
+---
+layout: post
+title: MySQL ip cím szabályozás
+date: '2010-11-15T05:44:00.000-08:00'
+author: István Viczián
+tags:
+- mysql
+modified_time: '2013-07-25T04:40:44.834-07:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-5208506557629769736
+blogger_orig_url: http://ext.jtechlog.hu/2010/11/mysql-ip-cim-szabalyozas.html
+---
+
+<p>Ha szabályozni akarjuk, hogy melyik felhasználó milyen ip címről jöhet be, akkor a user táblában kell a host mező tartalmát átírni az adott felhasználónál. Hasznos parancsok:</p>
+<p>show databases; // Megmutatja, milyen adatbázisok vannak</p>
+<p>connect mysql; // MySQL adatbázishoz csatlakozás</p>
+<p>update user set host = &#8216;172.168.0.1&#8217; where user = &#8216;foouser&#8217;; // Adott felhasználó csak a megadott ip címről jelentkezhet be</p>
+<p>flush previleges; // A beállítások érvényre juttatása</p>
+<p>Nekem az utolsó parancs hibát dobott:</p>
+<p>The FLUSH PRIVILEGES command had an error:<br/> ERROR 1146 (42S02): Table ‘mysql.servers’ doesn’t exist</p>
+<p>Ez olyankor történhet, ha egy adatbázis frissítés során nem lett létrehozva a mysql.servers tábla. <a href="http://www.darkrune.org/blog/?p=443">Ekkor létre kell hozni azt.</a></p>
+<p>Nem csak a bejelentkezéshez lehet host-ot megadni. A jogosultságok a következő táblák alapján, a következő precedencia szerint kerülnek meghatározásra: USER, DB/HOST, TABLES_PRIV, COLUMNS_PRIV. Mindegyik tartalmaz host mezőt.</p>
+<p>A táblák update-elgetése, majd a flush kiadása helyett használhatjuk a GRANT parancsokat is.</p>
+<p>A jogosultságokról egy <a href="http://www.databasejournal.com/features/mysql/article.php/3311731/An-introduction-to-MySQL-permissions.htm">remek cikk</a> is ír.</p>
+<p>Azonban javaslok valamilyen adminisztrációs eszközt, ahol ezeket grafikus felületen lehet megadni.</p>
+<p>Dump készítése:</p>
+<p>mysqldump --user=username --password=password database > filetosaveto.sql</p>

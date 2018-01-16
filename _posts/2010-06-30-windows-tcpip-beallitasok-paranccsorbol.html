@@ -1,0 +1,22 @@
+---
+layout: post
+title: Windows TCP/IP beállítások paranccsorból
+date: '2010-06-30T07:48:00.000-07:00'
+author: István Viczián
+tags:
+- Windows
+- hálózat
+modified_time: '2011-01-14T12:30:06.521-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-7956100125555436154
+blogger_orig_url: http://ext.jtechlog.hu/2010/06/windows-tcpip-beallitasok-paranccsorbol.html
+---
+
+<p>Előfordult már, hogy több környezetben dolgozol, és minden környezetben más a hálózati beállítások? Pl. az egyik helyen statikus ip-cím, a másik helyen DHCP?</p>
+<p>Ilyenkor lehet a Hálózati kapcsolatok ablakban a Helyi kapcsolatnál a TCP/IP protokoll tulajdonságait állítani.</p>
+<p>De jó hír, hogy ezt parancssorból is meg lehet tenni, és ilyenkor elég pár bat állományt létrehozni, környezetenként.</p>
+<p>Példa a statikus ip-címre (ip-cím, alhálózati maszk, gateway, dns):</p>
+<pre>netsh interface ip set address name="Helyi kapcsolat" static 172.16.96.69 255.255.255.0 172.16.96.254 1
+netsh interface ip set dns "Helyi kapcsolat" static 172.16.69.254</pre>
+<p>Példa a dinamikus ip-címre:</p>
+<pre>netsh interface ip set address "Helyi kapcsolat" dhcp
+netsh interface ip set dns "Helyi kapcsolat" dhcp</pre>

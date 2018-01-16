@@ -1,0 +1,17 @@
+---
+layout: post
+title: Hibernate bug blob mentésekor
+date: '2009-09-14T13:15:00.000-07:00'
+author: István Viczián
+tags:
+- jpa
+- hibernate
+- java
+modified_time: '2011-01-14T12:29:58.210-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-63657210436548349
+blogger_orig_url: http://ext.jtechlog.hu/2009/09/hibernate-bug-blob-mentesekor.html
+---
+
+<p>Ismét más tollával ékeskedem.</p>
+<p><a href="http://opensource.atlassian.com/projects/hibernate/browse/HHH-2680">Ismert bug</a> a Hibernate 3.2.2, 3.2.4.sp1 verzióiban biztos, hogyha van egy detached entitásunk, beállítgatjuk a property-jeit, majd azt mondjuk, hogy entityManager.merge(), akkor minden property mentésre  kerül, kivéve azt, amelyik Blob típusú.</p>
+<p>Workaround, hogy beállítjuk az entitásunk szükséges property-jeit, kivéve a blob típusút.  Majd entityManager.merge(), és az általa  visszaadott, immáron attached entitáson beállítjuk a blob property-t  null-ra.</p>

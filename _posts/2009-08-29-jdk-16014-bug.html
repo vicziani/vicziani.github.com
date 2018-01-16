@@ -1,0 +1,14 @@
+---
+layout: post
+title: JDK 1.6.0_14 bug
+date: '2009-08-29T07:13:00.000-07:00'
+author: István Viczián
+tags:
+- jdk
+- java
+modified_time: '2011-01-14T12:29:13.422-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-8059496540997700252
+blogger_orig_url: http://ext.jtechlog.hu/2009/08/jdk-16014-bug.html
+---
+
+<p>A <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6862295">6862295 bug</a> állítása szerint a 6u13-as és a 6u14-es jdk között elrontottak<br/> valamit, aminek eredményeképpen 6u14-es jdk-nál (és attól felfelé) a<br/> debugger nem mindig áll meg a breakpoint-oknál. Többnyire nem áll meg.<br/> A gc-vel van összefüggésben a probléma. Egyik megoldás a 6u13-as jdk, másik pedig a -XX:+UseParallelGC kapcsoló használata.</p>

@@ -1,0 +1,42 @@
+---
+layout: post
+title: Virtualization for Dummies
+date: '2009-10-18T04:03:00.000-07:00'
+author: István Viczián
+tags:
+- virtualization
+modified_time: '2011-01-14T14:02:50.130-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-20660417549555262
+blogger_orig_url: http://ext.jtechlog.hu/2009/10/virtualization-for-dummies.html
+---
+
+<p>Ingyenesen letölthető a <a href="http://www.sun.com/systems/solutions/virtualizationfordummies/index.jsp">Virtualization for Dummies</a> könyv a Sun-tól, illetve annak egy speciális, a Sun és az AMD által támogatott kiadása.</p>
+<p>Alapvetően egy könnyű, 50 oldalas olvasmány, mely egyrészt szól a virtualizáció alapjairól, másrészt természetesen az ehhez tartozó Sun (AMD processzorra épülő szerverek, VirtualBox, Solaris ilyen irányú fejlesztései és a storage rendszerek) és AMD (AMD Opteron processzorban alkalmazott AMD-V) technológiákról.</p>
+<p><img src="http://media.tumblr.com/tumblr_krphvaQehp1qzkp8u.png" height="309" width="200" style="display: block; margin: 0px auto 10px; text-align: center;  height: 309px; width: 200px;"
+/></p>
+
+<p>Itt összefoglalnám az általános dolgokat. Mikor jó a virtualizáció:</p>
+<ul><li>kihasználatlan hw</li>
+<li>szolgáltatók kifogynak a helyből</li>
+<li>zöld (érdekes adat, az USA-ban a szolgáltatók a teljes energiafelhasználás  1,2 %-át teszik ki)</li>
+<li>magas üzemeltetési költségek</li>
+<li>több op. rendszerre való fejlesztésnél</li>
+</ul><p>Virtualizációs technikák:</p>
+<ul><li>szerver virtualizáció:
+<ul><li>type 1 hypervisor - direkt a hw-en  hatékonyabb a direkt erőforrás hozzáférés miatt, ilyen a  VMWare ESX server, MS Hyper-V, Citrix XenServer, Sun xVM, Xen - open source </li>
+<li>type 2 hypervisor (aka os virtualization) - host operációs rendszeren. Limitáció: ugyanazon op. rendszerek futhatnak csak egy időben - ez homogén rendszereknél jó. Van a Solaris-ban, Virtuozzo Parallels, os: OpenVZ Storage virtualization. </li>
+</ul></li>
+<li>centralized: virtualized storage. Megoldja: sok adat, több alkalmazás is használhatja, elosztott gépeken nehéz menteni.</li>
+<li>kliens virtualizáció: pl. VirtualBox, és az image-t egyből lehet futtatni VMWare ESX server, MS Hyper-V környezetekben.</li>
+</ul><p>Hogyan vezessük be a virtualizációt:</p>
+<ol><li> kicsiben kezdeni</li>
+<li>betanulás</li>
+<li>virtualizáció is változik, folyamatosan követni kell</li>
+<li>üzlet menjen tovább, nem mehet annak rovására</li>
+<li>válaszd ki jól a hardvert</li>
+<li>adminisztrátori teendők módosítása</li>
+<li>adj lehetőséget a storage &amp; client virtualizációnak</li>
+<li>mgmt eszköz</li>
+<li>vezető virtualizációs szoftvereket érdemes választani</li>
+<li>ünnepeld meg :)</li>
+</ol>

@@ -1,0 +1,19 @@
+---
+layout: post
+title: HTML default button
+date: '2009-11-05T05:10:00.000-08:00'
+author: István Viczián
+tags:
+- javascript
+- html
+modified_time: '2011-01-14T12:29:58.155-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-8734457245866788066
+blogger_orig_url: http://ext.jtechlog.hu/2009/11/html-default-button.html
+---
+
+<p>Default button-nak nevezzük azt a gombot, mely megnyomásra kerül abban az esetben, ha nem egy gombon, hanem egy beviteli mezőn van a fókusz, és a felhasználó egy Enter-t nyom.</p>
+<p>Erre természetesen a HTML-ben nincs támogatás, a form-on lévő első gomb kerül megnyomásra. Láttam trükköket:</p>
+<ul><li>A default gomb-ot definiáló html részletet elhelyezik REJTVE a form elején is, így az kerül megnyomásra</li>
+<li>A többi gomb-ot nem submit-ként, hanem button-ként definiálják, és JavaScript submit-ol</li>
+<li>A beviteli mezőkön kezelik az Enter gomb lenyomását. Ezt választottam, erre <a href="http://greatwebguy.com/programming/dom/default-html-button-submit-on-enter-with-jquery/">itt van egy egyszerű JQuery-s megoldás</a>.</li>
+</ul>

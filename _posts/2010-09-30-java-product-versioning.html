@@ -1,0 +1,34 @@
+---
+layout: post
+title: Java Product Versioning
+date: '2010-09-30T16:00:00.000'
+author: István Viczián
+tags:
+- java
+modified_time: '2011-01-14T12:30:06.500-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-6089585570533993489
+blogger_orig_url: http://ext.jtechlog.hu/2010/09/java-product-versioning.html
+---
+
+<p>A <a href="http://download.oracle.com/javase/6/docs/technotes/guides/versioning/spec/versioningTOC.html">Java Product Versioning</a>, mely a JDK része, írja le, hogy hogyan lehet a különböző csomagokat verziózni.</p>
+<p>Ezen információkat a META-INF/MANIFEST.MF állományban kell megadni. A csomagokra vonatkozó információkat üres sorral kell egymástól elválasztani.</p>
+<p>Pl:</p>
+<pre>Manifest-version: 1.0
+
+Name: java/util/
+Specification-Title: "Java Utility Classes"
+Specification-Version: "1.2"
+Specification-Vendor: "Sun Microsystems Inc.".
+Package-Title: "java.util"
+Package-Version: "build57"
+Package-Vendor: "Sun Microsystems. Inc."
+</pre>
+<p>Utána ezt le is lehet kérdezni a Package osztály metódusaival, pl.:</p>
+<pre>package java.util;
+
+public class Test {
+  public static void main(String[] args) {
+    System.out.println(Test.class.getPackage().getSpecificationTitle() );
+  }
+}</pre>
+<p>A különleges az egészben, hogy ez kicsomagolva nem működik, kizárólag JAR-ból futtatva, valamint nem működik WAR állományoknál sem, bárhova is tesztem a MANIFEST.MF-et.</p>

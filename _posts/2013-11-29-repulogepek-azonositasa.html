@@ -1,0 +1,32 @@
+---
+layout: post
+title: Repülőgépek azonosítása
+date: '2013-11-29T15:07:00.001'
+author: István Viczián
+tags:
+- aircraft
+modified_time: '2013-11-29T15:07:53.195-08:00'
+thumbnail: http://3.bp.blogspot.com/-0F7_uSimhcU/UpkeGi5mvyI/AAAAAAAALDs/FDI6e_MBXy8/s72-c/jelmagyarazat.png
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-6073718684546845193
+blogger_orig_url: http://ext.jtechlog.hu/2013/11/repulogepek-azonositasa.html
+---
+
+<p>Ahogy <a href="http://jtechlogext.blogspot.hu/2013/10/hogy-mukodik-flightradar24-akar-en-is.html">előző</a> posztomban írtam, a radarernyőn való elkülönítéshez, önmaga azonosításához a repülőgép transzpondere egy négyjegyű kódot küld a radarnak (SSR), ez az un. <a href="http://en.wikipedia.org/wiki/Transponder_%28aviation%29#Transponder_codes">SSR kód</a>, vagy más néven "squawk". A számjegyek 0-tól 7-ig állíthatóak (nyolcas számrendszer), így 4096 különböző lehetőség van. A radar tehát 4096 különböző kérdéssort sugároz a levegőbe, és a számmal rendelkező repülőgép transzpondere válaszol erre. A pilóta legkésőbb a felszállásig megkapja az SSR kódot, amit manuálisan beállít a traszponderébe. Amennyiben a pilóta nem kapott ilyen kódot, akkor a légtérbe való belépéskor kapja meg a kódot. Az SSR kódok kiosztását számítógép végzi, egy ICAO rendelet szabályozza a kiadható számsorokat. Erre azért van szükség, mert tipikusan a szomszédos irányítók más számsorból választhatnak, így nem keverednek gépek. Vannak <a href="http://en.wikipedia.org/wiki/Transponder_%28aviation%29">speciális helyzetekben beállítható kódok</a> is, ilyenkor a földi irányítástól függetlenül a pilóta dönthet úgy, hogy manuálisan átállítja egy másik számra, pl. 7700 kényszerhelyzeti állapot, vagy 7600 rádiókapcsolat elvesztése.</p>
+
+<p>A repülőgép <a href="http://en.wikipedia.org/wiki/Aircraft_registration">regisztrációjakor</a> az ICAO kioszt egy 6 hexadecimális számból (tehát 24 bites) azonosítót is, melyet a Mode S transzponderbe kell beállítani. Normál esetben ez nem változik.</p>
+
+<p>Ezen kívül a repülőgép regisztrációjakor kap egy (5 betűs) lajstromjelet is, melyet általában repülőgép oldalán felfestve találunk. Magyar gépek esetén ez HA-val kezdődik. Ez gyakorlatilag megfelel az autók rendszámának, szintén nem változik.</p>
+
+<p>Ha már szó esett róla, a Nemzetközi Polgári Repülési Szervezet (International Civil Aviation Organization, ICAO) az ENSz repüléssel foglalkozó szerve, mely azért jött létre, hogy biztonságosabbá és könnyebbé tegye az országokon átívelő repüléseket. Különböző annexekben (ajánlásokban) adják ki az előírásaikat. Láthattuk, hogy az ICAO bizonyos kódokat is kezel. A repülők kódjai mellett pl. a <a href="http://en.wikipedia.org/wiki/International_Civil_Aviation_Organization_airport_code">4-betűs repülőtérkódokat</a> is nyilvántartja. Ebből az első két betű a régió- és országkód, a második két betű az országon belüli azonosító. Pl. a Budapest Liszt Ferenc Nemzetközi Repülőtér kódja LHBP. Az ICAO adja ki a 3-betűs <a href="http://en.wikipedia.org/wiki/Airline_codes">légitársaság kódokat</a> is, pl. a WZZ a Wizzair kódja.</p>
+
+<p>Az ICAO-hoz tartozik a <a href="http://en.wikipedia.org/wiki/ICAO_aircraft_type_designator">típuskódok</a> kiadása is, mely a repülőgép típusát jelöli. Pl. a Boeing 747-100 típuskódja B741.</p>
+
+<p>A repülésben való kommunikációban, ami rádiójelekkel történik, a résztvevők (légi irányítók, repülőgép) hívójelekkel azonosítják egymást. A légi közlekedésben többféleképpen is képezhetik a hívójelet. A légitársaságok által üzemeltetett menetrendszerű forgalomban közlekedő járatok hívójele a légitársaság előbb említett háromjegyű kódjával kezdődik, melyet  három-négy  szám  (és  esetleg  egy  betű)  követ. A többi a lajstromjelét használhatja hívójelnek. A repülésben használt nyelv egy speciális nyelv, alapvetően angol kifejezésekre épül, szokás fóniának is nevezni. Az <a href="http://ivao.hu">IVAO-HU</a> honlapján, mely az egyik legnagyobb repülőgép szimulációs hálózat magyarországi ága, elérhető a fónia kézikönyve, rendkívül érdekes olvasmány.</p>
+
+<p>A <a href="http://en.wikipedia.org/wiki/Flight_number">járatszámot</a>, melyet legtöbben ismerünk, és a repülőtéren az információs táblákon találkozhatunk vele, az adott légitársaság osztja ki. A légitársaság nevével és a dátummal egyedi. A képzési szabályok légitársaságonként eltérőek lehetnek.</p>
+
+<p>A gép transzpondere tehát az SSR kódot, ICAO regisztrációs kódját és a hívójelet küldi. Azonban a hozzá tartozó lajstromjelet, típuskódot és járatszámot a különböző programok és online szolgáltatások adatbázisból olvassák be.</p>
+
+<p>Ezek az adatok a <a href="http://flightradar24">Flightradar24</a> oldalán is megtalálhatóak.</p>
+
+<div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-0F7_uSimhcU/UpkeGi5mvyI/AAAAAAAALDs/FDI6e_MBXy8/s1600/jelmagyarazat.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-0F7_uSimhcU/UpkeGi5mvyI/AAAAAAAALDs/FDI6e_MBXy8/s1600/jelmagyarazat.png" /></a></div>

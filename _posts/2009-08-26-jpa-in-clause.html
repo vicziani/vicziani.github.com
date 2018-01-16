@@ -1,0 +1,14 @@
+---
+layout: post
+title: JPA IN clause
+date: '2009-08-26T07:50:00.000-07:00'
+author: István Viczián
+tags:
+- jpa
+- java
+modified_time: '2011-01-29T12:25:09.275-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-2970937116731927201
+blogger_orig_url: http://ext.jtechlog.hu/2009/08/jpa-in-clause.html
+---
+
+<p>JPA 1.0 esetén az IN (&#8216;a&#8217;, &#8216;b&#8217;, &#8216;c&#8217;) clause dinamikus paraméterekkel nem értelmezett, pl: IN (:params), ahol a paraméter pl. egy java.util.List&lt;String&gt; típusú objektum. Azonban a Hibernate támogatja, szóval az alatt működik. A JPA 2.0 már támogatja, de nem kell zárójel a paraméter köré.</p>

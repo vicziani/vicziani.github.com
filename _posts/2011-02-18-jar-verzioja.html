@@ -1,0 +1,18 @@
+---
+layout: post
+title: JAR verziója
+date: '2011-02-18T14:48:00.000-08:00'
+author: István Viczián
+tags:
+- maven
+- java
+modified_time: '2011-02-18T15:01:29.403-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-4412840852744636571
+blogger_orig_url: http://ext.jtechlog.hu/2011/02/jar-verzioja.html
+---
+
+<p>Amennyiben találunk egy JAR-t, és nem derül ki, hogy ez pontosan micsoda (pl. azzal, hogy belenézünk a META-INF/MANIFEST.MF fájlba), vagy nem tudjuk, hogy melyik Maven repository-ban szerepel, milyen Maven koordinátákkal (groupId, artifactId, version), érdemes egy lenyomatot készíteni, és rákeresni a lenyomat alapján valamilyen keresőben.</p>
+
+<p>A <a href="http://www.jarvana.com/jarvana/">Jarvana</a> webes szolgáltatás megfelelő, mind MD5, mind SHA1 lenyomat alapján képes keresni. A Sonatype publikus Nexus-a csak SHA1 lenyomatra képes keresni, ugyanúgy mint a Sonatype új szolgáltatása, a <a href="http://mavencentral.sonatype.com">Maven Central</a> mely kifejezetten keresésre van kihegyezve. Ez utóbbi kettőnél nem nekünk kell kiszámoltatni az SHA1 lenyomatot, hanem egy állományt is kiválaszthatunk a fájlrendszerről.</p>
+
+<p>Amennyiben mégis mi akarjuk kiszámoltatni, Windows-on jól jöhet a <a href="http://www.slavasoft.com/fsum/">SlavaSoft FSUM</a> utility, Linuxon a md5sum vagy az sha1sum parancs.</p>

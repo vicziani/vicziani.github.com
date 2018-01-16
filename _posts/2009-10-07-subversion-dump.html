@@ -1,0 +1,13 @@
+---
+layout: post
+title: Subversion dump
+date: '2009-10-07T06:12:00.000-07:00'
+author: István Viczián
+tags:
+- subversion
+modified_time: '2011-01-14T12:29:58.188-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-5434882410815072818
+blogger_orig_url: http://ext.jtechlog.hu/2009/10/subversion-dump.html
+---
+
+<p>Adott volt, hogy a projektek különböző SVN repository-kba voltak szétszórva, ezt kellett egységesíteni. Az SVN alapegysége a repository, azon belül vannak a könyvtárak és a fájlok. Míg repository-t az svnadmin paranccsal lehet létrehozni, addig könyvtárak és fájlok az svn paranccsal kezelhetőek. Ahhoz, hogy egyik repository egyik könyvtárból átvigyünk fájlokat egy másik repository-ba, használni kell az svnadmin dump, svnadmin load és svndumpfilter parancsokat. A dump:<br/><br/>svnadmin dump REPOS_PATH &gt; dumpfile<br/><br/>Ezt Windows/Linux parancssorban kell kiadni, ahol a REPOS_PATH a repository könyvtára.<br/><br/>Betölteni a következő paranccsal lehet:<br/><br/>svnadmin load REPOS_PATH &lt; dumpfile<br/><br/> Abban az esetben, ha egy alkönyvtár alá akarjuk betölteni, akkor ajánlott a &#8212;parent-dir paraméter használata, ebben az esetben viszont az adott könyvtárat külön létre kell hozni!<br/><br/>svnadmin load &#8212;parent-dir PARENT_DIR REPOS_PATH &lt; dumpfile<br/><br/>Lehetőség van egy könyvtár kiválogatására is a dump fájlból az svndumpfilter paranccsal.<br/><br/>svndumpfilter include SUB_DIR &lt; dumpfile &gt; filtered-dumpfile<br/><br/>Ilyenkor a SUB_DIR szövegnek a path elejére kell illeszkednie, azaz az illesztés SUB_DIR* minta szerint történik.</p>

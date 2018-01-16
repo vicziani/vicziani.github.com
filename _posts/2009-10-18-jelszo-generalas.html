@@ -1,0 +1,14 @@
+---
+layout: post
+title: Jelszó generálás
+date: '2009-10-18T04:58:00.000-07:00'
+author: István Viczián
+tags:
+- Linux
+modified_time: '2011-01-14T12:29:58.170-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-833387705341212251
+blogger_orig_url: http://ext.jtechlog.hu/2009/10/jelszo-generalas.html
+---
+
+<p>Hogyan generáljunk magunknak nyolc karakter hosszú jelszót Linux parancssorban?</p>
+<p>openssl rand -base64&#160;20 | tr -d &#8216;/&#8217; | cut -c1-8</p>

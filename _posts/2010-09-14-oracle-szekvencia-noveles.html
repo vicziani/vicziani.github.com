@@ -1,0 +1,21 @@
+---
+layout: post
+title: Oracle szekvencia növelés
+date: '2010-09-14T01:53:00.000-07:00'
+author: István Viczián
+tags:
+- oracle
+modified_time: '2011-01-14T12:30:06.506-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-2737581176931820965
+blogger_orig_url: http://ext.jtechlog.hu/2010/09/oracle-szekvencia-noveles.html
+---
+
+<p>Az Oracle szekvencia aktuális értékét nem lehet direkt módosítani. Jó trükk, hogy átállítjuk, hogy mennyivel növekedjen, utána kérünk egy következő szekvenciát, majd visszaállítjuk. Pl.:</p>
+<pre>alter sequence seq_name
+increment by 124;
+
+select seq_name.nextval from dual;
+
+alter sequence seq_name
+increment by 1;
+</pre>

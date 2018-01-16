@@ -1,0 +1,17 @@
+---
+layout: post
+title: Struts Validator validwhen
+date: '2009-09-14T13:10:00.000-07:00'
+author: István Viczián
+tags:
+- struts
+- java
+modified_time: '2011-01-14T12:29:58.215-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-5550052098704730290
+blogger_orig_url: http://ext.jtechlog.hu/2009/09/struts-validator-validwhen.html
+---
+
+<p>A Struts Validator használatát <a href="http://struts.apache.org/1.3.10/faqs/validator.html">ezen cikk</a> írja le. A validációkat egy külön XML-ben kell megadni (most láttam annotáció alapú framework-öt is, az nem annyira jön be), lehetőség van egyszerű validator-ok (kötelezőség, minimum, maximum hossz, stb.), bonyolultabb validator-ok (pl. validwhen, mely mezők közötti összefüggést is tud kezelni), és saját fejlesztésű validator-okat is. A validwhen-nél meg lehet adni egy kifejezést, pl.:</p>
+<pre>((heightInInches &gt;= 60) or (*this* == null))</pre>
+<p>Sajnos nagyon egyszerű, egyrészt többször megszívom, de nem tetszőlegesen tehetjük a zárójeleket, hanem csak ahogy ő elvárja (tehát nem opcionálisak!), valamint függvények sincsenek benne.</p>
+<p>Akkor már inkább a Spring-nél használható <a href="https://springmodules.dev.java.net/docs/reference/0.5/html/validation.html">Valang (<span class="emphasis"><i>Va</i></span>-lidation <span class="emphasis"><i>Lang</i></span>-uage)</a>.</p>

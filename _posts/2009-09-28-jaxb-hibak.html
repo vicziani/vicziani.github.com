@@ -1,0 +1,26 @@
+---
+layout: post
+title: JAXB hibák
+date: '2009-09-28T12:19:00.000-07:00'
+author: István Viczián
+tags:
+- jaxb
+- java
+modified_time: '2011-01-14T12:29:58.201-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-5232034585968837
+blogger_orig_url: http://ext.jtechlog.hu/2009/09/jaxb-hibak.html
+---
+
+<p>Amennyiben az XJC a következő hibaüzenetet írja, a probléma, hogy az xjb állományban ugyanarra a névtérre több definíció lett megadva. Ez nálam akkor történt, mikor egy névtér több XSD-ben volt szétszórva, és többször adtam meg az xjb állományban.</p>
+<pre>Multiple &lt;schemaBindings&gt; are defined for the target namespace</pre>
+<p>A következő Exception akkor jött, mikor szerepelt az XSD-ben a complexType-ban a mixed attribútum. Megoldást csak ennek eltávolítása jelentette.</p>
+<pre>parsing a schema...
+Exception in thread "main" java.lang.NullPointerException
+        at com.sun.tools.internal.xjc.reader.xmlschema.BGMBuilder._getBindInfoReadOnly(BGMBuilder.java:392)
+        at com.sun.tools.internal.xjc.reader.xmlschema.BGMBuilder.getBindInfo(BGMBuilder.java:376)
+        at com.sun.tools.internal.xjc.reader.xmlschema.BGMBuilder.getLocalDomCustomization(BGMBuilder.java:414)
+        at com.sun.tools.internal.xjc.reader.xmlschema.RawTypeSetBuilder.particle(RawTypeSetBuilder.java:85)
+        at com.sun.tools.internal.xjc.reader.xmlschema.RawTypeSetBuilder.build(RawTypeSetBuilder.java:49)
+        at com.sun.tools.internal.xjc.reader.xmlschema.ct.MixedComplexTypeBuilder.build(MixedComplexTypeBuilder.java:46)
+        at com.sun.tools.internal.xjc.reader.xmlschema.ct.ComplexTypeFieldBuilder.build(ComplexTypeFieldBuilder.java:64)
+</pre>

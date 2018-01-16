@@ -1,0 +1,17 @@
+---
+layout: post
+title: SOAP webszolgáltatás hívás parancssorból
+date: '2010-07-21T10:03:00.000-07:00'
+author: István Viczián
+tags:
+- SOAP
+modified_time: '2011-01-14T12:30:06.511-08:00'
+blogger_id: tag:blogger.com,1999:blog-5585230159113108250.post-6047277860742633056
+blogger_orig_url: http://ext.jtechlog.hu/2010/07/soap-web-szolgaltatas-hivas.html
+---
+
+<p>A curl parancssoros alkalmazás (Linux-on simán, Windows-on pl. Cygwin-nel futtatható) segítségével tudunk pl. HTTP POST műveletet végrehajtani, és paraméterezni tudjuk, hogy mit küldjön HTTP fejlécben és törzsben. Így egy web szolgáltatás hívás HTTP-n a következőképp néz ki:</p>
+<pre>curl -H "Content-Type:text/xml; charset=UTF-8" -d@request.xml <a href="http://jtechlog.hu/service">http://jtechlog.hu/service</a></pre>
+<p>Itt a request.xml állomány tartalmazza a kérést XML formátumban (SOAP Envelope). Nagyon figyeljünk arra, hogy ne legyen a -d kapcsoló után szóköz!</p>
+<p>Amennyiben ezt meg is akarjuk formázni, használhatjuk a parancssori XMLStarlet eszközt. Szintén letölthető Linux-ra és Windows-ra is.</p>
+<pre>curl -H "Content-Type:text/xml; charset=UTF-8" -d@request.xml  <a href="http://jtechlog.hu/service">http://jtechlog.hu/service</a> | xml.exe fo</pre>
