@@ -194,7 +194,7 @@ kiírásra.
         </execution>
     </executions>
     <configuration>
-        <bodyFontFamily>DejaVuLGCSans</bodyFontFamily>
+        <titleFontFamily>DejaVuLGCSans</titleFontFamily>
         <bodyFontFamily>DejaVuLGCSerif</bodyFontFamily>
         <fonts>
             <font>
@@ -212,18 +212,6 @@ kiírásra.
                 <metricsFile>${basedir}/target/fonts/DejaVuLGCSerif-metrics.xml</metricsFile>
             </font>
         </fonts>
-
-        <customizationParameters>
-            <parameter>
-                <name>title.font.family</name>
-                <value>DejaVuLGCSans</value>
-            </parameter>
-            <parameter>
-                <name>body.font.family</name>
-                <value>DejaVuLGCSerif</value>
-            </parameter>
-        </customizationParameters>
-
     </configuration>
 </plugin>
 {% endhighlight %}
