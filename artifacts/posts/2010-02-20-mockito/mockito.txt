@@ -1,0 +1,22 @@
+@startuml
+skinparam monochrome true
+skinparam DefaultFontSize 16
+
+interface CommService {
+sendMessage(text: String)
+}
+
+class JmsCommService {
+}
+
+CommService <|.. JmsCommService
+
+interface ProcessService {
+processMessage(message: TextMessage)
+}
+
+class DefaultProcessService {
+}
+
+ProcessService <|.. DefaultProcessService
+@enduml

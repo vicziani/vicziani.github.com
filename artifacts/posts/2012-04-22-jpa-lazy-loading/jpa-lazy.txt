@@ -1,0 +1,18 @@
+@startuml
+skinparam monochrome true
+skinparam DefaultFontSize 16
+
+class Employee {
+    id: Long
+    name: String
+    cv: String
+}
+
+class Phone {
+    id: Long
+    type: String
+    number: String
+}
+
+Employee "1" o- "*" Phone
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+skinparam DefaultFontSize 16
+
+class Employee {
+  id: Long
+  name: String
+}
+
+class Phone {
+  id: Long
+    type: String
+    number: String
+}
+
+Employee "1" *-- "*" Phone
+
+interface EmployeeDao {
+persistEmployee(employee: Employee)
+listEmployees(): List<Employee>
+
+}
+
+class EmployeeDaoJpa {
+}
+
+
+Employee - EmployeeDao
+EmployeeDao <-- EmployeeDaoJpa
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+skinparam monochrome true
+skinparam DefaultFontSize 16
+
+class Employee {
+  id: Long
+  name: String
+modifiedAt: Date
+}
+
+
+class EmployeeService {
+persistEmployee(employee: Employee)
+mergeEmployee(employee: Employee)
+removeEmployee(id: long)
+listEmployees(firstResult: int, maxResults: int): List<Employee>
+
+}
+
+class Phone {
+  id: Long
+    type: String
+    number: String
+}
+
+
+Employee - EmployeeService
+Employee "1" *-- "*" Phone
+@enduml

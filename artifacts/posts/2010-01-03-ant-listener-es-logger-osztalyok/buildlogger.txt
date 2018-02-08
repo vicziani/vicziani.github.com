@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam DefaultFontSize 16
+
+interface BuildListener {
+buildStarted()
+buildFinished()
+targetStarted()
+targetFinished()
+taskStarted()
+taskFinished()
+messageLogged()
+}
+
+interface BuildLogger {
+setEmacsMode()
+setErrorPrintStream()
+setOutputPrintStream()
+setMessageOutputLevel()
+}
+
+BuildListener <|- BuildLogger
+@enduml

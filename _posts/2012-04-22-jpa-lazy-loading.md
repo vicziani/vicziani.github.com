@@ -7,9 +7,7 @@ tags:
 - EclipseLink
 - Hibernate
 - JPA
-modified_time: '2014-02-02T16:23:11.594+01:00'
-blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-1949829407110462171
-blogger_orig_url: http://www.jtechlog.hu/2012/04/jpa-lazy-loading.html
+modified_time: '2018-02-08T20:31:00.000+01:00'
 ---
 
 Technológiák: JPA 2.1, EclipseLink 2.6.0, Hibernate 4.3.9, Spring 4.1.6.RELEASE
@@ -65,7 +63,7 @@ Példaként már egy [előző
 posztomban](/2010/09/09/entitasok-auditalasa-hibernate-envers.html)
 bemutatott esetet használok, kicsit módosítva.
 
-![Osztálydiagram](http://yuml.me/0946499a)
+![Osztálydiagram](/artifacts/posts/2012-04-22-jpa-lazy-loading/jpa-lazy.png)
 
 A példaprogram letölthető a
 [GitHub-ról](https://github.com/vicziani/jtechlog-lazy). A példaprogram

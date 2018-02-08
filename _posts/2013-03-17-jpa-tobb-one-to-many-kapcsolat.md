@@ -7,9 +7,7 @@ tags:
 - performance
 - Hibernate
 - JPA
-modified_time: '2013-03-17T22:03:19.451+01:00'
-blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-4963379818802072423
-blogger_orig_url: http://www.jtechlog.hu/2013/03/jpa-tobb-one-to-many-kapcsolat.html
+modified_time: '2018-02-08T20:31:00.000+01:00'
 ---
 
 Felhasznált technológiák: Spring 4.1.6, Hibernate 4.3.9
@@ -25,7 +23,7 @@ is performancia szempontból.
 Az adatmodell a következő osztálydiagramon látható. Egy `Employee`
 példányhoz több `Phone` és több `Address` példány kapcsolódik.
 
-[![](http://yuml.me/d2a0e90e)](http://yuml.me/d2a0e90e)
+![Osztálydiagram](/artifacts/posts/2013-03-17-jpa-tobb-one-to-many-kapcsolat/jpa-onetomany.png)
 
 A posthoz tartozó példaprogram [letölthető a
 GitHub-ról](https://github.com/vicziani/jtechlog-jpa-descartes). A
@@ -59,9 +57,9 @@ melyik entitáshoz tartozik. A select a következő.
 {% highlight sql %}
 SELECT ...
 FROM Employee employee0_
-LEFT OUTER JOIN Address addresses1_ 
+LEFT OUTER JOIN Address addresses1_
   ON employee0_.id = addresses1_.employee_id
-LEFT OUTER JOIN Phone phones2_ 
+LEFT OUTER JOIN Phone phones2_
   ON employee0_.id = phones2_.employee_id
 WHERE employee0_.id = ?
 {% endhighlight %}
@@ -103,11 +101,11 @@ három select utasítást futtat, méghozzá a következőket.
 
 {% highlight sql %}
 select ... from Employee employee0_ order by employee0_.id
-select ... from Phone phones0_ 
-  where phones0_.employee_id 
+select ... from Phone phones0_
+  where phones0_.employee_id
     in (select employee0_.id from Employee employee0_ )
-select ... from Address addresses0_ 
-  where addresses0_.employee_id 
+select ... from Address addresses0_
+  where addresses0_.employee_id
     in (select employee0_.id from Employee employee0_ )
 {% endhighlight %}
 
@@ -117,8 +115,8 @@ entitások, nem tudok választani. Viszont finomabban szabályozható, ha a
 lekérdezésben adom meg, hogy mit akarok betölteni. Erre a join fetch
 való. Írjuk is át a lekérdezést, hogy a következő lekérdezést használja:
 
-	select distinct e from Employee e 
-	  join fetch e.phones 
+	select distinct e from Employee e
+	  join fetch e.phones
 	  join fetch e.addresses where e.id = :id
 
 
@@ -128,11 +126,11 @@ A helyzet ugyanaz, mint az eager fetch esetén,
 kapunk. Mi ezzel a probléma?
 
 {% highlight sql %}
-select distinct ... from Employee employee0_ 
-  inner join Phone phones1_ 
-    on employee0_.id=phones1_.employee_id 
-  inner join Address addresses2_ 
-    on employee0_.id=addresses2_.employee_id 
+select distinct ... from Employee employee0_
+  inner join Phone phones1_
+    on employee0_.id=phones1_.employee_id
+  inner join Address addresses2_
+    on employee0_.id=addresses2_.employee_id
   where employee0_.id=?
 {% endhighlight %}
 
@@ -174,11 +172,11 @@ ugyanúgy `LazyInitializationException` lenne a jutalmunk. A lefuttatott
 két select utasítás a következő.
 
 {% highlight sql %}
-select ... from Employee employee0_ 
-  inner join Phone phones1_ 
+select ... from Employee employee0_
+  inner join Phone phones1_
     on employee0_.id=phones1_.employee_id where employee0_.id=?
-select ... from Employee employee0_ 
-  inner join Address addresses1_ 
+select ... from Employee employee0_
+  inner join Address addresses1_
     on employee0_.id=addresses1_.employee_id where employee0_.id=?
 {% endhighlight %}
 
