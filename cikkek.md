@@ -151,7 +151,7 @@ technológiákat, ajánlásokat, nyílt forráskódú eszközöket, valamint a
 témával kapcsolatos tapasztalatokat. Az előadásnak csak a prezentációja
 érhető el, cikk hozzá nem készült.
 
-<object id="prezi_gmyp8jz3v3aw" name="prezi_gmyp8jz3v3aw" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400"> <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>  <param name="allowfullscreen" value="true"/>  <param name="allowscriptaccess" value="always"/>  <param name="bgcolor" value="#ffffff"/>  <param name="flashvars" value="prezi_id=gmyp8jz3v3aw&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"/>  <embed id="preziEmbed_gmyp8jz3v3aw" name="preziEmbed_gmyp8jz3v3aw" src="http://prezi.com/bin/preziloader.swf" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="400" bgcolor="#ffffff" flashvars="prezi_id=gmyp8jz3v3aw&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"> </embed> </object>
+<iframe id="iframe_container" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://prezi.com/embed/gmyp8jz3v3aw/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5KzYxeUhOOVMxVEdqcVhTdnM2MlRSdDVBPT0&amp;landing_sign=Lp3-adHbQu8nCGOY-PL4gNaTESQH067DNwaC-FYUYw4" width="550" height="400" frameborder="0"></iframe>
 
 ## Adattárház és jelentéskészítés OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök használatával
 
@@ -166,7 +166,7 @@ precíz ismertetése, inkább egy bevezetőt nyújt ezen eszközök
 használatába, egy gyakorlati példán keresztül. *(2009. március, 13
 oldal, 3277 szó)*
 
-<object id="prezi_5hqg4hd6jahb" name="prezi_5hqg4hd6jahb" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400"> <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>  <param name="allowfullscreen" value="true"/>  <param name="allowscriptaccess" value="always"/>  <param name="bgcolor" value="#ffffff"/>  <param name="flashvars" value="prezi_id=5hqg4hd6jahb&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"/>  <embed id="preziEmbed_5hqg4hd6jahb" name="preziEmbed_5hqg4hd6jahb" src="http://prezi.com/bin/preziloader.swf" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="400" bgcolor="#ffffff" flashvars="prezi_id=5hqg4hd6jahb&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"> </embed> </object>
+<iframe id="iframe_container" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://prezi.com/embed/5hqg4hd6jahb/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI0M3VYVDYrZjR2RTh5dVRNZFdOa25aWW13PT0&amp;landing_sign=TchpnCF6CMVtE79Okc6PWwwRCro3pyq_aynWDC0LOjc" width="550" height="400" frameborder="0"></iframe>
 
 [Letöltés](artifacts/Java_OLAP.pdf)
 
