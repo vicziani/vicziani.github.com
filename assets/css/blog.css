@@ -141,6 +141,12 @@ blockquote {
   font-family: Georgia;
 }
 
+.blog-post img {
+  display:block;
+  text-align:center;
+  margin:20px auto 20px;
+}
+
 /*
  * About
  */
@@ -203,4 +209,3 @@ blockquote {
   height:83px;
   width:130px;
 }
-

@@ -27,7 +27,7 @@ licensz is vásárolható, mellyel támogatást kapunk, illetve más nyelvhez is
 Nézzük meg, hogy milyen komponensekből áll a SonarQube, hogyan lehet telepíteni, és hogyan elemezhetünk
 ki vele egy projektet, és hogyan integrálható a fejlesztőeszközünkkel (IDEA, Eclipse és NetBeans).
 
-<a href="/artifacts/posts/2017-03-21-sonarqube/project.png">![Issues](/artifacts/posts/2017-03-21-sonarqube/project_600.png)</a>
+<a href="/artifacts/posts/2017-03-21-sonarqube/project.png" data-lightbox="post-images">![Project](/artifacts/posts/2017-03-21-sonarqube/project_600.png)</a>
 
 <!-- more -->
 
@@ -105,9 +105,9 @@ most indult zöldmezős projektet.
 
 Az *Issues* az adott projekten felmerülő szabálysértések. Egy adott issue-t meg lehet nézni a forráskódban is. Kiírja, hogy mely fejlesztő írta azt a kódrészletet és mikor, melyben az issue szerepel (ezt az információt a verziókövető rendszerből nyeri). De lehet módosítani a típusát, súlyosságát, címkéket lehet hozzáadni vagy elvenni. Hozzá lehet rendelni egy felhasználóhoz, hogy ki javítsa ki, sőt megjegyzést is lehet írni. Valamint nyílt (open) státuszból más státuszba is lehet tenni (pl. fixed, ha javítva lett, vagy false positive, ha téves a riasztás).
 
-<a href="/artifacts/posts/2017-03-21-sonarqube/issues.png" rel="sonarqube">![Issues](/artifacts/posts/2017-03-21-sonarqube/issues_600.png)</a>
+<a href="/artifacts/posts/2017-03-21-sonarqube/issues.png" data-lightbox="post-images">![Issues](/artifacts/posts/2017-03-21-sonarqube/issues_600.png)</a>
 
-<a href="/artifacts/posts/2017-03-21-sonarqube/source.png" rel="sonarqube">![Issues](/artifacts/posts/2017-03-21-sonarqube/source_600.png)</a>
+<a href="/artifacts/posts/2017-03-21-sonarqube/source.png" data-lightbox="post-images">![Source](/artifacts/posts/2017-03-21-sonarqube/source_600.png)</a>
 
 A *Measures* különböző mérőszámokat rendel a projekthez, melyeket tovább lehet utána bontani akár osztály szintre is. Ilyen pl. a különböző típusú issue-k száma, a kód lefedettséggel kapcsolatos mérőszámok (lefedettség, tesztesetek, száma, futás hossza, stb.), duplikált kód (copy-paste), a kódbázis mérete (osztályok, metódusok, sorok száma), komplexitás és a különböző státuszú issue-k száma. A projektet hibák száma (Reliability/Bugs), biztonsági hibák száma (Security/Vulnerabilities) és gyanús kód (Maintainability/Code Smells) mennyisége alapján különböző osztályokba sorolja (*rating*). Ez A - E értékeket vehet fel, ahol az A legjobb, és E a legrosszabb. Próbálja mérni a *Technical Debtet* is, azáltal, hogy megbecsüli, hogy egy Issue kijavítása mennyi időbe telik. A Technical Debt valójában az a munkamennyiség, mely ahhoz kell, hogy kijavítsuk a határidő nyomás és egyéb körülmények miatti (eufemisztikusan) nem a legmegfelelőbb megoldásokat. Ezektől még lehet, hogy az alkalmazás funkcionálisan megfelelő, azonban a kód minősége hagyhat kívánnivalót maga után, tipikusan nehezebben érthető, módosítható, továbbfejleszthető.
 
