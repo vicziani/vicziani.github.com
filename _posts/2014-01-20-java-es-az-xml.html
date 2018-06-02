@@ -42,7 +42,7 @@ blogger_orig_url: http://www.jtechlog.hu/2014/01/java-es-az-xml.html
 <li>XPath 1.0</li>
 </ul>
 
-<p>A JAXP-hez is tartozik referencia implementáció, mely frappánsan a <a href="https://jaxp.java.net/">JAXP reference implementation</a> nevet kapta. Alapvetően két Apache-s projekttől forkolt el, az egyikt az XML parse-olást végző <a href="http://xerces.apache.org/xerces2-j/">Xerces2</a>, a másik az XML transzformációt végző <a href="http://xml.apache.org/xalan-j/">Xalan-Java</a>.</p>
+<p>A JAXP-hez is tartozik referencia implementáció, mely frappánsan a <a href="https://jaxp.java.net/">JAXP reference implementation</a> nevet kapta. Alapvetően két Apache-s projekttől forkolt el, az egyik az XML parse-olást végző <a href="http://xerces.apache.org/xerces2-j/">Xerces2</a>, a másik az XML transzformációt végző <a href="http://xml.apache.org/xalan-j/">Xalan-Java</a>.</p>
 
 <p>Gyakorlatilag annyi történt, hogy a csomag neve elé még betették a com.sun.org előtagot. Bármikor megtudhatjuk, hogy az aktuális JDK-ban hanyas Xerces és Xalan található:</p>
 
@@ -62,11 +62,11 @@ Xalan Java 2.7.0</code></pre>
 
 <p>Ha nem tudjuk, hogy éppen melyik verziót használjuk (mert pl. a classpath-on szerepel egy más implementáció, ami alkalmazásszerverek használata esetén is gyakori), akkor a következőképpen állapíthatjuk meg azt:</p>
 
-<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">getJaxpImplementationInfo</span><span class="pun">(</span><span class="str">"DocumentBuilderFactory"</span><span class="pun">,</span><span class="pln"> 
+<pre style="" class="prettyprint prettyprinted"><code class="language-java"><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">getJaxpImplementationInfo</span><span class="pun">(</span><span class="str">"DocumentBuilderFactory"</span><span class="pun">,</span><span class="pln">
     </span><span class="typ">DocumentBuilderFactory</span><span class="pun">.</span><span class="pln">newInstance</span><span class="pun">().</span><span class="pln">getClass</span><span class="pun">()));</span><span class="pln">
-</span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">getJaxpImplementationInfo</span><span class="pun">(</span><span class="str">"XPathFactory"</span><span class="pun">,</span><span class="pln"> 
+</span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">getJaxpImplementationInfo</span><span class="pun">(</span><span class="str">"XPathFactory"</span><span class="pun">,</span><span class="pln">
     </span><span class="typ">XPathFactory</span><span class="pun">.</span><span class="pln">newInstance</span><span class="pun">().</span><span class="pln">getClass</span><span class="pun">()));</span><span class="pln">
-</span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">getJaxpImplementationInfo</span><span class="pun">(</span><span class="str">"TransformerFactory"</span><span class="pun">,</span><span class="pln"> 
+</span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">getJaxpImplementationInfo</span><span class="pun">(</span><span class="str">"TransformerFactory"</span><span class="pun">,</span><span class="pln">
     </span><span class="typ">TransformerFactory</span><span class="pun">.</span><span class="pln">newInstance</span><span class="pun">().</span><span class="pln">getClass</span><span class="pun">()));</span><span class="pln">
 </span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">getJaxpImplementationInfo</span><span class="pun">(</span><span class="str">"SAXParserFactory"</span><span class="pun">,</span><span class="pln">
     </span><span class="typ">SAXParserFactory</span><span class="pun">.</span><span class="pln">newInstance</span><span class="pun">().</span><span class="pln">getClass</span><span class="pun">()));</span></code></pre>
