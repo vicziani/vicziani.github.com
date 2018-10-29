@@ -1,0 +1,7 @@
+@startuml
+skinparam monochrome true
+skinparam DefaultFontSize 16
+
+EmployeeDaoTest -> EmployeeDao: saveEmployee(name)
+EmployeeDao -> LoggerDao: saveLog(message)
+@enduml

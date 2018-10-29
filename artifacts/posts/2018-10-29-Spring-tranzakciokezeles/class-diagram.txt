@@ -1,0 +1,16 @@
+@startuml
+skinparam monochrome true
+skinparam DefaultFontSize 16
+
+skinparam minClassWidth 350
+
+class EmployeeDao {
+saveEmployee(employee: Employee)
+}
+
+class LoggerDao {
+saveLog(message: String)
+}
+
+EmployeeDao -|> LoggerDao
+@enduml

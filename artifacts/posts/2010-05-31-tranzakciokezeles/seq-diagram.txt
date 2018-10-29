@@ -1,0 +1,16 @@
+@startuml
+skinparam monochrome true
+skinparam DefaultFontSize 16
+hide footbox
+
+"Bean1 Proxy" -> "Transaction Manager": begin
+"Transaction Manager" --> "Bean1 Proxy"
+"Bean1 Proxy" -> Bean1
+Bean1 -> "Bean2 Proxy"
+"Bean2 Proxy" -> Bean2
+Bean2 --> "Bean2 Proxy"
+"Bean2 Proxy" --> Bean1
+Bean1 --> "Bean1 Proxy"
+"Bean1 Proxy" -> "Transaction Manager": commit
+"Transaction Manager" --> "Bean1 Proxy"
+@enduml
