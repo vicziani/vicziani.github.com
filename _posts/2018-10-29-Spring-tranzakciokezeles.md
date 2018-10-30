@@ -5,6 +5,7 @@ date: '2018-10-29T23:10:00.007+02:00'
 author: István Viczián
 tags:
 - Spring
+description: A Spring tranzakciókezelésének részletes bemutatása.
 ---
 
 Technológiák: Spring Framework, Spring Boot 2.0.5

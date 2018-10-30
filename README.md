@@ -15,6 +15,7 @@ author: István Viczián
 tags:
 - JTechLog
 - Blog
+description: Rövid összefoglaló, ez jelenik meg pl. a Facebookon. Max. 108 - 110 karakter.
 ---
 
 Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.
