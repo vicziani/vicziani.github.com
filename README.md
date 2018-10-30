@@ -20,7 +20,9 @@ description: Rövid összefoglaló, ez jelenik meg pl. a Facebookon. Max. 108 - 
 
 Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.
 
-![Kép leírása](/kep.png)
+![Kép leírása](/img.png)
+
+<a href="img.png" data-lightbox="post-images">![Kép leírása](/img_750.png)</a>
 
 {% highlight java %}
 public class HelloWorld {
@@ -29,3 +31,16 @@ public class HelloWorld {
 {% endhighlight %}
 
 ```
+
+### Képek
+
+A képek beszúrása úgy történik, hogy amennyiben 750 pixelnél keskenyebb,
+Markdown formátumban beszúrható.
+
+Amennyiben 750 pixelnél szélesebb, át kell méretezni a következő
+paranccsal:
+
+    convert -resize 750x img.png img_750.png
+
+Majd a fenti módon html taggel szúrandó be, mert akkor a böngésző nem visz át
+a nagyobb képre, hanem a LightBox nyitja meg.
