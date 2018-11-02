@@ -10,9 +10,6 @@ tags:
 - JAX-RS
 - könyv
 modified_time: '2012-12-23T22:08:45.713+01:00'
-thumbnail: http://2.bp.blogspot.com/-jYtpOSmP_R8/UNYflaj0amI/AAAAAAAAJ4I/PC-wK8B2_tU/s72-c/up_and_running.jpg
-blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-310150438882392547
-blogger_orig_url: http://www.jtechlog.hu/2012/12/oracle-certified-expert-java-ee-6-web.html
 ---
 
 ​2012. december 12-én tettem le az 

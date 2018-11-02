@@ -7,9 +7,6 @@ tags:
 - hotspot
 - jvm
 modified_time: '2014-02-02T16:24:41.207+01:00'
-thumbnail: http://4.bp.blogspot.com/-Hgkvfe-YRjA/Tv0QOVMrD1I/AAAAAAAAHrc/M0vJrloT35I/s72-c/visualgc_gifanim.gif
-blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-8365011667058151286
-blogger_orig_url: http://www.jtechlog.hu/2011/12/java-memoriakezeles-szemetgyujto.html
 ---
 
 Technológiák: Java Development Kit 1.6

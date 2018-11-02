@@ -10,9 +10,6 @@ tags:
 - Maven
 - Java EE
 modified_time: '2011-04-18T00:41:13.683+02:00'
-thumbnail: http://2.bp.blogspot.com/-6e7EtuGMqJE/TatoRtBeklI/AAAAAAAAGSQ/WFTCrFa_F0A/s72-c/jndi_glassfish_0.png
-blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-2002559707916709456
-blogger_orig_url: http://www.jtechlog.hu/2011/04/konfiguracios-parameterek-ejb-es-web.html
 ---
 
 Utoljára frissítve: 2015. február 3.
@@ -50,7 +47,7 @@ hiába frissítettem a jelszót a `pom.xml`-ben, ez a fájl nem változott,
 így nem sikerült a telepítés. Megoldásaként csak le kellett törölni ezt
 az állományt. Még egy trükk. Ha nem állítottuk át a jelszót, hanem
 üresen hagytuk a Glassfish telepítés után, akkor is meg kell adni a
-Cargonak az üres stringet, különben nem sikerül a telepítés. Itt ha az 
+Cargonak az üres stringet, különben nem sikerül a telepítés. Itt ha az
 alkalmazást frissíteni akarjuk, nem elegendő a
 `cargo:deploy` parancs, hanem a `cargo:redeploy` parancs kell, mert a
 Glassfish jelzi, hogy már van alkalmazás telepítve.
@@ -64,7 +61,8 @@ A system property megadása a webes felületen a server menüpontban a
 Properties/System properties képernyőn lehetséges. Itt menet közben
 tetszőlegesen is át lehet írni.
 
-<a href="http://2.bp.blogspot.com/-6e7EtuGMqJE/TatoRtBeklI/AAAAAAAAGSQ/WFTCrFa_F0A/s1600/jndi_glassfish_0.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 189px;" src="http://2.bp.blogspot.com/-6e7EtuGMqJE/TatoRtBeklI/AAAAAAAAGSQ/WFTCrFa_F0A/s320/jndi_glassfish_0.png" border="0" alt="Rendszerparaméter beállítása Glassfishen" /></a>
+<a href="/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_0.png" data-lightbox="post-images">![Rendszerparaméter beállítása Glassfishen](/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_0_600.png)</a>
+
 Parancssorban is fel lehet venni, és listázni.
 
     $ bin/asadmin create-system-properties \
@@ -91,7 +89,7 @@ factory-t: `PrimitiviesAndStringFactory`, `PropertiesFactory`,
 lesz, és fel kell venni egy property-t `value` névvel. Legyen az értéke
 a `Hello JNDI!`.
 
-<a href="http://4.bp.blogspot.com/-XY1WEM1doEM/TatoVkooENI/AAAAAAAAGSY/q21lhPVBunY/s1600/jndi_glassfish_1.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 206px;" src="http://4.bp.blogspot.com/-XY1WEM1doEM/TatoVkooENI/AAAAAAAAGSY/q21lhPVBunY/s320/jndi_glassfish_1.png" border="0" alt="JNDI megadása Glassfishen" /></a>
+<a href="/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_1.png" data-lightbox="post-images">![JNDI megadása Glassfishen](/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_1_600.png)</a>
 
 URL esetén hasonló a helyzet, de a Resource Type `java.net.URL` és a
 factory `org.glassfish.resources.custom.factory.URLObjectFactory`. Itt
@@ -134,7 +132,7 @@ használhatunk.
 Ezeket elvégezve az alkalmazás a `http://localhost:8080/earconfig/`
 címen érhető el, és a következőt kell kiírnia:
 
-    A projekt bemutatja, hogy hogyan lehet Java EE alkalmazásból konfigurációs paramétereket 
+    A projekt bemutatja, hogy hogyan lehet Java EE alkalmazásból konfigurációs paramétereket
     beolvasni.
 
         * System property EJB rétegben (kulcs: earconfig.system.property): Hello \

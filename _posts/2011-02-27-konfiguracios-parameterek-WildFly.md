@@ -9,9 +9,6 @@ tags:
 - WildFly
 - Java EE
 modified_time: '2011-08-24T11:14:59.394+02:00'
-thumbnail: http://3.bp.blogspot.com/-lERPAF8FaWo/TXQUdpgWqEI/AAAAAAAAGBw/EAZE2IweFB4/s72-c/enc_overview.png
-blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-5695982303749707840
-blogger_orig_url: http://www.jtechlog.hu/2011/02/konfiguracios-parameterek-ejb-retegben.html
 ---
 
 Technológiák: WildFly 8.2.0.Final (korábban JBoss), Maven 3.2.1, Java EE 7, EJB 3.1, JNDI
@@ -156,12 +153,12 @@ Konfigurációs paraméterek kezelésére alkalmas keretrendszerek:
 
 Furcsa, hogy a legfrissebb is 2008-ban frissült utoljára.
 
-A következőkben egy olyan megoldást mutatok be, mely WildFly specifikus. 
+A következőkben egy olyan megoldást mutatok be, mely WildFly specifikus.
 Nem ad választ minden kérdésre, a
 cikkben kizárólag a WildFly egy-két ezirányú képességét szeretném
 bemutatni.
 
-A poszthoz a példa alkalmazás fenn van a 
+A poszthoz a példa alkalmazás fenn van a
 [GitHubon](https://github.com/vicziani/jtechlog-earconfig). A
 projekt Mavennel fordul, és szépen szemlélteti egy Java EE projekt
 felépítését Maven környezetben, ahol a build terméke egy EAR állomány.
@@ -201,7 +198,7 @@ A második metódus context lookuppal lekérdezi a globális JNDI-ben lévő
 
 {% highlight java %}
 Context context = new InitialContext();
-String[] NAMES = new String[]{"earconfig/string", "earconfig/url", 
+String[] NAMES = new String[]{"earconfig/string", "earconfig/url",
 	"earconfig/inetaddress", "earconfig/properties"};
 for (String name: NAMES) {
    Object entry = context.lookup(name);
@@ -215,7 +212,7 @@ alkalmazás ENC-jében, ahogyan arról [korábban
 írtam](/2009/01/09/jndi-nevek-ejb-kornyezetben.html), sőt ehhez akár a
 `@Resource` annotációval hozzáférjek. Ezt azonban nem sikerült megoldani.
 
-<a href="http://3.bp.blogspot.com/-lERPAF8FaWo/TXQUdpgWqEI/AAAAAAAAGBw/EAZE2IweFB4/s1600/enc_overview.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 134px;" src="http://3.bp.blogspot.com/-lERPAF8FaWo/TXQUdpgWqEI/AAAAAAAAGBw/EAZE2IweFB4/s320/enc_overview.png" border="0" alt="ENC áttekintés"/></a>
+<a href="/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_overview.png" data-lightbox="post-images">![ENC áttekintés](/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_overview_t.png)</a>
 
 Klasszikus esetben tehát van az EJB komponens, melyhez a standard
 deployment descriptorban (telepítés leíró) vagy a `@Resource`
@@ -270,7 +267,7 @@ Ebből látható, hogy nem lehet akármilyen típushoz, POJO-hoz hozzáférni,
 ami már beszűkíti a lehetőségeinket. Ezt a tulajdonságát a `@Resource`
 annotációnak a Spring közönség igen erősen kritizálja, érthető okokból.
 
-<a href="http://3.bp.blogspot.com/-jb-qsI66nbw/TXQTrHRQeDI/AAAAAAAAGBo/ftdkPUkuO4k/s1600/enc_details.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 218px;" src="http://3.bp.blogspot.com/-jb-qsI66nbw/TXQTrHRQeDI/AAAAAAAAGBo/ftdkPUkuO4k/s320/enc_details.png" border="0" alt="ENC részletek"/></a>
+<a href="/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_details.png" data-lightbox="post-images">![ENC áttekintés](/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_details_t.png)</a>
 
 Így hát marad az, hogy a globális JNDI nevekhez férjünk hozzá context
 lookup segítségével. Jobb esetben erre Service Locatort használunk. Még
@@ -278,7 +275,7 @@ jobb esetben az előbb említett konfigurációs keretrendszerek
 valamelyikét.
 
 De előbb nézzük, hogyan lehet értéket adni egy system property-nek? Vagy
-parancssorból a Java virtuális gépnek a `-D` paraméterrel, vagy a 
+parancssorból a Java virtuális gépnek a `-D` paraméterrel, vagy a
 `standalone/configuration/standalone.xml`-ben írjuk be a következőt az `extensions` lezáró tag után.
 
 {% highlight xml %}
@@ -290,14 +287,14 @@ parancssorból a Java virtuális gépnek a `-D` paraméterrel, vagy a
 Indítsuk újra az alkalmazásszervert.
 
 Hogyan tehetünk értéket a JNDI-be? Megtehetjük parancssori eszközzel,
-kódból, vagy a fentebb említett `stanadlone.xml` állományban, a 
+kódból, vagy a fentebb említett `stanadlone.xml` állományban, a
 `<subsystem xmlns="urn:jboss:domain:naming:2.0">` tagen belül.
 
 {% highlight xml %}
 <subsystem xmlns="urn:jboss:domain:naming:2.0">
     <bindings>
         <simple name="java:/earconfig/string" value="Hello, JNDI!" type="java.lang.String" />
-        <simple name="java:/earconfig/url" value="http://www.jtechlog.hu" 
+        <simple name="java:/earconfig/url" value="http://www.jtechlog.hu"
 			type="java.net.URL" />
     </bindings>
     <remote-naming/>
