@@ -11,4 +11,6 @@ modified_time: '2018-06-09T10:00:00.000-08:00'
 Hogyan generáljunk magunknak nyolc karakter hosszú jelszót Linux
 parancssorban?
 
-openssl rand -base64 20 | tr -d ‘/’ | cut -c1-8
+```
+openssl rand -base64 20 | tr -d '/' | cut -c1-8
+```
