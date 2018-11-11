@@ -20,6 +20,8 @@ description: Rövid összefoglaló, ez jelenik meg pl. a Facebookon. Max. 108 - 
 
 Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.
 
+<!-- more -->
+
 ![Kép leírása](/img.png)
 
 <a href="img.png" data-lightbox="post-images">![Kép leírása](/img_750.png)</a>
