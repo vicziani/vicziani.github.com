@@ -65,7 +65,7 @@ használtuk, mert legközelebb is erre kell dugni a sticket, vagy a
 másikra is feltelepíteni a drivert. Sokan panaszkodtak, hogy az USB 3.0
 porton problémák voltak, így az USB 2.0 portokat használjuk.
 
-![/artifacts/posts/2013-12-16-otthoni-radar-egy-dvb-t-stickkel/dvbt-stick-60_500.jpg](WinUSB)
+![WinUSB](/artifacts/posts/2013-12-16-otthoni-radar-egy-dvb-t-stickkel/dvbt-stick-60_500.jpg)
 
 Majd következhet a dekóder feltelepítése. A következők közül
 választhatunk:
