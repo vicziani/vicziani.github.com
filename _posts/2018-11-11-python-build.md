@@ -10,6 +10,8 @@ description: Hogyan álljunk neki egy Python projektnek, amit aztán Continuous 
 
 Technológiák: Python 3, venv, pip, make, pytest, coverage, pytest-cov, pylint, SonarQube, Jenkins
 
+Frissítve: 2018. december 14.
+
 Amint az mér egy [korábbi posztból](/2011/06/13/masodik-nyelv-python.html) kiderülhetett,
 a Java mellett a Python az egyik kedvenc programozási nyelvem, ráadásul mostanában
 sok inspirációt és motivációt kapok, hogy foglalkozzam vele, egészen a nyelvi alapoktól
@@ -118,7 +120,8 @@ csomagok elérhetőek a [Python Packaging Index](https://pypi.org/) nyilvános r
 Ezután természetesen egyesével is telepíthetjük a `pip` parancs használatával, azonban újrafelhasználhatóbb módja, ha a
 projekt gyökerében lévő `requirements.txt` fájlban adjuk meg a függőségeinket. Ebben felsorolhatjuk a függőségeinket,
 valamint a [formátum](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format) megengedi, hogy
-szabályokat adjunk meg a verziószámokra vonatkozóan is.
+szabályokat adjunk meg a verziószámokra vonatkozóan is. Érdemes mindig explicit verziószámokat megadni, különben egy
+új, visszafele nem kompatibilis verzióval már nem fog működni az alkalmazásunk.
 
 A `pip` a következő paranccsal futtatható, hogy felolvassa a `requirements.txt` állományt, és telepítse a benne felsorolt
 függőségeket:
@@ -144,7 +147,7 @@ venv/bin/activate: requirements.txt
         touch venv/bin/activate
 ```
 
-Ebben van első sora egy szabály (ami kettőspontot tartalmaz), ami azt jelenti, hogy az `install`
+Ennek első sora egy szabály (ami kettőspontot tartalmaz), ami azt jelenti, hogy az `install`
 lefuttatásához szükség van a `venv/bin/activate` fájlhoz. A következő szabály, a második sor
 azt határozza meg, hogy a `venv/bin/activate` fájlhoz viszont szükség van a `requirements.txt` állományra.
 
@@ -157,30 +160,27 @@ mert amennyiben változik a `requirements.txt`, és annak utolsó módosításá
 `activate` fájl utolsó módosításának ideje, újra le fogja futtatni ezeket a parancsokat. Ekkor már meglesz a `venv`
 könyvtár, és a `pip` parancs `-u` kapcsolója miatt frissíteni fogja a függőségeket.
 
-Természetesen a kódhoz teszteset is kell, ehhez a `unittest` keretrendszert használtam, melyet a JUnit ihletett.
-Bár vannak ennél modernebb keretrendszerek is, ez a Python része, hasonlít a JUnithoz, objektumorientált, így ezt
-választottam.
+Természetesen a kódhoz teszteset is kell, ehhez a `pytest` keretrendszert használtam, mely modernebb,
+mint a `unittest`, egyszerűbben lehet teszteseteket implementálni, a futtató modulja is könnyebben
+használható, valamint a kódlefedettség is egyszerűbben illeszhető. Szóba jött még a `nose` is, de ennek már leállt a fejlesztése.
+
+Tegyük be a `requirements.txt` állományba:
+
+```
+pytest==4.0.1
+```
 
 A teszt így néz ki, és a `tests/jtechlog/fizzbuzz_test.py` állományban kapott helyet:
 
 {% highlight python3 %}
-import unittest
-
 from jtechlog.fizzbuzz import fizzbuzz
 
 
-class TestFizzbuzz(unittest.TestCase):
-
-    def test_for_many(self):
-        self.assertEqual(fizzbuzz(16), "1 2 fizz 4 buzz fizz 7 8 fizz buzz 11 fizz 13 14 fizzbuzz 16")
-
+def test_for_many():
+    assert fizzbuzz(16) == "1 2 fizz 4 buzz fizz 7 8 fizz buzz 11 fizz 13 14 fizzbuzz 16"
 {% endhighlight %}
 
 Látható, hogy a `jtechlog` csomag `fizzbuzz` moduljából importáljuk a `fizzbuzz` függvényt, amit meg is hívunk.
-
-A tesztek futtatásához azonban nem a `unittest` keretrendszert választottam, hanem a `pytest` keretrendszert, mert automatikusan felderíti a teszt modulokat és
-függvényeket, valamint, ahogy később látni fogjuk, egyszerűen beköthető a kódlefedettség is. Ez képes `unittest` teszteket is
-futtatni. Szóba jött még a `nose` is, de ennek már leállt a fejlesztése.
 
 A teszteket azonban a legegyszerűbb installált modulokon futtatni, ezért installálni kell a modulunkat a következő paranccsal, ami szintén
 bekerült a `Makefile`-ba:
@@ -229,15 +229,14 @@ Ez azt is jelenti, hogy a tesztek futtatásának előfeltétele az `install`. Fu
 valami hasonlót kapunk:
 
 ```
-============================= test session starts ==============================
-platform linux -- Python 3.6.6, pytest-3.10.1, py-1.7.0, pluggy-0.8.0
-rootdir: /home/vicziani/Documents/projects/jtechlog-python, inifile:
-plugins: cov-2.6.0
-collected 1 item                                                               
+============================= test session starts =============================
+platform win32 -- Python 3.6.4, pytest-4.0.1, py-1.7.0, pluggy-0.8.0
+rootdir: D:\vicziani\Work\jtechlog-python, inifile:
+plugins: cov-2.6.0collected 1 item
 
-tests/jtechlog/fizzbuzz_test.py .                                        [100%]
+test_fizzbuzz.py .                                                       [100%]
 
-=========================== 1 passed in 0.01 seconds ===========================
+========================== 1 passed in 0.02 seconds ===========================
 ```
 
 A tesztlefedettséget a `coverage` modullal ([coveragepy on GitHub](https://github.com/nedbat/coveragepy))
@@ -245,8 +244,8 @@ mérem, melyet a `pytest` modulhoz a pytest coverage pluginnal illesztettem ([py
 Ezért mindkettő bekerült a `requirements.txt` fájlba:
 
 ```
-pytest-cov
-coverage
+pytest-cov==2.6.0
+coverage==4.5.2
 ```
 
 A tesztek futtatásakor kiadott parancsot a következőképp kell módosítani, hogy lefedettséget is mérjen:
@@ -258,8 +257,13 @@ venv/bin/pytest --cov=jtechlog --cov-report xml
 Azért szükséges az xml formátumú riport, mert a SonarQube majd ezt képes feldolgozni. A futtatás hatására
 létrejön a `.coverage` és a `coverage.xml` állomány, melyet érdemes elhelyezni a `.gitignore` fájlban.
 
-A Python forráskód elemzésre a (Pylint)[https://www.pylint.org/] eszközt választottam. Szintén fel kell venni `pylint`
-néven a `requirements.txt` fájlba, majd újra `make` kiadása következhet.
+A Python forráskód elemzésre a (Pylint)[https://www.pylint.org/] eszközt választottam. Szintén fel kell venni a `requirements.txt` fájlba:
+
+```
+pylint==2.2.2
+```
+
+Majd újra `make` kiadása következhet.
 
 A `pylint` a következő paranccsal futtatható:
 
@@ -312,7 +316,7 @@ A futtatás előtt azonban a SonarQube-on is konfigurálni kell. Először fel k
 
 Így kiadva a `make sonar` parancsot, a kódminőség és tesztlefedettség adatok meg fognak jelenni a SonarQube felületén.
 
-A fejlesztéshez a PyCharm IDE-t használtam. Ez is támogatja a `venv`-et, a `requirements.txt` fájlt, valamint a `unittest` tesztesetek futtatását is.
+A fejlesztéshez a PyCharm IDE-t használtam. Ez is támogatja a `venv`-et, a `requirements.txt` fájlt, valamint a tesztesetek futtatását is.
 Ehhez csak a `venv`-et kell bekonfigurálnunk. Ehhez a File/Settings... menüpontot kell kiválasztatnunk, majd ott a projektnél a Project Interpreter ablakot. Itt a kis fogaskereket ábrázoló gombra kell kattintani, majd Add... menüpont. Itt a Virtualenv Environmentet kell kiválasztanunk, és itt kijelölni azt a könyvtárat, ahová a virtual environmentet (`venv`) telepítettük. Ezután a PyCharm már a `requirements.txt` fájlt is fel fogja ismerni, és felindexeli a megfelelő modulokat, és a kódkiegészítés is működni fog.
 
 Az idáig tartó út igen sok tanulással és próbálkozással járt, és különösen érdekes volt összehasonlítani
