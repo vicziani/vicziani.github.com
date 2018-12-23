@@ -9,8 +9,8 @@ tags:
 modified_time: '2018-06-09T10:00:00.000-08:00'
 ---
 
-A rövidebb, nem kidolgozott és nem feltétlenül Java-val kapcsolatos
-post-okat eddig a Tumblr-en írtam, de most átköltöztettem a Blogger-re
+A rövidebb, nem kidolgozott és nem feltétlenül Javaval kapcsolatos
+posztokat eddig a Tumblren írtam, de most átköltöztettem a Bloggerre
 (Blogspot), melyen a [JTechLog](http://jtechlog.blogspot.com/) blog is
 van.
 
@@ -24,9 +24,10 @@ van.
     mentés)
 -   Mikor a
     [Lightbox](http://www.huddletogether.com/projects/lightbox2/)-szal
-    akartam integrálni, eltávolította a HTML rel attribútumokat, így
+    akartam integrálni, eltávolította a HTML `rel` attribútumokat, így
     gyakorlatilag kivitelezhetetlen volt a célom.
 -   Nem lehet megjegyzéseket fűzni a bejegyzésekhez
--   És számomra a legfontosabb, nem mindig működött a post-jaim közötti
+-   És számomra a legfontosabb, nem mindig működött a posztjaim közötti
     keresés
 
+![Tumblr hiba](//artifacts/posts/2011-01-14-tumblrrol-bloggerre-migralas/tumblr_750.png)</a>

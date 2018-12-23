@@ -288,4 +288,4 @@ További források:
 -   [Spring AOP top problem \#1 - aspects are not
     applied](http://blog.harmonysoft.tech/2009/07/spring-aop-top-problem-1-aspects-are.html)
 -   [Transaction strategies: Understanding transaction
-    pitfalls](https://www.ibm.com/developerworks/java/library/j-ts1/index.html)
+    pitfalls](https://developer.ibm.com/articles/j-ts1/)

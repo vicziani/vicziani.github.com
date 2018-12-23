@@ -217,14 +217,14 @@ manual](http://www.qos.ch/shop/products/log4jManual) könyvnek.
 
 <img src="/artifacts/posts/2014-11-12-java-ki-kicsoda/john_ferguson_smart.jpg" alt="John Ferguson Smart" class="pull-right" style="padding-left:20px; padding-bottom:20px;"/>
 Független
-fejlesztő, majd megalapította a saját cégét [Wakaleo
-Consulting](http://www.wakaleo.com) néven. Mindig sikerült meglovagolnia
+fejlesztő, majd megalapította a saját cégét Wakaleo
+Consulting néven. Mindig sikerült meglovagolnia
 az aktuális hullámokat, úgymint Maven, continuous integration and
 delivery, TDD, BDD, agilis fejlesztés. Ezekkel kapcsolatban három
 könyvet is írt [BDD in Action](http://www.manning.com/smart/), [Jenkins:
 The Definitive
-Guide](http://www.wakaleo.com/books/jenkins-the-definitive-guide), [Java
-Power Tools](http://www.wakaleo.com/books/java-power-tools), mind
+Guide](https://github.com/wakaleo/jenkins-the-definitive-guide-book), [Java
+Power Tools](http://shop.oreilly.com/product/9780596527938.do), mind
 rettentő gyakorlatias jellegű. Ezekben a témákban rengeteget publikál,
 és konferenciákon beszél.
 
@@ -272,7 +272,7 @@ architect, most saját cégét viszi [Raible
 Designs](http://raibledesigns.com/) néven. Őt onnan lehet ismerni, hogy
 nagyon sok konferencián megjelenik, ahol rettentő jó összehasonlító
 elemzéseket végez UI framework témakörökben. Saját projektje az
-[AppFuse](http://appfuse.org), mely egy induló projekt, melyben olyan
+[AppFuse](https://github.com/appfuse), melyben olyan
 technológiákat pakolt össze, mint Bootstrap, jQuery, Spring, Hibernate,
 Maven és választható web keretrendszerek, úgymint JSF, Struts 2, Spring
 MVC, Tapestry 5 vagy Wicket. Mindenképp érdemes elolvasni a

@@ -8,7 +8,7 @@ author: István Viczián
 Használt technológiák: EclipseLink 2.6.0, Hibernate 4.3.9.Final
 
 Már két posztot is írtam arról, hogy hogyan lehet optimalizálni a JPA-ban az entitások betöltését.
-Az egyik a [JPA lazy loading](2012/04/22/jpa-lazy-loading.html) poszt volt, mely során megvizsgáltam,
+Az egyik a [JPA lazy loading](/2012/04/22/jpa-lazy-loading.html) poszt volt, mely során megvizsgáltam,
 hogy amennyiben két entitás kapcsolatban áll egymással, hogyan lehet betölteni a kapcsolódó entitásokat. Különösen úgy, hogy ez még hatékony is legyen, tehát a legkevesebb lekérdezés fusson le. Alapértelmezett működés során gyakran belefuthatunk az un. N + 1 lekérdezés problémába, ami pont az, amit a neve is mutat. Amennyiben van egy entitásunk, és hozzá tartozó N kapcsolódó entitás, ezek lazy betöltéssel definiálva, akkor azt láthatjuk, hogy N + 1 lekérdezés fut le. Erre adott egyik provider független megoldás a join fetch használata. Másik posztban azt az esetet vizsgálom, mikor egy entitáshoz több entitás is kapcsolódik 1:n kapcsolattal, és könnyen Descartes-szorzatba futhatunk. Ennek a posztnak a címe a [JPA több one-to-many kapcsolat](/2013/03/17/jpa-tobb-one-to-many-kapcsolat.html).
 
 Az alapvető probléma a join fetch használatával, hogy a JPA lekérdezésbe kell írni. Ennek nagyrészt az az eredménye, hogy van egy entitáshoz több lekérdező DAO metódusunk, mely mindegyik külön adatkört ránt be. Így kapunk olyan metódusneveket, hogy `listEmployees`, `listEmployeesWithPhones`, `listEmployeesWithAddresses`, stb. Itt mindig az `Employee` entitást töltjük be, de hozzá más entitásokat is. A lekérdezések is különbözőek.
@@ -29,7 +29,7 @@ Először nézzük meg a konfigurációt annotációkkal. Adott az `Employee` en
 @NamedEntityGraph(name = "graph.Employee.phones",
     attributeNodes = @NamedAttributeNode("phones"),
     subgraphs = {
-        @NamedSubgraph(name = "phones", 
+        @NamedSubgraph(name = "phones",
             attributeNodes = {@NamedAttributeNode("type")})
 })
 {% endhighlight %}
@@ -38,7 +38,7 @@ Ezt a `find` metódus esetén a következőképp tudjuk használni.
 
 {% highlight java %}
 Map hints = new HashMap();
-hints.put("javax.persistence.fetchgraph", 
+hints.put("javax.persistence.fetchgraph",
     em.getEntityGraph("graph.Employee.phones"));
 return em.find(Employee.class, id, hints);
 {% endhighlight %}
@@ -57,7 +57,7 @@ Az EclipseLink a `javax.persistence.fetchgraph` hatására a következő három 
 
 {% highlight java %}
 SELECT ID FROM EMPLOYEE WHERE (ID = ?)
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
     WHERE (EMPLOYEE_ID = ?)
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 {% endhighlight %}
@@ -66,7 +66,7 @@ Az EclipseLink a `javax.persistence.loadgraph` hatására a következő két lek
 
 {% highlight java %}
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
     WHERE (EMPLOYEE_ID = ?)
 {% endhighlight %}
 
@@ -81,7 +81,7 @@ EntityGraph<Employee> graph = em.createEntityGraph(Employee.class);
 graph.addAttributeNodes("name");
 Subgraph<Phone> subgraph = graph.addSubgraph("phones", Phone.class);
 subgraph.addAttributeNodes("type");
-List<Employee> employees = 
+List<Employee> employees =
     em.createNamedQuery("listEmployees", Employee.class)
         .setHint("javax.persistence.fetchgraph", graph)
         .getResultList();
@@ -105,9 +105,9 @@ A `javax.persistence.loadgraph` hatására kicsit jobb a helyzet.
 
 {% highlight sql %}
 SELECT ID, EMP_NAME FROM EMPLOYEE
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
     WHERE (EMPLOYEE_ID = ?)
-SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE 
+SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
     WHERE (EMPLOYEE_ID = ?)
 {% endhighlight %}
 
@@ -121,7 +121,7 @@ Végül a [jtechlog-jpa-descartes](https://github.com/vicziani/jtechlog-jpa-desc
 
 {% highlight java %}
 @NamedEntityGraph(name = "graph.Employee.phonesAndAddresses",
-        attributeNodes = {@NamedAttributeNode("phones"), 
+        attributeNodes = {@NamedAttributeNode("phones"),
             @NamedAttributeNode("addresses")})
 {% endhighlight %}
 
@@ -130,4 +130,3 @@ Sajnos a Hibernate itt is egy lekérdezést adott ki, két join művelettel, meg
 2013 decemberében született egy blogposzt [JPA 2.1 Entity Graphs: We’re getting close!](https://javaeeblog.wordpress.com/2013/12/06/jpa-2-1-entity-graphs-were-getting-close/), mely szintén talált pár hibát mindkét implementációban. Írt egy pár teszt esetet is, elérhető a GitHubon [jpa-entitygraph-test](https://github.com/dirkweil/jpa-entitygraph-test) néven. A 19 tesztesetből EclipseLink esetén 4, Hibernate esetén 2 bukik. A helyzet azóta sem változott, hiába emeltem a verziókat mindkét providerből a legfrissebbre.
 
 Összegezve elmondható, hogy a JPA Entity Graph egy jó ötlet, a megvalósítása mindkét nagyobb provider esetén kisebb-nagyobb kivetnivalókat hagy maga után. Alapvetően ugyan betöltik azt, amire szükség van, de korántsem azon a módon, ahogy számítanánk rá. Emiatt mindenképp javaslom, hogy ellenőrizzük a háttérben kiadott SQL lekérdezéseket, és a visszaadott entitások számosságát.
-

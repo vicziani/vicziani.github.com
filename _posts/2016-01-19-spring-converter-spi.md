@@ -9,9 +9,9 @@ A Spring Framework talán egyik legnagyobb előnye, hogy bizonyos gyakran haszn�
 
 Nagyon gyakran van szükség arra, hogy szöveges értékből egy objektumot gyártsunk. Szöveg szerepelhet sok helyen. Szerepelhet a Spring xml konfigurációjában, Spring Expression Language-ben (SpEL), valamint a HTTP protokoll is alapvetően szöveges. Azonban láthatjuk, hogy akár az xml konfigurációban alkalmazhatunk más, long, double, stb. típusú értékeket, valamint a Spring controllerekben is definiálhatunk ilyen típussal url paramétereket, path változókat, header bejegyzéseket, stb. A Spring a konverziót automatikusan elvégzi. De mi van akkor, ha mi nem ilyen gyakori típusokká akarjuk konvertálni a szövegeinket, hanem pl. egy saját osztály egy példányává.
 
-A Spring nagyon könnyen bővíthető, és ezen konverziós mechanizmus mögött a Converter SPI áll, mely megengedi, hogy saját konvertereket implementáljunk. Sőt, ezeket a konvertereket igazán sok helyen használhatjuk is. 
+A Spring nagyon könnyen bővíthető, és ezen konverziós mechanizmus mögött a Converter SPI áll, mely megengedi, hogy saját konvertereket implementáljunk. Sőt, ezeket a konvertereket igazán sok helyen használhatjuk is.
 
-Ezen használati helyeket tekinti át ez a poszt, melyhez példaprogram is készült, és elérhető a [GitHubon](https://github.com/vicziani/jtechlog-spring-converter).
+Ezen használati helyeket tekinti át ez a poszt, melyhez példaprogram is készült, és elérhető a [GitHubon](https://github.com/vicziani/jtechlog-spring-converters).
 
 <!-- more -->
 
@@ -63,7 +63,7 @@ Vagy akár Java kódból:
 {% highlight java %}
 @Bean
 public ConversionService conversionService() {
-    ConversionServiceFactoryBean factoryBean = 
+    ConversionServiceFactoryBean factoryBean =
         new ConversionServiceFactoryBean();
     factoryBean.setConverters(
         Collections.singleton(new GasHourConverter()));
@@ -104,7 +104,7 @@ public FooService(ConversionService conversionService) {
 }
 
 public void execute() {
-    GasHour gasHour = 
+    GasHour gasHour =
         conversionService.convert("2011-11-11 5.", GasHour.class);
 }
 {% endhighlight %}
@@ -132,9 +132,9 @@ Nagyon szépen használható SpEL-ben is, az előbb említett `FooService` oszt�
 De természetesen programozottan is:
 
 {% highlight java %}
-StandardEvaluationContext evaluationContext = 
+StandardEvaluationContext evaluationContext =
     new StandardEvaluationContext();
-StandardTypeConverter converter = 
+StandardTypeConverter converter =
     new StandardTypeConverter(conversionService);
 evaluationContext.setTypeConverter(converter);
 ExpressionParser expressionParser = new SpelExpressionParser();
@@ -143,7 +143,7 @@ GasHour gasHour = expressionParser.parseExpression("2011-11-11 5.")
 assertThat(gasHour, is(GasHour.parse("2011-11-11 5.")));
 {% endhighlight %}
 
-Amennyiben Spring MVC-ben is használni szeretnénk, a konvertereket regisztrálhatjuk a 
+Amennyiben Spring MVC-ben is használni szeretnénk, a konvertereket regisztrálhatjuk a
 `WebMvcConfigurerAdapter`-ben is.
 
 {% highlight java %}

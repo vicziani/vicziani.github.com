@@ -16,7 +16,7 @@ Technológiák: WildFly 8.2.0.Final (korábban JBoss), Maven 3.2.1, Java EE 7, E
 Utoljára frissítve: 2015. február 4.
 
 Megjegyzés: ugyanezt leírtam Glassfish-sel is egy későbbi
-[posztban](/2011/04/18/konfiguracios-parameterek-Glassfish.html).
+[posztban](/2011/04/17/konfiguracios-parameterek-Glassfish.html).
 
 Ha az alkalmazás futtatásához szükséges konfigurációkat paramétereket
 akarunk tárolni, beolvasni, rengeteg lehetőségünk van. Tapasztalatom

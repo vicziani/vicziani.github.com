@@ -66,7 +66,7 @@ mennyire illeszthető a Continuous Integrationbe, Continuous Deliverybe.
 Hallhattok az alternatív lehetőségekről, sőt a Maven árnyoldalairól is.
 *(2014.)*
 
-<iframe width="480" height="270" src="http://www.ustream.tv/embed/recorded/49430874?html5ui" 
+<iframe width="480" height="270" src="http://www.ustream.tv/embed/recorded/49430874?html5ui"
 scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" frameborder="0" style="border: 0 none transparent;"></iframe>
 
 [Diák](artifacts/2014-06_maven/2014-06_maven.html)
@@ -368,7 +368,7 @@ frissítve lett. *(Frissítve: 2008. január, 5 oldal, 1195 szó)*
 
 ## Log4J naplózó rendszer
 
-A [Log4J](http://logging.apache.org/log4j/docs/index.html) naplózó
+A [Log4J](https://logging.apache.org/log4j/1.2/) naplózó
 rendszer széles körben elterjedt, könnyen használható Java nyelven
 implementált naplózó rendszer, mely a Jakarta project része. Kód
 módosítása nélkül módosítható a konfigurációja, a loggerek da struktúrát

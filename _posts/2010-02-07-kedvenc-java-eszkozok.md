@@ -92,5 +92,4 @@ jelenlegi projektjeink mérete és a lineáris fejlesztési menete miatt még
 biztos nem váltanék.
 
 Általam használt további, nem csak Java fejlesztéshez használt
-alkalmazásaimat is [összegyűjtöttem
-itt](http://vicziani.github.com/alkalmazasok.htm).
+alkalmazásaimat is [összegyűjtöttem itt](/alkalmazasok-windows.html).

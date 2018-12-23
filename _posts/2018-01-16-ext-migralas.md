@@ -7,7 +7,7 @@ description: Több mint kilencven cikket migráltam a blogra.
 ---
 
 Régebben jó ötletnek tűnt, hogy a nem olyan részletesen kifejtett, valamint a nem Javahoz kapcsolódó posztokat
-[külön blogon](http://ext.jtechlog.hu/) posztolom. Azóta készült egy felmérés is, amiben a legtöbben azt válaszoltátok,
+külön blogon posztolom, mely elérhető volt a `http://ext.jtechlog.hu` címen. Azóta készült egy felmérés is, amiben a legtöbben azt válaszoltátok,
 hogy nem zavarna titeket a kevert tartalom. Így a könnyebb karbantarthatóság miatt a régebbi cikkeket is
 importáltam ide. Mivel 2014-es a legfrissebb poszt, elég elavultnak számíthatnak, de hátha még valakinek segíthet. Részletes
 lista a poszt végén olvasható. Kedvencem a [Flightradar24](/2013/10/27/hogy-mukodik-a-flightradar24.html) cikk,

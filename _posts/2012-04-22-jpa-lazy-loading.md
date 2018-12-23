@@ -436,9 +436,7 @@ EJB esetén is kerülöm a stateful session beanek használatát.
 Vizsgáljuk meg most a `cv` mező működését. Ahogy várható, mindig
 beolvassa. Azonban az már meglepő, hogy a `@Lob`, vagy a `@Basic(fetch =
 FetchType.LAZY)` vagy mindkét annotáció hatására sem változik semmi, azaz
-mindig berántja. Erről már
-[írtam](http://ext.jtechlog.hu/2010/07/jpa-hibernate-lazy-fetch.html),
-ennek az az oka, hogy ez csak akkor működik, ha az osztályok
+mindig berántja. Ennek az az oka, hogy ez csak akkor működik, ha az osztályok
 instrumentálva vannak. A példa projektben a `pom.xml`-ben a
 `maven-antrun-plugin` futtat egy
 `org.hibernate.tool.instrument.javassist.InstrumentTask` taskot. Amennyiben

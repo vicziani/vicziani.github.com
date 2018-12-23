@@ -113,8 +113,6 @@ A mintákat nem sorolnám itt fel, hanem készítettem egy mindmapet a
 [FreeMind](http://freemind.sourceforge.net) szoftverrel. A mindmap
 forrása megtalálható a
 [GitHubon](https://github.com/vicziani/jtechlog-articles/tree/master/modularization),
-és [itt kattinthatóan is
-elérhető](http://www.jtechlog.hu/jtechlog-modules/modul-tervezesi-mintak.html),
 de lejjebb találtok egy nagyítható képet is. Próbáltam a mintákat
 lefordítani, de nem szó szerint, hanem a célja alapján.
 

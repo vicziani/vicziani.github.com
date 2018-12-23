@@ -59,7 +59,7 @@ programozási nyelv.
     mélyebb szaktudás nélkül lehet a való világgal kapcsolatot
     létesíteni, pl. ledeket villogtatni, nyomógombokat érzékelni. És
     igen, szeretek legózni, és ez nagyságrenddel olcsóbb, mint a [Lego
-    Mindstorms](www.lego.com/en-us/mindstorms/) készlet, nem is beszélve
+    Mindstorms](https://www.lego.com/en-us/mindstorms/) készlet, nem is beszélve
     a hozzá való alkatrészek áráról és mennyiségéről.
 -   Linux: legyen a háztartásban egy állandóan hozzáférhető Linux. Nem,
     nem akarom, hogy a notebook-om első számú operációs rendszere

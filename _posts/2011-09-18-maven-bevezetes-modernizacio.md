@@ -184,7 +184,7 @@ forráskódjuk.
 Tervezzük meg, hogy az alkalmazások verziószáma hogyan jelenik meg a
 felületen, és a build folyamat során hogyan kerül beírásra. Erről szól
 az előző
-[posztom](http://jtechlog.blogspot.com/2011/09/verzioszam-megjelenitese.html)
+[posztom](/2011/09/13/verzioszam-megjelenitese.html)
 
 Tervezzük meg a test harness-t. Elegendő-e a JUnit, vagy érdemesebb-e a
 TestNG-t használni. Mivel mérjük a kódlefedettséget? Milyen integrációs

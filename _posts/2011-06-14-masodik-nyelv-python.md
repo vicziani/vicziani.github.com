@@ -281,10 +281,10 @@ gyorsan ki kell próbálni Java-ban, akkor is a Jython-t veszem elő, és
 nem egy Java-s IDE-t.
 
 A Python azért is lehet ismerős, mert a Google a [Google App Engine-t
-Python-ban](http://code.google.com/intl/hu-HU/appengine/docs/python/gettingstarted/)
-és Java-ban bocsájtja rendelkezésünkre. Ahhoz, hogy elkezdjünk
+Pythonban](https://cloud.google.com/appengine/docs/python/)
+és Javaban bocsájtja rendelkezésünkre. Ahhoz, hogy elkezdjünk
 fejleszteni, le kell tölteni a [Google App Engine SDK for
-Python](http://code.google.com/intl/hu-HU/appengine/downloads.html)
+Python](https://cloud.google.com/appengine/downloads)
 környezetet. Hozzunk létre egy állományt, mely kiírja standard kimenetre
 a szokásos üdvözlő szöveget.
 

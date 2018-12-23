@@ -45,7 +45,7 @@ is van, hogy ezeken a helyeken bármikor elő tudom venni a szükséges
 állományokat.
 
 A notebook winyó és a külső winyó közötti szinkronizációt bizonyos
-időközönként megejtem, és erre a [rsync](2http://rsync.samba.org/%22)
+időközönként megejtem, és erre a [rsync](https://rsync.samba.org/)
 utilt használom a ([Cygwin](http://www.cygwin.com/)-nel, hiszen ez
 mindig van a gépemen). Ebből adódóan ez Linuxon alapértelmezetten
 működik. Próbáltam mindenféle Windows-os programot, de egy sem váltotta
