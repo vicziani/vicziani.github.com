@@ -282,7 +282,7 @@ A SonarQube a kimenetként előállt `pylint-report.txt` állományt fogja feldo
 `.pylintrc` állományban található, melynek tartalma:
 
 ```
-MESSAGES CONTROL]
+[MESSAGES CONTROL]
 msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}"
 
 disable=C0111
@@ -318,6 +318,9 @@ A futtatás előtt azonban a SonarQube-on is konfigurálni kell. Először fel k
 
 A fejlesztéshez a PyCharm IDE-t használtam. Ez is támogatja a `venv`-et, a `requirements.txt` fájlt, valamint a tesztesetek futtatását is.
 Ehhez csak a `venv`-et kell bekonfigurálnunk. Ehhez a File/Settings... menüpontot kell kiválasztatnunk, majd ott a projektnél a Project Interpreter ablakot. Itt a kis fogaskereket ábrázoló gombra kell kattintani, majd Add... menüpont. Itt a Virtualenv Environmentet kell kiválasztanunk, és itt kijelölni azt a könyvtárat, ahová a virtual environmentet (`venv`) telepítettük. Ezután a PyCharm már a `requirements.txt` fájlt is fel fogja ismerni, és felindexeli a megfelelő modulokat, és a kódkiegészítés is működni fog.
+
+Érdemes feltelpíteni a [SonarLint](https://www.sonarlint.org/) plugint, ami lokálisan ellenőrzi ugyanazokat a szabályokat, amit a SonarQube is,
+így már commit előtt kijavíthatjuk azokat.
 
 Az idáig tartó út igen sok tanulással és próbálkozással járt, és különösen érdekes volt összehasonlítani
 pl. a Javas megoldásokkal. Ezen kívül tényleg nagy élmény volt, mikor a jelentések megjelentek a SonarQube-ban.
