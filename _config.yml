@@ -6,6 +6,7 @@ url: "http://www.jtechlog.hu"
 author: Viczián István
 twitter_username: vicziani
 github_username: vicziani
+exclude: [README.md]
 
 # Build settings
 markdown: kramdown
