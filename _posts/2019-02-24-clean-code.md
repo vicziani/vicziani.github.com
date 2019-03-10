@@ -130,7 +130,7 @@ Ami először feltűnt a könyv példájában, hogy nem elöl helyezkednek el az
 üzletileg leggyakoribb eseteket tesztelnek. (Nem, ezek nem a pozitív tesztek, bármennyire is egyszerű lenne
 őket így hívni.) Helyette a hibakezelés tesztelése történt meg először. Ezeket én megcseréltem.
 
-A könyvben írt tesztesetek nem adtak 100%-os utasítás lefedettséget, voltak olyan ágak, melyre nem volt teszteset.
+A könyvben írt tesztesetek nem adtak teljes lefedettséget, voltak olyan utasítások és ágak is, melyekre nem volt teszteset.
 Ilyenek például azok az esetek, mikor más típus volt megadva a sémában, és más metódussal kértük le. Pl.
 `p#`, ami karakteres értéket jelent, de mi mégis a `getBoolean()` metódust hívtuk meg.
 
