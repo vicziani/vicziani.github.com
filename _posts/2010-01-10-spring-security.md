@@ -4,25 +4,27 @@ title: Spring Security
 date: '2010-01-10T22:27:00.006+01:00'
 author: István Viczián
 tags:
-- Servlet
-- open source
-- JSP
+- autentikáció
+- authorizáció
+- nyílt forráskód
 - biztonság
-- Spring
-modified_time: '2018-06-09T10:00:00.000-08:00'
+- Spring Framework
+modified_time: '2019-03-10T10:00:00.000+01:00'
+description: Egy részletes poszt a Spring Security-ról.
 ---
 
-Frissítve: 2014. december 31.
+Frissítve: 2019. március 3.
 
-Technológiák: Spring Framework 4.1.4, Spring Security 3.2.5
+Technológiák: Spring Framework 5.1.5, Spring Security 5.1.4, JPA, H2, Thymeleaf,
+Maven, Jetty
 
-A [Spring Security](http://projects.spring.io/spring-security/) egy
-Apache license alatt futó projekt Java alkalmazások autentikációjának és
-autorizációjának megvalósítására. Az előbbi azt jelenti, hogy a
+A [Spring Security](https://spring.io/projects/spring-security) egy
+nyílt forráskódú projekt Java alkalmazások autentikációjának és
+autorizációjának megvalósítására. Az autentikáció azt jelenti, hogy a
 felhasználó tesz egy állítást, hogy ő kicsoda, és azt bizonyítja is. A
 legtöbbször ez felhasználónév és jelszó párossal történik, de lehet
 bonyolultabb megoldás, mint tanúsítvány (akár hardver tokenen),
-ujjlenyomat, stb. Az utóbbi az erőforráshoz való hozzáféréskor
+ujjlenyomat, stb. Az autorizáció az erőforráshoz való hozzáféréskor
 ellenőrzi, hogy a felhasználónak van-e hozzá jogosultsága. A Spring
 Security független projektként indult Acegi Security néven.
 Legkönnyebben Springes alkalmazásokkal integrálható, de nem kötelező a
@@ -34,7 +36,7 @@ Swinggel, de gyakorlatilag bármilyen Java alkalmazásban.
 
 Előnye, hogy nem függ a környezettől (pl. alkalmazásszerver), nem kell
 az üzleti logikát átfűzni a jogosultságkezelést végző kóddal (, hanem
-aspektus-orientált módon adható meg). Egyszerű módon (XML-lel)
+aspektus-orientált módon adható meg). Egyszerű módon 
 konfigurálható, és a legtöbb beállításnak van alapértelmezett értéke is,
 mellyel működik a biztonság, de tetszőleges mértékben testre szabható, a
 legtöbb osztály akár saját implementációra is kicserélhető
@@ -42,144 +44,240 @@ legtöbb osztály akár saját implementációra is kicserélhető
 (Access Control Lists).
 
 Támogatja a HTTP BASIC, HTTP Digest és form alapú autentikációt,
-valamint az OpenID-t és a X.509 tanúsítványt.
+X.509 tanúsítványokat, valamint az OAuth 2.0-át, OpenID-t.
 
-A felhasználók és a hozzá kapcsolódó szerepkörök tárolhatóak properties
-vagy XML állományban, adatbázisban, LDAP-ban, de saját implementáció is
-megadható. Támogatja a jelszó kódolását pl. SHA vagy MD5 algoritmussal.
+A felhasználók és a hozzá kapcsolódó szerepkörök tárolhatóak memóriában, 
+adatbázisban, LDAP szerveren. Ezekhez adottak beépített implementációk,
+de saját is készíthető. Támogatja a jelszó hashelését pl. SCrypt,
+PBKDF2 vagy BCrypt algoritmussal. Támogat régebbi algoritmusokat is,
+mint pl. MD4, de annak nem biztonságos volta miatt már deprecated.
 A felhasználóval kapcsolatos információkat képes cache-elni is.
 Különböző eseményekre eseménykezelőket lehet aggatni, pl. bejelentkezés,
 így könnyen megoldható pl. audit naplózás. Könnyen illeszthető a [CAS
-single sign on](http://jasig.github.io/cas/4.0.x/index.html)
+single sign on](https://www.apereo.org/projects/cas)
 megoldáshoz.
 
-Kompatibilis a Servlet Security API-val, használhatóak vele az EJB 3
-annotációi, valamint a WSS-hez (korábban WS-Security) is illeszthető.
+Beépítetten nyújt támogatást a [CSRF támadási mód](https://en.wikipedia.org/wiki/Cross-site_request_forgery) ellen.
+
+Kompatibilis a Servlet Security API-val, használhatóak az EJB 3
+annotációi, illeszthető a JAAS szabványhoz. 
+
 Képes a security propagation-re, azaz az alkalmazások különböző rétegei
 között átvinni a security context-et (pl. a vastag kliensről a
 szerverre).
 
-Webes környezetben egy filtert kell a `web.xml`-be betenni. Képes
-mindarra, amire a `web.xml`-ben definiálható biztonság, de azt rengeteg
-egyéb funkcióval egészíti ki, mint pl. a védett URL-eket nem csak a
-Servlet specifikációban megadott korlátozott URL mintákkal lehet
-megadni, hanem használható az Ant féle megadási mód is. Konfigurálható,
+Java kódban egyszerűen lehet lekérni a bejelentkezett felhasználót,
+valamint annotációkkal adható meg, hogy mely metódus milyen
+jogosultsággal hívható meg.
+
+Webes környezetben a védett URL-eket komplex módokon lehet megadni,
+akár Ant féle megadási móddal, akár reguláris kifejezésekkel.
+
+Konfigurálható,
 hogy védet tartalmak esetén történjen https-re átirányítás. Alapból
 implementálva van benne két Remember-Me (Persistent Login) megoldás is,
-azaz a böngésző cookie-ban jegyezze meg a bejelentkezés tényét. A Spring
-Security tag library-t is biztosít funkcióinak elérésére JSP oldalból.
+azaz a böngésző cookie-ban jegyezze meg a bejelentkezés tényét.
 
-Ebben a posztban egy egyszerű Spring MVC-s webes alkalmazásba
+Használható WebSockettal, valamint Spring WebFlux-szal.
+
+A Spring Security komplex támogatást nyújt a teszteléshez.
+
+Ebben a posztban egy egyszerű webes alkalmazásba
 illesztését fogom bemutatni. A poszthoz egy példa projekt is tartozik,
 mely [elérhető a
-GitHub-on](https://github.com/vicziani/jtechlog-spring-security), és a
-teljes forrás akár egy zip fájlban is letölthető. Egyszerű Spring MVC-s
-webes alkalmazás JPA perzisztens réteggel.
+GitHub-on](https://github.com/vicziani/jtechlog-spring-security). Egyszerű Spring MVC-s
+webes alkalmazás, Spring Data JPA perzisztens réteggel, Thymeleaf template engine-nel.
 
-Első lépésként szerkesszük meg az `web.xml` állományt, és adjuk meg a
-Spring Security-t konfiguráló `applicationContext-security.xml`
-állományt (a jó elkülöníthetőség kedvéért konfigurálom külön
-állományban), valamint a filtert, mely a http(s) kéréseket elkapja, és
-ellenőrzi.
+<!-- more -->
 
-{% highlight xml %}
-<context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>
-     WEB-INF/applicationContext.xml
-     WEB-INF/applicationContext-security.xml
-    </param-value>
-</context-param>
+Tételezzük fel, hogy van egy webes alkalmazásunk, egy főoldallal. Nézzük meg
+lépésenként, hogy kell a Spring Security-t bevezetni.
 
-<filter>
-    <filter-name>springSecurityFilterChain</filter-name>
-    <filter-class>org.springframework.web.filter.DelegatingFilterProxy
-        </filter-class>
-</filter>
+## Legyegyszerűbb megoldás
 
-<filter-mapping>
-    <filter-name>springSecurityFilterChain</filter-name>
-    <url-pattern>/*</url-pattern>
-</filter-mapping>
-{% endhighlight %}
+A Servlet 3.0 szabvány már nem teszi kötelezővé a `web.xml` állomány
+használatát, ezért elég létrehozni egy osztályt, mely leszármazik
+a `AbstractSecurityWebApplicationInitializer` osztályból. Ez regisztrálja 
+a Spring Security működéséhez szükséges Servlet Filtereket.
 
-A következő lépésben írjuk meg az `applicationContext-security.xml`
-állományt.
+A Spring Security konfigurációját érdemes egy külön `@Configuration`
+annotációval ellátott osztályban megadni. A legegyszerűbb konfiguráció a
+következő:
 
-{% highlight xml %}
-<beans:beans xmlns="http://www.springframework.org/schema/security"
-    xmlns:beans="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/security
-        http://www.springframework.org/schema/security/spring-security.xsd">
+```java
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    <http auto-config="true">
-        <intercept-url pattern="/" access="ROLE_USER, ROLE_ADMIN" />
-        <intercept-url pattern="/index.html"
-            access="ROLE_USER, ROLE_ADMIN" />
-        <intercept-url pattern="/addUser.html"
-            access="ROLE_ADMIN" />
-        <logout />
-    </http>
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
 
-    <authentication-manager alias="authenticationManager">
-        <authentication-provider>
-            <password-encoder hash="md5"/>
-            <user-service>
-                <user name="jtechlog"
-                    password="26b91b96e2e8adc37cd26cff6a6b2eba"
-                    authorities="ROLE_USER" />
-            </user-service>
-        </authentication-provider>     
-    </authentication-manager>
-</beans:beans>
-{% endhighlight %}
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("user")
+                .password("user")
+                .authorities("USER");
+}
+```
 
-Az `auto-config` tulajdonság egy rövidítés, a következő alapértelmezett
-beállításokat tartalmazza:
+Ezt az osztályt a be kell töltenünk, ha már van egy 
+`AbstractAnnotationConfigDispatcherServletInitializer`
+osztálytól leszármazó osztályunk, akkor annak `getRootConfigClasses()` metódusában.
 
-{% highlight xml %}
-<http>
-  <form-login />
-  <http-basic />
-  <logout />
-</http>
-{% endhighlight %}
+```java
+public class WebAppInitializer 
+        extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-Az `authentication-provider` elemben az XML szerepel egy `jtechlog` nevű
-felhasználó, akinek a jelszava MD5-tel kódolva szerepel (`jtechlog12`).
-Ezzel készen is van. Az alkalmazásunkat elindítva bármelyik URL-re egy
-(Spring Security által generált) bejelentkezési form jön be, hiszen
-deklarálva lett, hogy a `/` URL megtekintéséhez a felhasználónak
-rendelkeznie kell a `ROLE_USER` vagy `ROLE_ADMIN` szerepkörrel, a
-`/addUser.html`-hez `ROLE_ADMIN` szerepkörrel (lásd `intercept-url`
-elem). Az azonosítás formon, jelszóval történik (`form-login`).
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[]{BackendConfig.class, SecurityConfig.class};
+    }
+    
+    // ...
+}
+```
 
-A `security` névtérben a következőkre adhatunk meg konfigurációkat:
+Ennek hatására a következők kerülnek beállításra:
 
--   Web/HTTP Security
--   Business Object (Method) Security
--   AuthenticationManager
--   AccessDecisionManager
--   AuthenticationProviders
--   UserDetailsService
+* Minden URL védett lesz, és csak bejelentkezés után lehet megtekinteni.
+* Működik a HTTP BASIC autentikáció is
+* Bármilyen URL-t beírva a böngésző átirányításra kerül a `/login`
+oldalra.
+* Bejelentkezni a `user` felhasználónévvel és `user` jelszóval lehetséges.
+* Ki lehet jelentkezni a `/logout` címre való `post` metódusú HTTP kéréssel. Vigyázat,
+`get` metódussal nem működik! Az űrlapon belül ezen kívül el kell helyezni a CSRF tokent is,
+erről még később lesz szó.
 
-Amennyiben kijelentkezést is meg akarunk valósítani, a JSP-ben csak
-helyezzük el a következő linket:
+Látható, hogy a jelszót plain textben, szövegesen adtuk meg. Ez csak azért lehetséges,
+mert a `PasswordEncoder` `NoOpPasswordEncoder` implementációját használtuk. Ez deprecated,
+ugyanis sose használjuk élesben. Helyette használjuk a `BCryptPasswordEncoder`
+implementációt.
 
-{% highlight xml %}
-<a href="<c:url value='/j_spring_security_logout'/>">Kijelentkezés</a>
-{% endhighlight %}
+```java
+@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+```
 
-Következő lépésként implementáljuk magunk a felhasználó adatbázisból
-való betöltését, méghozzá pl. JPA segítségével. Ehhez kell egy `User`
-entitás, melynek különlegessége, hogy implementálnia kell a
-`UserDetails` interfészt, és annak több metódusát. Pl.:
+Ekkor a felhasználó jelszavát is át kell írnunk:
 
-{% highlight java %}
+```java
+auth
+        .inMemoryAuthentication()
+        .withUser("user")
+        .password("$2a$10$ADR5Ol7to6gUl4zdL1iasu4Oa/J9La4r30Jjbgaq0X946HvsWqTT2")
+        .authorities("USER");
+```
+
+A Bcrypt egy jelszó hash algoritmus, mely magában foglal egy véletlenszerűen generált
+saltot is, azért, hogy ne lehessen jelszó adatbázisok alapján feltörni. Három részből
+áll, melyek dollárjelekkel (`$`) vannak elválasztva. Az első az algoritmus
+verziója, példánkban `2a`. A második az un. _cost_ paraméter, példánkban `10`.
+A harmadik részben az első 22 karakter a salt, a második 31 karakter pedig a hash.
+
+Hogyan jutottunk ehhez a hash-hez? A következő kódrészlettel:
+
+```java
+BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+System.out.println(passwordEncoder.encode("user"));
+```
+
+Amennyiben Thymeleaf template engine-t használunk, a Spring Security támogatáshoz
+el kell helyeznünk a `thymeleaf-extras-springsecurity5` függőséget is a `pom.xml`
+állományban:
+
+```xml
+<dependency>
+    <groupId>org.thymeleaf.extras</groupId>
+    <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+    <version>3.0.4.RELEASE</version>
+</dependency>
+```
+
+Valamint meg kell adni egy `SpringSecurityDialect` példányt.
+
+```java
+@Bean
+public SpringTemplateEngine templateEngine() {
+    SpringTemplateEngine engine = new SpringTemplateEngine();
+    engine.setAdditionalDialects(Set.of(new SpringSecurityDialect()));
+    engine.setTemplateResolver(templateResolver());
+    return engine;
+}
+```
+
+Ezek után a kijelentkező űrlap a következő:
+
+```xml
+<form method="post" th:action="@{/logout}">
+    <input type="submit" value="Kijelentkezés" />
+</form>
+```
+
+A Thymeleaf az előző függőség miatt az űrlapba automatikusan legenerálja egy
+rejtett mezőben a CSRF tokent is.
+
+```html
+<form method="post" action="/">
+  <input type="hidden" name="_csrf" value="21756dda-139c-4e5e-95c4-a9a9aeb14285"/>
+  <!-- ... -->              
+</form>
+```
+
+A CSRF támadási módot egy példával a legegyszerűbb leírni. Amennyiben egy webbankon
+bejelentkezik egy felhasználó, majd átnavigál egy rosszindulatú lapra, ott létre lehet
+hozni egy olyan űrlapot, mely a webbankra küld egy post metódusú kérést, pl. egy átutalást.
+Erre megoldás a CSRF token, melyet a szerver állít elő minden űrlap lekérésekor, elhelyezni
+az űrlapban egy rejtett mezőben, és az űrlap mindig vissza is küldi. Ezt támadó oldal
+nem ismerheti, így visszaküldeni sem tudja, és így a szerver elutasítja.
+
+## Adatbázis
+
+Amennyiben adatbázisból akarjuk lekérdezni a felhasználókat, erre is van
+lehetőség, legegyszerűbben az SQL lekérdezések megadásával.
+
+Egyrészt kell egy tábla, adatokkal. (Itt most csak egy táblát használunk,
+a felhasználó egyszerre csak egy szerepkörrel rendelkezhet. Persze gyakoribb,
+hogy van egy külön szerepkör tábla.)
+
+```sql
+create table users (id bigint generated by default as identity (start with 1),
+    username varchar(255), password varchar(255), role varchar(255), primary key (id));
+
+insert into users (username, password, role) 
+  values ('user', '$2a$10$WK5DYDlnywXj9Yni1kj4WOdEpBOriamVlY8UI8Isa38ermsz1TH4S', 'ROLE_USER');
+insert into users (username, password, role) 
+  values ('admin', '$2a$10$r3fC/h15stMd/RkqSuNaPesFQaFJmg6Z7/x77vWoxsZCUmdbm0gt2', 'ROLE_ADMIN');
+```
+
+Természetesen itt már a hash-elt jelszót kell megadnunk. Majd írjuk át a `configure()` metódust:
+
+```java
+auth
+        .jdbcAuthentication()
+        .dataSource(dataSource)
+        .usersByUsernameQuery(
+        "select username, password, 1 from users " +
+                "where username = ?")
+        .authoritiesByUsernameQuery(
+                "select username, role from users " +
+                        "where username = ?");
+```
+
+## Saját implementáció
+
+A felhasználók betöltését implementálhatjuk magunk is. Ekkor a `UserDetailsService`
+interfészt kell implementálnunk. Én egy Spring Data JPA megoldást választottam,
+ehhez kell egy entitás is, mely a `UserDetails` interfészt implementálja.
+
+```java
 @Entity
+@Table(name="users")
 public class User implements UserDetails, Serializable {
 
    @Id
@@ -190,17 +288,11 @@ public class User implements UserDetails, Serializable {
 
    private String password;
 
-   private String roles;
+   private String role;
 
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
-        Collection<GrantedAuthority> authorities =
-            new ArrayList<GrantedAuthority>();
-        for (String s: roles.split(", ")) {
-            authorities.add(new SimpleGrantedAuthority(
-                "ROLE_" + s.toUpperCase()));
-        }
-        return authorities;
+        return List.of(new SimpleGrantedAuthority(role));
     }
 
    @Override
@@ -236,201 +328,225 @@ public class User implements UserDetails, Serializable {
    // Többi getter és setter metódus
    // ...
 }
-{% endhighlight %}
+```
 
-Valamint definiáljunk egy `UserService` nevű `@Repository` osztályt, és
-a trükk csak annyi, hogy implementálnia kell a `UserDetailsService`
-interfészt.
+Írtam egy `UserRepository` interfészt a Spring Data JPA szerint, amit aztán így
+használtam a `UserService` osztályból.
 
-{% highlight java %}
-@Repository("userService")
-@Transactional
-public class DefaultUserService implements UserDetailsService {
+```java
+@Service
+public class UserService implements UserDetailsService {
 
-   @PersistenceContext
-   private EntityManager em;
+    private UserRepository userRepository;
 
-   @Override
-   public UserDetails loadUserByUsername(String username)
-        throws UsernameNotFoundException, DataAccessException {
-       try {
-           return (UserDetails) em
-                .createQuery("select u from User u" +
-                    " where u.username = :username", User.class)
-                .setParameter("username", username).getSingleResult();
-       }
-       catch (EntityNotFoundException enfe) {
-           throw new UsernameNotFoundException(
-                "A felhasznalo nem talalhato: " + username, enfe);
-       }
-   }
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-   // Többi üzleti metódus
-   // ...
+    @Override
+    public UserDetails loadUserByUsername(String username) {
+        return userRepository.findUserByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+    }
+    
+    // ...
 }
-{% endhighlight %}
+```
 
-Mivel az `applicationContext.xml`-ben `context:annotation-config` van
-beállítva, ami a `@Repository` annotáció miatt példányosítja a
-`DefaultUserService` osztályunkat.
+Ezt aztán így kell használnunk:
 
-A Spring Security-ben az `AuthenticationProvider` is cserélhető, és
-ebben az esetben a `DaoAuthenticationProvider`-t kell használnunk. Ennek
-megadhatunk egy `userDetailsService` tulajdonságot, melynek a
-`UserDetailsService`-t kell implementálnia, és ennek fogja meghívni a
-`loadUserByUsername` metódusát. Ezt egy rövidebb konfigurációval is
-megadhatjuk az `applicationContext-security.xml` állományban a következő
-módon:
+```java
+@Override
+protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.userDetailsService(userDetailsService);
+}
+```
 
-{% highlight xml %}
-<authentication-provider user-service-ref="userService" />
-{% endhighlight %}
-
-Egy `authentication-manager`-en belül több `authentication-provider`-t
-is megadhatunk. Ekkor sorban nézi végig a providereket, és ahol először
-sikerül az autentikáció, az nyer. Így előbb az XML-ben szereplő
-felhasználókat, majd az adatbázisban szereplő felhasználókat fogja
-alapul venni, a `User` entitásunk alapján. Ekkor a jelszó még plain
-textben kerül letárolásra, de ha mi MD5-öt szeretnénk, konfiguráljuk
-így:
-
-{% highlight xml %}
-<authentication-provider user-service-ref="userService">
-   <password-encoder hash="md5"/>
-</authentication-provider>
-{% endhighlight %}
+## Felhasználó lekérése
 
 A Java kódból ezután a következőképpen kérhetjük le a bejelentkezés után
 a felhasználót:
 
-{% highlight java %}
-SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-{% endhighlight %}
+```java
+User user = (User) ecurityContextHolder.getContext().getAuthentication().getPrincipal();
+```
 
 A `Context` `ThreadLocal` változó, így szálanként egyedi. A metódus
 visszatérési értékét kényszeríthetjük a saját `User` osztályunkra.
 
-JSP-ben használhatunk tag library-t is, melynek definíciója:
+Sőt, egy Spring MVC controller `@RequestMapping` annotációjával ellátott
+metódusának paramétereként is definiálhatjuk a bejelentkezett felhasználót,
+ellátva az `@AuthenticationPrincipal` annotációval, akkor a Spring MVC
+paraméterül átadja azt.
 
-{% highlight xml %}
+```java
+@GetMapping(value = "/")
+public ModelAndView index(@AuthenticationPrincipal User user) {
+    logger.debug("Logged in user: {}", user);
+    return new ModelAndView("index", 
+      Map.of("users", userService.listUsers(), "user", new User()));
+}
+```
+
+## Használat Thymeleafben
+
+Amennyiben használni akarjuk a Spring Security funkcióit Thymeleaf template-ben,
+definiálnunk kell a névteret:
+
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+```
+
+A felhasználó nevének és különböző tulajdonságainak megjelenítésére a `authentication`
+tag való:
+
+```xml
+<span sec:authentication="name">Bob</span>
+```
+
+Egy feltétel szerint megjeleníteni egy HTML részletet a következőképp lehet.
+A `div` törzse csak akkor jelenik meg, ha a felhasználó belépett.
+
+```xml
+<div sec:authorize="isAuthenticated()">
+
+</div>
+```
+
+A következő `div` törzse csak akkor jelenik meg, ha a felhasználó rendelkezik
+`ROLE_ADMIN` jogosultsággal.
+
+```xml
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+</div>
+```
+
+## Használat JSP-ben
+
+JSP-ben használhatjuk a Spring Security tag library-t is, melynek definíciója:
+
+```xml
 <%@ taglib prefix="security"
     uri="http://www.springframework.org/security/tags" %>
-{% endhighlight %}
+```
 
 Az `authentication` tag visszaadja az `Authentication` objektumot, és
 annak tulajdonságait tudjuk lekérni:
 
-{% highlight xml %}
+```xml
 <security:authentication property="principal.username" />
-{% endhighlight %}
+```
 
 Valamint az `authorize` tag törzse csak a feltétel teljesítésekor
-jelenik meg. A feltételek a következők lehetnek: `ifAllGranted` -
-vesszővel megadott szerepkörök mindegyikével rendelkezik, `ifAnyGranted`
-- vesszővel megadott szerepkörök egyikével rendelkezik, `ifNotGranted` -
-vesszővel megadott szerepkörök egyikével sem rendelkezik.
+jelenik meg. Az `access` attribútumának kell egy EL kifejezést
+átadni.
 
-{% highlight xml %}
-<security:authorize ifAllGranted="ROLE_ADMIN">
+```xml
+<security:authorize access="hasRole('ROLE_ADMIN')">
        <!-- Felhasználók felvételére szolgáló form. -->
 </security:authorize>
-{% endhighlight %}
+```
+
+## Saját bejelentkező képernyő
 
 Ez esetben még mindig nem vagyunk megelégedve a Spring Security által
 biztosított alapértelmezett bejelentkező képernyővel, emiatt szabjuk azt
-testre. Az `intercept-url`-lel kell megadni a védendő URL-eket.
-Természetesen többet is megadhatunk, egy URL-hez több szerepkört is
-megadhatunk vesszővel elválasztva, valamint használhatunk Ant típusú
-mintákat. A Spring Security használatakor a leggyakoribb hiba, hogy a
-bejelentkezési képernyőt is letiltjuk, így végtelen ciklus alakulhat ki.
-Erre a Spring Security egy üzenettel figyelmeztet is:
+testre. A `WebSecurityConfigurerAdapter` `configure(HttpSecurity http)`
+metódusát kell felülírnunk.
 
-{% highlight xml %}
-org.springframework.security.config.FilterChainProxyPostProcessor: Anonymous access to the login page doesn't appear to be enabled. This is almost certainly an error. Please check your configuration allows unauthenticated access to the configured login page. (Simulated access was rejected: org.springframework.security.AccessDeniedException: Access is denied).
-{% endhighlight %}
+Itt kell megadni a védendő URL-eket.
+Természetesen többet is megadhatunk, akár Ant típusú
+kifejezéssel, és hozzájuk szabályokat, hogy milyen feltételekkel érhető el. 
+A Spring Security használatakor az egyik leggyakoribb hiba, hogy a
+bejelentkezési képernyőt is letiltjuk, így végtelen ciklus alakulhat ki,
+erre a böngésző figyelmeztet.
 
-Ekkor be kell állítani, hogy a `login.html` oldalhoz ne kelljen
-bejelentkezés. Sikertelen bejelentkezés esetén történjen átirányítás a
-`/login.htm?login_error=1` oldalra, sikeres bejelentkezés esetén a `/`
-oldalra. Kijelentkezés után ismét a `/login.htm` oldal jön be. A
-konfiguráció a következőképpen alakul:
+A konfiguráció tehát a következő:
 
-{% highlight xml %}
-<http auto-config="true">
-    <intercept-url pattern="/login.html"
-        access="IS_AUTHENTICATED_ANONYMOUSLY" />
-    <intercept-url pattern="/" access="ROLE_ADMIN, ROLE_USER" />
-    <intercept-url pattern="/addUser.html" access="ROLE_ADMIN" />
-    <form-login login-page="/login.html" default-target-url="/"
-        authentication-failure-url="/login.htm?login_error=1" />
-    <logout logout-success-url="/login.html"/>
-</http>
-{% endhighlight %}
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    http
+            .authorizeRequests()
+            .antMatchers("/")
+                .access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .and()
+            .logout();
+}
+```
 
-Majd nézzük a bejelentkező formot tartalmazó JSP részletet:
+Látható, hogy csak a főoldal ("/") van levédve, a többi bejelentkezés nélkül
+megtekinthető. Vigyázzunk, nehogy levédjük pl. a statikus tartalmakat 
+(CSS, JavaScript fájlok).
 
-{% highlight xml %}
-<c:if test="${not empty param.login_error}">
+Majd nézzük a bejelentkező formot tartalmazó Thymeleaf részletet:
+
+```xml
+<div th:if="${param.error}">
+    Sikertelen bejelentkezés
+</div>
+
+<div th:if="${param.logout}">
+    Sikeres kijelentkezés
+</div>
+
+<form th:action="@{login}" method="post">
+    <input type="text" name="username"/>
+    <input type="password" name="password"/>
+    <input type="submit" value="Bejelentkezés"/>
+</form>
+```
+
+Ahogy említettem, a Thymeleaf a CSRF tokent automatikusan beleteszi egy
+hidden inputként.
+
+Ugyanez JSP-vel:
+
+```xml
+<c:if test="${not empty param.error}">
     Sikertelen bejelentkezés
 </c:if>
 
-<form action="<c:url value='/j_spring_security_check'/>" method="POST">
-    <input type="text" name="j_username" value=""/>
-    <input type="password" name="j_password" value="" />
+<c:if test="${not empty param.logout}">
+    Sikeres kijelentkezés
+</c:if>
+
+<c:url value="/login" var="loginUrl"/>
+
+<form action="${loginUrl}" method="post">
+    <input type="text" name="username" value=""/>
+    <input type="password" name="password" value="" />
+    <input type="hidden"
+        name="${_csrf.parameterName}"
+        value="${_csrf.token}"/>
     <input type="submit" value="Bejelentkezés"/>
 </form>
-{% endhighlight %}
+```
 
-A formot a `j_spring_security_check` címre kell postolni, amit a filter
-fogad. Tartalmaznia kell egy `j_username` és `j_password` mezőt.
-Amennyiben nem sikerült a bejelentkezés, a sessionben egy változó lesz
-`SPRING_SECURITY_LAST_EXCEPTION` néven.
+## Felhasználónév megjegyzése
 
-Régebbi verziókban a sessionbe sikertelen bejelentkezés esetén beletett
-egy `SPRING_SECURITY_LAST_USERNAME` nevű változót is, melyet a
-felhasználónév mezőbe visszaírva nem kellett a felhasználónak beírnia
-újra a nevét. Azonban ez deprecated lett.
+A Spring Security sikertelen bejelentkezés esetén nem jegyzi meg a
+felhasználónevet. Ezt nekünk kell implementálni.
 
-Ennek megoldására a `form-login` taghez írni kell egy
-`authentication-failure-handler-ref` attribútumot egy saját
-implementációval. A saját osztályunk terjessze ki a
-`SimpleUrlAuthenticationFailureHandler` osztályt, és önmaga tegye a
-felhasználónevet a session scope-ba. Utána a bejelentkező oldalon ezt ki
-kell venni.
-
-A következő változott tehát az `applicationContext-security.xml`
-állományban.
-
-{% highlight xml %}
-<form-login login-page="/login.html" default-target-url="/"
-    authentication-failure-handler-ref=
-        "usernameInUrlAuthenticationFailureHandler" />
-
-<beans:bean id="usernameInUrlAuthenticationFailureHandler"
-        class="jtechlog.springsecurity.service.
-            UsernameInUrlAuthenticationFailureHandler">
-    <beans:property name="defaultFailureUrl"
-        value="/login.html?login_error=1" />
-</beans:bean>
-{% endhighlight %}
+Ennek megoldására írni kell egy
+`SimpleUrlAuthenticationFailureHandler` leszármazottat, mely sikertelen
+bejelentkezés esetén kerül meghívásra, és a felhasználónevet a sessionbe menti. 
+Utána a bejelentkező oldalon ezt ki kell venni.
 
 A `UsernameInUrlAuthenticationFailureHandler` implementációja:
 
-{% highlight java %}
-public class UsernameInUrlAuthenticationFailureHandler
-        extends SimpleUrlAuthenticationFailureHandler {
+```java
+public class UsernameInUrlAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
     public static final String LAST_USERNAME_KEY = "LAST_USERNAME";
 
-    private UsernamePasswordAuthenticationFilter
-        usernamePasswordAuthenticationFilter;
-
-    @Autowired
-    public UsernameInUrlAuthenticationFailureHandler(
-            UsernamePasswordAuthenticationFilter
-            usernamePasswordAuthenticationFilter) {
-        this.usernamePasswordAuthenticationFilter =
-            usernamePasswordAuthenticationFilter;
+    public UsernameInUrlAuthenticationFailureHandler() {
+        super("/login?error");
     }
 
     @Override
@@ -439,45 +555,105 @@ public class UsernameInUrlAuthenticationFailureHandler
             AuthenticationException exception)
             throws IOException, ServletException {
 
-        super.onAuthenticationFailure(request, response, exception);
-
         String usernameParameter =
-                usernamePasswordAuthenticationFilter.getUsernameParameter();
+                UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY;
         String lastUserName = request.getParameter(usernameParameter);
 
         HttpSession session = request.getSession(false);
         if (session != null || isAllowSessionCreation()) {
-            request.getSession().setAttribute(LAST_USERNAME_KEY,
-                lastUserName);
+            request.getSession().setAttribute(LAST_USERNAME_KEY, lastUserName);
         }
+
+        super.onAuthenticationFailure(request, response, exception);
     }
 }
-{% endhighlight %}
+```
+
+Ezt természetesen beanként kell deklarálni, és beállítani a `configure(HttpSecurity http)`
+metódusban:
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    http
+            .authorizeRequests()
+            .antMatchers("/")
+                .access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .failureHandler(usernameInUrlAuthenticationFailureHandler())
+            .and()
+            .logout();
+}
+
+@Bean
+public UsernameInUrlAuthenticationFailureHandler usernameInUrlAuthenticationFailureHandler() {
+    return new UsernameInUrlAuthenticationFailureHandler();
+}
+```
 
 Valamint a megváltozott form:
 
-{% highlight xml %}
-<input type="text" name="j_username"
-    value='<c:if test="${not empty param.login_error}">
-               <c:out value="${sessionScope.LAST_USERNAME}"/>
-           </c:if>'/>
-{% endhighlight %}
+```xml
+Felhasználónév: <input th:field=*{username} type="text" />
+```
+
+## Metódus szintű jogosultságkezelés
 
 Ezen kívül a Spring Security képes arra is, hogy különböző metódusok
 meghívása esetén is végezzen jogosultság ellenőrzést. Ezt deklaratív
 módon, annotációval is meg lehet adni. Ekkor egyrészt deklarálni kell,
 hogy metódus szintű hozzáférés ellenőrzést szeretnénk, ekkor a
-következőt kell elhelyezni az `applicationContext-security.xml`-ben:
+`@EnableGlobalMethodSecurity` annotációt kell elhelyezni az `SecurityConfig`
+osztályunkon:
 
-{% highlight xml %}
-<global-method-security pre-post-annotations="enabled" />
-{% endhighlight %}
+```java
+@EnableGlobalMethodSecurity(prePostEnabled = true, proxyTargetClass = true)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+  // ...
+}
+```
 
 Valamint használjuk a `@PreAuthorize` annotációt a védendő metóduson:
 
-{% highlight java %}
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+```java
+@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public void addUser(String name, String password, String roles) {
   // ...
 }
-{% endhighlight %}
+```
+
+## Tesztelés
+
+Amennyiben az autentikációt is tesztelni akarjuk, a következőket használhatjuk. 
+Először kell a következő függőség.
+
+```xml
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-test</artifactId>
+    <scope>test</scope>
+</dependency>
+```
+
+A `@WithMockUser` annotáció bejelentkeztet egy `user` felhasználót, `USER`
+szerepkörrel.
+
+Ezt természtesen paraméterezni is lehet, pl. `@WithMockUser(roles = {"ADMIN"})`.
+
+Amennyiben azonban egy felhasználót a klasszikus módon szeretnénk bejelentkeztetni,
+úgy, mintha az űrlapon történne a bejelentkezés, adjuk meg a felhasználónevét
+a `@WithUserDetails` annotációval, pl. `@WithUserDetails("admin")`.
+
+A MockMvc-nek is meg lehet adni a bejelentkezett felhasználót a következőképp:
+
+```java
+mockMvc.perform(post("/")
+                .param("username", "johndoe")
+                .param("password", "johndoe")
+                .param("role", "ROLE_USER")
+                .with(user("admin").roles("ADMIN"))
+                .with(csrf()))
+                .andExpect(status().is3xxRedirection());
+```
