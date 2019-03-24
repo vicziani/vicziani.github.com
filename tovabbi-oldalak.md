@@ -10,7 +10,6 @@ keywords: További oldalak
 - [Források](/forrasok.html)
 - [Konferenciák](/konferenciak.html)
 - [Könyvek](/konyvek.html)
-- [Online jelenlét](/online-jelenlet.html)
 - [Falling Gems Java játék](/fallinggems.html)
 - [Gem Game Java játék](/gemgame.html)
 - [Geocaching Linuxon](/geolinuxhu/)
