@@ -6,7 +6,7 @@ author: István Viczián
 description: Ez a poszt leírja, mi a JWT és hogyan használjuk Spring Security-vel.
 ---
 
-Technológiák: Spring Boot 2.1.3.RELEASE, Spring Security 5.1.4.RELEASE,
+Technológiák: Spring Boot 2.1.3.RELEASE, Spring Security 5.1.4.RELEASE, Java JWT 0.9.1
 
 Manapság a felhő alapú alkalmazások elterjedésével egyre fontosabb, hogy
 azok állapotmentesek legyenek, hiszen ezáltal könnyebben skálázhatóak.
