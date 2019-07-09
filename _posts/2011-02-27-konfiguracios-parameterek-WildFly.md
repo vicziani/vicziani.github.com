@@ -24,8 +24,8 @@ szerint szinte mindenhol másképp van megoldva. Ha az alkalmazás
 tartalmazhatja ezeket a beállításokat, akkor belecsomagolhatjuk, de
 ekkor figyelembe kell venni, hogy a konfiguráció váltásakor újra kell
 telepítenünk. Ekkor a konfigurációk szerepelhetnek kódban konstansként,
-properties állományban (melyet classpath-ról töltünk be), Spring esetén
-az application context xml-ben, EJB-k esetén environment variable-ként
+properties állományban (melyet classpath-ról töltünk be),
+EJB-k esetén environment variable-ként
 (`ejb-jar.xml`-ben definiálva). Ha különböző környezetek vannak, akkor a
 build folyamat során kell arról gondoskodni, hogy különböző
 konfigurációs állományok kerüljenek a különböző környezetekre
@@ -46,15 +46,15 @@ konfigurációs állományra. A JNDI használatánál arra kell különösen
 figyelni, hogy konténerek között működő, platformfüggetlen megoldást
 találjunk.
 
-Állományt esetén kérdés annak formátuma is. Leggyakoribb a standard
+Állomány esetén kérdés annak formátuma is. Leggyakoribb a standard
 properties állomány, mely a Java 1.5 óta kezel
-XML állományokat is, valamint az 1.6-os Java-tól kezdve képes Writer-ből
+XML állományokat is, valamint az 1.6-os Java-tól kezdve képes Writerből
 is tölteni, tehát az állomány karakterkódolása lehet bármilyen, nem kell
 a native2ascii eszközt használni. Java 1.4-ben megjelent a
-`java.util.prefs` is, mely már sokkal több mindent tud, még sem terjedt
+`java.util.prefs` is, mely már sokkal több mindent tud, mégsem terjedt
 el. Lehet egyedi XML, de ekkor nekünk
 kell gondoskodni a beolvasásáról, valamilyen XML könyvtár használatával,
-netalántán XML binding-gal.
+netalán XML bindinggal.
 
 Persze talán a legteljesebb megoldás az adatbázisban történő tárolás, de
 az itt tárolt értékek szerkesztése koránt sem olyan triviális.
@@ -65,7 +65,7 @@ szerkeszteni. A fájl esetén a legegyszerűbb a helyzet, hiszen egy
 egyszerű szövegszerkesztővel el lehet végezni a módosításokat. Lehet
 saját webes felület, de ezt külön kell fejleszteni, karbantartani,
 illetve a parancssorhoz szokott adminisztrátoroknak sem szokott
-tetszeni, plusz egy probléma, cím, amit meg kell jegyezni. Ha a konténer
+tetszeni, plusz egy probléma, hogy a címet meg kell jegyezni. Ha a konténer
 adminisztrációs felületébe épül, akkor talán kicsit jobb a helyzet. Az
 adatbázisban tárolt konfigurációs paraméterek esetén lehet nekiesni egy
 SQL klienssel, de szintén ellenérzést válthat ki, valamint kérdés, hogy
@@ -73,7 +73,7 @@ milyen gyakran olvassa újra az alkalmazás. Javaban van persze erre is
 szabvány, a JDK részét képző JMX.
 
 Kérdés, hogy a változások mikor lépnek életbe. Hiszen nem biztos, hogy a
-leghatékonyabb minden esetben újra beolvasni. Általában valamilyen cache
+leghatékonyabb minden esetben beolvasni. Általában valamilyen cache
 mechanizmus használható. Persze itt megadhatunk lejáratot, hogy mennyi
 idő után olvassa újra, vagy megadhatunk eseményeket, melyek hatására
 biztos újra megtörténik az újra beolvasás. Állomány szerkesztése esetén
@@ -104,9 +104,9 @@ következőket kell mérlegelnünk:
     felügyeleti rendszer, webes kliens)?
 -   Egy vagy több helyről jön? Pl. lehet, hogy bizonyos dolgokat a
     komponens fejlesztők, az application assembler (aki összerakja az
-    alkalmazást darabokból), a telepítő, üzemeltető, netalántán a
+    alkalmazást darabokból), a telepítő, üzemeltető, netalán a
     végfelhasználó is állíthat?
--   Van-e cluster-ezett működés. Okoz-e problémát, ha minden cluster
+-   Van-e clusterezett működés. Okoz-e problémát, ha minden cluster
     tagot egyenként kell beállítgatni?
 
 Persze vannak keretrendszerek, melyek segíthetnek a megvalósításban,
@@ -126,7 +126,8 @@ melyek a következő funkciókkal rendelkezhetnek:
 
 Jó ötlet, hogy az alkalmazás rendelkezzen egy default konfigurációval
 is, amit az alkalmazás tartalmaz, ami a fejlesztői környezetre
-konfigurált, így egy checkout után azonnal futtatható az alkalmazás, és
+konfigurált, így a verziókezelő rendszerből való lemásolás 
+után azonnal futtatható az alkalmazás, és
 ezt érdemes teszt és éles környezetben felülbírálni.
 
 Amennyiben a konfigurációhoz különböző szerepkörrel rendelkező
@@ -140,7 +141,7 @@ visszafejtést. A JASYPT (Java simplified encryption) könyvtárnak van
 olyan lehetősége, hogy [titkosít bizonyos
 értékeket](http://www.jasypt.org/encrypting-configuration.html) a
 konfigurációs állományban. Ekkor a konfigurációs paraméter értéke valami
-hasonló lesz: ENC(G6N718UuyPE5bHyWKyuLQSm02auQPUtm). Képes kezelni
+hasonló lesz: `ENC(G6N718UuyPE5bHyWKyuLQSm02auQPUtm)`. Képes kezelni
 properties állományokat, Springhez és Hibernate-hez illeszthető.
 
 Konfigurációs paraméterek kezelésére alkalmas keretrendszerek:
