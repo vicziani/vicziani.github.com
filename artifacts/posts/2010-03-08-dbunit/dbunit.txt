@@ -15,16 +15,11 @@ class Phone {
 
 Employee "1" *-- "*" Phone
 
-interface EmployeeDao {
+class EmployeeDao {
 persistEmployee(employee: Employee)
 listEmployees(): List<Employee>
 
 }
 
-class EmployeeDaoJpa {
-}
-
-
 Employee - EmployeeDao
-EmployeeDao <-- EmployeeDaoJpa
 @enduml
