@@ -1,22 +1,17 @@
 @startuml
+left to right direction
 skinparam monochrome true
 skinparam DefaultFontSize 16
 
-interface CommService {
-sendMessage(text: String)
+class EmployeeService {
+    createEmployee(name: String)
 }
 
-class JmsCommService {
+interface MessageSender {
+    sendMessage(employee: Employee)
 }
 
-CommService <|.. JmsCommService
 
-interface ProcessService {
-processMessage(message: TextMessage)
-}
+EmployeeService -- MessageSender
 
-class DefaultProcessService {
-}
-
-ProcessService <|.. DefaultProcessService
 @enduml
