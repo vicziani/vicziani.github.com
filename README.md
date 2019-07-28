@@ -26,12 +26,10 @@ Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.
 
 <a href="img.png" data-lightbox="post-images">![Kép leírása](/img_750.png)</a>
 
-{% highlight java %}
+```java
 public class HelloWorld {
 
 }
-{% endhighlight %}
-
 ```
 
 ### Képek
