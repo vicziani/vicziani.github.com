@@ -7,7 +7,7 @@ description: Java térkép a tanulásról, a legfontosabb szabványokról, techn
 ---
 
 Manapság divatosak az un. _roadmapek_, térképek, melyek grafikusan ábrázolják, hogy miket kell megtanulni ahhoz, hogy
-egy területen otthonosan mozogj, hogyan kezdj neki a tanulásnak, hogy végül magas szinten meg tudd oldani a.
+egy területen otthonosan mozogj, hogyan kezdj neki a tanulásnak, hogy végül magas szinten meg tudd oldani a
 felmerülő problémákat.
 
 Ezek közül a legismertebb a [Web Developer Roadmap - 2019](https://github.com/kamranahmedse/developer-roadmap),

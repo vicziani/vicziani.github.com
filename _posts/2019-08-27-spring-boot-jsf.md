@@ -9,7 +9,7 @@ description: Hogyan integráljuk Spring Boot projektünkbe a JSF-et.
 Tudom, a mai HTML/CSS/JavaScript világban a JSF, mint felületi technológia nem
 túl csábító, azonban bizonyos helyzetekben jó választásnak tűnhet. A JSF a
 Java EE szabvány része, minden alkalmazásszerver beépítetten támogatja.
-A komponens alapú fejlesztést tesz lehetővé, és MVC tervezési minta szerint épül fel.
+Komponens alapú fejlesztést tesz lehetővé, és MVC tervezési minta szerint épül fel.
 Java programozók pillanatokon belül használatba tudják venni, egy teljes 
 másik stack megtanulása nélkül, és nagyon gyorsan lehet vele haladni. Persze
 ha nagyon egyéni képernyőket és komponenseket kell fejleszteni, máris előjön a
