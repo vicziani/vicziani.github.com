@@ -10,7 +10,7 @@ Technológiák: Spring Boot 2.1.3.RELEASE, Spring Security 5.1.4.RELEASE, Java J
 
 Manapság a felhő alapú alkalmazások elterjedésével egyre fontosabb, hogy
 azok állapotmentesek legyenek, hiszen ezáltal könnyebben skálázhatóak.
-Sok alkalmazást láttam, mely ezt az igényt kielégítik, azonban a bejelentkezett
+Sok alkalmazást láttam, melyek ezt az igényt kielégítik, azonban a bejelentkezett
 felhasználót mégis sessionben tárolták. Így a bejelentkezés tényének megőrzése
 miatt mégis kellett állapotot tárolni, ami miatt a sessiont kellett szinkronizálni
 az alkalmazás példányok között, vagy megosztott tárat (pl. elosztott cache-t) alkalmazni,
