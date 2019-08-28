@@ -1,13 +1,13 @@
 ---
 layout: page
 title: Gem Game játék
-description: Gem Game, Java logikai játék applet
-keywords: Java, applet, logikai játék
+description: Gem Game, Java ügyességi és logikai játék
+keywords: Java, logikai játék
 ---
 
 # Gem Game
 
-A Gem Game egy egyszerű ügyességi játék, melynek célja minél több pont
+A Gem Game egy egyszerű ügyességi és logikai játék, melynek célja minél több pont
 elérése. Pontokat az alsó táblák betelítésével lehet szerezni. A
 játéktéren elhelyezkedő objektumok a nagy felső tábla, illetve a négy
 kis alsó tábla. A nagy tábla folyamatosan, egyre gyorsabban, telik meg
@@ -29,28 +29,12 @@ Ha egy kis alsó tábla azonos színű négyzetekkel betelik, akkor az üressé
 fog válni. Minden 50. pont után nőni fog az új oszlopok érkezési
 sebessége.
 
-<!--[if !IE]>-->
-<object classid="java:GemGameApplet.class" archive="artifacts/gem-game.jar"
-	type="application/x-java-applet"
-	width="600" height="206">
-<!--<![endif]-->
-<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" 
-		type="application/x-java-applet"
-		width="600" height="206">
-	<param name="archive" value="artifacts/gem-game.jar" />
-	<param name="code" value="GemGameApplet" />
-<!--[if !IE]>-->
-</object>
-<!--<![endif]-->
-</object>
+<div class="text-center">
+  <img src="/assets/img/gemgame.png" class="img-fluid" alt="Gem Game">
+</div>
 
-A játék forráskódja elérhető a
+A játék letölthető 
+[jar fájlként](https://github.com/vicziani/jtechlog-gem-game/releases/download/1.0.0/jtechlog-gem-game-1.0.0.jar),
+és a `java -jar jtechlog-gem-game-1.0.0.jar` paranccsal futtatható.
+A forráskódja elérhető a
 [GitHub-on.](http://github.com/vicziani/jtechlog-gem-game)
-
-A játék futtatásához Java szükséges, melyet letölthetsz a
-[http://www.java.com](http://www.java.com) címről.
-
-A játék Java Web Start-tal is indítható, így ha a Java telepítve van a
-gépeden, [és ide kattintasz](artifacts/gemgame.jnlp), a játék a
-számítógépedre kerül, akár az asztalra is integrálhatod és bármikor
-futtathatod Internet elérés nélkül is.

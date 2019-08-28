@@ -75,7 +75,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		<dt>2005 - 2010</dt>
 		<dd>
 			<p>
-                        Központi Statisztikai Hivatal, <a href="https://intrastat.ksh.gov.hu/">Intrastat e-star elektronikus adatgyűjtő alkalmazás</a> - fejlesztő
+                        Központi Statisztikai Hivatal, Intrastat e-star elektronikus adatgyűjtő alkalmazás - fejlesztő
 			</p>
 		</dd>
 		<dt>

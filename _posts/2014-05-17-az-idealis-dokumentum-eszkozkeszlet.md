@@ -114,7 +114,7 @@ parancssorból lehet formátumok között konvertálni. Tökéletesen működik 
 Markdownról minden egyéb formátumra történő konvertálás, akár úgy is,
 hogy saját stylesheetet, vagy template-t lehet megadni.
 
-Ezen kívül létezik a [GitBook](http://www.gitbook.io/) projekt is,
+Ezen kívül létezik a [GitBook](http://www.gitbook.com/) projekt is,
 mellyel interaktív könyveket is írhatunk, az oldalán fenn van már elég
 sok példa is.
 

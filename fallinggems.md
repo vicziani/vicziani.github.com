@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Falling Gems játék
-description: Falling Gems, Java ügyességi játék applet
-keywords: Java, applet, ügyességi játék
+description: Falling Gems, Java logikai és ügyességi játék
+keywords: Java, logikai és ügyességi játék
 ---
 
 # Falling Gems
@@ -19,28 +19,12 @@ kiválasztani, hogy rá kell klikkelni. Ekkor egy kis négyzet jelenik meg
 a jobb alsó sarokban. A kiválasztást megszüntetni ismételt
 ráklikkeléssel lehet. Mozgatni a kivánt helyre klikkeléssel kell.
 
-<!--[if !IE]>-->
-<object classid="java:FallingGemsApplet.class" archive="artifacts/falling-gems.jar"
-	type="application/x-java-applet"
-	width="610" height="216" class="applet">
-<!--<![endif]-->
-<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" 
-		type="application/x-java-applet"
-		width="600" height="206">
-	<param name="archive" value="artifacts/falling-gems.jar" />
-	<param name="code" value="FallingGemsApplet" />
-<!--[if !IE]>-->
-</object>
-<!--<![endif]-->
-</object>
+<div class="text-center">
+  <img src="/assets/img/fallinggems.png" class="img-fluid" alt="Falling Gems">
+</div>
 
-A játék forráskódja elérhető a
+A játék letölthető 
+[jar fájlként](https://github.com/vicziani/jtechlog-falling-gems/releases/download/1.0.0/jtechlog-falling-gems-1.0.0.jar),
+és a `java -jar jtechlog-falling-gems-1.0.0.jar` paranccsal futtatható.
+A forráskódja elérhető a
 [GitHub-on.](http://github.com/vicziani/jtechlog-falling-gems)
-
-A játék futtatásához Java szükséges, melyet letölthetsz a
-[http://www.java.com](http://www.java.com) címről.
-
-A játék Java Web Start-tal is indítható, így ha a Java telepítve van a
-gépeden, [és ide kattintasz](artifacts/fallinggems.jnlp), a játék a
-számítógépedre kerül, akár az asztalra is integrálhatod és bármikor
-futtathatod Internet elérés nélkül is.

@@ -62,7 +62,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.htm
 	<tr>
 		<td>2010 - A legjobb fejlesztő 2010 verseny zsűritag</td>
 		<td>
-                    Az IP Systems Kft. 2010-ben felkért <a href="http://java2010.legjobbfejleszto.com/">A legjobb fejlesztő 2010</a> versenyben zsűritagnak.
+                    Az IP Systems Kft. 2010-ben felkért A legjobb fejlesztő 2010 versenyben zsűritagnak.
 		</td>
 	</tr>
 	<tr>
@@ -75,7 +75,7 @@ avagy, csempéssz scala kódot a Javás projektbe" címmel. <a href="/cikkek.htm
 	<tr>
 		<td>2009 - JUM 9.</td>
 		<td>
-                    Előadást tartottam a <a href="http://jum.javaforum.hu/">Java User Meetings</a>
+                    Előadást tartottam a Java User Meetings
 			<a href="http://wiki.javaforum.hu/display/JAVAFORUM/JUM0903">9. alkalmán</a> "Adattárház és jelentéskészítés OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök használatával"
 					címmel. <a href="/cikkek.html#olap">Prezentáció és cikk.</a>
 		</td>
