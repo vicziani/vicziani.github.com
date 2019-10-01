@@ -40,7 +40,7 @@ metódusát kell meghívni. Sőt annak számát is le tudjuk kérdezni, hogy az
 alkalmazásból is kezelhetjük, ha ez elér egy határértéket, kezeljük
 másképp az üzenetet.
 
-Azonban bizonyos JMS provider-ek képesek arra, hogy ezt automatikusan
+Azonban bizonyos JMS providerek képesek arra, hogy ezt automatikusan
 kezeljék. Az IBM WebSphere MQ pl. a "Backout" terminológiát használja a
 visszakerült üzenetre. Egy sornál meg lehet adni egy Backout threshold
 tulajdonságot, mely alapesetben 0, mely azt jelenti, hogy nem kezd
@@ -65,7 +65,7 @@ alkalmazást. Telepítés után a backout queue-ból az üzeneteket áttehetjük
 az eredeti sorba (pl. MQ esetén a [IH03: WebSphere Message Broker
 V7-Message display, test & performance
 utilities](https://www.ibm.com/support/pages/ih03-withdrawn-websphere-message-broker-message-display-test-performance-utilities)
-alkalmazással, mely SupportPac-ként ingyenesen letölthető).
+alkalmazással, mely SupportPacként ingyenesen letölthető).
 
 Azonban a 7.0.1.1-es IBM WebSphere MQ-ban is van egy IBM által is ismert
 hiba, mely
@@ -81,7 +81,7 @@ is küldték nekünk egy napon belül. Ez tulajdonképpen a
 `com.ibm.mq.jmqi.jar` és `com.ibm.mqjms.jar` állományt érintette, ezek
 bemásolásával azonnal működött a funkció.
 
-Persze más JMS provider-ek is tudják ezt, pl. a Glassfish-ben is lévő
+Persze más JMS providerek is tudják ezt, pl. a Glassfish-ben is lévő
 [Open Message Queue](https://mq.dev.java.net/) (Sun Java System Message
 Queue) `endpointExceptionRedeliveryAttempts` tulajdonságát kell keresni,
 mely alapesetben 6, tehát nem kell végtelenciklusra számítani (ez
@@ -100,7 +100,7 @@ hiszen pl. egy nagy terhelésű rendszeren, ahol folyamatosan jönnek az
 
 Egy [előző posztban](/2003/01/05/ibm-websphere-mq.html) már említettem,
 hogy hogyan kell a JMS `QueueConnectionFactory`-t és `Destination`-t (Queue)
-felvenni Tomcat-ben a JNDI, de most nézzük meg, hogy mi kell ahhoz, hogy
+felvenni Tomcatben a JNDI, de most nézzük meg, hogy mi kell ahhoz, hogy
 ezt Springből használni tudjuk.
 
 A Spring definiálja a Message-Driven POJO fogalmát a Java EE
@@ -158,4 +158,4 @@ egy tranzakcióba venni egy adatbázis és egy JMS provider műveletet, a
 messages](http://www.ibm.com/developerworks/websphere/library/techarticles/0405_titheridge/0405_titheridge.html)
 
 [Spring Framework Reference - 21. JMS (Java Message
-Service)](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/jms.html)
+Service)](https://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/jms.html)
