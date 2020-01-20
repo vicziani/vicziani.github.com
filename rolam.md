@@ -16,11 +16,11 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 <dl class="dl-horizontal">
 		<dt>2012 - </dt>
 		<dd>
-			<p><a href="http://www.training360.com">Training360</a>, oktató</p>
+			<p><a href="http://www.training360.com">Training360</a>, vezető oktató, mentor</p>
 		</dd>
 		<dt>2012 - 2016</dt>
 		<dd>
-			<p><a href="https://www.ipsystems.hu/">IP Systems Kft.</a>, vezető programozó</p>
+			<p><a href="https://www.ipsystems.hu/">IP Systems Kft.</a>, vezető programozó, architect</p>
 		</dd>
 		<dt>2007 - 2012</dt>
 		<dd>
@@ -52,12 +52,12 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		</dt>
 		<dd>
 			<p>Training360 keretein belül Java oktatás a
-												következő témakörökben: Java EE, web szolgáltatások, Spring, Design Patterns, Maven</p>
+												következő témakörökben: Java SE, Clean Code, Design Patterns, Maven, Spring Framework, Spring Boot, Java EE (JDBC, JPA, JSF, JAX-WS, JAX-RS), webszolgáltatások, Python, tesztautomatizálás – vezető oktató</p>
 		</dd>
 		<dt>2012 - 2016</dt>
 		<dd>
 			<p>
-                        TSO-IP - vezető fejlesztő
+                        FGSZ Informatikai platform, TSO-IO - vezető fejlesztő
 			</p>
 		</dd>
 		<dt>2010 - 2012</dt>
@@ -75,7 +75,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		<dt>2005 - 2010</dt>
 		<dd>
 			<p>
-                        Központi Statisztikai Hivatal, Intrastat e-star elektronikus adatgyűjtő alkalmazás - fejlesztő
+                        Központi Statisztikai Hivatal, Intrastat e-star elektronikus adatgyűjtő alkalmazás - architect, tervező, vezető fejlesztő
 			</p>
 		</dd>
 		<dt>
@@ -84,7 +84,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		<dd>
 			<p>SZÁMALK Továbbképzés keretein belül Java oktatás a
                         következő témakörökben: Java és J2EE technológiai áttekintés, Java SE alapok,
-                    webes fejlesztés, szoftverfejlesztés ingyenes eszközökkel, valamint Java EE programozás</p>
+                    webes fejlesztés, szoftverfejlesztés ingyenes eszközökkel, valamint Java EE programozás - vezető oktató</p>
 		</dd>
 		<dt>2007 – 2008</dt>
 		<dd>
@@ -95,7 +95,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		<dt>2005 - 2007</dt>
 		<dd>
 			<p>
-				<a href="https://www.magyarorszag.hu">Magyarország.Hu</a> - A Kormányzati Portál - szoftverfejlesztő
+				<a href="https://www.magyarorszag.hu">Magyarország.Hu</a> -  - architect, tervező, vezető fejlesztő
 			</p>
 		</dd>
 		<dt>2005 - 2007</dt>
@@ -115,37 +115,42 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		<dt>2000 - 2003</dt>
 		<dd>
 			<p>Intranetes
-                        szállodai felügyeleti rendszer - GUI tervező, Java és
-                    VBScript fejlesztő, tesztelő</p>
+                        szállodai felügyeleti rendszer - tervező, fejlesztő, tesztelő</p>
 		</dd>
 </dl>
 
 ## Tapasztalatok
 
 <dl class="dl-horizontal">
+<dt>Operációs rendszerek:</dt>
+<dd>
+	<p>Windows, Linux.</p>
+</dd>
 		<dt>Nyelvek:</dt>
 		<dd>
-			<p>Java, Python, JavaScript, ActionScript, SQL, XML, HTML, CSS.</p>
+			<p>Java, Python, JavaScript, SQL, XML, HTML, CSS, JSON.</p>
 		</dd>
 		<dt>Technológiák:</dt>
 		<dd>
-			<p>Java SE, Java EE, Continuous Integration, Design Patterns,
-		UML, SOAP és REST webszolgáltatások, unit testing.</p>
+			<p>Java SE, Java EE (JPA, JSF, JAXB, JAX-WS, JAX-RS), Continuous Integration, Clean Code, Design Patterns, UML, SOAP és REST webszolgáltatások, unit, integration és E2E testing.</p>
 		</dd>
 		<dt>Eszközök:</dt>
 		<dd>
 			<p>
-IntelliJ IDEA, Oracle JDeveloper, NetBeans IDE, Eclipse, Subversion, Maven, Ant, Tomcat, Glassfish, JBoss, BEA WebLogic Server, JMeter, Spring Framework, Hibernate, EclipseLink, Activiti, JUnit, TestNG, Mockito, JasperReports, Jenkins, Nexus, Sonar,
-IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
+IntelliJ IDEA, NetBeans IDE, Eclipse, PyCharm, Subversion, Maven, Tomcat, Glassfish/Payara, JBoss/WildFly, BEA WebLogic Server, Spring Framework, Spring Boot, Spring Data, Hibernate, EclipseLink, PrimeFaces, Jenkins, Nexus, SonarQube, IBM Websphere MQ (korábban MQSeries), Git, GitLab, GitHub.</p>
 		</dd>
+<dt>Tesztelés:</dt>
+<dd><p>
+JUnit, TestNG, Mockito, AssertJ, Arquillian, Selenium IDE, Selenium WebDriver, Selenium Grid, SOAPUi, Postman, JMeter.
+</p></dd>
 		<dt>Adatbázisok:</dt>
 		<dd>
 			<p>
-                        Oracle, MySQL, H2.</p>
+                        Oracle, MySQL/MariaDB, H2.</p>
 		</dd>
 		<dt>Egyéb:</dt>
 		<dd>
-			<p>Hibakövetés, wiki (Mantis, JIRA, Confluence, RedMine).</p>
+			<p>Hibakövetés, wiki (JIRA, Confluence, RedMine).</p>
 		</dd>
 </dl>
 
@@ -155,7 +160,7 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 		<dt>1996 - 2001</dt>
 		<dd>
 			<p>Debreceni Egyetem (Kossuth Lajos Tudományegyetem), Debrecen,
-                        Programtervező matematikus, 2000/2001-es tanévben tagja voltam a
+                        Programtervező matematikus, tagja voltam a
                         Hatvani István Szakkollégiumnak</p>
 		</dd>
 		<dt>1992 - 1996</dt>
@@ -206,10 +211,22 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 ## Tanfolyamok
 
 <dl class="dl-horizontal">
-<dt>2017. május</dt>
+<dt>2020. január</dt>
 <dd>
-	<p>JDK 8 Massive Open and Online Course: Lambdas and Streams Introduction, 2016 (Oracle Learning Library)</p>
+	<p>Testing Spring Boot (Udemy)</p>
 </dd>
+<dt>2019. július</dt>
+<dd>
+	<p>Learn of Blockchain Technology & Criptocurrency in Java (Udemy)</p>
+</dd>
+<dt>2019. május</dt>
+<dd>
+	<p>Reactive Programming with Spring Framework 5 (Udemy)</p>
+</dd>
+	<dt>2017. május</dt>
+	<dd>
+		<p>JDK 8 Massive Open and Online Course: Lambdas and Streams Introduction, 2016 (Oracle Learning Library)</p>
+	</dd>
 	<dt>2016. október</dt>
 	<dd>
 		<p>Single Page Web Applications with AngularJS by Johns Hopkins University on Coursera</p>
@@ -274,7 +291,7 @@ IBM Websphere MQ (korábban MQSeries), SOAPUi, Apache Flex.</p>
 
 ## Érdeklődési területek
 
-Objektumorientált tervezés és programozás, UML, agilis módszertanok, elosztott rendszerek, middleware, üzenetorientált köztesrétegek (MOM), szolgáltatás orientált architektúra (SOA), Java SE, Java EE, felhasználói felület, szoftver minőség, csoportmunka, alkalmazás optimalizáció, tesztelés, alkalmazás menedzsment, Continuous Integration, TDD, elektronikus közigazgatás, cloud computing, IoT.
+Objektumorientált tervezés és programozás, agilis módszertanok, elosztott rendszerek, middleware, üzenetorientált köztesrétegek (MOM), microservices, konténerizáció (Docker), Java SE, Java EE, szoftver minőség, csoportmunka, tesztelés, alkalmazás menedzsment, Continuous Integration/Delivery, IoT.
 
 ## Szabadidő
 
