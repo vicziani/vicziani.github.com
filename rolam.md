@@ -95,7 +95,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		<dt>2005 - 2007</dt>
 		<dd>
 			<p>
-				<a href="https://www.magyarorszag.hu">Magyarország.Hu</a> -  - architect, tervező, vezető fejlesztő
+				<a href="https://www.magyarorszag.hu">Magyarország.Hu</a> - architect, tervező, vezető fejlesztő
 			</p>
 		</dd>
 		<dt>2005 - 2007</dt>
