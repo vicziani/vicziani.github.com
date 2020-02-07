@@ -9,7 +9,11 @@ keywords: könyv
 
 Itt szerepelnek az általam olvasott szakmai könyvek.
 
+* Kevin Hoffman: Beyond the Twelve-Factor App
+* Robert C. Martin: Clean Code: A Handbook of Agile Software Craftsmanship
 * Robert C. Martin: Túlélőkönyv programozóknak - Hogyan váljunk igazi szakemberré? (The Clean Coder: A Code of Conduct for Professional Programmers)
+* Jan Beernink, Arjan Tijms: Pro CDI 2 in Java EE 8
+* Cay S. Horstmann: Java SE8 for the Really Impatient
 * Scott Oaks: Java Performance, The Definitive Guide ([itt írtam róla](/2015/07/04/g1.html))
 * Kirk Knoernschild: Java Application Architecture ([itt írtam róla](/2014/10/04/java-application-architecture.html))
 * Arun Gupta: Java EE 7 Essentials

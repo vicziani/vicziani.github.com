@@ -172,14 +172,6 @@ JUnit, TestNG, Mockito, AssertJ, Arquillian, Selenium IDE, Selenium WebDriver, S
 ## Vizsgák
 
 <dl class="dl-horizontal">
-		<dt>2016 október</dt>
-		<dd>
-			<p>Front-End JavaScript Frameworks: AngularJS by The Hong Kong University of Science and Technology on Coursera.</p>
-		</dd>
-		<dt>2014 március</dt>
-		<dd>
-			<p>M101P - MongoDB for Developers</p>
-		</dd>
 		<dt>2013 november</dt>
 		<dd>
 			<p>Oracle Certified Expert, Java EE 6 Web Component Developer (1Z0-899)</p>
@@ -213,6 +205,10 @@ JUnit, TestNG, Mockito, AssertJ, Arquillian, Selenium IDE, Selenium WebDriver, S
 <dl class="dl-horizontal">
 <dt>2020. január</dt>
 <dd>
+	<p>Docker for Java Developers (Udemy)</p>
+</dd>
+<dt>2020. január</dt>
+<dd>
 	<p>Testing Spring Boot (Udemy)</p>
 </dd>
 <dt>2019. július</dt>
@@ -231,6 +227,10 @@ JUnit, TestNG, Mockito, AssertJ, Arquillian, Selenium IDE, Selenium WebDriver, S
 	<dd>
 		<p>Single Page Web Applications with AngularJS by Johns Hopkins University on Coursera</p>
 	</dd>
+		<dt>2014 március</dt>
+		<dd>
+			<p>M101P - MongoDB for Developers</p>
+		</dd>
 		<dt>2009. szeptember</dt>
 		<dd>
 			<p>WM210 - IBM WebSphere MQ V7 System Administration (ALBACOMP Számítástechnikai Zrt.).</p>
