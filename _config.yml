@@ -11,3 +11,6 @@ exclude: [README.md]
 # Build settings
 markdown: kramdown
 excerpt_separator: "<!-- more -->"
+
+kramdown:
+  input: GFM
