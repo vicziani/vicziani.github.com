@@ -14,7 +14,7 @@ thread dump (futó szálak állapota), napló állományok, stb.
 Vannak eszközök, amelyeknél nem kell feltétlen a JVM működésébe avatkoznunk, pl.
 naplófájl elemzésekor. Persze itt is előfordulhat olyan eset, hogy
 a naplózás szintjét állítanunk kell, ez történhet az alkalmazás újraindításával,
-de bizonyos megoldások engedik a naplózás szintjéne futás szintű állítását (pl.
+de bizonyos megoldások engedik a naplózás szintjének futás szintű állítását (pl.
 Spring Boot Actuator `/logger` endpoint).
 
 Vannak eszközök, melyekkel futó JVM-hez lehet csatlakozni, anélkül, hogy ezt erre
@@ -23,7 +23,7 @@ hogy további konfiguráció szükséges.) Ilyen pl. a `jstat` a GC működésé
 elemzésére, a `jstack` a thread dump lekéréséhez, valamint a `jconsole`
 mely egy komplex grafikus eszköz a JVM monitorozására. (Ez utóbbi használata már
 problémákba ütközhet, hiszen szerveren nem feltétlen van grafikus felület, a
-távoli hozzáférés meg tovább konfigurációkat igényel.)
+távoli hozzáférés meg további konfigurációkat igényel.)
 
 Egyes eszközöket pedig már előre kell telepíteni és konfigurálni, hogy használni tudjuk.
 
@@ -39,14 +39,14 @@ A thread dump tehát a JVM-en belül futó szálak állapotát mutatja. Minden e
 kapcsolatban sokmindent kiír, ezek közül a lefontosabbak a szál neve, állapota, valamint
 hogy éppen melyik utasítást hajtja végre. Ezt a klasszikus stack trace formátumban
 adja vissza, mely tartalmazza a teljes hívási láncot.
-Ez egyszerű szöveges formában lehet lekérni.
+Ezt egyszerű szöveges formában lehet lekérni.
 
 Ehhez először tudni kell a Java alkalmazásunk PID-jét (Process Id, az operációs rendszer
 által kiadott egyedi azonosító.) Ennek megállapítása történhet a `jps` paranccsal, mely
 az összes Java alapú processzt kilistázza.
 
-A thread dumpot ezután a `jstack 18620` paranccsal kérhetjük le konzolra, vagy irányítsuk fájlba
-a `jstack 18620 -> threaddump.txt` paranccsal.
+A thread dumpot ezután a `jstack 18620` paranccsal kérhetjük le konzolra (, ahol a szám a PID), 
+vagy irányítsuk fájlba a `jstack 18620 -> threaddump.txt` paranccsal.
 
 A példában egy apró Spring Bootos webalkalmazást használtam, mely REST webszolgáltatásokat
 nyújtott, és MariaDB adatbázishoz csatlakozott. Az alkalmazást terheléses tesztnek vetettem
@@ -55,7 +55,7 @@ alkalmazottakat tart nyilván, a kérésekben új alkalmazottakat vettem fel, é
 listáját kértem le.
 
 A példa [thread dump megtekinthető itt](https://github.com/vicziani/vicziani.github.com/blob/master/artifacts/posts/threaddump.txt).
-Látható, hogy ez egy kb. 220 kb-os szöveges állomány, melynek értelmezése nem annyira egyszerű.
+Látható, hogy ez egy kb. 220 kb-os, 2377 soros szöveges állomány, melynek értelmezése nem annyira egyszerű.
 Azért annyi látszik, hogy felépítése rendkívül egyszerű, a szálakat tartalmazza,
 valamint mindegyikhez a stack trace-t, egymástól üres sorral elválasztva.
 
@@ -109,7 +109,7 @@ $mjprof count < threaddump.txt
 
 Közbülső operátor a szűrés, először szűrjünk a `http-nio-8080-exec` szálakra, és nézzük meg, mennyi van.
 Ehhez a `contains` filtert kell használni. Ennek első paraméterként (figyeljük meg, a paramétereket
-perjelek közé kell írni) a szál tulajdonságát kell írni, második paraméterként a szöveget, melyre
+perjelek közé kell írni, és egymástól vesszővel elválasztani) a szál tulajdonságát kell írni, második paraméterként a szöveget, melyre
 szűrünk.
 
 ```
@@ -121,7 +121,7 @@ $mjprof contains/name,http-nio-8080-exec/.count < threaddump.txt
 Azaz 22 szál érdekes számunkra az 53 szálból.
 
 Annyira megtetszett az eszköz, hogy azért, hogy ne kelljen a futtatásához letöltögetni, kicsomagolni,
-path-ba tenni, JDK-t beállítani, létrehoztam és publikáltam egy [Docker konténert is](https://github.com/vicziani/mjprof-docker),
+path-ba tenni, JDK-t beállítani, létrehoztam és publikáltam egy [Docker image-et is](https://github.com/vicziani/mjprof-docker),
 így akinek Docker van telepítve a gépére, azonnal tudja használni:
 
 ```
@@ -253,6 +253,9 @@ voltaképp az alkalmazás.
   </tr>
   <tr>
     <td>9</td><td>JDBC Connectionre vár, alvó szál</td>    
+  </tr>
+  <tr>
+    <td>2</td><td>Új http kérésre váró alvó szál</td>    
   </tr>
 </tbody>
 </table>
