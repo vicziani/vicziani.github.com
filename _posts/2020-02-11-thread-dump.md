@@ -152,7 +152,7 @@ $mjprof contains/stack,training.employees/.tree < threaddump.txt
 Ez azonban még mindig elég sok információ, szerepeltessük benne csak a
 saját csomagunkban található osztályokat.
 
----
+```
 $mjprof frame/training.employees/.tree < threaddump.txt
 
  23.08%    [9/39]\ at training.employees.EmployeesController.createEmployee(EmployeesController.java:44)
@@ -163,7 +163,7 @@ $mjprof frame/training.employees/.tree < threaddump.txt
  28.21%   [11/39] \ at training.employees.EmployeesService$$EnhancerBySpringCGLIB$$e99d5c57.listEmployees(<generated>)
  28.21%   [11/39]  \ at training.employees.EmployeesService$$FastClassBySpringCGLIB$$55d6b46d.invoke(<generated>)
  28.21%   [11/39]   V at training.employees.EmployeesService.listEmployees(EmployeesService.java:32)
----
+```
 
 Ez már gyönyörűszépen mutatja, hogy 9 szál a `createEmployee()` metódusban van, ami az alkalmazottat veszi fel,
 és 11 szál a `listEmployees()` metódusban, mely az alkalmazottakat listázza.
