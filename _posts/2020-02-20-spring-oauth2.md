@@ -243,7 +243,9 @@ a törzsben átadva a `grant_type` `password` legyen, valamint a `client_id`
 értékét, és a felhasználónevet és jelszót, rendre `username` és `password`
 nevekkel.
 
+```
 curl -s --data "grant_type=password&client_id=jtechlog-app&username=johndoe&password=johndoe" http://localhost:8081/auth/realms/JTechLogRealm/protocol/openid-connect/token | jq
+```
 
 A [jq](https://stedolan.github.io/jq/) egy parancssori eszköz JSON feldolgozására, most itt
 egyszerűen csak formázunk vele.
