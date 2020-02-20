@@ -10,7 +10,7 @@ Használt technológiák: Spring Boot 2, Spring Security 5, Keycloak 9
 
 A látogatottsági adatok alapján a legkedveltebbek a
 Spring Security-val foglalkozó posztjaim, ebből is kiemelkedik a JWT-vel
-foglalkozó [JWT és Spring Security] posztom. Ezért most arról fogok írni,
+foglalkozó [JWT és Spring Security](/2019/03/18/jwt-es-spring-security.html) posztom. Ezért most arról fogok írni,
 hogy hogyan támogatja a Spring Security 5.x az OAuth 2.0 szabványt,
 mi is az az OAuth 2.0, valamint hogyan használható vállalati környezetben,
 miért érdemes ott is ebbe az irányba elmozdulni. Szó esik arról is, hogyan kell
