@@ -14,3 +14,4 @@ excerpt_separator: "<!-- more -->"
 
 kramdown:
   input: GFM
+  hard_wrap: false
