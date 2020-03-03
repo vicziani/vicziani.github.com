@@ -9,6 +9,7 @@ keywords: könyv
 
 Itt szerepelnek az általam olvasott szakmai könyvek.
 
+* Robert C. Martin: Clean Architecture
 * Kevin Hoffman: Beyond the Twelve-Factor App
 * Robert C. Martin: Clean Code: A Handbook of Agile Software Craftsmanship
 * Robert C. Martin: Túlélőkönyv programozóknak - Hogyan váljunk igazi szakemberré? (The Clean Coder: A Code of Conduct for Professional Programmers)
