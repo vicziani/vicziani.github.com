@@ -20,7 +20,7 @@ Patterns with Examples Using OSGi”, senki ne rettenjen meg, akit nem
 kitűnő olvasmány.
 
 A könyv a Robert C. Martin sorozatban jelent meg, az előszót is ő
-(“Uncle Bob”) írta. Talán ezért is kerül szóba olyan hamar a
+("Uncle Bob") írta. Talán ezért is kerül szóba olyan hamar a
 [SOLID](http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29)
 fogalma, mely az öt alapvető szoftverfejlesztési elv rövidítéseinek
 mozaikszava. A könyv egyetlen melléklete is ezek kifejtését tartalmazza.

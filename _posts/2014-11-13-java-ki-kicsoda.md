@@ -258,7 +258,7 @@ fejlesztették a JUnit keretrendszert, mely de facto standard a unit
 tesztelés területén. Először használta az agilis szoftverfejlesztés
 kifejezést, és egyik aláírója az [Agile
 Manifestonak](http://agilemanifesto.org/), többek között Martin Fowler
-és Robert C. Martin (“Uncle Bob”) mellett. Jelenleg sok egyéb mellett a
+és Robert C. Martin ("Uncle Bob") mellett. Jelenleg sok egyéb mellett a
 Facebooknál dolgozik.
 
 [Twitter](https://twitter.com/kentbeck)
