@@ -67,7 +67,7 @@ Klasszikus esetben az üzleti logika rétegben lévő osztály tartalmaz referen
 a perzisztens rétegben lévő data access objectre (DAO). A függőség itt az üzleti
 logika felől mutat a DAO felé. Azonban ha bevezetünk egy interfészt, amit az
 üzleti logika rétegben helyezünk el, és azt implementálja a DAO, máris megfordul a
-függőség, és a DAO felől az üzleti réteg felé fog mutatni. Ez az arhitektúra egyik
+függőség, és a DAO felől az üzleti réteg felé fog mutatni. Ez az architektúra egyik
 alapötlete is. Az is látható, hogy ebben az esetben a függőség a hívási lánc
 irányával is ellentétes lesz.
 
