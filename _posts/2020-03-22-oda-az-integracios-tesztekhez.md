@@ -44,7 +44,7 @@ funkció darabkát, hanem teljes üzleti folyamatot az elejétől a végéig.
 
 A tesztpiramis formája abból következik, hogy az alaptól felfelé
 a tesztek egyre nagyobb hatókörrel dolgoznak, egyre erőforrásigényesebb
-a karbantartásuk és futtatásuk, és pont ezért felfelé mozdulva érdemes egyre
+a karbantartásuk és futtatásuk, és pont ezért felfelé mozdulva érdemes 
 ezekből egyre kevesebbet írni.
 
 Sajnos már ez is több kérdést felvet bennem. Egyrészt a fogalmak nem egyértelműen
@@ -379,6 +379,8 @@ beágyazott http szerverhez kapcsolódik.
 Amennyiben még jobban le akarjuk választani az alkalmazásunk a keretrendszerektől, külön indítsuk el
 az alkalmazást, melyhez külön processzben futó REST-assured kapcsolódik, adatbázisa valós
 adatbázis, és egy külön processzben futó WireMock szerverhez kapcsolódik a hőmérséklet adatokért.
+
+![Mockolt osztályok](/artifacts/posts/2020-03-22-oda-az-integracios-tesztekhez/teszteles-hatokore-backing.png)
 
 ## Összefoglalás
 
