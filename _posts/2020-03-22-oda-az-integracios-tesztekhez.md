@@ -6,8 +6,6 @@ author: István Viczián
 description: Változik-e az integrációs tesztek szerepe microservices környezetben?
 ---
 
-## Bevezetés
-
 Megrendezésre került 2019. október 17-én a [Training360](https://training360.com/)
 _Nézz be a hype mögé_ fejlesztői meetupja. Ezen az _Integrációs tesztek nehézségei (Javaban)_
 címmel tartottam előadást, bár a inkább az integrációs tesztek pozitívumait
