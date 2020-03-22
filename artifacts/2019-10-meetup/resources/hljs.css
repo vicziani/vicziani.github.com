@@ -1,0 +1,88 @@
+/* HIGLIGHT.JS STYLE */
+
+.hljs {
+    background: #f3f6f4 !important;
+    display: block;
+    overflow-x: auto;
+    padding: .5em;
+  }
+  
+  
+/* Base color: saturation 0; */
+
+.hljs,
+.hljs-subst {
+    color: #4f5362 !important;
+}
+
+.hljs-comment {
+    color: #8597a3 !important;
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta-keyword,
+.hljs-doctag,
+.hljs-name {
+    font-weight: 600 !important;
+}
+
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+    color: #e73b2b !important;
+}
+
+.hljs-title,
+.hljs-section {
+    color: #e73b2b !important;
+    font-weight: 600 !important;
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: #162d4a !important;
+}
+
+
+.hljs-literal {
+    color: #78A960 !important;
+}
+
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+    color: #00894C !important;
+}
+
+
+.hljs-meta {
+    color: #02869d !important;
+}
+
+.hljs-meta-string {
+    color: #1797cd !important;
+}
+
+
+/* Misc effects */
+
+.hljs-emphasis {
+    font-style: italic !important;
+}
+
+.hljs-strong {
+    font-weight: bold !important;
+}
