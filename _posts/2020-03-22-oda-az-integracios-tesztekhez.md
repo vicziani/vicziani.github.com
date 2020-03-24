@@ -8,7 +8,7 @@ description: Változik-e az integrációs tesztek szerepe microservices környez
 
 Megrendezésre került 2019. október 17-én a [Training360](https://training360.com/)
 _Nézz be a hype mögé_ fejlesztői meetupja. Ezen az _Integrációs tesztek nehézségei (Javaban)_
-címmel tartottam előadást, bár a inkább az integrációs tesztek pozitívumait
+címmel tartottam előadást, bár inkább az integrációs tesztek pozitívumait
 taglaltam.
 
 Figyelem! A következő poszt nyugalom megzavarására alkalmas elemeket tartalmaz.
@@ -44,7 +44,7 @@ funkció darabkát, hanem teljes üzleti folyamatot az elejétől a végéig.
 
 A tesztpiramis formája abból következik, hogy az alaptól felfelé
 a tesztek egyre nagyobb hatókörrel dolgoznak, egyre erőforrásigényesebb
-a karbantartásuk és futtatásuk, és pont ezért felfelé mozdulva érdemes 
+a karbantartásuk és futtatásuk, és pont ezért felfelé mozdulva érdemes
 ezekből egyre kevesebbet írni.
 
 Sajnos már ez is több kérdést felvet bennem. Egyrészt a fogalmak nem egyértelműen
@@ -55,9 +55,10 @@ Nevezik ezeket moduloknak (pl. Java Application Architecture könyv, OSGi),
 komponenseknek (pl. a Clean Architecture könyv, ami nagyon szembe megy pl. a
 Spring Framework/Java EE elnevezésével, ahol egy komponens egy bean), plugin-eknek, stb.
 Már az alkalmazásra is különböző neveket szoktak használni, mint rendszer,
-service (pl. Clean Architecture könyv és a microservices architektúra - ez számomra
-azért zavaró, mert a Spring Framework hívja a háromrétegű architektúrában az üzleti
-logika rétegben elhelyezkedő beaneket), stb. Én az osztály (és igen, ide kell
+service, stb. A Clean Architecture könyv és a microservices architektúra service-nek
+hívja az alkalmazást és ez számomra
+azért zavaró, mert a Spring Framework is így hívja a háromrétegű architektúrában az üzleti
+logika rétegben elhelyezkedő beaneket. Én az osztály (és igen, ide kell
 érteni ebben az esetben az interfészeket, enumokat, annotációkat, stb.),
 modul, alkalmazás neveket fogom használni.
 
@@ -232,8 +233,8 @@ Ezek a példában megtalálhatóak.
 A perzisztens réteg unit tesztelésével kapcsolatban is vannak kérdések.
 A legtöbb esetben ezek egyszerű hívások a JDBC megfelelő objektumai (`DataSource`, `Connection`, stb.), a
 `JdbcTemplate` vagy `EntityManager` felé. Vannak fenntartásaim azzal kapcsolatban, hogy érdemes-e
-ezeket mockolni. A Spring Data JPA óta ahonnan az interfészt a keretrendszer maga implementálja még
-érdekesebb, hogy lehet ezeket unit tesztelni. Itt JPA estén megint képbe jönnek az annotációk,
+ezeket mockolni. A Spring Data JPA esetén csak az interfészt kell megírni, és azt a keretrendszer maga implementálja,
+ ezért érdekes, hogyan lehet ezeket unit tesztelni. Itt JPA estén megint képbe jönnek az annotációk,
 valamint a lekérdezések, melyeket jó lenne tesztelni, azonban unit teszttel nem lehet.
 
 A Spring Bootnak erre is van megoldása a `@DataJpaTest` annotációval, szintén unit tesztnek hívja, egy repository tesztelése a célja,
@@ -255,7 +256,7 @@ public class CityRepositoryIT {
 }
 ```
 
-A más rendszerekhez kapcsolattartásáért felelős, un. gateway osztályok tesztelése megint
+A más rendszerekkel való kapcsolattartásért felelős, un. gateway osztályok tesztelése megint
 kérdéses. Itt protokolltól függően biztos valamilyen 3rd party library-t használunk,
 anélkül tesztelni nem feltétlen érdemes.
 
@@ -283,14 +284,14 @@ erőforrás igényes. Emiatt a tesztek futtatásáról is viszonylag későn kap
 Ezért ezek számát tartsuk alacsonyan.
 
 A Clean Architecture könyv úgy fogalmaz, hogy a GUI egy törékeny, gyakran változó
-réteg, ezért lehetőleg a legkevésbé függjünk rajta. Sok felületi teszt esetén
-megintcsak belefuthatunk a Fragile Test Problem jelenségbe.
+réteg, ezért lehetőleg a legkevésbé függjünk tőle. Sok felületi teszt esetén
+megint csak belefuthatunk a Fragile Test Problem jelenségbe.
 
 Amennyiben a E2E teszteket úgy értelmezzük, hogy a tesztek során az alkalmazás
 más alkalmazáshoz is kapcsolódik, abban az esetben a kihívás még nagyobb. Ekkor ugyanis
 a megfelelő verziójú, megfelelő állapotban lévő külső alkalmazásokat kell biztosítani,
 ráadásul lehetőleg a minimális emberi erőforrás bevonásával. Képzeljük ezt el
-akár több tíz microservice esetén (, ami konténerizációs, és azt _orkesztráló_
+akár több tíz microservice esetén (ami konténerizációs, és azt _orkesztráló_
 technológia nélkül esélytelen). És akkor nem is beszéltünk arról, hogy hogyan lehet
 ezen környezetben a különböző alkalmazásokból release-elni. És ez csak teszt környezet.
 
@@ -319,9 +320,9 @@ hiszen azzal az implementációs részleteket teszteljük, és nehéz a karbanta
 
 Az integrációs tesztek a következő előnyökkel rendelkeznek:
 
-* Független az implementációs részletektől, ha az API-ra építünk, egy belső refaktor
+* Függetlenek az implementációs részletektől, ha az API-ra építünk, egy belső refaktor
 nem fogja eltörni a teszteket.
-* Használatával ellenőrizhetőek a unit tesztekkel nem lefedhető részek, mint pl. a controller rétegben
+* Használatukkal ellenőrizhetőek a unit tesztekkel nem lefedhető részek, mint pl. a controller rétegben
 a JSON szerializálás, URL mapping, vagy a repository rétegben az adatbázis integráció.
 * A külső rendszerek mockolásával a gateway réteg is tesztelhető. Azonban nem kell a
 külső rendszereket is telepíteni, integrálni.
@@ -387,8 +388,8 @@ adatbázis, és egy külön processzben futó WireMock szerverhez kapcsolódik a
 A teszteléssel kapcsolatban nincsen pontos, kialakult terminológia, és nagyon kevés a jól bevált
 recept is. Sokáig azt hittük, hogy a teszt piramissal tévedni nem nagyon lehet,
 de ennek is megmutatkoztak a gyengeségei. Látszik, hogy az integrációs tesztek
-bizonyos esetekben kezdenek átvenni szerepeket a unit tesztektől, és a gyors indulás miatt,
-és a beágyazható eszközök miatt az E2E tesztektől is. A unit tesztek még mindig nagyon fontosak,
+bizonyos esetekben kezdenek átvenni szerepeket a unit tesztektől, és a gyors indulás valamint
+a beágyazható eszközök miatt az E2E tesztektől is. A unit tesztek még mindig nagyon fontosak,
 de ott használjuk őket, ahol tényleg értelme van, nem feltétlenül jó csak unit tesztekkel elérni a
 90%-os lefedettséget.
 
