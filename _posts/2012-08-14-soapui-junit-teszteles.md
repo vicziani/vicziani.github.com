@@ -8,12 +8,12 @@ tags:
 - SOA
 - JAX-WS
 - Maven
-modified_time: '2019-07-24T10:00:00.000+02:00'
+modified_time: '2020-08-04T10:00:00.000+02:00'
 ---
 
-Frissítve: 2019. július 24.
+Frissítve: 2020. augusztus 04.
 
-Használt technológiák: JAX-WS 2.3.2, JUnit 5.5.1, SoapUI 5.5.0, Maven 
+Használt technológiák: JAX-WS 2.3.2, JUnit 5.5.1, SoapUI 5.6.0, Maven 
 
 Már többször említettem a SoapUI-t, mely az egyik legelterjedtebb eszköz
 webszolgáltatások fejlesztéséhez és teszteléséhez. 
@@ -38,7 +38,7 @@ küldeni a további webszolgáltatás kérésekben.
 
 Írtam is erre egy apró projektet, mely [elérhető a
 GitHub-on](https://github.com/vicziani/jtechlog-soapui-testing). Az
-ötletet a [w3schools.com][https://www.w3schools.com/] oldalról vettem, ahol ki van ajánlva egy
+ötletet a [w3schools.com](https://www.w3schools.com/) oldalról vettem, ahol ki van ajánlva egy
 [TempConvert](https://www.w3schools.com/xml/tempconvert.asmx)
 webszolgáltatás Celsius és Fahrenheit közötti váltásra. Ezt
 implementálja a `TempConvert.java` osztály JAX-WS használatával, Mavennel
@@ -72,29 +72,11 @@ Tehát a használathoz először a `pom.xml`-be kell felvenni a függőségeket.
     <dependency>
         <groupId>com.smartbear.soapui</groupId>
         <artifactId>soapui</artifactId>
-        <version>5.5.0</version>
+        <version>5.6.0</version>
         <scope>test</scope>
-        <exclusions>
-            <exclusion>
-                <groupId>com.smartbear.utils.analytics</groupId>
-                <artifactId>out-app-analytics-provider</artifactId>
-            </exclusion>
-        </exclusions>
     </dependency>
 </dependencies>
 ```
-
-Java 9 óta, ha nem tesszük be az `exclusion` taget, a tesztek fordítása
-sikertelen a következő hibaüzenettel:
-
-```
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:testCompile 
-  (default-testCompile) on project soapui-testing: Fatal error compiling: 
-  Illegal char <*> at index 7: ../lib/*.jar -> [Help 1]
-```
-
-Ez azért van, mert a `out-app-analytics-provider.jar` állomány 
-`MANIFEST.MF` fájljában a következő szerepel: `Class-Path: ../lib/*.jar`.
 
 A következő lépés a teszteset előkészítése. Először el kell indítani a
 webszolgáltatást, majd azon lefuttatni a SoapUI teszteseteket. Nagyon jó
@@ -170,7 +152,7 @@ assert Integer.parseInt(celsius) == 212
 A SoapUI ezen kívül még nagyon sok mindenre képes, kedvencem, hogy
 önmaga is tud webszolgáltatásként viselkedni (mock), embedded Jetty-t indít, és
 még a választ is meg tudjuk adni, hogy mit adjon vissza, amit szintén
-script-ezhetünk, így a bejövő paraméterektől függően eltérő válaszokat
+scriptezhetünk, így a bejövő paraméterektől függően eltérő válaszokat
 adhatunk vissza. Ez rendkívül jól jön, amikor egy olyan
 webszolgáltatáshoz akarunk klienst fejleszteni, mely nem mindig
 elérhető. Ezen kívül használható terheléses tesztelésre is, valamint
