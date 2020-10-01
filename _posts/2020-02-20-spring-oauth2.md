@@ -8,6 +8,8 @@ description: Mi az az OAuth 2.0, és hogyan használjuk vállalati környezetben
 
 Használt technológiák: Spring Boot 2, Spring Security 5, Keycloak 9
 
+Frissítve: 2020. október 1.
+
 A látogatottsági adatok alapján a legkedveltebbek a
 Spring Security-val foglalkozó posztjaim, ebből is kiemelkedik a JWT-vel
 foglalkozó [JWT és Spring Security](/2019/03/18/jwt-es-spring-security.html) posztom. Ezért most arról fogok írni,
@@ -221,12 +223,16 @@ gomb megnyomásával:
 Username: johndoe
 ```
 
+Aa _Email Verified_ legyen _On_ értéken, hogy be lehessen a felhasználóval jelentkezni.
+
 Mentsük el, majd a _Credentials_ fülön adjunk meg egy új jelszót:
 
 ```
 Password: johndoe
 Password Confirmation: johndoe
 ```
+
+A _Temporary_ értéke legyen _Off_, hogy ne kelljen jelszót módosítani.
 
 Végül a _Role Mappings_ fülön adjuk hozzá az _Assigned Roles_ közé vegyük fel a 
 `jtechlog_user` szerepkört.
@@ -325,7 +331,10 @@ Access Token URL: http://localhost:8081/auth/realms/JTechLogRealm/protocol/openi
 Username: johndoe
 Password: johndoe
 Client ID: jtechlog-app
+Scope: profile
 ```
+
+(A scope-ot nem kitöltve üres stringet küld a Postman, melyet a szerver nem tud értelmezni.)
 
 Majd nyomjuk meg a _Request Token_ gombot, és meg is kapjuk a tokent.
 
@@ -342,15 +351,18 @@ majd vegyük fel a `pom.xml` fájlba a következő függőségeket:
 
 ```xml
 <dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+    
+<dependency>
 	<groupId>org.springframework.security</groupId>
 	<artifactId>spring-security-oauth2-resource-server</artifactId>
-	<version>${spring-security.version}</version>
 </dependency>
 
 <dependency>
 	<groupId>org.springframework.security</groupId>
 	<artifactId>spring-security-oauth2-jose</artifactId>
-	<version>${spring-security.version}</version>
 </dependency>
 ```
 
@@ -403,7 +415,7 @@ Amikor nem kapunk vissza semmit, akkor a válasz törzse üres, ekkor használju
 
 Amennyiben elírjuk a tanúsítvány url-jét, furamód `Bearer error="invalid_token", error_description="An error occurred while attempting to decode the Jwt: Invalid token"` hibát kapunk.
 
-Vigyázzunk, mert a tanúsítvány alapesetben hamar lejár, ekkor a ` Bearer error="invalid_token", error_description="An error occurred while attempting to decode the Jwt: Jwt expired at 2020-02-19T22:40:37Z"` hibaüzenetet kapjuk.
+Vigyázzunk, mert a tanúsítvány alapesetben hamar lejár, ekkor a `Bearer error="invalid_token", error_description="An error occurred while attempting to decode the Jwt: Jwt expired at 2020-02-19T22:40:37Z"` hibaüzenetet kapjuk.
 
 Ami még érdekes, hogy bármikor újraindíthatjuk az alkalmazásunkat, újra be tudunk a tokennel
 jelentkezni, mert az alkalmazásunk állapotmentes.
