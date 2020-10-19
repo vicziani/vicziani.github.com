@@ -17,7 +17,7 @@ hogy hogyan támogatja a Spring Security 5.x az OAuth 2.0 szabványt,
 mi is az az OAuth 2.0, valamint hogyan használható vállalati környezetben,
 miért érdemes ott is ebbe az irányba elmozdulni. Szó esik arról is, hogyan kell
 egy külön szervert beállítani a felhasználói adatok eltárolására és
-azonosításra/hitelesítésre/bejelentkezésre/autentikációra (authentication), erre a [Keycloak](https://www.keycloak.org/)
+azonosításra (authentication), erre a [Keycloak](https://www.keycloak.org/)
 nyílt forráskódú eszközt fogom használni (de mivel szabányos protokollok vannak,
 használhatnék más is). Valamint ehhez fogunk kapcsolódni egy Spring Boot alkalmazással,
 a Spring Security keretrendszer használatával.

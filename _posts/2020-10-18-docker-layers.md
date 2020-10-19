@@ -122,7 +122,7 @@ létre. Látható, hogy a `snapshot-dependencies`
 könyvtárhoz tartozó `COPY` megjegyzésbe van téve. Ez azért van,
 mert a Docker Linuxon képes `layer does not exist` hibaüzenettel
 elszállni, ha üres könyvtárat másolunk. (Az én alkalmazásomban
-nem volt SNAPSHOT dependency, így ezt nem kellettm másolni.)
+nem volt SNAPSHOT dependency, így ezt nem kellett másolni.)
 Az alkalmazásunk így (nagyjából) a következő layerekből épül fel.
 
 ![Spring Boot layers](/artifacts/posts/2020-10-18-docker-layers/spring-boot-layers.png)
