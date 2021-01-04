@@ -238,7 +238,7 @@ működik. Szerencsére a [Weld JUnit 5 Extensions](https://github.com/weld/weld
 ezt is támogatja a [Mock injection services](https://github.com/weld/weld-junit/tree/master/junit5#mock-injection-services)
 használatával.
 
-A https://github.com/vicziani/javaee-testing címen tehát egy olyan példa projekt található,
+A [https://github.com/vicziani/javaee-testing](https://github.com/vicziani/javaee-testing) címen tehát egy olyan példa projekt található,
 ami tartalmaz egy DAO-t (, ami egy CDI bean), mely JPA-val van implementálva, az `EntityManager` a `@PersistenceContext`
 annotációval van injektálva. Természetesen egy entitást kezel. Valamint van egy service, mely szintén
 egy CDI bean, és a DAO-t `@Inject`annotációval injektálja, és ő indítja a tranzakciót 
@@ -298,7 +298,7 @@ A projektben található egy `jbossts-properties` állomány is, mely azt
 mondja meg, hogy hova tegye az ideiglenes állományait a
 Narayana.
 
-A https://github.com/vicziani/javaee-testing-transactionservices címen egy bonyolultabb példa projekt
+A [https://github.com/vicziani/javaee-testing-transactionservices](https://github.com/vicziani/javaee-testing-transactionservices) címen egy bonyolultabb példa projekt
 található, melyet [ez a poszt](https://in.relation.to/2019/01/23/testing-cdi-beans-and-persistence-layer-under-java-se/)
 és ez a [példa projekt](https://github.com/hibernate/hibernate-demos/tree/master/other/cdi-jpa-testing)
 ihletett.
