@@ -8,6 +8,7 @@ tags:
 - JTA
 - Atomikos
 modified_time: '2021-01-04T10:00:00.000+01:00'
+description: Egy tranzakcióban egy adatbázis beszúrás és egy JMS üzenetküldés.
 ---
 
 A tranzakciókezelésről már többször írtam. Egy bevezető
