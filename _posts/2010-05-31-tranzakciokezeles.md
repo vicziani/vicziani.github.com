@@ -7,11 +7,11 @@ tags:
 - Java EE
 - EJB
 - Spring
-modified_time: '2018-10-29T10:00:00.000+02:00'
+modified_time: '2021-01-04T10:00:00.000+01:00'
 ---
 
 Technológiák: Spring, Java EE, EJB
-Utolsó módosítás dátuma: 2018. október 19.
+Utolsó módosítás dátuma: 2021. január 04.
 
 Az előző posztban említett *Spring In Action* könyv olyan szépen tárgyalta
 a tranzakciókezelést, hogy muszáj írnom egy kicsit. Ebben a posztban
@@ -77,15 +77,10 @@ globális tranzakció (vagy más néven *elosztott tranzakció*) fogalmát. A
 lokális tranzakció, mikor egy erőforráskezelőn belül akarunk tranzakciót
 végezni. A globális/elosztott tranzakciók esetén egy tranzakció több
 erőforráskezelőn is átívelhet, pl. két adatbázison, vagy egy
-tranzakcióban akarunk pl. egy adatbázis sort módosítani, és egy üzenetet
-elküldeni. Ehhez azonban egy tranzakció koordinátort kell kinevezni, aki
-irányítja a tranzakciót. Itt jön képbe a *2PC*, a two-phase commit
-protocol, ahol első körben az erőforráskezelők felkészülnek a
-tranzakcióra, és második körben hagyják jóvá azt. Minden
-erőforráskezelőnek vétó joga van. Az erőforráskezelők a tranzakció
-koordinátorral az X/Open XA protokollon keresztül kommunikálnak.
+tranzakcióban akarunk pl. egy adatbázis sort módosítani, és egy JMS üzenetet
+elküldeni.
 
-Ezen fogalmakat amúgy minden EJB könyv, így a magyar nyelven elérhető
+Ezen fogalmakat amúgy minden Java EE könyv, így a magyar nyelven elérhető
 *Szerk: Imre Gábor - Szoftverfejlesztés Java EE platformon* című könyv is
 részletesen leírja.
 
@@ -98,39 +93,53 @@ hol induljon a tranzakció és hol fejeződjön be (transaction demarcation,
 transaction boundaries), a tranzakciókezelést maga a környezet végzi.
 
 EJB és Spring esetén is használhatunk lokális és elosztott tranzakciókat
-is. Elosztott tranzakciók használata esetén azonban mindenképp szükség
-van egy alkalmazásszerverre, ugyanis ezeknek a szabvány miatt kötelezően
-tartalmazniuk kell egy tranzakció koordinátort. Ekkor a Java Transaction
-API (JTA) működik a háttérben, de ezt mind az EJB, mind a Spring képes
-elrejteni előlünk.
+is. Elosztott tranzakciók használata a JTA API használatával
+történik, és szükség
+van egy tranzakció koordinátorra. Az alkalmazásszerverek
+beépítetten tartalmaznak egyet, Spring esetén pedig külső függőségként
+kell egy beágyazható tranzakció koordinátort felvenni. 
 
-EJB környezetben semmit nem kell konfigurálnunk, azonban tranzakciókat
-csak session beanben és message driven beanben (MDB) kezelhetünk. Az
+A Java EE 6-os verziójáig csak EJB-kben lehetett
+tranzakciót kezelni.
+Az első EJB hívás alapértelmezetten 
+mindig indít egy tranzakciót.
+Az
 alapértelmezett a Container-Managed Transaction (CMT), azaz deklaratív
-tranzakciókezelés, míg a programozott tranzakciókezelést (Bean-Managed
+tranzakciókezelés, és érdemes mindig ezt is használni. A
+tranzakciókat az alkalmazásszerverben implementált Java EE transaction
+manager vezérli. Deklaratív esetben
+a tranzakciókezelés személyreszabására annotációkat, pl. a 
+`@javax.ejb.TransactionAttribute` annotációt használhatjuk. Ez esetben is megjelöletjük
+visszagörgetésre a tranzakciót az `EJBContext.setRollbackOnly()` metódussal.
+Lekérdezni ennek tényét a `getRollbackOnly()` metódussal tudjuk. Az
+`EJBContext` példányhoz dependency injectionnel jutunk (`@Resource`).
+A programozott tranzakciókezelést (Bean-Managed
 Transaction (BMT)) a
 `@TransactionManagement(TransactionManagementType.BEAN)` annotációval,
 vagy a vele ekvivalens deployment descriptor beállítással
-(`<transaction-type>BEAN</transaction-type>`) adhatjuk meg. A
-tranzakciókat az alkalmazásszerverben implementált Java EE transaction
-manager végzi. A programozott tranzakciókezelés esetén az `EJBContext`
+(`<transaction-type>BEAN</transaction-type>`) adhatjuk meg.
+Ez esetben az `EJBContext`
 `getUserTransaction` metódusa által visszaadott `UserTransaction` példány
-`begin()`, `commit()` és `rollback()` metódusait hívhatjuk. Deklaratív esetben
-annotációt használhatunk. Ez esetben visszagörgetést az
-alkalmazásszervertől az `EJBContext.setRollbackOnly()` metódussal
-kérhetünk, és ezt lekérdezni a `getRollbackOnly()` metódussal tudjuk. Az
-`EJBContext` példányhoz dependency injectionnel jutunk (`@Resource`).
+`begin()`, `commit()` és `rollback()` metódusait hívhatjuk.
 
-Spring környezetben egy transaction managert kell beanként
-létrehoznunk, melyből több mint tíz áll
+A Java EE 7-es verziójától kezdve azonban minden CDI beanen
+használhatjuk a `@javax.transaction.Transactional` annotációt, mely annotáció a JTA része.
+Ettől a verziótól kezdve javasolt ezt az annotációt használni, és nem az EJB
+szabványban lévőt.
+
+Spring környezetben egy transaction manager áll a háttérben, melyből több mint tíz áll
 rendelkezésre, köztük a `DataSourceTransactionManager`,
-`JpaTransactionManager`, vagy a `JtaTransactionManager`. A programozott
-tranzakciókezelés a `TransactionTemplate`-tel történhet, míg a deklaratív
-tranzakciókezelés a `TransactionProxyFactoryBean` használatával vagy
+`JpaTransactionManager`, vagy a `JtaTransactionManager`.
+Springben is javasolt a deklaratív tranzakciókezelés a 
+Spring
+saját `@org.springframework.transaction.annotation.Transactional` annotációjának
+használatával.
+Régebbi Springes projektekben beállíthatjuk a tranzakciókezelést a 
+`TransactionProxyFactoryBean` használatával vagy
 AOP-vel. Ez utóbbi esetben is van választási lehetőségünk, használhatjuk
 az `applicationContext.xml`-ben a `tx` névtérrel a Spring 2.0-ás
-konfigurációs elemeket, mint `tx:advice`, `tx:attributes`, `tx:method`. De
-használhatunk az EJB 3.0-hoz hasonlóan annotációkat is.
+konfigurációs elemeket, mint `tx:advice`, `tx:attributes`, `tx:method`.
+A programozott tranzakciókezelés a `TransactionTemplate`-tel történhet.
 
 A *Spring In Action* könyvben van egy nagyon szemléletes ábra, hogy mire
 kell figyelni a deklaratív tranzakcióknál.
@@ -147,10 +156,10 @@ level)` metódusa.
 
 A Spring ezzel szemben a `TransactionDefinition` interfészben definiálja
 az izolációs szinteket az `ISOLATION` prefixszel rendelkező
-konstansokban. Ezt meg lehet adni paraméterül a
-`TransactionProxyFactoryBean` `transactionAttributes` attribútumának, vagy a
-`tx:method` konfigurációs elem isolation tulajdonságának, vagy a
-`@Transactional` annotáció isolation attribútumának.
+konstansokban. Ezt meg lehet adni paraméterül a 
+`@Transactional` annotáció `isolation` attribútumának. Régebbi Springes projekt esetén
+a `TransactionProxyFactoryBean` `transactionAttributes` attribútumának, vagy a
+`tx:method` konfigurációs elem `isolation` tulajdonságának.
 
 A következő tulajdonság a read-only tulajdonság. Ezt csak a Spring
 definiálja, és ezt állítsuk `true`-ra csak olvasást végző műveleteknél, ha
@@ -159,15 +168,13 @@ erőforráskezelő. Pl. Hibernate esetén a flush mode-ot `FLUSH_NEVER`-re
 állítja, ami azt jelenti, hogy a session állapotát, azaz a perzisztens
 példányokat nem írja ki az adatbázisba, tehát nem hívja meg a `flush()`
 metódust. Ez csak olvasást végző tranzakcióknál sebességet növelhet.
-Ugyan a `javax.sql.Connection` osztálynak is van `setReadOnly(boolean
-readOnly)` metódusa, azonban máshogy valósíthatják meg a különböző
+Ugyan a `javax.sql.Connection` osztálynak is van `setReadOnly(boolean readOnly)` metódusa, 
+azonban máshogy valósíthatják meg a különböző
 adatbázis driver-ek. Az Oracle JDBC driver pl. abszolút nem valósítja
 meg ezt a metódust.
 
-A következő az időtúllépés (timeout). Az EJB 3.0 szabvány programozott
-tranzakciókezelés esetén biztosítja a
-`UserTransaction.setTransactionTimeout(int seconds)` metódust. Deklaratív
-esetben nem definiál erre megoldást, viszont az alkalmazásszerver
+A következő az időtúllépés (timeout). Az EJB 3.0 szabvány 
+deklaratív esetben nem definiál erre megoldást, viszont az alkalmazásszerver
 gyártóknak van saját megoldásuk. Általában több helyen lehet megadni a
 timout értékét. Meg lehet adni globálisan valamilyen konfigurációs
 állományban, vagy meg lehet adni beanre is. Ekkor vagy gyártófüggő
@@ -175,10 +182,13 @@ deployment descriptorba kell írnunk valamit, vagy saját annotáció is
 létezhet rá. Pl. JBoss esetén a `jboss-service.xml`-ben kell keresni
 vagy használható a `@TransactionTimeout`.
 
-A Spring erre biztosít lehetőséget a `TransactionProxyFactoryBean`
+Programozott tranzakciókezelés esetén biztosítja a
+`UserTransaction.setTransactionTimeout(int seconds)` metódust. 
+
+A Spring erre biztosít lehetőséget a `@Transactional` annotáció `timeout`
+attribútumának használatával. Régebbi Springes projekt esetén a `TransactionProxyFactoryBean`
 `transactionAttributes` attribútumának, vagy a `tx:method` konfigurációs
-elem timeout tulajdonságának, vagy a `@Transactional` annotáció timeout
-attribútumának használatával.
+elem timeout tulajdonságának használatával állíthatjuk be.
 
 A következő tulajdonság a propagáció, melynek a deklaratív
 tranzakciókezelésnél van értelme, hiszen a propagációs tulajdonságokkal
@@ -213,13 +223,20 @@ Azonban vannak más tranzakciós attribútumok is, összegezve:
     nincs, nem indít újat
 * `NEVER`: ha van tranzakció, kivételt dob, ha nincs, nem indít újat
 
-A tranzakciós attribútumot az EJB-ben deployment descriptorban vagy a
-`@TransactionAttribute` annotáció attribútumaként is meg lehet adni.
-Springben a `TransactionProxyFactoryBean` `transactionAttributes`
-attribútumának, vagy a `tx:method` konfigurációs elem propagation
-tulajdonságának, vagy a `@Transactional` annotáció propagation
+A tranzakciós attribútumot CDI esetén a `javax.transaction.Transactional`
+annotáció `value` attibútumaként adhatjuk meg, mely a `TxType` enum
+egy elemét veheti fel.
+
+Az EJB szabványon belül maradva a tranzakciós attribútumot az EJB-ben deployment descriptorban vagy a
+`@javax.ejb.TransactionAttribute` annotáció attribútumaként is meg lehet adni.
+
+Springben a `@Transactional` annotáció `propagation`
 attribútumának lehet megadni. Az EJB-hez képesti különbség annyi, hogy a
 nevek elé elé kell tenni a `PROPAGATION` prefixet is.
+
+Régebbi Springes projekt esetén a `TransactionProxyFactoryBean` `transactionAttributes`
+attribútumának, vagy a `tx:method` konfigurációs elem `propagation`
+tulajdonságaként adhatjuk meg.
 
 A `REQUIRED`-en kívül a többit ritkán használjuk. A `REQUIRES_NEW` akkor
 jöhet jól, mikor egy olyan műveletet akarunk futtatni, aminek
@@ -233,8 +250,7 @@ abban, hogy egy rollback visszahat a hívó félre. A `NOT_SUPPORTED` akkor
 használható, ha pl. EJB környezetben az MDB-nk nem tranzakcionálisan
 kapcsolódik a JMS providerhez. A `NEVER`-t használhatjuk akkor, ha nem
 tranzakcionális erőforrást piszkálunk, és tudatosítani akarjuk a hívó
-félben, hogy itt ne is számítson tranzakcionális működésre. Nektek van
-jobb példáitok?
+félben, hogy itt ne is számítson tranzakcionális működésre.
 
 A leggyakoribb hiba a tranzakciós attribútumokkal kapcsolatban, hogy van
 egy osztályon belül két metódus, ahol az egyik hívja a másikat, és más a
@@ -246,7 +262,7 @@ megoldás, hogy a hívást mindenképp átvezetjük valahogy a proxy-n. Vagy
 átszervezzük a kódot, és a két metódust külön bean-be tesszük. EJB
 esetén pl. a `SessionContext.getEJBObject()` metódus adja vissza a proxy
 objektumot. Spring esetén három megoldás közül is választhatunk. Vagy az
-`ApplicationContext`-től a `getBean`-nel név alapján lekérjük a proxy
+`ApplicationContext`-től a `getBean()` metódussal név alapján lekérjük a proxy
 példányt, vagy az `AopContext.currentProxy()` metódusát hívjuk, de
 mindkettővel kötjük magunkat a Springhez. A harmadik megoldás az
 AspectJ weaving használata, mikor nem proxy végzi a tranzakciókezelést,
@@ -263,15 +279,22 @@ szintű kivételeknél commit, kivéve, ha meghívtuk a cache ágban a
 rátettük a `@ApplicationException(rollback = true)` annotációt, mert
 ilyenkor itt is rollback lesz.
 
+A JTA `@Transactional` annotációjának használata esetén ezt
+felülbírálhatjuk a `rollbackOn` és `dontRollbackOn` attribútumok használatával,
+melyeknek kivétel osztályokat adhatunk meg értékként.
+
 Spring esetében az alapértelmezett működés, hogy `RuntimeException` és
 leszármazottja esetén rollback, amúgy commit (az EJB-vel megegyező
-módon). Viszont itt finomabban szabályozható, ugyanis `rollback-for`
-(`rollbackFor`) attribútummal felsorolhatjuk a metódusnál azokat a
-kivételeket, melyekre rollbacket akarunk, és a `no-rollback-for`
-(`noRollBackFor`) attribútummal azon kivételeket, ahol ne történjen
+módon). 
+
+A `@Transactional` annotációnál `rollbackFor` attribútummal felsorolhatjuk a metódusnál azokat a
+kivételeket, melyekre rollbacket akarunk, és
+`noRollBackFor` attribútummal azon kivételeket, ahol ne történjen
 rollback. Azaz így meg tudunk adni metódusonként olyan `RuntimeException`
 leszármazottakat, amire ne legyen rollback, és olyan alkalmazás szintű
 kivételeket, melyekre rollback legyen.
+
+XML-ben ezek a `rollback-for` és `no-rollback-for` attribútumokkal szabályozhatók.
 
 És végezetül egy saját probléma megoldása. Szükségünk volt a Spring-ben
 több tranzakció menedzserre, adatforrásonként egyre. A Spring 2.5 esetén
@@ -287,5 +310,3 @@ További források:
 
 -   [Spring AOP top problem \#1 - aspects are not
     applied](http://blog.harmonysoft.tech/2009/07/spring-aop-top-problem-1-aspects-are.html)
--   [Transaction strategies: Understanding transaction
-    pitfalls](https://developer.ibm.com/articles/j-ts1/)
