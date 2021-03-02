@@ -26,8 +26,8 @@ absztrakt osztályok és interfészek, konstruktorok, metódus túlterhelés
 (overloading). A könyv több oldalról közelíti meg a black box technikát,
 mely szerint elegendő ismerni az interfészt (melyet javasolt mindig az
 azt felhasználó szemszögéből megtervezni, és minél szűkebbre venni, és
-iteratív módon bővíteni) és az ahhoz tartozó szemantikát (ő szerződésnek
-- contract nevezi, gyakorlatilag az API-ról és annak dokumentációjáról
+iteratív módon bővíteni) és az ahhoz tartozó szemantikát 
+(ő szerződésnek - contract nevezi, gyakorlatilag az API-ról és annak dokumentációjáról
 van szó), az implementáció maradjon rejtve. Így az osztályaink között
 laza kötés lesz, az implementációt változtathatjuk anélkül, hogy azt az
 interfészen keresztül használó osztályainkat módosítani kéne, növelve
