@@ -46,7 +46,7 @@ kitekintés van a különböző módszertanokra, valamint azok többi részére
 A 10. fejezet (Creating Object Models with UML) az UML
 osztálydiagrammjának pár elemét mutatja be, de nagyon alap szinten.
 Nagyon jó ötletnek tartottam a 11. (Objects and Portable Data: XML) és
-12. fejezet (Persistent Objects: Serialization and Relational Databases)
+a 12. fejezet (Persistent Objects: Serialization and Relational Databases)
 témáját, amivel oo-val foglalkozó könyvek keveset írnak. Sajnos
 amennyire jó a témaválasztás, annyira rossz a kivitelezése. Az író az
 eddigi Java példákról átváltott a .NET-es példákra, feltehetőleg nem
