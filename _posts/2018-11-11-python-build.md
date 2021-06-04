@@ -257,7 +257,7 @@ venv/bin/pytest --cov=jtechlog --cov-report xml
 Azért szükséges az xml formátumú riport, mert a SonarQube majd ezt képes feldolgozni. A futtatás hatására
 létrejön a `.coverage` és a `coverage.xml` állomány, melyet érdemes elhelyezni a `.gitignore` fájlban.
 
-A Python forráskód elemzésre a (Pylint)[https://www.pylint.org/] eszközt választottam. Szintén fel kell venni a `requirements.txt` fájlba:
+A Python forráskód elemzésre a [Pylint](https://www.pylint.org/) eszközt választottam. Szintén fel kell venni a `requirements.txt` fájlba:
 
 ```
 pylint==2.2.2
