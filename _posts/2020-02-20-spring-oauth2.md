@@ -2,25 +2,20 @@
 layout: post
 title: OAuth 2.0 Spring Boot és Spring Security keretrendszerekkel
 date: '2020-02-19T11:00:00.000+01:00'
+modified_time: '2021-06-30T12:00:00.000+02:00'
 author: István Viczián
 description: Mi az az OAuth 2.0, és hogyan használjuk vállalati környezetben Spring Boot és Spring Security keretrendszerekkel.
 ---
 
-Használt technológiák: Spring Boot 2, Spring Security 5, Keycloak 9
+Használt technológiák: Spring Boot 2, Spring Security 5, Keycloak 14
 
-Frissítve: 2020. október 1.
+Frissítve: 2021. június 30.
 
-A látogatottsági adatok alapján a legkedveltebbek a
-Spring Security-val foglalkozó posztjaim, ebből is kiemelkedik a JWT-vel
-foglalkozó [JWT és Spring Security](/2019/03/18/jwt-es-spring-security.html) posztom. Ezért most arról fogok írni,
-hogy hogyan támogatja a Spring Security 5.x az OAuth 2.0 szabványt,
-mi is az az OAuth 2.0, valamint hogyan használható vállalati környezetben,
-miért érdemes ott is ebbe az irányba elmozdulni. Szó esik arról is, hogyan kell
-egy külön szervert beállítani a felhasználói adatok eltárolására és
-azonosításra (authentication), erre a [Keycloak](https://www.keycloak.org/)
-nyílt forráskódú eszközt fogom használni (de mivel szabányos protokollok vannak,
-használhatnék más is). Valamint ehhez fogunk kapcsolódni egy Spring Boot alkalmazással,
-a Spring Security keretrendszer használatával.
+Bejelentkezés és jogosultságkezelés témakörben az egyik legelterjedt szabvány az OAuth 2.0.
+Vállalati környezetben nem érdemes saját felhasználókezelést 
+implementálni, hiszen erre már létező kész megoldások vannak, ebből az egyik a
+nyílt forráskódú [Keycloak](https://www.keycloak.org/), amihez
+könnyen lehet egy Spring Boot alkalmazást integrálni.
 
 Az OAuth egy nyílt szabány erőforrás-hozzáférés kezelésére, vagy ismertebb nevén
 authorizációra (authorization). Alapja, hogy elválik, hogy a felhasználó mit is akar
@@ -149,6 +144,8 @@ is a kettő közötti különbségről. Ha a függőségek között `spring-secu
 projektet találunk, vagy `@EnableResourceServer` és `@EnableAuthorizationServer`
 annotációkat, biztosak lehetünk benne, hogy a régi Spring Security OAuth
 megoldáshoz van dolgunk.
+
+Ezen kívül a Keycloakhoz külön Spring Boot Starter projekt van, ezért még könnyebben integrálható.
 
 És most nézzük a példa projektet! Az 
 implementálásához a következő lépésekre lesz szükségünk:
@@ -347,38 +344,50 @@ ahol a tanúsítványok a X.509 szabvány formátumban vannak.
 ## Alkalmazás
 
 A következő feladat az alkalmazás elkészítése. Üres Spring Boot projekttel induljunk,
-majd vegyük fel a `pom.xml` fájlba a következő függőségeket:
+majd vegyük fel a `pom.xml` fájlba a `<dependencyManagement>` tagbe a következőt:
+
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.keycloak.bom</groupId>
+      <artifactId>keycloak-adapter-bom</artifactId>
+      <version>14.0.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
+
+Majd a függőségek közé:
 
 ```xml
 <dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-security</artifactId>
-</dependency>
-    
-<dependency>
-	<groupId>org.springframework.security</groupId>
-	<artifactId>spring-security-oauth2-resource-server</artifactId>
-</dependency>
-
-<dependency>
-	<groupId>org.springframework.security</groupId>
-	<artifactId>spring-security-oauth2-jose</artifactId>
+  <groupId>org.keycloak</groupId>
+  <artifactId>keycloak-spring-boot-starter</artifactId>
 </dependency>
 ```
-
-A Nimbus JOSE framework felelős a JWT, JWS, JWE és JWK kezeléséért.
 
 Ahhoz, hogy az alkalmazás még ellenőrizni tudja a tokent, be kell állítani
-az `application.properties` állományban a tanúsítvány elérhetőségét, a
-következőképpen:
+az `application.properties` állományban a Keycloak szerverhez kapcsolódás
+tulajdonságait:
 
-```
-spring.security.oauth2.resourceserver.jwt.jwk-set-uri = http://localhost:8081/auth/realms/JTechLogRealm/protocol/openid-connect/certs
+```properties
+keycloak.auth-server-url=http://localhost:8081/auth
+keycloak.realm=JTechLogRealm
+keycloak.resource=jtechlog-app
+keycloak.public-client=true
+
+keycloak.security-constraints[0].authRoles[0]=jtechlog_user
+keycloak.security-constraints[0].securityCollections[0].patterns[0]=/*
+
+keycloak.principal-attribute=preferred_username
 ```
 
 Az alkalmazást indíthatjuk az `mvn spring-boot:run` paranccsal is parancssorból.
 
-Alapesetben ekkor már minden url védett, ezért ha meg akarunk hívni egy 
+Alapesetben ekkor minden url védett, ezért ha meg akarunk hívni egy 
 webszolgáltatást, akkor a következő üzenetet kapjuk:
 
 ```
@@ -413,107 +422,20 @@ _Available Tokens_ legördülőből kiválasztunk egyet.
 Amikor nem kapunk vissza semmit, akkor a válasz törzse üres, ekkor használjuk a curl
 `-v` kapcsolóját, hiszen a státuszkódot és a hibaüzenetet a fejlécben fogjuk megtalálni.
 
-Amennyiben elírjuk a tanúsítvány url-jét, furamód `Bearer error="invalid_token", error_description="An error occurred while attempting to decode the Jwt: Invalid token"` hibát kapunk.
-
-Vigyázzunk, mert a tanúsítvány alapesetben hamar lejár, ekkor a `Bearer error="invalid_token", error_description="An error occurred while attempting to decode the Jwt: Jwt expired at 2020-02-19T22:40:37Z"` hibaüzenetet kapjuk.
+Vigyázzunk, mert a tanúsítvány alapesetben hamar lejár.
 
 Ami még érdekes, hogy bármikor újraindíthatjuk az alkalmazásunkat, újra be tudunk a tokennel
 jelentkezni, mert az alkalmazásunk állapotmentes.
 
 Nézzük meg, hogy lehet hozzáférni a JWT-ben tárolt adatokhoz. Ehhez a Spring Controllerben a 
-`@RequestMapping` annotációval ellátott metódusban egy `JwtAuthenticationToken` paramétert
+`@RequestMapping` annotációval ellátott metódusban egy `Principal` paramétert
 kell deklarálni.
 
 ```java
 @GetMapping("/api/hello")
-public HelloResponse sayHello(JwtAuthenticationToken jwtAuthenticationToken) {
-    System.out.println(jwtAuthenticationToken.getName());
-    System.out.println(jwtAuthenticationToken.getAuthorities());
-    System.out.println(jwtAuthenticationToken.getTokenAttributes().get(StandardClaimNames.PREFERRED_USERNAME));
+public HelloResponse sayHello(Principal principal) {
+    log.info("The name of the user: {}", principal.getName());
 
     return new HelloResponse("Hello JWT!");
 }
 ```
-
-Azonban azt látjuk, hogy a felhasználónév az egyedi azonosító, a szerepkörök pedig a
-`scope` mezőben lévő értékek.
-
-Nézzük meg, hogy lehet definiálni, hogy a `realm_access` mező értékei szerepeljenek 
-szerepkörönként.
-
-```java
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/api/hello")
-                .access("hasAuthority('jtechlog_user')")
-
-                .anyRequest().authenticated()
-                .and()
-                .oauth2ResourceServer()
-                .jwt()
-                .jwtAuthenticationConverter(grantedAuthoritiesExtractor());
-    }
-
-    Converter<Jwt, AbstractAuthenticationToken> grantedAuthoritiesExtractor() {
-        JwtAuthenticationConverter jwtAuthenticationConverter =
-                new JwtAuthenticationConverter();
-        jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter
-                (new GrantedAuthoritiesExtractor());
-        return jwtAuthenticationConverter;
-    }
-
-    static class GrantedAuthoritiesExtractor
-            implements Converter<Jwt, Collection<GrantedAuthority>> {
-
-        public Collection<GrantedAuthority> convert(Jwt jwt) {
-
-            JSONObject realmAccess = (JSONObject)
-                    jwt.getClaims().get("realm_access");
-            Collection<String> roleNames = (Collection<String>) realmAccess.get("roles");
-
-            return roleNames.stream()
-                    .map(SimpleGrantedAuthority::new)
-                    .collect(Collectors.toList());
-        }
-    }
-}
-```
-
-Itt egyrészt levédjük a `/api/hello` url-t, hogy csak `jtechlog_user` szerepkörrel
-lehessen meghívni. Valamint használunk egy saját `GrantedAuthoritiesExtractor` osztályt,
-ami a `realm_access` mező tartalmát konvertálja `GrantedAuthority` kollekcióvá.
-
-A felhasználónévvel van még probéma, ehhez ugyanitt a következő kódrészletet használjuk:
-
-```java
-@Value("${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}")
-private String jwkSetUri;
-
-@Bean
-JwtDecoder jwtDecoder() {
-    NimbusJwtDecoder jwtDecoder = NimbusJwtDecoder.withJwkSetUri(jwkSetUri).build();
-    jwtDecoder.setClaimSetConverter(new UsernameSubClaimAdapter());
-    return jwtDecoder;
-}
-
-static class UsernameSubClaimAdapter implements Converter<Map<String, Object>, Map<String, Object>> {
-        private final MappedJwtClaimSetConverter delegate =
-                MappedJwtClaimSetConverter.withDefaults(Collections.emptyMap());
-
-        public Map<String, Object> convert(Map<String, Object> claims) {
-            Map<String, Object> convertedClaims = this.delegate.convert(claims);
-
-            String username = (String) convertedClaims.get(StandardClaimNames.PREFERRED_USERNAME);
-            convertedClaims.put(StandardClaimNames.SUB, username);
-
-            return convertedClaims;
-        }
-    }
-```
-
-Ez valójában csak annyit csinál, hogy a `preferred_username` mező tartalmát
-átmozgatja a `sub` mezőbe.
