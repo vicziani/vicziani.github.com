@@ -1,0 +1,182 @@
+/* FONT FACES */
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/OpenSans-Light.eot');
+    src: url('../fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Light.woff2') format('woff2'),
+    url('../fonts/OpenSans-Light.woff') format('woff'),
+    url('../fonts/OpenSans-Light.ttf') format('truetype'),
+    url('../fonts/OpenSans-Light.svg#OpenSansLight') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/OpenSans-Regular.eot');
+    src: url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+    url('../fonts/OpenSans-Regular.woff') format('woff'),
+    url('../fonts/OpenSans-Regular.ttf') format('truetype'),
+    url('../fonts/OpenSans-Regular.svg#OpenSansRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/OpenSans-Semibold.eot');
+    src: url('../fonts/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Semibold.woff2') format('woff2'),
+    url('../fonts/OpenSans-Semibold.woff') format('woff'),
+    url('../fonts/OpenSans-Semibold.ttf') format('truetype'),
+    url('../fonts/OpenSans-Semibold.svg#OpenSansSemibold') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/OpenSans-Bold.eot');
+    src: url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+    url('../fonts/OpenSans-Bold.woff') format('woff'),
+    url('../fonts/OpenSans-Bold.ttf') format('truetype'),
+    url('../fonts/OpenSans-Bold.svg#OpenSansBold') format('svg');
+}
+
+
+/* SLIDES */
+
+.remark-slide-content .remark-slide-number {
+  display: none;
+}
+
+.remark-slide {
+  background: #fff url('training360-logo.svg') 92% 7%/15% 15% no-repeat;
+  /* background: #fff url('background-for-editing.png') 0 0/cover no-repeat; */
+  color: #162d4a;
+  font-family: 'Open Sans';
+  font-weight: 400;
+}
+
+.remark-slide-content {
+  background: transparent;
+}
+
+.remark-slide-content a {
+	color: #e73b2b;
+	text-decoration: none;
+}
+
+
+/* HEADINGS */
+
+.remark-slide-content h1 {
+  text-transform: uppercase;
+}
+
+.remark-slide-content h2 {
+  font-weight: 600;
+  margin-bottom: 1.2em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.remark-slide-content h2:after {
+  border-bottom: 6px solid #e73b2b;
+  bottom: -20px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 240px;
+}
+
+.remark-slide-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* LISTS */
+
+.remark-slide-content li {
+  padding-bottom: 9px;
+}
+
+.remark-slide-content ul {
+  list-style: none;
+}
+
+.remark-slide-content ul li {
+  position: relative;
+}
+
+.remark-slide-content ul li:before {
+  position: absolute;
+  content: "\2212";
+  font-weight: bold;
+  left: -22px;
+}
+
+
+/* CODE */
+
+.remark-code,
+.remark-inline-code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.remark-inline-code {
+  background: #f3f6f4;
+  color: #4f5362;
+  padding: 0 .25em;
+}
+
+
+/* LAYOUT */
+
+.column:first-of-type {
+    float:left
+}
+
+.column:last-of-type {
+    float:right
+}
+
+.split-50 .column:first-of-type {
+    width: 50%
+}
+
+.split-50 .column:last-of-type {
+    width: 50%
+}
+
+
+/* COVER */
+
+.remark-slide-content.cover {
+  background: #fff;
+}
+
+.remark-slide-content.cover h2 {
+  font-weight: 400;
+  margin: 1em 0 0 0;
+  padding-top: .5em;
+  text-transform: none;
+}
+
+.remark-slide-content.center h2:after {
+  bottom: auto;
+  left: 50%;
+  top: -20px;
+  transform: translateX(-50%);
+}
+
+.remark-slide-content.cover img[src='resources/training360-logo.svg'] {
+  margin-top: 8rem;
+  max-width: 20rem;
+}
