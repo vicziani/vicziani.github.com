@@ -307,7 +307,7 @@ public interface EmployeesRepository extends ReactiveCrudRepository<Employee, Lo
 ```
 
 A tranzakciókezelés a klasszikus architektúra esetén deklaratív esetben a `@Transactional`
-annotációval működid, és mögötte a szálhoz kapcsolt `Transaction` objektum áll (`ThreadLocal`-lal implementálva).
+annotációval működik, és mögötte a szálhoz kapcsolt `Transaction` objektum áll (`ThreadLocal`-lal implementálva).
 Itt is használható a `@Transactional` annotáció, de már más implementáció van mögötte.
 
 A service rétegben történhet az entitás és DTO-k közötti megfeleltetés, nézzük is meg, hogyan történhet
