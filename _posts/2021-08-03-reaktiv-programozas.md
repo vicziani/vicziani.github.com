@@ -93,7 +93,7 @@ A reaktív programozást tipikusan funkcionális stílusban használjuk (functio
 alapegység a függvény. Ennek jellemzője, hogy deklaratív, ezáltal könnyebben
 olvasható, karbantartható és javítható. Apró egységekből, újrafelhasználható
 operátorokból komplex megoldásokat lehet elkészíteni. Mivel az alapegysége az állapotmentes, mellékhatásmentes
-függvények, könnyebben lehet vele párhuzamos algoritmusokat implementálni (könnybben olvasható, kisebb a
+függvények, könnyebben lehet vele párhuzamos algoritmusokat implementálni (könnyebben olvasható, kisebb a
 hibázás lehetősége).
 
 ## Reaktív library-k
