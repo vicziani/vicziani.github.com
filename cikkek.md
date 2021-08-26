@@ -66,8 +66,7 @@ mennyire illeszthető a Continuous Integrationbe, Continuous Deliverybe.
 Hallhattok az alternatív lehetőségekről, sőt a Maven árnyoldalairól is.
 *(2014.)*
 
-<iframe width="480" height="270" src="http://www.ustream.tv/embed/recorded/49430874?html5ui"
-scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" frameborder="0" style="border: 0 none transparent;"></iframe>
+<iframe width="480" height="270" src="http://ustream.tv/embed/recorded/49430874" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
 
 [Diák](artifacts/2014-06_maven/2014-06_maven.html)
 
