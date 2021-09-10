@@ -12,7 +12,7 @@ Hasonló cikkeim a [Miért ne fejlesszünk saját keretrendszert?](/2011/05/11/n
 
 Következő posztomban a manapság egyre jobban terjedő fejlesztőképzésről fogok írni.
 
-**Disclaimer:** Mivel a Debreceni Egyetemen végeztem 2001-ben, főleg erről van tapasztalatom. Azóta Java fejlesztőként, architektként dolgoztam, és rengeteg embert, köztük végzős egyetemistát is interjúztattam, és rengeteget oktattam. Jelenleg a junior fejlesztőképzéssel foglalkozó [Yellowroad](http://yellowroad.hu/) egyik mentora vagyok. Az itt közölt poszt csak a saját személyes véleményemet tükrözi. Fenntartom a jogot, hogy a posztot folyamatosan bővítgessem, javítgassam.
+**Disclaimer:** Mivel a Debreceni Egyetemen végeztem 2001-ben, főleg erről van tapasztalatom. Azóta Java fejlesztőként, architektként dolgoztam, és rengeteg embert, köztük végzős egyetemistát is interjúztattam, és rengeteget oktattam. Jelenleg a junior fejlesztőképzéssel foglalkozó Yellowroad egyik mentora vagyok. Az itt közölt poszt csak a saját személyes véleményemet tükrözi. Fenntartom a jogot, hogy a posztot folyamatosan bővítgessem, javítgassam.
 
 <!-- more -->
 
