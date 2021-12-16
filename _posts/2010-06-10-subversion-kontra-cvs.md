@@ -34,7 +34,7 @@ Egy gyors lista arról, hogy miben jobb a Subversion, mint a CVS:
 -   A Subversion-ben lehetőség van arra, hogy egy könyvtárra megmondjuk,
     hogy ennek tartalma nem az adott helyen van tárolva, hanem
     megadhatunk egy URL-t. Erre akkor lehet szükség, mikor egy working
-    copy több checkout-ból áll össze. Ezt un. "external definition"-nel
+    copy több checkout-ból áll össze. Ezt ún. "external definition"-nel
     adható meg. Ekkor egy checkout műveletet kiadva az eredeti könyvtár,
     valamint a külső definíciók is frissítésre kerülnek. Property-vel
     kell ezt is megadni.

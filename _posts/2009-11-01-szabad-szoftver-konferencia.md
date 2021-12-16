@@ -38,7 +38,7 @@ egy [előző posztban](/2009/10/06/web-konferencia-2009.html).
     gyűjtő neve, melyek használatához nem szükséges SQL. C/C++-ban
     íródott, BerkleyDB-n alapul, de a következő verzióban ezt szeretnék
     kiváltani. Alapvetően konzisztenciát tart, de minden műveletnek van
-    egy un. dirty párja, mely könnyen párhuzamosítható, de sérülhet a
+    egy ún. dirty párja, mely könnyen párhuzamosítható, de sérülhet a
     konzisztencia. Szóba került még a
     [Paxos](http://en.wikipedia.org/wiki/Paxos_algorithm) és a [Vector
     Clock](http://en.wikipedia.org/wiki/Vector_clock) algoritmusok is.

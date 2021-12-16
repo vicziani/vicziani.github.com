@@ -139,7 +139,7 @@ betölteni. A következő lépés az Activiti függőség deklarálása a
 {% endhighlight %}
 
 Amennyiben Springben deklarálva van `dataSource` és
-`transactionManager`, definiálhatjuk az un. *process engine*-t.
+`transactionManager`, definiálhatjuk az ún. *process engine*-t.
 
 {% highlight xml %}
 <bean id="processEngineConfiguration"
@@ -185,7 +185,7 @@ Definiáljuk tehát őket.
 {% endhighlight %}
 
 Implementáljuk tehát a metódusokat. A `requestTimeOff` indít egy új
-process instance-t. Érdekessége, hogy lehet neki megadni un.
+process instance-t. Érdekessége, hogy lehet neki megadni ún.
 paramétereket, melyeket lement. (Komplex objektumok esetén blobba az
 adatbázisba, szerializálva, ezért ezt nem is javaslom, elégedjünk meg az
 egyszerű típusokkal.)
@@ -202,7 +202,7 @@ public void requestTimeOff(TimeOffRequest timeOffRequest) {
 A feladatok lekérdezése nagyon egyszerű. Látható, hogy az Activiti a
 lekérdezésre fluent API-t bocsájt a rendelkezésünkre. A trükk az, hogy
 lekérdezzük a feladatokat, és a feladatokhoz tartozó process
-instance-okban futó un. *process variable*-öket is.
+instance-okban futó ún. *process variable*-öket is.
 
 {% highlight java %}
 public List<TimeOffRequest> listTimeOffRequests() {

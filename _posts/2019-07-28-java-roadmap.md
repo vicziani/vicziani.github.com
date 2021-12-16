@@ -6,7 +6,7 @@ author: István Viczián
 description: Java térkép a tanulásról, a legfontosabb szabványokról, technológiákról és eszközökről.
 ---
 
-Manapság divatosak az un. _roadmapek_, térképek, melyek grafikusan ábrázolják, hogy miket kell megtanulni ahhoz, hogy
+Manapság divatosak az ún. _roadmapek_, térképek, melyek grafikusan ábrázolják, hogy miket kell megtanulni ahhoz, hogy
 egy területen otthonosan mozogj, hogyan kezdj neki a tanulásnak, hogy végül magas szinten meg tudd oldani a
 felmerülő problémákat.
 

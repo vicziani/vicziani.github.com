@@ -12,7 +12,7 @@ Ahogy
 [előző](/2013/10/27/hogy-mukodik-a-flightradar24.html)
 posztomban írtam, a radarernyőn való elkülönítéshez, önmaga
 azonosításához a repülőgép transzpondere egy négyjegyű kódot küld a
-radarnak (SSR), ez az un. [SSR
+radarnak (SSR), ez az ún. [SSR
 kód](http://en.wikipedia.org/wiki/Transponder_%28aviation%29#Transponder_codes),
 vagy más néven "squawk". A számjegyek 0-tól 7-ig állíthatóak (nyolcas
 számrendszer), így 4096 különböző lehetőség van. A radar tehát 4096

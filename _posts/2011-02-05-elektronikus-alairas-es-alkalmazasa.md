@@ -259,9 +259,9 @@ algoritmusokat nem lehetett exportálni, de olyan keretrendszereket sem,
 melyekbe ezek beilleszthetőek. Ezért a JCE külön keretrendszer volt
 (optional package), melyet külön kellett letölteni és telepíteni. A Java
 1.4-től kezdve azonban integrálták a JDK-ba, a SunJCE providerrel
-együtt. Alapban egy un. restricted policy fájllal együtt települ, mely
+együtt. Alapban egy ún. restricted policy fájllal együtt települ, mely
 korlátozza bizonyos algoritmusok és kulcsméretek használatát. Persze a
-legtöbb országból letölthető az un. unrestricted policy fájl, mely már
+legtöbb országból letölthető az ún. unrestricted policy fájl, mely már
 engedélyezi ezeket. Ez a [letöltések
 között](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy
@@ -305,7 +305,7 @@ A következő paranccsal hozzunk létre egy JKS kulcstárat, és benne egy
 kulcspárat. Ekkor létrejön egy `mykeystore` állomány, `storepass`
 jelszóval. Benne egy tanúsítvány SHA1withDSA hash és titkosító
 algoritmussal, mely `jtechlog` néven elérhető, és a jelszava `keypass`.
-A tanúsítvány un. önaláírt (self-signed), ami azt jelenti, hogy a
+A tanúsítvány ún. önaláírt (self-signed), ami azt jelenti, hogy a
 tanúsítványhoz tartozó titkos kulccsal lett aláírva.
 
     keytool -genkeypair -dname "cn=Viczian Istvan, ou=JTechLog, o=Blog, c=HU"
@@ -359,7 +359,7 @@ Ezt természetesen ugyanúgy lehet a böngészőbe importálni.
 <a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/jtechlog_tanusitvany_b.png" data-lightbox="post-images">![Importált tanúsítvány](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/jtechlog_tanusitvany.png)</a>
 
 Ha hiteles tanúsítványt szeretnénk, akkor a tanúsítványunkat egy
-hitelesítésszolgáltatónak is alá kell írnia. Ehhez először egy un.
+hitelesítésszolgáltatónak is alá kell írnia. Ehhez először egy ún.
 kérvényt (csr - [Certificate signing
 request](http://en.wikipedia.org/wiki/Certificate_signing_request)) kell
 készítenünk, és beküldenünk a hitelesítésszolgáltatónak. Ez a PKCS \#10

@@ -79,7 +79,7 @@ increment tulajdonsággal látta el.
 De miért is kellett a -javaagent kapcsoló? A JPA implementációk a POJO
 példányokat különböző mechanizmusok szerint tárolhatják. Kézenfekvő
 megoldás lenne a reflection használata, de ennek lassúsága miatt ezt a
-gyakorlatban nem használják. A másik megoldás, hogy futás közben un.
+gyakorlatban nem használják. A másik megoldás, hogy futás közben ún.
 proxy osztályokat generálnak, melyek elvégzik az adatbázis műveleteket,
 majd továbbítják a hívást a POJO felé. Ehhez futás közben kell bájtkódot
 generálni (runtime bytecode generation), ehhez a Hibernate a CGLIB

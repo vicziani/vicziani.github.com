@@ -49,7 +49,7 @@ bármikor később visszaellenőrizhető.
 
 A kiállító (számára a dokumentáció [elérhető
 itt](https://wiki.mozilla.org/Badges/Onboarding-Issuer)) egy JSON
-fájlban leírja, hogy ki, mikor milyen jelvényt kapott, ez az un.
+fájlban leírja, hogy ki, mikor milyen jelvényt kapott, ez az ún.
 assertion. Ugyanígy JSON formátumban le kell írni a tanfolyam
 tulajdonságait és egy másikban a kiállító adatait. Ezek ellenőrzésére
 van egy [online validator](http://validator.openbadges.org/) is. Az

@@ -12,7 +12,7 @@ eszközzel szenvedek, ami egy reverese enginieering, dokumentációs, kódot
 elemző és mérő alkalmazás a Scientific Toolworks, Inc.-től. Többek
 szerint is a neve egy Java Tutorial doksira emlékeztet.
 
-Nagyon aranyos kis eszköz, un. egyedeket definiál és kapcsolatokat,
+Nagyon aranyos kis eszköz, ún. egyedeket definiál és kapcsolatokat,
 amiket a forráskód analizálásával térképez fel, és tárolja el saját
 (sajnos nem külső) adatbázisába. Az egyedek a fájlok, interfászek,
 osztályok, konstruktorok, metódusok, paraméterek, változók, a

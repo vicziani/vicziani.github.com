@@ -252,7 +252,7 @@ public class EmployeeController {
 
 Látható, hogy itt a paraméterek és a visszatérési értékek `Mono` vagy `Flux` típusúak.
 
-De ezek mellett alkalmazhatunk un. router functionöket,
+De ezek mellett alkalmazhatunk ún. router functionöket,
 melyekkel funkcionális módon adhatjuk meg, hogy melyik URL esetén mely függvény kerüljön meghívásra.
 
 ```java

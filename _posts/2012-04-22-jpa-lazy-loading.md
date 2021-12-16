@@ -278,11 +278,11 @@ A probléma megoldására többfajta megoldás létezik:
     is, hogy amíg a persistence context aktív, meghívjuk a megfelelő
     getter metódust.
 -   A fentivel ekvivalens, ha a view rétegnek nem entitást adunk, hanem
-    egy un. data transfer object-et. Ezt még addig feltöltöm
+    egy ún. data transfer object-et. Ezt még addig feltöltöm
     (gyakorlatilag az előző esethez hasonlóan a gettereket hívom), míg a
     persistence context aktív, így nincs probléma. Ez több programozási
     feladattal jár, a DTO-k plusz réteget jelentenek.
--   Külön lekérdezést alkalmazunk `fetch join`-nal, vagy un. projection
+-   Külön lekérdezést alkalmazunk `fetch join`-nal, vagy ún. projection
     query-t, vagy akár JDBC-vel is operálhatunk. Ez utóbbi még tervezési
     minta is Fast Lane Reader néven, mikor az ORM réteget kikerüljük,
     tipikusan teljesítménynövelés miatt, és alacsonyabb szintű technológiával

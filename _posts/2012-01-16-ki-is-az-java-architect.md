@@ -44,7 +44,7 @@ a megvalósítást.
 Az előzőekből is kiderül, hogy az architect az üzlet és az informatika
 között helyezkedik el. Ismeri, megismeri, érti az üzleti területet,
 valamint a megrendelő által megfogalmazott, a rendszerrel kapcsolatos
-üzleti elvárásokat, az un. funkcionális követelményeket. Az architect
+üzleti elvárásokat, az ún. funkcionális követelményeket. Az architect
 feladata ezen követelmények informatikai vetületeinek feltárása, és az
 informatika felé ezek közvetítése. Az üzleti problémákra technológiai
 megoldásokat képes adni.
@@ -255,7 +255,7 @@ informatikai fogalmakban. Leghasznosabb eszköze a component, deployment
 és sequence diagram. Gyakori problémákra gyakori, elterjedt megoldásokat
 alkalmaz, tehát ismeri a tervezési mintákat és személyre tudja szabni
 azokat. És itt nem kizárólag a Gang of Four tervezési mintákra kell
-gondolni, hanem az un. architectural pattern-ekre is. Ide kapcsolódik
+gondolni, hanem az ún. architectural pattern-ekre is. Ide kapcsolódik
 szorosan a refactoring is.
 
 Be kell vetnem pár bűvös szót is, felsorolásképpen, szigorúan

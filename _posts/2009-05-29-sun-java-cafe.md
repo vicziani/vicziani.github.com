@@ -88,7 +88,7 @@ megjegyezni:
     változásokat) kezelni.
 -   Teszt kliensnél a SOAPUi-t használták mely mostanában egyre több
     előadásban szerepel, valamint hangsúlyozták, hogy érdemes az eredeti
-    rendszereket szimuláló un. emulátorokat is építeni, melyek segítenek
+    rendszereket szimuláló ún. emulátorokat is építeni, melyek segítenek
     a tesztelésben, nem a távoli, megbízhatatlan külső rendszerrel kell
     kapcsolatot teremteni. Furcsa, hogy erre nem a SOAPUi-t használták,
     pedig tud web szolgáltatásokat emulálni, és a mock, mint fogalom sem

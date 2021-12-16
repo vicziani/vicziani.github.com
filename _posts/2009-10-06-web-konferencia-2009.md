@@ -181,7 +181,7 @@ bizonyos időközönként kompaktálás történik, ami a valós adatok más
 adatbázis végig elérhető.
 
 A CouchDb-ben nézeteket kell definiálni a lekérdezésekhez. Ezek a
-dokumentumokon dolgoznak, és JavaScript-ben lehet ezeket megadni, un.
+dokumentumokon dolgoznak, és JavaScript-ben lehet ezeket megadni, ún.
 design dokumentumban. A nagy sebességet úgy éri el, hogy folyamatosan
 egy indexet tart fenn, és ahogy egy új dokumentum kerül be, vagy
 módosul, módosítja az indexet, és mindig ez alapján adja vissza a

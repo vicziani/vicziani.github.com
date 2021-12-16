@@ -73,7 +73,7 @@ Machine](http://www.oracle.com/technetwork/java/javase/tech/memorymanagement-whi
 dokumentum. A JVM-nek három fő része van: runtime, JIT, és a
 memóriakezelést végző szemétgyűjtő mechanizmus.
 
-A szemétgyűjtő mechanizmus un. weak generational hypothesisre épül.
+A szemétgyűjtő mechanizmus ún. weak generational hypothesisre épül.
 Megfigyelték az alkalmazások működését, és a következő szabályokat
 vették észre:
 
@@ -140,7 +140,7 @@ helyezkednek el a betöltött osztályok definíciói, valamint a String pool
 el a fiatal objektumok, és az old területen helyezkednek el az idősebb
 objektumok (az előbb említett hipotézis miatt van ez a megbontás). A
 szemétgyűjtő mechanizmus mindkét területen lefut, de meg kell
-különböztetni ezeket. Tehát gyakran lefut az un. minor szemétgyűjtő,
+különböztetni ezeket. Tehát gyakran lefut az ún. minor szemétgyűjtő,
 mely csak az young generationön dolgozik, és ritkábban a major/full
 szemétgyűjtő, ami az old generationön is lefut. Ez ritkábban fut,
 hiszen lassabban nő, és tovább tarthat, hiszen nagyobb területet kell
@@ -237,7 +237,7 @@ generationt átvizsgálni, hogy nincs-e visszafele hivatkozás. Ehhez a
 garbage collector egy card table-t tart nyilván. Az old generationt 512
 bájtos darabokra bontja (chunks), és mindegyikhez egy flaget társít.
 Amennyiben az old genben egy objektum referálni kezd egy young genben
-lévő objektumra, a beállító művelet a hozzá tartozó flaget is (egy un.
+lévő objektumra, a beállító művelet a hozzá tartozó flaget is (egy ún.
 write barrieren keresztül) átbillenti. A végén csak a billentett
 flaggel rendelkező old genben lévő objektumokkal kell törődni.
 
@@ -246,7 +246,7 @@ bump-the-pointer mechanizmust alkalmaz, ami egy mutatót használ annak a
 memóriahelynek a megjelölésére, ahova az új objektumot el lehet tenni.
 Elteszi az objektumot, majd feljebb emeli a pointert. Azonban
 többszálas környezetben ez macerás lehet, hiszen szinkronizálni kéne
-erre a mutatóra, és ott szűk keresztmetszet lehet. Ezért a JVM un.
+erre a mutatóra, és ott szűk keresztmetszet lehet. Ezért a JVM ún.
 Thread-Local Allocation Buffereket (TLAB-ok) tart fenn szálanként. Ezek
 gyakorlatilag szálanként különböző memóriaterületek, így nincs szükség
 lockra.
@@ -304,7 +304,7 @@ sorrendben:
 ### Serial Collector
 
 A serial collector esetén a young és az old terület szemétgyűjtése is
-egy szálon történik, un. stop-the-world módon. Ez azt jelenti, hogy a
+egy szálon történik, ún. stop-the-world módon. Ez azt jelenti, hogy a
 JVM az alkalmazást teljesen leállítja, amíg a szemétgyűjtés folyik. Ez
 valójában úgy történik, hogy az összes Java szálat leállítja (un.
 safepoint), hogy ne változzon a heap, sem a szálhoz tartozó stack.
@@ -315,7 +315,7 @@ párhuzamos felhasználó esetén már nagyban ronthatja az alkalmazásunk
 teljesítményét. A young generation szemétgyűjtése a fentebb leírt módon
 történik, azaz a túlélő objektumok a survivorre, majd az old generation
 területre kerülnek. Az old generation és permanent generation
-szemétgyűjtése un. mark-sweep-compact algoritmussal történik. Mark
+szemétgyűjtése ún. mark-sweep-compact algoritmussal történik. Mark
 fázisban a szemétgyűjtő megjelöli az élő objektumokat, a sweep fázisban
 kitakarítja a nem élő objektumokat, és a compact fázisban az élő
 objektumokat a megfelelő memóriaterület elejére tolja. Így a
@@ -398,8 +398,8 @@ bejárja az előző fázis közben módosult objektumokat, ezzel véglegesíti
 az élő objektumok bejelölését. Ez már több szálon történik. A concurrent
 sweep fázis eltávolítja a szemetet. Látható, hogy egyrészt több munkával
 jár, másrészt lehetnek olyan nem használt objektumok, amik nem
-takarodnak ki az első szemétgyűjtéskor (ez az un. floating garbage). Ez
-az ára a rövidebb válaszidőnek. Látható, hogy a CMS collector un.
+takarodnak ki az első szemétgyűjtéskor (ez az ún. floating garbage). Ez
+az ára a rövidebb válaszidőnek. Látható, hogy a CMS collector ún.
 non-compacting szemétgyűjtő, azaz a memóriaterületen nem egybefüggően
 lesznek az objektumok, hanem lyukak lesznek közöttük. Ez egyrészt
 megnehezíti a kezelést, hiszen nem egy pointert kell nyilvántartani,
@@ -459,7 +459,7 @@ VisualVM Visual GC plugin-ját használjuk.
 ![A JVM -XX:PrintGCDetails paraméterrel
 indítva](/artifacts/posts/2011-12-30-java-memoriakezeles-szemetgyujto/gc_details.png)
 
-Nem szorosan ide tartozik, de nagyon hasznos lehet a JVM un. Fatal Error
+Nem szorosan ide tartozik, de nagyon hasznos lehet a JVM ún. Fatal Error
 Handling tulajdonsága. Amennyiben olyan hiba keletkezik, melyet nem
 tudunk kódból lekezelni, pl. `OutOfMemoryError`, megadhatunk a JVM-nek
 olyan kapcsolókat, melyeket használva mégis előrébb vagyunk. Pl.

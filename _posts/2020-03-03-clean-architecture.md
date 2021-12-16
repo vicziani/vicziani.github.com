@@ -102,7 +102,7 @@ modell legyen (és ne anemic model), és a programozási nyelv beépített eszk�
 mint list, set, map, stb. Nem jelenhet meg benne semmilyen keretrendszer, adatbáziskezelés, ORM. Ez adja az
 alkalmazás magját. Ezt lehet UML-ben megtervezni. Ennek unit tesztelhetőnek kell lennie.
 
-Egy külsőbb réteg az un. Interface Adapters. Ez csatolja hozzá a konkrét komponenseket
+Egy külsőbb réteg az ún. Interface Adapters. Ez csatolja hozzá a konkrét komponenseket
 az üzleti logikához, az adatbázist, UI-t, keretrendszereket és külső rendszereket (Frameworks and Drivers)
 az üzleti logikához.
 

@@ -177,7 +177,7 @@ auth
 A Bcrypt egy jelszó hash algoritmus, mely magában foglal egy véletlenszerűen generált
 saltot is, azért, hogy ne lehessen jelszó adatbázisok alapján feltörni. Három részből
 áll, melyek dollárjelekkel (`$`) vannak elválasztva. Az első az algoritmus
-verziója, példánkban `2a`. A második az un. _cost_ paraméter, példánkban `10`.
+verziója, példánkban `2a`. A második az ún. _cost_ paraméter, példánkban `10`.
 A harmadik részben az első 22 karakter a salt, a második 31 karakter pedig a hash.
 
 Hogyan jutottunk ehhez a hash-hez? A következő kódrészlettel:

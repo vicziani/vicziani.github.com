@@ -189,7 +189,7 @@ bekerült a `Makefile`-ba:
 venv/bin/pip install -e .
 ```
 
-A `-e` kapcsoló az un. *editable mode*, vagy setuptools terminológiában *develop mode*, ami azt jelenti, hogy nem kell a projektünket
+A `-e` kapcsoló az ún. *editable mode*, vagy setuptools terminológiában *develop mode*, ami azt jelenti, hogy nem kell a projektünket
 állandóan buildelgetni, meg installálni, elegendő egyszer, és ahogy szerkesztjük, az azonnal érvénybe is lép.
 
 Az, hogy ez a parancs le tudjon futni, el kell készíteni a projekt leíró állományát is, mely a `setup.py` állományban történik, tartalma:

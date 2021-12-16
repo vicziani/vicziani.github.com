@@ -39,7 +39,7 @@ Java szempontjából talán a következőket érdemes kiemelni:
 A JMX a Java SE 5.0-tól a platform része, olyan szabványos programozói
 interfész ([JSR 3](http://jcp.org/en/jsr/detail?id=3)), melyel
 monitorozható és menedzselhető alkalmazásokat tudunk készíteni. A JMX
-alapját egy vagy több Java objektum, un. managed bean (MBean) képviseli.
+alapját egy vagy több Java objektum, ún. managed bean (MBean) képviseli.
 Az MBean-eket az MBean szerverbe kell regisztrálni, hogy a kliensek el
 tudják érni. Egy MBean-nek lehetnek attribútumai, melyeket lehet írni
 és/vagy olvasni, lehetnek műveletek (operations), melyeket meg lehet

@@ -9,7 +9,7 @@ tags:
 modified_time: '2018-06-09T10:00:00.000-08:00'
 ---
 
-A Spring MVC nem ismeri az un. success message fogalmát. Ez azt jelenti,
+A Spring MVC nem ismeri az ún. success message fogalmát. Ez azt jelenti,
 hogy pl. elpost-olsz egy form-ot, és nem hiba jön, hanem sikeres a
 művelet. Ilyenkor nem csinálsz neki külön oldalt, hanem egy már létező
 oldalon szeretnéd kiírni, hogy a művelet sikerült. Persze használni kell

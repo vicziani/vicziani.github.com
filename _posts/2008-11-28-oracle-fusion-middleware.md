@@ -20,7 +20,7 @@ nem egy termék, hanem bizonyos Oracle termékek összefoglaló neve, melyek
 magukban foglalnak Java EE-re épülő termékeket és fejlesztőeszközöket,
 integrációs, folyamatvezérlő, üzleti intelligencia, csoportmunka és
 tartalomkezelő megoldásokat. A cél szabványokon alapuló, egymással
-integrálható, un. hot-pluggable eszközök gyártása, melyek biztosítják,
+integrálható, ún. hot-pluggable eszközök gyártása, melyek biztosítják,
 vagy könnyen beilleszthetőek a SOA architektúrába. Az egységesítés
 következményeképp csökkenhetnek az üzemeltetési költségek, javulhat a
 terméktámogatás. A felvásárlás miatt azonban lehetnek konkurens

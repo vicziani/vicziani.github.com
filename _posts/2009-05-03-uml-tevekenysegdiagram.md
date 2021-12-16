@@ -138,7 +138,7 @@ is, ezzel átgondoljuk, hogy az egyik művelet a másiknak milyen
 paramétereket ad át, így akár új egyedekre is lelhetünk.
 
 Érdekes felfedezés volt ugyanakkor, hogy az UML nem definiál semmilyen
-diagramot un. page flow-ra, azaz az alkalmazás képernyői közötti
+diagramot ún. page flow-ra, azaz az alkalmazás képernyői közötti
 navigáció modellezésére. Több cikket is olvastam, ahol megpróbálják ezt
 állapotdiagramal, osztálydiagramal, de mind sántított. Javasolt egy
 egyszerű diagram használata, ahol a téglalapok a képernyők, a köztük

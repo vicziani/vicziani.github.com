@@ -80,7 +80,7 @@ konfigurációs állományba kerül bele.
 
 A JNDI megadása a webes felületen a Resources/JNDI/Custom Resources
 menüpontban lehetséges. Itt vegyünk fel egy új erőforrást a megfelelő
-JNDI névvel. Több típus közül is választhatunk. Az értékek megadása un.
+JNDI névvel. Több típus közül is választhatunk. Az értékek megadása ún.
 factory-kkal történik, és a Glassfish tartalmaz pár előre gyártott
 factory-t: `PrimitiviesAndStringFactory`, `PropertiesFactory`,
 `URLObjectFactory`. Amennyiben `String`-et akarunk felvenni, típusnál a

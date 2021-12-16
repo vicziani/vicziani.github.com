@@ -52,7 +52,7 @@ A Specification By Example használatával a csapat szoros együttműködéssel 
 üzleti cél alapján a scope-ot, és alkotja meg a specifikációt, méghozzá a funkciót
 lefedő példákkal illusztrálva. A példákkal magyarázható a funkció, valamint
 a specifikációs hiányosságok is felfedhetőek. Ennek következő lépése, hogy ezeket a példákat automatizálni is kell,
-ezáltal összekötésre kerül a specifikáció és az implementáció, és alakul ki egy un. "élő" dokumentáció,
+ezáltal összekötésre kerül a specifikáció és az implementáció, és alakul ki egy ún. "élő" dokumentáció,
 mely mindenki számára érthető, konzisztens, az implementációval kapcsolatban lévő dokumentáció, melyet
 újra és újra fel lehet használni.
 

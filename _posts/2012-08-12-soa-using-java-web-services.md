@@ -79,7 +79,7 @@ megközelítésre van szükség, mikor adott a WSDL is, és egy létező
 rendszer is. Ekkor gyakran tapasztalhatjuk, hogy a kettő nem felel meg
 egymásnak. Az üzleti objektumaink felépítése, elnevezése általában nem
 felel meg annak, amit interfésznek is ki szeretnénk, vagy ki kell
-ajánlani. A könyv un. wrapper osztályok alkalmazását javasolja.
+ajánlani. A könyv ún. wrapper osztályok alkalmazását javasolja.
 Gyakorlatilag egyrészt kigenerálja az osztályokat a WSDL-ből, valamint
 meghagyja az üzleti objektumokat is. A kettő között másolást végez.
 Ettől egyrészt tisztább lesz a kód, viszont több manuális munka van

@@ -123,7 +123,7 @@ Ezért a [SonarQube fejlesztői szerint se](http://www.sonarqube.org/why-you-sho
 ## SonarLint
 
 Amennyiben a klasszikus módszert használjuk, az új forráskód publikálásához képest nagyon későn jutunk az elemzés eredményére, ugyanis ki kell várnunk a Continuous Integration build futását, az elemzést a teljes projektre. Ebben segít nekünk a [SonarLint](http://www.sonarlint.org) IDE plugin, mely minden neves fejlesztőeszközhöz elérhető.
-Ez futtatható magában is akár a teljes projektre, akár csak a módosított fájlokon (verziókezelő rendszer alapján). De un. Connected módban képes csatlakozni a SonarQube Serverhez, és onnan letölteni az adott projekthez a Quality Gate beállításokat, és az alapján futni, így értelmezni, hogy mely szabályok vannak bekapcsolva, és azok milyen szintűek. (Ez ugye csak úgy volt megvalósítható, hogy a SonarLint is a SonarQube Java Analyzert használja lokálisan a hibák felderítésére.) Ha változnak a Serveren a szabályok, csak a Update Bindings gombot kell megnyomni, így automatikusan frissül az IDE-ben is.
+Ez futtatható magában is akár a teljes projektre, akár csak a módosított fájlokon (verziókezelő rendszer alapján). De ún. Connected módban képes csatlakozni a SonarQube Serverhez, és onnan letölteni az adott projekthez a Quality Gate beállításokat, és az alapján futni, így értelmezni, hogy mely szabályok vannak bekapcsolva, és azok milyen szintűek. (Ez ugye csak úgy volt megvalósítható, hogy a SonarLint is a SonarQube Java Analyzert használja lokálisan a hibák felderítésére.) Ha változnak a Serveren a szabályok, csak a Update Bindings gombot kell megnyomni, így automatikusan frissül az IDE-ben is.
 
 Az elemzés futtatása során megjelöli a hibás utasításokat, és a szabály azonosítóját és részletes leírását is megjeleníti.
 

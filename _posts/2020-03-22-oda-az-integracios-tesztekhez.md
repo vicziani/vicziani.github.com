@@ -256,7 +256,7 @@ public class CityRepositoryIT {
 }
 ```
 
-A más rendszerekkel való kapcsolattartásért felelős, un. gateway osztályok tesztelése megint
+A más rendszerekkel való kapcsolattartásért felelős, ún. gateway osztályok tesztelése megint
 kérdéses. Itt protokolltól függően biztos valamilyen 3rd party library-t használunk,
 anélkül tesztelni nem feltétlen érdemes.
 

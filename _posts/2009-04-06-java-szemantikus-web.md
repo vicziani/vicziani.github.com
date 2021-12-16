@@ -35,7 +35,7 @@ gyűjteménye (tripletek), melyek egy alanyt (subject), egy állítmányt
 tárgy egy gráfban jelenik meg csomópontként, és az állítás pedig egy
 irányított kapcsolatként, így jön létre egy irányított gráf. Az alany
 egy erőforrás, melyet egy URI-val lehet egyértelműen azonosítani.
-Léteznek un. üres erőforrások is. Az állítmányok szintén erőforrások. A
+Léteznek ún. üres erőforrások is. Az állítmányok szintén erőforrások. A
 tárgy lehet erőforrás, vagy egy literál is (ez utóbbi önmagát
 magyarázza). A literál lehet típus nélküli, vagy típusos, mint pl.
 szöveges, szám vagy dátum. Ezen adatmodellel ábrázolt adatokat különböző

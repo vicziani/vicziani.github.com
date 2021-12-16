@@ -76,7 +76,7 @@ dokumentumaink is böngészőből elérhetőek olvasásra.
 
 A WebDAV-hoz kifejlesztették a DeltaV kiegészítést, ami az eredeti
 szabványt megtoldja verziókezeléssel. A Subversion nem egy teljes DeltaV
-megoldás, és megvalósítja az un. autoversioning opcionális lehetőséget.
+megoldás, és megvalósítja az ún. autoversioning opcionális lehetőséget.
 Ez azt jelenti, ha verziókezelést nem megvalósító kliens támad, akkor is
 képes a verziók automatikus kezelésére, méghozzá a műveletek után
 automatikusan kiad egy commit műveletet, és ekkor egy log üzenet

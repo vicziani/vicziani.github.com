@@ -87,7 +87,7 @@ rajta van a classpath-on, az adott, ami nem, az nem elérhető. Tehát semmilyen
 nem lehet a környezetre manuálisan másolni. Java alkalmazások szerencsére ritkán függnek natív csomagoktól.
 
 Spring Boot esetén ez megint csak egyértelmű, ugyanis főleg az olyan JAR-t preferálják, mely tartalmaz minden függőséget,
-még a futtató környezetet is, mint pl. Tomcat web konténert, így létrejön az un. "uberjar" vagy "fat jar". Ennek előállítását ismét csak
+még a futtató környezetet is, mint pl. Tomcat web konténert, így létrejön az ún. "uberjar" vagy "fat jar". Ennek előállítását ismét csak
 a Maven vagy Gradle végezheti, és a build során szerzi be a külső függőségeket a repository-ból. Ezek támogatják
 a tranzitív függőségek kezelését, függőségek ütközésének feloldását, stb. Itt fontos még megjegyezni, hogy minden függőség
 verziószámát explicit határozzuk meg, hogy a build minden esetben reprodukálható legyen.
@@ -222,7 +222,7 @@ Java környezetben ez amúgy is elterjedt, hogy a különböző háttérszolgál
 
 Tömören az alkalmazásnak nem feladata a napló irányítása a megfelelő helyre, vagy a napló tárolása, kezelése, archiválása, görgetése, stb. Az alkalmazás írjon az `stdout`-ra, A környezet feladata ezen stream kezelése, és erre a streamre érkező napló bejegyzések továbbítása a megfelelő szolgáltatások felé, mint pl. [Elastic Stack](https://www.elastic.co/products), [Splunk](http://www.splunk.com/), stb.
 
-A Spring Boot esetén SLF4J API-n keresztül érdemes naplózni, és alatta alapból Logback implementáció van, ami módosítható. Ez alapbeállításban az elvárt módon konzolra naplóz. A Log4J és Logback esetén is hozzászoktunk ahhoz, hogy ő küldi a naplót a megfelelő helyre un. appenderek használatával (pl. rolling file, syslog, stb.), un. push módon. Próbáljuk meg ezt elengedni, és engedni, hogy pull módon kezelje a környezet az `stdout` streamet.
+A Spring Boot esetén SLF4J API-n keresztül érdemes naplózni, és alatta alapból Logback implementáció van, ami módosítható. Ez alapbeállításban az elvárt módon konzolra naplóz. A Log4J és Logback esetén is hozzászoktunk ahhoz, hogy ő küldi a naplót a megfelelő helyre ún. appenderek használatával (pl. rolling file, syslog, stb.), ún. push módon. Próbáljuk meg ezt elengedni, és engedni, hogy pull módon kezelje a környezet az `stdout` streamet.
 
 Mindegyik naplózó keretrendszer hierarchiába gondolkodik, és a hierarchia részfáihoz adhatjuk meg a naplózás szintjét. Gyakran szükség lehet ezen szintek futás közbeni módosítására. Erre a Logback JMX protokollon keresztül ad lehetőséget. Ha ezt REST API-n keresztül szeretnénk elérni, akkor használható a [Jolokia](https://jolokia.org/) mely a JMX felé húz egy REST réteget.
 

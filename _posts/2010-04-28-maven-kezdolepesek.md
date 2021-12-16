@@ -105,7 +105,7 @@ pom.xml-ben lehet megadni a projektre jellemző olyan információkat is,
 mint a licence, szervezet, fejlesztők, közreműködők, valamint olyan
 fejlesztési környezet információkat is, mint a verziókezelő, issue
 management, continuous integration eszköz elérése, stb. Ráadásul a
-projektre jellemző POM, az un. effective POM több részből épül fel.
+projektre jellemző POM, az ún. effective POM több részből épül fel.
 Egyrészt a Super POM, mely a maven-\[version\]-uber.jar-ban szerepel
 org.apache.maven.project.pom-4.0.0.xml néven, a szülő POM-jából,
 valamint a projekthez tartozó POM-ból aggregálva.
@@ -124,7 +124,7 @@ nagyvállalati alkalmazás esetén az EAR állomány, stb. A Maven
 megkülönbözteti a release és snapshot fogalmát, ahol az előző a kiadható
 verzió, míg az utóbbi a fejlesztés közben használatos verzió.
 
-Az artifact-okat egy központi helyen, un. repository-ban helyezi el,
+Az artifact-okat egy központi helyen, ún. repository-ban helyezi el,
 hierarchikus rendben. A legtöbb kritikai itt éri a Maven-t, hogy miért
 is nem jó a függő library-k tárolása egyszerűen a verziókövető
 rendszerben, miért kell ehhez egy külön repository-t használni. A Maven
@@ -138,7 +138,7 @@ működnek a publikus repository-k felé. Az alapértelmezett publikus
 repository a http://repo1.maven.org/maven2/. A repository-k is
 csoportosíthatók, hogy release vagy snapshot verziókat tárolnak-e.
 
-A Maven teljesen moduláris felépítésű, minden un. Maven plugin-ben van
+A Maven teljesen moduláris felépítésű, minden ún. Maven plugin-ben van
 megvalósítva. Ezen Maven plugin-ek is artifact-ok. Ezért van az, hogy a
 Maven telepítőcsomagja alig pár mega, az összes többi funkcionalitást
 biztosító plugin-t (artifact) akkor tölt le, amikor szükség van rá.
@@ -147,7 +147,7 @@ mennyiségű artifact-ot kell letöltenie. A pom.xml-ben ezen plugin-eket
 konfigurálhatjuk is. A plugin-ek tulajdonképpen összetartozó goal-ok
 gyűjteménye, ahol egy goal egy egyedi, önmagában is futtatható funkció.
 Ilyen pl. a compiler plugin compile goal-ja, ami a forrás állományok
-fordításáért felelős. Valamint a Maven-ben vannak definiálva un.
+fordításáért felelős. Valamint a Maven-ben vannak definiálva ún.
 életciklusok (lifecycle). Pl. build lifecycle (default), site és clean
 lifecycle. Minden lifcycle fázisokból áll, és minden fázishoz
 alapértelmezetten tartozik egy vagy több plugin goal. Pl. a build
@@ -163,7 +163,7 @@ különböző riportokat (pom.xml-ben definiálandó), dokumentációt, a
 projekt site-ját (természetesen nagymértékben testreszabható módon).
 Ezért különösen elosztott, open source fejlesztésre különösen alkalmas.
 
-A Maven-ben vannak un. profilok is, melyek a build folyamat
+A Maven-ben vannak ún. profilok is, melyek a build folyamat
 portabilitását biztosítják különböző build környezetekben. Pl. lehet,
 hogy másképp kell, hogy működjön a build folyamat különböző
 architektúrákon, JDK verziókon és operációs rendszereken, teszt és élest

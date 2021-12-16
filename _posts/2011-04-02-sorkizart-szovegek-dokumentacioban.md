@@ -21,7 +21,7 @@ egyezni:
 -   Ha két egymás alatti sorban más a szóköz távolság, akkor nehezebb
     olvasni.
 -   Az egyszerűbb szövegszerkesztőknél a sorkizárás alkalmazásakor
-    kialakulhatnak un. csatornák, így ha fentről ránézel a szövegre, egy
+    kialakulhatnak ún. csatornák, így ha fentről ránézel a szövegre, egy
     függőleges üres vályú lesz, mely zavaró. Profibb kiadványszerkesztők
     erre is figyelnek.
 

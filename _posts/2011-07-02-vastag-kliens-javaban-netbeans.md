@@ -251,7 +251,7 @@ architektúra](/artifacts/posts/2011-07-02-vastag-kliens-javaban-netbeans/netbea
 -   System Filesystem API, MIME Lookup API, Nodes API és Explorer and
     Property Sheet API, Navigator API: állományok kezelése, valamint
     állományok betöltése és hozzá tartozó modell generálása. A NetBeans
-    sok komponense un. Node-okkal dolgozik, melyeket a modell elemeihez
+    sok komponense ún. Node-okkal dolgozik, melyeket a modell elemeihez
     lehet rendelni. Pl. egy XML állomány esetén a Node-ok az XML tag-ek,
     vagy egy Java forráskód esetén a forráskód részei, mint osztály,
     attribútum, metódus, stb. Ezekből akár egy fa struktúrát is fe lehet

@@ -39,7 +39,7 @@ A JRE különböző verzióit fel lehet telepíteni egy számítógépre.
 ## Java alkalmazások
 
 A Java alkalmazásokat különbözőképpen lehet indítani. Vannak böngészőben futó Java
-alkalmazások, un. Java appletek. Ezek már nagyon elavult technológiával készültek,
+alkalmazások, ún. Java appletek. Ezek már nagyon elavult technológiával készültek,
 a böngészőtámogatás megszűnésével egyre jobban kopnak ki. Ilyen pl. a régebbi
 Oracle Forms technológiával készült üzleti alkalmazások, melyeket főleg
 cégeknél, államigazgatási szervezeteknél használnak. Bár a Java 9 még

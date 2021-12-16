@@ -20,9 +20,9 @@ A PDF formátum egy olyan dokumentumleíró formátum, mely képes az
 elektronikus aláírást is tárolni. Így nincs szükség külön fájlra mely az
 aláírást tartalmazza, ezáltal könnyebben kezelhető, és azonnal
 megnyitható akár olvasásra, akár az elektronikus aláírás ellenőrzésére.
-A PDF törzsrésze un. objektumokat tartalmaz, melyek különböző típusúak
+A PDF törzsrésze ún. objektumokat tartalmaz, melyek különböző típusúak
 lehetnek, pl. logikai, szám, szöveges, stream, szótár, stb. Az
-elektronikus aláírást egy un. signature directory tartalmazza, mely
+elektronikus aláírást egy ún. signature directory tartalmazza, mely
 része a tanúsítvány, a dokumentum aláírt hash-e, időbélyeg, vagy akár az
 aláírás valamilyen vizuális megjelenése.
 
@@ -30,7 +30,7 @@ Az aláírás folyamata nagy vonalakban a következőképpen zajlik. Először
 vesszük a dokumentum hasznos részét, az hash-elésre kerül, pl. SHA-256
 algoritmussal, majd ez lesz az aláíró privát kulcsával titkosítva (pl.
 RSA algoritmussal), és egy hexadecimálisan kódolt PKCS\#7 tárolóba
-rakva. Ezután mehet az időbélyeg. Minden aláíráshoz egy un. handler
+rakva. Ezután mehet az időbélyeg. Minden aláíráshoz egy ún. handler
 tartozik, az Adobe.PPKLite handler azt jelenti, hogy az aláírás a PKI
 infrastruktúrán (publikus/privát kulcs) alapul. Akit ennél
 részletesebben érdekel, olvassa el az Adobe [Digital Signatures in a

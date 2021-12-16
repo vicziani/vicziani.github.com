@@ -60,7 +60,7 @@ különös, hogy erről a JavaDoc semmit nem ír.
 Itt érdemes még megemlíteni, hogy a collections framework vezette be az
 Enumeration helyett az Iterator osztályt is. A Hashtable osztály elemein
 mindkét osztály példányával végigmehetünk, lásd a kódot. A
-values().iterator() un. fail-fast iterator-t ad vissza, ami azt jelenti,
+values().iterator() ún. fail-fast iterator-t ad vissza, ami azt jelenti,
 hogy amennyiben nem az iterator módosító metódusain keresztül módosítjuk
 a Hashtable-t, kivétel fog keletkezni. Az Enumeration amúgy szintén egy
 ilyen maradványosztály a Java 1.0, 1.1 időkből, mely annyiban különbözik

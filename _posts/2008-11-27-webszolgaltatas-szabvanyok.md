@@ -38,7 +38,7 @@ együttműködjenek. Így neves gyártók részvételével létrejött a
 [WS-Interoperability](http://www.ws-i.org) szervezet, melynek feladata
 olyan metodológiák, specifikációk, tesztesetek kialakítása, melyek
 használatával tényleg együttműködő web szolgáltatásokat lehet
-implementálni. A WS-I un.
+implementálni. A WS-I ún.
 [profilokkal](http://www.ws-i.org/deliverables/matrix.aspx) dolgozik,
 melyek egy specifikáció halmazt írnak le, valamint a specifikációkhoz
 kapcsolódó megszorításokat, pontosításokat és a félreértések elkerülését

@@ -29,7 +29,7 @@ fejlesztéseket is tartalmaz. Az Adobe 2011 novemberében jelentette be,
 hogy az Apache közösségnek adja a Flex SDK forráskódját. A 4.8.0 verzió
 még Apache incubator projektként jött ki, az Apache Licence v2 alatt, és
 nagy újdonságot még nem tartalmazott, főleg az átadás lett formalizálva.
-Az új verzió azonban már un. top level projectként jött ki. Sőt a cikk
+Az új verzió azonban már ún. top level projectként jött ki. Sőt a cikk
 írásának pillanatában [élesítették az új oldalt
 is](https://twitter.com/ApacheFlex/status/296909455612858368).
 

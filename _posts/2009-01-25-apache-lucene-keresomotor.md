@@ -41,7 +41,7 @@ melyeket mindenképp érdemes megemlíteni:
 -   A SE nem elegendő minden igény kiszolgálására, ezért kialakítottak
     két új, bár az SE-re épülő változatot, a mobil fejlesztésre
     koncentráló Micro Edition-t, ME (ide tartoznak nem csak a
-    mobiltelefonok, de az összes un. limited device, mint pda, set-top
+    mobiltelefonok, de az összes ún. limited device, mint pda, set-top
     box, stb.), valamint a nagyvállalati fejlesztésre szolgáló
     Enterprise Edition-t, EE. Intelligens kártyákra a Java Card
     technológiával lehet fejleszteni.

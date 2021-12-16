@@ -46,7 +46,7 @@ míg a választ meg nem kapja. De hatékonyabb, ha külön küldi el az
 alkalmazás az üzeneteit, és külön dolgozza fel a válaszokat. A kérés és
 a választ úgy lehet egymásnak megfeleltetni, hogy minden üzenet kap egy
 azonosítót (message id), és a válaszban a kérés üzenet azonosítóját kell
-egy másik, un. correlation id mezőbe bemásolni.
+egy másik, ún. correlation id mezőbe bemásolni.
 
 A JMS-sel kialakítható pont-pont kommunikáció, mikor két alkalmazás
 közvetlenül küldözget üzeneteket egymásnak (e-mail típusú kommunikáció),
@@ -226,7 +226,7 @@ mely számomra is új volt, és nem tartalmaz a fenti dokumentáció.
     teljesen külön ág.
 -   Konfigurációs adatok az mqs.ini állományban, Windows esetén a
     registry-ben találhatóak.
--   Az IBM WebSphere MQ-hoz un.
+-   Az IBM WebSphere MQ-hoz ún.
     [SupportPacs-ek](http://www-01.ibm.com/support/docview.wss?rs=977&uid=swg27007205)
     tölthetőek le, melyek lehetnek kereskedelmi termékek, ingyenesek és
     támogatottak, ingyenesek, de nem támogatottak és 3rd party termékek
@@ -266,7 +266,7 @@ mely számomra is új volt, és nem tartalmaz a fenti dokumentáció.
     használhatjuk.
 -   Amennyiben hiba keletkezik, érdemes benézni az errors könyvtárba. Az
     itt található log állományok egyszerű szöveges állományok. Belső
-    hiba esetén FFST (first failure support technology) un. FDC
+    hiba esetén FFST (first failure support technology) ún. FDC
     állományokat generál, melyre az errors log is hivatkozik. Trace-elni
     is lehetséges (strmqtrc, endmqtrc, dspmqtrc), de ezt igazából már
     tényleg csak akkor használjuk, ha a support kéri.
@@ -274,7 +274,7 @@ mely számomra is új volt, és nem tartalmaz a fenti dokumentáció.
 Amennyiben Java EE-ből akarjuk használni a JMS-t, nem érdemes beégetni a
 sorkezelő elérési paramétereit, sőt még konfigurálhatóvá tenni sem,
 hanem ezt oldja meg az alkalmazásszerver. Ezt megoldhatjuk úgy, hogy a
-JNDI fájába bejegyezzük az un. administered object-eket, ilyen a
+JNDI fájába bejegyezzük az ún. administered object-eket, ilyen a
 Connection Factory és a Destination. A Connection Factory, mint a neve
 is mutatja, a kapcsolódási beállításokat tartalmazza, és ennek
 segítségével lehet konkrét kapcsolatokat kiépíteni, míg a Destionation a

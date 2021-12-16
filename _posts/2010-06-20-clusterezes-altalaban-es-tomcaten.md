@@ -80,7 +80,7 @@ aktív/passzív (active/passive) fürtről, mikor csak az egyik komponens
 működik, a másik nem szolgál ki felhasználókat. A passzív tag lehet
 működő/bekapcsolt, mely nem szolgál ki kéréseket, viszont gyorsan üzembe
 állítható (hot), és lehet kikapcsolt állapotban is, mely nem pazarol
-energiát, de elindítása időbe telik (cold). A fürt tagjai un. heartbeat
+energiát, de elindítása időbe telik (cold). A fürt tagjai ún. heartbeat
 (szívverés) segítségével jelzik, hogy még működésben vannak. Amikor a
 szívverést a másik fél nem érzékeli, de ettől független mindkét
 komponens funkcionál (pl. a köztük lévő hálózati kapcsolat szakad meg),
@@ -116,7 +116,7 @@ algoritmusok alapján (pl. minden páros ip-címről érkező kérés az első
 komponensre megy), vagy egész bonyolult algoritmusok alapján. Bizonyos
 terhelészelosztók tudják azt, hogy figyelik a komponenseket, és
 amennyiben az egyik leáll, annak nem osztanak további kéréseket (health
-checking). Lehetőség lehet un. graceful shutdownra is, amikor tervezett
+checking). Lehetőség lehet ún. graceful shutdownra is, amikor tervezett
 leállás, pl. új verzió kirakása esetén először kiiktatjuk az egyik
 komponenst. A terheléselosztó új kéréseket erre már nem irányít, de a
 már folyamatban lévő kéréseket, felhasználói munkameneteket kiszolgálja,
@@ -434,7 +434,7 @@ in use: bind).
 A session replikációs fürtözés alapvetően az Apache Tribes keretrendszer
 használatával történik, melynek JAR állományai megtalálhatóak a Tomcat
 lib könyvtárában (catalina-ha.jar, catalina-tribes.jar). Az Apache
-Tribes un. communication groupokat definiál, melyekbe a clusterben lévő
+Tribes ún. communication groupokat definiál, melyekbe a clusterben lévő
 példányok tartoznak. Ezek multicast ping üzenetekkel kommunikálnak
 egymással, a tagok heartbeat jelet küldenek, ezzel dinamikusan
 csatlakozni tudnak egy csoportba, vagy a heartbeat megszűnése esetén
@@ -489,7 +489,7 @@ TcpFailureDetector megpróbálja felvenni vele a kapcsolatot, hogy
 megbizonyosodjon arról, hogy tényleg nem megy. A
 MessageDispatch15Interceptor asynchron message dispatcher,
 üzenetküldéskor aktiválódik. Van még a ThroughputInterceptor, mely INFO
-szinten képes naplózni a cluster üzeneteket. A Valve elemek un. szűrők,
+szinten képes naplózni a cluster üzeneteket. A Valve elemek ún. szűrők,
 melyek a clusterezésnél a hálózati forgalmat hivatottak csökkenteni
 azáltal, hogy bizonyos esetekben nem engedik tovább a session
 replikációt. Jelenleg csak a ReplicationValve használható, és a filter

@@ -10,7 +10,7 @@ modified_time: '2018-06-09T10:00:00.000-08:00'
 
 Az RFC 2822-ben a karakterkódolás 7 bites, azaz csak ASCII karaktereket
 tartalmazhat, ezért az ékezetes karaktereknél valamit trükközni kell. Az
-[RFC 2047](http://tools.ietf.org/html/rfc2047)-es írja le, az un. MIME
+[RFC 2047](http://tools.ietf.org/html/rfc2047)-es írja le, az ún. MIME
 encoded word formátumot. Ezt az összes fejlécnél használni lehet. Ez a
 következőképp néz ki:
 

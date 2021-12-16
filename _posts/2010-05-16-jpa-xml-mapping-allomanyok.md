@@ -64,7 +64,7 @@ kódon kívül XML konfigurációs állományokban (EJB esetén deployment
 descriptor-nak hívják). Ezek a konfigurációs állományok JPA esetén a JPA
 XML mapping állományok. Minden egyes annotációval megadható
 konfigurációt meg lehet adni XML konfigurációval is. Amennyiben nincs
-sem annotációval, sem XML-ben konfiguráció megadva, un. intelligens
+sem annotációval, sem XML-ben konfiguráció megadva, ún. intelligens
 default értékek kerülnek alkalmazásra. Ilyen intelligens alapértelmezett
 érték pl. az, hogy a tábla neve megegyezik az entitás nevével, annyi
 oszlop van benne, amennyi nem tranziens attribútum.

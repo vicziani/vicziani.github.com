@@ -14,7 +14,7 @@ szöveg (a szövegek pl. sablonok, felhasználói felület feliratok, stb.).
 
 Az erőforrások elérésének két módja van. Egyrészt lehet direkt elérés,
 amikor a programban abszolút módon meg kell adni az erőforrás helyét
-(pl. konkrét fájl path vagy URL), és lehet indirekt, un. helyfüggetlen
+(pl. konkrét fájl path vagy URL), és lehet indirekt, ún. helyfüggetlen
 (location-independent) elérés is, mikor az alkalmazásban egy szimbólikus
 nevet adunk meg, és a környezet oldja fel ezt egy abszolút helyre. Ez a
 feloldás pont emiatt környezetfüggő.
@@ -62,7 +62,7 @@ A könnyebb használhatóság érdekében a bevezették a Class.getResource és
 Class.getResourceAsStream metódusokat is, melyek több könnyebbséget
 adnak:
 
--   Bizonyos osztályok betöltését az un. elsődleges osztálybetöltő
+-   Bizonyos osztályok betöltését az ún. elsődleges osztálybetöltő
     végzi. Ekkor a Class.getClassLoader metódus null-t ad vissza. Ezt a
     Class.getResource és Class.getResourceAsStream metódus ellenőrzi, és
     ebben az esetben rendszer-erőforrásként próbálja betölteni az
@@ -98,7 +98,7 @@ Osztálybetöltők:
 -   System class loader
 
 Osztálybetöltők között egy futásidejű fa hierarchia alakul ki.
-Osztálybetöltéskor un. delegation model van alkalmazva, azaz az
+Osztálybetöltéskor ún. delegation model van alkalmazva, azaz az
 osztálybetöltő először a szülő osztálybetöltővel próbálja betöltetni az
 osztályt, csak utána próbálja meg önmaga. Ha ő sem tudja,
 ClassNotFoundException kivétel váltódik ki.

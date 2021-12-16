@@ -37,7 +37,7 @@ tudja tartani. A SOAP 1.1 és WSDL 1.1 szabványt támogatja. A 8-as Lotus
 Notes (2007. aug. - jelenleg legfrissebb) kliens legnagyobb újdonsága,
 hogy megváltoztatták a felhasználói interfészt, és a Lotus Notes
 Expeditor-ra építették, ami Eclipse alapú. A Lotus Domino alatti
-adatbázis egy dokumentum alapú adatbázis un. Notes Storage Facility
+adatbázis egy dokumentum alapú adatbázis ún. Notes Storage Facility
 (NSF), mely note-okat tartalmaz, és azokhoz item-eket. Ez nem relációs,
 és nem is normalizált adatbázis, így ebből a szempontból jobban hasonlít
 az XML, vagy oo alapú adatbázisokhoz. A mezőknél még típust sem kell

@@ -70,7 +70,7 @@ leváltani. Az elsődleges radar azonban csak a repülőgép helyzetét
 ismeri, hiányoznak egyéb járulékos információk. Ezért létezik egy másik
 technológia is, a [secondary surveillance
 radar](http://en.wikipedia.org/wiki/Secondary_Surveillance_Radar) (SSR).
-A földi állomás un. interrogációs impulzusokat küld a gépnek (1030 MHz
+A földi állomás ún. interrogációs impulzusokat küld a gépnek (1030 MHz
 frekvencián), amit egy gépre szerelt transzponder (transmitter és
 responder szavak keresztezéséből) vesz, és válaszol (1090 MHz
 frekvencián). Ezt a földön egy másik radar veszi. A régebbi

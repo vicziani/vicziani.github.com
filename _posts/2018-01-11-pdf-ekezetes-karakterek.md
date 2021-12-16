@@ -57,7 +57,7 @@ A Helvetica talpatlan (és újgroteszk) betűtípus, és 1957-ben tervezték Sv�
 A Courier egy aránytalan betűtípus, melyet az IBM fejlesztett ki az írógépek számára.
 
 Azonban ezen betűtípusok azon részhalmazát támogatja a PDF szabvány, melyben nem szerepelnek az ékezetes karakterek.
-Ezért általában a helyükön egy üres téglalap, vagy egy un. *replacement character* (`U+FFFD`) jelenik meg.
+Ezért általában a helyükön egy üres téglalap, vagy egy ún. *replacement character* (`U+FFFD`) jelenik meg.
 Ahhoz, hogy ezek is
 helyesen megjelenjenek, olyan betűtípust kell választani, amiben léteznek az ékezetes karakterek, és
 ezt a betűtípust be kell ágyazni a PDF dokumentumba.
@@ -150,7 +150,7 @@ hibaüzenetet írja ki:
 75 [main] WARN org.apache.fop.apps.FOUserAgent  - Glyph "ű" (0x171, udblacute) not available in font "DejaVuLGCSerif".
 ```
 
-Egyrészt meg kell adnunk a beágyazandó betűtípusokat. Azonban a FOP-nak át kell adni egy un. metrics állományt is. Ezeket
+Egyrészt meg kell adnunk a beágyazandó betűtípusokat. Azonban a FOP-nak át kell adni egy ún. metrics állományt is. Ezeket
 szerencsére a `docbkx-fop-support` Maven plugin le tudja generálni a TTF állományok alapján.
 
 {% highlight xml %}

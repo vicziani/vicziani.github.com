@@ -13,7 +13,7 @@ JMS esetén, és az üzenetek több sorkezelőn (queue manager) mennek
 keresztül, a sorkezelők között a kommunikációs kapcsolatot az egyirányú
 csatornák (channel) kezelik. Ezek bizonyos timeout után lebomlanak.
 
-Ahhoz, hogy ezeket ne kézzel kelljen elindítani, un. channel
+Ahhoz, hogy ezeket ne kézzel kelljen elindítani, ún. channel
 initializatort kell alkalmazni, mely egy sort figyel, és ha abba egy
 üzenet érkezik, belöki a channeleket. Ezért, amennyiben azt akarjuk,
 hogy egy üzenet küldés beindítsa a channelt, a transmission queue-ra

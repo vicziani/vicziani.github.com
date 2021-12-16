@@ -47,7 +47,7 @@ szolgáltatásokat is tartalmazhat, mint architektúratervezés,
 A reggeli második felén a Sun ONE Application Server 7 (kódnevén
 Hercules) EE HA szolgáltatásairól esett szó, mint a db és as cluster,
 illetve a Sun ONE Webserver 6.1-ről, mely egy teljesen többszálas
-webszerver, ez a teljesítménymutatóin is meglátszik. Mindkettőt egy un.
+webszerver, ez a teljesítménymutatóin is meglátszik. Mindkettőt egy ún.
 Watchdog figyeli, és ha valami hiba történik, automatikusan újraindítja.
 Java programozóknak hasznos információ, hogy a Tomcat szervlet/JSP
 konténtert tartalmazza mindkettő. Kis perverzióval ASP-t is támogat a

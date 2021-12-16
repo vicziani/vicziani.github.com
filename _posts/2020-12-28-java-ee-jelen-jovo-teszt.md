@@ -46,7 +46,7 @@ teszteket.
 De először nézzük, hogy milyen változások történtek a szabvány háza táján.
 A Java EE egy szabvány, melynek több implementációja létezik, ezek az 
 alkalmazásszerverek, pl. JBoss/WildFly, Oracle WebLogic, IBM WebSphere Application Server, Glassfish,
-Payara, stb. A Java EE un. esernyő szabvány (umbrella), mely alatt több szabvány is van, pl. CDI, JPA, JMS, stb.
+Payara, stb. A Java EE ún. esernyő szabvány (umbrella), mely alatt több szabvány is van, pl. CDI, JPA, JMS, stb.
 Ezek nagy része amúgy külön is elérhető Java SE környezetben.
 
 A Java EE sokáig az Oracle fennhatósága alatt állt, azonban a 8-as verzió után megszabadult tőle,
@@ -181,7 +181,7 @@ megfelelően működnek-e együtt. Ide tartoznak a POJO-k, CDI beanek és az EJB
 ### Arquillian
 
 Amennyiben az ember Java EE integrációs tesztelés témakörben keresgél, a legtöbbször
-az Arquillian eszközbe botlik bele. Az Arquilliant legtöbbször un. in-container
+az Arquillian eszközbe botlik bele. Az Arquilliant legtöbbször ún. in-container
 tesztelésre használják. Azaz vesznek egy futó alkalmazásszervert,
 kiválogatatják a komponenseket, amiket tesztelni akarnak, becsomagolják
 egy jar-ba vagy war-ba, mellécsomagolják a tesztesetet, és az egészet

@@ -205,7 +205,7 @@ megadunk egy másik branch-et, és a working copy-nk átáll arra. Pl. jól
 jöhet akkor, ha fejlesztünk, és rájövünk, hogy ez akkora módosítás, hogy
 érdemes lenne branch-be tenni. Akkor létrehozzuk a branch-et,
 át-switch-elünk rá, majd oda történhet a commit. Mivel ez alkönyvtárra
-is működik, tudunk un. mixed working copy-t is csinálni, ahol az egyik
+is működik, tudunk ún. mixed working copy-t is csinálni, ahol az egyik
 könyvtár az egyik branch-et, a másik könyvtár a másik branch-et
 tartalmazza. Ezzel egyrészt nagyon vagány dolgokat is meg lehet
 csinálni, viszont rettenetesen be tud kavarni egy merge esetén.

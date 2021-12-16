@@ -12,7 +12,7 @@ fájlunkat bemásoljuk (über jar, szép német kifejezéssel, vagy
 fat jar - tehát a jar mely a függőségeket is tartalmazza).
 
 A Docker ugyanis a hatékony adattárolás miatt egy image-et
-nem egy megbonthatatlan fájlként tárol, hanem un. layerekben.
+nem egy megbonthatatlan fájlként tárol, hanem ún. layerekben.
 Ugyanis ha kiindulunk egy image-ből, és pl. új fájlokat másolunk,
 ezzel létrehozva egy új image-et, nem tárolja el az új image-et
 teljes egészében, csak a különbséget, azaz a felmásolt fájlokat.
@@ -87,7 +87,7 @@ az alkalmazás különböző részeit. Ezt a következő paranccsal érhetjük e
 java -Djarmode=layertools -jar demo.jar extract
 ```
 
-Még egy trükköt fogunk alkalmazni, az un. [multi-stage buildet](https://docs.docker.com/develop/develop-images/multistage-build/).
+Még egy trükköt fogunk alkalmazni, az ún. [multi-stage buildet](https://docs.docker.com/develop/develop-images/multistage-build/).
 Ezzel azt lehet elérni, hogy létrehozunk egy Docker konténert, melyben előkészítjük az alkalmazásunkat (kitömörítjük az előző paranccsal),
 és ennek eredményét, a könyvtárakat külön másoljuk át a végleges konténerbe. Ez azért fog működni, mert minden egyes külön
 kiadott `COPY` parancs egy külön layert fog létrehozni.
