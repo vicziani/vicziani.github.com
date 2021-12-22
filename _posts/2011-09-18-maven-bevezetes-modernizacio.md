@@ -12,7 +12,7 @@ Technológiák: Maven 3.0.3
 
 Valahogy az elmúlt időszakban úgy alakult, hogy három projektben is
 Maven szaktanácsadást nyújthattam. Ebből egy egy teljesen nulláról
-induló projekt, egy Ant-ról migrálós projekt valamint egy már meglévő
+induló projekt, egy Antról migrálós projekt valamint egy már meglévő
 Maven projekt továbbfejlesztése. Az ezekben szerzett tapasztalatokról
 szeretnék itt beszámolni.
 
@@ -26,9 +26,9 @@ ami során sikerült megismerni a jelenlegi Maven struktúrát, a legjobb
 gyakorlatokat alkalmazni, és felderíteni a gyenge pontokat. Persze sok
 utómunkával jár, és vannak ötletek, hogy merre lehetne tovább fejlődni.
 A három nap tartalmazta a verziókezelés folyamatának kialakítását is, az
-előző post-jaim ezekről szóltak.
+előző postjaim ezekről szóltak.
 
-Magáról az országról sokat nem tudok írni, az eltöltött öt nap
+Gibraltáron eltöltött öt nap
 benyomások szerzésére volt elegendő. Egy apró brit tengerentúli terület
 (7 négyzetkilométer), ami minden egyes pontján erősen érződik is. Angol
 a hivatalos nyelv, emeletes busz, klasszikus londoni telefonfülke és még
@@ -95,15 +95,15 @@ Java EE alkalmazások. Milyen környezetben futnak, milyen operációs
 rendszerek, alkalmazásszerverek használtak, mennyire fontos a
 platformfüggetlenség. A build folyamat szempontjából ezek cseppet sem
 elhanyagolhatóak, hiszen ez alapján nagyjából sejteni lehet, hogy mennyi
-és milyen típusú artifact-okra lehet számítani. Ez esetemben kb. 10
+és milyen típusú artifactokra lehet számítani. Ez esetemben kb. tíz
 alkalmazás, közte standalone és webes is.
 
 Fel kell térképezni a jelenlegi Maven struktúrát. Ez a fejlesztői
 környezet installálása saját gépen (rögzítsük, hogy ez milyen lépésekből
 áll, mennyire bonyolult, hogyan lehet egyszerűsíteni), valamint annak
 futtatása. Rögzítsük impresszióinkat, mennyi ideig tart, vannak-e
-warning-ok, hibaüzenetek. És a legunalmasabb rész, át kell böngészni
-egyesével a pom.xml-eket, és jegyzeteket készíteni, hol lehet és kell
+figyelmeztetések, hibaüzenetek. És a legunalmasabb rész, át kell böngészni
+egyesével a `pom.xml`-eket, és jegyzeteket készíteni, hol lehet és kell
 módosítani. Közben rögzítem azokat az eszközöket is, amelyek nem
 szokványosak, pl. egyedi forráskód generálás, stb. Feljegyzem, hogy hol
 "bűzlik a kód". Az ügyfelet is kérdezzük meg, hogy hol érzi rossznak,
@@ -134,7 +134,7 @@ kezelni, bekerül a projektbe, de utána kikerül, de a függőségek közül
 nem távolítják el. Nem megfelelő scope-ba veszik fel, pl. csak
 teszteléskor van rá szükség, mégis normál függőségként szerepel.
 Egymással ütköző library-k vannak, melyek csak a véletlennek
-köszönhetően működnek együtt (pl. előbb van a classpath-ban), ilyenek
+köszönhetően működnek együtt (pl. előbb van a classpath-on), ilyenek
 pl. az naplózó keretrendszerek, az XML library-k. Láttam olyant is, hogy
 egy library-nak különböző verziói szerepeltek a függőségek között (pl.
 változott a library group vagy artifact id-ja). Egy feladatra különböző
@@ -164,7 +164,7 @@ találni a megfelelő granularitást, új modulokat bevezetni, modulokat
 összevonni vagy szétválasztani.
 
 Válasszuk ki a megfelelő eszközöket. Amennyiben úgy gondoljuk, ne
-erőltessük a Maven-t. Nem minden projekt, és nem minden fejlesztőgárda
+erőltessük a Mavent. Nem minden projekt, és nem minden fejlesztőgárda
 tud megfelelően illeszkedni hozzá. Minél szabványosabb a projekt, annál
 egyszerűbb adoptálni. Amennyiben túl sok egyediség van az
 architektúrában, a fejlesztési folyamatban, vagy a fejlesztők nem eléggé
@@ -215,35 +215,35 @@ javítani, stb.
 
 Első körben, amennyiben a projekt még nem végleges, egy olyan build
 folyamatot valósítsunk meg, mely bitre pontosan ugyanazokat az
-artifact-okat gyártja le, mint az előző build folyamat (pl. script-ek,
-Ant build.xml-ek). Bár lehet, hogy nagyobb refactoring-ot kell
+artifact-okat gyártja le, mint az előző build folyamat (pl. scriptek,
+Ant `build.xml`-ek). Bár lehet, hogy nagyobb refactoringot kell
 elvégeznünk, ez mégis segít a megértésben, a trükkös megoldások
 felderítésében, a projekt sajátosságainak megértésében. És azonnali
 eredményt biztosít, hiszen azonnal bevethetjük.
 
 Alakítsuk ki a könyvtárstruktúrát, lehetőleg a Maven által definiált
-kvázi szabványoknak megfelelően, és írjuk, módosítsuk a pom.xml
-állományokat, és alakítsuk ki a verziókezelő struktúrát. A pom.xml-ek
+kvázi szabványoknak megfelelően, és írjuk, módosítsuk a `pom.xml`
+állományokat, és alakítsuk ki a verziókezelő struktúrát. A `pom.xml`-ek
 megírására most nem térnék ki, a követendő legjobb gyakorlatok a
-következő post-om tárgya. Konvencióknak megfelelően nevezzük meg a
+következő posztom tárgya. Konvencióknak megfelelően nevezzük meg a
 projekteket, adjunk verziószámot, definiáljuk a függőségeket, a
-plugin-eket (legyenek akár report plugin-ek). Amennyiben szükséges,
+plugineket (legyenek akár report pluginek). Amennyiben szükséges,
 használjuk profile-okat.
 
 Az egyik projekt során feladat volt Maven 2-ről Maven 3-ra migrálni.
-Ezzel csak jó tapasztalataim voltak. Első körben azonnal warning-okat ír
-ki, ami a nem megfelelő pom.xml bejegyzéseket tartalmazza (pl. nincs
-definiálva a plugin-ek verziószáma). Ezeket mindenképpen eliminálni
+Ezzel csak jó tapasztalataim voltak. Első körben azonnal figyelmeztetéseket ír
+ki, ami a nem megfelelő `pom.xml` bejegyzéseket tartalmazza (pl. nincs
+definiálva a pluginek verziószáma). Ezeket mindenképpen eliminálni
 szükséges. A build is gyorsabb 3-as Maven-nel, bár nem számottevően. És
 volt olyan is, hogy egy multimodule projektet a 2-es nem tudott
 release-elni, mert a modulok közötti függőség esetén nem találta a
-"testvér" modult a reactor-ban, míg a 3-as gond nélkül megcsinálta.
+"testvér" modult a Reactorban, míg a 3-as gond nélkül megcsinálta.
 
 Az implementáció során előállt termékek:
 
 -   Verziókezelő struktúra
--   A pom.xml állományok
--   Különböző segéd script-ek
+-   A `pom.xml` állományok
+-   Különböző segéd scriptek
 -   Különböző napló állományok
 -   Build folyamat dokumentációja
 -   Továbbfejlesztési javaslatok dokumentációja
@@ -251,14 +251,14 @@ Az implementáció során előállt termékek:
 ### Tesztelés
 
 A build folyamatot ugyanúgy kell tesztelni. Első körben elegendő
-összehasonlítani, hogy az előállított artifact-ek bitre megegyeznek-e.
+összehasonlítani, hogy az előállított artifactok bitre megegyeznek-e.
 Ha már ezen a szinten is módosításokat tettünk, akkor tesztelni kell,
-hogy az előállított artifact-el ugyanúgy működnek-e (nem hiányzik-e jar,
-amit egy ClassNotFoundException jelez, stb.). Adjuk oda a fejlesztőknek
+hogy az előállított artifacttal ugyanúgy működnek-e (nem hiányzik-e jar,
+amit egy `ClassNotFoundException` jelez, stb.). Adjuk oda a fejlesztőknek
 az eszközt, hogy vegyék használatba. Elemezzük a használati eseteket,
 hogy mindent lefedtünk-e. Ez az egyszerű fejlesztés, build
 parancssorban, build és futtatás IDE-ben. Build a CI szerveren.
-Fejlesztés branch-en, merge-ölés. Release. Artifact-ek deploy-olása
+Fejlesztés branch-en, merge-ölés. Release. Artifactok deploy-olása
 különböző környezetekre. Gyűjtsük össze a fejlesztők benyomásait,
 tapasztalatait. Határozzuk meg újra a mérőszámokat, és hasonlítsuk össze
 a projekt kezdetén mértekkel. Szükség esetén javítsuk a hibákat,
@@ -266,7 +266,7 @@ gyűjtsük a továbbfejlesztési ötleteket.
 
 Befejezésül annyit, hogy egy Maven alapú build folyamat kialakítása nem
 egyszerű feladat, és nagymértékben meg kell ismerni, meg kell érteni az
-alkalmazást is, mely build-elésre kerül. A build folyamat megvalósítása
+alkalmazást is, mely buildelésre kerül. A build folyamat megvalósítása
 egy kis szoftverfejlesztési projekt, ugyanazon lépésekkel, ugyanúgy
 iteratívan. Szánjunk időt és erőforrást a kialakítására és
 karbantartására. Ez az ugródeszka, mely a teljes szoftverfejlesztési
