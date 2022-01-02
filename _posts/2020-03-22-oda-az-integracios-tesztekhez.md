@@ -53,7 +53,7 @@ alkalmazás részeit hogyan nevezzük. A legalsó szinten vannak az osztályok, 
 megegyezthetünk, azonban az egyel magasabb szinten mik helyezkednek el?
 Nevezik ezeket moduloknak (pl. Java Application Architecture könyv, OSGi),
 komponenseknek (pl. a Clean Architecture könyv, ami nagyon szembe megy pl. a
-Spring Framework/Java EE elnevezésével, ahol egy komponens egy bean), plugin-eknek, stb.
+Spring Framework/Java EE elnevezésével, ahol egy komponens egy bean), plugineknek, stb.
 Már az alkalmazásra is különböző neveket szoktak használni, mint rendszer,
 service, stb. A Clean Architecture könyv és a microservices architektúra service-nek
 hívja az alkalmazást és ez számomra

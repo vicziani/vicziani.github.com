@@ -98,7 +98,7 @@ Persze, vannak hátrányai is. Egyrészt a fentebb említett telepítési
 problémák, melyek bizonyos környezetekben egyszerűen kizárják a vastag
 klienses alkalmazás használatát. Azért ne legyenek téveszméink, ilyen
 problémák webes környezetben is adódhatnak, különböző böngésző
-inkompatibilitások, bezavaró plugin-ek, elkonfigurált tűzfalak, stb.
+inkompatibilitások, bezavaró pluginek, elkonfigurált tűzfalak, stb.
 Másik a platformfüggetlenség. Ha Java alapú technológiákat választunk,
 akkor ezzel sem lesz annyi problémánk, mint régen, amikor azért tényleg
 másképp néztek ki az alkalmazások különböző környezetekben. Amit fel

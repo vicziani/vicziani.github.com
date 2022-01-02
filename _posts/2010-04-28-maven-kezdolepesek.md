@@ -120,7 +120,7 @@ lifecycle egyik fázisa `package`, mely a jar plugin `jar` goalját hívja meg
 bizonyos esetekben. Persze ezt magunk személyre is szabhatjuk. Első
 feladat megérteni a Maven tanulásakor, mikor kiadunk egy parancsot, mi
 is fut le, milyen életciklus milyen fázis, milyen plugin milyen goalja.
-A plugin-ek kaphatnak paramétereket.
+A pluginek kaphatnak paramétereket.
 
 A Maven előnye, hogy nagyban megkönnyíti a csapattagok kommunikációját,
 valamint a fejlesztésbe bekapcsolódást, ugyanis képes kigenerálni

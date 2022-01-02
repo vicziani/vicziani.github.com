@@ -192,7 +192,7 @@ osztályait. Ekkor javítsuk direkt függőségre.
 Pluginek esetén is mindig deklaráljuk a verziószámot, szülő projekt
 létezése esetén annak `pluginManagement` szekciójában, hiszen az
 öröklődik, ahogy egy régebbi
-[posztban](/2011/08/04/maven-plugin-ek-verzioszama.html) írtam.
+[posztban](/2011/08/04/maven-pluginek-verzioszama.html) írtam.
 
 Amennyiben ugyanazt a függőséget több modul is használja, érdemes a
 szülő projektben felsorolni a függőségek verziószámát, és `exclude`

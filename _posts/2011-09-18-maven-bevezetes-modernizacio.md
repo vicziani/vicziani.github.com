@@ -170,7 +170,7 @@ egyszerűbb adoptálni. Amennyiben túl sok egyediség van az
 architektúrában, a fejlesztési folyamatban, vagy a fejlesztők nem eléggé
 nyitottak a Maven irányába, alaposan gondoljuk meg, hogy van-e értelme,
 ilyen környezetben kétes a projekt sikere. Amennyiben azonban a Maven-t
-válasszuk, jelöljük meg, hogy milyen plugin-eket kívánunk használni.
+válasszuk, jelöljük meg, hogy milyen plugineket kívánunk használni.
 Dokumentáljuk döntéseinket.
 
 Elemezzük a függőségeket. Tervezzük meg, hogy mely függőségek

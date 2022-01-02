@@ -308,7 +308,7 @@ A Hudson web konténerbe is telepíthető, de önmagában is futtatható.
 Töltsük le a war fájlt, és elindítható a `java -jar hudson.war`
 paranccsal, és elérhető lesz a `http://localhost:8080` címen. A plugint
 telepíteni úgy lehet, hogy a Manage Hudson menüpontban a Manage Plugins
-funkciót kell kiválasztani, majd az elérhető plugin-ek között ki kell
+funkciót kell kiválasztani, majd az elérhető pluginek között ki kell
 választani a következőt: M2 Release Plugin This plugin allows you to
 perform a release build using the maven-release-plugin from within
 Hudson. Majd az Install gombot megnyomni, és a sikeres visszajelzés után

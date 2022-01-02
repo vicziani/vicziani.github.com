@@ -148,7 +148,7 @@ is érdemes rá szót vesztegetni.
 A könyv mintapéldái elérhetők, érdekes módon félig Maven-nel
 build-elődnek, de az alkalmazásszerverre deploy, bizonyos generálások
 Ant task-kal történnek. Furcsa, hogy nem hív Ant-ot Maven-ből, vagy nem
-valami Maven JAXB és JAX-WS plugin-eket használ. Bár ez utóbbit
+valami Maven JAXB és JAX-WS plugineket használ. Bár ez utóbbit
 megértem, mert elég nagy a kavar körülöttük.
 
 Kinek érdemes elolvasnia a könyvet? Aki a JAX-WS világában frissen el
