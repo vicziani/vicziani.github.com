@@ -8,6 +8,8 @@ description: Pár gondolat arról, hogy tudnának a fejlesztők és a tesztelők
 
 ## Bevezetés
 
+Frissítve: 2022. augusztus 21-én, kiegészítve a _Naplózás fontossága_ résszel, valamint a cache-re vonatkozó ajánlásokkal
+
 Ahhoz, hogy sikeres szoftvert tudjunk szállítani, hiszem, hogy nagyon fontos a fejlesztők és
 a tesztelők közötti szoros együttműködés. És mikor tesztelőket említek, ugyanúgy gondolok
 a manuális és automata tesztelőkre is. Az irányzat, mely a fejlesztők és az üzemeltetők 
@@ -63,7 +65,7 @@ tematikáját máris látható, hogy mennyi mindennel kéne tisztában lenni. Sz
   * Tesztmenedzsment
   * Tesztmenedzsment szoftverek
 * IT ismeretek
-  * Szoftverfejlesztési életciklusmodellek, szerepkörk
+  * Szoftverfejlesztési életciklusmodellek, szerepkörök
   * Operációs rendszerek, irodai szoftverek használata
   * Hálózati fogalmak
   * Architektúrák
@@ -254,8 +256,6 @@ Már egy pár oldalas Entity Relationship Diagram, pár magyarázó szóval is r
 
 Ugyanígy már vannak technológiák, szabványok, formátumok az API dokumentálására is. SOAP esetén ott a WSDL, REST esetén ott az OpenAPI, sőt egy erre épülő, dokumentációt is megjeleníteni képes, a REST webszolgáltatások meghívását is biztosító eszköz, a [Swagger](https://swagger.io/). Az OpenAPI egy zseniális találmánya, hogy képes példa értékek tárolására is (`example`), ami remek tipp lehet a tesztelők számára, hogy milyen értékekkel töltsék fel a hiányzó adatokat.
 
-Fejlesztőként felelősségem az is, hogy olvasható üzeneteket írjak a logba. A tesztelő számára egy hasznos információkat tartalmazó log kincset érhet. Pláne, ha ehhez egy kereshető, szűkíthető felület is tartozik. (Klasszikusan az ELK stack: Elasticsearch - Logback - Kibana, vagy valami modernebb alternatívája.)
-
 ## Rossz gyakorlat: Nálam működik!
 
 Ha a tesztelő megkeres egy hibával, nem lehet az az első dolgom, hogy megpróbálom lepattintani. Például azzal, hogy a böngésző cache-t törölted-e? Amennyiben egy új verzió kirakásánál a cache a tesztelőknél problémát okoz, akkor problémát fog okozni a felhasználóknál is. A http protokoll amúgy nagyon jó megoldásokat biztosít ennek finom szabályozására, melyeket ráadásul a keretrendszerek is támogatnak (pl. URL generálás, hash használata, cache headerök, ETag, stb).
@@ -293,12 +293,24 @@ A fentieket figyelembe véve a következőkön kell elgondolkozni, és figyelemb
 * Dokumentáljuk az API-t
 * Autentikáció legyen kikapcsolható
 * Captcha legyen kikapcsolható
-* Informatív naplóüzeneteket használjunk
 * Zseniális ötlet, hogy minden egyes kéréshez rendeljünk egy azonosítót, mely azonosítót aztán a logban is megjelenítünk
 * Legyen az alkalmazás konténerizált, könnyen el lehessen indítani egy új példányt
 * Segítsünk az adatok anonimizálásában
 * Legyen könnyen lekérdezhető az alkalmazás verziószáma
+* A cache helyes alkalmazása bonyolult feladat, ahogy annak tesztelése is. Biztosítsunk lehetőséget arra, hogy a cache-t törölni lehessen, illetve tartalmát le lehessen kérdezni. Jó ötlet, ha a teszt környezetben jelöljük (pl. http headerben), hogy a válasz a cache-ből került kiszolgálásra.
 * Könnyítsük meg a felületi tesztelést: adjunk azonosítókat a felületi elemekhez. Ezzel nagymértékben megkönnyítjük a felületi E2E teszteket írók munkáját.
+
+### Naplózás fontossága
+
+Sokan a naplózást csak a hibakeresés egy eszközének tartják. Azonban nagyon hasznos lehet egy tesztelő számára is.
+
+Az alkalmazás indulását egyértelműen jelezzük a naplóban, ahogy az alkalmazás verziószámát is írjuk ki! Informatív naplóüzeneteket használjunk! Az `error`, vagy `fatal` szintű naplóbejegyzéseket tényleg csak akkor írjunk ki, hogyha azzal valamit tennünk kell! Sokszor látom, hogy egy napló tele van hibákkal, mire a fejlesztő csak legyint, hogy az úgy van jól.
+
+Naplózzuk ki az adatbázis felé küldött SQL utasításokat is! Nagyon megkönnyíti a tesztelő munkáját, ha minden képernyő betöltéskor, vagy API híváskor látja, milyen SQL utasítások kerülnek lefuttatásra. 
+
+Ugyanúgy naplózzuk a külső rendszerek felé menő kéréseket, valamint az arra kapott válaszokat! Lehetőleg még bármilyen feldolgozás előtt, a natív kéréseket és válaszokat.
+
+A naplóhoz egy kereshető, szűkíthető felület is tartozzon. (Klasszikusan az ELK stack: Elasticsearch - Logback - Kibana, vagy valami modernebb alternatívája.) Különösen egy elosztott rendszer esetén nem túl egyszerű különböző gépeken lévő fájlokból összevadászni a megfelelő információkat. (Itt figyeljünk, hogy a gépek órája össze legyen szinkronizálva, sok helyen látom, hogy a szerverek órája között akár perces eltérések is szoktak lenni.)
 
 ## Tévhit: "Ha működik, az már elég."
 
