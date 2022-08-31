@@ -5,16 +5,16 @@ date: '2009-01-25T12:25:00.006+01:00'
 author: István Viczián
 tags:
 - Library
-modified_time: '2018-06-09T10:00:00.000-08:00'
+modified_time: '2022-08-31T22:30:00.000+02:00'
 ---
 
 Oktatás során szoktam hangsúlyozni, hogy a Java nem csak egy
 programozási nyelv, hanem sokkal több annál, divatos szóval nevezhetnénk
 akár platformnak, egy blogger nézőpontjából életformának.
 
-A Sun-nak ezzel kapcsolatban van egy nagyon jól eltalált [Java
+A Sunnak ezzel kapcsolatban van egy nagyon jól eltalált Java
 Technology Concept
-Map](http://java.sun.com/new2java/javamap/intro.html) nevezetű kiadványa,
+Map nevezetű kiadványa,
 mely egy lapon próbálja a Java részeit, és a Java világához tartozó
 dolgokat megemlíteni.
 
@@ -24,14 +24,14 @@ Nézzük melyek is azok a nevek, technológiák, szabványok nagy vonalakban,
 melyeket mindenképp érdemes megemlíteni:
 
 -   Java mint objektum-orientált programozási nyelv, mely egy
-    [specifikáció](http://java.sun.com/docs/books/jls/).
+    [specifikáció](https://docs.oracle.com/javase/specs/).
 -   A Java virtuális gépet (Java Virtual Machine - JVM), mely szintén
-    egy [specifikáció](http://java.sun.com/docs/books/jvms/).
--   [Java SE (Standard Edition)](http://java.sun.com/javase/6/docs/),
+    egy [specifikáció](https://docs.oracle.com/javase/specs/).
+-   [Java SE (Standard Edition)](https://docs.oracle.com/javase/6/docs/),
     mely egy fejlesztési platform asztali, egyszerűbb szerver
     alkalmazások fejlesztésére, mely már tartalmaz egy kiterjedt
     [osztálykönyvtárat,
-    API-t](http://java.sun.com/javase/6/docs/api/index.html).
+    API-t](https://docs.oracle.com/javase/6/docs/api/index.html).
 -   Ezen specifikációk legelterjedtebb megvalósítása a Sun Java SE
     Runtime Environment (JRE), mely egy futtató környezet, benne a Sun
     HotSpot virtuális géppel, valamint a Java SE Development Kit (JDK),
@@ -48,11 +48,11 @@ melyeket mindenképp érdemes megemlíteni:
 -   A Java elvei közé tartozik, hogy specifikációkat hoznak ki, és arra
     több gyártó, sőt akár nyílt forráskódú közösség is adhasson ki
     implementációt. A szabványok kidolgázásáért felelős szervezet az
-    [Java Community Process (JCP)](http://jcp.org/en/home/index),
+    [Java Community Process (JCP)](https://jcp.org/en/home/index),
     melynek keretében szabvány kérelmeket (Java Specification Request -
     JSR) állítanak elő. Van JSR olyan alap dologhoz is, mint a
     programozási nyelv maga ([JSR
-    901](http://jcp.org/en/jsr/detail?id=901)), de olyan nagyvállalati
+    901](https://jcp.org/en/jsr/detail?id=901)), de olyan nagyvállalati
     specifikációk is, mint a Java EE, EJB3, JPA, portlet, stb.
 -   Természetesen egy nyelv keveset ér a fejlesztők nélkül. A Sun a Java
     fejlesztők számát 10 millió fölé tippeli.
@@ -92,7 +92,7 @@ melyeket mindenképp érdemes megemlíteni:
     cikkekből, tutorial-okból, FAQ-kból, példaprogramokból és ha adott,
     akár a forráskód is segíthet. A Java-hoz különböző események,
     konferenciák, közösségek (pl. a magyar Java Users Group - JUG, a
-    [Java User Meeting - JUM](http://www.jum.hu/) is ilyen).
+    Java User Meeting - JUM is ilyen).
 -   A Java alapú szoftverfejlesztéshez (de a szoftverfejlesztéshez
     általában) rengeteg elméleti tudás, metodológia, módszertan is
     kapcsolódik, melynek széles körű áttekintse, megismerése is
@@ -111,14 +111,15 @@ Ezek közül egyik a Lucene könyvtár, mely egy nagy teljesítményű, minden
 alkalmazási területet lefedő, Java nyelven implementált ingyenes, nyílt
 forráskódú keresőmotor (az Apache Software Licence alatt).
 
-A Lucene-ről már 2003 májusában már megjelent egy cikkem, de azóta a
-könyvtár több változáson ment keresztül, így a cikket is frissítettem,
-az [új verzió](http://delfin.unideb.hu/%7Evicziani/pdf/lucene.pdf)
-letölthető a honlapomon.A következő forráskód megmutatja, hogyan kell
+A Lucene-ről már már letölthető egy [cikkem](/artifacts/lucene.pdf).
+
+A [példaalkalmazás](https://github.com/vicziani/jtechlog-lucene) megtalálható a GitHubon.
+
+A következő forráskód megmutatja, hogyan kell
 egy JavaMail API részét képző üzenetet indexelni (nem teljes
 részletességgel).
 
-```
+```java
 public void indexMessages(Message[] messages) {
 ...
 Directory directory = new RAMDirectory();
@@ -142,17 +143,17 @@ writer.close();
 }
 ```
 
-A kódrészlet először létrehoz egy RAMDirectory, ami az indexet a
+A kódrészlet először létrehoz egy `RAMDirectory` példányt, ami az indexet a
 memóriában tárolja. Majd példányosítja a beépített szabványos
-feldolgozót (Analyzer), létrehoz egy IndexWriter objektumot. Majd
+feldolgozót (`Analyzer`), létrehoz egy `IndexWriter` objektumot. Majd
 végigiterál az üzeneteken, és mindegyik üzenethez létrehoz egy üres
-dokumentumot (Document). A dokumentumhoz hozzáadja a különböző mezőket.
+dokumentumot (`Document`). A dokumentumhoz hozzáadja a különböző mezőket.
 A tárolt mezőt kereséskor le lehet kérni az eredeti formában a találati
 listából. Az indexelt mezőre lehet keresni.
 
 A következő kódrészlet megmutatja, hogyan kell keresni.
 
-```
+```java
 public void searchMessages(Directory dir, String query) {
  ...
  IndexSearcher s = new IndexSearcher(dir);
@@ -166,17 +167,17 @@ public void searchMessages(Directory dir, String query) {
 }
 ```
 
-Először egy IndexSearcher objektumot kell példányosítani, melyek
-konstruktorban egy Directory-t kell átadni. Majd egy Query-t kell
+Először egy `IndexSearcher` objektumot kell példányosítani, melyek
+konstruktorban egy `Directory`-t kell átadni. Majd egy `Query`-t kell
 létrehozni a szöveges keresési feltétel elemzésével (ez dobhat
-ParseException kivételt), a QueryParser osztállyal lehetséges. Ennek meg
+`ParseException` kivételt), a `QueryParser` osztállyal lehetséges. Ennek meg
 kell adni a keresési feltétel szöveges ábrázolását, az alapértelmezett
-mezőt és egy feldolgozót. A keresést futtatva egy TopFieldDocs
+mezőt és egy feldolgozót. A keresést futtatva egy `TopFieldDocs`
 objektumot kapunk vissza, amitől le lehet kérdezni a találatokat
-reprezentáló ScoreDoc objektumokat a dokumentum azonosítójával és
-pontszámával. A dokumentumot az IndexSearcher-től lehet elkérni annak
+reprezentáló `ScoreDoc` objektumokat a dokumentum azonosítójával és
+pontszámával. A dokumentumot az `IndexSearcher`-től lehet elkérni annak
 azonosítója alapján, és a dokumentum egy mezőjét pedig a
-Document.get(String fieldName) metódussal.
+`Document.get(String fieldName)` metódussal.
 
-A forráskód magyarázata, és a Lucene-el kapcsolatos rengeteg információ
+A forráskód magyarázata, és a Lucene-nel kapcsolatos rengeteg információ
 elolvasható a cikkben.
