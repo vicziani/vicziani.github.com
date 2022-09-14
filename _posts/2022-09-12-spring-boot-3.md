@@ -11,7 +11,7 @@ description: Részletes bemutatása annak, hogy mi is várható a Spring Boot 3-
 Mivel a hétvégén megkaptam, hogy írjak már Javas cikkeket, így ebben a posztban
 a Spring Boot 3 újdonságait veszem sorra. A Spring Boot 3-as sorozat már a Spring
 Framework 6-os sorozatára építkezik, ennek újdonságait nem fogom külön tárgyalni. 
-A poszt megírásának a pillanatában a legfrissebb verzió a `3.0.0-M4`, és mivel
+A poszt megírásának a pillanatában a legfrissebb verzió a 3.0.0-M4, és mivel
 erőteljesen fejlesztés alatt van, még változhat, érdemes visszanézni, 
 fogom majd frissíteni a posztot. 
 
@@ -26,6 +26,8 @@ Az említendő változások a következő területeket érintik:
 * Problem Details
 * Tracing
 * Natív futtatható fájl elkészítése
+
+<!-- more -->
 
 ## RFC 7807 - Problem Details
 
@@ -207,8 +209,8 @@ A projektben a Brave implementációt választottam, amihez a következő függ�
 </dependency>
 
 <dependency>
-			<groupId>io.zipkin.reporter2</groupId>
-			<artifactId>zipkin-reporter-brave</artifactId>
+  <groupId>io.zipkin.reporter2</groupId>
+  <artifactId>zipkin-reporter-brave</artifactId>
 </dependency>
 
 <dependency>
@@ -252,7 +254,7 @@ Observation observation = Observation.start("controller.hello", observationRegis
 
 Ez a következőképp fog kinézni a Zipkinben (feltételezve, hogy a service-ben is van egy `service.hello` span):
 
-<a href="zipkin_sb.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/images/zipkin_sb_750.png)</a>
+<a href="/artifacts/posts/images/zipkin_sb.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/images/zipkin_sb_750.png)</a>
 
 Találtam egy `@Observed` annotációt is mellyel mindezt deklaratív módon lehetne megadni, de nem találtam meg, hogy Spring Boot alatt mi dolgozza fel.
 
@@ -260,12 +262,12 @@ Természetesen az lenne a legjobb, ha ezt nem nekem kéne elindítanom, hanem pl
 valami automatikusan indít egy spant. Erre ott a `io.zipkin.brave:brave-instrumentation-spring-webmvc` projekt,
 ami még `javax.servlet` hivatkozásokat tartalmaz, azaz Spring Boot 3-mal még nem működik.
 
-Az is jó lenne, ha a trace id és a span id automatikusan megjelenne a logban is. Erre is ott a `io.zipkin.brave:brave-context-slf4j` projekt, de szintén nem sikerült belőni. [Open issue van róla.](https://github.com/spring-projects/spring-boot/issues/31468).
+Az is jó lenne, ha a trace id és a span id automatikusan megjelenne a logban is. Erre is ott a `io.zipkin.brave:brave-context-slf4j` projekt, de szintén nem sikerült belőni. [Nyitott issue](https://github.com/spring-projects/spring-boot/issues/31468) van róla.
 
 Szóval látszik, hogy ez a terület még erőteljes fejlesztés alatt áll, és dokumentáció alig. [Issue van](https://github.com/spring-projects/spring-boot/issues/30658) a dokumentáció fejlesztésére.
 
 Az is látszik a GitHub issue-kat olvasgatva, hogy itt nagyon sok library együttes fejlesztését kell megoldani. Pl.
-a Micrometer is az egyik verzióban a `2.0.0-M1` volt behúzva, a Spring Boot `3.0.0-M4`-ben visszaléptek a `1.10.0-M3`
+a Micrometer is az egyik verzióban a `2.0.0-M1` volt behúzva, a Spring Boot 3.0.0-M4-ben visszaléptek a 1.10.0-M3
 verzióra.
 
 # Natív futtatható fájl
@@ -405,7 +407,7 @@ docker run -p 8080:8080 -eSPRING_DATASOURCE_URL=jdbc:mariadb://e2-mariadb/employ
 De azt hiszem, hogy az indulás ideje kárpótol ezért. Az alkalmazást letesztelve tökéletesen működik.
 Természetesen az image mérete és a memóriafelhasználás is kevesebb.
 
-<a href="spring-boot-native.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/images/spring-boot-native_750.png)</a>
+<a href="/artifacts/posts/images/spring-boot-native.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/images/spring-boot-native_750.png)</a>
 
 Azaz 0,2 másodperc!
 
