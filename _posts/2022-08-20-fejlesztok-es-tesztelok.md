@@ -10,6 +10,7 @@ description: Pár gondolat arról, hogy tudnának a fejlesztők és a tesztelők
 
 Frissítve: 2022. november 04-én, kiegészítve a _Rossz gyakorlat: Egy projekten már teszteltünk, nem vált be_, 
 a _Rossz gyakorlat: nem megfelelő üzleti fogalmakat használok_, a _Rossz gyakorlat: nem megfelelő branch-en történik a tesztelés_, és a _Rossz gyakorlat: nem bontom részproblémákra a problémát_ fejezetekkel
+
 Frissítve: 2022. augusztus 21-én, kiegészítve a _Naplózás fontossága_ résszel, valamint a cache-re vonatkozó ajánlásokkal
 
 Ahhoz, hogy sikeres szoftvert tudjunk szállítani, hiszem, hogy nagyon fontos a fejlesztők és
