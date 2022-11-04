@@ -8,6 +8,8 @@ description: Pár gondolat arról, hogy tudnának a fejlesztők és a tesztelők
 
 ## Bevezetés
 
+Frissítve: 2022. november 04-én, kiegészítve a _Rossz gyakorlat: Egy projekten már teszteltünk, nem vált be_, 
+a _Rossz gyakorlat: nem megfelelő üzleti fogalmakat használok_, a _Rossz gyakorlat: nem megfelelő branch-en történik a tesztelés_, és a _Rossz gyakorlat: nem bontom részproblémákra a problémát_ fejezetekkel
 Frissítve: 2022. augusztus 21-én, kiegészítve a _Naplózás fontossága_ résszel, valamint a cache-re vonatkozó ajánlásokkal
 
 Ahhoz, hogy sikeres szoftvert tudjunk szállítani, hiszem, hogy nagyon fontos a fejlesztők és
@@ -118,6 +120,14 @@ elvégzésében.
 
 Ha el akarunk mozdulni a continuous integration vagy delivery felé, az automata tesztelés elengedhetetlen. Hiszen milyen más lépés tudná automatikusan biztosítani, az alkalmazás minőségét?
 
+## Rossz gyakorlat: Egy projekten már teszteltünk, nem vált be
+
+Gyakran hallottam ellenérvként azt is, hogy egy projekten már próbáltuk a tesztelés valamely ágát, pl. manuális tesztelést,
+vagy automata felületi/API tesztelést, de nem váltotta be a hozzá fűzött reményeket, nem hozott ki annyi hibát, túl
+nehézkes volt a tesztek karbantartása. Ebben az esetben nem az a megfelelő hozzáállás, hogy a teszteléstől fordulok el,
+hanem meg kell vizsgálni, hogy a tesztelés során mit csináltam rosszul. Jó technikát alkalmaztam? Jó eszközt választottam?
+Nem bonyolítottam túl? Betartottam a tesztpiramist? Jók voltak a tesztjeim?
+
 ## Tévhit: "Legyen a tesztelők egy külön szervezeti egység, akár külön cég."
 
 A teljes continuous delivery mozgatórugója, a gyors feedback. Tesztelők egyik alapszabálya, hogy minél hamarabb kiderül a hiba, annál kisebb a kijavításának költsége. Ennek egy összetevője az is, hogy a fejlesztőknél is költséges a context switch, azaz ha valamin elkezdek dolgozni, akkor nehezen térek vissza egy korábbi fejlesztéshez, abban hibát javítani. Ráadásul fejlesztőként szomjazom a feedbackre, a visszajelzésre.
@@ -140,6 +150,30 @@ Amennyiben a sztori leírásában már a tesztelővel együtt definiáljuk az el
 A tesztelőt kihagyni a tervezésből hatalmas hiba. Hisz a fentieken kívül ez remek módja az információátadásnak, és a tesztelő technológiai irányba való továbbképzésének is.
 
 Ha a tesztelést a végére hagyjuk, annak ismerjük a következményeit. A fejlesztés csúszik, a tesztelőknek alig marad idejük a sprint vagy a projekt végén, akkor kell megtervezniük, megírniuk a teszteseteket, futtatniuk, teszt adatokat legyártaniuk. Minél előbb bevonjuk őket, annál többet tudnak akár előre dolgozni.
+
+## Rossz gyakorlat: nem bontom részproblémákra a problémát
+
+Meglepődve tapasztaltam, hogy még tapasztalt fejlesztőknél is sokszor nehezen megy a dekompozíció, azaz
+egy probléma részproblémákra bontása. Nem egyszer hallottam egy ügyféligény elemzése során a fejlesztőktől, hogy ez egy több hetes feladat, nem lehet részekre bontani, mert önmagában nem értelmes, egyben kell kifejleszteni.
+
+Az rendkívül rizikós minden szempontból. Egyrészt a tesztelő ilyenkor gyakran nem szokott közbülső fejlesztéseket megkapni, hanem a végén, egyszerre kapja meg az egészet. Ez gyakran túl komplex átlátni, és idő sincs a teljeskörű tesztelésre. 
+Másrészt az ügyfél is későn kapja meg, és tud visszajelzést adni. Lehet, hogy már akkor, mikor rossz irányba mentünk el a fejlesztéssel.
+
+Azaz a feladatokat apróbb feladatokra, lehetőleg pár napos fejlesztésekre kell lebontani (scrum esetén óvakodjunk a 8 vagy annál nagyobb storypont értékkel rendelkező sztoriktól), úgy, hogy ezek tesztelhetőek is legyenek. Igen, lehet, hogy ezzel némi
+pluszmunkát vállalunk, mert bizonyos funkciókat mockolnunk kell, azonban egyenletesebben tudjuk tesztelni a funkciókat és jobban tudjuk lokalizálni a hibákat, előbb kapunk visszajelzést.
+
+
+## Rossz gyakorlat: nem megfelelő üzleti fogalmakat használok
+
+A pontos kommunikációnak az egyik alapfeltétele, hogy azonos nyelvet beszéljünk, ugyanazokat az üzleti fogalmakat használjuk.
+Gyakran előfordul, hogy nem jól használjuk az üzleti fogalmakat, vagy mást értünk alattuk. A Domain-Driven Design
+alapeleme a mindenütt jelenlévő nyelv (ubiquitous language), mely a közös nyelv, mely elemeit használjuk
+a követelmények, később az üzleti modellünk leírására. Gyakran egy egyszerű fogalomszótár csodákat képes tenni,
+hogy ugyanazokat a szavakat használjuk, és ugyanazt értsük alatta. 
+
+Ennek egy speciális, hazánkban gyakran előforduló fajtája, amikor az üzleti fogalmakat nem megfelelően
+fordítjuk angolra, esetlen tükörfordítást alkalmazunk, vagy a speciálisan magyar üzleti fogalomnak nincs is angol
+megfelelője (pl. jogi, eljárásbeli fogalmak). Itt is érdemes egy közös használatú szótárt bevezetni.
 
 ## Rossz gyakorlat: Nem definiálom az elfogadási kritériumokat.
 
@@ -311,6 +345,18 @@ Naplózzuk ki az adatbázis felé küldött SQL utasításokat is! Nagyon megkö
 Ugyanúgy naplózzuk a külső rendszerek felé menő kéréseket, valamint az arra kapott válaszokat! Lehetőleg még bármilyen feldolgozás előtt, a natív kéréseket és válaszokat.
 
 A naplóhoz egy kereshető, szűkíthető felület is tartozzon. (Klasszikusan az ELK stack: Elasticsearch - Logback - Kibana, vagy valami modernebb alternatívája.) Különösen egy elosztott rendszer esetén nem túl egyszerű különböző gépeken lévő fájlokból összevadászni a megfelelő információkat. (Itt figyeljünk, hogy a gépek órája össze legyen szinkronizálva, sok helyen látom, hogy a szerverek órája között akár perces eltérések is szoktak lenni.)
+
+## Rossz gyakorlat: nem megfelelő branch-en történik a tesztelés
+
+Mostanában elég sokféle branching stratégia elterjedt, úgymint GitFlow, GitHub Flow, GitLab Flow. A Git kifejezetten támogatja
+az új branch létrehozását, hamar kialakult a Feature branch fogalma, melyen egy új funkció kerül lefejlesztésre, 
+a release branch, melyről verziót adunk, vagy a hotfix, melyeken a javításokat szállítjuk.
+
+Ekkor azonban azonnal előjön a kérdés, hogy hol történjen a tesztelés? Jó ötletnek tűnhet, hogy a feature branch-en, így jól tudjuk izolálni, hogy mi rontotta el a funkcionalitást. Valamint ezzel biztosítjuk, hogy nem kerülhet be funkció ismert hibával a
+fősodorba. Igen, de merge során, más feature-ökkel konfliktusba kerülve jelenhetnek meg új hibák. Vagy teszteljük csak a mastert?
+Vagy teszteljünk kétszer, dupla munkával?
+
+A Continuous Delivery egyszerűsíti a branch-elést, Trunk-based developmentent javasolja, és a masteren tesztelést. Csak nagyon apró feature branch-ekkel dolgozik, melyet érdemes mielőbb visszavezetni a masterre.
 
 ## Tévhit: "Ha működik, az már elég."
 
