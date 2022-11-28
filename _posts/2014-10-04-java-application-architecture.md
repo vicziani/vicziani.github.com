@@ -120,9 +120,7 @@ lefordítani, de nem szó szerint, hanem a célja alapján.
 ![Java Application Architecture könyv](/artifacts/posts/2014-10-04-java-application-architecture/modul-tervezesi-mintak_600.png)
 </a>
 
-A könyvhöz tartozó [weboldal](http://www.kirkk.com/modularity/about/) is
-felsorolja a mintákat, és rövid leírásukat, valamint mintánként egy
-ábrát. Jó a hozzá készült
+Készült hozzá
 [refcard](http://refcardz.dzone.com/refcardz/patterns-modular-architecture)
 is, mely letölthető PDF-ben.
 
@@ -137,5 +135,4 @@ legtöbb mintát az ember már ismeri, de mégis ez a könyv foglalja
 rendszerbe, és elemzi ki több oldalról is. Úgy érzem, hogy olyan könyv,
 amit érdemes többször levenni a polcról, és néha-néha újra kinyitni. Bár
 2012-es, még egyáltalán nem elavult, szemben más technológiai
-könyvekkel, és egy darabig még nem is lesz. És talán az OSGi-hez is
-kedvet kapunk.
+könyvekkel, és egy darabig még nem is lesz.
