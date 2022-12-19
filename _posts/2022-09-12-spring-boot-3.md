@@ -54,7 +54,7 @@ a szabványt.
 Vannak erre külön libraryk, pl. a [Zalando Problem](https://github.com/zalando/problem),
 és ennek Spring illesztése a [Problems for Spring MVC and Spring WebFlux](https://github.com/zalando/problem-spring-web). Azonban a 3-as verziótól kezdve a Spring Boot beépítve támogatja.
 
-A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-employees-sb3).
+A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-spring-modulith).
 
 Alapesetben a Spring Boot még mindig az előző hibát adja vissza, azonban a `ProblemDetail`
 osztály használatával már tudunk ezen változtatni, hiszen ez reprezentálja a visszaadott hibát.
@@ -254,7 +254,7 @@ Observation observation = Observation.start("controller.hello", observationRegis
 
 Ez a következőképp fog kinézni a Zipkinben (feltételezve, hogy a service-ben is van egy `service.hello` span):
 
-<a href="/artifacts/posts/images/zipkin_sb.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/images/zipkin_sb_750.png)</a>
+<a href="/artifacts/posts/images/zipkin_sb.png" data-lightbox="post-images">![Zipkin](/artifacts/posts/images/zipkin_sb_750.png)</a>
 
 Találtam egy `@Observed` annotációt is mellyel mindezt deklaratív módon lehetne megadni, de nem találtam meg, hogy Spring Boot alatt mi dolgozza fel.
 
@@ -407,7 +407,7 @@ docker run -p 8080:8080 -eSPRING_DATASOURCE_URL=jdbc:mariadb://e2-mariadb/employ
 De azt hiszem, hogy az indulás ideje kárpótol ezért. Az alkalmazást letesztelve tökéletesen működik.
 Természetesen az image mérete és a memóriafelhasználás is kevesebb.
 
-<a href="/artifacts/posts/images/spring-boot-native.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/images/spring-boot-native_750.png)</a>
+<a href="/artifacts/posts/images/spring-boot-native.png" data-lightbox="post-images">![Spring Boot indulás](/artifacts/posts/images/spring-boot-native_750.png)</a>
 
 Azaz 0,2 másodperc!
 
