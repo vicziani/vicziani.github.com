@@ -7,7 +7,7 @@ author: István Viczián
 
 Aki régebb óta követi a blogomat, tudhatja, hogy az alkalmazások konfigurációjának kezelése, tárolása és betöltése mindig érdekelt. Mivel manapság Spring környezetben dolgozom, adta magát a [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/). A Pivotal (a Spring mögött álló cég) célja a [Spring Boot](http://projects.spring.io/spring-boot/) és a [Spring Cloud](http://projects.spring.io/spring-cloud/) fejlesztésével az, hogy egy olyan egységes, pehelysúlyú, könnyen használható környezetet adjon a microservices architektúra és a cloud kihívásaira, melyet a Spring Frameworkkel adott a nagyvállalati Java fejlesztés megkönnyítésére, valós alternatívát nyújtva a Java EE helyett. A koncepció ugyanaz, főleg létező eszközök egységes keretbe foglalása, elosztott környezetben elterjedt minták alkalmazása.
 
-A Spring Cloud Config használatával könnyen építhető olyan szerver alkalmazás, mely a konfigurációkat tárolja és szolgálja ki a különböző klienseknek. Ezek tárolása különböző lehet, jelenleg fájlrendszer és verziókezelő rendszer (Subversion, Git), és a klienseket REST interfészen szolgálja ki. Képes a jelszavakat és különböző érzékeny konfigurációkat szimmetrikus vagy aszimmetrikus kódolással tárolni. A megváltozott konfigurációról értesíteni tudja a klienseket. Felhasználói felületet nem biztosít a konfigurációk szerkesztésére, hiszen pl. a Git repository képes az állományok verziózott tárolására, hozzáférés szabályozására, ezen kívül rendkívül jó felületek is vannak hozzá (kezdve a parancssorral). A Config Server ezen kívül bármilyen Spring Boot alkalmazásba könnyen beágyazható. A Config Client egy könyvtár mely szintén Spring Boot alkalmazásokban használható a legegyszerűbben, és képes kapcsolódni a Config Server-hez, és a konfigurációkat onnan betölteni. A Spring Unified Property Managementjébe illeszkedik, használva az `Environment` és `PropertySource` absztrakciókat.
+A Spring Cloud Config használatával könnyen építhető olyan szerver alkalmazás, mely a konfigurációkat tárolja és szolgálja ki a különböző klienseknek. Ezek tárolása különböző lehet, jelenleg fájlrendszer és verziókezelő rendszer (Subversion, Git), és a klienseket REST interfészen szolgálja ki. Képes a jelszavakat és különböző érzékeny konfigurációkat szimmetrikus vagy aszimmetrikus kódolással tárolni. A megváltozott konfigurációról értesíteni tudja a klienseket. Felhasználói felületet nem biztosít a konfigurációk szerkesztésére, hiszen pl. a Git repository képes az állományok verziózott tárolására, hozzáférés szabályozására, ezen kívül rendkívül jó felületek is vannak hozzá (kezdve a parancssorral). A Config Server ezen kívül bármilyen Spring Boot alkalmazásba könnyen beágyazható. A Config Client egy könyvtár mely szintén Spring Boot alkalmazásokban használható a legegyszerűbben, és képes kapcsolódni a Config Serverhez, és a konfigurációkat onnan betölteni. A Spring Unified Property Managementjébe illeszkedik, használva az `Environment` és `PropertySource` absztrakciókat.
 
 Ebben a posztban megmutatom, hogy lehet implementálni egy Spring Boot alkalmazást Config Clientként, hogyan kell felépíteni egy Config Servert. Látunk egy példát a titkosításra. Megnézzük, hogy a szerver képes értesíteni a klienseket [Spring Cloud Bus](https://cloud.spring.io/spring-cloud-bus/) infrastruktúrán keresztül (RabbitMQ-t használva). Sőt a végén a [spring-boot-admin](https://github.com/codecentric/spring-boot-admin) grafikus adminisztrációs interfészt is megnézzük Sping Boot alkalmazásokhoz.
 
@@ -19,7 +19,7 @@ A kliensként induljunk ki egy üres Spring Boot alkalmazásból, melyet [Spring
 
 Hozzunk létre egy `Controller` osztályt a `com.example` csomagban a következő kóddal.
 
-{% highlight java %}
+```java
 package com.example;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -40,7 +40,7 @@ public class MessageController {
         return message;
     }
 }
-{% endhighlight %}
+```
 
 Majd az `application.properties` állományba vegyük fel a `message` property értékét:
 
@@ -57,8 +57,8 @@ Természetesen a cím a `spring.cloud.config.uri` property-ben felülbírálhat�
 
 Következő lépésben hozzuk létre a szervert, szintén a [Spring Initializr](http://start.spring.io/) szolgáltatással. Most elég a Web és a Config server függőségeket kiválasztanunk. A `ServerApplication` osztályra tegyük rá a `@EnableConfigServer` annotációt, ezzel már be is ágyaztunk egy Config Servert. Majd be kell állítanunk az `application.properties` állományban, hogy a `8888` porton fusson, valamint a Git repository elérhetőségét, ahol a konfigurációs állományokat tárolni fogjuk.
 
-    server.port: 8888
-    spring.cloud.config.server.git.uri: file:///home/jtechlog/config
+    server.port=8888
+    spring.cloud.config.server.git.uri=file:///home/jtechlog/config
 
 Hozzuk is létre ezt a könyvtárat, majd inicializáljunk egy Git repository-t, és hozzunk létre egy `application.properties` állományt, és commitoljuk be.
 
@@ -83,7 +83,7 @@ Amennyiben `file` típusú repository-t adunk meg, akkor azt direktben olvassa. 
 
 Beírva a `http://localhost:8888/application/default` címet, valami hasonlót kapunk:
 
-{% highlight javascript %}
+```json
 {
     "name": "application",
     "profiles": [
@@ -100,7 +100,7 @@ Beírva a `http://localhost:8888/application/default` címet, valami hasonlót k
         }
     ]
 }
-{% endhighlight %}
+```
 
 Ha elindítjuk a kliens alkalmazást, máris tud kapcsolódni a szerverhez, és a konfigurációt már onnan tölti le, megjelenik a `Hello Git!` üzenet. A logban valami hasonló jelenik meg:
 
@@ -108,20 +108,20 @@ Ha elindítjuk a kliens alkalmazást, máris tud kapcsolódni a szerverhez, és 
     2016-09-04 15:35:42.136  INFO 6766 --- [           main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=application, profiles=[default], label=master, version=37d958ed0ef1a89ca53af1978678e345cba9d149
     2016-09-04 15:35:42.136  INFO 6766 --- [           main] b.c.PropertySourceBootstrapConfiguration : Located property source: CompositePropertySource [name='configService', propertySources=[MapPropertySource [name='file:///home/jtechlog/config/application.properties']]]
 
-A kliens alkalmazás healthcheckjét nézve (http://localhost:8080/health) is látszik, hogy él a szerverrel a kapcsolat:
+A kliens alkalmazás healthcheckjét nézve (http://localhost:8080/actuator/health) is látszik, hogy él a szerverrel a kapcsolat:
 
-{% highlight javascript %}
+```json
 "configServer": {
     "status": "UP",
     "propertySources": [
         "file:///home/jtechlog/config/application.properties"
     ]
 }
-{% endhighlight %}
+```
 
 Sőt, a környezeti változókat kiíratva (http://localhost:8080/env) is látható:
 
-{% highlight javascript %}
+```json
 "configService:file:///home/jtechlog/config/application.properties": {
 
     "message": "Hello Git!"
@@ -132,11 +132,11 @@ Sőt, a környezeti változókat kiíratva (http://localhost:8080/env) is látha
     "message": "Hello World!"
 
 },
-{% endhighlight %}
+```
 
-A Config Server healthcheck szolgáltatása (http://localhost:8888/health) is tökéletesen mutatja, hogy milyen repository-kat ismer:
+A Config Server healthcheck szolgáltatása (http://localhost:8888/actuator/health) is tökéletesen mutatja, hogy milyen repository-kat ismer:
 
-{% highlight javascript %}
+```json
 configServer": {
     "status": "UP",
     "repositories": [
@@ -152,7 +152,7 @@ configServer": {
         }
     ]
 }
-{% endhighlight %}
+```
 
 Amennyiben nem Spring Boot klienst használunk, a Config Server képes properties, és yaml formátumokban is kiszolgálni a kéréseket, a következő címek használatával:
 
@@ -163,9 +163,9 @@ Természetesen Git repository-t használva képesek vagyunk kiszolgálni több a
 
 A Config Server képes a jelszavak titkosított tárolására is. Példánkban alkalmazzunk egy szimmetrikus kulcsú titkosítást. Ehhez egyrészt meg kell adni a kulcsot, másrészt telepíteni kell a JCE Unlimited Strength Jurisdiction Policy [állományokat](http://www.oracle.com/technetwork/java/javase/downloads/index.html) - ez utóbbi az amerikai exportkorlátozások feloldására. A kulcs megadása a Config Server `application.properties` állományában kell megadni `encrypt.key` értékkel. A sikeres beállítás a `http://localhost:8888/encrypt/status` címen ellenőrizhető. Amennyiben ez nincs megadva, a következő hibaüzenetet kapjuk:
 
-{% highlight javascript %}
+```json
 {"description":"No key was installed for encryption service","status":"NO_KEY"}
-{% endhighlight %}
+```
 
 Amennyiben a licensz nincs jól telepítve, a következő exception jelenik meg.
 
@@ -207,7 +207,7 @@ Kliens oldalon elég a `org.springframework.cloud:spring-cloud-starter-bus-amqp`
 
 Ha egy kicsit meg akarjuk érteni, mi történik, kapcsoljuk be, hogy a kliens trace-elje a Spring Cloud Bustól kapott üzeneteket. Ez az `application.properties`-ben megadható a `spring.cloud.bus.trace.enabled = true` megadásával. Valamint kell egy trace implementáció is, a következőt használhatjuk a `ClientApplication` osztályban:
 
-{% highlight java %}
+```java
 @Bean
 public TraceRepository traceRepository() {
 	InMemoryTraceRepository inMemoryTraceRepository = new InMemoryTraceRepository();
@@ -215,10 +215,10 @@ public TraceRepository traceRepository() {
 	return inMemoryTraceRepository;
 
 }
-{% endhighlight %}
+```
 
 Ekkor a `http://localhost:8080/trace` címen nyomon követhetjük a http hívásokat, de busról származó üzeneteket is.
 
-Végül implementáljunk egy admin alkalmazást, mely képes nyomon követni a Spring Bootos alkalmazásainkat. Ehhez a spring-boot-admin projektet használjuk, mely Spring Bootra épít, AngularJS felülettel. Ehhez megint generáljunk egy projektet, most csak a Web függőséggel, és adjuk hozzá két függőséget: `de.codecentric:spring-boot-admin-server:1.4.1` és `de.codecentric:spring-boot-admin-server-ui:1.4.1`. Az `application.properties` fájlban írjuk át, hogy a `8081`-es porton fusson (`server.port = 8888`). Az `AdminApplication` osztályban használjuk az `@EnableAdminServer` annotációt.
+Végül implementáljunk egy admin alkalmazást, mely képes nyomon követni a Spring Bootos alkalmazásainkat. Ehhez a spring-boot-admin projektet használjuk, mely Spring Bootra épít, AngularJS felülettel. Ehhez megint generáljunk egy projektet, most csak a Web függőséggel, és adjuk hozzá két függőséget: `de.codecentric:spring-boot-admin-server:1.4.1` és `de.codecentric:spring-boot-admin-server-ui:1.4.1`. Az `application.properties` fájlban írjuk át, hogy a `8081`-es porton fusson (`server.port = 8081`). Az `AdminApplication` osztályban használjuk az `@EnableAdminServer` annotációt.
 
 A szerver és kliens alkalmazásokban fel kell venni a `de.codecentric:spring-boot-admin-starter-client:1.4.1` függőséget, valamint az `application.properties` fájlban az admin alkalmazás elérését: `spring.boot.admin.url = http://localhost:8081`.
