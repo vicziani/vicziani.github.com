@@ -368,7 +368,7 @@ A Java kódból ezután a következőképpen kérhetjük le a bejelentkezés ut�
 a felhasználót:
 
 ```java
-User user = (User) securityContextHolder.getContext().getAuthentication().getPrincipal();
+User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 ```
 
 A `Context` `ThreadLocal` változó, így szálanként egyedi. A metódus
