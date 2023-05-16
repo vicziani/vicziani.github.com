@@ -1,43 +1,43 @@
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>{% if page.title %}{{ site.title }} - {{ page.title }}{% else %}{{ site.title }} - {{ site.lead }}{% endif %}</title>
+  <title>{% if page.title %}{{ site.title }} - {{ page.title }}{% else %}{{ site.title }} - {{ site.lead }}{% endif %}</title>
 
-	<meta name="Author" lang="hu" content="{{site.author}}"/>
-	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-	{% if page.keywords %}<meta name="Keywords" lang="hu" content="{{page.keywords}}"/>{% endif %}
+  <meta name="Author" lang="hu" content="{{site.author}}"/>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% if page.keywords %}<meta name="Keywords" lang="hu" content="{{page.keywords}}"/>{% endif %}
 
-	<meta property="og:locale" content="hu_HU" />
-	<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }} - {{ site.lead }}{% endif %}" />
-	<meta property="og:description" content="{% if page.description %}{{page.description}}{% else %}Kötetlen hangvételű blog a Java világából.{% endif %}" />
-	<meta property="og:image" content="{{ site.url }}/assets/img/logo_250x250.png" />
+  <meta property="og:locale" content="hu_HU" />
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }} - {{ site.lead }}{% endif %}" />
+  <meta property="og:description" content="{% if page.description %}{{page.description}}{% else %}Kötetlen hangvételű blog a Java világából.{% endif %}" />
+  <meta property="og:image" content="{{ site.url }}/assets/img/logo_250x250.png" />
 
 
-	<meta name="robots" content="index, follow"/>
-	<meta name="revisit-after" content="5 days"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="revisit-after" content="5 days"/>
 
-	<link rel="stylesheet" href="{{ "/assets/css/bootstrap.min.css" | prepend: site.baseurl }}">
-	<link rel="stylesheet" href="{{ "/assets/css/blog.css" | prepend: site.baseurl }}">
-	<link rel="stylesheet" href="{{ "/assets/css/syntax.css" | prepend: site.baseurl }}">
-	<link rel="stylesheet" href="{{ "/assets/css/font-awesome.min.css" | prepend: site.baseurl }}">
-	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-	<link rel="stylesheet" href="{{ "/assets/css/lightbox.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/css/bootstrap.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/css/blog.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/css/syntax.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/css/font-awesome.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <link rel="stylesheet" href="{{ "/assets/css/lightbox.min.css" | prepend: site.baseurl }}">
 
-	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-	<link rel="alternate" type="application/atom+xml" title="{{ site.title }} - {{ site.lead }}" href="http://feeds.feedburner.com/JTechLog" />
-	<link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} - {{ site.lead }}" href="http://feeds.feedburner.com/JTechLog" />
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
 
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQWLDCX0GL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-	  ga('create', 'UA-478386-1', 'auto');
-	  ga('send', 'pageview');
-	</script>
+    gtag('config', 'G-JQWLDCX0GL');
+  </script>
 </head>
