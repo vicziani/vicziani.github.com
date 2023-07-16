@@ -2,11 +2,14 @@
 layout: post
 title: JWT és Spring Security
 date: '2019-03-18T21:00:00.000+01:00'
+modified_time: '2023-07-16T10:00:00.000+02:00'
 author: István Viczián
 description: Ez a poszt leírja, mi a JWT és hogyan használjuk Spring Security-vel.
 ---
 
-Technológiák: Spring Boot 2.1.3.RELEASE, Spring Security 5.1.4.RELEASE, Java JWT 0.9.1
+Frissítve: 2023. július 16.
+
+Technológiák: Spring Boot 3, Spring Security 6, Java JWT
 
 Manapság a felhő alapú alkalmazások elterjedésével egyre fontosabb, hogy
 azok állapotmentesek legyenek, hiszen ezáltal könnyebben skálázhatóak.
@@ -107,32 +110,32 @@ azonosítja a felhasználót és kiszolgálja a kérést
 Nézzük meg egy Spring Boot alkalmazás esetén, mely csak RESTful webszolgáltatásokkal rendelkezik, hogyan kell a JWT alapú
 autentikációt implementálni.
 
-A Spring Security mélyebb megismeréséhez érdemes elolvasni a [Spring Security posztomat](/2010/01/10/spring-security.html)
+A Spring Security mélyebb megismeréséhez érdemes elolvasni a [Spring Security és Spring Boot posztomat](/2023/03/28/spring-security-spring-boot.html)
 is.
 
-A Spring Security a `WebSecurityConfigurerAdapter` osztály leszármaztatásával, a `configure(HttpSecurity)` metódus
-felülírásával konfigurálható.
+A Spring Security a konfigurációja a `WebSecurityConfig` osztályban található.
 
 ```java
-@Override
-protected void configure(HttpSecurity http) throws Exception {
-    String secret = environment.getProperty(SECRET_PROPERTY_NAME);
+@Bean
+public SecurityFilterChain filterChain(HttpSecurity http, SecurityProperties securityProperties) throws Exception {
+    String secret = securityProperties.getJwtSecret();
     JwtCookieStore jwtCookieStore = new JwtCookieStore(secret.getBytes());
-    http.csrf().disable()
-            .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 1
-            .and()
-            .exceptionHandling()
-                .authenticationEntryPoint(WebSecurityConfig::handleException) // 2
-            .and()
-            .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(jwtCookieStore, 
-                authenticationManager())) // 3
-            .addFilterAfter(new JwtTokenAuthenticationFilter(jwtCookieStore), 
-              UsernamePasswordAuthenticationFilter.class) // 4
-            .authorizeRequests() // 5
-            .antMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
-            .antMatchers("/**").hasRole("USER")
-            .anyRequest().authenticated();
+    http
+            .csrf(AbstractHttpConfigurer::disable)
+            .sessionManagement(configurer ->
+                    configurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // 1
+            .exceptionHandling(configurer ->
+                    configurer.authenticationEntryPoint(WebSecurityConfig::handleException)) // 2
+            .addFilter(
+                    new JwtUsernameAndPasswordAuthenticationFilter(jwtCookieStore, authenticationManager())) // 3
+            .addFilterAfter(
+                    new JwtTokenAuthenticationFilter(jwtCookieStore), UsernamePasswordAuthenticationFilter.class) // 4
+            .authorizeHttpRequests(auth ->
+                    auth
+                            .anyRequest().authenticated()
+            ) // 5
+    ;
+    return http.build();
 }
 ```
 
@@ -141,9 +144,7 @@ Nézzük, hogy ebben a konfigurációban mi mit jelent.
 Az `1`-essel jelölt sorban beállítjuk, hogy ne legyen session, így az alkalmazásunk
 állapotmentes, nem oda történik a felhasználó mentése.
 
-Az `5`-össel jelölt sorban az `authorizeRequests()` után beállítjuk, hogy az `/api/auth` cím
-ne legyen védett, mert ott történik az autentikáció, viszont az összes címhez `ROLE_USER`
-jogosultság szükséges (a `ROLE_` előtagot később automatikusan elékonkatenálja).
+Az `5`-össel jelölt sorban beállítjuk, hogy az összes címhez autentikáció szükséges.
 
 A `2`-essel jelölt sor, az `exceptionHandling()` után mondja meg, hogy pontosan mi történjen,
 ha védett cím kerül lekérésre, és nincs bejelentkezve. Ez a következőképp implementáltam:
@@ -222,17 +223,24 @@ A JWT token elhelyezésének a kódja:
 
 ```java
 public void storeToken(HttpServletResponse response, Authentication auth) {
+    String token = generateToken(auth);
+    storeTokenInCookie(response, token);
+}
+
+private String generateToken(Authentication auth) {
     long now = System.currentTimeMillis();
 
-    String token = Jwts.builder()
-        .setSubject(auth.getName())
-        .claim("authorities", auth.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-        .setIssuedAt(new Date(now))
-        .setExpiration(new Date(now + EXPIRATION))
-        .signWith(SignatureAlgorithm.HS512, secret)
-        .compact();
-        
+    return Jwts.builder()
+                .setSubject(auth.getName())
+                .claim("authorities", auth.getAuthorities().stream()
+                        .map(GrantedAuthority::getAuthority).toList())
+                .setIssuedAt(new Date(now))
+                .setExpiration(new Date(now + EXPIRATION))
+                .signWith(SignatureAlgorithm.HS512, secret)
+                .compact();
+}
+
+private void storeTokenInCookie(HttpServletResponse response, String token) {
     Cookie cookie = new Cookie(COOKIE_NAME, token);
     cookie.setMaxAge(EXPIRATION);
     cookie.setPath("/api");
@@ -305,11 +313,19 @@ public Optional<Authentication> retrieveToken(HttpServletRequest request) {
         UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
                 username, null, 
                 authorities.stream().map(SimpleGrantedAuthority::new)
-                    .collect(Collectors.toList()));
+                    .toList());
 
         return Optional.of(auth);
     }
     return Optional.empty();
+}
+
+private Optional<Cookie> findCookie(HttpServletRequest request) {
+    return Optional.ofNullable(request.getCookies())
+            .stream()
+            .flatMap(Arrays::stream)
+            .filter(c -> c.getName().equals(COOKIE_NAME))
+            .findAny();
 }
 ```
 
