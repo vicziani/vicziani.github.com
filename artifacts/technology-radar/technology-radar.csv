@@ -1,0 +1,132 @@
+quadrant;ring;label;active;moved
+2;0;Java;true;0
+2;0;Spring Framework;true;0
+2;0;Spring Boot;true;0
+2;0;Maven;true;0
+2;0;JUnit;true;0
+2;0;Lombok;true;0
+2;0;SLF4J;true;0
+2;0;Logback;true;0
+2;0;AssertJ;true;0
+2;0;Mockito;true;0
+2;0;Jacoco;true;0
+2;0;Selenium WebDriver;true;0
+2;0;Cucumber;true;0
+2;0;JMeter;true;0
+2;0;Tomcat;true;0
+2;0;Bean Validation;true;0
+2;0;Spring Data;true;0
+2;0;JPA;true;0
+2;0;JMS;true;0
+2;0;Hibernate;true;0
+2;0;Liquibase;true;0
+2;0;Quartz;true;0
+2;0;Spring Security;true;0
+2;0;gRPC;true;0
+2;0;Spring Cloud Config;true;0
+2;0;Spring Cloud Stream;true;0
+2;0;Spring Cloud Gateway;true;0
+2;0;Spring Session;true;0
+2;0;ArchUnit;true;0
+2;0;Spring Modulith;true;0
+2;1;Camunda;true;0
+2;1;Gradle;true;0
+2;1;P6Spy;true;0
+2;2;GraalVM;true;0
+2;2;Spring Integration;true;0
+2;2;Project Reactor;true;0
+2;2;Spring WebFlux;true;0
+2;2;Hibernate Reactive;true;0
+2;2;Blaze-Persistence;true;0
+2;3;Eclipse;true;0
+2;3;NetBeans;true;0
+2;3;Log4J;true;0
+2;3;TestNG;true;0
+2;3;Hamcrest;true;0
+2;3;Servlet;true;0
+2;3;JSP;true;0
+2;3;JSF;true;0
+2;3;Java EE, Jakarta EE;true;0
+2;3;JDBC;true;0
+2;3;Flyway;true;0
+2;3;Zalando Problem;true;0
+2;3;Java Platform Module System;true;0
+3;0;UML;true;0
+3;0;S.O.L.I.D. principles;true;0
+3;0;GoF Design Patterns;true;0
+3;0;Microservices Architecture;true;0
+3;0;Microservices Design Patterns;true;0
+3;0;Modulith Architecture;true;0
+3;0;Clean Code;true;0
+3;0;Refactoring;true;0
+3;0;DDD;true;0
+3;0;CQRS;true;0
+3;0;Clean Architecture;true;0
+3;0;Hexagonal Architecture;true;0
+3;0;OpenAPI;true;0
+3;0;Problem Details;true;0
+3;0;AVRO;true;0
+3;0;Protocol Buffers;true;0
+3;0;Continuous Integration;true;0
+3;0;Continuous Delivery;true;0
+3;0;Continuous Deployment;true;0
+3;0;Blue/green Deployment;true;0
+3;0;Trunk based development;true;0
+3;0;Feature flag;true;0
+3;0;Saga;true;0
+3;0;BDD;true;0
+3;1;WebSocket;true;0
+3;1;Server-sent events;true;0
+3;1;GraphQL;true;0
+3;1;Canary deployment;true;0
+3;1;A/B testing;true;0
+3;1;Event Driven Architecture;true;0
+3;3;HATEOAS;true;0
+3;3;XML;true;0
+3;3;SOAP;true;0
+3;3;GitFlow;true;0
+1;0;Selenium Grid;true;0
+1;0;SonarQube;true;0
+1;0;MySQL;true;0
+1;0;MariaDB;true;0
+1;0;PostgreSQL;true;0
+1;0;MongoDB;true;0
+1;0;Redis;true;0
+1;0;Keycloak;true;0
+1;0;ElasticSearch;true;0
+1;0;ActiveMQ;true;0
+1;0;RabbitMQ;true;0
+1;0;Kafka;true;0
+1;0;Nexus;true;0
+1;0;GitLab;true;0
+1;0;Docker;true;0
+1;0;Docker Compose;true;0
+1;0;Kubernetes;true;0
+1;0;Helm;true;0
+1;0;Prometheus;true;0
+1;0;Graphana;true;0
+1;0;EFK Stack;true;0
+1;0;Zipkin;true;0
+1;0;Ansible;true;0
+1;0;Vault;true;0
+1;0;AWS;true;0
+1;0;GitHub;true;0
+1;2;Neo4J;true;0
+1;2;Cassandra;true;0
+1;2;Kaniko;true;0
+1;2;Istio Service Mesh;true;0
+1;2;OpenTelemetry;true;0
+1;2;Spring Cloud Skipper;true;0
+1;3;Jenkins;true;0
+0;0;IntelliJ IDEA;true;0
+0;0;Visual Studio Code;true;0
+0;0;Git;true;0
+0;0;PlantUML;true;0
+0;0;SonarLint;true;0
+0;0;UMLet;true;0
+0;0;RedMine;true;0
+0;0;Trello;true;0
+0;2;JPA Buddy;true;0
+0;3;Subversion;true;0
+0;3;JIRA;true;0
+0;3;Confluence;true;0

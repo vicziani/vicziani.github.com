@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="description" content="JTechLog Technology Radar">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JTechLog Technology Radar</title>
+<link rel="shortcut icon" href="https://www.zalando.de/favicon.ico">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="radar-0.7.js"></script>
+
+</head>
+
+<body>
+
+<svg id="radar"></svg>
+
+<script>
+radar_visualization({
+  svg_id: "radar",
+  width: 1450,
+  height: 1000,
+  colors: {
+    background: "#fff",
+    grid: '#dddde0',
+    inactive: "#ddd"
+  },
+  title: "JTechLog Technology Radar",
+  date: "2023.08",
+  quadrants: [    
+    { name: "Tools" },
+    { name: "Platforms and operations" },
+    { name: "Languages, frameworks and libraries" },
+    { name: "Methods and patterns" },
+    
+  ],
+  rings: [
+    { name: "ADOPT", color: "#5ba300" },
+    { name: "TRIAL", color: "#009eb0" },
+    { name: "ASSESS", color: "#c7ba00" },
+    { name: "HOLD", color: "#e09b96" }
+  ],
+  print_layout: true,
+  links_in_new_tabs: true,
+  // zoomed_quadrant: 0,
+  //ENTRIES
+  entries: [
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Java",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Framework",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Boot",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Maven",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "JUnit",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Lombok",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "SLF4J",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Logback",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "AssertJ",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Mockito",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Jacoco",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Selenium WebDriver",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Cucumber",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "JMeter",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Tomcat",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Bean Validation",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Data",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "JPA",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "JMS",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Hibernate",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Liquibase",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Quartz",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Security",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "gRPC",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Cloud Config",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Cloud Stream",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Cloud Gateway",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Session",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "ArchUnit",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 0,
+    "label": "Spring Modulith",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 1,
+    "label": "Camunda",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 1,
+    "label": "Gradle",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 1,
+    "label": "P6Spy",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 2,
+    "label": "GraalVM",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 2,
+    "label": "Spring Integration",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 2,
+    "label": "Project Reactor",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 2,
+    "label": "Spring WebFlux",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 2,
+    "label": "Hibernate Reactive",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 2,
+    "label": "Blaze-Persistence",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "Eclipse",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "NetBeans",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "Log4J",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "TestNG",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "Hamcrest",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "Servlet",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "JSP",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "JSF",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "Java EE, Jakarta EE",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "JDBC",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "Flyway",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "Zalando Problem",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 2,
+    "ring": 3,
+    "label": "Java Platform Module System",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "UML",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "S.O.L.I.D. principles",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "GoF Design Patterns",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Microservices Architecture",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Microservices Design Patterns",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Modulith Architecture",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Clean Code",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Refactoring",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "DDD",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "CQRS",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Clean Architecture",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Hexagonal Architecture",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "OpenAPI",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Problem Details",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "AVRO",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Protocol Buffers",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Continuous Integration",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Continuous Delivery",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Continuous Deployment",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Blue/green Deployment",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Trunk based development",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Feature flag",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "Saga",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 0,
+    "label": "BDD",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 1,
+    "label": "WebSocket",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 1,
+    "label": "Server-sent events",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 1,
+    "label": "GraphQL",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 1,
+    "label": "Canary deployment",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 1,
+    "label": "A/B testing",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 1,
+    "label": "Event Driven Architecture",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 3,
+    "label": "HATEOAS",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 3,
+    "label": "XML",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 3,
+    "label": "SOAP",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 3,
+    "ring": 3,
+    "label": "GitFlow",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Selenium Grid",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "SonarQube",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "MySQL",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "MariaDB",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "PostgreSQL",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "MongoDB",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Redis",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Keycloak",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "ElasticSearch",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "ActiveMQ",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "RabbitMQ",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Kafka",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Nexus",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "GitLab",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Docker",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Docker Compose",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Kubernetes",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Helm",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Prometheus",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Graphana",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "EFK Stack",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Zipkin",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Ansible",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "Vault",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "AWS",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 0,
+    "label": "GitHub",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 2,
+    "label": "Neo4J",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 2,
+    "label": "Cassandra",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 2,
+    "label": "Kaniko",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 2,
+    "label": "Istio Service Mesh",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 2,
+    "label": "OpenTelemetry",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 2,
+    "label": "Spring Cloud Skipper",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 1,
+    "ring": 3,
+    "label": "Jenkins",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 0,
+    "label": "IntelliJ IDEA",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 0,
+    "label": "Visual Studio Code",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 0,
+    "label": "Git",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 0,
+    "label": "PlantUML",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 0,
+    "label": "SonarLint",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 0,
+    "label": "UMLet",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 0,
+    "label": "RedMine",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 0,
+    "label": "Trello",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 2,
+    "label": "JPA Buddy",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 3,
+    "label": "Subversion",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 3,
+    "label": "JIRA",
+    "active": true,
+    "moved": 0
+  },
+  {
+    "quadrant": 0,
+    "ring": 3,
+    "label": "Confluence",
+    "active": true,
+    "moved": 0
+  }
+]
+  //ENTRIES
+});
+</script>
+
+</body>
+
+</html>
