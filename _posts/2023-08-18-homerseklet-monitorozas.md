@@ -38,7 +38,7 @@ Közben természetesen szerettem volna megismerni a kapcsolódó technológiáka
 <!-- more -->
 
 A szenzor a BLE (Bluetooth Low Energy) vezeték nélküli kommunikációs technológiát használja, amelyet alacsony energiafogyasztású eszközök közötti adatátvitelre terveztek.
-Persze a hatótávolság ész adatátvitel korlátozottabb, mint a hagyományos Bluetooth esetén. Az eszközök az ún. Generic Attribute Profile (GATT) specifikáció 
+Persze a hatótávolság és adatátvitel korlátozottabb, mint a hagyományos Bluetooth esetén. Az eszközök az ún. Generic Attribute Profile (GATT) specifikáció 
 alapján kommunikálnak. Ez a következő fogalmakat használja:
 
 * Client: ami az eszközről lekérdezi az adatokat, kezdeményezi a kommunikációt, kéréseket küld az eszköz számára, és fogadja a válaszokat. Ez lesz a Raspberry PI.
