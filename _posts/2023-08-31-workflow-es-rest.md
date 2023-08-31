@@ -86,7 +86,7 @@ következőt kapjuk vissza:
 Tegyük fel, hogy ezen a hibajegyen elkezdünk dolgozni, kérdés, hogy milyen REST
 művelettel kéne ezt megoldani.
 
-Itt az első megoldás lehetne az, hogy egy `POST`-ot küldünk, amivel
+Itt az első megoldás lehetne az, hogy egy `PUT`-ot küldünk, amivel
 átállítjuk a `state` mező értékét. Az ajánlás szerint mindig teljes 
 resource-ot kell küldenünk, azaz a HTTP kérés így nézne ki.
 
@@ -99,7 +99,7 @@ de én `Resource` postfix-ű osztályokat fogok használni, a
 [DTO-król szóló korábbi posztom alapján](/2023/08/01/modell-osztalyok.html).)
 
 ```plain
-POST http://localhost:8080/api/issues/1
+PUT http://localhost:8080/api/issues/1
 Content-Type: application/json
 
 {
@@ -308,11 +308,11 @@ Dönthetünk úgy, hogy legyen egy interfész melyet minden lépés implementál
 a leszármazottjai.
 
 De mi van akkor, ha csak úgy akarunk egy adatot módosítani, hogy nincs mögötte üzleti logika? Azaz például szeretnénk
-módosítani a hibajegy címét? Első megoldásként szóba jöhet, hogy `POST` metódussal a teljes resource-t újra küldjük. Itt azonban
+módosítani a hibajegy címét? Első megoldásként szóba jöhet, hogy `PUT` metódussal a teljes resource-t újra küldjük. Itt azonban
 megint ki biztosítja, hogy minden mező megfelelően került-e visszaküldésre? 
 
 A másik megoldás a `PATCH` használata. A `PATCH` teszi lehetővé, hogy egy resource csak egy részét módosítsuk. (Ugye miért is létezne ez,
-ha a `POST` metódussal is meg lehetne ezt tenni?) 
+ha a `PUT` metódussal is meg lehetne ezt tenni?) 
 
 Itt problémaként adódik, hogy amennyiben egy mezőt nem küldünk, akkor azt nem akarjuk módosítani, vagy az értékét törölni akarjuk?
 Egy JSON-t deserialize-álva nem lehet megkülönböztetni, hogy kihagytuk-e az attribútumot, vagy `null` értékkel küldtük, a mező
