@@ -26,7 +26,7 @@ Ez pontosan a LYWSD03MMC modell, mely egy precíz Sensirion szenzorral, 1,5"-os 
 vezeték nélküli kapcsolaton keresztül kommunikál. Egy CR2032 elemmel működik, ezt külön szerezzük be, mert nem része
 a csomagnak. Ezzel akár fél-egy évig képes üzemelni. Természetesen Bluetooth-on tud kapcsolódni mobiltelefonhoz, illetve
 Bluetooth Gateway-hez, azonban én direktbe, egy Linuxos számítógéppel, jelen esetben egy Raspberry PI-vel szeretnék
-hozzá kapcsolódni, és kinyerni belőle az adatokat.
+hozzá kapcsolódni, és kinyerni belőle az adatokat. (Nincs szükség egyedi firmware telepítésére.)
 
 Ezt utána csak be kell kötni a Prometheusba, mely időközönként lekérdezi és eltárolja az adatokat, majd egy Grafana dashboardot
 létrehozni, mely megjeleníti azokat.
