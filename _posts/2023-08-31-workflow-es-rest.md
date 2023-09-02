@@ -140,7 +140,7 @@ Mi lehet tehát egy jó megoldás?
 Ahhoz, hogy megoldást találjunk, lépjünk egyet vissza, és nézzük meg, hogy hogy nézne
 ki ez objektumorientált oldalon. A teljes forráskód [megtalálható GitHubon](https://github.com/vicziani/jtechlog-rest-workflow).
 
-Először vesszük el azt a megoldást, hogy lenne egy `Issue` osztály, mely 
+Először vessük el azt a megoldást, hogy lenne egy `Issue` osztály, mely 
 az adatokat tárolja, és egy `IssueService`, mely az `Issue` státuszát
 állítgatja. Ez DDD nevezéktanában a klasszikus vérszegény modell (anemic model), amit ugyan gyakran
 használunk, azonban az objektumorientált tervezéstől távol van.
@@ -273,7 +273,7 @@ Itt persze implementálni kell, hogy amikor elindul az üzleti logika,
 a különböző entitások megfelelően változzanak.
 Ezt egy service-ben implementáljuk, ugyanis itt két entitás is változik,
 azaz egy entitáson belül nem tudjuk implementálni. (Tervezési döntés, 
-hogy a hibajegyeket és a lépéseket külön aggregate-be teszem, ugyanis a hibajegy betöltésekor egyeltalán nincs szükségem
+hogy a hibajegyeket és a lépéseket külön aggregate-be teszem, ugyanis a hibajegy betöltésekor egyáltalán nincs szükségem
 a lépésekre. Egyelőre itt ebből elég annyit érteni, hogy nincs referencia a két objektum között. A lépés a hibajegy
 elsődleges kulcsára hivatkozik.)
 
