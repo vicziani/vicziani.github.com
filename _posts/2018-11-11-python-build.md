@@ -12,7 +12,7 @@ Technológiák: Python 3, venv, pip, make, pytest, coverage, pytest-cov, pylint,
 
 Frissítve: 2018. december 14.
 
-Amint az mér egy [korábbi posztból](/2011/06/13/masodik-nyelv-python.html) kiderülhetett,
+Amint az már egy [korábbi posztból](/2011/06/13/masodik-nyelv-python.html) kiderülhetett,
 a Java mellett a Python az egyik kedvenc programozási nyelvem, ráadásul mostanában
 sok inspirációt és motivációt kapok, hogy foglalkozzam vele, egészen a nyelvi alapoktól
 (például az objektumorientáltság is) egy teljes projekt felépítéséig.
