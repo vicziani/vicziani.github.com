@@ -287,7 +287,7 @@ A fordítás a következő lépésekből áll:
 
 Ez az AOT eddig külön plugin volt, most viszont bekerül a Spring Bootba.
 
-A natív fordítást a (Bellsoft Liberica Native Image Kit (NIK))[https://bell-sw.com/pages/liberica-native-image-kit/]
+A natív fordítást a [Bellsoft Liberica Native Image Kit (NIK)](https://bell-sw.com/liberica-native-image-kit/)
 végzi, mely a GraalVM-re és Liberica JDK-ra épít.
 
 A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-employees-sb2-native).
