@@ -185,20 +185,28 @@ a single responsibility, hogy az állapotátmeneteket kiszervezzük máshová.
 ```java
 public enum IssueState {
 
-    NEW, IN_PROGRESS, RESOLVED;
-
-    public IssueState startWork() {
-        if (this != NEW) {
-            throw new IllegalArgumentException("You can start only new issue");
+    NEW {
+        @Override
+        public IssueState startWork() {
+            return IN_PROGRESS;
         }
-        return IN_PROGRESS;
-    }
+    },
+
+    IN_PROGRESS {
+        @Override
+        public IssueState completeWork() {
+            return RESOLVED;
+        }
+    },
+
+    RESOLVED;
 
     public IssueState completeWork() {
-        if (this != IN_PROGRESS) {
-            throw new IllegalArgumentException("You can start complete only in progress issue");
-        }
-        return RESOLVED;
+        throw new IllegalArgumentException("You can not complete issue with state: " + this);
+    }
+
+    public IssueState startWork() {
+        throw new IllegalArgumentException("You can not start issue with state: " + this);
     }
 
 }
