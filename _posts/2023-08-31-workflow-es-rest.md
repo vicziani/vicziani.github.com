@@ -4,6 +4,7 @@ title: Workflow REST API-n
 date: '2023-08-31T10:00:00.000+02:00'
 author: István Viczián
 description: Hogyan érdemes egy munkafolyamat lépéseihez REST API-t tervezni?
+modified_time: '2023-10-10T10:00:00.000+02:00'
 ---
 
 Bár kétségtelenül a REST a legelterjedtebb kommunikációs mód, akár ugyanolyan
@@ -20,8 +21,10 @@ a metódusok, a megfelelő paraméterekkel és visszatérési értékekkel. Ez
 a legtöbb fejlesztőnek triviális. 
 
 A REST a kettő között viszont egy teljesen
-más absztrakció, erőforrásokkal, és az azon végzett CRUD műveletekkel. Ez főleg négy
-műveletet takar, amit a `GET`, `POST`, `PUT` és `DELETE` HTTP metódusoknak feleltetünk meg. 
+más absztrakció. Bár a REST nem mondja ki, hogy csak HTTP-vel együtt használható,
+más protokollal működni még nem láttam.
+A REST alapfogalma az erőforrás, és az azon végzett műveletek, melyeket a HTTP metódusok valósítanak meg, mint a `GET`, `POST`, `PUT` és `DELETE`.
+Ez nehezen feleltethető meg az objektumorientált világnak.
 Egy objektum létrehozására tipikusan konstruktort használunk, ebből nem feltétlen egy van.
 Ezen kívül egy objektumnak lehet több metódusa, amik nem feltétlenül feleltethetőek meg a HTTP metódusoknak,
 hiszen nem csak ezeket az alapműveleteket használjuk, valamint lehet belőle sokkal több is, mint négy.
@@ -87,14 +90,18 @@ Tegyük fel, hogy ezen a hibajegyen elkezdünk dolgozni, kérdés, hogy milyen R
 művelettel kéne ezt megoldani.
 
 Itt az első megoldás lehetne az, hogy egy `PUT`-ot küldünk, amivel
-átállítjuk a `state` mező értékét. Az ajánlás szerint mindig teljes 
-resource-ot kell küldenünk, azaz a HTTP kérés így nézne ki.
+átállítjuk a `state` mező értékét. 
 
-(Zárójelben megjegyzem, hogy a REST azon kitétele, hogy mindig teljes
-resource-ot kell küldeni, lehetővé teszi azt, hogy lekérdezés, létrehozás és módosítás
-esetén is ugyanazt az osztályt használjuk. Régebben hajlamos voltam létrehozás
-és módosítás esetén mást használni, hiszen mást adatokat akartam küldeni, de ez a REST-hez
-nem illik, mint ahogy a későbbiekben látni fogjuk. Itt ugyan az elterjed DTO elnevezést szokták használni,
+Itt két tábor folytat filozófiai vitát arról, hogy a `PUT` esetén a teljes
+erőforrást küldeni kell, vagy csak annak azt a részét, amit változtatni akarunk (partial update).
+Erre válasz nincs, én most azt választom, hogy teljes erőforrást küldök,
+és ha csak egy részét akarom küldeni, arra a `PATCH` metódust fogom használni.
+
+(Zárójelben megjegyzem, hogyha mindig teljes
+resource-ot küldök, az lehetővé teszi azt, hogy lekérdezés, létrehozás és módosítás
+esetén is ugyanazt a modell osztályt használjam. Régebben hajlamos voltam létrehozás
+és módosítás esetén mást használni, hiszen mást adatokat akartam küldeni. 
+Itt ugyan az elterjed DTO elnevezést szokták használni,
 de én `Resource` postfix-ű osztályokat fogok használni, a 
 [DTO-król szóló korábbi posztom alapján](/2023/08/01/modell-osztalyok.html).)
 
@@ -115,23 +122,18 @@ Ezzel több bajom is van, nézzük ezeket tételesen:
   több művelet is lehet, pl. ellenőrzések, e-mail kiküldések, stb.
 * El van rejtve a logika, a kliens tudja, hogy a munka megkezdésekor az
   `IN_PROGRESS` állapotot kell használni.
-* Mindent küldeni kell, ez felesleges hálózati forgalommal jár.
-* Mi az ami biztosítja azt, hogy közben a többi attribútum nem kerül módosításra, azaz
+* Mi az, ami biztosítja azt, hogy közben a többi attribútum nem kerül módosításra, azaz
   nem változtatja meg címet, esetleg olyan más attribútumot, ami csak olvasható.
   (Erről jut eszembe, hogy mi van akkor, ha a törzsben és az url-ben nem ugyanaz az id szerepel. Miért kell ezt itt is és ott is küldeni?)
 * Mi van, ha plusz adatokat kell adni a művelethez, melyek nem konkrétan az erőforráshoz tartoznak? Pl. a művelet idejét, a 
   felhasználót, művelet okát, stb.? Mi van, ha ezeket ugyanúgy REST API-n le kell kérdezni?
 
-Itt talán azt a problémát megszüntethetjük, hogy ne kelljen újra elküldeni
-a teljes erőforrást, ha a `PATCH` metódust használjuk. Ezzel azonban a legelső és
-legfontosabb problémát nem oldjuk meg. (A `PATCH` metódusra még később vissztérünk.)
-
 A másik megoldás, amit látni szoktam, hogy az URL-be elkezdenek igéket bevezetni,
 azaz mehet egy `POST` a `/issues/1/start-work` címre, ahol az URL-ben
-gyakorlatilag egy metódusnévnek megfelelő ige jelenik meg. Ezt viszonylag
-egyszerű implementálni, de sajnos egyáltalán nem felel meg a REST gondolatiságának.
-Hiszen ez az URL mögött nincs semmilyen resource. És ez nem is egy CRUD művelet.
-Ez gyakorlatilag nem más, mint a REST félreértelmezése, és valamilyen hibrid RPC-s
+egy metódusnévnek megfelelő ige jelenik meg. Ezt viszonylag
+egyszerű implementálni, de értelmezésemben nem felel meg a REST gondolatiságának.
+Hiszen ez az URL mögött nincs semmilyen resource.
+Ez nem más, mint a REST félreértelmezése, és valamilyen hibrid RPC-s
 megoldás bevezetése. Ha ilyet használunk, miért döntöttünk a REST mellett?
 Így keverjük az elveket, az absztrakciókat.
 
@@ -248,12 +250,16 @@ POST http://localhost:8080/api/issues/1/actions
 Content-Type: application/json
 
 {
-    "type": "START_WORK"
+    "issueId": 1,
+    "type": "START_WORK",
 }
 ```
 
 Azaz egy `POST` metódussal létrehozunk egy új `action` típusú resource-ot,
-méghozzá az `1`-es azonosítójú hibajegy alatt. Amit visszakapunk:
+méghozzá az `1`-es azonosítójú hibajegy alatt. Látható, hogy a hibajegy azonosítója
+az URL-ben és a törzsben is megjelenik (utóbbi helyen azért, hiszen minden adatot küldök `PUT`
+esetén),
+Amit visszakapunk:
 
 ```json
 {
@@ -274,7 +280,6 @@ Nézzük, megoldottuk-e a felmerült problémákat:
   hogy milyen üzleti folyamat kerül elindításra.
 * Nem direktben állítjuk a státusz mezőt.
 * A resource csak olyan mezőket tartalmaz, melyek az üzleti logika indításához kellenek.
-  Még az id sem szerepel kétszer.
 * Bármikor felvehetünk az erőforráshoz további mezőket.
 
 Itt persze implementálni kell, hogy amikor elindul az üzleti logika,
@@ -317,12 +322,12 @@ a leszármazottjai.
 
 De mi van akkor, ha csak úgy akarunk egy adatot módosítani, hogy nincs mögötte üzleti logika? Azaz például szeretnénk
 módosítani a hibajegy címét? Első megoldásként szóba jöhet, hogy `PUT` metódussal a teljes resource-t újra küldjük. Itt azonban
-megint ki biztosítja, hogy minden mező megfelelően került-e visszaküldésre? 
+mi biztosítja, hogy minden mező megfelelően került-e visszaküldésre? 
 
 A másik megoldás a `PATCH` használata. A `PATCH` teszi lehetővé, hogy egy resource csak egy részét módosítsuk. (Ugye miért is létezne ez,
 ha a `PUT` metódussal is meg lehetne ezt tenni?) 
 
-Itt problémaként adódik, hogy amennyiben egy mezőt nem küldünk, akkor azt nem akarjuk módosítani, vagy az értékét törölni akarjuk?
+Itt specifikusan Javaban olyan probléma adódik, hogy nem tudjuk megkülönböztetni, hogy egy mezőt nem akarunk módosítani, vagy az értékét törölni akarjuk.
 Egy JSON-t deserialize-álva nem lehet megkülönböztetni, hogy kihagytuk-e az attribútumot, vagy `null` értékkel küldtük, a mező
 értéke mindenképp `null` lesz.
 
@@ -362,8 +367,9 @@ Content-Type: application/json-patch+json
 Tehát a `replace` műveletet (op - operator) alkalmazzuk, a `/title` útvonalra. Ez utóbbi egy másik szabványnak - a RFC6901 (JSON-Pointer value) -
 megfelelő formátumú. És persze a `value` mezőben a módosított érték.
 
-Erre van több implementáció is, pl. a [json-patch](https://github.com/java-json-tools/json-patch). Ennek, és a többi libnek is az a jellemzője,
-hogy JSON dokumentumon dolgozik. Természetesen a cél a resource, nem az entitás, hiszen ez a REST / controller réteg része. Emiatt ennek implementálása elég bonyolult.
+Erre van több implementáció is, pl. a [json-patch](https://github.com/java-json-tools/json-patch), vagy a 
+szabványos [Jakarta JSON Processing (JSONP)](https://jakarta.ee/specifications/jsonp/). A szabványossága miatt, valamint  Ezeknek a libeknek az a jellemzője,
+hogy JSON dokumentumon dolgoznak. Természetesen a cél a resource, nem az entitás, hiszen ez a REST / controller réteg része. Emiatt ennek implementálása elég bonyolult.
 
 1. Le kell kérni az `1`-es azonosítóval rendelkező hibajegyet, ez egy entitás.
 2. Át kell alakítani ezt resource-á, és ezt visszaadni a controllernek.
@@ -372,34 +378,54 @@ hogy JSON dokumentumon dolgozik. Természetesen a cél a resource, nem az entit�
 5. Visszaalakítani resource-á (deserialization), majd beküldeni a service rétegnek.
 6. A resource-ot ráfuttatni az entitásra.
 
-Ennek kódja a controllerben:
+Azért, mert a JSONP egy szabvány, ezt választottam, és az ezt implementáló Glassfish referencia implementációt.
+Ráadásul integrálni lehet a Spring által használt Jacksonnal.
+
+```groovy
+implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr353'
+implementation 'org.glassfish:javax.json:1.1'
+```
+
+Az integráció:
+
+```java
+@Bean
+public ObjectMapper objectMapper() {
+    return JsonMapper.builder()
+            .addModule(new JSR353Module())
+            .build();
+}
+```
+
+A patch implementációja a controllerben:
 
 ```java
 @PatchMapping(value = "/{id}", consumes = "application/json-patch+json")
 public IssueResource patchIssue(@PathVariable long id, @RequestBody JsonPatch patch) {
     var issue = issueService.findIssueById(id);
     var patched = patch(issue, patch);
-    return issueService.update(id, patched);
+    var validationResult = validator.validate(patched, IssueOperations.PatchIssue.class);
+    if (!validationResult.isEmpty()) {
+        throw new ConstraintViolationException(validationResult);
+    }
+    return issueService.update(patched);
 }
 ```
+
+Az is látható, hogy az eredmény objektumra még futtatom a Jakarta Validation
+ellenőrzést is (`IssueOperations.PatchIssue` validation group használatával).
 
 Ebből a `patch()` saját metódus, hogy ne kelljen minden resource-ra külön megírni:
 
 ```java
 private <T> T patch(T target, JsonPatch patch) {
-    try {
-        var json = objectMapper.convertValue(target, JsonNode.class);
-        var patchedJson = patch.apply(json);
-        var patchedResource = (T) objectMapper.treeToValue(patchedJson, target.getClass());
-        return patchedResource;
-    }
-    catch (JsonPatchException | JsonProcessingException e) {
-        throw new IllegalArgumentException("Can not patch %s".formatted(target.getClass()), e);
-    }
+    var json = objectMapper.convertValue(target, JsonObject.class);
+    var patchedJsonObject = patch.apply(json);
+    return (T) objectMapper.convertValue(patchedJsonObject, target.getClass());
 }
 ```
 
-Ez végzi a serializationt, JSON patch dokumentum ráfuttatását, majd deserializationt.
+Ez végzi a JSON serializationt, JSON patch dokumentum ráfuttatását, majd deserializationt.
 
 Így van egy ugyanolyan resource-om, mintha a teljes resource-t küldtem volna vissza,
 azonban betöltésre került adatbázisból, és csak egy mező lett benne módosítva.
@@ -456,6 +482,17 @@ public void update(Issue issue, IssueResource resource) {
 Igen, látszik, hogy csak a `title` mező tartalmát másolja át, az `id` és `state` mezőket
 figyelmen kívül hagyja.
 
+Amennyiben több setterem lenne, a MapStruct is rábeszélhető, hogy csak a megfelelő
+attribútumokat másolja a következő annotációkkal:
+
+```java
+@BeanMapping(ignoreByDefault = true)
+@Mapping(source = "title", target = "title")
+void update(@MappingTarget Issue issue, IssueResource resource);
+```
+
+Azaz ignorálunk minden property-t, és csak a `title` property-t másoljuk.
+
 Így a service metódus:
 
 ```java
@@ -474,8 +511,37 @@ Hogy lehetne pl. hibát dobni a felhasználónak, ha olyan mezőt akar módosít
 melyet nem szabad? Sajnálatos módon a `JsonPatch` osztálynak nincsenek lekérdező
 metódusai, azaz azt nem tudjuk validálni. Ez ennek a könyvtárnak a hátránya.
 
-Sajnálatos módon ez a JSON Patch szabvány nem igazán terjedt el. A hozzá tartozó implementációk
-is, pl. a `json-patch` könyvtárat érdemben több éve módosították. Hátránya, hogy
+Emiatt pl. a Swagger sem képes hozzá dokumentációt gyártani. Ezt úgy tudjuk orvosolni, hogy csinálunk egy
+saját osztályt, és a Swaggernek megmondjuk, hogy ezt az osztályt használja a dokumentáció generáláshoz.
+
+Az osztály:
+
+```java
+public class JsonPatchSchema {
+
+    @NotBlank
+    public Op op;
+
+    public enum Op {
+        replace, add, remove, copy, move, test
+    }
+
+    @NotBlank
+    @Schema(example = "/name")
+    public String path;
+
+    @NotBlank
+    public String value;
+}
+```
+
+És a controller metóduson lévő annotáció:
+
+```java
+@io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(array = @ArraySchema(schema = @Schema(implementation = JsonPatchSchema.class))))
+```
+
+Sajnálatos módon ez a JSON Patch szabvány nem igazán terjedt el. Hátránya, hogy
 el kell végezni a serialization és deserialization műveleteket, nem tudja közvetlenül
 a resource objektum gráfon futtatni a műveleteket.
 
@@ -506,4 +572,7 @@ public class Issue {
 Nem lenne egyszerűbb távolról a `setTitle()`, `startWork()` és `completeWork()` metódusokat meghívni,
 elfelejtve a REST minden nehézségét?
    
-
+Amennyiben arról szeretnél olvasni, hogy lehet a különböző műveleteket a REST iránymutatásának megfelelően
+URL-ekre és HTTP metódusokra mappelni, olvasd el az InfoQ-n megjelent [How to GET a Cup of Coffee](https://www.infoq.com/articles/webber-rest-workflow/)
+cikket, valamint az általam javasolt megoldáshoz nagyon hasonló megoldásokat javasló,  Thoughtworksnél megjelent 
+[REST API Design - Resource Modeling](https://www.thoughtworks.com/insights/blog/rest-api-design-resource-modeling) cikket.
