@@ -1,23 +1,20 @@
 ---
 layout: post
-title: Mi várható a Spring Boot 3-ban?
+title: Spring Boot 3 újdonságai
 date: '2022-09-13T10:00:00.000+02:00'
+modified_time: '2023-10-03T10:00:00.000+02:00'
 author: István Viczián
-description: Részletes bemutatása annak, hogy mi is várható a Spring Boot 3-as verziójában.
+description: A Spring Boot 3-as verziójának újdonságainak a bemutatása.
 ---
+
+Frissítés: 2023. október 3.
 
 ## Bevezetés
 
 Mivel a hétvégén megkaptam, hogy írjak már Javas cikkeket, így ebben a posztban
 a Spring Boot 3 újdonságait veszem sorra. A Spring Boot 3-as sorozat már a Spring
 Framework 6-os sorozatára építkezik, ennek újdonságait nem fogom külön tárgyalni. 
-A poszt megírásának a pillanatában a legfrissebb verzió a 3.0.0-M4, és mivel
-erőteljesen fejlesztés alatt van, még változhat, érdemes visszanézni, 
-fogom majd frissíteni a posztot. 
-
-Általános megfigyelésem, hogy az új fejlesztéseket
-még nem dokumentálták megfelelően, így sokmindent a [Release Notesokból](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes), GitHub issue-kból 
-és a forráskódból kellett összeszedni.
+A poszt megírásának a pillanatában a legfrissebb verzió a 3.1.4. 
 
 Az említendő változások a következő területeket érintik:
 
@@ -32,32 +29,52 @@ Az említendő változások a következő területeket érintik:
 ## RFC 7807 - Problem Details
 
 Ami számomra a legrelevánsabb, hogy a Spring Boot 3 már támogatja a 
-RFC 7807 szabványt, mely meghatározza, hogy hiba esetén milyen 
+[RFC 7807 szabványt](https://datatracker.ietf.org/doc/html/rfc7807), mely meghatározza, hogy hiba esetén milyen 
 formátumban kell a hibát jelezni.
 
 REST webszolgáltatások esetén azt láthatjuk, hogy mindegyik API
 másképp jelzi a hibát, erre próbál a szabvány valamilyen egységes
 formátumot definiálni.
 
-A Spring pl. a következő hibát adja exception esetén, mely nem követi 
-a szabványt.
+A Spring pl. a következő hibát adja ha az URL-ben szöveget adunk át ott, ahol számot vár.
+Ez a Spring saját hibaformátuma, mely nem követi a szabványt.
 
 ```json
 {
-  "timestamp": "2022-09-13T17:13:17.033+00:00",
-  "status": 404,
-  "error": "Not Found",
-  "path": "/api/employees/100"
+  "timestamp": "2023-10-03T11:30:03.538+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/api/employees/foo"
 }
 ```
 
 Vannak erre külön libraryk, pl. a [Zalando Problem](https://github.com/zalando/problem),
-és ennek Spring illesztése a [Problems for Spring MVC and Spring WebFlux](https://github.com/zalando/problem-spring-web). Azonban a 3-as verziótól kezdve a Spring Boot beépítve támogatja.
+és ennek Spring illesztése a [Problems for Spring MVC and Spring WebFlux](https://github.com/zalando/problem-spring-web). 
+Azonban a Spring Boot 3-as verziótól kezdve ezekre nincs szükség, ugyanis a Problem Details szabványt a Spring Boot beépítve támogatja.
 
-A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-spring-modulith).
+A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-employees-sb3). MariaDB adatbázist használ és REST-en CRUD műveleteket biztosít.
 
-Alapesetben a Spring Boot még mindig az előző hibát adja vissza, azonban a `ProblemDetail`
-osztály használatával már tudunk ezen változtatni, hiszen ez reprezentálja a visszaadott hibát.
+Abban az esetben, ha az `application.properties` állományban felvesszük a 
+`spring.mvc.problemdetails.enabled = true` értéket, akkor a következő
+hibát kapjuk.
+
+```json
+{
+  "type": "about:blank",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "Failed to convert 'id' with value: 'foo'",
+  "instance": "/api/employees/foo"
+}
+```
+
+Itt a headerben a `Content-Type` értéke `application/problem+json`, így a válasz megfelel a szabványnak.
+A Problem Details bekapcsoláskor a `ResponseEntityExceptionHandler` aktiválódik, mely több kivételt is kezel,
+pl. a fent létrejött `MethodArgumentTypeMismatchException` kivételt. Amennyiben szeretnénk
+ezt személyre szabni, vagy kiegészíteni, akkor létrehozhatunk egy leszármazottat. 
+
+Saját kivétel esetén is megadhatjuk, hogy mi legyen a törzs tartalma, ehhez a `ProblemDetail`
+osztályt kell használni, hiszen ez reprezentálja a visszaadott hibát.
 Ha egy `@RequestMapping` vagy `@ExceptionHandler` metódusból ezzel térünk vissza, máris a 
 megfelelő hibát kapjuk. Használható a `ErrorResponse` interfész is, mely a státuszkódot és a http fejléceket is
 tartalmazza.
@@ -86,18 +103,25 @@ Ekkor a visszakapott hiba a következő.
 }
 ```
 
-Ebben az esetben a `Content-Type` fejléc értékének `application/problem+json` értéket kéne felvennie,
-ezt azonban az [issue alapján](https://github.com/spring-projects/spring-framework/issues/28189)
-az M5-ben javítják.
-
 Kivételek esetén le lehet származni a `ErrorResponseException` osztályból, azonban
 én nem szeretem, ha az üzleti rétegben szereplő exceptionnek van REST-re hivatkozása.
-Ezek leszármazottját a `ResponseEntityExceptionHandler` kezeli, melyből szintén le
-tudunk származni.
 
 A Bean Validation validációs hiba esetén a `MethodArgumentNotValidException` kivételt dobja,
 mely implementálja a `ErrorResponse` interfészt, azonban nem mondja meg, hogy milyen mezőkkel
-van probléma. Ezen a következő kóddal segíthetünk.
+van probléma. Tehát valami hasonló hibát kapunk:
+
+```json
+{
+  "type": "about:blank",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "Invalid request content.",
+  "instance": "/api/employees"
+}
+```
+
+
+Ezen a következő kóddal segíthetünk.
 
 ```java
 @Data
@@ -119,7 +143,7 @@ public class EmployeesExceptionHandler {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, "Constraint Violation");
         List<Violation> violations = exception.getBindingResult().getFieldErrors().stream()
                 .map((FieldError fe) -> new Violation(fe.getField(), fe.getDefaultMessage()))
-                .collect(Collectors.toList());
+                .toList();
         problemDetail.setProperty("violations", violations);
         return problemDetail;
     }
@@ -168,12 +192,12 @@ Spring Boot esetén a  [Spring Cloud Sleuth projektet](https://spring.io/project
 kellett használni.
 
 A Spring Boot 3-nak viszont már szerves része lesz. Eddig is használta a Micrometert,
-de csak metrikák publikálásához. Azonban megjelent a [Micrometer Tracing](https://micrometer.io/docs/tracing).
-A Micrometer eddig is egy olyan library volt, mely a különböző metrikákat gyűjtő eszközök
-elől elrejtette a különbséget. Úgy is nevezte magát, hogy a metrikáknak a Micrometer olyan,
+de csak metrikák publikálásához. A Micrometer elrejtette a különböző metrikákat gyűjtő eszközök
+közötti különbséget. Úgy is mondhatjuk, hogy a metrikáknak a Micrometer olyan,
 mint az SLF4J a naplózó keretrendszernek. Hiszen támogat majdnem húsz metrikákat gyűjtő
 eszközt, pl. Elastic, Graphite, Prometheus, stb. 
 
+Majd megjelent a [Micrometer Tracing](https://micrometer.io/docs/tracing).
 A Micrometer Tracing a következő tracer library-kat támogatja: OpenZipkin Brave és OpenTelemetry.
 Ezek kezelik az adatokat és küldik valamelyik exporter/reporter felé, ami pedig továbbküldi valamilyen
 külső rendszernek.
@@ -187,9 +211,17 @@ Az exporter/reporter implementációk közül a következők vannak:
 A Spring Cloud Sleuth pedig meg fog szűnni, hiszen a magja átkerült a Micrometer Tracing projektbe, ezért
 hosszabb távon már nem érdemes építeni rá.
 
+Sőt megjelent a [Micrometer Observation](https://micrometer.io/docs/observation) is. Itt az ötlet az,
+hogy instrumentáljuk a kódot, és az így nyert adatok megjelenthetnek a metrikák és a trace-ek
+között is.
+
+Ráadásul már nagyon sok library-hez elkészültek ilyen instrumentációk, listájuk
+[itt olvasható](https://micrometer.io/docs/observation#_existing_instrumentations). Kiemelném
+a következő library-ket: JDBC, JMS, Resilience4j, Spring MVC, Spring Security, Spring Kafka, CXF, gRPC, stb.
+
 A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-mmt).
 
-A példaprojektben Zipkint választottam, melyet a legegyszerúbb Dockerben elindítani.
+A példaprojektben Zipkint választottam, melyet a legegyszerűbb Dockerben elindítani.
 
 ```shell
 docker run -d -p 9411:9411 --name zipkin openzipkin/zipkin
@@ -197,78 +229,132 @@ docker run -d -p 9411:9411 --name zipkin openzipkin/zipkin
 
 A projektben a Brave implementációt választottam, amihez a következő függőségeket kellett felvenni:
 
-```xml
-<dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>io.micrometer</groupId>
-  <artifactId>micrometer-tracing-bridge-brave</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>io.zipkin.reporter2</groupId>
-  <artifactId>zipkin-reporter-brave</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>io.zipkin.reporter2</groupId>
-  <artifactId>zipkin-sender-urlconnection</artifactId>
-</dependency>
+```groovy
+implementation 'org.springframework.boot:spring-boot-starter-actuator'
+implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+implementation 'io.opentelemetry:opentelemetry-exporter-zipkin'
 ```
-
-Az utolsó függőséggel ki lehet választani, hogy a Zipkinnel hogyan vegye fel
-a kapcsolatot, én az `UrlConnection` mellett döntöttem, mely a JDK osztálykönyvtár
-része.
 
 Az `application.properties`-ben még kellett állítgatni:
 
 
 ```properties
+spring.application.name=jtechlog-mmt
 management.tracing.enabled=true
 management.tracing.sampling.probability=1.0
 management.zipkin.tracing.connect-timeout=5s
 ```
 
-Az elsővel a tracing kerül bekapcsolásra. A másodikkal megmondjuk, hogy minden
-kérés legyen rögzítve, mert az alapbeállítás `0.1`, azaz minden tizedik. A harmadik azért
+A `spring.application.name` a service neve lesz.
+Az `management.tracing.enabled` property-vel a tracing kerül bekapcsolásra. A `management.tracing.sampling.probability` értékével megmondjuk, hogy minden
+kérés legyen rögzítve, mert az alapbeállítás `0.1`, azaz minden tizedik. A `management.zipkin.tracing.connect-timeout` azért
 kellett, mert néha timeoutolt a Zipkin kapcsolat, és ezért eldobott spaneket.
 
 Egy span létrehozása a következő kódrészlettel történhet:
 
 ```java
-Observation observation = Observation.start("controller.hello", observationRegistry);
-  try (Observation.Scope scope = observation.openScope()) {
-    return helloService.hello();
-  }
-  catch (Exception exception) {
-    observation.error(exception);
-    throw exception;
-  }
-  finally {
-    observation.stop();
-  }
+return Observation.createNotStarted("controller.hello", observationRegistry)
+				.lowCardinalityKeyValue("framework", "spring")
+				.observe(() -> {
+					return helloService.hello();
+				});
 ```
 
 Ez a következőképp fog kinézni a Zipkinben (feltételezve, hogy a service-ben is van egy `service.hello` span):
 
 <a href="/artifacts/posts/images/zipkin_sb.png" data-lightbox="post-images">![Zipkin](/artifacts/posts/images/zipkin_sb_750.png)</a>
 
-Találtam egy `@Observed` annotációt is mellyel mindezt deklaratív módon lehetne megadni, de nem találtam meg, hogy Spring Boot alatt mi dolgozza fel.
+A `spring.application.name` property-ben beállított név lett a service neve. 
 
-Természetesen az lenne a legjobb, ha ezt nem nekem kéne elindítanom, hanem pl. a beérkező http requesteknél
-valami automatikusan indít egy spant. Erre ott a `io.zipkin.brave:brave-instrumentation-spring-webmvc` projekt,
-ami még `javax.servlet` hivatkozásokat tartalmaz, azaz Spring Boot 3-mal még nem működik.
+Látható, hogy a http kérés is egy külön span, és jó sok taggel rendelkezik, pl. az URL, a HTTP metódus, a HTTP státuszkód, stb.
 
-Az is jó lenne, ha a trace id és a span id automatikusan megjelenne a logban is. Erre is ott a `io.zipkin.brave:brave-context-slf4j` projekt, de szintén nem sikerült belőni. [Nyitott issue](https://github.com/spring-projects/spring-boot/issues/31468) van róla.
+A `controller.hello` lett a következő span neve.
+A `lowCardinalityKeyValue()` metódussal olyan tageket lehet felvenni, melyek kevés értéket vehetnek fel.
+Van egy `highCardinalityKeyValue()` párja is, ha az értékek sokfélék lehetnek.
 
-Szóval látszik, hogy ez a terület még erőteljes fejlesztés alatt áll, és dokumentáció alig. [Issue van](https://github.com/spring-projects/spring-boot/issues/30658) a dokumentáció fejlesztésére.
+Metóduson használható az `@Observed` annotáció is, mellyel mindezt deklaratív módon lehet megadni. Ehhez kell egy `ObservedAspect`
+bean az application contextbe, és egy `org.springframework.boot:spring-boot-starter-aop` függőség.
 
-Az is látszik a GitHub issue-kat olvasgatva, hogy itt nagyon sok library együttes fejlesztését kell megoldani. Pl.
-a Micrometer is az egyik verzióban a `2.0.0-M1` volt behúzva, a Spring Boot 3.0.0-M4-ben visszaléptek a 1.10.0-M3
-verzióra.
+```java
+@Bean
+ObservedAspect observedAspect(ObservationRegistry observationRegistry) {
+  return new ObservedAspect(observationRegistry);
+}
+```
+
+```java
+@GetMapping("/")
+@Observed(name = "controller.hello", contextualName = "controller.hello", lowCardinalityKeyValues = {"framework", "spring"})
+public String hello() {
+  return helloService.hello();
+}
+```
+
+A `contextualName` lesz a span neve.
+
+Kapcsoljuk be az aktuátorokat az `application.properties` fájlban.
+
+```properties
+management.endpoints.web.exposure.include=*
+```
+
+Ekkor a `http://localhost:8080/actuator/metrics/controller.hello` címen lekérdezhetjük az ide tartozó
+metrikákat is.
+
+```json
+{
+   "name":"controller.hello",
+   "baseUnit":"seconds",
+   "measurements":[
+      {
+         "statistic":"COUNT",
+         "value":3
+      },
+      {
+         "statistic":"TOTAL_TIME",
+         "value":0.0032814
+      },
+      {
+         "statistic":"MAX",
+         "value":0.0019493
+      }
+   ],
+   "availableTags":[
+      {
+         "tag":"framework",
+         "values":[
+            "spring"
+         ]
+      },
+      {
+         "tag":"method",
+         "values":[
+            "hello"
+         ]
+      },
+      {
+         "tag":"error",
+         "values":[
+            "none"
+         ]
+      },
+      {
+         "tag":"class",
+         "values":[
+            "hello.HelloApplication"
+         ]
+      }
+   ]
+```
+
+Látható, hogy 3-szor hívtam meg.
+
+A trace id és a span id értékét is meg lehet jeleníteni a logban. Ehhez az `application.properties`
+fájlban kell felvenni a következőt:
+
+```properties
+logging.pattern.console=%d{HH:mm:ss} [%X{traceId}/%X{spanId}] %clr(%-5.5p{5}) %-40.40logger{40} %m%n
+```
 
 # Natív futtatható fájl
 
@@ -290,11 +376,46 @@ Ez az AOT eddig külön plugin volt, most viszont bekerül a Spring Bootba.
 A natív fordítást a [Bellsoft Liberica Native Image Kit (NIK)](https://bell-sw.com/liberica-native-image-kit/)
 végzi, mely a GraalVM-re és Liberica JDK-ra épít.
 
-A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-employees-sb2-native).
-Az alkalmazás MariaDB adatbázist használ és REST-en CRUD műveleteket biztosít.
+Ez történhet Docker konténerben a Cloud Native Buildpacks segítségével.
+
+Ehhez a `build.gradle` fájlba a következő plugint kell felvenni:
+
+```groovy
+id 'org.graalvm.buildtools.native' version '0.9.27'
+```
+
+Majd a következő parancs kiadásával előáll az image.
+
+```shell
+gradlew bootBuildImage
+```
+
+Ez nekem több, mint 10 percig futott.
+
+Utána Docker Compose-t használtam, hogy egy paranccsal lehessen
+elindítani az adatbázis és az alkalmazás konténert, ráadásul úgy,
+hogy egy hálózatban legyenek.
+
+```shell
+cd employees
+docker compose up
+```
+
+Az alkalmazás indítási ideje 0,2 - 0,3 másodperc!
+
+Lehetne natív futtatható állományt is előállítani, azonban ekkor
+a telepíteni kell a gépre GraalVM disztribúciót. Linux és MacOS
+esetén ez működhet az SDKMAN! eszközzel.
+
+Windows esetén még a Visual Studio Build Tools és a Windows SDK
+eszközöket is telepíteni kell.
+
+# Natív image-ek Spring Boot 2-es verzión (deprecated)
 
 A Spring Native aktuális stabil verziója (0.12.1) a 
-Spring Boot 2.7.1 verzióját támogatja, azért még a Spring Boot 2-es sorozattal próbáltam ki.
+Spring Boot 2.7.1 verzióját támogatja.
+
+A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-employees-sb2-native).
 
 Ehhez kellett a Spring Native függőség:
 
@@ -353,7 +474,6 @@ történik (builder image/container), másra nincs szükség.
 
 A Spring Native csak a Spring repo-jából tölthető le.
 
-
 ```xml
 <repositories>
     <repository>
@@ -393,26 +513,15 @@ A Spring Native csak a Spring repo-jából tölthető le.
 </pluginRepositories>
 ```
 
-Eztán már csak a `mvn spring-boot:build-image` parancsot kell kiadni. Ez az én gépemen 14 percig futott.
+Eztán már csak a `mvn spring-boot:build-image` parancsot kell kiadni. Ez az én gépemen 14 percig futott. (Figyeljünk, hogy a 17-es JDK-t használjuk.)
 
-Utána a következő parancsokat kell kiadni.
+Utána Docker Compose-t használtam, hogy egy paranccsal lehessen
+elindítani az adatbázis és az alkalmazás konténert, ráadásul úgy,
+hogy egy hálózatban legyenek.
 
 ```shell
-docker network create employees-net
-docker run -d -e MARIADB_DATABASE=employees -e MARIADB_USER=employees -e MARIADB_PASSWORD=employees -e MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=yes -p 3306:3306 --name e2-mariadb --network employees-net mariadb
-docker run 
-docker run -p 8080:8080 -eSPRING_DATASOURCE_URL=jdbc:mariadb://e2-mariadb/employees -e SPRING_DATASOURCE_USERNAME=employees -e SPRING_DATASOURCE_PASSWORD=employees --network employees-net jtechlog-employees-sb2:0.0.1-SNAPSHOT
+cd employees
+docker compose up
 ```
-
-De azt hiszem, hogy az indulás ideje kárpótol ezért. Az alkalmazást letesztelve tökéletesen működik.
-Természetesen az image mérete és a memóriafelhasználás is kevesebb.
 
 <a href="/artifacts/posts/images/spring-boot-native.png" data-lightbox="post-images">![Spring Boot indulás](/artifacts/posts/images/spring-boot-native_750.png)</a>
-
-Azaz 0,2 másodperc!
-
-Megpróbáltam a 3-as sorozattal is, ehhez csak a `spring-boot-maven-plugin`-t kellett konfigurálni, azonban a következő hibát kaptam.
-
-```
-Fatal error: com.oracle.graal.pointsto.util.AnalysisError$ParsingError: Error encountered while parsing sun.font.PhysicalStrike.<clinit>()
-```
