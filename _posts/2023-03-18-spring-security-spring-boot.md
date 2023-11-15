@@ -4,9 +4,12 @@ title: Spring Security és Spring Boot
 date: '2023-03-28T10:00:00.000+02:00'
 author: István Viczián
 description: Spring Security és Spring Boot
+modified_time: '2023-11-15T10:00:00.000+01:00'
 ---
 
-Technológiák: Spring Security 6, Spring Boot 3, Thymeleaf, Spring Data JPA, H2
+Technológiák: Spring Security 6.1, Spring Boot 3.1, Thymeleaf, Spring Data JPA, H2
+
+Utolsó frissítés: 2023. november 15.
 
 (Azért írtam meg ezt a posztot, mert sokan kerestek a Spring Security-re,
 továbbá 2022 novemberében kijött a Spring Security 6 és Spring Boot 3, valamint
@@ -153,17 +156,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests()
-                .requestMatchers("/login")
-                .permitAll()
-                .requestMatchers("/")
-                // ROLE_ prefixet auto hozzáfűzi
-                .hasAnyRole("USER", "ADMIN")
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .and()
-                .logout();
+                .authorizeHttpRequests(
+                        registry -> registry
+                                .requestMatchers("/login")
+                                .permitAll()
+                                .requestMatchers("/")
+                                // ROLE_ prefixet auto hozzáfűzi
+                                .hasAnyRole("USER", "ADMIN")
+                )
+                .formLogin(conf -> conf
+                        .loginPage("/login")
+                        .failureHandler(usernameInUrlAuthenticationFailureHandler())
+                )
+                .logout(Customizer.withDefaults());
         return http.build();
     }
 
@@ -323,7 +328,6 @@ public ModelAndView index(@AuthenticationPrincipal User user) {
       Map.of("users", userService.listUsers(), "user", new User()));
 }
 ```
-
 
 A Java kódból a következőképpen kérhetjük le a bejelentkezés után
 a felhasználót:
