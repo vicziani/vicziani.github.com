@@ -139,7 +139,7 @@ kapcsolatban, hogy olyan dologra kérdezett rá, mely egyik felkészítő
 anyagban sem volt, és a mock vizsgákban sem.
 
 Végül álljon itt egy 
-[segédlet](https://github.com/vicziani/vicziani.github.com/blob/master//artifacts/certs/oce-jws.md),
+[segédlet](/artifacts/certs/oce-jws.md),
 mely a vizsgára készülés során összeszedett dolgokat tartalmazza. Aki
 erre a vizsgára készül, annak hasznos lehet, ha felkészülés gyanánt
 átfutja.

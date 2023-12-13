@@ -16,4 +16,4 @@ mondatok szerepelnek benne, de hátha valakinek még jó lesz. Elérhető a
 következő linken:
 
 [XHTML 1.0 Extensible HyperText Markup Language (Második Kiadás) -
-magyar fordítás](http://vicziani.github.com/xhtml-1.0.htm)
+magyar fordítás](/xhtml-1.0.htm)

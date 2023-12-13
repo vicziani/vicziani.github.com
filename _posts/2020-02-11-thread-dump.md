@@ -54,7 +54,7 @@ alá, [Apache JMeter](http://jmeter.apache.org/)-rel 20 szálon terheltem. Az al
 alkalmazottakat tart nyilván, a kérésekben új alkalmazottakat vettem fel, és alkalmazottak
 listáját kértem le.
 
-A példa [thread dump megtekinthető itt](https://github.com/vicziani/vicziani.github.com/blob/master/artifacts/posts/threaddump.txt).
+A példa [thread dump megtekinthető itt](/artifacts/posts/threaddump.txt).
 Látható, hogy ez egy kb. 220 kb-os, 2377 soros szöveges állomány, melynek értelmezése nem annyira egyszerű.
 Azért annyi látszik, hogy felépítése rendkívül egyszerű, a szálakat tartalmazza,
 valamint mindegyikhez a stack trace-t, egymástól üres sorral elválasztva.

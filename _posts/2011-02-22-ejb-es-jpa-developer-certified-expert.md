@@ -108,6 +108,6 @@ oldalon, valamint a
 oldalon.
 
 És itt egy 
-[segédlet](https://github.com/vicziani/vicziani.github.com/blob/master//artifacts/certs/oce-ejb_oca-jpa.md), 
+[segédlet](/artifacts/certs/oce-ejb_oca-jpa.md), 
 mely pár érdekességet tartalmaz, melyekre a vizsgára való készülés közben 
 bukkantam, vagy a vizsga közben tapasztaltam.

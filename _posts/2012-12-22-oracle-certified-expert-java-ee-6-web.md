@@ -134,7 +134,7 @@ Ha a munkahely meg támogatja, akár a vizsgadíj megfizetésével, akár
 felkészülési idővel, egyszerűen bűn kihagyni.
 
 Letölthető egy 
-[segédlet](https://github.com/vicziani/vicziani.github.com/blob/master//artifacts/certs/oce-jws.md) 
+[segédlet](/artifacts/certs/oce-jws.md) 
 mely azoknak hasznos, akik vagy komolyan foglalkoznak a
 témával, vagy le akarják tenni a vizsgát. Megpróbáltam minden fogalmat
 összeszedni, nekem volt egy vázlat. Talán egy öntesztnek sem utolsó,

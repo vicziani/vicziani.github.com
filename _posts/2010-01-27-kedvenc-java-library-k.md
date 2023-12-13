@@ -54,7 +54,7 @@ segítség a naplózáshoz. Ugyan jönnek a trónkövetelők, mint a
 [Logback](http://logback.qos.ch/), [SLF4J](http://www.slf4j.org/),
 azonban nem tudok elképzelni olyan funkciót, amiért váltanék, és még nem
 is annyira elterjedtek. Erről
-[cikket](http://vicziani.github.com/artifacts/log4j.pdf) is írtam.
+[cikket](/artifacts/log4j.pdf) is írtam.
 
 [Apache Velocity](http://velocity.apache.org/): Sablonozásra használjuk.
 Régebben ez volt a view réteg, de most inkább a JSP, mely jobban megköti
@@ -62,12 +62,12 @@ az ember kezét. Nem csak alkalmazásokban használjuk, hanem pl. ügyfél
 számára interfész prototípus, sőt dokumentáció generálására is. Okosabb
 a [FreeMarker](http://freemarker.org/), de nem volt még szükség a
 funkcióira. Erről szóló
-[cikk](http://vicziani.github.com/artifacts/velocity.pdf).
+[cikk](/artifacts/velocity.pdf).
 
 [Apache Lucene](http://lucene.apache.org/java/docs/): Most már mindegyik
 webes alkalmazásban szükség van a tartalom hatékony keresésére, erre
 tökéletes. Erről
-[cikket](http://vicziani.github.com/artifacts/lucene.pdf) is írtam.
+[cikket](/artifacts/lucene.pdf) is írtam.
 
 [Spring
 Security](http://static.springsource.org/spring-security/site/index.html):

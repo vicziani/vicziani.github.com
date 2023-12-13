@@ -51,7 +51,7 @@ témákat is érint, mint a hosszú, aszinkron folyamatok kezelése, vagy a
 problémák megoldása AJAX környezetben.
 
 [Szabad navigáció okozta problémák webes környezetben cikk
-letöltése](http://vicziani.github.com/artifacts/repost.pdf)
+letöltése](/artifacts/repost.pdf)
 
 A dokumentáció érdekessége, hogy [DocBookban](http://www.docbook.org/)
 íródott, mely egy XML formátum könyvek, cikkek publikálására. Ugyanis

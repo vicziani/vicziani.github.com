@@ -43,7 +43,7 @@ Az Ant azért már szerzett néhány bosszúságot, mert nem könnyű
 elsajátítani a deklaratív gondolkodását. Azonban pont most vezetjük be
 nem csak build folyamatra, hanem általánosabb folyamatirányításra, és
 meglepetésre a kiterjeszthetőségének hála remekül megállja a helyét.
-Erről szintén [cikket](http://vicziani.github.com/artifacts/ant.pdf)
+Erről szintén [cikket](/artifacts/ant.pdf)
 írtam.
 
 [Apache Tomcat](http://tomcat.apache.org/): Sokak szerint nem a
