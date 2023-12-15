@@ -2,14 +2,14 @@
 layout: post
 title: OAuth 2.0 Spring Boot és Spring Security keretrendszerekkel
 date: '2020-02-19T11:00:00.000+01:00'
-modified_time: '2021-06-30T12:00:00.000+02:00'
+modified_time: '2023-12-15T10:00:00.000+01:00'
 author: István Viczián
 description: Mi az az OAuth 2.0, és hogyan használjuk vállalati környezetben Spring Boot és Spring Security keretrendszerekkel.
 ---
 
-Használt technológiák: Spring Boot 2, Spring Security 5, Keycloak 14
+Használt technológiák: Spring Boot 3, Spring Security 6, Keycloak 16
 
-Frissítve: 2021. június 30.
+Frissítve: 2023. december 15.
 
 Bejelentkezés és jogosultságkezelés témakörben az egyik legelterjedt szabvány az OAuth 2.0.
 Vállalati környezetben nem érdemes saját felhasználókezelést 
@@ -30,7 +30,8 @@ kialakítása miatt nem kell a jelszavunk megadni egy harmadik félnek.
 Ha valaki most itt abbahagyná az olvasást, hogy az alkalmazásába nem akar
 sem Facebook, sem Google bejelentkezést, az is olvasson tovább. Ugyanis az OAuth
 szabvány használatával természetesen saját authorizációt is megvalósíthatunk,
-sőt, ez a javasolt mód. Ugyanis nagyon hamar eljuthatunk oda, hogy nem csak egy
+sőt, ez a javasolt mód, különösen microservices architektúra használata esetén. 
+Ugyanis nagyon hamar eljuthatunk oda, hogy nem csak egy
 alkalmazást akarunk üzemeltetni, hanem kettőt, és nem szeretnénk, ha a felhasználóinknak
 több jelszót kelljen megjegyezniük. Ezt Single Sign-On-nak (SSO), egyszeri bejelentkezésnek
 nevezzük. És ez nem csak a felhasználóinknak jó, hanem a fejlesztőinknek is, hiszen ha
@@ -55,10 +56,10 @@ kedvéért kicsit pongyolább leszek, hiszen az OAuth mindent _is_ támogat, és
 inkább csak a gyakoribb eseteket részletezném, nem akarom a kivételekkel elbonyolítani
 a leírást.)
 
-* Resource owner: aki hozzáfér az erőforráshoz, a szolgáltatáshoz, humán esetben a felhasználó (de lehet alkalmazás is)
-* Client: a szoftver, ami hozzá akar férni a felhasználó adataihoz
-* Authorization Server: ahol a felhasználó adatai tárolva vannak, és ahol be tud lépni
-* Resource Server: ahol a felhasználó igénybe veszi az erőforrásokat, a szolgáltatást
+* Resource Owner: aki hozzáfér az erőforráshoz, a szolgáltatáshoz, humán esetben a felhasználó (de lehet alkalmazás is)
+* Client: a szoftver, ami hozzá akar férni a felhasználó adataihoz, tipikusan a frontend alkalmazás
+* Authorization Server: ahol a felhasználó adatai tárolva vannak, és ahol be tud lépni, esetünkben a KeyCloak server
+* Resource Server: ahol a felhasználó igénybe veszi az erőforrásokat, a szolgáltatást, tipikusan a backend alkalmazás, REST API-val
 
 Vigyázzunk, nincs meghatározva, hogy ezek külön alkalmazások legyenek, ugyanaz az
 alkalmazás akár több szerepkört is betölthet.
@@ -66,15 +67,15 @@ alkalmazás akár több szerepkört is betölthet.
 Az elején meg kell adni a Grant Type-ot, ami megmondja, hogy a további lépések milyen
 forgatókönyv alapján kerüljenek végrehajtásra. A következő Grant Type-ok vannak:
 
-* Authorization Code: klasszikus mód, ahogy egy webes alkalmazásba lépünk Facebook vagy a Google segítségével
-* Implicit: mobil alkalmazások, vagy csak böngészőben futó alkalmazások használják
-* Resource Owner Password Credentials: ezt olyan megbízható alkalmazások használják, melyek maguk kérik be a jelszót
+* Authorization Code: klasszikus mód, ahogy egy webes alkalmazásba lépünk Facebook vagy a Google segítségével, a legbiztonságosabb, de legkomplexebb megoldás
+* Implicit: mobil alkalmazások, vagy csak böngészőben futó alkalmazások használják. Ez deprecated, már ne használjuk!
+* Resource Owner Password Credentials: ezt olyan megbízható alkalmazások használják, melyek maguk kérik be a jelszót. Ez deprecated, már ne használjuk!
 * Client Credentials: ebben az esetben nem a felhasználó kerül azonosításra, hanem az alkalmazás önmaga
 
 Fontos fogalom még a token, mely a belépés tényét igazoló információ darabka. A token
 visszavonható, vagy akár le is járhat.
 
-Most nézzük meg, hogy hogy működik az Authorization Code típus, mely webes alkalmazásoknál javasolt:
+Most nézzük meg, hogy hogy működik az Authorization Code Grant Type, mely webes alkalmazásoknál javasolt:
 
 * A felhasználó elmegy az alkalmazás oldalára
 * Az átirányít a Authorization Serverre (pl. Google vagy Facebook), megadva a saját azonosítóját (client id), hogy hozzá szeretne férni a felhasználó adataihoz
@@ -89,29 +90,16 @@ Figyeljük meg, hogy a token lekérése csakis védett csatornán mehet, hiszen 
 nevében lesz képes eljárni.
 
 Azt is láthatjuk, hogy ahhoz, hogy ez működni tudjon, az Authorization Serveren fel kell venni az alkalmazást, és ott el lesz tárolva annak azonosítója (client id), neve, címe, "jelszava" (client secret) és az alapértelmezett url (Redirect URI or Callback URL), ahova vissza kell irányítani a felhasználót. A bejelentkezésnél ezt az alkalmazás felül is bírálhatja url paraméterben, és akkor máshova fogja a felhasználót
-visszadobni az Authorization Server.
+visszadobni az Authorization Server. Az Authorization Server ezt is ellenőrzi, nem lehet bármilyan címre átirányítást kérni.
 
-A következő Grant Type az Implicit, amit pl. mobil alkalmazásoknál használunk. Itt nincs titkos csatorna az alkalmazás és a Authorization Server között, ezért az alkalmazás "jelszava" hozzáférhetővé válna, ezért mást kellett kitalálni.
-
-Ez is átirányítás alapon működik, a különbség csupán annyi, hogy itt a bejelentkezés után a mobil alkalmazás azonnal a tokent kapja meg,
-ami alapján hozzáfér a felhasználó adataihoz.
-
-A Resource Owner Password Credentials Grant Type csak speciális, megbízható alkalmazások esetén használható.
-Ebben az esetben ugyanis az alkalmazás maga kéri be a felhasználónevet és a jelszót, ezt továbbítja az Authentication
-Servernek, ami erre visszaadja a tokent, ami a felhasználó adatait hordozza. Újra kiemelném, itt az
-alkalmazás maga kéri be a jelszót, semmi sem akadályozza meg, hogy azt el is mentse. Ez publikus weben nem
-elképzelhető, hiszen a Google jelszavunkat sosem adnánk meg más alkalmazásnak (ugye?), de egy intranetes védett környezetben
-akár ez is használható.
-
-A Client Credentials Grant Type-nál ahogy említettem az alkalmazás önmagát azonosítja, és önmagával kapcsolatos adminisztrációs
-feladatokat végezhet az Authorization Serveren.
+A Client Credentials Grant Type-nál ahogy említettem az alkalmazás önmagát azonosítja.
 
 Beszélni kell még magáról a tokenről is. Ez lehet JSON Web Token (JWT), melyről az előző posztban esett már szó, JSON formátumban
-önmaga tárolja a felhasználó adatait, ami azért hasznos, mert a bejelentkezés tényét nem kell az alkalmazásban tárolni (pl. sessionben, cache-ben), sem az Authentication Servertől lekérni. Ezáltal állapotmentes alkalmazásokat tudunk készíteni, mely egyszerűsíti a telepítést, üzemeltetést, skálázhatóságot.
+önmaga tárolja a felhasználó adatait.
 
-Igen ám, de hogyan bizonyosodjunk meg arról, hogy a JWT tokent nem egy támadó állította össze, és küldte be. Erre való a JSON Web Signature (JWS)
+Hogyan bizonyosodjunk meg arról, hogy a JWT tokent nem egy támadó állította össze, és küldte be? Erre való a JSON Web Signature (JWS)
 specifikáció, mely kriptográfiai mechanizmusokat ír le a token integritásának megőrzéséhez. Ez gyakorlatban annyit jelent,
-hogy az Authorization Server a tokent elektronikusan aláírja. A resource servernek az aláírást ellenőriznie kell, amikor
+hogy az Authorization Server a tokent elektronikusan aláírja. A Resource Servernek az aláírást ellenőriznie kell, amikor
 azt megkapja. Ehhez az ellenőrzéshez azonban szükség van az Authorization Server publikus kulcsára, pontosabban az ezt is tartalmazó tanúsítványára. Itt jön a képbe egy újabb szabvány, a JSON Web Key (JWK), mely egy (megintcsak) JSON formátum arra, hogy hogyan lehet az
 alkalmazás számára a tanúsítványt átadni.
 
@@ -145,9 +133,15 @@ projektet találunk, vagy `@EnableResourceServer` és `@EnableAuthorizationServe
 annotációkat, biztosak lehetünk benne, hogy a régi Spring Security OAuth
 megoldáshoz van dolgunk.
 
-Ezen kívül a Keycloakhoz külön Spring Boot Starter projekt van, ezért még könnyebben integrálható.
+Ezen kívül a Keycloakhoz külön Spring Boot Starter projekt is van (ún adapter), 
+[ennek fejlesztését azonban leállították](https://www.keycloak.org/2023/03/adapter-deprecation-update), 
+így ezt nem érdemes tovább használni.
 
-És most nézzük a példa projektet! Az 
+Akkor mit használjunk? Jelenleg, a Spring Security 6.2.0 verzió a legjobb megoldás, melyben van
+OAuth 2.0 támogatás.
+
+És most nézzük a példa projektet, egy backend alkalmazást, azaz egy Resource Servert, mely REST API-ját
+akarjuk levédeni. Az 
 implementálásához a következő lépésekre lesz szükségünk:
 
 * Fel kell telepíteni egy Authorization Servert. Ehhez a Keycloakot fogom
@@ -253,6 +247,16 @@ curl -s --data "grant_type=password&client_id=jtechlog-app&username=johndoe&pass
 A [jq](https://stedolan.github.io/jq/) egy parancssori eszköz JSON feldolgozására, most itt
 egyszerűen csak formázunk vele.
 
+Vagy használhatunk egy `.http` fájlt, amit az IDEA Ultimate, vagy a Visual Studio Code a REST Client
+extension használatával képes futtatni.
+
+```plain
+POST http://localhost:8081/auth/realms/JTechLogRealm/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&client_id=jtechlog-app&username=johndoe&password=johndoe
+```
+
 Ekkor egy hasonló JSON jön vissza:
 
 ```javascript
@@ -269,7 +273,7 @@ Ekkor egy hasonló JSON jön vissza:
 ```
 
 Itt természetesen az `access_token` és `refresh_token` értéke sokkal hosszabb.
-Mivel a token nem kódolt, átmásolhatjuk a https://jwt.io/ oldalra, amivel 
+Mivel a token nem kódolt, átmásolhatjuk a [https://jwt.io](https://jwt.io) oldalra, amivel 
 megtekinthetjük annak tartalmát.
 
 ```javascript
@@ -344,28 +348,12 @@ ahol a tanúsítványok a X.509 szabvány formátumban vannak.
 ## Alkalmazás
 
 A következő feladat az alkalmazás elkészítése. Üres Spring Boot projekttel induljunk,
-majd vegyük fel a `pom.xml` fájlba a `<dependencyManagement>` tagbe a következőt:
-
-```xml
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>org.keycloak.bom</groupId>
-      <artifactId>keycloak-adapter-bom</artifactId>
-      <version>14.0.0</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-```
-
-Majd a függőségek közé:
+majd vegyük fel függőségnek a következőt:
 
 ```xml
 <dependency>
-  <groupId>org.keycloak</groupId>
-  <artifactId>keycloak-spring-boot-starter</artifactId>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 </dependency>
 ```
 
@@ -374,21 +362,32 @@ az `application.properties` állományban a Keycloak szerverhez kapcsolódás
 tulajdonságait:
 
 ```properties
-keycloak.auth-server-url=http://localhost:8081/auth
-keycloak.realm=JTechLogRealm
-keycloak.resource=jtechlog-app
-keycloak.public-client=true
+spring.security.oauth2.resourceserver.jwt.issuer-uri=http://localhost:8081/auth/realms/JTechLogRealm
+```
 
-keycloak.security-constraints[0].authRoles[0]=jtechlog_user
-keycloak.security-constraints[0].securityCollections[0].patterns[0]=/*
+Valamint vegyük fel a következő konfigurációt:
 
-keycloak.principal-attribute=preferred_username
+```java
+@Configuration(proxyBeanMethods = false)
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(registry -> registry
+                                .requestMatchers("/api/hello")
+                                .authenticated()
+                                .anyRequest()
+                                .permitAll()
+                )
+                .oauth2ResourceServer(conf -> conf.jwt(Customizer.withDefaults()));
+        return http.build();
+    }
+}
 ```
 
 Az alkalmazást indíthatjuk az `mvn spring-boot:run` paranccsal is parancssorból.
 
-Alapesetben ekkor minden url védett, ezért ha meg akarunk hívni egy 
-webszolgáltatást, akkor a következő üzenetet kapjuk:
+Ha meg akarjuk hívni a `/api/hello` végpontot, akkor a következő üzenetet kapjuk:
 
 ```
 $curl -s -v http://localhost:8080/api/hello
@@ -402,6 +401,12 @@ $curl -s -v http://localhost:8080/api/hello
 A `-s` (silent) kapcsolóval nem kérjük a letöltést jelző indikátort, a `-v` (verbose) kapcsolóval pedig
 nem csak a válasz törzsét, hanem a kérést és a válasz fejlécét is kiíratjuk.
 
+Vagy ugyanez `.http` fájlban:
+
+```plain
+GET http://localhost:8080/api/hello
+```
+
 Látható, hogy `401` Unauthorized hibával elutasította a kérést, és az
 autentikáció módja Bearer, azaz hordozó tokent kell átadni a kérés
 fejlécében.
@@ -413,6 +418,14 @@ $curl -s -H "Authorization: bearer eyJ..." http://localhost:8080/api/hello | jq
 {
   "message": "Hello JWT!"
 }
+```
+
+Vagy `.http` fájlban:
+
+```plain
+###
+GET http://localhost:8080/api/hello
+Authorization: bearer eyJ...
 ```
 
 Ahol a `eyJ...` helyett a teljes token szerepel. Ezt ugyanígy tudjuk Postmanben is használni,
@@ -437,5 +450,67 @@ public HelloResponse sayHello(Principal principal) {
     log.info("The name of the user: {}", principal.getName());
 
     return new HelloResponse("Hello JWT!");
+}
+```
+
+Ha csak a `principal` változó értékét írjuk ki, akkor láthatjuk, hogy sem a felhasználónév
+nem megfelelő, sem a szerepkörök.
+
+A felhasználónév kinyeréséhez használjunk egy `UsernameSubClaimAdapter` osztályt:
+
+```java
+public class UsernameSubClaimAdapter implements Converter<Map<String, Object>, Map<String, Object>> {
+
+    private final MappedJwtClaimSetConverter delegate = MappedJwtClaimSetConverter.withDefaults(Collections.emptyMap());
+
+    @Override
+    public Map<String, Object> convert(Map<String, Object> source) {
+        Map<String, Object> convertedClaims = this.delegate.convert(source);
+        String username = (String) convertedClaims.get("preferred_username");
+        convertedClaims.put("sub", username);
+        return convertedClaims;
+    }
+}
+```
+
+És hivatkozzunk rá a `SecurityConfig` osztályból:
+
+```java
+@Bean
+public JwtDecoder jwtDecoderByIssuerUri(OAuth2ResourceServerProperties properties) {
+    String issuerUri = properties.getJwt().getIssuerUri();
+    NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder) JwtDecoders.fromIssuerLocation(issuerUri);
+    // Use preferred_username from claims as authentication name, instead of UUID subject
+    jwtDecoder.setClaimSetConverter(new UsernameSubClaimAdapter());
+    return jwtDecoder;
+}
+```
+
+A szerepkörökhöz kell egy új `KeycloakRealmRoleConverter` osztály:
+
+```java
+public class KeycloakRealmRoleConverter implements Converter<Jwt, Collection<GrantedAuthority>> {
+
+    @Override
+    public Collection<GrantedAuthority> convert(Jwt source) {
+        var realmAccess = (Map<String, Object>) source.getClaims().get("realm_access");
+        var roles = (List<String>) realmAccess.get("roles");
+        return roles.stream()
+                .map(roleName -> "ROLE_" + roleName)
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
+    }
+}
+```
+
+És erre is hivatkozzunk a `SecurityConfig` osztályból:
+
+```java
+@Bean
+public Converter<Jwt,? extends AbstractAuthenticationToken> jwtAuthenticationConverter() {
+    JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
+    // Convert realm_access.roles claims to granted authorities, for use in access decisions
+    converter.setJwtGrantedAuthoritiesConverter(new KeycloakRealmRoleConverter());
+    return converter;
 }
 ```
