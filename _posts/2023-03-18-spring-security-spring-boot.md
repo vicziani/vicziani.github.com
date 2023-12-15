@@ -149,7 +149,7 @@ public class UserService implements UserDetailsService {
 Majd konfigurálom a Spring Security-t a `SecurityConfig` osztályban.
 
 ```java
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @EnableWebSecurity
 public class SecurityConfig {
 
@@ -166,7 +166,6 @@ public class SecurityConfig {
                 )
                 .formLogin(conf -> conf
                         .loginPage("/login")
-                        .failureHandler(usernameInUrlAuthenticationFailureHandler())
                 )
                 .logout(Customizer.withDefaults());
         return http.build();
@@ -347,7 +346,7 @@ definiálnunk kell a névteret:
 ```html
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 ```
 
 A felhasználó nevének és különböző tulajdonságainak megjelenítésére a `authentication`
@@ -420,7 +419,7 @@ metódusban:
 
 ```java
 @Bean
-public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+public SecurityFilterChain filterChain(HttpSecurity http, UsernameInUrlAuthenticationFailureHandler failureHandler) throws Exception {
     http
             .authorizeHttpRequests()
             .requestMatchers("/login")
@@ -431,7 +430,7 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             .and()
             .formLogin()
             .loginPage("/login")
-            .failureHandler(usernameInUrlAuthenticationFailureHandler())
+            .failureHandler(failureHandler)
             .and()
             .logout();
     return http.build();
