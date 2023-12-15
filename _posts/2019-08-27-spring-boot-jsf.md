@@ -4,7 +4,10 @@ title: JSF használata Spring Boottal
 date: '2019-08-27T22:00:00.000+02:00'
 author: István Viczián
 description: Hogyan integráljuk Spring Boot projektünkbe a JSF-et.
+modified_time: '2023-12-14T10:00:00.000+01:00'
 ---
+
+Frissítve: 2023. december 14.
 
 Tudom, a mai HTML/CSS/JavaScript világban a JSF, mint felületi technológia nem
 túl csábító, azonban bizonyos helyzetekben jó választásnak tűnhet. A JSF a
@@ -13,8 +16,8 @@ Komponens alapú fejlesztést tesz lehetővé, és MVC tervezési minta szerint 
 Java programozók pillanatokon belül használatba tudják venni, egy teljes 
 másik stack megtanulása nélkül, és nagyon gyorsan lehet vele haladni. Persze
 ha nagyon egyéni képernyőket és komponenseket kell fejleszteni, máris előjön a
-gyengesége. Azt is _lestem_ egy projektnél, hogy az admin felületeket, ahol nem kell
-a _csicsa_, JSF-ben készítették el, és csak a publikus oldalakon használtak
+gyengesége. Olyan projektet is láttam, ahol a belső felhasználású admin felületeket 
+JSF-ben készítették el, és csak a publikus oldalakon használtak
 valami modern JavaScript keretrendszert.
 
 Bár a JSF a Java EE része, remekül integrálható Spring Frameworkkel, sőt
@@ -24,7 +27,7 @@ startereket tartalmaz szinte az összes JSF implementációhoz (pl. Mojarra,
 PrimeFaces, stb.). Sőt Spring Security integrációt is tartalmaz.
 
 Akit nem hoz lázba a JSF, annak is érdemes a posztot elolvasnia, mert
-szó esik majd a JSF néhány _furi_ tulajdonságáról, a tesztelésről (, ami
+szó esik majd a JSF néhány furcsa tulajdonságáról, a tesztelésről (, ami
 mostanában a szívügyem) és még Demeter törvényéről is.
 
 A poszthoz természetesen a GitHubon működő [példaprojekt](https://github.com/vicziani/jtechlog-jsf) érhető el.
@@ -40,16 +43,17 @@ függőségként felvenni a `pom.xml` fájlban.
 
 ```xml
 <dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>org.joinfaces</groupId>
-			<artifactId>joinfaces-dependencies</artifactId>
-			<version>4.0.4</version>
-			<type>pom</type>
-			<scope>import</scope>
-		</dependency>
-	</dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>org.joinfaces</groupId>
+      <artifactId>joinfaces-platform</artifactId>
+      <version>5.2.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
 </dependencyManagement>
+
   
 <dependencies>
   <!-- ... -->
@@ -129,30 +133,38 @@ public class MessageContext {
 
 Utána persze ezt már a tesztesetben mockolhatjuk és validálhatjuk, hogy a megfelelő paraméterekkel került-e
 meghívásra. Persze előbb a helyes üzleti funkcionalitást teszteljük, és csak utána azt az ágat, ahol validációs 
-hibaüzenetet kapunk. (_Mint az köztudott._)
+hibaüzenetet kapunk.
 
 ```java
-@RunWith(MockitoJUnitRunner.class)
-public class CreateEmployeeControllerTest {
+@ExtendWith(MockitoExtension.class)
+class CreateEmployeeControllerTest {
 
-  @Mock
-  private MessageContext messageContext;
+    @Mock
+    MessageContext messageContext;
 
-  @Mock
-  private EmployeeService employeeService;
+    @Mock
+    EmployeeService employeeService;
 
-  @InjectMocks
-  private CreateEmployeeController createEmployeeController;
+    @InjectMocks
+    CreateEmployeeController createEmployeeController;
 
-  @Test
-  public void testCreateEmployee() {
-      createEmployeeController.setCommand(new CreateEmployeeCommand("John Doe", 100_000));
-      createEmployeeController.createEmployee();
+    @Test
+    void testCreateEmployee() {
+        createEmployeeController.setCommand(new CreateEmployeeCommand("John Doe", 100_000));
+        createEmployeeController.createEmployee();
 
-      verify(messageContext).addFlashMessage(eq("employee_has_created"), eq("John Doe"));
-      verify(employeeService).createEmployee(
-        argThat(command -> command.getName().equals("John Doe")));
-  }
+        verify(messageContext).addFlashMessage(eq("employee_has_been_created"), eq("John Doe"));
+        verify(employeeService).createEmployee(argThat(command -> command.getName().equals("John Doe")));
+    }
+
+    @Test
+    void testCreateEmployeeWhenEmployeeExists() {
+        doThrow(new NameAlreadyExistsException("Name already exists")).when(employeeService).createEmployee(any());
+        createEmployeeController.setCommand(new CreateEmployeeCommand("John Doe", 100_000));
+        createEmployeeController.createEmployee();
+
+        verify(messageContext).addMessage("name_already_exists");
+    }
 }
 ```
 
