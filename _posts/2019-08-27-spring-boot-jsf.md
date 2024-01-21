@@ -80,7 +80,7 @@ A példa projekt egy klasszikus CRUD alkalmazás, mely a JSF következő képess
 * Redirect after post minta megvalósítása
 * Flash attribútumok kezelése - ezek élettartama a következő kérésig tart. Bekerül a sessionbe,
   de a következő kérésnél a JSF gondoskodik róla, hogy onnan eltávolításra kerüljön.
-* Űrlapok tartalmának ellenőrzése (validáció). A JSF és a Spring Boot is remekül interálható
+* Űrlapok tartalmának ellenőrzése (validáció). A JSF és a Spring Boot is remekül integrálható
   a Bean Validation szabványhoz, melynek implementációja a Hibernate Validator. Pl. a 
   `CreateEmployeeCommand` `name` attribútumán egy `@NotBlank` annotáció van. Az is megoldott, hogy
   a hibás komponens másképp jelenjen meg, és a hibaüzenet is a komponens alatt legyen olvasható.
