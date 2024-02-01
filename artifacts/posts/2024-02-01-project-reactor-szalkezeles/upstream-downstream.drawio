@@ -1,0 +1,47 @@
+<mxfile host="app.diagrams.net" modified="2024-02-01T12:04:33.587Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="1ower3ONXIYDoliydIZV" version="22.1.21" type="device">
+  <diagram name="1 oldal" id="lJfBmLQwx1s9EJp2PIZj">
+    <mxGraphModel dx="1188" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-5" value="[pipeline]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="150" y="120" width="160" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-1" value="filter()&lt;br&gt;[operator]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="170" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-2" value="fromIterable()&lt;br&gt;[source]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="170" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-3" value="map()&lt;br&gt;[operator]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="170" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-4" value="map()&lt;br&gt;[operator]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="170" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-12" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="300" as="sourcePoint" />
+            <mxPoint x="360" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-14" value="Upstream" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1L38nvM-ssfPp6MPhMyn-12" vertex="1" connectable="0">
+          <mxGeometry x="0.1261" y="-5" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-13" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="400" as="sourcePoint" />
+            <mxPoint x="360" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1L38nvM-ssfPp6MPhMyn-16" value="Downstream" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1L38nvM-ssfPp6MPhMyn-13" vertex="1" connectable="0">
+          <mxGeometry x="0.0121" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
