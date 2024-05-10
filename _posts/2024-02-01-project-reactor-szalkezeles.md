@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Project Reactor és a szálkezelés
-date: '2024-02-01T10:00:00.000+12:00'
+date: '2024-02-01T10:00:00.000+01:00'
 author: István Viczián
 description: Hogyan hat a szálakra a Project Reactor publishOn és subscribeOn metódusa.
 ---
