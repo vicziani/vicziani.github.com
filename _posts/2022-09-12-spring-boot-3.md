@@ -188,31 +188,28 @@ osztályai is (`javax.` csomagneveket kell `jakarta.` csomagnévre cserélni).
 ## Tracing
 
 A distributed tracingről már írtam [egy előző posztban](/2021/10/04/mdc-trace.html).
-Spring Boot esetén a  [Spring Cloud Sleuth projektet](https://spring.io/projects/spring-cloud-sleuth)
-kellett használni.
+Spring Boot esetén erre a [Spring Cloud Sleuth projektet](https://spring.io/projects/spring-cloud-sleuth)
+kellett használni. Ennek azonban leállt a fejlesztése, és nagyrésze átkerült a
+Micrometer Tracing projektbe. Ezért a Spring Cloud Sleuth eszközre már nem érdemes építeni.
 
-A Spring Boot 3-nak viszont már szerves része lesz. Eddig is használta a Micrometert,
+A Spring Boot 3-nak a tracing viszont már szerves része, melyet a Micrometer Tracing projekt biztosít. 
+A Spring Boot eddig is használta a Micrometert,
 de csak metrikák publikálásához. A Micrometer elrejtette a különböző metrikákat gyűjtő eszközök
 közötti különbséget. Úgy is mondhatjuk, hogy a metrikáknak a Micrometer olyan,
-mint az SLF4J a naplózó keretrendszernek. Hiszen támogat majdnem húsz metrikákat gyűjtő
-eszközt, pl. Elastic, Graphite, Prometheus, stb. 
+mint az SLF4J a naplózásnak. Hiszen támogat majdnem húsz metrikákat gyűjtő
+protokollt és eszközt, pl. Elastic, Influx, OpenTelemetry, Prometheus, stb. 
 
-Majd megjelent a [Micrometer Tracing](https://micrometer.io/docs/tracing).
 A Micrometer Tracing a következő tracer library-kat támogatja: OpenZipkin Brave és OpenTelemetry.
 Ezek kezelik az adatokat és küldik valamelyik exporter/reporter felé, ami pedig továbbküldi valamilyen
 külső rendszernek.
 
-Az exporter/reporter implementációk közül a következők vannak:
+A tracer és exporter/reporter implementációk különböző kombinációi használhatóak:
 
-* Zipkin felé Brave-vel
-* OpenTelemetry által támogatott implementációk felé, a Zipkinnek ez is tud küldeni
-* Tanzu Observability by Wavefront felé
-
-A Spring Cloud Sleuth pedig meg fog szűnni, hiszen a magja átkerült a Micrometer Tracing projektbe, ezért
-hosszabb távon már nem érdemes építeni rá.
+* Brave tracer Zipkin vagy Wavefront felé kommunikáló tracerrel
+* OpenTelemetry tracer Zipkin, Wavefront vagy bármilyen OTLP (OpenTelemetry Protocol) protokollt támogató eszköz felé kommunikáló tracerrel
 
 Sőt megjelent a [Micrometer Observation](https://micrometer.io/docs/observation) is. Itt az ötlet az,
-hogy instrumentáljuk a kódot, és az így nyert adatok megjelenthetnek a metrikák és a trace-ek
+hogy instrumentáljuk a kódot, és az így nyert adatok megjelenthetnek a metrikák, trace-ek és logok
 között is.
 
 Ráadásul már nagyon sok library-hez elkészültek ilyen instrumentációk, listájuk
@@ -227,7 +224,7 @@ A példaprojektben Zipkint választottam, melyet a legegyszerűbb Dockerben elin
 docker run -d -p 9411:9411 --name zipkin openzipkin/zipkin
 ```
 
-A projektben a Brave implementációt választottam, amihez a következő függőségeket kellett felvenni:
+A projektben az OpenTelemetry tracert és a Zipkin exportert választottam, amihez a következő függőségeket kellett felvenni:
 
 ```groovy
 implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -269,8 +266,8 @@ A `spring.application.name` property-ben beállított név lett a service neve.
 Látható, hogy a http kérés is egy külön span, és jó sok taggel rendelkezik, pl. az URL, a HTTP metódus, a HTTP státuszkód, stb.
 
 A `controller.hello` lett a következő span neve.
-A `lowCardinalityKeyValue()` metódussal olyan tageket lehet felvenni, melyek kevés értéket vehetnek fel.
-Van egy `highCardinalityKeyValue()` párja is, ha az értékek sokfélék lehetnek.
+A `lowCardinalityKeyValue()` metódussal olyan tageket lehet felvenni, melyek kevés értéket vehetnek fel (pl. enum értékek).
+Van egy `highCardinalityKeyValue()` párja is, ha az értékek sokfélék lehetnek (pl. egész számok).
 
 Metóduson használható az `@Observed` annotáció is, mellyel mindezt deklaratív módon lehet megadni. Ehhez kell egy `ObservedAspect`
 bean az application contextbe, és egy `org.springframework.boot:spring-boot-starter-aop` függőség.
@@ -290,7 +287,7 @@ public String hello() {
 }
 ```
 
-A `contextualName` lesz a span neve.
+A `contextualName` paraméterben megadott érték lesz a span neve.
 
 Kapcsoljuk be az aktuátorokat az `application.properties` fájlban.
 
