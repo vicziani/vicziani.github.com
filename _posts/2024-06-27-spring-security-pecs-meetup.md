@@ -19,6 +19,8 @@ automatikusan konfigurál egy `JwtAuthenticationConverter` (vagy reaktív
 esetben egy `ReactiveJwtAuthenticationConverter` beant).
 
 Ezt is említettem a [XV. Pécs IT Meetupon](https://www.meetup.com/pecs-it-meetup/events/301596694).
+A meghívást ezennel is köszönöm a Kovács Bálintnak, a meetup egyik szervezőjének,
+aki többedmagával a [Webstar](https://www.webstar.hu/) céget is képviselte.
 
 ![XV. Pécs IT Meetup](/artifacts/posts/2024-06-27-spring-security-pecs-meetup/meetup.webp)
 
