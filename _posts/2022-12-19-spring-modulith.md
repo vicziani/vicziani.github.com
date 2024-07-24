@@ -4,6 +4,7 @@ title: Modularizált alkalmazás fejlesztése a Spring Modulith-tal
 date: '2022-12-19T10:00:00.000+01:00'
 author: István Viczián
 description: Hogyan fejlesszünk modularizált alkalmazást, és mit ad ehhez a Spring Modulith?
+modified_time: '2024-07-23T10:00:00.000+02:00'
 ---
 
 ## Bevezetés
@@ -105,9 +106,9 @@ hozzájuk tartozó szakértelmeket tárolja.
 
 Már az elején modularizált alkalmazásban gondolkodjuk, a modulokat
 a különböző üzleti területek alapján alkossuk meg.
-Az `employees` modul tartja nyilván az alkalmazottakat, a címükkel,
-míg a `skills` modul pedig azt, hogy milyen szakértelmek vannak,
-és hogy az alkalmazottak milyen szakértelmekkel rendelkeznek.
+Az `Employees` modul tartja nyilván az alkalmazottakat, a címükkel,
+a `Skills` modul a szakértelmeket, az `AquiredSkills` pedig azt, 
+hogy az alkalmazottak milyen szakértelmekkel rendelkeznek.
 
 ![Alkalmazás felépítése](/artifacts/posts/images/mentoring-app.drawio.png)
 
@@ -117,18 +118,31 @@ A csomagszerkezet a következő legyen:
 
 ```
 mentioring-app/
+├─ acquiredskills
+│  ├─ internal/
 ├─ employees/
+│  ├─ dto/
 │  ├─ internal/
 │  ├─ EmployeesFacade
 ├─ skills/
 │  ├─ internal/
 ```
 
-A legkülső csomagok adják a modulokat, név szerint az `employees` és a `skills`.
-Azt a döntést hoztam, hogy a `skills` modulból lehet hívni az `employees` modult,
-az egy alacsonyabb szintű modul. Az ˙internal˙ csomagban lévő osztályokra
-nem lehet más csomagokból hivatkozni. Azaz a `skills` modul osztályai csak
-az `EmployeesFacade` osztályra tudnak hivatkozni (pl. injektálni, hívni). 
+A legkülső csomagok adják a modulokat, név szerint az `employees`, `skills` és `acquiredskills`.
+Azt a döntést hoztam, hogy a `AquiredSkills` modulból lehet hívni az `Employees` modult,
+az egy alacsonyabb szintű modul. Az `internal` csomagban lévő osztályokra
+nem lehet más csomagokból hivatkozni. Azaz a `acquiredskills` csomag osztályai csak
+az `EmployeesFacade` osztályra tudnak hivatkozni (pl. injektálni, hívni).
+Ezen kívül mivel a metódusnak lehet paramétere és visszatérési értéke, és dobhat kivételt,
+ezeket a  `dto` csomagban helyeztem el. Itt viszont jelölni kellett, hogy ez másik
+csomagból elérhető, egy `package-info.java` fájlban.
+
+```java
+@NamedInterface("dto")
+package training.mentoringapp.employees.dto;
+
+import org.springframework.modulith.NamedInterface;
+```
 
 A teszteset:
 
@@ -138,7 +152,7 @@ modules.verify();
 ```
 
 Abban az esetben, ha körkörös hivatkozás alakulna ki, azaz pl. az `employees`
-csomagból történne hivatkozás a `skills` csomagra, azonnal elbukna a teszteset.
+csomagból történne hivatkozás a `acquiredskills` csomagra, azonnal elbukna a teszteset.
 
 Sőt, a következő kódrészlettel akár [C4 diagramot](https://c4model.com/) is tudunk
 generálni.
@@ -179,7 +193,15 @@ public class EmployeeSkills {
 
     private Long employeeId;
 
-    // ...
+    @ElementCollection
+    private List<AcquiredSkill> acquiredSkills = new ArrayList<>();
+}
+```
+
+```java
+@Embeddable
+public record AcquiredSkill(Long skillId, int level) {
+
 }
 ```
 
@@ -190,7 +212,7 @@ architektúrálisan is megfelelő lesz az alkalmazás.
 ## Körkörös függőségek
 
 Mi van akkor, ha előjön olyan igény, hogy az `employees` modulból is
-hívni akarjuk a `skills` modult. Pl. ha egy alkalmazottat
+hívni akarjuk a `acquiredskills` modult. Pl. ha egy alkalmazottat
 törölni akarunk, akkor törölni kell a szakértelmeit is.
 Erre több megoldásunk is lehet, itt vethetjük be a dependency
 inversiont, azaz a függőségek irányának megfordítását. Ennek
@@ -231,6 +253,7 @@ Ennek lekezelése a `skills` oldalon:
 public class SkillsService {
 
     @Async
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @TransactionalEventListener
     public void handleEmployeeHasDeletedEvent(EmployeeHasDeletedEvent event) {
         var employeeSkills = employeeSkillsRepository.findByEmployeeId(event.getEmployeeId());
@@ -245,9 +268,9 @@ public class SkillsService {
 
 A Spring Modulith azt is biztosítja, hogy a tracing eszközök (pl. Zipkin) számára azt is 
 elküldi, hogy melyik hívás melyik modulban történt. Így az ábrán is látható
-módon nyomon követhető, hogy a `skills` modul áthív az `employees`
+módon nyomon követhető, hogy a `AcquiredSkills` modul áthív az `Employees`
 modulba, az kiad egy SQL lekérdezést, majd önmaga is kiad négy SQL lekérdezést.
 
-<a href="/artifacts/posts/images/spring-modulith-tracing.jpg" data-lightbox="post-images">![Spring Boot indulás](/artifacts/posts/images/spring-modulith-tracing_750.jpg)</a>
+<a href="/artifacts/posts/images/spring-modulith-tracing.png" data-lightbox="post-images">![Spring Boot indulás](/artifacts/posts/images/spring-modulith-tracing_750.png)</a>
 
 
