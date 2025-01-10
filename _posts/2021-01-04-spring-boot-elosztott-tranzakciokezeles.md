@@ -68,7 +68,8 @@ is jelzi.
 
 A [https://github.com/vicziani/jtechlog-jms-transaction](https://github.com/vicziani/jtechlog-jms-transaction)
 címen található egy példa projekt. Ez Testcontainers segítségével elindít egy
-PostgreSQL adatbázist, melyhez Spring Data JPA-val fér hozzá. Valamint elindít
+PostgreSQL adatbázist, melyhez Spring Data JPA-val fér hozzá. Ennek `max_prepared_transactions` paraméterét át kellett állítani nullánál nagyobb értékre.
+Valamint elindít
 egy beágyazott Apache ActiveMQ Artemis JMS providert.
 
 ![Alkalmazás](/artifacts/posts/2021-01-04-spring-boot-elosztott-tranzakciokezeles/alkalmazas.png)
