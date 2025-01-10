@@ -1,1 +1,79 @@
-<mxfile host="app.diagrams.net" modified="2021-01-04T21:51:40.358Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="Bz0MyUZ5xQQuj-nMT1GP" version="13.10.9" type="device"><diagram id="JBXGYJQ5ib2Dh_Tz4ldn" name="Page-1">7ZrRUqMwFIafhst1ICnQXmp13XHtuLPdGfUyhRRiU9JJUws+/YYSCjRVq9MarF5J/oRA/i8nJ8RasD9NLzmaxQMWYmoBO0wteG4BAGwPyD+5khWKY/f8Qok4CZVWCUPyhMuGSl2QEM8bDQVjVJBZUwxYkuBANDTEOVs2m40ZbT51hiKsCcMAUV29JaGIC7UL/Er/hUkUl092vF5RM0VlYzWSeYxCtqxJ8MKCfc6YKK6maR/T3L3Sl+K+n8/Url+M40TscsNgOYvQ3dAbXl7edt3eUPyeiB9QvZvIygHjUI5fFRkXMYtYguhFpZ5xtkhCnPdqy1LV5pqxmRQdKT5gITIFEy0Ek1IsplTV4pSIu/z2E1eV7ms156nqeVXIVKF4z/zlnh2+kuZswQP8wpjLaYR4hMUL7cAakpzemE2x4Jm8j2OKBHlsvgdS0yxat6tIyAsF4w1gnI5RMjUuFaXtZKT/PCtwArcs39crq/tWJYNIfaNIXZNInfch9duOtGsUadHvI6IL9aRTOkF0ip6sPrROnblGvOKZA1nGRODhDK2cWMoU2mSnesdc4PRlQ3UD1A2wo9JPmYDLdLSsspkDlRbXMplnH8ozWzOl/SubqSgAn2Jhc0wSfefC1naiRtc1oK1r/zhK5igQhCWyYoASufHlrVvdQMf06tbRnHtAjyg9EXX/NlyT4xdNa+aCswnuM8q4VBKW5BEzJpRuSIiSKJHFQPolccCz3E0iv15OVcWUhOEq3LaxaIbgHnB03A0cto6js4UGOBQNT8/PIRKjIjk/ET09y4+0WX4ZZJRIbzh8fRqPChevR2sBBZNo5e3NQshucAm1WMkcd4OlBeB4PAZBoIGXNaE38lxvP3jWPmcbuGp4/C14HPtgewFgdC9g5vvT3zEDeCYzgK9Fzl+sRran5d9ICDi9ZgjALSHwwdvhT3ME897N06r0B3MiDcuT1L7jqbtjPPVMxlP34PG0j/zduujoabYNbgZfK2u77cva+rbq6vysr2E5mn0tgC3b1zp6er4aDI8XgNtrGwB9Pde+805SdLxEoL2RKhzTRPRU8bWIdPyWESk7/j4df4tp+r8Uvo/edrROP7Xc63wzsvtr4QyFHzFDW2F2C+a0fp58FOcwH/mlKYvVr2xWdbUfK8GL/w==</diagram></mxfile>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.4">
+  <diagram id="JBXGYJQ5ib2Dh_Tz4ldn" name="Page-1">
+    <mxGraphModel dx="2074" dy="1180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MwpgaXS6SGGW859StKkt-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="MwpgaXS6SGGW859StKkt-1" target="MwpgaXS6SGGW859StKkt-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="MwpgaXS6SGGW859StKkt-1" target="MwpgaXS6SGGW859StKkt-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="MwpgaXS6SGGW859StKkt-1" target="MwpgaXS6SGGW859StKkt-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-1" value="Alkalmazás" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="120" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="MwpgaXS6SGGW859StKkt-2" target="MwpgaXS6SGGW859StKkt-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="MwpgaXS6SGGW859StKkt-2" target="MwpgaXS6SGGW859StKkt-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-2" value="Transaction Manager" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="240" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-4" value="jakarta.transaction" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="450" y="200" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-6" value="Adatbázis" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="220" y="450" width="70" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="MwpgaXS6SGGW859StKkt-7" target="MwpgaXS6SGGW859StKkt-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-7" value="Resource Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="190" y="350" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="MwpgaXS6SGGW859StKkt-8" target="MwpgaXS6SGGW859StKkt-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-8" value="Resource Manager" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="490" y="350" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-9" value="MOM" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="520" y="450" width="70" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-16" value="JDBC" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="230" y="200" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-17" value="JMS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="590" y="200" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-18" value="jakarta.transaction.xa" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="300" y="310" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-19" value="jakarta.transaction.xa" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="470" y="310" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-20" value="Alkalmazás" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="120" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-21" value="Transaction Manager" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="240" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-22" value="Alkalmazás" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="340" y="120" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-23" value="Transaction Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="340" y="240" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MwpgaXS6SGGW859StKkt-24" value="Resource Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="490" y="350" width="130" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
