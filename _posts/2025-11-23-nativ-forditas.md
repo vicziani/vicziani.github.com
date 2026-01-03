@@ -364,3 +364,7 @@ CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET 
 
 Látható, hogy a natív binárist tartalmazó image sokkal kisebb, a konténer gyorsabban indul, és kevesebb memórát fogyaszt.
 
+## Swing és a natív fordítás
+
+Bevallom, megpróbálkoztam egy Swinges, grafikus felhasználói felülettel rendelkező
+vastag kliens alkalmazás natívra fordításával is, de sajnos sikertelenül.
