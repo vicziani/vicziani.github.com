@@ -7,7 +7,7 @@ tags:
 modified_time: '2021-12-20T10:00:00.000+01:00'
 ---
 
-Frissítés: 2021. december 20.
+Frissítve: 2021. december 20.
 
 ### Bevezetés
 

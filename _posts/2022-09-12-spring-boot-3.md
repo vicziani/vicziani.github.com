@@ -7,7 +7,7 @@ author: István Viczián
 description: A Spring Boot 3-as verziójának újdonságainak a bemutatása.
 ---
 
-Frissítés: 2023. október 3.
+Frissítve: 2023. október 3.
 
 ## Bevezetés
 

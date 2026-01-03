@@ -12,7 +12,7 @@ tags:
 modified_time: '2011-04-18T00:41:13.683+02:00'
 ---
 
-Utoljára frissítve: 2015. február 3.
+Frissítve: 2015. február 3.
 
 Technológiák: Glassfish 4.1, Maven 3.2.1, Java EE 7, EJB 3.1, JNDI
 

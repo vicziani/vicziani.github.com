@@ -10,7 +10,7 @@ blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-66323485048027979
 blogger_orig_url: http://www.jtechlog.hu/2011/09/verzioszam-megjelenitese-az.html
 ---
 
-Utoljára frissítve: 2017. szeptember 26.
+Frissítve: 2017. szeptember 26.
 
 Technológiák: Maven 3.5.0, Maven JAR Plugin 3.0.2, Build Number Maven Plugin 1.4
 

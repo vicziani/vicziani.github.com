@@ -8,7 +8,7 @@ tags:
 modified_time: '2018-06-09T10:00:00.000-08:00'
 ---
 
-**A posztot 2013. december 23-án frissítettem.**
+Frissítve: 2013. december 23.
 
 Több projekt kapcsán is előjött az elektronikus aláírás témakör, hogyan
 kell minősített aláírást készíteni. Több dokumentum szól arról, hogy mi

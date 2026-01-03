@@ -7,7 +7,7 @@ tags:
 - jce
 - jca
 - security
-modified_time: '2018-06-09T10:00:00.000-08:00'
+modified_time: '2026-01-02T10:00:00.000+01:00'
 ---
 
 Frissítve: 2026. január 2.

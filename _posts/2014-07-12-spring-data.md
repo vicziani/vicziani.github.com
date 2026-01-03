@@ -10,7 +10,7 @@ modified_time: '2024-01-16T10:00:00.000+01:00'
 description: Repository réteg létrehozása Spring Data használatával.
 ---
 
-Utolsó frissítés dátuma: 2024. január 16.
+Frissítve: 2024. január 16.
 
 Használt technológiák: Spring Data 3.2.1
 

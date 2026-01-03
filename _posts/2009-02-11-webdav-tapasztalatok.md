@@ -161,7 +161,7 @@ hiszen az Apache Tomcat is tartalmaz egy
 [org.apache.catalina.servlets.WebdavServlet](http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/servlets/WebdavServlet.html)
 nevű servlet-et, mely megvalósítja a WebDAV protokollt.
 
-**Frissítés:** Sajnos a Word gyakran veszti el
+Sajnos a Word gyakran veszti el
 a kapcsolatot a WebDAV szerverrel, és ilyenkor csak akkor sikerül neki
 lementeni a fájlt, ha az eredetit törli. Ezzel viszont ugrik a
 verziókezelés, hiszen egy törlés, majd egy hozzáadás művelet zajlik a

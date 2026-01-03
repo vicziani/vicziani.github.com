@@ -8,8 +8,7 @@ tags:
 modified_time: '2018-06-09T10:00:00.000-08:00'
 ---
 
-Frissítés: A videó is megtekinthető a
-[YouTube](http://www.youtube.com/watch?v=UGUC5utrEEM)-on, és egy [blog
+Frissítve: Egy [blog
 poszt](http://takari.io/2014/02/03/maven-speed.html) is megjelent azóta.
 
 A mai napon Jason van Zyl, a Maven alkotója egy prezentációt tartott

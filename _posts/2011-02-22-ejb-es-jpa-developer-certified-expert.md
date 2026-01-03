@@ -13,7 +13,7 @@ blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-79689614816381039
 blogger_orig_url: http://www.jtechlog.hu/2011/02/ejb-es-jpa-developer-certified-expert.html
 ---
 
-*Frissítés 2011. április 28.*: ma jöttek meg a bizonyítványok, egy
+Frissítve: 2011. április 28., ma jöttek meg a bizonyítványok, egy
 kártya és egy levél társaságában.
 
 ​2010. szeptember 2-án és 3-án tettem le a 

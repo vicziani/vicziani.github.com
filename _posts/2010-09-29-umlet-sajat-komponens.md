@@ -7,9 +7,9 @@ tags:
 - UML
 ---
 
-Felhasznált technológiák: UMLet 14.2
+Frissítve: 2017. március 24.
 
-Utolsó frissítés: 2017. március 24.
+Felhasznált technológiák: UMLet 14.2
 
 Már egy előző posztban ([UML
 tevékenységdiagram](/2009/05/02/uml-tevekenysegdiagram.html)) írtam az
