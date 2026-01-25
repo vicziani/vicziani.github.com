@@ -199,18 +199,32 @@ A rack szekrény kiválasztása nem volt egyszerű. Először kisebb, falra szer
 Utolsó lépés volt a router és az AP-k kiválasztása. Szerintem itt a marketing és az ár lett a döntő tényező, és a TP-Link Omada megoldást választottam. Ez már kifejezetten kicsi és közepes méretű vállalkozások, irodák
 számára tervezett megoldás, tehát eggyel komolyabb, mint az otthoni felhasználásra szánt megoldások. A teljes hálózatot (akár lokálisan futtatott) központosított felületen lehet kezelni.
 
-<a href="/artifacts/posts/2026-01-24-otthoni-halozat-es-labor/omada.png" data-lightbox="post-images">![Omada](/artifacts/posts/2026-01-24-otthoni-halozat-es-labor/omada_750.png)</a>
-
 A router egy Omada Gigabit VPN router (ER605). Azért esett erre a választás, mert van multi-wan backupja, azaz pl. hozzá lehet kötni egy 4G/5G routert, és ha kiesik a kábeles internetszolgáltató, akkor
 automatikusan át tud kapcsolni mobil internetre.
 
 Az AP-k TP-Link, mennyezetre szerelhető AC1350 gigabit AP-k (EAP225). Támogatják a Seamless Roamingot, valamint az ethernet kábelen keresztül táplálhatóak árammal (ún. Power over Ethernet - PoE), így nem kell
-külön tápot is oda vinni. Bevallom, nem akartam mennyezetre szerelni őket, így maradtak a polcon.
+külön tápot is oda vinni. Viszont használni kell a hozzá adott PoE injectort. Ezt úgy kell elképzelni, hogy konnektorba kell dugni, valamint a switch és az eszköz közé kell bekötni, szintén RJ45 csatlakozókkal. Így viszont bonyolítják a szekrény kábelezését. Az injektor mehetne az AP-hez is, azonban a szekrényben tudok neki szünetmentes tápot adni. Sokat egyszerűsítene egy PoE switch, mely önmaga képes feszültséget tenni az ethernet kábelre, így nem kéne PoE injektor. Bevallom, az AP-kat nem akartam mennyezetre szerelni őket, így maradtak a polcon.
 
 <a href="/artifacts/posts/2026-01-24-otthoni-halozat-es-labor/ap.jpg" data-lightbox="post-images">![Omada](/artifacts/posts/2026-01-24-otthoni-halozat-es-labor/ap_380.jpg)</a>
 
 Az UPS egy belépő szintű CyberPower UT850EG egység. Az UPS-eket szintén lehet IEC 60320 és Schuko aljzatokkal is választani. Amire figyeltem még, hogy USB-n csatlakoztatható legyen, így monitorozható, és áramszünet esetén értesítheti a gépeket, hogy kezdjék el a leállást. Sajnos ezzel megjártam, ugyanis a Raspberry Pi-t rádugva elvileg minden működik, azonban 4-5 naponta teljesen lefagy. A szünetmentest lehúzva 65 napja leállás nélkül megy a Pi.
 
+## A hálózat
+
+Még az elején tartok, gyakorlatilag szinte alapbeállításokkal használom. 
+
+Az ISP router ún. bridge módban van, azaz nem okoskodik, mindent átenged a TP-Link routernek. Ott van a DHCP szerver, szerver gépek fix ip-vel. A DNS kéréseket forwardolja a Pi-hole-nak, mely hálózatszintű reklámblokkolást végez. 
+
+Még nem volt szükség, hogy távolról használjam az otthoni hálózatot, így VPN-re nincs szükségem. 
+
+Itthon nem üzemeltetek kívülről elérhető szervereket, így a router tűzfal és egyéb védelmi képességeit, port forwardot, dinamikus DNS támogatást sem használom ki. 
+
+Sávszélesség szabályozás sincs, azaz nem priorizálok előre bizonyos hálózati forgalmat.
+
+Itthon szeretnék VLAN-okat kialakítani, melyek teljesen elkülönített hálózatok. Az IoT eszközöket, felhőhöz kapcsolódó kamerákat, nem annyira megbízható okos eszközöket érdemes lenne külön VLAN-ba tenni. Sajnos ehhez azonban menedzselhető switch kell.
+
+<a href="/artifacts/posts/2026-01-24-otthoni-halozat-es-labor/omada.png" data-lightbox="post-images">![Omada](/artifacts/posts/2026-01-24-otthoni-halozat-es-labor/omada_750.png)</a>
+ 
 ## A szoftver
 
 A szolgáltatásokat a Raspberry Pi-n Dockerben futtatom.
@@ -238,6 +252,7 @@ Közeltávon a terveim között a következők szerepelnek:
 * Cable management
 * Címkézés
 * 4G/5G backup router
+* Menedzselhető, TP-Link ökoszisztémába illeszthető PoE switch, VLAN kialakításához és a PoE injectorok leváltására
 * Wake-on-LAN (WoL)
 * Komplex monitoring megoldás Prometheus és Grafana alapokon
 * Authentic SSO
