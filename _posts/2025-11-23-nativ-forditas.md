@@ -6,8 +6,6 @@ author: István Viczián
 description: Hogy kell egy Java, akár webes alkalmazást natívra fordítani GraalVM segítségével? Milyen buktatók lehetnek, és mi a megoldásuk?
 ---
 
-## Bevezetés
-
 Cloudban egy viszonylag kevés erőforrással rendelkező virtuális gépen futtatok egy Spring Boot alkalmazást.
 (Ez amúgy a [Learn web services](https://www.learnwebservices.com/) oldalamhoz készült példa alkalmazás,
 mely CXF keretrendszerrel SOAP-os webszolgáltatást biztosít.)

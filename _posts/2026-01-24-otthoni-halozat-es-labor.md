@@ -6,8 +6,6 @@ author: István Viczián
 description: Egy poszt arról, hogy alakítottam ki az otthoni hálózatomat és labor környezetemet. Képekkel! Egy kis nosztalgiázás és szerelés.
 ---
 
-## Bevezetés
-
 Figyelem! A poszt nem AI-jal készült!
 
 Talán minden ott kezdődött, mikor az első Linux kernelt fordítottam egy 486-os PC-n.
