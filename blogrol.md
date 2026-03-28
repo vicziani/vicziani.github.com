@@ -12,9 +12,12 @@ célom, hogy egy magyar nyelvű Java hírforrás legyen. Kötetlen
 stílusú napló, témája a Java platform, és hozzá kapcsolódó
 elméleti ismeretek és gyakorlati tapasztalatok, szabványok,
 technológiák, ingyenes és kereskedelmi termékekkel kapcsolatos
-impulzusok. Egy témát alaposan körüljáró bejegyzéseket szeretnék
+impulzusok. Egy témát alaposan körüljáró bejegyzéseket szeretek
 írni. Ez több munkával jár, emiatt lehet, hogy ritkábban is
 jelentkezem. A blogot saját használatra is írom, így lehet, hogy több
 téma számotokra érdektelen lesz, de én fontosnak látom megírni,
 hogy később, ha újra belefutok a problémába, visszakereshessem
 a megoldást.
+
+Ezen kívül ritkábban engem érdeklő egyéb tartalmakról is
+írok, mint a Python, Rasbperry Pi, IoT, otthoni hálózat és home lab.

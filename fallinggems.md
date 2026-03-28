@@ -19,9 +19,7 @@ kiválasztani, hogy rá kell klikkelni. Ekkor egy kis négyzet jelenik meg
 a jobb alsó sarokban. A kiválasztást megszüntetni ismételt
 ráklikkeléssel lehet. Mozgatni a kivánt helyre klikkeléssel kell.
 
-<div class="text-center">
-  <img src="/assets/img/fallinggems.png" class="img-fluid" alt="Falling Gems">
-</div>
+<img src="/assets/img/fallinggems.png" class="img-fluid center-block" alt="Falling Gems">
 
 A játék letölthető 
 [jar fájlként](https://github.com/vicziani/jtechlog-falling-gems/releases/download/1.0.0/jtechlog-falling-gems-1.0.0.jar),

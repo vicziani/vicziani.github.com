@@ -29,9 +29,7 @@ Ha egy kis alsó tábla azonos színű négyzetekkel betelik, akkor az üressé
 fog válni. Minden 50. pont után nőni fog az új oszlopok érkezési
 sebessége.
 
-<div class="text-center">
-  <img src="/assets/img/gemgame.png" class="img-fluid" alt="Gem Game">
-</div>
+<img src="/assets/img/gemgame.png" class="img-fluid center-block" alt="Gem Game">
 
 A játék letölthető 
 [jar fájlként](https://github.com/vicziani/jtechlog-gem-game/releases/download/1.0.0/jtechlog-gem-game-1.0.0.jar),
