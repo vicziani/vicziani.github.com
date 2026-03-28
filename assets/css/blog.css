@@ -108,6 +108,7 @@ blockquote {
   height: 150px;
   padding: 4px;
   float: left;
+  margin: 15px;
 }
 
 
@@ -159,10 +160,6 @@ blockquote {
   font-weight: bold;
   font-size: 20px;
   color: #31313f;
-}
-
-.about img {
-  margin: 15px;
 }
 
 .about a {
