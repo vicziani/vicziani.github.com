@@ -2,11 +2,10 @@
 title: JTechLog
 lead: Viczián István magyar nyelvű Java blogja
 description: Viczián István magyar nyelvű Java blogja
-url: "http://www.jtechlog.hu"
+url: "https://www.jtechlog.hu"
 author: Viczián István
-twitter_username: vicziani
-github_username: vicziani
 exclude: [README.md]
+default_image: /assets/img/logo_250x250.png
 
 # Build settings
 markdown: kramdown

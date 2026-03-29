@@ -6,16 +6,38 @@
   <title>{% if page.title %}{{ site.title }} - {{ page.title }}{% else %}{{ site.title }} - {{ site.lead }}{% endif %}</title>
 
   <meta name="Author" lang="hu" content="{{site.author}}"/>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="description" content="{% if site.description %}{{ site.description }}{% else %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
   {% if page.keywords %}<meta name="Keywords" lang="hu" content="{{page.keywords}}"/>{% endif %}
+
+  {% if page.collection == "posts" %}
+    {% assign og_type = "article" %}
+  {% else %}
+    {% assign og_type = "website" %}
+  {% endif %}
 
   <meta property="og:locale" content="hu_HU" />
   <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="{{ og_type }}" />
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }} - {{ site.lead }}{% endif %}" />
   <meta property="og:description" content="{% if page.description %}{{page.description}}{% else %}Kötetlen hangvételű blog a Java világából.{% endif %}" />
-  <meta property="og:image" content="{{ site.url }}/assets/img/logo_250x250.png" />
+  
+  {% if page.image %}
+    <meta property="og:image" content="{{ page.image | absolute_url }}">
+  {% elsif site.default_image %}
+    <meta property="og:image" content="{{ site.default_image | absolute_url }}">
+  {% endif %}
 
+  {% if og_type == "article" %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+    <meta property="article:author" content="{{ site.author }}">
+    
+    {% if page.tags %}
+      {% for tag in page.tags %}
+      <meta property="article:tag" content="{{ tag }}">
+      {% endfor %}
+    {% endif %}
+  {% endif %}
 
   <meta name="robots" content="index, follow"/>
   <meta name="revisit-after" content="5 days"/>
@@ -29,7 +51,9 @@
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} - {{ site.lead }}" href="http://feeds.feedburner.com/JTechLog" />
-  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQWLDCX0GL"></script>

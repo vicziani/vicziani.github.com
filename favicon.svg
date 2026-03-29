@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- háttér -->
+  <rect width="64" height="64" fill="#495968"></rect>
+
+  <!-- J -->
+  <path d="M20 14h6v26c0 8-4 12-10 12-3 0-6-1-8-3l4-5c1 1 2 2 4 2 3 0 4-2 4-6V14z" fill="#f2f2f2"></path>
+
+  <!-- T -->
+  <path d="M34 14h22v6h-8v30h-6V20h-8z" fill="#f2f2f2"></path>
+</svg>
