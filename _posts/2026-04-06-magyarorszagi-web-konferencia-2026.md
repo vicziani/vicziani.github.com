@@ -15,7 +15,7 @@ image: /artifacts/posts/magyarorszagi-web-konferencia-2026/og.png
 
 Újra megrendezik a [Magyarországi Web Konferenciát](https://webkonf.hu/) 2026. április 18-án, az Óbudai Egyetemen.
 
-Egyetlen nap alatt több mint húsz előadás közül lehet válogatni fejlesztés, web, DevOps, UX, AI, valamint low-code/no-code témákban. A [program](https://webkonf.hu/program) már elérhető, a részvétel pedig ingyenes.
+Egyetlen nap alatt több mint húsz előadás közül lehet válogatni fejlesztés, web, DevOps, UX, AI, valamint low-code/no-code témákban. A [program](https://webkonf.hu/program) már elérhető, a részvétel pedig ingyenes, de regisztrációhoz kötött.
 
 Java témában is több előadás lesz: szó esik majd a servletekről, a párhuzamos programozásról (virtual threadek), a funkcionális megközelítésről, a Springről és a Play Frameworkről, valamint az AI-ról is.
 
