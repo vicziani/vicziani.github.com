@@ -1,0 +1,18 @@
+<svg width="320" height="100" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="320" height="100" fill="#2f3e4e"></rect>
+
+  <!-- Centered group -->
+  <g text-anchor="middle" font-family="Arial, Helvetica, sans-serif" fill="#ffffff" dominant-baseline="middle">
+     
+    <!-- Title (slightly higher) -->
+    <text x="50%" y="40%" font-size="48" font-weight="700">
+      JTechLog
+    </text>
+
+    <!-- Subtitle (kept distance but tighter overall block) -->
+    <text x="50%" y="80%" font-size="22">
+      Viczián István blogja
+    </text>
+  </g>
+</svg>
