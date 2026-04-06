@@ -238,7 +238,7 @@ Minden home labnál lennie kell egy dashboardnak, én a [Homepage](https://getho
 <a href="/artifacts/posts/otthoni-halozat-es-labor/dashboard.png" data-lightbox="post-images">![Dashboard](/artifacts/posts/otthoni-halozat-es-labor/dashboard_750.png)</a>
 
 
-DLNA szerver a Gerbera, erről már a [/2022/01/05/dlna-otthoni-mediahalozat.html](DLNA, az otthoni médiahálózat alapja) posztomban írtam. [Transmission](https://transmissionbt.com/) a torrent kliens, kizárólag Linux ISO-k letöltésére.
+DLNA szerver a Gerbera, erről már a [DLNA, az otthoni médiahálózat alapja](/2022/01/05/dlna-otthoni-mediahalozat.html) posztomban írtam. [Transmission](https://transmissionbt.com/) a torrent kliens, kizárólag Linux ISO-k letöltésére.
 A Pi pár könyvtára Sambaval van megosztva.
 
 Reklámblokkolást a [Pi-hole](https://pi-hole.net/) végzi.
