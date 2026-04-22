@@ -1,0 +1,246 @@
+/* FONT FACES */
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/OpenSans-Light.eot');
+    src: url('../fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Light.woff2') format('woff2'),
+    url('../fonts/OpenSans-Light.woff') format('woff'),
+    url('../fonts/OpenSans-Light.ttf') format('truetype'),
+    url('../fonts/OpenSans-Light.svg#OpenSansLight') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/OpenSans-Regular.eot');
+    src: url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+    url('../fonts/OpenSans-Regular.woff') format('woff'),
+    url('../fonts/OpenSans-Regular.ttf') format('truetype'),
+    url('../fonts/OpenSans-Regular.svg#OpenSansRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/OpenSans-Semibold.eot');
+    src: url('../fonts/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Semibold.woff2') format('woff2'),
+    url('../fonts/OpenSans-Semibold.woff') format('woff'),
+    url('../fonts/OpenSans-Semibold.ttf') format('truetype'),
+    url('../fonts/OpenSans-Semibold.svg#OpenSansSemibold') format('svg');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/OpenSans-Bold.eot');
+    src: url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+    url('../fonts/OpenSans-Bold.woff') format('woff'),
+    url('../fonts/OpenSans-Bold.ttf') format('truetype'),
+    url('../fonts/OpenSans-Bold.svg#OpenSansBold') format('svg');
+}
+
+
+/* SLIDES */
+
+.remark-slide-content .remark-slide-number {
+  display: none;
+}
+
+.remark-slide {
+  background: #2c3e50;
+  color: #555;
+  font-family: 'Open Sans';
+  font-weight: 400;
+}
+
+.remark-slide h1 {
+  color: #f39c12;
+}
+
+.remark-slide h2 {
+  color: #f39c12;
+}
+
+.remark-slide .inverse {
+  color: #ffffff;
+  font-family: 'Open Sans';
+  font-weight: 400;
+}
+
+.remark-slide .inverse h1 {
+  color: #ffffff;
+}
+
+.remark-slide .inverse h2 {
+  color: #ffffff;
+}
+
+
+.remark-slide-content.inverse {
+  background: transparent;
+}
+
+.remark-slide-content a {
+	color: #e73b2b;
+}
+
+
+/* HEADINGS */
+
+.remark-slide-content h1 {
+  text-transform: uppercase;
+}
+
+.remark-slide-content h2 {
+  font-weight: 600;
+  margin-bottom: 1.2em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.remark-slide-content h2:after {
+  border-bottom: 6px solid #f39c12;
+  bottom: -20px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 240px;
+}
+
+.remark-slide-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Card */
+
+div.card {
+        color: #f39c12;
+	text-align: left;
+        font-size: 40px;
+}
+
+div.card ul {
+	list-style-type: none;
+}
+
+.card-img {	
+	float: left;
+	padding-right: 50px;
+}
+
+.card-img img {
+	width: 250px;
+	height: 250px;
+	border: 3px solid;
+	border-color: #FFFFFF;
+        object-fit: cover;
+        border-radius: 50%;
+
+}
+
+
+/* LISTS */
+
+.remark-slide-content li {
+  padding-bottom: 9px;
+}
+
+.remark-slide-content ul li {
+  position: relative;
+}
+
+
+
+/* CODE */
+
+.remark-code,
+.remark-inline-code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.small-code-14 .remark-code {
+  font-size: 14px;
+}
+
+.small-code-12 .remark-code {
+  font-size: 12px;
+}
+
+.small-code-10 .remark-code {
+  font-size: 10px;
+}
+
+.remark-inline-code {
+  background: #f3f6f4;
+  color: #4f5362;
+  padding: 0 .25em;
+}
+
+.remark-code-line-highlighted {
+  background: #d3d6d4;
+}
+
+
+/* LAYOUT */
+
+.column:first-of-type {
+    float:left
+}
+
+.column:last-of-type {
+    float:right
+}
+
+.split-50 .column:first-of-type {
+    width: 50%
+}
+
+.split-50 .column:last-of-type {
+    width: 50%
+}
+
+
+/* COVER */
+
+.remark-slide-content.cover {
+  background: #fff;
+}
+
+
+.remark-slide-content.cover h2 {
+  font-weight: 400;
+  margin: 1em 0 0 0;
+  padding-top: .5em;
+  text-transform: none;
+}
+
+.remark-slide-content.center h2:after {
+  bottom: auto;
+  left: 50%;
+  top: -20px;
+  transform: translateX(-50%);
+}
+
+.remark-slide-content.cover img[src='resources/training360-logo.svg'] {
+  margin-top: 8rem;
+  max-width: 20rem;
+}
+
+/* UTILS */
+
+.center-image {
+  margin-top: 120px;
+  display: block;
+  text-align: center;
+}
