@@ -8,7 +8,7 @@ description: Megjelent az első videóm, mely arról szól, hogyan lehet haszná
 
 Megjelent az első videóm, melynek témája, hogy hogyan lehet használni a Testcontainers-t Spring Boot alkalmazásban.
 
-<iframe width="854" height="480" src="https://www.youtube.com/embed/p7oy3VCGBbo?si=ya31H8N8AlXAFXRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="750" height="422" src="https://www.youtube.com/embed/p7oy3VCGBbo?si=ya31H8N8AlXAFXRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 A videóhoz a forráskód is elérhető a [GitHubon](https://github.com/vicziani/jtechlog-testcontainers).
 

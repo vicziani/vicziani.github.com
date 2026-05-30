@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Játékok
 description: Játékok
 keywords: Játékok

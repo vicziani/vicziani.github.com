@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Gem Game játék
 description: Gem Game, Java ügyességi és logikai játék
 keywords: Java, logikai játék
@@ -35,4 +35,4 @@ A játék letölthető
 [jar fájlként](https://github.com/vicziani/jtechlog-gem-game/releases/download/1.0.0/jtechlog-gem-game-1.0.0.jar),
 és a `java -jar jtechlog-gem-game-1.0.0.jar` paranccsal futtatható.
 A forráskódja elérhető a
-[GitHub-on.](http://github.com/vicziani/jtechlog-gem-game)
+[GitHub-on.](https://github.com/vicziani/jtechlog-gem-game)

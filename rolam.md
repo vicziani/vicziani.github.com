@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Rólam
 description: Rólam
 keywords: programtervező matematikus, programozó, szoftverfejlesztő, architect, önéletrajz, Java, JTechLog, IBM, Websphere, MQ, MQSeries, EAI, SOA
@@ -7,7 +7,7 @@ keywords: programtervező matematikus, programozó, szoftverfejlesztő, architec
 
 # Rólam
 
-Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, rendezvényeket szervezek és konferenciákra járok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg a [Training360-nál](http://training360.com/) tartok oktatásokat. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Java EE alkalmazásfejlesztés. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben. Szakmai blogot is írok [JTechLog](http://www.jtechlog.hu/) néven. Szabadidőmben sokat túrázok, próbálom felfedezni Magyarország rejtett kincseit.
+Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, rendezvényeket szervezek és konferenciákra járok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg a [Training360-nál](https://training360.com/) tartok oktatásokat. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Java EE alkalmazásfejlesztés. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben. Szakmai blogot is írok [JTechLog](https://www.jtechlog.hu/) néven. Szabadidőmben sokat túrázok, próbálom felfedezni Magyarország rejtett kincseit.
 
 [Letölthető magyar nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_HU.pdf), [Letölthető angol nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_EN.pdf)
 
@@ -16,11 +16,11 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 <dl class="dl-horizontal">
 		<dt>2012 - </dt>
 		<dd>
-			<p><a href="http://www.training360.com">Training360</a>, vezető oktató, mentor</p>
+			<p><a href="https://www.training360.com">Training360</a>, vezető oktató, mentor</p>
 		</dd>
 		<dt>2012 - 2016</dt>
 		<dd>
-			<p><a href="https://www.ipsystems.hu/">IP Systems Kft.</a>, vezető programozó, architect</p>
+			<p>IP Systems Kft., vezető programozó, architect</p>
 		</dd>
 		<dt>2007 - 2012</dt>
 		<dd>
@@ -32,15 +32,15 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		</dd>
 		<dt>2005 - 2006</dt>
 		<dd>
-			<p><a href="http://vam.gov.hu">Vám- és Pénzügyőrség Rendszerfejlesztő Központ</a>, programozó</p>
+			<p>Vám- és Pénzügyőrség Rendszerfejlesztő Központ, programozó</p>
 		</dd>
 		<dt>2003 - 2004</dt>
 		<dd>
-			<p><a href="http://www.kdiv.hu">Kopint-Datorg Rt.</a>, programozó</p>
+			<p>Kopint-Datorg Rt., programozó</p>
 		</dd>
 		<dt>2001 - 2003</dt>
 		<dd>
-			<p><a href="http://www.infobal.com/">Information Balance Európa Kft.</a>, szoftverfejlesztő</p>
+			<p>Information Balance Európa Kft., szoftverfejlesztő</p>
 		</dd>
 </dl>
 
@@ -175,4 +175,4 @@ Objektumorientált tervezés és programozás, agilis módszertanok, elosztott r
 
 ## Szabadidő
 
-Szabadidőmben próbálok túrázgatni, mind gyalog, mind kerékpárral (Kelly's Axis Red trekking, valamint egy országúti kerékpárral), és hobbiként [geocacheeléssel](http://www.geocaching.hu/users.geo?id=7420) (Garmin GPSMAP 60), PMR-rel (Oregon Scientific TP380) és újabban sárkányeregetéssel (Symphony Beach 2.1) is foglalkozom. Szívesen focizom, röplabdázom, kosárlabdázom és pingpongozom, telente egy hetet legalább síelek, többször korcsolyázom. Szívesen utazom, akár belföldre hétvégente, akár külföldre. Sokat olvasok, gyakran járok színházba, koncertre.
+Szabadidőmben próbálok túrázgatni, mind gyalog, mind kerékpárral (Kelly's Axis Red trekking, valamint egy országúti kerékpárral), és hobbiként [geocacheeléssel](https://www.geocaching.hu/users.geo?id=7420) (Garmin GPSMAP 60), PMR-rel (Oregon Scientific TP380) és újabban sárkányeregetéssel (Symphony Beach 2.1) is foglalkozom. Szívesen focizom, röplabdázom, kosárlabdázom és pingpongozom, telente egy hetet legalább síelek, többször korcsolyázom. Szívesen utazom, akár belföldre hétvégente, akár külföldre. Sokat olvasok, gyakran járok színházba, koncertre.

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Falling Gems játék
 description: Falling Gems, Java logikai és ügyességi játék
 keywords: Java, logikai és ügyességi játék
@@ -25,4 +25,4 @@ A játék letölthető
 [jar fájlként](https://github.com/vicziani/jtechlog-falling-gems/releases/download/1.0.0/jtechlog-falling-gems-1.0.0.jar),
 és a `java -jar jtechlog-falling-gems-1.0.0.jar` paranccsal futtatható.
 A forráskódja elérhető a
-[GitHub-on.](http://github.com/vicziani/jtechlog-falling-gems)
+[GitHub-on.](https://github.com/vicziani/jtechlog-falling-gems)

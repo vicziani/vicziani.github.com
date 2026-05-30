@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Blogról
 description: Hírek, tapasztalatok a Java platform világából.
 keywords: Viczián István, Java, blog, JTechLog

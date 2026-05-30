@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Java telepítése
 description: Java telepítése. Hogyan telepítsünk Javat?
 keywords: Java, Java telepítés

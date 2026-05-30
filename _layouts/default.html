@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="hu">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
+<body>
 
-    {% include header.html %}
+  {% include header.html %}
 
-        {{ content }}
+  <main>
+    <div class="container">
 
-    {% include footer.html %}
+      <div class="row">
+        <div class="col-sm-8 blog-main">
 
-  </body>
+          {{ content }}
+
+        </div>
+        <div class="col-sm-4">
+
+          {% include sidebar.html %}
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    {% include about.html %}
+  </footer>
+
+  {% include footer.html %}
+
+</body>
 
 </html>
