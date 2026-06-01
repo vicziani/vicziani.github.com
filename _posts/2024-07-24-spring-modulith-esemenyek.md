@@ -12,7 +12,9 @@ ezeket az eseményeket más service-ek felé is elküldeni valamilyen message br
 
 Lesz szó modularizált alkalmazásról, eseménykezelésről, Spring Modulithról, tranzakciókezelésről, Testcontainersről, Kafkáról.
 
-<iframe width="750" height="422" src="https://www.youtube.com/embed/pofgNVVaoEE?si=hnf4EMP5CxhR5Bko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div>
+<iframe src="https://www.youtube.com/embed/pofgNVVaoEE?si=hnf4EMP5CxhR5Bko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 A példa alkalmazás forráskódja megtalálható a [GitHubon](https://github.com/vicziani/jtechlog-spring-modulith).
 

@@ -20,4 +20,6 @@ A második évadban sikeres szoftverfejlesztőket kért meg, hogy meséljenek sz
 
 A beszélgetés elérhető az összes népszerű csatornán, Youtube-on, Spotify-on, iTuneson, stb.
 
-<iframe width="750" height="422" src="https://www.youtube.com/embed/LFkaRqiM4Qs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/LFkaRqiM4Qs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
