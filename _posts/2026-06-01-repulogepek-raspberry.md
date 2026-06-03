@@ -57,6 +57,8 @@ A readsb kiszedi a 1090 MHz-es impulzusokat,
 dekódolja a PPM (pulse-position modulation) jelet (ugyanis a ADS-B nem klasszikus "szép" digitális jel, hanem rádiós impulzusok sorozata), 
 és visszaállítja a repülőgép üzenetet.
 
+![Folyamat](/artifacts/posts/repulogepek-raspberry/flow.svg)
+
 A readsb nem ad felületet, azonban létezik egy külön [wiedehopf/tar1090](https://github.com/wiedehopf/tar1090) projekt,
 mely képes hozzákapcsolódni, és webes felületet biztosítani.
 
