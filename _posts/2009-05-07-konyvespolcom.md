@@ -29,4 +29,4 @@ ezekből:
     szükségem. Nagyon részletesen bemutatja a JPA-t, és tanácsokat is
     ad, hogyan kéne jól használni.
 
-<a href="/artifacts/posts/2009-05-07-konyvespolcom/konyvespolc_b.jpg" data-lightbox="post-images">![Könyvespolcom](/artifacts/posts/2009-05-07-konyvespolcom/konyvespolc.jpg)</a>
+<a href="/artifacts/posts/2009-05-07-konyvespolcom/konyvespolc_b.jpg" class="glightbox">![Könyvespolcom](/artifacts/posts/2009-05-07-konyvespolcom/konyvespolc.jpg)</a>

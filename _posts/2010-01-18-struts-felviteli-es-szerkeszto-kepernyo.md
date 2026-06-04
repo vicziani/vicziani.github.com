@@ -293,7 +293,7 @@ részből áll. Első az űrlap lekérése (felvitel vagy módosítás), másodi
 az űrlap elküldése hibákkal és a harmadik az űrlap elküldése hibák
 nélkül.
 
-<a href="/artifacts/posts/2010-01-18-struts-felviteli-es-szerkeszto-kepernyo/struts_szekvencia_b.png" data-lightbox="post-images">![UML szekvenciadiagram](/artifacts/posts/2010-01-18-struts-felviteli-es-szerkeszto-kepernyo/struts_szekvencia.png)</a>
+<a href="/artifacts/posts/2010-01-18-struts-felviteli-es-szerkeszto-kepernyo/struts_szekvencia_b.png" class="glightbox">![UML szekvenciadiagram](/artifacts/posts/2010-01-18-struts-felviteli-es-szerkeszto-kepernyo/struts_szekvencia.png)</a>
 
 Látható, hogy a Struts gyermekbetegséggekkel szenved, melyből sokat
 tanultak a későbbi keretrendszerek fejlesztői.

@@ -70,7 +70,7 @@ keresőszavakból az is kiderül a számomra, hogy attól függetlenül, hogy
 kevés Java tartalom van magyar nyelven, az emberek mégis bíznak, hogy
 magyarul is találnak valamit.
 
-<a href="/artifacts/posts/2012-01-14-visszatekintes-2011-re/keresoszavak.png" data-lightbox="post-images">
+<a href="/artifacts/posts/2012-01-14-visszatekintes-2011-re/keresoszavak.png" class="glightbox">
 ![Keresőszavak](/artifacts/posts/2012-01-14-visszatekintes-2011-re/keresoszavak_600.png)
 </a>
 
@@ -96,6 +96,6 @@ kérlek a kérdőívet akkor is töltsd ki, ezzel is segítve a blogot, hogy
 számodra is érdekesebb tartalom jelenjen meg a továbbiakban. (A kérdőív
 azóta kiértékelésre, majd törlésre került.)
 
-<a href="/artifacts/posts/2012-01-14-visszatekintes-2011-re/Java-utikalauz-programozoknak.jpg" data-lightbox="post-images">
+<a href="/artifacts/posts/2012-01-14-visszatekintes-2011-re/Java-utikalauz-programozoknak.jpg" class="glightbox">
 ![Java 2 útikalauz programozóknak](/artifacts/posts/2012-01-14-visszatekintes-2011-re/Java-utikalauz-programozoknak_200.jpg)
 </a>

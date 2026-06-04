@@ -35,7 +35,7 @@ Ez sok mindenre felhasználható, többek között:
 Ezek a stickek természetesen Raspberry Pi-hez is csatlakoztathatóak, és
 igen kiforrott szoftverek vannak hozzá.
 
-<a href="/artifacts/posts/repulogepek-raspberry/setup.jpg" data-lightbox="post-images">![Kép leírása](/artifacts/posts/repulogepek-raspberry/setup_750.jpg)</a>
+<a href="/artifacts/posts/repulogepek-raspberry/setup.jpg" class="glightbox">![Kép leírása](/artifacts/posts/repulogepek-raspberry/setup_750.jpg)</a>
 
 <!-- more -->
 
@@ -92,7 +92,7 @@ sudo readsb-set-location 50.12344 10.23429
 
 Telepítés után a Raspberry Pin a böngészőben elérhető a felület a `http://localhost/tar1090` címen.
 
-<a href="/artifacts/posts/repulogepek-raspberry/tar1090.jpg" data-lightbox="post-images">![Kép leírása](/artifacts/posts/repulogepek-raspberry/tar1090_750.jpg)</a>
+<a href="/artifacts/posts/repulogepek-raspberry/tar1090.jpg" class="glightbox">![Kép leírása](/artifacts/posts/repulogepek-raspberry/tar1090_750.jpg)</a>
 
 Megjelenik egy OpenStreetMap layer, rajta a repülőgépekkel. Jobb oldalon a gépek tulajdonságai táblázatos formában.
 Jobbra a kiválasztott gép adatai.
@@ -116,7 +116,7 @@ megjeleníti a körülöttünk lévő domborzatot, tőlünk látható hegycsúcs
 az elméleti látótávolságot, hiszen hegy mögé "nem lát be" az antenna. Ezt be is lehet tölteni
 a tar1090-be.
 
-<a href="/artifacts/posts/repulogepek-raspberry/heywhatsthat.jpg" data-lightbox="post-images">![Kép leírása](/artifacts/posts/repulogepek-raspberry/heywhatsthat_750.jpg)</a>
+<a href="/artifacts/posts/repulogepek-raspberry/heywhatsthat.jpg" class="glightbox">![Kép leírása](/artifacts/posts/repulogepek-raspberry/heywhatsthat_750.jpg)</a>
 
 Van egy másik oldal is a `http://localhost/tar1090/?pTracks` címen, ahol az elmúlt 8 óra
 rögzített útvonalait lehet látni.

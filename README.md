@@ -16,6 +16,7 @@ tags:
 - JTechLog
 - Blog
 description: Rövid összefoglaló, ez jelenik meg pl. a Facebookon. Max. 108 - 110 karakter.
+image: /artifacts/posts/pelda/og.png
 ---
 
 Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.
@@ -24,7 +25,7 @@ Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.
 
 ![Kép leírása](/img.png)
 
-<a href="img.png" data-lightbox="post-images">![Kép leírása](/img_750.png)</a>
+<a href="img.png" class="glightbox">![Kép leírása](/img_750.png)</a>
 
 ```java
 public class HelloWorld {
@@ -43,4 +44,4 @@ paranccsal:
     convert -resize 750x img.png img_750.png
 
 Majd a fenti módon html taggel szúrandó be, mert akkor a böngésző nem visz át
-a nagyobb képre, hanem a LightBox nyitja meg.
+a nagyobb képre, hanem a GLightbox nyitja meg.

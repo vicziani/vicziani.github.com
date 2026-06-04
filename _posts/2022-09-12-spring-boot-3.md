@@ -259,7 +259,7 @@ return Observation.createNotStarted("controller.hello", observationRegistry)
 
 Ez a következőképp fog kinézni a Zipkinben (feltételezve, hogy a service-ben is van egy `service.hello` span):
 
-<a href="/artifacts/posts/images/zipkin_sb.png" data-lightbox="post-images">![Zipkin](/artifacts/posts/images/zipkin_sb_750.png)</a>
+<a href="/artifacts/posts/images/zipkin_sb.png" class="glightbox">![Zipkin](/artifacts/posts/images/zipkin_sb_750.png)</a>
 
 A `spring.application.name` property-ben beállított név lett a service neve. 
 
@@ -521,4 +521,4 @@ cd employees
 docker compose up
 ```
 
-<a href="/artifacts/posts/images/spring-boot-native.png" data-lightbox="post-images">![Spring Boot indulás](/artifacts/posts/images/spring-boot-native_750.png)</a>
+<a href="/artifacts/posts/images/spring-boot-native.png" class="glightbox">![Spring Boot indulás](/artifacts/posts/images/spring-boot-native_750.png)</a>

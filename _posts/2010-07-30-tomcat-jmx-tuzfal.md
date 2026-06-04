@@ -99,4 +99,4 @@ MBean-jeit.
 
     service:jmx:rmi://localhost:3001/jndi/rmi://localhost:3000/jmxrmi
 
-<a href="/artifacts/posts/2010-07-30-tomcat-jmx-tuzfal/tomcat_jmx_b.png" data-lightbox="post-images">![Java VisualVM](/artifacts/posts/2010-07-30-tomcat-jmx-tuzfal/tomcat_jmx.png)</a>
+<a href="/artifacts/posts/2010-07-30-tomcat-jmx-tuzfal/tomcat_jmx_b.png" class="glightbox">![Java VisualVM](/artifacts/posts/2010-07-30-tomcat-jmx-tuzfal/tomcat_jmx.png)</a>

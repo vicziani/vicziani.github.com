@@ -90,7 +90,7 @@ kérdések, melyre a gép automatikusan választ tud adni. Pl. melyek azok a
 termékek, melyek a perzisztenciát oldják meg, lehetőleg támogatják a JPA
 specifikációt, és nem Oracle termékek.
 
-<a href="/artifacts/posts/2009-04-06-java-szemantikus-web/java_technologiak_owl_b.png" data-lightbox="post-images">![OWL](/artifacts/posts/2009-04-06-java-szemantikus-web/java_technologiak_owl.png)</a>
+<a href="/artifacts/posts/2009-04-06-java-szemantikus-web/java_technologiak_owl_b.png" class="glightbox">![OWL](/artifacts/posts/2009-04-06-java-szemantikus-web/java_technologiak_owl.png)</a>
 
 Az RDF/OWL formátumok szerkesztéséhez már rengeteg eszköz megjelent,
 ebből egy lehet pl. az Altova SemanticWorks, mely meglehetősen bugos,

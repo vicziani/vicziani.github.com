@@ -47,7 +47,7 @@ stb (látható, hogy különösen a cluster-ezési részben). Ebben a posztban
 megint keverni fogom a könyvkritikát, valamint a véleményemet a JBoss
 alkalmazásszerverről magáról.
 
-<a href="/artifacts/posts/2010-07-01-jboss-in-action/JamaeJohnson_b.jpg" data-lightbox="post-images">![JBoss In Action](/artifacts/posts/2010-07-01-jboss-in-action/JamaeJohnson.jpg)</a>
+<a href="/artifacts/posts/2010-07-01-jboss-in-action/JamaeJohnson_b.jpg" class="glightbox">![JBoss In Action](/artifacts/posts/2010-07-01-jboss-in-action/JamaeJohnson.jpg)</a>
 
 A könyv írását akkor fejezték be véglegesen, amikor a JBoss AS 5.0 CR2
 állapotban volt. A különböző kiadások módosításait (Beta2, 3, 4, CR1)

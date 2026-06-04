@@ -634,4 +634,4 @@ az RMI lesz. A Spring is lehetőséget biztosít erre, itt viszont
 választhatunk különböző protokollok között, mint RMI, Hessian/Burlap,
 HTTPInvoker, JMS, SOAP, stb.
 
-<a href="/artifacts/posts/2010-06-20-clusterezes-altalaban-es-tomcaten/cluster-workspace_b.png" data-lightbox="post-images">![Desktop](/artifacts/posts/2010-06-20-clusterezes-altalaban-es-tomcaten/cluster-workspace.png)</a>
+<a href="/artifacts/posts/2010-06-20-clusterezes-altalaban-es-tomcaten/cluster-workspace_b.png" class="glightbox">![Desktop](/artifacts/posts/2010-06-20-clusterezes-altalaban-es-tomcaten/cluster-workspace.png)</a>

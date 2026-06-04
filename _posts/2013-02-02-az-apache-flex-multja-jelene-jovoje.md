@@ -33,7 +33,7 @@ Az új verzió azonban már ún. top level projectként jött ki. Sőt a cikk
 írásának pillanatában [élesítették az új oldalt
 is](https://twitter.com/ApacheFlex/status/296909455612858368).
 
-<a href="/artifacts/posts/2013-02-02-az-apache-flex-multja-jelene-jovoje/logo_01_fullcolor_wb.png" data-lightbox="post-images">![Apache Flex](/artifacts/posts/2013-02-02-az-apache-flex-multja-jelene-jovoje/logo_01_fullcolor_wb_750.png)</a>
+<a href="/artifacts/posts/2013-02-02-az-apache-flex-multja-jelene-jovoje/logo_01_fullcolor_wb.png" class="glightbox">![Apache Flex](/artifacts/posts/2013-02-02-az-apache-flex-multja-jelene-jovoje/logo_01_fullcolor_wb_750.png)</a>
 
 A Flex világra jöttét a RIA (Rich Internet Application) segítette, azaz
 a cégek olyan eszközöket próbáltak előállítani, melyekkel a desktop

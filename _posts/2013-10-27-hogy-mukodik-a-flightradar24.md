@@ -17,7 +17,7 @@ repülőgép helyzetét, és számos információt, mint típus, lajstromjel,
 járatszám, magasság, sebesség, stb. Egyrészt elérhető weben is, de az
 összes nagy mobil platformon is van kliense.
 
-<a href="/artifacts/posts/2013-10-27-hogy-mukodik-a-flightradar24/flightradar.png" data-lightbox="post-images">
+<a href="/artifacts/posts/2013-10-27-hogy-mukodik-a-flightradar24/flightradar.png" class="glightbox">
 ![Flightradar24](/artifacts/posts/2013-10-27-hogy-mukodik-a-flightradar24/flightradar_600.png)
 </a>
 
@@ -87,7 +87,7 @@ irányszöge, üzemanyagszintje, stb. Ezen kívül lehetőség van két gép
 közötti kommunikációra is, veszélyes helyzetekben képes lekommunikálni,
 hogy melyik emelkedjen, és melyik süllyedjen.
 
-<a href="/artifacts/posts/2013-10-27-hogy-mukodik-a-flightradar24/PA251740.JPG" data-lightbox="post-images">
+<a href="/artifacts/posts/2013-10-27-hogy-mukodik-a-flightradar24/PA251740.JPG" class="glightbox">
 ![Radar](/artifacts/posts/2013-10-27-hogy-mukodik-a-flightradar24/PA251740_600.JPG)
 </a>
 

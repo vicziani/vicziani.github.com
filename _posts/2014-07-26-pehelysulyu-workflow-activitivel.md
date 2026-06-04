@@ -84,7 +84,7 @@ natívan, Javaban is le tudjam programozni. Szerencsére erre nem került
 sor, azonban az architektúra tisztasága miatt ez a döntés később is
 jónak bizonyult.
 
-<a href="/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/class_diagram_1.png" data-lightbox="post-images">
+<a href="/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/class_diagram_1.png" class="glightbox">
 ![Class diagram](/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/class_diagram_1_600.png)
 </a>
 
@@ -101,7 +101,7 @@ plugin. Feltelepítése után New Activiti Diagram. Látható, hogy a
 diagramon egy start event, egy end event, és köztük egy user task. (Egy
 egyszerű IDEA plugin is létezik már.)
 
-<a href="/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/activiti_eclipse_designer.png" data-lightbox="post-images">
+<a href="/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/activiti_eclipse_designer.png" class="glightbox">
   ![Activiti Eclipse Designer](/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/activiti_eclipse_designer_600.png)
 </a>
 
@@ -265,7 +265,7 @@ melyeket a workflow hív, kitenni egy külön interfészbe, így jól
 mockolható is. Valamint érdemes egy darab ilyen interfészt kialakítani,
 a Facade tervezési mintának megfelelően.
 
-<a href="/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/timeoff_2.png" data-lightbox="post-images">
+<a href="/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/timeoff_2.png" class="glightbox">
   ![Activiti Eclipse Designer](/artifacts/posts/2014-07-26-pehelysulyu-workflow-activitivel/timeoff_2_600.png)
 </a>
 

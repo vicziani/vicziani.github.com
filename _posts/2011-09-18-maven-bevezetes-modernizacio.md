@@ -50,7 +50,7 @@ vagy egy [kitesurf
 paradicsom](http://britpalmak.blogspot.com/2011/07/kitesurf-paradicsom.html),
 az óceánnál.
 
-<a href="/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib1_b.jpg" data-lightbox="post-images">![Háttérben Gibraltár](/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib1.jpg)</a>
+<a href="/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib1_b.jpg" class="glightbox">![Háttérben Gibraltár](/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib1.jpg)</a>
 
 A cég nagyon meggyőző volt, látszott, hogy komolyan veszik, amit
 csinálnak. Olyan hangulat uralkodott, hogy érződött, hogy odafigyelnek a
@@ -66,7 +66,7 @@ elöntötte a mediterrán hangulat, a meleg, a késő este is napsütés,
 tengerpart, a hatalmas és tekintélyt parancsoló, a kikötőben állomásozó
 hajókkal, vonzották az embert a part menti bárok és kaszinó.
 
-<a href="/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib2_b.jpg" data-lightbox="post-images">![Gibraltári kikötőben](/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib2.jpg)</a>
+<a href="/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib2_b.jpg" class="glightbox">![Gibraltári kikötőben](/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib2.jpg)</a>
 
 Lássuk, hogy hogyan is telt a szakmai három nap, hogyan lehet egy Maven
 "rendrakást" kivitelezni. Egy build folyamat modernizációja subproject
@@ -116,7 +116,7 @@ alkalmazni, ahol színekkel jelzem az alkalmazások típusait, valamint
 dependency-vel a függőségeket, kompozícióval a modul tartalmazást és
 generalizációval a szülő kapcsolatot.
 
-<a href="/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/modulok_b.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/modulok.png)</a>
+<a href="/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/modulok_b.png" class="glightbox">![Kép leírása](/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/modulok.png)</a>
 
 Nem javaslom a függőségi gráfok generálását. Egyrészt, ha magunk
 rajzoljuk, sokkal jobban megértjük, valamint vannak olyan függőségek,
@@ -276,4 +276,4 @@ test harness, quality management eszköz, és beletartoznak olyan lépések,
 mint tesztelés, release, deployment, code review, minőségbiztosítás,
 stb.
 
-<a href="/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib3_b.jpg" data-lightbox="post-images">![Kilátás](/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib3.jpg)</a>
+<a href="/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib3_b.jpg" class="glightbox">![Kilátás](/artifacts/posts/2011-09-18-maven-bevezetes-modernizacio/gib3.jpg)</a>

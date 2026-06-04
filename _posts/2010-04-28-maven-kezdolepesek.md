@@ -31,7 +31,7 @@ Egyik a [Maven by Example](https://books.sonatype.com/mvnex-book/reference/index
 a másik a [Maven: The Complete Reference](https://books.sonatype.com/mvnref-book/reference/index.html),
 mely a Sonatype-nál ingyen elolvasható, és egyik szerzője Jason Van Zyl, a Maven megalkotója.
 
-<a href="/artifacts/posts/2010-04-28-maven-kezdolepesek/sonatype_maven_the_complete_reference_b.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/2010-04-28-maven-kezdolepesek/sonatype_maven_the_complete_reference.png)</a>
+<a href="/artifacts/posts/2010-04-28-maven-kezdolepesek/sonatype_maven_the_complete_reference_b.png" class="glightbox">![Kép leírása](/artifacts/posts/2010-04-28-maven-kezdolepesek/sonatype_maven_the_complete_reference.png)</a>
 
 
 Sonatype-nak ezen kívül magyar vonatkozása is van, hiszen a Nexus

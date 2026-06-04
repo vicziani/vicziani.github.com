@@ -313,7 +313,7 @@ alkalmazást, adni neki egy nevet, melyet az előbbi konfig állományban is
 át kell írni. Az SDK-ban a Deploy gombot megnyomva máris próbálhatjuk az
 alkalmazásunkat a http://\[alkalmazás neve\].appspot.com címen.
 
-<a href="/artifacts/posts/2011-06-14-masodik-nyelv-python/google-app-engine-python-sdk_b.png" data-lightbox="post-images">![Google App Engine](/artifacts/posts/2011-06-14-masodik-nyelv-python/google-app-engine-python-sdk.png)</a>
+<a href="/artifacts/posts/2011-06-14-masodik-nyelv-python/google-app-engine-python-sdk_b.png" class="glightbox">![Google App Engine](/artifacts/posts/2011-06-14-masodik-nyelv-python/google-app-engine-python-sdk.png)</a>
 
 Ugyanilyen egyszerű az ütemezés, valamint a hozzáférés a Datastore-hoz,
 Memcache-hez, stb.

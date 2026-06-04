@@ -78,7 +78,7 @@ kell ütemezni a többi fordítást, hogy e mellett párhuzamosan
 egyenletesen elosztva menjen. Így érdemes pl. ezt a critical path
 hosszát is csökkenteni.
 
-<a href="/artifacts/posts/2014-01-22-maven-feltamadasa/2014-01-parallel_b.png" data-lightbox="post-images">![Parallel build](/artifacts/posts/2014-01-22-maven-feltamadasa/2014-01-parallel.png)</a>
+<a href="/artifacts/posts/2014-01-22-maven-feltamadasa/2014-01-parallel_b.png" class="glightbox">![Parallel build](/artifacts/posts/2014-01-22-maven-feltamadasa/2014-01-parallel.png)</a>
 
 Annak azonban, aki már küzdött azzal, hogy a Mavent Continuous Delivery
 (CD) környezetben használja, a legérdekesebb újdonság a generációk
@@ -99,7 +99,7 @@ adódóan az az alapja, hogy csak a különbség utazik, és tárolva sem
 lesznek az azonos artifactok, hanem egy operációs rendszerbeli hardlink
 készül.
 
-<a href="/artifacts/posts/2014-01-22-maven-feltamadasa/2014-01-gen-collab_b.png" data-lightbox="post-images">![Delta protocol](/artifacts/posts/2014-01-22-maven-feltamadasa/2014-01-gen-collab.png)</a>
+<a href="/artifacts/posts/2014-01-22-maven-feltamadasa/2014-01-gen-collab_b.png" class="glightbox">![Delta protocol](/artifacts/posts/2014-01-22-maven-feltamadasa/2014-01-gen-collab.png)</a>
 
 A polygot támogatás lehetővé teszi a pom (Project Object Model) más
 nyelvekben való meghatározását, pl. Ruby, Groovy, Scala, stb. Az

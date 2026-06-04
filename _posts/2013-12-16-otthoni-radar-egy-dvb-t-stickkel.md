@@ -29,7 +29,7 @@ Két hét alatt meg is érkezett, melyen semmi gyártójelzés nem látható. A
 lényeg, hogy olyan eszközt rendeljük, melyben a RTL2832U és a R820T chip
 van.
 
-<a href="/artifacts/posts/2013-12-16-otthoni-radar-egy-dvb-t-stickkel/rtl2832u-r820t-mini-dvb-t-dab-fm-usb-digital.jpg" data-lightbox="post-images">
+<a href="/artifacts/posts/2013-12-16-otthoni-radar-egy-dvb-t-stickkel/rtl2832u-r820t-mini-dvb-t-dab-fm-usb-digital.jpg" class="glightbox">
 ![DVB-T usb stick](/artifacts/posts/2013-12-16-otthoni-radar-egy-dvb-t-stickkel/rtl2832u-r820t-mini-dvb-t-dab-fm-usb-digital_600.jpg)
 </a>
 
@@ -198,7 +198,7 @@ el. Nem utolsó sorban jó
 is van. Vigyázat, a kézikönyv nem a RTL1090 verziót írja le, de
 minimális a különbség, néhány fejlettebb funkció hiányzik csak.
 
-<a href="/artifacts/posts/2013-12-16-otthoni-radar-egy-dvb-t-stickkel/globes.png" data-lightbox="post-images">
+<a href="/artifacts/posts/2013-12-16-otthoni-radar-egy-dvb-t-stickkel/globes.png" class="glightbox">
 ![Globe-S for RTL1090](/artifacts/posts/2013-12-16-otthoni-radar-egy-dvb-t-stickkel/globes_600.png)
 </a>
 

@@ -95,7 +95,7 @@ fizetést is lehető tévő fizetési modult (, hasonlóan az autópálya
 matrica vásárlásához). A következő tevékenységdiagram egy SMS-es
 fizetést ír le.
 
-<a href="/artifacts/posts/2009-05-03-uml-tevekenysegdiagram/activity_b.png" data-lightbox="post-images">![SMS-es fizetés
+<a href="/artifacts/posts/2009-05-03-uml-tevekenysegdiagram/activity_b.png" class="glightbox">![SMS-es fizetés
 tevékenységdiagramja](/artifacts/posts/2009-05-03-uml-tevekenysegdiagram/activity.png)</a>
 
 Az ügyfél a kereskedelmi rendszer honlapján kiválaszt egy terméket, a

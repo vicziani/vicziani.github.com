@@ -181,7 +181,7 @@ Majd a _Runtime settings_ panelen az _Edit_ gombra kattintva meg kell adni a kö
 
 * _Handler_: `hello.HelloHandler::handleRequest`, ez az osztály és metódus neve
 
-<a href="/artifacts/posts/2024-03-27-amazon-lambda/lambda-java-se_750.png" data-lightbox="post-images">![AWS Lambda függvény](/artifacts/posts/2024-03-27-amazon-lambda/lambda-java-se.png)</a>
+<a href="/artifacts/posts/2024-03-27-amazon-lambda/lambda-java-se_750.png" class="glightbox">![AWS Lambda függvény](/artifacts/posts/2024-03-27-amazon-lambda/lambda-java-se.png)</a>
 
 ## Függvény tesztelése
 

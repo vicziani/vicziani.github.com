@@ -189,7 +189,7 @@ public class StatusEventSender implements StatusEventListener {
 }
 {% endhighlight %}
 
-<a href="/artifacts/posts/2012-10-14-esemenykuldes-szerver-oldalrol/event-osztalydiagram.png" data-lightbox="post-images">
+<a href="/artifacts/posts/2012-10-14-esemenykuldes-szerver-oldalrol/event-osztalydiagram.png" class="glightbox">
   ![Osztálydiagram](/artifacts/posts/2012-10-14-esemenykuldes-szerver-oldalrol/event-osztalydiagram_600.png)
 </a>
 

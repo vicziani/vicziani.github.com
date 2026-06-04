@@ -116,7 +116,7 @@ forrása megtalálható a
 de lejjebb találtok egy nagyítható képet is. Próbáltam a mintákat
 lefordítani, de nem szó szerint, hanem a célja alapján.
 
-<a href="/artifacts/posts/2014-10-04-java-application-architecture/modul-tervezesi-mintak.png" data-lightbox="post-images">
+<a href="/artifacts/posts/2014-10-04-java-application-architecture/modul-tervezesi-mintak.png" class="glightbox">
 ![Java Application Architecture könyv](/artifacts/posts/2014-10-04-java-application-architecture/modul-tervezesi-mintak_600.png)
 </a>
 

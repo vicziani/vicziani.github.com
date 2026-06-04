@@ -199,7 +199,7 @@ a PKI-t, így szintén tanúsítványokkal dolgozik. A böngészőben ezt a
 tanúsítványt meg tudjuk nézni. Nézzük meg pl. a https://www.netlock.net/
 cím tanúsítványát.
 
-<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_tanusitvany_2_b.png" data-lightbox="post-images">![NetLock tanúsítvány](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_tanusitvany_2.png)</a>
+<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_tanusitvany_2_b.png" class="glightbox">![NetLock tanúsítvány](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_tanusitvany_2.png)</a>
 
 Látható, hogy a lánc három elemből áll, NetLock Arany (Class Gold)
 Főtanúsítvány, NetLock Üzleti (Class B) tanúsítványkiadó, valamint a
@@ -224,7 +224,7 @@ Ezt kicsomagolva Base64-gyel egy bináris DER állományt kapunk. Ezt is ki
 lehet bontani, pl. [webes szolgáltatás](https://certlogik.com/decoder/)
 is van rá. Ekkor láthatjuk a felépítését szövegesen is.
 
-<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_tanusitvany_kibontva_2_b.png" data-lightbox="post-images">![Cretificate Decoder](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_tanusitvany_kibontva_2.png)</a>
+<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_tanusitvany_kibontva_2_b.png" class="glightbox">![Cretificate Decoder](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_tanusitvany_kibontva_2.png)</a>
 
 Látható a használt hash és titkosító algoritmus is:
 sha256WithRSAEncryption, valamint a kiadó és a tárgy DN-je is.
@@ -381,7 +381,7 @@ Ennek formátuma:
 
 Ezt természetesen ugyanúgy lehet a böngészőbe importálni.
 
-<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/jtechlog_tanusitvany_b.png" data-lightbox="post-images">![Importált tanúsítvány](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/jtechlog_tanusitvany.png)</a>
+<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/jtechlog_tanusitvany_b.png" class="glightbox">![Importált tanúsítvány](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/jtechlog_tanusitvany.png)</a>
 
 Ha hiteles tanúsítványt szeretnénk, akkor a tanúsítványunkat egy
 hitelesítésszolgáltatónak is alá kell írnia. Ehhez először egy ún.
@@ -431,7 +431,7 @@ tanúsítványa telepítve. A NetLock Teszt Tanúsítványkiadó
 tagja. A NetLock által kiadott teszt tanúsítvány SHA-256 hash
 algoritmust és 2048 bit hosszú RSA kulcspárt használ.
 
-<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_teszt_tanusitvany_b.png" data-lightbox="post-images">![Teszt
+<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_teszt_tanusitvany_b.png" class="glightbox">![Teszt
 tanúsítvány](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/netlock_teszt_tanusitvany.png)</a>
 
 Innen szintén PKCS \#12 formátumban tudjuk exportálni, ebben benne van a titkos kulcs, és
@@ -471,7 +471,7 @@ Ennek tartalmát is kilistázhatjuk a következő paranccsal.
 Aki nem akar parancssorból bajlódni, az használhatja a grafikus
 [Portecle](https://github.com/scop/portecle) (eredetileg SourceForge-on található) alkalmazást is.
 
-<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/portecle_b.png" data-lightbox="post-images">![Portecle](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/portecle.png)</a>
+<a href="/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/portecle_b.png" class="glightbox">![Portecle](/artifacts/posts/2011-02-05-elektronikus-alairas-es-alkalmazasa/portecle.png)</a>
 
 Megjegyzem, hogy az openssl is képes X.509 és PKCS \#12 tanúsítványokat,
 valamint PKCS \#10 Certificate signing requesteket használni, melyek

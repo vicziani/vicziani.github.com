@@ -124,7 +124,7 @@ egy testvérhez érünk, és ekkor ismét a bal értékeket osztjuk ki, és így
 tovább. Gyakorlatilag óramutató járásával ellentétes irányban
 körbejárjuk a fát.
 
-<a href="/artifacts/posts/2009-08-12-fa-abrazolasa-adatbazisban/nested_1_b.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/2009-08-12-fa-abrazolasa-adatbazisban/nested_1.png)</a>
+<a href="/artifacts/posts/2009-08-12-fa-abrazolasa-adatbazisban/nested_1_b.png" class="glightbox">![Kép leírása](/artifacts/posts/2009-08-12-fa-abrazolasa-adatbazisban/nested_1.png)</a>
 
 Az így nyert számozás azért nagyon hatékony részfák lekérdezésére, mert
 egy elem részfáját úgy kérhetjük le, ráadásul a preorder bejárással
@@ -218,7 +218,7 @@ kell, melynek bal értéke nagyobb vagy egyenlő, mint 9, és ugyanígy az
 összes elem jobb értékét 2-vel növelni kell, melynek jobb értéke nagyobb
 vagy egyenlő, mint 9.
 
-<a href="/artifacts/posts/2009-08-12-fa-abrazolasa-adatbazisban/nested_2_b.png" data-lightbox="post-images">![Kép leírása](/artifacts/posts/2009-08-12-fa-abrazolasa-adatbazisban/nested_2.png)</a>
+<a href="/artifacts/posts/2009-08-12-fa-abrazolasa-adatbazisban/nested_2_b.png" class="glightbox">![Kép leírása](/artifacts/posts/2009-08-12-fa-abrazolasa-adatbazisban/nested_2.png)</a>
 
 Ezek alapján a további műveletek is könnyen implementálhatóak. Egy
 részfa törlésénél töröljük az adott elemet, majd az így keletkezett

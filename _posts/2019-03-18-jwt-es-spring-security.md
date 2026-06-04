@@ -335,4 +335,4 @@ a titkos kulcsot is. Majd a felhasználónév és a jogosultságok is lekérésr
 És végül álljon itt egy gif animáció (a képre kattintva elérhető), mely bemutatja, hogy működik a bejelentkezés
 Postmannel.
 
-<a href="/artifacts/posts/images/jwt-postman.gif" data-lightbox="post-images"><img src="/artifacts/posts/images/jwt-postman_750.png" alt="RESTful hívások Postmannel" /></a>
+<a href="/artifacts/posts/images/jwt-postman.gif" class="glightbox"><img src="/artifacts/posts/images/jwt-postman_750.png" alt="RESTful hívások Postmannel" /></a>

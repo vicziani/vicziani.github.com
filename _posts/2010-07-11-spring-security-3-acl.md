@@ -75,7 +75,7 @@ egy sor az ACL-ben.
 Nézzük, a Spring Security milyen fogalmakat definiál, és ezekhez milyen
 interfészek kapcsolódnak. Először is egy UML diagram.
 
-<a href="/artifacts/posts/2010-07-11-spring-security-3-acl/SpringSecurityAclModel_b.png" data-lightbox="post-images">![UML osztálydiagram](/artifacts/posts/2010-07-11-spring-security-3-acl/SpringSecurityAclModel_b.png)</a>
+<a href="/artifacts/posts/2010-07-11-spring-security-3-acl/SpringSecurityAclModel_b.png" class="glightbox">![UML osztálydiagram](/artifacts/posts/2010-07-11-spring-security-3-acl/SpringSecurityAclModel_b.png)</a>
 
 Forrás: [Grzegorz Borkowski: Spring Security ACL - very basic
 tutorial](http://grzegorzborkowski.blogspot.com/2008/10/spring-security-acl-very-basic-tutorial.html).
@@ -186,7 +186,7 @@ A Domain Object Security ezeken felül a következőket biztosítja:
 Most, hogy ismerjük a Java interfészeket, nézzük, hogy történik a
 kapcsolódó objektumok perzisztenciája.
 
-<a href="/artifacts/posts/2010-07-11-spring-security-3-acl/springsecurityacl_b.png" data-lightbox="post-images">![Adatbázis](/artifacts/posts/2010-07-11-spring-security-3-acl/springsecurityacl_b.png)</a>
+<a href="/artifacts/posts/2010-07-11-spring-security-3-acl/springsecurityacl_b.png" class="glightbox">![Adatbázis](/artifacts/posts/2010-07-11-spring-security-3-acl/springsecurityacl_b.png)</a>
 
 A `ACL_OBJECT_IDENTITY` tábla egy sora tartozik minden egyes üzleti objektumhoz.
 Ez tartalmaz egy külső kulcsot az `ACL_CLASS` táblára, mely tartalmazza

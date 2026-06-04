@@ -35,7 +35,7 @@ különböző szakmai konferenciákon is, pl. kifejezetten ajánlom a
 _Python és a turbó csiga_ című előadását a Python teljesítményhangolásról,
 mely a HWSW free! meetup-sorozaton [hangzott el](https://www.youtube.com/watch?v=MCJZWrPVgcs) 2020. februárjában.
 
-<a href="/artifacts/posts/images/szoftverfejlesztes-okosan-pythonnal-agilis-csapatok-kozos-nyelve.jpg" data-lightbox="post-images">![Kép leírása](/artifacts/posts/images/szoftverfejlesztes-okosan-pythonnal-agilis-csapatok-kozos-nyelve-thumb.jpg)</a>
+<a href="/artifacts/posts/images/szoftverfejlesztes-okosan-pythonnal-agilis-csapatok-kozos-nyelve.jpg" class="glightbox">![Kép leírása](/artifacts/posts/images/szoftverfejlesztes-okosan-pythonnal-agilis-csapatok-kozos-nyelve-thumb.jpg)</a>
 
 
 <!-- more -->

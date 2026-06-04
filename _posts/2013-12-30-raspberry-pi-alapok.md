@@ -33,7 +33,7 @@ general-purpose input-output (GPIO) portja is, melyre különböző érdekes
 dolgokat lehet kötni, mint ledek, nyomógombok, hőmérséklet/légnyomás
 érzékelők, szervómotorok, stb.
 
-<a href="/artifacts/posts/2013-12-30-raspberry-pi-alapok/800px-RaspberryPi.jpg" data-lightbox="post-images">
+<a href="/artifacts/posts/2013-12-30-raspberry-pi-alapok/800px-RaspberryPi.jpg" class="glightbox">
 ![Raspberry PI](/artifacts/posts/2013-12-30-raspberry-pi-alapok/800px-RaspberryPi_600.jpg)
 </a>
 

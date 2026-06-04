@@ -54,7 +54,7 @@ _Mark Richards, Neal Ford - Fundamentals of Software Architecture_ könyvet, mel
 Ezt a könyvet érdemes amúgy is elolvasni, mert nagyon sok jó ötletet, praktikát és eszközt
 javasol az architect munkák megkönnyítésére.
 
-<a href="/artifacts/posts/2023-08-12-technology-radar/Fundamentals_of_Software_Architecture.jpg" data-lightbox="post-images">![Fundamentals of Software Architecture](/artifacts/posts/2023-08-12-technology-radar/Fundamentals_of_Software_Architecture_400px.png)</a>
+<a href="/artifacts/posts/2023-08-12-technology-radar/Fundamentals_of_Software_Architecture.jpg" class="glightbox">![Fundamentals of Software Architecture](/artifacts/posts/2023-08-12-technology-radar/Fundamentals_of_Software_Architecture_400px.png)</a>
 
 Több cég is készített magának ilyen radart:
 
@@ -93,7 +93,7 @@ A gyűrűk:
 
 A 2023.08-as JTechLog Technology Radar tehát a következő:
 
-<a href="/artifacts/posts/2023-08-12-technology-radar/jtechlog-technology-radar.png" data-lightbox="post-images">![Fundamentals of Software Architecture](/artifacts/posts/2023-08-12-technology-radar/jtechlog-technology-radar_700px.png)</a>
+<a href="/artifacts/posts/2023-08-12-technology-radar/jtechlog-technology-radar.png" class="glightbox">![Fundamentals of Software Architecture](/artifacts/posts/2023-08-12-technology-radar/jtechlog-technology-radar_700px.png)</a>
 
 Interaktív formában elérhető a következő linken is: [JTechLog Technology Radar](/artifacts/technology-radar/index.html)
 

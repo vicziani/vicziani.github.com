@@ -40,7 +40,7 @@ megtekinthető.
 
 Az Authorization Code Grant Grant Type-hoz egy ábrát is készítettem, melyen szerepelnek a kommunikáció során átadott adatok is.
 
-<a href="/artifacts/posts/2024-06-27-spring-security-pecs-meetup/oauth-auth-code-grant-type_3.drawio.svg" data-lightbox="post-images">
+<a href="/artifacts/posts/2024-06-27-spring-security-pecs-meetup/oauth-auth-code-grant-type_3.drawio.svg" class="glightbox">
     <img src="/artifacts/posts/2024-06-27-spring-security-pecs-meetup/oauth-auth-code-grant-type_3.drawio.svg" style="width:750px">
 </a>
 

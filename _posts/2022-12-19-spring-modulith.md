@@ -271,6 +271,6 @@ elküldi, hogy melyik hívás melyik modulban történt. Így az ábrán is lát
 módon nyomon követhető, hogy a `AcquiredSkills` modul áthív az `Employees`
 modulba, az kiad egy SQL lekérdezést, majd önmaga is kiad négy SQL lekérdezést.
 
-<a href="/artifacts/posts/images/spring-modulith-tracing.png" data-lightbox="post-images">![Spring Boot indulás](/artifacts/posts/images/spring-modulith-tracing_750.png)</a>
+<a href="/artifacts/posts/images/spring-modulith-tracing.png" class="glightbox">![Spring Boot indulás](/artifacts/posts/images/spring-modulith-tracing_750.png)</a>
 
 

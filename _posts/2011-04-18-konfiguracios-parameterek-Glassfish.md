@@ -61,7 +61,7 @@ A system property megadása a webes felületen a server menüpontban a
 Properties/System properties képernyőn lehetséges. Itt menet közben
 tetszőlegesen is át lehet írni.
 
-<a href="/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_0.png" data-lightbox="post-images">![Rendszerparaméter beállítása Glassfishen](/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_0_600.png)</a>
+<a href="/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_0.png" class="glightbox">![Rendszerparaméter beállítása Glassfishen](/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_0_600.png)</a>
 
 Parancssorban is fel lehet venni, és listázni.
 
@@ -89,7 +89,7 @@ factory-t: `PrimitiviesAndStringFactory`, `PropertiesFactory`,
 lesz, és fel kell venni egy property-t `value` névvel. Legyen az értéke
 a `Hello JNDI!`.
 
-<a href="/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_1.png" data-lightbox="post-images">![JNDI megadása Glassfishen](/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_1_600.png)</a>
+<a href="/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_1.png" class="glightbox">![JNDI megadása Glassfishen](/artifacts/posts/2011-04-18-konfiguracios-parameterek-Glassfish/jndi_glassfish_1_600.png)</a>
 
 URL esetén hasonló a helyzet, de a Resource Type `java.net.URL` és a
 factory `org.glassfish.resources.custom.factory.URLObjectFactory`. Itt

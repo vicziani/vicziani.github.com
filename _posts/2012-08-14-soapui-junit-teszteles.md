@@ -49,7 +49,7 @@ linkelve a WSDL állomány is. Ezt megadtam a SoapUI-nak, és készítettem
 két tesztesetet is. A SoapUI projekt az
 `src/test/resources/TempConvert-soapui-project.xml` állományban található.
 
-<a href="/artifacts/posts/2012-08-14-soapui-junit-teszteles/soapui.png" data-lightbox="post-images">![SoapUI](/artifacts/posts/2012-08-14-soapui-junit-teszteles/soapui_750.png)</a>
+<a href="/artifacts/posts/2012-08-14-soapui-junit-teszteles/soapui.png" class="glightbox">![SoapUI](/artifacts/posts/2012-08-14-soapui-junit-teszteles/soapui_750.png)</a>
 
 Persze úgy gondolom, hogy a funkcionalitást nem ezen a szinten kell
 tesztelni, hanem alacsonyabb rétegeket kell megszólítani, viszont nem

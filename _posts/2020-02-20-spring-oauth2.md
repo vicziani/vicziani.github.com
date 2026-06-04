@@ -105,7 +105,7 @@ alkalmazás számára a tanúsítványt átadni.
 
 A token alapesetben nem feltétlen titkosított, hiszen a felhasználó a saját adatait ismerheti, viszont más nem férhet hozzá. Hamisítani nem lehet, az aláírás miatt. Azonban ha mégis szükség van a token titkosítására, akkor arra a JSON Web Encryption (JWE) használható.
 
-<a href="/artifacts/posts/2020-02-20-spring-oauth2/jwasterix.png" data-lightbox="post-images">![JWT](/artifacts/posts/2020-02-20-spring-oauth2/jwasterix.png)</a>
+<a href="/artifacts/posts/2020-02-20-spring-oauth2/jwasterix.png" class="glightbox">![JWT](/artifacts/posts/2020-02-20-spring-oauth2/jwasterix.png)</a>
 
 ## Spring Security támogatás
 
@@ -228,7 +228,7 @@ A _Temporary_ értéke legyen _Off_, hogy ne kelljen jelszót módosítani.
 Végül a _Role Mappings_ fülön adjuk hozzá az _Assigned Roles_ közé vegyük fel a 
 `jtechlog_user` szerepkört.
 
-<a href="/artifacts/posts/2020-02-20-spring-oauth2/keycloak.png" data-lightbox="post-images">![Keycloak](/artifacts/posts/2020-02-20-spring-oauth2/keycloak_750.png)</a>
+<a href="/artifacts/posts/2020-02-20-spring-oauth2/keycloak.png" class="glightbox">![Keycloak](/artifacts/posts/2020-02-20-spring-oauth2/keycloak_750.png)</a>
 
 Ha ezzel kész is vagyunk, akkor a `http://localhost:8081/auth/realms/JTechLogRealm/.well-known/openid-configuration` címen egy JSON-t kapunk, ami tartalmazza a legfontosabb információkat.
 
@@ -315,7 +315,7 @@ megtekinthetjük annak tartalmát.
 }
 ```
 
-<a href="/artifacts/posts/2020-02-20-spring-oauth2/jwt.png" data-lightbox="post-images">![JWT](/artifacts/posts/2020-02-20-spring-oauth2/jwt_750.png)</a>
+<a href="/artifacts/posts/2020-02-20-spring-oauth2/jwt.png" class="glightbox">![JWT](/artifacts/posts/2020-02-20-spring-oauth2/jwt_750.png)</a>
 
 Itt látható pár érdekesség. Először a `sub` (Subject) tartalmazza általában a felhasználónevet,
 itt ez a Keycloak által kiadott egyedi azonosító, és a felhasználónév a `preferred_username`
@@ -339,7 +339,7 @@ Scope: profile
 
 Majd nyomjuk meg a _Request Token_ gombot, és meg is kapjuk a tokent.
 
-<a href="/artifacts/posts/2020-02-20-spring-oauth2/postman.png" data-lightbox="post-images">![Postman](/artifacts/posts/2020-02-20-spring-oauth2/postman_750.png)</a>
+<a href="/artifacts/posts/2020-02-20-spring-oauth2/postman.png" class="glightbox">![Postman](/artifacts/posts/2020-02-20-spring-oauth2/postman_750.png)</a>
 
 A tanúsítvány a `http://localhost:8081/auth/realms/JTechLogRealm/protocol/openid-connect/certs`
 címen érhető el. Itt egy JSON-t kapunk vissza, melynek `x5c` mezője rejti a tanúsítványláncot,

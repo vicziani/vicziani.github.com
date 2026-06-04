@@ -326,7 +326,7 @@ módben fusson, automatikus verziószámozással, vagy mi adhassuk meg az
 összes almodulnak a verziószámát, vagy egy verziószámot adunk meg az
 összes modulnak.
 
-<a href="/artifacts/posts/2010-10-25-release-mavennel-es-hudsonnel/hudson-maven-release-2_b.png" data-lightbox="post-images">![Perform Maven Release](/artifacts/posts/2010-10-25-release-mavennel-es-hudsonnel/hudson-maven-release-2.png)</a>
+<a href="/artifacts/posts/2010-10-25-release-mavennel-es-hudsonnel/hudson-maven-release-2_b.png" class="glightbox">![Perform Maven Release](/artifacts/posts/2010-10-25-release-mavennel-es-hudsonnel/hudson-maven-release-2.png)</a>
 
 Viszont multi modul projekt esetén mi van, ha a modulok külön életet
 élnek (release child modules independently)? Azaz egy almodulban

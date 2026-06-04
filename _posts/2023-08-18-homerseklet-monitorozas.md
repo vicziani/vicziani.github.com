@@ -31,7 +31,7 @@ hozzá kapcsolódni, és kinyerni belőle az adatokat. (Nincs szükség egyedi f
 Ezt utána csak be kell kötni a Prometheusba, mely időközönként lekérdezi és eltárolja az adatokat, majd egy Grafana dashboardot
 létrehozni, mely megjeleníti azokat.
 
-<a href="/artifacts/posts/2023-08-18-homerseklet-monitorozas/dashboard.png" data-lightbox="post-images">![Grafana dashboard](/artifacts/posts/2023-08-18-homerseklet-monitorozas/dashboard_700px.png)</a>
+<a href="/artifacts/posts/2023-08-18-homerseklet-monitorozas/dashboard.png" class="glightbox">![Grafana dashboard](/artifacts/posts/2023-08-18-homerseklet-monitorozas/dashboard_700px.png)</a>
 
 Közben természetesen szerettem volna megismerni a kapcsolódó technológiákat is.
 

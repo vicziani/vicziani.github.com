@@ -213,7 +213,7 @@ alkalmazás ENC-jében, ahogyan arról [korábban
 írtam](/2009/01/09/jndi-nevek-ejb-kornyezetben.html), sőt ehhez akár a
 `@Resource` annotációval hozzáférjek. Ezt azonban nem sikerült megoldani.
 
-<a href="/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_overview.png" data-lightbox="post-images">![ENC áttekintés](/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_overview_t.png)</a>
+<a href="/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_overview.png" class="glightbox">![ENC áttekintés](/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_overview_t.png)</a>
 
 Klasszikus esetben tehát van az EJB komponens, melyhez a standard
 deployment descriptorban (telepítés leíró) vagy a `@Resource`
@@ -268,7 +268,7 @@ Ebből látható, hogy nem lehet akármilyen típushoz, POJO-hoz hozzáférni,
 ami már beszűkíti a lehetőségeinket. Ezt a tulajdonságát a `@Resource`
 annotációnak a Spring közönség igen erősen kritizálja, érthető okokból.
 
-<a href="/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_details.png" data-lightbox="post-images">![ENC áttekintés](/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_details_t.png)</a>
+<a href="/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_details.png" class="glightbox">![ENC áttekintés](/artifacts/posts/2011-02-27-konfiguracios-parameterek-WildFly/enc_details_t.png)</a>
 
 Így hát marad az, hogy a globális JNDI nevekhez férjünk hozzá context
 lookup segítségével. Jobb esetben erre Service Locatort használunk. Még

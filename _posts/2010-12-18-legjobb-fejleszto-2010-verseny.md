@@ -270,7 +270,7 @@ hallgatni, hogy mivel gyűlt meg a legtöbb bajuk. Jó hír, hogy nem
 technológiát mondtak, hanem inkább az üzleti problémán kellett többet
 gondolkodniuk.
 
-<a href="/artifacts/posts/2010-12-18-legjobb-fejleszto-2010-verseny/dijkioszto_b.jpg" data-lightbox="post-images">![Díjkiosztó](/artifacts/posts/2010-12-18-legjobb-fejleszto-2010-verseny/dijkioszto.jpg)</a>
+<a href="/artifacts/posts/2010-12-18-legjobb-fejleszto-2010-verseny/dijkioszto_b.jpg" class="glightbox">![Díjkiosztó](/artifacts/posts/2010-12-18-legjobb-fejleszto-2010-verseny/dijkioszto.jpg)</a>
 
 Összességében elmondható, hogy nagyon tanulságos verseny volt,
 számunkra, mint zsűri számára, és úgy ítélem, a versenyzők számára is.

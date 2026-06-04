@@ -60,7 +60,7 @@ keresztül](/2010/07/30/tomcat-jmx-tuzfal.html) posztban.
 Másik érdekes plugin a Visual GC, mely a memóriát memória területekre
 lebontva monitorozza, külön az Old, Survivor és Eden területeket.
 
-<a href="/artifacts/posts/2011-04-14-visualvm-glassfish-monitorozas/visualvm_visualgc_b.png" data-lightbox="post-images">![Visual GC](/artifacts/posts/2011-04-14-visualvm-glassfish-monitorozas/visualvm_visualgc.png)</a>
+<a href="/artifacts/posts/2011-04-14-visualvm-glassfish-monitorozas/visualvm_visualgc_b.png" class="glightbox">![Visual GC](/artifacts/posts/2011-04-14-visualvm-glassfish-monitorozas/visualvm_visualgc.png)</a>
 
 Szintén érdekes a Glassfish plugin, mellyel a Glassfishre érkező HTTP
 kéréseket tudjuk
@@ -76,7 +76,7 @@ monitorozását kell minimum LOW-ra állítani. Utána nem árt újraindítani a
 VisualVM-et, a Glassfish-t nem kell. Sajnos csak 2-es Glassfish-sel megy,
 a 3-as sorozattal próbáltam, de nem sikerült.
 
-<a href="/artifacts/posts/2011-04-14-visualvm-glassfish-monitorozas/visualvm_glassfish_b.png" data-lightbox="post-images">![Glassfish plugin](/artifacts/posts/2011-04-14-visualvm-glassfish-monitorozas/visualvm_glassfish.png)</a>
+<a href="/artifacts/posts/2011-04-14-visualvm-glassfish-monitorozas/visualvm_glassfish_b.png" class="glightbox">![Glassfish plugin](/artifacts/posts/2011-04-14-visualvm-glassfish-monitorozas/visualvm_glassfish.png)</a>
 
 A VisualVM a [NetBeans Platformra](http://platform.netbeans.org/) épül.
 Természetesen [mi is
