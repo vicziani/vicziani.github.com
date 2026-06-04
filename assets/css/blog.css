@@ -57,11 +57,12 @@ blockquote {
   font-size: 22px;
   font-weight: 600;
   color: #ffffff;
+  text-decoration: none;
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
   color: #f39c12;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* Active state gets a caret at the bottom */
@@ -124,6 +125,15 @@ blockquote {
 }
 .blog-post-title {
   margin-bottom: 5px;
+}
+
+.blog-post-title a {
+  text-decoration: none;
+  color: inherit;
+}
+.blog-post-title a:hover,
+.blog-post-title a:focus {
+  text-decoration: underline;
 }
 
 .blog-post-meta {
@@ -198,6 +208,8 @@ blockquote {
   border-radius: 6px;
   padding: 18px;
   margin-bottom: 30px;
+  min-width: 200px;
+  overflow-wrap: break-word;
 }
 
 .training-sidebar h3 {
