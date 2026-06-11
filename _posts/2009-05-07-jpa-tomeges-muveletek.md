@@ -1,14 +1,16 @@
 ---
 layout: post
 title: JPA tömeges műveletek
-date: '2009-05-07T23:10:00.007+02:00'
+date: '2009-05-07'
 author: István Viczián
 tags:
 - Tesztelés
 - Spring
 - JPA
-modified_time: '2018-06-09T10:00:00.000-08:00'
+modified_time: '2026-06-11'
 ---
+
+Utolsó módosítás dátuma: 2026. június 11.
 
 Történt a mai napon, hogy egy újabb felfedezést tettem a JPA tömeges
 műveleteivel (bulk update and delete) kapcsolatban.
@@ -24,18 +26,17 @@ teljes entitáson lehet operálni. Formátuma a következő:
     [WHERE <conditional expression>]
 
 Az update statement esetén az egyenlőségjel bal oldalán egy egyértékű
-path kifejezés áll (pl. emp.salary), a jobb oldalán egy viszonylag
+path kifejezés áll (pl. `e.salary`), a jobb oldalán egy viszonylag
 korlátozott kifejezés (literálra feloldható, egyszerű típusú értékre
 feloldható kifejezés, függvény, változónév vagy paraméter).
 
 Erre egy példa:
 
     UPDATE Employee e
-    SET e.salary = 60000
-    WHERE e.salary = 55000
+    SET e.salary = e.salary + 10
 
-A SET és WHERE kifejezésben látható path kifejezés mutatja, hogy nem
-SQL-ről van szó, hanem annál objektumorientáltabb nyelvvel állunk
+A `SET` clause-ban látható path kifejezés mutatja, hogy nem
+SQL-ről van szó, hanem az entitásokon dolgozó JPQL nyelvvel állunk
 szemben, ahol megengedett az attribútumok láncolása.
 
 Ehhez hasonlóan létezik a DELETE kifejezés is:
@@ -49,7 +50,8 @@ figyelembe a kaszkádolást, szóval csak a kifejezésben szereplő, valamint
 annak alosztályához tartozó típusú entitásokat fogja törölni a
 kifejezés, nem töröl hozzájuk kapcsolódó objektumokat.
 
-Ezek használatához a Query executeUpdate() metódusát kell meghívni.
+Spring Data JPA-val ezt `@Modifying` annotációval megjelölt
+metódussal lehet futtatni.
 
 Az egyik jelenlegi projektben próbálkozom egy kicsit a teszt vezérelt
 fejlesztés (Test Driven Development - TDD) megközelítéssel, és gondoltam
@@ -67,96 +69,144 @@ nézett ki:
 -   Assert - entitások visszatöltése, update ellenőrzése
 -   Tranzakció rollback
 
+A poszthoz tartozó forráskód elérhető a [GitHubon](https://github.com/vicziani/jtechlog-jpa-bulk).
+
 A teszt eset kódja:
 
-{% highlight java %}
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"/applicationContext.xml", "/applicationContext-persistence-tests.xml"})
-@Transactional
-public class EmployeeServiceTest {
+```java
+@SpringBootTest
+public class EmployeesServiceIT {
 
-@Before
-public void before() {
- employeeService.deleteEmployees();
- // EntityManager.persist hívások a teszt entitások előállítására
+    @Autowired
+    private EmployeesService employeesService;
+
+    @BeforeEach
+    void setUp() {
+        employeesService.deleteAll();
+        employeesService.save(new Employee("John Doe", 100));
+        employeesService.save(new Employee("Jack Doe", 200));
+    }
+
+    @Test
+    @Transactional
+    public void raiseSalaries() {
+        employeesService.raiseSalaries(10);
+        assertThat(employeesService.findAll())
+                .extracting(Employee::getName, Employee::getSalary)
+                .contains(
+                        Tuple.tuple("John Doe", 110),
+                        Tuple.tuple("Jack Doe", 210)
+                        );
+    }
 }
+```
 
-@Test
-@Rollback(true)
-public void testBulkUpdates() {
- employeeService.doBulkUpdates();
- Assert.assertEquals(2, employeeService.listEmployees().size());
+Itt a `@Transactional` annotációt kell megfigyelni a teszteseten,
+mely azt jelzi, hogy a teszteset lefuttatása után rollback kell.
+
+A tesztelendő Spring Data JPA repository:
+
+```java
+public interface EmployeesRepository extends JpaRepository<Employee, Long> {
+
+    @Transactional
+    @Modifying
+    @Query("""
+        update Employee e
+           set e.salary = e.salary + :amount
+    """)
+    int raiseSalary(@Param("amount") int amount);
 }
+```
+
+Figyeljük meg, hogy rá kell tenni a `@Transactional` annotációt.
+
+És a service:
+
+```java
+@Service
+@RequiredArgsConstructor
+public class EmployeesService {
+
+    private final EmployeesRepository employeesRepository;
+
+    public void save(Employee employee) {
+        employeesRepository.save(employee);
+    }
+
+    public void deleteAll() {
+        employeesRepository.deleteAll();
+    }
+
+    public void raiseSalaries(int amount) {
+        employeesRepository.raiseSalary(amount);
+    }
+
+    public List<Employee> findAll() {
+        return employeesRepository.findAll();
+    }
 }
-{% endhighlight %}
-
-A tesztelendő kód:
-
-{% highlight java %}
-@Transactional
-public class EmployeeServiceJpa implements EmployeeService {
-
-public void deleteEmployees() {
- em.createQuery("DELETE Employee e").executeUpdate();
-}
-
-public List listEmployees() {
- return em.createQuery("SELECT e FROM Employee e").getResultList();
-}
-
-public void doBulkUpdates() {
- em.createQuery("UPDATE Employee e SET e.salary = e.salary + 100").executeUpdate();
-}
-
-}
-{% endhighlight %}
+```
 
 És azt vettem észre, hogy az update műveletnek semmilyen hatása nem
 volt, az assert elbukott.
 
+A logban az látszik, hogy a végén lefut a `findAll()`-hoz az SQL.
+
+```sql
+select e1_0.id,e1_0.name,e1_0.salary from employee e1_0
+```
+
 Ennek megértéséhez kicsit meg kell ismerni a JPA működését. Amikor
 ugyanis a teszt entitásokat létrehozzuk, az entitások a perzistence
-context által menedzselt állapotba kerülnek, és a memóriában maradnak
+context által menedzselt állapotba kerülnek, és a memóriában 
+(persistence contextben) maradnak
 addig, míg a tranzakció véget nem ér. A tömeges műveletek viszont
-kizárólag a tábla tartalmát módosítják, nem foglalkoznak a memóriában
-már lévő objektumokkal. A lekérdezések ismét megnézik, hogy az adott
-objektum a memóriában van-e, és ha igen, nem az adatbázisból töltik be
-azokat. Ezért először létrejöttek a teszt entitások, majd az update
+kizárólag a tábla tartalmát módosítják, nem foglalkoznak a már a memóriában
+lévő objektumokkal. A `findAll()` a lekérdezést ugyan lefuttatja,
+de az id alapján megnézi, hogy az entitás benne van-e a persistence context-ben.
+Mivel már benne voltak, azokat adja vissza.
+Ezért először létrejöttek a teszt entitások, majd az update
 művelet módosította a tábla tartalmát, de az assert-nél ismét a
 memóriában lévő, eredeti, nem módosított objektumokat kaptuk vissza.
-Commit esetében még rosszabb lenne a helyzet, ugyanis ilyenkor az
-adatbázisban is a memóriában lévő, persist-tel elmentett eredeti
-objektumok kerülnének, amit nem módosított az update.
 
-Ennek elkerülésére a javasolt megoldás, hogy egy új tranzakciót kell
-nyitni a tömeges műveletek kezelésére, azaz a metódust el kell látni a
-REQUIRES\_NEW tranzakciós tulajdonsággal, ami azt jelenti, hogy az
-eredeti tranzakciót felfüggeszti, és minden esetben új tranzakciót fog
-nyitni. Amennyiben ebben a metódusban hívunk a tömeges műveletek
-elvégzése után EntityManager.find(Class entityClass, Object primaryKey)
-metódust vagy egyéb lekérdezést, és az így visszakapott entitásokat
-módosítjuk, nem lesz baj, hiszen a betöltés adatbázisból fog történni,
-hiszen a tömeges műveletek előtt nem került semmi az adatbázisba. Szóval
-csak arra kell figyelni, hogy ne a tömeges művelet előtt végezzünk
-módosítást. Ha mégis így tennénk, az entitáson hívjuk meg az
-EntityManager.refresh(Object entity) metódust, hogy az adatbázisból az
-adatokat szinkronizálja vissza a memóriába.
+Ezen anomália elkerülésére több megoldás is van. Egyrészt takaríthatjuk
+a persistence contextet a bulk művelet után. Erre egy lehetőség a repository
+módosítása.
 
-No ezen felbátorodva el is helyeztem a REQUIRES\_NEW tranzakciós
-tulajdonságot a metódusra, és azonnal deadlock lett belőle. Hiszen
-indítottam egy tranzakciót, mely törölte az egyedeket, illetve újakat
-perzisztált, majd indítottam egy másik tranzakciót, mely ugyanezen
-egyedeken végzett volna műveleteket. Ezáltal oda jutottam, hogy az
-összes entitás törlését, valamint a teszt entitások perzisztálását végző
-tranzakciónak le kell zárulnia, mire az tömeges műveleteket futtató
-metódus új tranzakciót nyitna. Ezt szerencsére egy JUnit 4
-@BeforeTransaction annotációval el lehetett intézni. Ekkor azonban a
-művelet végén jelzett rollback az első tranzakciót nem görgette vissza,
+```java
+@Transactional
+@Modifying(clearAutomatically = true, flushAutomatically = true)
+@Query("""
+        update Employee e
+           set e.salary = e.salary + :amount
+    """)
+int raiseSalary(@Param("amount") int amount);
+```
+
+Hasonló az eredménye, ha közvetlenül meghívjuk az `EntityManager.clear()`
+metódust, mely szintén törli a persistence context tartalmát.
+
+Másik megoldás, hogy elérjük, hogy a kezdeti adatfeltöltés,
+és a bulk update külön tranzakcióban legyen. Ezt úgy érhetjük el, hogy a 
+kezdeti adatfeltöltést végző `setUp()` metóduson
+kicseréljük a `@BeforeEach` annotációt a `@BeforeTransaction`
+annotációra. (Vigyázat, a kettő együtt ne legyen rajta, mert akkor kétszer fut le.)
+
+Így már le is fut a teszteset.
+
+Itt arra is vigyázni kell, hogy a bulk műveletek elé nehogy bekeveredjen
+olyan utasítás, mely berántja a persistence context-be az entitásokat.
+Azaz a teszt metódus első sorába elhelyezett `employeesService.findAll();`
+hívás esetén újra elbukik a teszt.
+
+Ekkor azonban a
+teszt eset végén a rollback az első tranzakciót nem görgette vissza,
 így oda az elmélet, hogy olyan teszt esetet írok, mely érintetlenül
 hagyja az adatbázis állapotát.
 
 De pl. a [dbunit legjobb gyakorlatai
-szerint](http://www.dbunit.org/bestpractices.html) ez nem is olyan nagy
+szerint](https://dbunit.github.io/dbunit-extension/bestpractices.html) ez nem is olyan nagy
 baj. A következőket állítja:
 
 -   Minden fejlesztőnek legyen saját adatbázisa (nem feltétlenül a saját
@@ -170,73 +220,11 @@ baj. A következőket állítja:
     teszt előtt egyszer. Ilyenkor persze oda kell figyelni, hogy a teszt
     esetek ne módosítsák az adatokat.
 
-Ekkor persze megmaradtak a teszt adatok, melyeket a következő teszt
-futtatáskor ki kellett törölni. A baj ott kezdődött, hogy egy entitás
-saját magára mutatott (self reference), így nem lehetett a törlést
-végrehajtani, mert megszorítás megsértést (constraint violation) jelzett
-az adatbázis. Más entitással való kapcsolatnál is ugyanez a helyzet,
-hiszen a tömeges törlés nem kaszkádolt. Erre egy kerülő megoldást kell
-alkalmazni, miszerint első körben meg kell szüntetni a kapcsolatokat
-(kapcsoló mezők null-ra állítása update művelettel), majd második körben
-lehetett a törlést elvégezni.
+Ezért a `setUp()` metódusnál visszacseréltem a `@BeforeEach` annotációt, 
+és a tesztről levettem a `@Transactional` annotációt. Így az adatfeltöltések
+külön tranzakciót indítanak, a teszteset nem indít tranzakciót, és a
+bulk művelet is saját tranzakciót indít.
 
-Így még mindig nem volt felhőtlen az öröm, a ugyanis az assert még
-mindig elbukott. Ez ezért történt, mert a teszt nyitott egy tranzakciót,
-ebben inicializált az adatbázist, majd lezárta a tranzakciót. Ismért
-nyitott egy tranzakciót, amit azonnal fel is függesztett a REQUIRES\_NEW
-miatt, elvégezte a tömeges műveletet, lezárta a későbbi tranzakciót, de
-az első tranzakció még érvényben maradt, így itt még nem látszódtak a
-második tranzakció módosításai. Ezért az assert-nél futó lekérdezés nem
-látta a módosításokat. Ezt kétféleképpen lehet feloldani. Vagy nem
-tranzakcióban indítjuk a teszt esetet. Másik megoldás, hogy a
-lekérdezéseket nem tranzakcióban futtatjuk. Ez teljesítményszempontból
-is jó.
-
-A teszt eset javítása:
-
-{% highlight java %}
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"/applicationContext.xml", "/applicationContext-persistence-tests.xml"})
-@Transactional
-public class EmployeeServiceTest {
-
-@BeforeTransaction
-public void before() {
- employeeService.deleteEmployees();
- // EntityManager.persist hívások a teszt entitások előállítására
-}
-
-@Test
-public void testBulkUpdates() {
- employeeService.doBulkUpdates();
- Assert.assertEquals(2, employeeService.listEmployees().size());
-}
-}
-{% endhighlight %}
-
-A tesztelendő kód javítása:
-
-{% highlight java %}
-@Transactional
-public class EmployeeServiceJpa implements EmployeeService {
-
-public void deleteEmployees() {
- em.createQuery("DELETE Employee e").executeUpdate();
-}
-
-@Transactional(propagation=Propagation.NOT_SUPPORTED)
-public List listEmployees() {
- return em.createQuery("SELECT e FROM Employee e").getResultList();
-}
-
-@Transactional(propagation=Propagation.REQUIRES_NEW)
-public void doBulkUpdates() {
- em.createQuery("UPDATE Employee e SET e.salary = e.salary + 100").executeUpdate();
-}
-
-}
-{% endhighlight %}
-
-Tanulság, hogy mielőtt tömeges műveleteket kezdünk el használni, nagyon
-értsük meg annak működését, egyrészt a memória cache, másrészt a
-tranzakciók szempontjából.
+Személyes tapasztalatom alapján sok probléma van, ha a teszteset rollbackel,
+így én mindig tranzakción kívül futtatom, és a teszteset készítse elő
+az adatokat.
