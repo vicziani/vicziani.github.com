@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Változónevek
-date: '2009-09-01T00:29:00.000-07:00'
+date: '2009-09-01'
 author: István Viczián
 tags:
 - konvenciók
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben követjük a Java ajánlást, és camel case metódusneveket

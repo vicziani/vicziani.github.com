@@ -1,11 +1,11 @@
 ---
 layout: post
 title: JUM XIX. bejelentés
-date: '2012-09-05T23:56:00.000+02:00'
+date: '2012-09-05'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Újra megrendezzük a [JUM](http://wiki.javaforum.hu/display/JUM/Home)-ot,

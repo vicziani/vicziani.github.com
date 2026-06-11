@@ -5,7 +5,7 @@ date: '2009-10-01T16:32:00.000'
 author: István Viczián
 tags:
 - oracle
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amikor Oracle 9i-ben tárolt eljárásból próbáltunk HTTP hívást

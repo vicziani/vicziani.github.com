@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Borland szakmai nap
-date: 2002-11-27T08:00:00.000+01:00
+date: 2002-11-27
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Nem tudom, miért vagyok mostanában úgy oda a Borlandért, de mindig

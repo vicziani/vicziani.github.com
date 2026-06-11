@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Szöveges állomány generálása JSP-vel
-date: '2008-11-24T21:29:00.009+01:00'
+date: '2008-11-24'
 author: István Viczián
 tags:
 - JSP
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A közelmúltban azt a feladatot kaptam, hogy szöveges állományt

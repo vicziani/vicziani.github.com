@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HOUG 2016 szakmai nap meghívó
-date: '2016-09-27T22:00:00.000+02:00'
+date: '2016-09-27'
 author: István Viczián
 ---
 

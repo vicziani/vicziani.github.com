@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Jogosultságkezelés
-date: 2003-03-06T08:00:00.000+01:00
+date: 2003-03-06
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Hivatalosan is kihirdették, hogy meg lesz tartva a BME 3. Nemzetközi

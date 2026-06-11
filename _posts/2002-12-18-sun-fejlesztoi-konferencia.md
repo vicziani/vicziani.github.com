@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Sun fejlesztői konferencia
-date: 2002-12-18T08:00:00.000+01:00
+date: 2002-12-18
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Most kaptam a meghívót A Sun-tól a 3. Sun Fejlesztői Konferenciára,

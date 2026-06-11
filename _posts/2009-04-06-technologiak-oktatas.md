@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Java technologiák és az oktatas
-date: '2009-04-06T13:30:00.003+02:00'
+date: '2009-04-06'
 author: István Viczián
 tags:
 - Oktatás
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A SZÁMALK Továbbképzés 2008. április 24-én tartott egy Aktuális 2008

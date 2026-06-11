@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Template rendszerek
-date: 2002-12-01T08:00:00.000+01:00
+date: 2002-12-01
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Mostanában kedvenceim a szervletek, és emlékszem, mikor kezdtem velük

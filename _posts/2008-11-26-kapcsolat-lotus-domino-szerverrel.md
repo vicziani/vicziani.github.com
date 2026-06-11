@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Kapcsolat Lotus Domino szerverrel
-date: '2008-11-26T23:58:00.004+01:00'
+date: '2008-11-26'
 author: István Viczián
 tags:
 - SOA
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egy integrációs projekt során kell egy Lotus Domino 7.0.1 

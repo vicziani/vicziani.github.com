@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Oracle táblanév hossz
-date: '2009-11-09T07:15:00.000-08:00'
+date: '2009-11-09'
 author: István Viczián
 tags:
 - jpa
 - oracle
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 JPA-ban a tábla és mező neveket képes a JPA provider generálni az

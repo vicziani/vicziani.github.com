@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Java monitorozás és menedzsment
-date: '2009-09-19T23:05:00.004+02:00'
+date: '2009-09-19'
 author: István Viczián
 tags:
 - Java SE
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Servlet 3.0, JMX

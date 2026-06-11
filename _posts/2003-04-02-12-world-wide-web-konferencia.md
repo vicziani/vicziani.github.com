@@ -1,10 +1,10 @@
 ---
 layout: post
 title: 12. World Wide Web Konferencia
-date: 2003-04-02T08:00:00.000+01:00
+date: 2003-04-02
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Most olvastam a [hírt](http://www.hwsw.hu/hir.php3?id=20271), hogy az

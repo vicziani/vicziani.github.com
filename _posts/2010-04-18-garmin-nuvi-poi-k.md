@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Garmin Nüvi POI-k
-date: '2010-04-18T12:58:00.000-07:00'
+date: '2010-04-18'
 author: István Viczián
 tags:
 - geocaching
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Kb. negyedévente feltöltöm a Garmin Nüvi 250 eszközömre a

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Milyen GUI keretrendszert szeretnék?
-date: '2013-11-11T00:20:00.000+01:00'
+date: '2013-11-11'
 author: István Viczián
 tags:
 - web framework
 - user interface
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egy [Twitter

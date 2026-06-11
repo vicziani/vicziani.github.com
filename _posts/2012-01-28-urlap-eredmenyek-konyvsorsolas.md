@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Űrlap eredmények, könyvsorsolás
-date: '2012-01-28T22:43:00.001+01:00'
+date: '2012-01-28'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 [Visszatekintés 2011-re](/2012/01/14/visszatekintes-2011-re.html)
 posztomban szerepelt egy kérdőív, melyet összesen 26 válaszadó töltött

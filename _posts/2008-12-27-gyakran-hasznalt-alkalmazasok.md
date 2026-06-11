@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Gyakran használt alkalmazások
-date: '2008-12-27T18:44:00.002+01:00'
+date: '2008-12-27'
 author: István Viczián
 tags:
 - Utils
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A leghasznosabb alkalmazásokat általában nem a neten találom, hanem

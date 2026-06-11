@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Java források tanuláshoz
-date: '2009-10-01T00:26:00.010+02:00'
+date: '2009-10-01'
 author: István Viczián
 tags:
 - Java SE
 - Oktatás
 - Java EE
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 Sokan kérdezik tőlem, hogy milyen internetes dokumentáció vagy könyv alapján,
 milyen magyar vagy angol nyelv alapján érdemes megtanulni a Java

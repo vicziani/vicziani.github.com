@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JAXB szálbiztosság
-date: '2011-06-30T12:01:00.000-07:00'
+date: '2011-06-30'
 author: István Viczián
 tags:
 - jaxb
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Többször láttam már olyan kódot, ahol a programozó, ahhoz, hogy

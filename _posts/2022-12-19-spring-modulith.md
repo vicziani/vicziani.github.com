@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Modularizált alkalmazás fejlesztése a Spring Modulith-tal
-date: '2022-12-19T10:00:00.000+01:00'
+date: '2022-12-19'
 author: István Viczián
 description: Hogyan fejlesszünk modularizált alkalmazást, és mit ad ehhez a Spring Modulith?
-modified_time: '2024-07-23T10:00:00.000+02:00'
+last_modified_at: '2024-07-23'
 ---
 
 ## Bevezetés

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Spring Security context a hibaoldalon
-date: '2009-09-30T07:00:00.000-07:00'
+date: '2009-09-30'
 author: István Viczián
 tags:
 - spring
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Használt technológiák: Spring Security 1

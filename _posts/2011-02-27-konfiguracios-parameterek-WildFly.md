@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Konfigurációs paraméterek EJB és web rétegben WildFly alkalmazásszerveren
-date: '2011-02-27T23:33:00.010+01:00'
+date: '2011-02-27'
 author: István Viczián
 tags:
 - EJB
 - Maven
 - WildFly
 - Java EE
-modified_time: '2011-08-24T11:14:59.394+02:00'
+last_modified_at: '2015-02-04'
 ---
 
 Technológiák: WildFly 8.2.0.Final (korábban JBoss), Maven 3.2.1, Java EE 7, EJB 3.1, JNDI

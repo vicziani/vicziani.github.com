@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Tomcat 6 osztálybetöltők és naplózás
-date: '2008-12-10T22:38:00.005+01:00'
+date: '2008-12-10'
 author: István Viczián
 tags:
 - Naplózás
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 Az [Apache Tomcat](http://tomcat.apache.org/) 6.0 implementálja a
 Servlet 2.5 and JavaServer Pages 2.1 specifikációkat. További újítások:

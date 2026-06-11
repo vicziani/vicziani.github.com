@@ -1,11 +1,11 @@
 ---
 layout: post
 title: MQ automatikus channel indítás
-date: '2011-10-20T07:37:00.000-07:00'
+date: '2011-10-20'
 author: István Viczián
 tags:
 - mq
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben IBM WebSphere MQ-t használunk aszinkron üzenetátvitelre, pl.

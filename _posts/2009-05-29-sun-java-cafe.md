@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Sun Java Café
-date: '2009-05-29T00:23:00.004+02:00'
+date: '2009-05-29'
 author: István Viczián
 tags:
 - SOA
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ma reggel voltam a kis szünet után első Java Cafén, melyet már az előző

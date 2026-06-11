@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Understand for Java
-date: 2003-01-14T08:00:00.000+01:00
+date: 2003-01-14
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Éppen egy [Understand for Java](http://www.scitools.com/uj.html)

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: OAuth 2.0 Spring Boot és Spring Security keretrendszerekkel
-date: '2020-02-19T11:00:00.000+01:00'
-modified_time: '2023-12-15T10:00:00.000+01:00'
+date: '2020-02-19'
+last_modified_at: '2023-12-15'
 author: István Viczián
 description: Mi az az OAuth 2.0, és hogyan használjuk vállalati környezetben Spring Boot és Spring Security keretrendszerekkel.
 ---

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: SSH bejelentkezés kulcspárral
-date: '2011-01-26T02:01:00.000-08:00'
+date: '2011-01-26'
 author: István Viczián
 tags:
 - ssh
 - Linux
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ha ssh-val akarunk egy szerverre bejelentkezni, akkor jelszó helyett

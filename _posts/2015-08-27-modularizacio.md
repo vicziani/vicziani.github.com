@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Modularizáció Servlet 3, Spring és Maven környezetben
-date: '2015-08-27T23:45:00.000+02:00'
+date: '2015-08-27'
 author: István Viczián
 ---
 

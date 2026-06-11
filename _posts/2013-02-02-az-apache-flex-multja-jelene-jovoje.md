@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Az Apache Flex múltja, jelene, jövője
-date: '2013-02-02T16:57:00.000+01:00'
+date: '2013-02-02'
 author: István Viczián
 tags:
 - open source
 - Flex
 - user interface
 - Apache
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Apache Flex 4.9.0

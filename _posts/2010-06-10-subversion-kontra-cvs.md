@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Subversion kontra CVS
-date: '2010-06-10T13:32:00.000-07:00'
+date: '2010-06-10'
 author: István Viczián
 tags:
 - subversion
 - cvs
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egy gyors lista arról, hogy miben jobb a Subversion, mint a CVS:

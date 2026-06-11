@@ -1,11 +1,11 @@
 ---
 layout: post
 title: VirtualBox image egyedi azonosító
-date: '2011-10-11T05:16:00.000-07:00'
+date: '2011-10-11'
 author: István Viczián
 tags:
 - virtualization
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Történt, hogy egy VirtualBox image-et úgy akartam klónozni, hogy

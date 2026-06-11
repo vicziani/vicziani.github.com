@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OAuth 2.0 támogatás a Spring Boot 3.3-ban és a Pécs IT Meetup
-date: '2024-06-27T10:00:00.000+02:00'
+date: '2024-06-27'
 author: István Viczián
 description: A Spring Boot 3.3-ban még könnyebb az OAuth 2 integráció. Erről is beszéltem a XV. Pécs IT Meetupon.
 ---

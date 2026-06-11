@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Rendezés Display taggel
-date: '2009-09-07T13:11:00.000-07:00'
+date: '2009-09-07'
 author: István Viczián
 tags:
 - jsp
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Táblázat megjelenítésére a [Display

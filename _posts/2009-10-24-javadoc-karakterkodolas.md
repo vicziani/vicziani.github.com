@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JavaDoc karakterkódolás
-date: '2009-10-24T04:00:00.000-07:00'
+date: '2009-10-24'
 author: István Viczián
 tags:
 - javadoc
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ha UTF-8-asak a forrásfájlok, akkor ahhoz, hogy jó JavaDoc dokumentációt

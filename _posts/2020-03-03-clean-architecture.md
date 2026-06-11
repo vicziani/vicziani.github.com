@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Clean Architecture
-date: '2020-03-03T11:00:00.000+01:00'
+date: '2020-03-03'
 author: István Viczián
 description: Szemelvények a Clean Architecture könyvből.
 ---

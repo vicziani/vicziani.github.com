@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Struts felviteli és szerkesztő képernyő
-date: '2010-01-18T23:35:00.007+01:00'
+date: '2010-01-18'
 author: István Viczián
 tags:
 - Struts
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A legtöbb projektünkben ugyan Spring MVC-t használunk, de van egy-két

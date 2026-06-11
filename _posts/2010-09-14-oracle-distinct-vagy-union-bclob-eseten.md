@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Oracle distinct vagy union b/clob esetén
-date: '2010-09-14T09:45:00.000-07:00'
+date: '2010-09-14'
 author: István Viczián
 tags:
 - oracle
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Abban akár distinct, akár union műveletet akarunk használni úgy, hogy az

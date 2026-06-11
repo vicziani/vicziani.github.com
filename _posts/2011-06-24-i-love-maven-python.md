@@ -1,10 +1,10 @@
 ---
 layout: post
 title: I love Maven & Python
-date: '2011-06-24T01:29:00.000-07:00'
+date: '2011-06-24'
 author: István Viczián
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Szülinapomra kaptam [Pistitől](http://www.facebook.com/ibencze) az

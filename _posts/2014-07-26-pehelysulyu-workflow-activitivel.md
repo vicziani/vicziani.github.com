@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pehelysúlyú workflow Activitivel
-date: '2014-07-26T01:36:00.000+02:00'
+date: '2014-07-26'
 author: István Viczián
 tags:
 - open source
@@ -9,7 +9,7 @@ tags:
 - Módszertan
 - Workflow
 - Spring
-modified_time: '2018-02-11T21:04:00.652+01:00'
+last_modified_at: '2018-02-11'
 ---
 
 Használt technológiák: Activiti 5.15.1

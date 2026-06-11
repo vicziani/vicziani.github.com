@@ -1,12 +1,12 @@
 ---
 layout: post
 title: NetBeans 6.5 és GlassFish v2 ur2
-date: '2008-12-17T21:17:00.006+01:00'
+date: '2008-12-17'
 author: István Viczián
 tags:
 - IDE
 - Java EE
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Számalk Továbbképzés keretein belül JP-05 - Alkalmazásfejlesztés Java

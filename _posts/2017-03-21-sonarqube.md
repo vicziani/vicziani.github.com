@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SonarQube
-date: '2017-03-21T22:00:00.000+02:00'
+date: '2017-03-21'
 author: István Viczián
 ---
 

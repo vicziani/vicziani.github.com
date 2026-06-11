@@ -1,10 +1,10 @@
 ---
 layout: post
 title: HOUG Szakmai nap 2014
-date: '2014-09-28T17:09:00.000+02:00'
+date: '2014-09-28'
 author: István Viczián
 tags: 
-modified_time: '2018-06-01T17:09:03.245+02:00'
+last_modified_at: '2018-06-01'
 ---
 
 A HOUG 2014. október 2-án, csütörtökön egy [szakmai

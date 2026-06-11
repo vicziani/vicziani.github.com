@@ -6,7 +6,7 @@ author: István Viczián
 tags:
 - log4j
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Log4j-nél, ahogy a Logger-ek fa hierarchiát alkotnak, öröklődik, hogy

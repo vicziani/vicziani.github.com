@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Java Application Architecture
-date: '2014-10-04T23:48:00.001+02:00'
+date: '2014-10-04'
 author: István Viczián
 tags:
 - Modularizáció
 - Módszertan
 - könyv
-modified_time: '2018-02-13T20:31:19.671+01:00'
+last_modified_at: '2018-02-13'
 ---
 
 Már régóta hajtottam a [Kirk Knoernschild: Java Application

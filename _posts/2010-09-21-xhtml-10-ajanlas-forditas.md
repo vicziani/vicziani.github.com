@@ -1,12 +1,12 @@
 ---
 layout: post
 title: XHTML 1.0 ajánlás fordítás
-date: '2010-09-21T00:37:00.002+02:00'
+date: '2010-09-21'
 author: István Viczián
 tags:
 - xhtml
 - xml
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Még egyetemi éveim alatt fordítottam a XHTML 1.0 Extensible HyperText

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Generikusok
-date: 2002-12-16T08:00:00.000+01:00
+date: 2002-12-16
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Sun-nál megjelent egy cikk a Java generikusokról, más néven

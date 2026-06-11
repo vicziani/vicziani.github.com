@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Java és a szemantikus web
-date: '2009-04-06T00:00:00.005+02:00'
+date: '2009-04-06'
 author: István Viczián
 tags:
 - szemantikus web
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Web 2.0 után manapság egyre divatosabb fogalom a szemantikus web,

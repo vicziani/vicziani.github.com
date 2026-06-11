@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Workflow REST API-n
-date: '2023-08-31T10:00:00.000+02:00'
+date: '2023-08-31'
 author: István Viczián
 description: Hogyan érdemes egy munkafolyamat lépéseihez REST API-t tervezni?
-modified_time: '2023-10-10T10:00:00.000+02:00'
+last_modified_at: '2023-10-10'
 ---
 
 Bár kétségtelenül a REST a legelterjedtebb kommunikációs mód, akár ugyanolyan

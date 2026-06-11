@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vastag kliens Javaban? NetBeans Platform
-date: '2011-07-02T20:22:00.006+02:00'
+date: '2011-07-02'
 author: István Viczián
 tags:
 - open source
@@ -9,7 +9,7 @@ tags:
 - Swing
 - könyv
 - NetBeans
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: NetBeans Platform 7.0 - Rich-Client Platform (RCP)

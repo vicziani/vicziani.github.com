@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Maven legjobb gyakorlatok
-date: '2011-09-27T01:15:00.007+02:00'
+date: '2011-09-27'
 author: István Viczián
 tags:
 - Maven
-modified_time: '2021-12-20T10:00:00.000+01:00'
+last_modified_at: '2021-12-20'
 ---
 
 Technológiák: Maven 3.0.3

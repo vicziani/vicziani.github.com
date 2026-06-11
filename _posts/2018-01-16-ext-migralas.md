@@ -1,7 +1,7 @@
 ---
 layout: post
 title: További posztok migrálása
-date: '2018-01-16T11:00:00.000+02:00'
+date: '2018-01-16'
 author: István Viczián
 description: Több mint kilencven cikket migráltam a blogra.
 ---

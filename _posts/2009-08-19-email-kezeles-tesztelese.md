@@ -1,14 +1,14 @@
 ---
 layout: post
 title: E-mail kezelés tesztelése
-date: '2009-08-19T01:15:00.004+02:00'
+date: '2009-08-19'
 author: István Viczián
 tags:
 - Library
 - Tesztelés
 - Java EE
 - Spring
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Többször kellett már olyan alkalmazást fejleszteni, mely elektronikus

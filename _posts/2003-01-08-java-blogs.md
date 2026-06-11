@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Java blogs
-date: 2003-01-08T08:00:00.000+01:00
+date: 2003-01-08
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Most vettem észre, hogy a Velocity honlapján kitettek egy

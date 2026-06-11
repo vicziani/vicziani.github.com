@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Spring Data
-date: '2014-07-12T16:22:00.000+02:00'
+date: '2014-07-12'
 author: István Viczián
 tags:
 - Spring
 - JPA
-modified_time: '2024-01-16T10:00:00.000+01:00'
+last_modified_at: '2024-01-16'
 description: Repository réteg létrehozása Spring Data használatával.
 ---
 

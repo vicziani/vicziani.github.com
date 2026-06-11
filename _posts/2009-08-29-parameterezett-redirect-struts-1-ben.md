@@ -6,7 +6,7 @@ author: István Viczián
 tags:
 - struts
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Paraméterezett redirect-et használni a Struts 1 Action-ben az

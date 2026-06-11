@@ -1,11 +1,11 @@
 ---
 layout: post
 title: A Maven feltámadása
-date: '2014-01-22T00:25:00.001+01:00'
+date: '2014-01-22'
 author: István Viczián
 tags:
 - Maven
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Frissítve: Egy [blog

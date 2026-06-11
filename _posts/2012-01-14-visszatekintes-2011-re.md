@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Visszatekintés 2011-re
-date: '2012-01-14T22:16:00.006+01:00'
+date: '2012-01-14'
 author: István Viczián
 tags:
 - Community
 - könyv
-modified_time: '2018-01-13T20:44:44.885+01:00'
+last_modified_at: '2018-01-13'
 ---
 
 Így az év elején az ember kicsit visszatekint, és rendszerezi a

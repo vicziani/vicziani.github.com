@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Munka egyszerre több projekten
-date: '2009-08-28T00:29:00.005+02:00'
+date: '2009-08-28'
 author: István Viczián
 tags:
 - IDE
 - Tomcat
 - NetBeans
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Többször adódhat, hogy a munkahelyen is egyidőben több projekten

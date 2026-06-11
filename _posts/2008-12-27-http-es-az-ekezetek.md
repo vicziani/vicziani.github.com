@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Kérés tárgyának meghatározása és kódolások/ékezetek használata webes alkalmazásoknál
-date: '2008-12-27T18:47:00.005+01:00'
+date: '2008-12-27'
 author: István Viczián
 tags:
 - Servlet
 - Java EE
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A cikk alapvetően a Servlet API-val kapcsolatos, de hasznos

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Microsoft Java VM
-date: 2003-02-17T08:00:00.000+01:00
+date: 2003-02-17
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Persze a kiszivárgott Sun-os Java pocskondiázásnak :) is

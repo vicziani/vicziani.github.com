@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Hibernate EclipseLink átállás
-date: '2009-05-10T17:58:00.009+02:00'
+date: '2009-05-10'
 author: István Viczián
 tags:
 - Java SE
 - JPA
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egy JPA-t használó Spring-es alkalmazásban tesztképpen ideiglenesen

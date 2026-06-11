@@ -5,7 +5,7 @@ date: '2009-10-07T17:04:00.000'
 author: István Viczián
 tags:
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amikor a JExcelAPI-t használva be akartam tölteni egy fájlt, írni bele,

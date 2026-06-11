@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Mérgezett üzenetek
-date: '2010-04-21T01:49:00.004+02:00'
+date: '2010-04-21'
 author: István Viczián
 tags:
 - MQ
 - JMS
 - Spring
-modified_time: '2019-10-01T10:00:00.000+02:00'
+last_modified_at: '2019-10-01'
 ---
 
 Amennyiben aszinkron üzenetkezelést használunk, Javaban tipikusan JMS

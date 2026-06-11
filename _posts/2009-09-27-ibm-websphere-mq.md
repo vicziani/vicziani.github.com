@@ -1,13 +1,13 @@
 ---
 layout: post
 title: IBM WebSphere MQ
-date: '2009-09-27T21:33:00.007+02:00'
+date: '2009-09-27'
 author: István Viczián
 tags:
 - JMS
 - Java EE
 - EAI
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Java mellett az egyik fő érdeklődési területem az

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: IBM WebSphere MQ
-date: 2003-01-05T08:00:00.000+01:00
+date: 2003-01-05
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Nemrég láttam a [WebSphere

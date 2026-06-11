@@ -1,10 +1,10 @@
 ---
 layout: post
 title: MySQL előadások
-date: 2003-05-05T08:00:00.000+01:00
+date: 2003-05-05
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Kicsit offtopic leszek, arról szeretnék beszámolni, hogy David Axmark

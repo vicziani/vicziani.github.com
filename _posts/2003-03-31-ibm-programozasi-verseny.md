@@ -1,10 +1,10 @@
 ---
 layout: post
 title: IBM programozási verseny
-date: 2003-03-31T08:00:00.000+01:00
+date: 2003-03-31
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Megtudtam, hogy a Java platformfüggetlenségére milyen jó kis betűszót

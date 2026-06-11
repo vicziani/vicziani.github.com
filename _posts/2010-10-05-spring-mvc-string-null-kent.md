@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Spring MVC String null-ként
-date: '2010-10-05T08:58:00.000-07:00'
+date: '2010-10-05'
 author: István Viczián
 tags:
 - spring
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben azt akarjuk, hogy a Spring MVC űrlap esetén, ha nem töltünk

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Pre-Authentication Spring Security-vel
-date: '2015-01-03T16:04:00.000+01:00'
+date: '2015-01-03'
 author: István Viczián
 tags:
 - security
 - Spring
-modified_time: '2015-01-03T16:04:40.275+01:00'
+last_modified_at: '2015-01-03'
 blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-3454714244361191903
 blogger_orig_url: http://www.jtechlog.hu/2015/01/pre-authentication-spring-security-vel.html
 ---

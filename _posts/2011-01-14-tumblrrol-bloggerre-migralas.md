@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Tumblrről Bloggerre migrálás
-date: '2011-01-14T13:18:00.000-08:00'
+date: '2011-01-14'
 author: István Viczián
 tags:
 - blogger
 - tumblr
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A rövidebb, nem kidolgozott és nem feltétlenül Javaval kapcsolatos

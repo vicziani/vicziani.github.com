@@ -1,11 +1,11 @@
 ---
 layout: post
 title: SOAP webszolgáltatás hívás parancssorból
-date: '2010-07-21T10:03:00.000-07:00'
+date: '2010-07-21'
 author: István Viczián
 tags:
 - SOAP
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A curl parancssoros alkalmazás (Linux-on simán, Windows-on pl.

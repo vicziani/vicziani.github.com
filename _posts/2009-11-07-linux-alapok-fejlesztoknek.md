@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Linux alapok fejlesztőknek
-date: '2009-11-07T06:56:00.000-08:00'
+date: '2009-11-07'
 author: István Viczián
 tags:
 - ssh
 - Linux
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Bejelentkezni

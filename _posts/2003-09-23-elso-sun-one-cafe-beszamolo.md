@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Első Sun ONE Cafe beszámoló
-date: 2003-09-23T08:00:00.000+01:00
+date: 2003-09-23
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Reggel lezajlott az első Sun ONE Cafe, melynek első témája a Project

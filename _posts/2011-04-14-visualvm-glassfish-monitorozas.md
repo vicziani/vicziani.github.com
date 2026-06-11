@@ -1,14 +1,14 @@
 ---
 layout: post
 title: VisualVM Glassfish monitorozás
-date: '2011-04-14T19:45:00.004+02:00'
+date: '2011-04-14'
 author: István Viczián
 tags:
 - monitorozás
 - VisualVM
 - glassfish
 - JMX
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Java SE 6 Update 23, VisualVM 1.3.2, Glassfish 2.1.1.

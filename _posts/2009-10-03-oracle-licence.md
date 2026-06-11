@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Oracle licence
-date: '2009-10-03T12:44:00.000-07:00'
+date: '2009-10-03'
 author: István Viczián
 tags:
 - oracle
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Itt egy [kiváló oldal](http://www.orafaq.com/wiki/Oracle_Licensing) az

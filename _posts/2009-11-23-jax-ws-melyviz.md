@@ -1,13 +1,14 @@
 ---
 layout: post
 title: JAX-WS mélyvíz
-date: '2009-11-23T00:05:00.008+01:00'
+date: '2009-11-23'
 author: István Viczián
 tags:
 - JAXB
 - JAX-WS
 - Java SE
 - Java EE
+last_modified_at: '2017-11-18'
 ---
 
 Frissítve: 2017. november 18.

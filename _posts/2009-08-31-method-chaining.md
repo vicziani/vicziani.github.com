@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Method Chaining
-date: '2009-08-31T10:31:00.000-07:00'
+date: '2009-08-31'
 author: István Viczián
 tags:
 - java se
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Method Chaining, vagy a Spring dokumentáció szerint “fluid” style az a

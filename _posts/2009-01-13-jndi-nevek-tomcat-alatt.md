@@ -1,14 +1,14 @@
 ---
 layout: post
 title: JNDI nevek Tomcat alatt
-date: '2009-01-13T00:15:00.007+01:00'
+date: '2009-01-13'
 author: István Viczián
 tags:
 - Servlet
 - IDE
 - Java EE
 - Tomcat
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egy új projekt létrehozásakor a következő irányelveket próbálom

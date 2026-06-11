@@ -1,10 +1,10 @@
 ---
 layout: post
 title: 24 órás programozó és csapatverseny eredmény
-date: 2003-05-21T08:00:00.000+01:00
+date: 2003-05-21
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Megint egy kissé lemaradtam. Útközben volt egy [3. nemzetközi 24 órás

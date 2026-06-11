@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Maven pluginek verziószáma
-date: '2011-08-05T00:40:00.005+02:00'
+date: '2011-08-05'
 author: István Viczián
 tags:
 - Maven
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Maven 2.1.1, Maven 3.0.3

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Windows XP telepítés USB-ről
-date: '2012-05-07T13:40:00.000-07:00'
+date: '2012-05-07'
 author: István Viczián
 tags:
 - windows
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A feladat, hogy telepítsünk egy olyan notebookra Windows XP-t, melyen

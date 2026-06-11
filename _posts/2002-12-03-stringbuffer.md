@@ -1,10 +1,10 @@
 ---
 layout: post
 title: StringBuffer
-date: 2002-12-03T08:00:00.000+01:00
+date: 2002-12-03
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Annyira közhely számba megy, hogy most már muszáj itt is szerepeltetnem,

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Spring Boot 3 újdonságai
-date: '2022-09-13T10:00:00.000+02:00'
-modified_time: '2023-10-03T10:00:00.000+02:00'
+date: '2022-09-13'
+last_modified_at: '2023-10-03'
 author: István Viczián
 description: A Spring Boot 3-as verziójának újdonságainak a bemutatása.
 ---

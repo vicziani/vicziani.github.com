@@ -1,10 +1,10 @@
 ---
 layout: post
 title: D programozási nyelv
-date: 2003-02-08T08:00:00.000+01:00
+date: 2003-02-08
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 No, egy hosszabb szünet után ismét itt vagyok, ugyanis sítáborban voltam

@@ -1,13 +1,13 @@
 ---
 layout: post
 title: UML tevékenységdiagram
-date: '2009-05-03T01:13:00.006+02:00'
+date: '2009-05-03'
 author: István Viczián
 tags:
 - UML
 - Utils
 - Módszertan
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 Ahogy már említettem, az elmúlt hetekben inkább tervezéssel, mint Java
 programozással foglalkoztam. A logikai rendszerterv elkészítéséhez az

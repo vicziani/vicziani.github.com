@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JNDI nevek EJB környezetben
-date: '2009-01-10T00:06:00.007+01:00'
+date: '2009-01-10'
 author: István Viczián
 tags:
 - Java EE
 - Tomcat
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Nagyvállalati környezetben gyakran lehet hallani a név- és

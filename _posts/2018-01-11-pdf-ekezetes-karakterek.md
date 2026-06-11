@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ékezetes karakterek PDF állományban
-date: '2018-01-11T11:00:00.000+02:00'
+date: '2018-01-11'
 author: István Viczián
 description: Egy poszt arról, hogyan lehet Javaban generált PDF dokumentumokban ékezetes karaktereket használni.
 ---

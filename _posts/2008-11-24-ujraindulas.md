@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Újraindulás
-date: '2008-11-24T21:12:00.004+01:00'
+date: '2008-11-24'
 author: István Viczián
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ezennel újra elindítom a kb. öt éve szunnyadó blogomat, JTechLog névvel,

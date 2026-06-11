@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Szöveg generálás
-date: '2009-03-30T00:26:00.006+02:00'
+date: '2009-03-30'
 author: István Viczián
 tags:
 - Utils
-modified_time: '2018-02-19T21:11:00.000+01:00'
+last_modified_at: '2018-02-19'
 ---
 
 Lehet olyan eset, mikor egy weboldalnak nem kell dinamikusnak lennie,

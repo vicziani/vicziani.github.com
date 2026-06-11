@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Magyarországi Web Konferencia 2009
-date: '2009-10-06T23:31:00.004+02:00'
+date: '2009-10-06'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 2009\. október 3-án, szombaton volt a [Magyarországi Web Konferencia

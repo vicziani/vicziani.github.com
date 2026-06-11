@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Sun Java Café
-date: 2003-11-21T08:00:00.000+01:00
+date: 2003-11-21
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 2003\. december 9-én 9-től 10.30-ig ismét Sun Java Café rendezvény lesz a

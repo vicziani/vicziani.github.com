@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JTechLog Technology Radar
-date: '2023-08-12T10:00:00.000+02:00'
+date: '2023-08-12'
 author: István Viczián
 description: Mely technológiákat használnám, és melyeket csak fenntartásokkal?
 ---

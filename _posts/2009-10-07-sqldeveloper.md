@@ -6,7 +6,7 @@ author: István Viczián
 tags:
 - utils
 - oracle
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Oracle adatbázis kliensként az [Oracle SQL

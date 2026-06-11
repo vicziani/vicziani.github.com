@@ -1,10 +1,10 @@
 ---
 layout: post
 title: NJSZT Szoftvertechnológiai Fórum
-date: 2003-05-26T08:00:00.000+01:00
+date: 2003-05-26
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az NJSZT Újklub (IEEE CS-NJSZT Fórum) [Szoftvertechnológiai

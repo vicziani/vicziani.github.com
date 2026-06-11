@@ -1,14 +1,14 @@
 ---
 layout: post
 title: EJB és JPA Developer Certified Expert
-date: '2011-02-22T00:18:00.003+01:00'
+date: '2011-02-22'
 author: István Viczián
 tags:
 - vizsga
 - Oracle
 - Java EE
 - JPA
-modified_time: '2012-12-22T14:43:10.729+01:00'
+last_modified_at: '2012-12-22'
 blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-7968961481638103983
 blogger_orig_url: http://www.jtechlog.hu/2011/02/ejb-es-jpa-developer-certified-expert.html
 ---

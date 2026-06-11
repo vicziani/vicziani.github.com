@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Oracle Fusion Middleware - SOA
-date: '2008-12-03T22:11:00.003+01:00'
+date: '2008-12-03'
 author: István Viczián
 tags:
 - SOA
 - Oracle
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az előző posztban áttekintettem a BEA felvásárlással kapcsolatos Oracle

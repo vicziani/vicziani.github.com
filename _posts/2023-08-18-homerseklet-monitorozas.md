@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hőmérséklet monitorozása
-date: '2023-08-18T10:00:00.000+02:00'
+date: '2023-08-18'
 author: István Viczián
 description: Hogyan kössünk be egy hőmérséklet szenzort a Prometheus/Grafana alapú monitorozó eszközbe?
 ---

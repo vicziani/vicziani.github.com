@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Legjobb fejlesztő 2010 - Java programozó verseny
-date: '2010-09-21T00:42:00.004+02:00'
+date: '2010-09-21'
 author: István Viczián
 tags: 
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben végzős hallgató, friss diplomás szoftverfejlesztő vagy,

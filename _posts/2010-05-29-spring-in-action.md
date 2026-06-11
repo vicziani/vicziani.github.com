@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Spring In Action
-date: '2010-05-29T00:31:00.005+02:00'
+date: '2010-05-29'
 author: István Viczián
 tags:
 - Spring
 - könyv
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Most fejeztem be a [Spring In Action](http://www.manning.com/walls3/)

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tapasztalatok a Java Platform Module Systemmel
-date: '2018-04-15T11:00:00.000+02:00'
+date: '2018-04-15'
 author: István Viczián
 description: Példa projekt a Java 9 Java Platform Module Systemmel (Jigsaw).
 ---

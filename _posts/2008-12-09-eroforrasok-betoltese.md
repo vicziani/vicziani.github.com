@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Erőforrások betöltése
-date: '2008-12-09T11:02:00.003+01:00'
+date: '2008-12-09'
 author: István Viczián
 tags:
 - Java SE
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az alkalmazás által használt erőforrások olyan adatok, melyek a kódban

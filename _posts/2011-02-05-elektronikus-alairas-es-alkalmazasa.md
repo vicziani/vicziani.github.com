@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Elektronikus aláírás és alkalmazása Javaban, kulcskezelés
-date: '2011-02-05T21:11:00.004+01:00'
+date: '2011-02-05'
 author: István Viczián
 tags:
 - jce
 - jca
 - security
-modified_time: '2026-01-02T10:00:00.000+01:00'
+last_modified_at: '2026-01-02'
 ---
 
 Frissítve: 2026. január 2.

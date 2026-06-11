@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Integrációs tesztelés Concordionnal
-date: '2015-04-04T22:00:00.000+02:00'
+date: '2015-04-04'
 author: István Viczián
 ---
 

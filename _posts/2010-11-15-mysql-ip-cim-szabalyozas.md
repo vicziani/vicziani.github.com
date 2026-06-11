@@ -1,11 +1,11 @@
 ---
 layout: post
 title: MySQL ip cím szabályozás
-date: '2010-11-15T05:44:00.000-08:00'
+date: '2010-11-15'
 author: István Viczián
 tags:
 - mysql
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ha szabályozni akarjuk, hogy melyik felhasználó milyen ip címről jöhet

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Oracle technikai problémák
-date: '2011-06-29T13:49:00.000-07:00'
+date: '2011-06-29'
 author: István Viczián
 tags:
 - oracle
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ma egész nap ezt kellett néznem.

@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Hibernate bug
-date: '2009-09-01T01:02:00.000-07:00'
+date: '2009-09-01'
 author: István Viczián
 tags:
 - jpa
 - hibernate
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben van egy lekérdező képernyőnk, ahol meg lehet adni szűrési

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Windows7 telepítése VirtualBoxon
-date: '2012-05-10T04:02:00.001-07:00'
+date: '2012-05-10'
 author: István Viczián
 tags:
 - windows
 - virtualization
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A hálózat nem akart működni NAT módban, mert a Windows7-en nem

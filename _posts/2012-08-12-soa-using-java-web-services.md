@@ -1,13 +1,13 @@
 ---
 layout: post
 title: SOA Using Java Web Services
-date: '2012-08-12T22:52:00.001+02:00'
+date: '2012-08-12'
 author: István Viczián
 tags:
 - JAXB
 - JAX-WS
 - könyv
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egy előző posztban, melyben Java tanuláshoz javasoltam forrásokat,

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Borland Fejlesztői Napok
-date: 2003-09-12T08:00:00.000+01:00
+date: 2003-09-12
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 2003 október 1-2-én lesz az idei [Borland Fejlesztői

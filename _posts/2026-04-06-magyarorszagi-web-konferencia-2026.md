@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Magyarországi Web Konferencia 2026
-date: "2026-04-06T10:00:00.000+01:00"
+date: "2026-04-06"
 author: István Viczián
 description: Előadok a Magyarországi Web Konferencián Java és Spring témakörben.
 tags:

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: 3. Sun Fejlesztői Konferencia
-date: 2003-01-28T08:00:00.000+01:00
+date: 2003-01-28
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Szóval megvolt a nagy esemény, és lezajlott a 3. Sun Fejlesztői

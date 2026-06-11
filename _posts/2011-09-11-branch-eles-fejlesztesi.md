@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Branch-elés a fejlesztési munkafolyamatban
-date: '2011-09-11T03:02:00.002+02:00'
+date: '2011-09-11'
 author: István Viczián
 tags:
 - Módszertan
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Miután tisztában vagyunk az verziókezelő eszközünk képességeivel, a

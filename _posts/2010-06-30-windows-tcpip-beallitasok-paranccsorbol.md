@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Windows TCP/IP beállítások paranccsorból
-date: '2010-06-30T07:48:00.000-07:00'
+date: '2010-06-30'
 author: István Viczián
 tags:
 - Windows
 - hálózat
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Előfordult már, hogy több környezetben dolgozol, és minden környezetben

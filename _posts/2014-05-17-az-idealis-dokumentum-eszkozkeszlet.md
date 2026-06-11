@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Az ideális dokumentum-előállítási eszközkészlet
-date: '2014-05-17T14:44:00.001+02:00'
+date: '2014-05-17'
 author: István Viczián
 tags:
 - Módszertan
-modified_time: '2018-06-03T13:08:16.668+02:00'
+last_modified_at: '2018-06-03'
 ---
 
 Mindenkinek van egy vagy több olyan terület, melyen a tökéleteset

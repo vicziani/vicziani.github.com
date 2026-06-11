@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Konfigurációs paraméterek EJB és web rétegben Glassfish alkalmazásszerveren
-date: '2011-04-18T00:22:00.008+02:00'
+date: '2011-04-18'
 author: István Viczián
 tags:
 - Servlet
@@ -9,7 +9,7 @@ tags:
 - EJB
 - Maven
 - Java EE
-modified_time: '2011-04-18T00:41:13.683+02:00'
+last_modified_at: '2015-02-03'
 ---
 
 Frissítve: 2015. február 3.

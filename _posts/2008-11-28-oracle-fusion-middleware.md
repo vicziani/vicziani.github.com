@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Oracle Fusion Middleware
-date: '2008-11-28T20:06:00.004+01:00'
+date: '2008-11-28'
 author: István Viczián
 tags:
 - Oracle
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A felvásárlások miatt lassan a legtöbb Java termék mögött (akár ingyenes

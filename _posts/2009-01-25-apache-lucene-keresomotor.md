@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Apache Lucene keresőmotor
-date: '2009-01-25T12:25:00.006+01:00'
+date: '2009-01-25'
 author: István Viczián
 tags:
 - Library
-modified_time: '2022-08-31T22:30:00.000+02:00'
+last_modified_at: '2022-08-31'
 ---
 
 Oktatás során szoktam hangsúlyozni, hogy a Java nem csak egy

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Batch Application for the Java Platform (JSR 352)
-date: '2012-12-22T02:03:00.000+01:00'
+date: '2012-12-22'
 author: István Viczián
 tags:
 - JSR
@@ -9,7 +9,7 @@ tags:
 - Java SE
 - Java EE
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Java EE 7 szabványba [tervezik

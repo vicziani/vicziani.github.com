@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Tranzakciókezelés EJB 3 és Spring környezetben
-date: '2010-05-31T23:10:00.007+02:00'
+date: '2010-05-31'
 author: István Viczián
 tags:
 - Java EE
 - EJB
 - Spring
-modified_time: '2021-01-04T10:00:00.000+01:00'
+last_modified_at: '2021-01-04'
 ---
 
 Technológiák: Spring, Java EE, EJB

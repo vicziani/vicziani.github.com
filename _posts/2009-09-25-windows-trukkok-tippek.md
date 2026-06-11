@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Windows trükkök-tippek
-date: '2009-09-25T12:00:00.000-07:00'
+date: '2009-09-25'
 author: István Viczián
 tags:
 - Windows
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Néha Windows cseleket is fogok írni, mely hatékonnyá tehetik a munkát.

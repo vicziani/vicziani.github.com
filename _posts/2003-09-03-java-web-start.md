@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Java Web Start
-date: 2003-09-03T08:00:00.000+01:00
+date: 2003-09-03
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Nos, egy hosszabb nyári szünet, és munkahely váltás után folytatódik,

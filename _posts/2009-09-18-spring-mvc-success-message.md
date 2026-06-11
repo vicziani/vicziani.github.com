@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Spring MVC success message
-date: '2009-09-18T05:57:00.000-07:00'
+date: '2009-09-18'
 author: István Viczián
 tags:
 - spring mvc
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Spring MVC nem ismeri az ún. success message fogalmát. Ez azt jelenti,

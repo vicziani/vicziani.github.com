@@ -1,13 +1,13 @@
 ---
 layout: post
 title: E-mail ellenőrzés
-date: '2009-09-07T04:10:00.000-07:00'
+date: '2009-09-07'
 author: István Viczián
 tags:
 - spring
 - struts
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A form-ok ellenőrzését végző modul a Struts 0.5 óta létezik valamilyen

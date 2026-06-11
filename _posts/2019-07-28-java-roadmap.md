@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java Technology Roadmap
-date: '2019-07-28T16:00:00.000+02:00'
+date: '2019-07-28'
 author: István Viczián
 description: Java térkép a tanulásról, a legfontosabb szabványokról, technológiákról és eszközökről.
 ---

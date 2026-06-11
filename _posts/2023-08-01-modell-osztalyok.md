@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Gondolatok a modell osztályokról, entitásokról, DTO-król
-date: '2023-08-01T10:00:00.000+02:00'
+date: '2023-08-01'
 author: István Viczián
 description: Hogyan osztjuk meg vagy mappeljük a különböző rétegek modell osztályait?
 ---

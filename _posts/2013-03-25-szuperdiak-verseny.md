@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Szuperdiák Verseny
-date: '2013-03-25T22:03:00.002+01:00'
+date: '2013-03-25'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 A [Mark My Professzor](http://markmyprofessor.com) oldal Szuperdiák Versenyt
 szervez olyan hallgatóknak, akik Javát tanulnak vagy tanultak. A

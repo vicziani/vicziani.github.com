@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Spring Cloud Config
-date: '2016-09-05T20:00:00.000+02:00'
+date: '2016-09-05'
 author: István Viczián
 ---
 

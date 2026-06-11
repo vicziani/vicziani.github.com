@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Code coverage
-date: '2009-02-23T21:51:00.003+01:00'
+date: '2009-02-23'
 author: István Viczián
 tags:
 - Tesztelés
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A code coverage (lefedettség mérés) egy olyan technika, mellyel az

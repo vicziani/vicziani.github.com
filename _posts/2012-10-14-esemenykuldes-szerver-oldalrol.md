@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Eseményküldés szerver oldalról
-date: '2012-10-14T23:54:00.001+02:00'
+date: '2012-10-14'
 author: István Viczián
 tags:
 - Design Patterns
 - Ajax
 - Spring
-modified_time: '2018-02-13T20:52:13.018+01:00'
+last_modified_at: '2018-02-13'
 ---
 
 Technológiák: Spring 3.1.1, DWR 3.0, Guava 13.0.1

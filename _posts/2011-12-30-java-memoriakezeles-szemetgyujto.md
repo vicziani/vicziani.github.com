@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Java memóriakezelés, szemétgyűjtő algoritmusok
-date: '2011-12-30T02:10:00.018+01:00'
+date: '2011-12-30'
 author: István Viczián
 tags:
 - hotspot
 - jvm
-modified_time: '2014-02-02T16:24:41.207+01:00'
+last_modified_at: '2014-02-02'
 ---
 
 Technológiák: Java Development Kit 1.6

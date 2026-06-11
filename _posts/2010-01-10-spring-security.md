@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Spring Security
-date: '2010-01-10T22:27:00.006+01:00'
+date: '2010-01-10'
 author: István Viczián
 tags:
 - autentikáció
@@ -9,7 +9,7 @@ tags:
 - nyílt forráskód
 - biztonság
 - Spring Framework
-modified_time: '2019-03-10T10:00:00.000+01:00'
+last_modified_at: '2019-03-10'
 description: Egy részletes poszt a Spring Security-ról.
 ---
 

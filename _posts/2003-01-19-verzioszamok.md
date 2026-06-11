@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Verziószámok
-date: 2003-01-19T08:00:00.000+01:00
+date: 2003-01-19
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Imádom a verziószámokat, mindig lesem az új megjelenéseket, és

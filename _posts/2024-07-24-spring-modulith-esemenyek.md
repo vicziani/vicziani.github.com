@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Események a Spring Modulith-ban
-date: '2024-07-24T10:00:00.000+02:00'
+date: '2024-07-24'
 author: István Viczián
 description: Következő videóm arról, hogy hogyan segíti a modulok laza kapcsolódását az eseménykezelés, és hogy mit ad ehhez a Spring Modulith.
 ---

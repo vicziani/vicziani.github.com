@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java Performance
-date: '2012-03-31T00:16:00.000+02:00'
+date: '2012-03-31'
 author: István Viczián
 tags:
 - performance
@@ -9,7 +9,7 @@ tags:
 - Módszertan
 - scalability
 - könyv
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A [Java memóriakezelés, szemétgyűjtő

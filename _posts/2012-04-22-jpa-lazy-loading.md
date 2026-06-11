@@ -1,13 +1,13 @@
 ---
 layout: post
 title: JPA lazy loading
-date: '2012-04-22T23:14:00.001+02:00'
+date: '2012-04-22'
 author: István Viczián
 tags:
 - EclipseLink
 - Hibernate
 - JPA
-modified_time: '2018-02-08T20:31:00.000+01:00'
+last_modified_at: '2018-02-08'
 ---
 
 Technológiák: JPA 2.1, EclipseLink 2.6.0, Hibernate 4.3.9, Spring 4.1.6.RELEASE

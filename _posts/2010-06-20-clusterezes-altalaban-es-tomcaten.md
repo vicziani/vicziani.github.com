@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Clusterezés általában és Tomcaten
-date: '2010-06-20T22:50:00.008+02:00'
+date: '2010-06-20'
 author: István Viczián
 tags:
 - open source
@@ -12,7 +12,7 @@ tags:
 - Tomcat
 - könyv
 - lb
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A skálázatóság (Scalability) és magas rendelkezésre állás (High

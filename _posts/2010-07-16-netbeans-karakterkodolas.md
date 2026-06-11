@@ -1,12 +1,12 @@
 ---
 layout: post
 title: NetBeans karakterkódolás
-date: '2010-07-16T06:30:00.000-07:00'
+date: '2010-07-16'
 author: István Viczián
 tags:
 - netbeans
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Maven projektben webes alkalmazás fejlesztésénél jól ismerte fel az

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Több táblázat egy oldalon Display taggel
-date: '2008-11-30T23:41:00.009+01:00'
+date: '2008-11-30'
 author: István Viczián
 tags:
 - JSP
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A [Display tag library](http://displaytag.sourceforge.net)

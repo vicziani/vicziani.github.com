@@ -1,13 +1,13 @@
 ---
 layout: post
 title: JPA több one-to-many kapcsolat
-date: '2013-03-17T22:03:00.001+01:00'
+date: '2013-03-17'
 author: István Viczián
 tags:
 - performance
 - Hibernate
 - JPA
-modified_time: '2024-03-01T10:00:00.000+01:00'
+last_modified_at: '2024-03-01'
 description: Egy olyan entitás lekérdezése, melynek több one-to-many kapcsolata van.
 ---
 

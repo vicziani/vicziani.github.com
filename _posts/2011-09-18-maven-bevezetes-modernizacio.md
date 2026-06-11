@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Maven bevezetés, modernizáció
-date: '2011-09-18T14:24:00.010+02:00'
+date: '2011-09-18'
 author: István Viczián
 tags:
 - Maven
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Maven 3.0.3

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Java könyvkiadók
-date: 2003-04-28T08:00:00.000+01:00
+date: 2003-04-28
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az O'Reilly könyvek sokunknak okoztak már kellemes perceket, és a kiadó

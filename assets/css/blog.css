@@ -152,6 +152,25 @@ blockquote {
 }
 
 /*
+ * Archive
+ */
+
+.updated-badge {
+  display: inline-block;
+  margin-left: 0.45rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid #efcf97;
+  background: #fff0d6;
+  color: #825400;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/*
  * YouTube
  */
 

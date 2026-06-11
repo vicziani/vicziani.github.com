@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Űrlap elrendezés
-date: '2009-08-28T07:27:00.000-07:00'
+date: '2009-08-28'
 author: István Viczián
 tags:
 - ui
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 [Matteo Penzo “Label Placement in

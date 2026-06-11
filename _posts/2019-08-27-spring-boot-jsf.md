@@ -1,10 +1,10 @@
 ---
 layout: post
 title: JSF használata Spring Boottal
-date: '2019-08-27T22:00:00.000+02:00'
+date: '2019-08-27'
 author: István Viczián
 description: Hogyan integráljuk Spring Boot projektünkbe a JSF-et.
-modified_time: '2023-12-14T10:00:00.000+01:00'
+last_modified_at: '2023-12-14'
 ---
 
 Frissítve: 2023. december 14.

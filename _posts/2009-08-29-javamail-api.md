@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JavaMail API
-date: '2009-08-29T11:57:00.000-07:00'
+date: '2009-08-29'
 author: István Viczián
 tags:
 - javamail
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A JavaMail API 1.4.2-ben nincs metódus üzenet átmozgatására az egyik

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Maven kezdőlépések
-date: '2010-04-28T23:44:00.007+02:00'
+date: '2010-04-28'
 author: István Viczián
 tags:
-modified_time: '2021-12-20T10:00:00.000+01:00'
+last_modified_at: '2021-12-20'
 ---
 
 Frissítve: 2021. december 20.

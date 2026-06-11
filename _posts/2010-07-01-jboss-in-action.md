@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JBoss in Action
-date: '2010-07-01T00:54:00.004+02:00'
+date: '2010-07-01'
 author: István Viczián
 tags:
 - open source
@@ -10,7 +10,7 @@ tags:
 - cluster
 - Java EE
 - könyv
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A JBoss AS 5 a jelenlegi egyik legelterjedtebb alkalmazásszerver,

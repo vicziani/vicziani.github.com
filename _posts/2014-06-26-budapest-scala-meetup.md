@@ -1,11 +1,11 @@
 ---
 layout: post
 title: budapest.scala meetup
-date: '2014-06-26T11:35:00.000+02:00'
+date: '2014-06-26'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-03T11:35:09.160+02:00'
+last_modified_at: '2018-06-03'
 ---
 
 A nyár közepén, 2014. július 1-én, kedden, 19:00-tól [budapest.scala

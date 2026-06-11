@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JBoss portok
-date: '2011-03-01T05:32:00.000-08:00'
+date: '2011-03-01'
 author: István Viczián
 tags:
 - jboss
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben port ütközésünk van, ha a JBoss-t indítjuk, felmerülhet, hogy

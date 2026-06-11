@@ -1,11 +1,11 @@
 ---
 layout: post
 title: XHTML űrlapok
-date: '2009-08-28T07:32:00.000-07:00'
+date: '2009-08-28'
 author: István Viczián
 tags:
 - html
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Bár az előző post-ból kiderül, hogy a form-ok esetén jobb, ha a címke a

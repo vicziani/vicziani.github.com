@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Kedvenc Java library-k
-date: '2010-01-27T23:42:00.004+01:00'
+date: '2010-01-27'
 author: István Viczián
 tags:
 - open source
 - Library
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ebben a posztban szeretném felsorolni azon Java library-ket,

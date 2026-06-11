@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Könyvespolcom
-date: '2009-05-07T23:32:00.003+02:00'
+date: '2009-05-07'
 author: István Viczián
 tags:
 - Oktatás
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Készítettem egy fényképet a könyvespolcomról, mintegy referenciaként,

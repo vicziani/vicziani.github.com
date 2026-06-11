@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Spring tranzakciókezelés
-date: '2018-10-29T23:10:00.007+02:00'
+date: '2018-10-29'
 author: István Viczián
 tags:
 - Spring

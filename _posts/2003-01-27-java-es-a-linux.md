@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Java és a Linux
-date: 2003-01-27T08:00:00.000+01:00
+date: 2003-01-27
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Tudom, hogy kicsit le vagyok maradva, de most találtam egy cikket

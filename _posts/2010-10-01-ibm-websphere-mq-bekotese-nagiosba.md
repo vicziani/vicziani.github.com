@@ -1,13 +1,13 @@
 ---
 layout: post
 title: IBM WebSphere MQ bekötése Nagios-ba
-date: '2010-10-01T07:48:00.000-07:00'
+date: '2010-10-01'
 author: István Viczián
 tags:
 - mq
 - java
 - nagios
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ahhoz, hogy bekössük az MQ-t a Nagiosba, egy plugint kell

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Minősített elektronikus aláírás
-date: '2008-12-02T14:26:00.008+01:00'
+date: '2008-12-02'
 author: István Viczián
 tags:
 - PKI
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Frissítve: 2013. december 23.

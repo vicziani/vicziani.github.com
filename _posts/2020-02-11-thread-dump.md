@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java Thread Dump
-date: '2020-02-11T11:00:00.000+01:00'
+date: '2020-02-11'
 author: István Viczián
 description: Hogyan elemezzünk thread dumpot?
 ---

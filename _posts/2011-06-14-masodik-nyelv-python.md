@@ -1,10 +1,10 @@
 ---
 layout: post
 title: ! 'Második nyelv: Python?'
-date: '2011-06-14T00:00:00.005+02:00'
+date: '2011-06-14'
 author: István Viczián
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Remélem ezzel a cikkel is sikerül annyi gondolatot megmozgatni, mint az

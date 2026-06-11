@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Spring Converter SPI
-date: '2016-01-19T23:00:00.000+02:00'
+date: '2016-01-19'
 author: István Viczián
 ---
 

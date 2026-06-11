@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Clean Code könyv Args példájának újragondolása
-date: '2019-02-24T18:00:00.000+01:00'
+date: '2019-02-24'
 author: István Viczián
 tags:
 -

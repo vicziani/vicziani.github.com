@@ -1,11 +1,11 @@
 ---
 layout: post
 title: IBM WebSphere MQ Explorer
-date: '2010-06-13T08:42:00.000-07:00'
+date: '2010-06-13'
 author: István Viczián
 tags:
 - mq
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az IBM WebSphere MQ Explorer (Eclipse alapú admin felület) telepítése

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: WebDAV tapasztalatok
-date: '2009-02-11T22:19:00.005+01:00'
+date: '2009-02-11'
 author: István Viczián
 tags:
 - Subversion
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Nem kifejezetten Java téma, de szerintem minden fejlesztőnek hasznos

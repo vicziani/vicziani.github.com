@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Java közösség
-date: 2003-04-27T08:00:00.000+01:00
+date: 2003-04-27
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Némi kiesés után folytatnám.

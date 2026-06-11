@@ -1,11 +1,11 @@
 ---
 layout: post
 title: JExcelApi kódolás
-date: '2010-03-07T14:23:00.000-08:00'
+date: '2010-03-07'
 author: István Viczián
 tags:
 - jexcelapi
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amikor ékezetes karaktereket olvastam Excel-ből

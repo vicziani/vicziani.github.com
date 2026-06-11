@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Borland J2EE megoldása
-date: 2003-03-29T08:00:00.000+01:00
+date: 2003-03-29
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Borland kiadta a J2EE szoftver platform elnevezésű komplett megoldását

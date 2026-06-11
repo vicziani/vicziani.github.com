@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Hírek a JavaOne óta
-date: 2003-07-01T08:00:00.000+01:00
+date: 2003-07-01
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Azon neves alkalomból, hogy

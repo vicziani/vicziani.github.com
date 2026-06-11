@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Oracle verziószám
-date: '2009-08-26T06:40:00.000-07:00'
+date: '2009-08-26'
 author: István Viczián
 tags:
 - Oracle
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Oracle verziószámának lekérdezése:

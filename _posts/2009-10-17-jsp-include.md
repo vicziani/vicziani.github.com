@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JSP include
-date: '2009-10-17T13:45:00.000-07:00'
+date: '2009-10-17'
 author: István Viczián
 tags:
 - jsp
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 JSP-ben ugye létezik az include direktíva &lt;%@ include file=”abc.jsp”

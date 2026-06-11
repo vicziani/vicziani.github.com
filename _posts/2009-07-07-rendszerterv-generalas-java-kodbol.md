@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Fizikai rendszerterv generálás Java forráskódból
-date: '2009-07-07T11:20:00.005+02:00'
+date: '2009-07-07'
 author: István Viczián
 tags:
 - Módszertan
 - Community
-modified_time: '2018-01-12T00:33:20.408+02:00'
+last_modified_at: '2018-01-12'
 ---
 
 Aktuális feladatunk fizikai rendszerterv írása. Értelmezésünkben a

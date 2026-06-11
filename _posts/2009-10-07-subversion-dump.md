@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Subversion dump
-date: '2009-10-07T06:12:00.000-07:00'
+date: '2009-10-07'
 author: István Viczián
 tags:
 - subversion
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Adott volt, hogy a projektek különböző SVN repository-kba voltak

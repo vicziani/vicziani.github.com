@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Elosztott tranzakciókezelés Spring Boottal
-date: '2021-01-04T20:00:00.000+01:00'
+date: '2021-01-04'
 author: István Viczián
 tags:
 - Spring
 - JTA
 - Atomikos
-modified_time: '2021-01-04T10:00:00.000+01:00'
+last_modified_at: '2025-01-10'
 description: Egy tranzakcióban egy adatbázis beszúrás és egy JMS üzenetküldés.
 ---
 

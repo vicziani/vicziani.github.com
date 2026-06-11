@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JAX-WS kötelező paraméter
-date: '2009-08-27T02:09:00.000-07:00'
+date: '2009-08-27'
 author: István Viczián
 tags:
 - jax-ws
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egy web szolgáltatás operációnál annak meghatározása, hogy egy paraméter

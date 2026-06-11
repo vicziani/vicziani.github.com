@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Oracle Java vizsgák
-date: '2012-09-16T23:49:00.000+02:00'
+date: '2012-09-16'
 author: István Viczián
 tags:
 - vizsga
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Mióta letettem a 6-os Javahoz tartozó [SCJP](/2009/10/16/scjp.html)

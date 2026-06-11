@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Sorkizárt szövegek dokumentációban
-date: '2011-04-02T00:41:00.000-07:00'
+date: '2011-04-02'
 author: István Viczián
 tags:
 - design
 - dokumentáció
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 könyvek, cikkek és tanárok is mást mondanak. Amikben viszont meg lehet
 egyezni:

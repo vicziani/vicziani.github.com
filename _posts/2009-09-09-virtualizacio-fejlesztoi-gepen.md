@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Virtualizáció fejlesztői gépen
-date: '2009-09-09T00:15:00.007+02:00'
+date: '2009-09-09'
 author: István Viczián
 tags:
 - Utils
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Manapság a virtualizáció nagyon divatos irány, így én sem maradhattam ki

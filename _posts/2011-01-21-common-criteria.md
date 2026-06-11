@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Common Criteria
-date: '2011-01-21T14:17:00.000-08:00'
+date: '2011-01-21'
 author: István Viczián
 tags:
 - security
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Mostanában egyre gyakoribb, hogy a különböző állami pályázati

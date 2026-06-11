@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Tomcat Windows szolgáltatásként több példányban
-date: '2010-06-14T11:49:00.000-07:00'
+date: '2010-06-14'
 author: István Viczián
 tags:
 - java
 - tomcat
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Mai nap ugyanarra a gépre két web alkalmazást kellett feltelepítenem,

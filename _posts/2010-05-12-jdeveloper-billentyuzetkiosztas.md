@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JDeveloper billentyűzetkiosztás
-date: '2010-05-12T04:37:00.000-07:00'
+date: '2010-05-12'
 author: István Viczián
 tags:
 - jdeveloper
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Vastag klienses alkalmazás fejlesztésre az ingyenes, Oracle által

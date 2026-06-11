@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Subversion branch, akár Maven Release pluginnal
-date: '2011-09-07T02:02:00.002+02:00'
+date: '2011-09-07'
 author: István Viczián
 tags:
 - Subversion
 - Módszertan
 - Maven
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Subversion 1.6, Maven 3.0.3, Maven Release Plugin 2.0

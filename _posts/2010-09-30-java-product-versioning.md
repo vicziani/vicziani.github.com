@@ -5,7 +5,7 @@ date: '2010-09-30T16:00:00.000'
 author: István Viczián
 tags:
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A [Java Product

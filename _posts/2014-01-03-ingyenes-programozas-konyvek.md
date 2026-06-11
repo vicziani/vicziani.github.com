@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Ingyenes programozással kapcsolatos könyvek
-date: '2014-01-03T07:13:00.002-08:00'
+date: '2014-01-03'
 author: István Viczián
 tags:
 - könyv
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A GitHub egyik legnépszerűbb repositry-ja mostanában a

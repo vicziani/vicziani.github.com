@@ -1,11 +1,11 @@
 ---
 layout: post
 title: E-mail tárgy ékezetek
-date: '2009-08-27T13:26:00.000-07:00'
+date: '2009-08-27'
 author: István Viczián
 tags:
 - email
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az RFC 2822-ben a karakterkódolás 7 bites, azaz csak ASCII karaktereket

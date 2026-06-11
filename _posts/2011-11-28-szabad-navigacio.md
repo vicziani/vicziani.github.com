@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Szabad navigáció okozta problémák webes környezetben
-date: '2011-11-28T01:06:00.001+01:00'
+date: '2011-11-28'
 author: István Viczián
 tags:
 - Maven
 - DocBook
-modified_time: '2018-01-12T11:05:58.755+01:00'
+last_modified_at: '2018-01-12'
 ---
 
 Technológiák: Servlet 3.0/JSP 2.2, DocBook 4.5, Docbkx Tools (Docbkx

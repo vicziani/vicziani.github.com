@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Konferenciák, események
-date: '2010-08-15T21:19:00.006+02:00'
+date: '2010-08-15'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ezen posztban egy pár eseményt, konferenciát szeretnék kiemelni, amelyek

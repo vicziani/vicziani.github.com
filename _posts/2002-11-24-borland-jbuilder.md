@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Borland JBuilder
-date: 2002-11-24T08:00:00.000+01:00
+date: 2002-11-24
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Eseménytelenül telik a hétvége, csak a Borland JBuilder 5 szívat egy

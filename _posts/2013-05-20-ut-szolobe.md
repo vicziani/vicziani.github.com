@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Út a szőlőbe
-date: '2013-05-20T20:49:00.002+02:00'
+date: '2013-05-20'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 Biztosan sokan voltatok már úgy egy-egy éjszakába nyúló debugolás
 közben, hogy most leteszitek a billentyűzetet, és soha többet nem

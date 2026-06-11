@@ -5,7 +5,7 @@ date: '2010-09-30T15:52:00.000'
 author: István Viczián
 tags:
 - subversion
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ha azt akarjuk, hogy egy állományban a checkoutolt revision numberje

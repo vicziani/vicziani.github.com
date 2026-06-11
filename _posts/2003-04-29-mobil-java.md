@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Mobil Java
-date: 2003-04-29T08:00:00.000+01:00
+date: 2003-04-29
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egyre több MIDP 1.0-t támogató

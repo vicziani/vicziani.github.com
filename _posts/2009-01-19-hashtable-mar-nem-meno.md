@@ -1,11 +1,11 @@
 ---
 layout: post
 title: A Hashtable már nem menő
-date: '2009-01-19T01:43:00.008+01:00'
+date: '2009-01-19'
 author: István Viczián
 tags:
 - Java SE
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Kedves kollégáim ihletésére született ez a poszt, nem az első, akiket

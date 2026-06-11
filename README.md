@@ -10,13 +10,14 @@ viczian.istvan a gmail-en
 ---
 layout: post
 title: Példa cím
-date: '2018-10-29T23:10:00.007+02:00'
+date: '2018-10-29'
 author: István Viczián
 tags:
 - JTechLog
 - Blog
 description: Rövid összefoglaló, ez jelenik meg pl. a Facebookon. Max. 108 - 110 karakter.
 image: /artifacts/posts/pelda/og.png
+last_modified_at: '2023-10-10'
 ---
 
 Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.

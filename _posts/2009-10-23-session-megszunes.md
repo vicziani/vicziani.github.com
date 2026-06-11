@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Session megszűnés
-date: '2009-10-23T05:10:00.000-07:00'
+date: '2009-10-23'
 author: István Viczián
 tags:
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben olyan architektúránk van, hogy elöl van egy web szerver, pl.

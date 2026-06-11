@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Hogyan archiválok?
-date: '2013-10-26T02:53:00.000-07:00'
+date: '2013-10-26'
 author: István Viczián
 tags:
 - windows
 - archiválás
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Elég régóta keresem és figyelem a lehetőségeket az adataim

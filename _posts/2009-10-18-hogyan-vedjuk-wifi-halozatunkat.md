@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Hogyan védjük wifi hálózatunkat?
-date: '2009-10-18T05:45:00.000-07:00'
+date: '2009-10-18'
 author: István Viczián
 tags:
 - networking
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A következő tippek segítenek abban, hogy biztonságosabbá tegyük wifi

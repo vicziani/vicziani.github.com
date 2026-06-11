@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Legjobb fejlesztő 2010 verseny tapasztalatok
-date: '2010-12-18T09:04:00.010+01:00'
+date: '2010-12-18'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 2010\. szeptemberében került kiírásra a [Legjobb fejlesztő

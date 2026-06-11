@@ -1,12 +1,12 @@
 ---
 layout: post
 title: HTML default button
-date: '2009-11-05T05:10:00.000-08:00'
+date: '2009-11-05'
 author: István Viczián
 tags:
 - javascript
 - html
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Default buttonnak nevezzük azt a gombot, mely megnyomásra kerül abban

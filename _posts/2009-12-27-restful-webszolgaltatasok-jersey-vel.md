@@ -1,11 +1,12 @@
 ---
 layout: post
 title: RESTful webszolgáltatások Jersey-vel
-date: '2009-12-27T11:56:00.005+01:00'
+date: '2009-12-27'
 author: István Viczián
 tags:
 - SOA
 - JAX-RS
+last_modified_at: '2017-11-18'
 ---
 
 Frissítve: 2017. november 18.

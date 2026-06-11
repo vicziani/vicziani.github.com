@@ -1,10 +1,10 @@
 ---
 layout: post
 title: IBM Crossworlds
-date: 2002-11-28T08:00:00.000+01:00
+date: 2002-11-28
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ma volt az IBM-nél egy Szoftver Partner Klub

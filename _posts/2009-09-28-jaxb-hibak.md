@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JAXB hibák
-date: '2009-09-28T12:19:00.000-07:00'
+date: '2009-09-28'
 author: István Viczián
 tags:
 - jaxb
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben az XJC a következő hibaüzenetet írja, a probléma, hogy az xjb

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Spring Data JPA és a Blaze-Persistence
-date: '2025-01-05T10:00:00.000+01:00'
+date: '2025-01-05'
 author: István Viczián
 description: Poszt arról, hogy milyen korlátai vannak a JPA-nak, és ezen hogy segít a Spring Data JPA, és mit ad hozzá a Blaze-Persistence.
 ---

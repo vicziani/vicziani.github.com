@@ -18,7 +18,12 @@ keywords: Java, blog, archívum
         <ul>
     {% endif %}
 
-    <li><span>{% assign date = post.date %} {% include date.html %}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li>
+        <span>{% assign date = post.date %} {% include date.html %}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        {% if post.last_modified_at != nil %}
+            <span class="updated-badge"> (Frissítve: {% assign date = post.last_modified_at %} {% include date.html %})</span>
+        {% endif %}
+    </li>
 
     {% if forloop.last %}
       	</ul>

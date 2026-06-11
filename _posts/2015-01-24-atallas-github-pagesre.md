@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Átállás GitHub Pagesre
-date: '2015-01-24T16:00:00.000+01:00'
+date: '2015-01-24'
 author: István Viczián
-modified_time: '2015-01-24T16:00:00.000+01:00'
+last_modified_at: '2015-01-24'
 ---
 
 Már régóta dédelgetem az ötletet, hogy az egész blogot átállítom a GitHub 

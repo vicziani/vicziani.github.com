@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Kedvenc Java eszközök
-date: '2010-02-07T12:13:00.004+01:00'
+date: '2010-02-07'
 author: István Viczián
 tags:
 - Utils
 - infrastruktúra
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az előző posztban azon kedvenc Java library-ket mutattam be, melyeket

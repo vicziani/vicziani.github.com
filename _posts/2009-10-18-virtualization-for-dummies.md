@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Virtualization for Dummies
-date: '2009-10-18T04:03:00.000-07:00'
+date: '2009-10-18'
 author: István Viczián
 tags:
 - virtualization
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ingyenesen letölthető a [Virtualization for

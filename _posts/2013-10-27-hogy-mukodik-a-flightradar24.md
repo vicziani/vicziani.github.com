@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Hogy működik a Flightradar24? Akár én is vehetem a repülőgépekről érkező jeleket?
-date: '2013-10-27T15:59:00.000-07:00'
+date: '2013-10-27'
 author: István Viczián
 tags:
 - Linux
 - windows
 - aircraft
 - Raspberry PI
-modified_time: '2018-02-17T18:22:03.269+01:00'
+last_modified_at: '2018-02-17'
 ---
 
 A [Flightradar24](http://www.flightradar24.com) egy érdekes

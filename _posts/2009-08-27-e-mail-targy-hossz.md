@@ -1,11 +1,11 @@
 ---
 layout: post
 title: E-mail tárgy hossz
-date: '2009-08-27T10:02:00.000-07:00'
+date: '2009-08-27'
 author: István Viczián
 tags:
 - email
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az e-mail formátumát az [RFC 822](http://ietf.org/rfc/rfc822.txt),

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Ant listener és logger osztályok
-date: '2010-01-03T23:31:00.005+01:00'
+date: '2010-01-03'
 author: István Viczián
 tags:
 - Ant
-modified_time: '2018-02-08T20:31:00.000+01:00'
+last_modified_at: '2018-02-08'
 ---
 
 Az Ant (, a poszt írásakor a legfrissebb verzió a 1.7.1) lehetőséget

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Sortörések MC-ben
-date: '2013-12-28T07:05:00.001-08:00'
+date: '2013-12-28'
 author: István Viczián
 tags:
 - Linux
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Linuxon nagyon szeretem a Midnight Commandert (MC), ugyanúgy, ahogy

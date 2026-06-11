@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java, Spring Boot natív fordítás
-date: "2026-01-03T10:00:00.000+01:00"
+date: "2026-01-03"
 author: István Viczián
 description: Hogy kell egy Java, akár webes alkalmazást natívra fordítani GraalVM segítségével? Milyen buktatók lehetnek, és mi a megoldásuk?
 ---

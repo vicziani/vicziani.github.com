@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Entitások auditálása Hibernate Envers-szel
-date: '2010-09-10T01:11:00.006+02:00'
+date: '2010-09-10'
 author: István Viczián
 tags:
-modified_time: '2018-02-08T20:31:00.000+01:00'
+last_modified_at: '2018-02-08'
 ---
 
 Frissítve: 2014. január 4.

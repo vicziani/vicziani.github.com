@@ -1,14 +1,14 @@
 ---
 layout: post
 title: PDF elektronikus aláírása és időbélyegzése nyílt forráskódú eszközökkel
-date: '2013-12-27T16:50:00.000+01:00'
+date: '2013-12-27'
 author: István Viczián
 tags:
 - PDF
 - open source
 - PKI
 - Library
-modified_time: '2014-01-02T16:45:03.269+01:00'
+last_modified_at: '2014-01-02'
 blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-3812297852319041819
 blogger_orig_url: http://www.jtechlog.hu/2013/12/pdf-elektronikus-alairasa-es.html
 ---

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Ki is az a Java architect?
-date: '2012-01-16T00:47:00.002+01:00'
+date: '2012-01-16'
 author: István Viczián
 tags:
 - Módszertan
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Magyarországon is egyre gyakrabban keresnek Java architectet, de

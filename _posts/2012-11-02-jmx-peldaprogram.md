@@ -1,11 +1,11 @@
 ---
 layout: post
 title: JMX példaprogram
-date: '2012-11-02T23:38:00.001+01:00'
+date: '2012-11-02'
 author: István Viczián
 tags:
 - JMX
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A [JMX-ről szóló

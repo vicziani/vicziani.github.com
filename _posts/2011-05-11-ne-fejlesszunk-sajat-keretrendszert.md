@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Miért ne fejlesszünk saját keretrendszert?
-date: '2011-05-11T23:06:00.002+02:00'
+date: '2011-05-11'
 author: István Viczián
 tags:
 - Módszertan
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ahogy különböző cégeknél végzek tanácsadásokat, sok helyen látom, hogy

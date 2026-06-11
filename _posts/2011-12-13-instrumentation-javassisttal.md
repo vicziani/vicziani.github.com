@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Instrumentation Javassisttal
-date: '2011-12-13T00:45:00.005+01:00'
+date: '2011-12-13'
 author: István Viczián
 tags:
 - instrumentation
 - Java SE
 - JMX
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Javassist 3.15

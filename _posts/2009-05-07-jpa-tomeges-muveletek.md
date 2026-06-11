@@ -7,7 +7,7 @@ tags:
 - Tesztelés
 - Spring
 - JPA
-modified_time: '2026-06-11'
+last_modified_at: '2026-06-11'
 ---
 
 Utolsó módosítás dátuma: 2026. június 11.

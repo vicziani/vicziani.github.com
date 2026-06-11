@@ -1,11 +1,11 @@
 ---
 layout: post
 title: OpenBadges
-date: '2014-03-09T13:42:00.002-07:00'
+date: '2014-03-09'
 author: István Viczián
 tags:
 - oktatás
-modified_time: '2018-06-09T12:27:02.479-07:00'
+last_modified_at: '2018-06-09'
 ---
 
 ### Bevezetés

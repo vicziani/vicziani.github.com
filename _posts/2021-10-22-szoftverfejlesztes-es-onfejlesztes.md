@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Szoftverfejlesztés és Önfejlesztés podcast
-date: '2021-10-22T10:00:00.000+02:00'
+date: '2021-10-22'
 author: István Viczián
 description: Szerepeltem a Szoftverfejlesztés és Önfejlesztés podcastban, hallgasd meg te is!
 ---

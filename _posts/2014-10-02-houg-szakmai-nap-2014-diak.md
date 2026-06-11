@@ -1,12 +1,12 @@
 ---
 layout: post
 title: HOUG Szakmai nap 2014 diák
-date: '2014-10-02T21:57:00.001+02:00'
+date: '2014-10-02'
 author: István Viczián
 tags:
 - Spring
 - Community
-modified_time: '2018-06-01T22:03:44.187+02:00'
+last_modified_at: '2018-06-01'
 ---
 
 A _A Spring Framework 4.0 és 4.1 verzióinak újdonságai_ címmel

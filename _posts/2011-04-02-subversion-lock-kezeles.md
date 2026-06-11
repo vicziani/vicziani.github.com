@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Subversion lock kezelés
-date: '2011-04-02T01:00:00.000-07:00'
+date: '2011-04-02'
 author: István Viczián
 tags:
 - subversion
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Subversion alapban a Copy-Modify-Merge modellt követi, ami azt

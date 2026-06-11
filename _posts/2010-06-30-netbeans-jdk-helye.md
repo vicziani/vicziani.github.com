@@ -1,12 +1,12 @@
 ---
 layout: post
 title: NetBeans JDK helye
-date: '2010-06-30T07:54:00.000-07:00'
+date: '2010-06-30'
 author: István Viczián
 tags:
 - NetBeans
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A JDK új verziójának feltelepítésekor, és az előző eltávolításakor az

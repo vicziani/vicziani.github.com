@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Oracle Java Cafe
-date: '2010-11-14T20:58:00.004+01:00'
+date: '2010-11-14'
 author: István Viczián
 tags:
 - Oracle
 - Java EE
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az Oracle újraszervezte a Java Cafe napot, melynek első eseménye 2010.

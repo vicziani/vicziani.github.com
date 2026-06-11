@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Hogyan írjunk dokumentációt csoportmunkában?
-date: '2009-03-14T22:04:00.007+01:00'
+date: '2009-03-14'
 author: István Viczián
 tags:
 - Módszertan
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Java fanatikusokat el kell most keserítsem, ugyanis nem technikai

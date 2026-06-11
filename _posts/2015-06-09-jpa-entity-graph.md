@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JPA Entity Graph
-date: '2015-06-09T22:00:20.000+02:00'
+date: '2015-06-09'
 author: István Viczián
 ---
 

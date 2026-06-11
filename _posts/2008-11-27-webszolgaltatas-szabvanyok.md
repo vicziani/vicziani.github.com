@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Webszolgáltatásokkal kapcsolatos szabványok
-date: '2008-11-27T00:20:00.003+01:00'
+date: '2008-11-27'
 author: István Viczián
 tags:
 - SOA
+last_modified_at: '2017-11-18'
 ---
 
 Frissítve: 2017. november 18.

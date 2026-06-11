@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Telnet Windows7-en
-date: '2012-05-04T06:50:00.001-07:00'
+date: '2012-05-04'
 author: István Viczián
 tags:
 - windows
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Így varázsoljunk telnetet Windows7-re.

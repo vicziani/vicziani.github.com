@@ -1,13 +1,13 @@
 ---
 layout: post
 title: JExcelAPI dátum formátum
-date: '2010-08-13T06:17:00.000-07:00'
+date: '2010-08-13'
 author: István Viczián
 tags:
 - jexcelapi
 - i18n
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A [JExcelAPI](http://jexcelapi.sourceforge.net/) 2.6.11 egy dátum

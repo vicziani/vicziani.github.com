@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Tomcat JMX tűzfalon keresztül
-date: '2010-07-30T19:02:00.007+02:00'
+date: '2010-07-30'
 author: István Viczián
 tags:
 - JMX
 - Tomcat
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Tomcat 6.0.24, JMX

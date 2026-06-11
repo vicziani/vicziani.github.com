@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Oracle rendezvény
-date: 2003-05-04T08:00:00.000+01:00
+date: 2003-05-04
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 2003\. május 13-án, 9 órától lesz a Hotel Mercure Buda szállóban az

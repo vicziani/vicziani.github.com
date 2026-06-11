@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Docker Layers Spring Boot alkalmazásnál
-date: '2020-10-18T21:00:00.000+01:00'
+date: '2020-10-18'
 author: István Viczián
 description: Mire figyeljünk, ha a Spring Boot alkalmazásunkat dockerizáljuk.
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Twelve-factor app
-date: '2016-11-05T22:00:00.000+02:00'
+date: '2016-11-05'
 author: István Viczián
 ---
 

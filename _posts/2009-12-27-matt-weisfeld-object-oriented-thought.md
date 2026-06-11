@@ -1,12 +1,12 @@
 ---
 layout: post
 title: ! 'Matt Weisfeld: The object-oriented thought process'
-date: '2009-12-27T11:45:00.003+01:00'
+date: '2009-12-27'
 author: István Viczián
 tags:
 - oo
 - könyv
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egy oktatás miatt olvastam el az Addison Wesley kiadásában megjelent

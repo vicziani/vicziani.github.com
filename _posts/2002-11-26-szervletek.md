@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Szervletek
-date: 2002-11-26T08:00:00.000+01:00
+date: 2002-11-26
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Lassan végzek az O'Reilly-Kossuth kiadású [Java szervletek

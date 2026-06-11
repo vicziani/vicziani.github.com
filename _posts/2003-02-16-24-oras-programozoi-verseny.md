@@ -1,10 +1,10 @@
 ---
 layout: post
 title: 24-órás programozói verseny
-date: 2003-02-16T08:00:00.000+01:00
+date: 2003-02-16
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Idén is megrendezik a [24-órás programozói

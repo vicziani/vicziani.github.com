@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Python build és Continuous Integration
-date: '2018-11-04T23:10:00.007+01:00'
+date: '2018-11-04'
 author: István Viczián
 tags:
 -
 description: Hogyan álljunk neki egy Python projektnek, amit aztán Continuous Integrationbe szeretnénk kötni.
+last_modified_at: '2025-01-10'
 ---
 
 Technológiák: Python 3, venv, pip, make, pytest, coverage, pytest-cov, pylint, SonarQube, Jenkins

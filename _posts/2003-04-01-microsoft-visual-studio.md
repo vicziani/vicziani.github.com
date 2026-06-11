@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Microsoft Visual Studio
-date: 2003-04-01T08:00:00.000+01:00
+date: 2003-04-01
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Microsoft bejelentette, hogy a Microsoft Visual Studio következő

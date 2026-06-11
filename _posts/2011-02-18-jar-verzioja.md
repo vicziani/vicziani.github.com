@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JAR verziója
-date: '2011-02-18T14:48:00.000-08:00'
+date: '2011-02-18'
 author: István Viczián
 tags:
 - maven
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben találunk egy JAR-t, és nem derül ki, hogy ez pontosan micsoda

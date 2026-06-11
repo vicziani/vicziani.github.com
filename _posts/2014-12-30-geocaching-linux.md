@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Geocaching Linuxon
-date: "2014-12-30T10:00:00.000+01:00"
+date: "2014-12-30"
 author: István Viczián
 description: Ez a poszt azoknak készült, akik geocache-elnek, és mellette Linuxot használnak.
 ---

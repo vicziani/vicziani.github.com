@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Egyszerű fájlmegosztás kikapcsolása
-date: '2009-09-13T13:24:00.000-07:00'
+date: '2009-09-13'
 author: István Viczián
 tags:
 - windows
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az egyszerű fájlmegosztás kikapcsolása:

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: ! 'Spring Recipes: A Problem-Solution Approach'
-date: '2010-07-27T00:38:00.007+02:00'
+date: '2010-07-27'
 author: István Viczián
 tags:
 - Spring
 - könyv
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Egyikőtök hívta fel a figyelmem a Spring Recipes: A Problem-Solution

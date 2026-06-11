@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Cobol és Java integráció 
-date: 2003-01-06T08:00:00.000+01:00
+date: 2003-01-06
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Mostanában kénytelen vagyok Cobollal foglalkozni, és érdekességképpen

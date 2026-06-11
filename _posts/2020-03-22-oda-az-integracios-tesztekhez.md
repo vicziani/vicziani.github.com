@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Óda az integrációs tesztekhez
-date: '2020-03-22T10:00:00.000+01:00'
+date: '2020-03-22'
 author: István Viczián
 description: Változik-e az integrációs tesztek szerepe microservices környezetben?
 ---

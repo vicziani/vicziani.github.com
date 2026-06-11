@@ -1,11 +1,11 @@
 ---
 layout: post
 title: GitHub Pages
-date: '2012-09-25T22:09:00.001+02:00'
+date: '2012-09-25'
 author: István Viczián
 tags:
 - GitHub
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Az egyetemi szerveren lévő honlapom a diploma megszerzése után tizenegy

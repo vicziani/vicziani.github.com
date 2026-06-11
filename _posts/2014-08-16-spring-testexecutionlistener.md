@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Spring TestExecutionListener
-date: '2014-08-16T21:58:00.000+02:00'
+date: '2014-08-16'
 author: István Viczián
 tags:
 - Tesztelés
-modified_time: '2018-06-01T21:58:23.382+02:00'
+last_modified_at: '2018-06-01'
 ---
 
 Használt technológiák: Spring Framework 4.0.4, Joda-Time 2.3, Hamcrest

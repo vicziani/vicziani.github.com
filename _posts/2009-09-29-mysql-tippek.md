@@ -1,11 +1,11 @@
 ---
 layout: post
 title: MySQL tippek
-date: '2009-09-29T13:02:00.000-07:00'
+date: '2009-09-29'
 author: István Viczián
 tags:
 - mysql
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Nyolc óra után automatikusan bontja a MySQL a kapcsolatot. [E

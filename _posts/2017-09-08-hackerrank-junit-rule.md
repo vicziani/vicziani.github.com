@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hackerrank megoldások JUnit Rule-lal
-date: '2017-09-08T22:00:00.000+02:00'
+date: '2017-09-08'
 author: István Viczián
 ---
 

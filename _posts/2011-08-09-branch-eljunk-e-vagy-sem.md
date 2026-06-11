@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Branch-eljünk-e vagy sem?
-date: '2011-08-09T01:03:00.003+02:00'
+date: '2011-08-09'
 author: István Viczián
 tags:
 - Módszertan
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amíg a szoftverfejlesztés az elején tart, nem adtunk még ki verziót, a

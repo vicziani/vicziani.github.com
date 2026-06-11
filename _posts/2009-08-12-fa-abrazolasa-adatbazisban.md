@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Fa ábrázolása adatbázisban
-date: '2009-08-12T23:24:00.006+02:00'
+date: '2009-08-12'
 author: István Viczián
 tags:
 - algoritmus
 - JPA
-modified_time: '2026-03-26T10:00:00.000+01:00'
+last_modified_at: '2026-03-26'
 ---
 
 Frissítve: 2026. március 26.

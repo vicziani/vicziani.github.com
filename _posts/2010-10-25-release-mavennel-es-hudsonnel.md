@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Release Mavennel és Hudsonnel
-date: '2010-10-25T00:39:00.006+02:00'
+date: '2010-10-25'
 author: István Viczián
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: Maven 2.2.1, Maven Release Plugin 2.1 , Hudson 1.381,

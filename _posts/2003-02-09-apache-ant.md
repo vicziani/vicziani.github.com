@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Apache Ant
-date: 2003-02-09T08:00:00.000+01:00
+date: 2003-02-09
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Furcsa, hogy többször említettem már az Ant-ot, de még

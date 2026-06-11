@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Karakterkódolás változtatása
-date: '2011-02-07T09:58:00.000-08:00'
+date: '2011-02-07'
 author: István Viczián
 tags:
 - Linux
 - i18n
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Adott egy régi projekt, CP1250 karakterkódolású fájlokkal, Windows

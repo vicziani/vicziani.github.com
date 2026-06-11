@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Learn webservices
-date: '2019-01-22T10:23:00.007+01:00'
+date: '2019-01-22'
 author: István Viczián
 tags:
 -

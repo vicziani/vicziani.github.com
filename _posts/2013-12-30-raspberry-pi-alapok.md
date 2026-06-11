@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Raspberry PI alapok
-date: '2013-12-30T14:25:00.001-08:00'
+date: '2013-12-30'
 author: István Viczián
 tags:
 - Raspberry PI
-modified_time: '2018-02-17T18:22:03.269+01:00'
+last_modified_at: '2018-02-17'
 ---
 
 ### Mi is ez?

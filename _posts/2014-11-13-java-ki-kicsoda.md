@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Java ki kicsoda
-date: '2014-11-13T23:40:00.000+01:00'
+date: '2014-11-13'
 author: István Viczián
 tags:
 - Community
-modified_time: '2018-06-02T19:55:10.895+01:00'
+last_modified_at: '2018-06-02'
 ---
 
 Ezzel a poszttal azokat az embereket szeretném bemutatni, akiket érdemes

@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Java API for JSON processing
-date: '2012-12-26T01:14:00.000+01:00'
+date: '2012-12-26'
 author: István Viczián
 tags:
 - JSR
 - JSON
 - Java EE
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Úgy tűnik, az Oracle eléggé felpörgeti a Java EE 7 ([JSR

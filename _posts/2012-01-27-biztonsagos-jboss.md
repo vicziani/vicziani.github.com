@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JBoss Application Server biztonságossá tétele
-date: '2012-01-27T14:49:00.000-08:00'
+date: '2012-01-27'
 author: István Viczián
 tags:
 - jboss
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Technológiák: JBoss 5, 6

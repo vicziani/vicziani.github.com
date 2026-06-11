@@ -1,12 +1,12 @@
 ---
 layout: post
 title: JPA persistence.xml entity-k
-date: '2009-08-26T07:08:00.000-07:00'
+date: '2009-08-26'
 author: István Viczián
 tags:
 - jpa
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Amennyiben a webes alkalmazásunk nem a WAR, hanem egy, a lib-ben lévő

@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Glassfish távoli szerveren
-date: '2009-09-15T01:34:00.005+02:00'
+date: '2009-09-15'
 author: István Viczián
 tags:
 - Oktatás
 - Java EE
 - NetBeans
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Szintén egy oktatás alkalmával szerettem volna demonstrálni a Java

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Struts Validator validwhen
-date: '2009-09-14T13:10:00.000-07:00'
+date: '2009-09-14'
 author: István Viczián
 tags:
 - struts
 - java
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 A Struts Validator használatát [ezen

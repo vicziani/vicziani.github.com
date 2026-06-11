@@ -1,11 +1,12 @@
 ---
 layout: post
 title: JAXB trükkök
-date: '2009-07-03T01:09:00.004+02:00'
+date: '2009-07-03'
 author: István Viczián
 tags:
 - JAXB
 - Java SE
+last_modified_at: '2017-11-18'
 ---
 Frissítve: 2017. november 18.
 

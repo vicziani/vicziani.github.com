@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Java és az XML
-date: '2014-01-20T00:23:00.000+01:00'
+date: '2014-01-20'
 author: István Viczián
 tags:
 - xml
 - Tesztelés
-modified_time: '2019-07-27T10:00:00.000+02:00'
+last_modified_at: '2019-07-27'
 ---
 
 Frissítve: 2019. július 27.

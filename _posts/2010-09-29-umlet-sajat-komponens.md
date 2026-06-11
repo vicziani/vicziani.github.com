@@ -1,10 +1,11 @@
 ---
 layout: post
 title: UMLet saját komponens
-date: '2010-09-29T02:01:00.007+02:00'
+date: '2010-09-29'
 author: István Viczián
 tags:
 - UML
+last_modified_at: '2017-03-24'
 ---
 
 Frissítve: 2017. március 24.

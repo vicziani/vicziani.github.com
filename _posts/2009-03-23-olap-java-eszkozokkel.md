@@ -1,12 +1,12 @@
 ---
 layout: post
 title: OLAP Java eszközökkel
-date: '2009-03-23T03:38:00.009+01:00'
+date: '2009-03-23'
 author: István Viczián
 tags:
 - BI
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 2009\. március 18-án tartottuk a 9. [JUM](http://jum.hu/?q=node/15)

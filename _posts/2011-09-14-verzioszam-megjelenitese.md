@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Verziószám megjelenítése az alkalmazásban
-date: '2011-09-14T00:52:00.001+02:00'
+date: '2011-09-14'
 author: István Viczián
 tags:
 - Maven
-modified_time: '2011-09-14T00:54:43.384+02:00'
+last_modified_at: '2017-09-26'
 blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-6632348504802797991
 blogger_orig_url: http://www.jtechlog.hu/2011/09/verzioszam-megjelenitese-az.html
 ---

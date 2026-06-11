@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Első Sun ONE Cafe
-date: 2003-09-04T08:00:00.000+01:00
+date: 2003-09-04
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Kaptam egy meghívót az első Sun ONE Cafe-ra, mely 2003 szeptember 23-án

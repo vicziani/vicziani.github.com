@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Webszolgáltatások integrációs tesztelése SoapUI és JUnit használatával
-date: '2012-08-14T23:52:00.000+02:00'
+date: '2012-08-14'
 author: István Viczián
 tags:
 - open source
 - SOA
 - JAX-WS
 - Maven
-modified_time: '2020-08-04T10:00:00.000+02:00'
+last_modified_at: '2020-08-04'
 ---
 
 Frissítve: 2020. augusztus 04.

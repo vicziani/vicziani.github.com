@@ -1,7 +1,7 @@
 ---
 layout: post
 title: DLNA, az otthoni médiahálózat alapja
-date: '2022-01-05T10:00:00.000+01:00'
+date: '2022-01-05'
 author: István Viczián
 description: Így működik a DLNA, így vesz részt egy otthoni médiahálózat kialakításában, és egy kis Python, Docker.
 ---

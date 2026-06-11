@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Oracle Certified Expert, Java EE 6 Web Services Developer
-date: '2012-12-22T17:31:00.000+01:00'
+date: '2012-12-22'
 author: István Viczián
 tags:
 - SOA
@@ -9,7 +9,7 @@ tags:
 - vizsga
 - JAX-RS
 - könyv
-modified_time: '2012-12-23T22:08:45.713+01:00'
+last_modified_at: '2012-12-23'
 ---
 
 ​2012. december 12-én tettem le az 

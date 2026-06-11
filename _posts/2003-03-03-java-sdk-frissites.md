@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Java SDK frissítés
-date: 2003-03-03T08:00:00.000+01:00
+date: 2003-03-03
 author: Viczián István
 tags:
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Kijött a Java 2 SDK SE Version 1.4.1\_02 Windows, Linux és Solaris

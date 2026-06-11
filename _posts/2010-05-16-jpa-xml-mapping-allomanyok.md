@@ -1,11 +1,11 @@
 ---
 layout: post
 title: JPA XML mapping állományok
-date: '2010-05-16T23:20:00.004+02:00'
+date: '2010-05-16'
 author: István Viczián
 tags:
 - JPA
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Adott egy web alkalmazás, mely perzisztenciához Hibernate JPA provider-t

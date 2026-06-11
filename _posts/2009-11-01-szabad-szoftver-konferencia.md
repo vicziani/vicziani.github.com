@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Szabad Szoftver Konferencia
-date: '2009-11-01T19:34:00.004+01:00'
+date: '2009-11-01'
 author: István Viczián
 tags:
 - open source
 - infrastruktúra
 - Community
-modified_time: '2018-06-09T10:00:00.000-08:00'
+
 ---
 
 Ma volt a Free Software Foundation Hungary Alapítvány által szervezett
