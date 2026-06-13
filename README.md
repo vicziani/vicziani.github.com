@@ -46,3 +46,8 @@ paranccsal:
 
 Majd a fenti módon html taggel szúrandó be, mert akkor a böngésző nem visz át
 a nagyobb képre, hanem a GLightbox nyitja meg.
+
+### Sortörés kötőjelnél
+
+Ha nem akarjuk, hogy megtörje a sort egy kötőjelnél, akkor a CSS `nowrap` értéket használjuk,
+pl. ``<span style="white-space: nowrap;">`Premain-Class`</span>``
