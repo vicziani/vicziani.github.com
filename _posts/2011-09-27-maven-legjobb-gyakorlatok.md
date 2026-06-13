@@ -10,8 +10,6 @@ last_modified_at: '2021-12-20'
 
 Technológiák: Maven 3.0.3
 
-Frissítve: 2021. december 20.
-
 Mavennel foglalkozó sorozatom részét azzal zárnám, hogy milyen legjobb
 gyakorlatokat érdemes betartani. Lehet, hogy bizonyos dolgokat ismételni
 fogok a [Maven kezdőlépések](/2010/04/28/maven-kezdolepesek.html)

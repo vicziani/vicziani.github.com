@@ -13,8 +13,6 @@ last_modified_at: '2015-02-04'
 
 Technológiák: WildFly 8.2.0.Final (korábban JBoss), Maven 3.2.1, Java EE 7, EJB 3.1, JNDI
 
-Frissítve: 2015. február 4.
-
 Megjegyzés: ugyanezt leírtam Glassfish-sel is egy későbbi
 [posztban](/2011/04/17/konfiguracios-parameterek-Glassfish.html).
 

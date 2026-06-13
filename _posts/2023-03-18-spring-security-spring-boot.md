@@ -7,8 +7,6 @@ description: Spring Security és Spring Boot
 last_modified_at: '2023-11-15'
 ---
 
-Frissítve: 2023. november 15.
-
 Technológiák: Spring Security 6.1, Spring Boot 3.1, Thymeleaf, Spring Data JPA, H2
 
 (Azért írtam meg ezt a posztot, mert sokan kerestek a Spring Security-re,

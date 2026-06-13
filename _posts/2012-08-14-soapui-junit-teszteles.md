@@ -11,8 +11,6 @@ tags:
 last_modified_at: '2020-08-04'
 ---
 
-Frissítve: 2020. augusztus 04.
-
 Használt technológiák: JAX-WS 2.3.2, JUnit 5.5.1, SoapUI 5.6.0, Maven 
 
 Már többször említettem a SoapUI-t, mely az egyik legelterjedtebb eszköz

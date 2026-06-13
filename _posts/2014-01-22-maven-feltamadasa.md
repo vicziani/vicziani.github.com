@@ -8,9 +8,6 @@ tags:
 
 ---
 
-Frissítve: Egy [blog
-poszt](http://takari.io/2014/02/03/maven-speed.html) is megjelent azóta.
-
 A mai napon Jason van Zyl, a Maven alkotója egy prezentációt tartott
 arról, hogy milyen tervei vannak a jövővel kapcsolatban, ezt szeretném
 összefoglalni ebben a posztban.
@@ -142,3 +139,6 @@ szükségtelen funkciók kerültek bele, hanem felismerték a valós
 igényeket, a valós használati eseteket, elismerték a Maven hibáit
 (SNAPSHOT-kezelés), és nem féltek hozzányúlni az alapjaihoz, hogy
 kijavítsák.
+
+Erről egy [blog
+poszt](http://takari.io/2014/02/03/maven-speed.html) is megjelent.

@@ -5,10 +5,8 @@ date: '2008-12-02'
 author: István Viczián
 tags:
 - PKI
-
+last_modified_at: '2013-12-23'
 ---
-
-Frissítve: 2013. december 23.
 
 Több projekt kapcsán is előjött az elektronikus aláírás témakör, hogyan
 kell minősített aláírást készíteni. Több dokumentum szól arról, hogy mi

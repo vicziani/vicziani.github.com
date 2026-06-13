@@ -13,8 +13,6 @@ last_modified_at: '2019-03-10'
 description: Egy részletes poszt a Spring Security-ról.
 ---
 
-Frissítve: 2019. március 3.
-
 Technológiák: Spring Framework 5.1.5, Spring Security 5.1.4, JPA, H2, Thymeleaf,
 Maven, Jetty
 

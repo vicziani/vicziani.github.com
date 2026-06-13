@@ -9,8 +9,6 @@ description: Mi az az OAuth 2.0, és hogyan használjuk vállalati környezetben
 
 Használt technológiák: Spring Boot 3, Spring Security 6, Keycloak 16
 
-Frissítve: 2023. december 15.
-
 Bejelentkezés és jogosultságkezelés témakörben az egyik legelterjedt szabvány az OAuth 2.0.
 Vállalati környezetben nem érdemes saját felhasználókezelést 
 implementálni, hiszen erre már létező kész megoldások vannak, ebből az egyik a

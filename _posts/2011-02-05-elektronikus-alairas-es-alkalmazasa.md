@@ -10,8 +10,6 @@ tags:
 last_modified_at: '2026-01-02'
 ---
 
-Frissítve: 2026. január 2.
-
 Technológiák: Java 21, JCA, JCE, keytool
 
 Az aláírás és a titkosítás már jóval a számítógépek megszületése előtt

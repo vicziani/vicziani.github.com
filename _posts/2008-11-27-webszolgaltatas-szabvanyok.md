@@ -8,8 +8,6 @@ tags:
 last_modified_at: '2017-11-18'
 ---
 
-Frissítve: 2017. november 18.
-
 Az előző posztban is említett integrációs projekt során definiálni kell
 a partner rendszerek felé, hogy milyen protokollon és milyen formában
 szeretnénk velük kommunikálni. Az ember hajlamos lenne könnyedén

@@ -10,8 +10,6 @@ last_modified_at: '2024-01-16'
 description: Repository réteg létrehozása Spring Data használatával.
 ---
 
-Frissítve: 2024. január 16.
-
 Használt technológiák: Spring Data 3.2.1
 
 Be kell vallanom, első körben meglehetősen szkeptikus voltam a Spring

@@ -11,8 +11,6 @@ last_modified_at: '2026-06-13'
 description: Egy olyan entitás lekérdezése, melynek több one-to-many kapcsolata van Spring Boot alkalmazáson belül Eclipselinkkel.
 ---
 
-Frissítve: 2026. június 13.
-
 Felhasznált technológiák: Spring Boot 4, Spring Data JPA, EclipseLink 5
 
 Már írtam egy [posztot](/2013/03/17/jpa-tobb-one-to-many-kapcsolat.html), hogy

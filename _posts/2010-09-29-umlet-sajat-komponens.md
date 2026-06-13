@@ -8,8 +8,6 @@ tags:
 last_modified_at: '2017-03-24'
 ---
 
-Frissítve: 2017. március 24.
-
 Felhasznált technológiák: UMLet 14.2
 
 Már egy előző posztban ([UML

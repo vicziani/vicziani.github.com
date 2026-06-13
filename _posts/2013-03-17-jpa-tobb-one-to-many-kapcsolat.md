@@ -13,8 +13,6 @@ description: Egy olyan entitás lekérdezése, melynek több one-to-many kapcsol
 
 Felhasznált technológiák: Spring Boot 3.2, Spring Data JPA
 
-Frissítve: 2024. március 1.
-
 Már írtam egy [posztot](/2012/04/22/jpa-lazy-loading.html) a JPA
 teljesítményhangolásával, valamint a lazy loadinggal kapcsolatban. Ott
 egy entitáshoz egy másik kapcsolódott, one-to-many kapcsolattal. Ott

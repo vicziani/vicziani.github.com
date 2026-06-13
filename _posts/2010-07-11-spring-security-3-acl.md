@@ -13,8 +13,6 @@ tags:
 last_modified_at: '2023-07-15'
 ---
 
-Frissítve: 2023. július 15.
-
 Felhasznált technológiák: Spring Boot 3, Spring Security 6
 
 ## Bevezetés

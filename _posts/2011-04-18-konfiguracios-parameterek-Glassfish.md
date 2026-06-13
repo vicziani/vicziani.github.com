@@ -12,8 +12,6 @@ tags:
 last_modified_at: '2015-02-03'
 ---
 
-Frissítve: 2015. február 3.
-
 Technológiák: Glassfish 4.1, Maven 3.2.1, Java EE 7, EJB 3.1, JNDI
 
 A [Konfigurációs paraméterek EJB és web rétegben WildFly

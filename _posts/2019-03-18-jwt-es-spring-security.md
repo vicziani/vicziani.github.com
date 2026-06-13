@@ -7,8 +7,6 @@ author: István Viczián
 description: Ez a poszt leírja, mi a JWT és hogyan használjuk Spring Security-vel.
 ---
 
-Frissítve: 2023. július 16.
-
 Technológiák: Spring Boot 3, Spring Security 6, Java JWT
 
 Manapság a felhő alapú alkalmazások elterjedésével egyre fontosabb, hogy

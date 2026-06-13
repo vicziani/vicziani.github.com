@@ -11,8 +11,6 @@ last_modified_at: '2025-01-10'
 description: Egy tranzakcióban egy adatbázis beszúrás és egy JMS üzenetküldés.
 ---
 
-Frissítve: 2025. január 10-én
-
 A tranzakciókezelésről már többször írtam. Egy bevezető
 elérhető a [Tranzakciókezelés EJB 3 és Spring környezetben](/2010/05/31/tranzakciokezeles.html)
 címen is, melyet most frissítettem.

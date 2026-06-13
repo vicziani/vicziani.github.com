@@ -9,6 +9,9 @@ layout: default
 
 			<p class="blog-post-meta">
 				{% assign date = page.date %} {% include date.html %}
+				{% if page.last_modified_at != nil %}
+					<span class="updated-badge"> (Frissítve: {% assign date = page.last_modified_at %} {% include date.html %})</span>
+				{% endif %}
 			</p>
 		</header>
 

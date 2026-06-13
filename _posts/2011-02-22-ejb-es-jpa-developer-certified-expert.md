@@ -13,9 +13,6 @@ blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-79689614816381039
 blogger_orig_url: http://www.jtechlog.hu/2011/02/ejb-es-jpa-developer-certified-expert.html
 ---
 
-Frissítve: 2011. április 28., ma jöttek meg a bizonyítványok, egy
-kártya és egy levél társaságában.
-
 ​2010. szeptember 2-án és 3-án tettem le a 
 [Java Platform, Enterprise Edition 6 Enterprise JavaBeans Developer](http://education.oracle.com/pls/web_prod-plq-dad/db_pages.getpage?page_id=41&p_org_id=1001⟨=US&p_exam_id=1Z0_895),
 régi nevén Sun Certified EJB Developer for the Java EE6 Platform
@@ -111,3 +108,6 @@ oldalon.
 [segédlet](/artifacts/certs/oce-ejb_oca-jpa.md), 
 mely pár érdekességet tartalmaz, melyekre a vizsgára való készülés közben 
 bukkantam, vagy a vizsga közben tapasztaltam.
+
+2011. április 28-án jöttek meg a bizonyítványok, egy
+kártya és egy levél társaságában.

@@ -7,8 +7,6 @@ description: Hogyan integráljuk Spring Boot projektünkbe a JSF-et.
 last_modified_at: '2023-12-14'
 ---
 
-Frissítve: 2023. december 14.
-
 Tudom, a mai HTML/CSS/JavaScript világban a JSF, mint felületi technológia nem
 túl csábító, azonban bizonyos helyzetekben jó választásnak tűnhet. A JSF a
 Java EE szabvány része, minden alkalmazásszerver beépítetten támogatja.

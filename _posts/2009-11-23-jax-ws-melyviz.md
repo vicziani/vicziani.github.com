@@ -11,8 +11,6 @@ tags:
 last_modified_at: '2017-11-18'
 ---
 
-Frissítve: 2017. november 18.
-
 JAX-WS mélyvíz címmel tartottam előadást a [JUM XII.
 alkalmán](http://wiki.javaforum.hu/display/JAVAFORUM/JUM0911), mely a
 ustream.tv-nek köszönhetően [utólag is

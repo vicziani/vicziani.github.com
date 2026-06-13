@@ -9,8 +9,6 @@ tags:
 last_modified_at: '2019-07-27'
 ---
 
-Frissítve: 2019. július 27.
-
 Felhasznált technológiák: Java 12, JUnit 5, XmlUnit 2, Maven 3
 
 Van pár régebbi anyagom, melyet szeretnék publikálni, mielőtt új témákba

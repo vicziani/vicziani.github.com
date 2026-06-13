@@ -7,8 +7,6 @@ tags:
 last_modified_at: '2021-12-20'
 ---
 
-Frissítve: 2021. december 20.
-
 ### Bevezetés
 
 Ebben a posztban egy rövid bevezetőt találsz a Mavennel kapcsolatban.

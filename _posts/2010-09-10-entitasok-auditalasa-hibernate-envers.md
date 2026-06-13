@@ -7,8 +7,6 @@ tags:
 last_modified_at: '2018-02-08'
 ---
 
-Frissítve: 2014. január 4.
-
 Felhasznált technológiák: Hibernate 4.3.0, HSQLDB 2.3.1, SLF4J 1.7.5,
 JUnit 4.11, Apache Commons DbUtils 1.5, Maven 3.0.3
 

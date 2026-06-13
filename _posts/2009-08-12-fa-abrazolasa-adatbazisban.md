@@ -9,8 +9,6 @@ tags:
 last_modified_at: '2026-03-26'
 ---
 
-Frissítve: 2026. március 26.
-
 Gyakran megesik, hogy adott egy probléma, melyet már megoldottam az
 általam használt eszközökkel, de egy kicsit jobban körülnézve olyan
 alternatív megoldásokat találok, melyekről nem is hallottam, sőt a

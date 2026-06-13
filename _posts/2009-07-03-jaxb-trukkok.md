@@ -8,8 +8,6 @@ tags:
 - Java SE
 last_modified_at: '2017-11-18'
 ---
-Frissítve: 2017. november 18.
-
 Felhasznált technológiák: JAXB
 
 A poszthoz tartozó példaprogram elérhető a

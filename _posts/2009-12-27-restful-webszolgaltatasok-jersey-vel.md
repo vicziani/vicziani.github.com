@@ -9,8 +9,6 @@ tags:
 last_modified_at: '2017-11-18'
 ---
 
-Frissítve: 2017. november 18.
-
 Felhasznált technológiák: Java 7, Jersey 2.5.1, JQuery 1.8.3, Jackson
 1.9.13, JUnit 4.11, Maven 3.0.3, Jetty 9.1.0
 
