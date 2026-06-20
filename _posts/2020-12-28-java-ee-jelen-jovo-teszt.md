@@ -234,8 +234,8 @@ is, azonban az saját csomagban lévő `@Transactional` annotációt használt.
 Valamint sok példában láttam, hogy az `EntityManager`-t `@Inject`
 annotációval injektálja. Ezt nem szerettem volna, mindenütt hagyományosan a `@PersistenceContext`
 annotációval injektáljuk, szóval én is egy olyan példát szerettem volna, ami ezzel
-működik. Szerencsére a [Weld JUnit 5 Extensions](https://github.com/weld/weld-junit/tree/master/junit5)
-ezt is támogatja a [Mock injection services](https://github.com/weld/weld-junit/tree/master/junit5#mock-injection-services)
+működik. Szerencsére a [Weld JUnit 5 Extensions](https://github.com/weld/weld-testing/tree/main/junit-jupiter)
+ezt is támogatja a [Mock injection services](https://github.com/weld/weld-testing/tree/main/junit-jupiter#mock-injection-services)
 használatával.
 
 {% include github-callout.html url="https://github.com/vicziani/javaee-testing" %}

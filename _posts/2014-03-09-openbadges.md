@@ -56,14 +56,14 @@ van egy [online validator](http://validator.openbadges.org/) is. Az
 assertionben meg kell adni egy még üres png állományt. Ezt a képet kell
 összepárosítani az assertionnel mely kettő együtt a jelvény. Ezt a
 Mozilla
-[bakeringnek](https://github.com/mozilla/openbadges/wiki/Badge-Baking)
+[bakeringnek](https://github.com/mozilla/openbadges-backpack/wiki/Badge-Baking)
 nevezi. Ekkor a png-be belekerül vagy az assertion url-je, vagy a teljes
 JSON tartalom. Ezt megteheti a kiállító rendszere (több programozási
 nyelven is elérhető hozzá API), de megteheti a Mozilla infrastruktúrája
 is (REST API hívással). Ez úgy lehetséges, hogy a png egy nagyon szabad
 formátum, bármit bele lehet kódolni. Amennyiben azonban kiállító egy
 JavaScript állományt is elhelyez a lapján (un. [Issuer
-API](https://github.com/mozilla/openbadges/blob/development/docs/apis/issuer_api.md)),
+API](https://github.com/mozilla/openbadges-backpack/blob/master/docs/apis/issuer_api.md)),
 ez képes a böngészőt átirányítani a Mozilla Backpack oldalára, ahová már
 felkerül a jelvény, és itt megtörténik a bakering is. Amennyiben ezt nem
 teszi meg, a felhasználó kézzel is feltöltheti a png állományt. A png

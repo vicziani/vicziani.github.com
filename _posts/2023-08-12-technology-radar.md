@@ -61,10 +61,8 @@ Több cég is készített magának ilyen radart:
 * [Zalando Tech Radar](https://opensource.zalando.com/tech-radar/)
 * [AOE Technology Radar](https://www.aoe.com/techradar/index.html)
 * [SumUp Tech Radar](https://medium.com/inside-sumup/tech-at-sumup-its-on-our-radar-fab975ac3d17)
-* [Zup Tech Radar](https://opensource.zup.com.br/radar/radar/)
 * [Preply Tech Radar](https://tech-radar.preply.com/)
 * [Avito Backend Tech Radar](https://techradar.avito.ru/backend)
-* [Software AG Technology Radar](https://techradar.softwareag.com/)
 * [ClearScore Tech Radar 2021](https://medium.com/clearscore/clearscore-tech-radar-2021-549f2f62c95b)
 
 Sőt már kész eszközök is vannak arra, hogy saját radart készítsünk. Például:

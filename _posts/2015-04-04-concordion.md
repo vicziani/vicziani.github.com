@@ -77,7 +77,7 @@ formázott természetes nyelvi szöveg.
 
 Talán a legegyszerűbb, ha egy példán mutatom be, ráadásul egy elképzelt agilis team munkájába illesztve. 
 Egy Activiti workflow motort bemutató projektet egészítettem ki Concordion tesztekkel. A róla szóló
-[poszt megtalálható itt](/2014/07/25/pehelysulyu-workflow-activitivel.html).
+[poszt megtalálható itt](/2014/07/26/pehelysulyu-workflow-activitivel.html).
 
 {% include github-callout.html url="https://github.com/vicziani/jtechlog-activiti" %}
 

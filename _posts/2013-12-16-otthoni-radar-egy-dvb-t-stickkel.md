@@ -24,7 +24,7 @@ már csak hab a tortán, hogy ezeket utána más felhasználóknak, vagy akár
 webes szolgáltatások felé is továbbíthatjuk.
 
 Természetesen én is azonnal rendeltem egy ilyen eszközt az
-[EBay-ről](http://www.ebay.com/itm/New-FM-DAB-USB-DVB-T-RTL2832U-R820T-with-MCX-connector-antenna-hot-sell-90x28x15-/150931597346?pt=US_Video_Capture_TV_Tuner_Cards&hash=item2324396822).
+EBay-ről.
 Két hét alatt meg is érkezett, melyen semmi gyártójelzés nem látható. A
 lényeg, hogy olyan eszközt rendeljük, melyben a RTL2832U és a R820T chip
 van.

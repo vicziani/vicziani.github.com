@@ -188,7 +188,7 @@ osztályai is (`javax.` csomagneveket kell `jakarta.` csomagnévre cserélni).
 ## Tracing
 
 A distributed tracingről már írtam [egy előző posztban](/2021/10/04/mdc-trace.html).
-Spring Boot esetén erre a [Spring Cloud Sleuth projektet](https://spring.io/projects/spring-cloud-sleuth)
+Spring Boot esetén erre a [Spring Cloud Sleuth projektet](https://github.com/spring-attic/spring-cloud-sleuth)
 kellett használni. Ennek azonban leállt a fejlesztése, és nagyrésze átkerült a
 Micrometer Tracing projektbe. Ezért a Spring Cloud Sleuth eszközre már nem érdemes építeni.
 
@@ -208,7 +208,7 @@ A tracer és exporter/reporter implementációk különböző kombinációi hasz
 * Brave tracer Zipkin vagy Wavefront felé kommunikáló tracerrel
 * OpenTelemetry tracer Zipkin, Wavefront vagy bármilyen OTLP (OpenTelemetry Protocol) protokollt támogató eszköz felé kommunikáló tracerrel
 
-Sőt megjelent a [Micrometer Observation](https://micrometer.io/docs/observation) is. Itt az ötlet az,
+Sőt megjelent a [Micrometer Observation](https://docs.micrometer.io/micrometer/reference/observation.html) is. Itt az ötlet az,
 hogy instrumentáljuk a kódot, és az így nyert adatok megjelenthetnek a metrikák, trace-ek és logok
 között is.
 

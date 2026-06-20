@@ -11,7 +11,7 @@ last_modified_at: '2025-01-10'
 
 Technológiák: Python 3, venv, pip, make, pytest, coverage, pytest-cov, pylint, SonarQube, Jenkins
 
-Amint az már egy [korábbi posztból](/2011/06/13/masodik-nyelv-python.html) kiderülhetett,
+Amint az már egy [korábbi posztból](/2011/06/14/masodik-nyelv-python.html) kiderülhetett,
 a Java mellett a Python az egyik kedvenc programozási nyelvem, ráadásul mostanában
 sok inspirációt és motivációt kapok, hogy foglalkozzam vele, egészen a nyelvi alapoktól
 (például az objektumorientáltság is) egy teljes projekt felépítéséig.
@@ -292,7 +292,7 @@ Látható, hogy meg van adva az üzenetformátum, melyet a SonarQube fel fog tud
 eredmény fájlt szintén felvettem a `.gitignore` fájlba.
 
 Mivel előállt a kódminőség ellenőrzést tartalmazó `pylint-report.txt` állomány, valamint a kódlefedettséget tartalmazó
-`coverage.xml`, már csak a SonarQube-ba kell betölteni. Ehhez a [SonarQube Scannert](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
+`coverage.xml`, már csak a SonarQube-ba kell betölteni. Ehhez a [SonarScanner CLI](https://docs.sonarsource.com/sonarqube-server/analyzing-source-code/scanners/sonarscanner)
 kell használnunk, melyet csak ki kell csomagolnunk, majd meghívnunk. A konfigurációs állománya magáért beszél:
 
 ```
@@ -312,7 +312,7 @@ sonar: install
         /opt/sonar-scanner-3.2.0.1227/bin/sonar-scanner
 ```
 
-A futtatás előtt azonban a SonarQube-on is konfigurálni kell. Először fel kell telepíteni a [SonarPython](https://docs.sonarqube.org/display/PLUG/SonarPython) plugint, majd a SonarQube-ot újraindítani. A másik, melyet nehezen találtam, hogy a Pylint szabályokat is be kell kapcsolni az adott Quality Profile-ba. Ehhez rá kell keresni a szabályokra (`pylint` szót tartalmazza), majd tömegesen bekapcsolni őket.
+A Pylint szabályokat is be kell kapcsolni az adott Quality Profile-ba. Ehhez rá kell keresni a szabályokra (`pylint` szót tartalmazza), majd tömegesen bekapcsolni őket.
 
 Így kiadva a `make sonar` parancsot, a kódminőség és tesztlefedettség adatok meg fognak jelenni a SonarQube felületén.
 

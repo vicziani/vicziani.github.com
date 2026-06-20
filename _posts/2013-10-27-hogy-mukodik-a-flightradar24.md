@@ -11,7 +11,7 @@ tags:
 last_modified_at: '2018-02-17'
 ---
 
-A [Flightradar24](http://www.flightradar24.com) egy érdekes
+A [Flightradar24](https://www.flightradar24.com/) egy érdekes
 szolgáltatás, mely valós időben jeleníti meg a Google Mapsen a legtöbb
 repülőgép helyzetét, és számos információt, mint típus, lajstromjel,
 járatszám, magasság, sebesség, stb. Egyrészt elérhető weben is, de az
@@ -116,7 +116,7 @@ Hogyan helyezte el a Flightradar24 a földi vevőket, hogy ilyen nagy
 lefedettséget tudott elérni? Úgy, hogy bárki rendelhet ilyen egységet.
 Abban az esetben, ha olyan helyen vagy, ahol alacsony a lefedettség,
 [ingyen kaphatsz
-ilyent](http://www.flightradar24.com/free-ads-b-equipment). A szerkezet
+ilyent](https://www.flightradar24.com/apply-for-receiver). A szerkezet
 valójában egy kis számítógép, egy GPS modullal, és egy Mode-S Beast
 ADS-B vevővel és dekóderrel, ezen kívül jár hozzá egy GPS és ADS-B
 antenna, és a megfelelő kábelek. A tetőre kell szerelni az antennát,
@@ -134,7 +134,7 @@ dekóder ([Mode-S Beast](http://www.modesbeast.com/)) külön is
 megvásárolható, ami egy professzionális eszköz, ennek megfelelően kb.
 százezer forintért juthatunk hozzá. Azonban van egy olcsóbb megoldás is.
 Az [EBay-ről
-rendelve](http://www.ebay.com/sch/i.html?_trksid=p2050601.m570.l1313.TR0.TRC0&_nkw=RTL2832U%2FR820T&_sacat=0&_from=R40)
+rendelve](https://www.ebay.com/sch/i.html?_trksid=p2050601.m570.l1313.TR0.TRC0&_nkw=RTL2832U%2FR820T&_sacat=0&_from=R40)
 kb. 2000-3000 forintért juthatunk hozzá DVB-T usb stickekhez, melyek az
 alább leírt módon szintén alkalmasak ADS-B jelek vételére.
 
@@ -148,13 +148,13 @@ is a R820T chippel szerelt számunkra a megfelelő, hiszen érzékenyebb,
 mint a E4000. A [Rafael Micro
 R820T](http://superkuh.com/gnuradio/R820T_datasheet-Non_R-20111130_unlocked.pdf)
 egy tuner chip, míg a
-[R820T](http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=35&Level=4&Conn=3&ProdID=257)
+[RTL2832U](https://www.realtek.com/Product/Index?id=615)
 egy demodulátor chip, mely USB interfésszel, ADC-vel (Analog-to-Digital
 Converter) és infravörös távirányító porttal is rendelkezik.
 
 Használatához először fel kell telepíteni egy USB drivert, majd egy
 dekódert. Ez képes adatokkal táplálni a
-[Flightradar24](http://www.flightradar24.com/software) szoftverét. Ezen
+[Flightradar24](https://www.flightradar24.com/share-your-data) szoftverét. Ezen
 kívül asztali alkalmazások is tudják ezen adatokat felhasználni, és
 virtuális radarként működni. Ilyen pl. a
 [PlanePlotter](http://www.coaa.co.uk/planeplotter.htm) alkalmazás is.

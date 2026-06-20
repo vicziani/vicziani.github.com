@@ -120,10 +120,7 @@ algoritmus RSA.
 
 Az időbélyegzés kicsit trükkösebb. Ugyanis időbélyegezni az aláírást
 kell. Tehát csak aláírás után lehetséges, ezért egy lépéssel később
-történik. (Mint arra a [Bouncy Castle levelezési
-listán](http://bouncy-castle.1462172.n4.nabble.com/Insert-Time-stamp-into-CMS-Signed-Data-td1464065.html)
-rámutatnak. Amúgy nagyon készségesek, kérdésemre is nagyon hamar
-válaszoltak.) Az aláírást kell hash-elni, majd elküldeni az időbélyegző
+történik. Az aláírást kell hash-elni, majd elküldeni az időbélyegző
 szolgáltatónak az RFC 3161 szabvány szerint. Ezt a Bouncy Castle tsp
 csomagja implementálja. Kód a
 [TimeStampClient](https://github.com/vicziani/jtechlog-signpdf/blob/master/jtechlog-signpdf-pdfbox/src/main/java/jtechlog/signpdf/TimeStampClient.java)

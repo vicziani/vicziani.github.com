@@ -82,7 +82,7 @@ hívójelet küldi. Azonban a hozzá tartozó lajstromjelet, típuskódot és
 járatszámot a különböző programok és online szolgáltatások adatbázisból
 olvassák be.
 
-Ezek az adatok a [Flightradar24](http://flightradar24) oldalán is
+Ezek az adatok a [Flightradar24](https://www.flightradar24.com/) oldalán is
 megtalálhatóak.
 
 ![Flightradar24](/artifacts/posts/2013-11-29-repulogepek-azonositasa/jelmagyarazat.png)

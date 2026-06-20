@@ -139,7 +139,7 @@ valamint a skálázódás is transzparenst legyen.
 
 A fájlrendszer nem tekinthető megfelelő háttérszolgáltatásnak, ahogy a Java EE sem engedélyezi a használatát. Nem skálázható
 megfelelően, nem tranzakcionális, stb. Természetesen ennek is vannak megfelelő alternatívái, indulhatunk pl.
-a [Swifttől](https://www.swiftstack.com/product/openstack-swift).
+a [Swifttől](https://docs.openstack.org/swift/latest/).
 
 Előny, ha a háttérszolgáltatás akár beágyazható, message queue-k esetén például az [ActiveMQ](http://activemq.apache.org/)
 remekül beágyazható Java alkalmazásokba, vagy az elosztott cache-ként ismert [Hazelcast](https://hazelcast.com/) is. A tesztelést is
@@ -189,7 +189,7 @@ Spring Boot esetén a beágyazott Tomcat standard módon konfigurálható, a `se
 
 Ezek szétválasztásával a skálázhatóságot tudjuk növelni, hiszen bizonyos folyamatokat külön, akár dedikált környezeteken futtathatunk, a megnövekedett terhelésnek megfelelően csak a megfelelő folyamat típusokból indítunk újabb példányokat.
 
-Természetesen ez nem zárja ki, hogy bizonyos folyamatok önmagukon belül folyamatokat, szálakat indítsanak. Java esetén természetesen a beérkező web kérésekhez a Tomcat ugyanúgy a JVM által felügyelt belső szálakat fog indítani. Azonban a fentebb említett más típusú feldolgozásokat nem ugyanezen JVM-en belül külön szálként indítani, hanem külön JVM-ben indítani, és ezen JVM-eket külön-külön felügyelni. Ilyen felügyeleti eszközök pl. az Ubuntu [Upstart](http://upstart.ubuntu.com/) vagy fejlesztéskor a [Foreman](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html).
+Természetesen ez nem zárja ki, hogy bizonyos folyamatok önmagukon belül folyamatokat, szálakat indítsanak. Java esetén természetesen a beérkező web kérésekhez a Tomcat ugyanúgy a JVM által felügyelt belső szálakat fog indítani. Azonban a fentebb említett más típusú feldolgozásokat nem ugyanezen JVM-en belül külön szálként indítani, hanem külön JVM-ben indítani, és ezen JVM-eket külön-külön felügyelni. Ilyen felügyeleti eszköz pl. fejlesztéskor a [Foreman](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html).
 
 ## Disposability
 

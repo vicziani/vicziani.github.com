@@ -8,7 +8,7 @@ description: Egyre többször hangzik el a kérdés, hogy érdemes-e egyetemre m
 
 Ez a poszt, a címéből is következik, egy könnyedebb témával foglalkozik. Manapság különböző fórumokon jön elő a kérdés, hogy érdemes-e egyetemre mennie annak, aki programozó szeretne lenni. Most itt próbálom részletesen összefoglalni, hogy később tudjak hivatkozni rá.
 
-Hasonló cikkeim a [Miért ne fejlesszünk saját keretrendszert?](/2011/05/11/ne-fejlesszunk-sajat-keretrendszert.html), [Ki is az a Java architect?](/2012/01/15/ki-is-az-java-architect.html) vagy a [Java források tanuláshoz](/2009/09/30/java-forrasok-tanulashoz.html).
+Hasonló cikkeim a [Miért ne fejlesszünk saját keretrendszert?](/2011/05/11/ne-fejlesszunk-sajat-keretrendszert.html), [Ki is az a Java architect?](/2012/01/16/ki-is-az-java-architect.html) vagy a [Java források tanuláshoz](/2009/10/01/java-forrasok-tanulashoz.html).
 
 Következő posztomban a manapság egyre jobban terjedő fejlesztőképzésről fogok írni.
 

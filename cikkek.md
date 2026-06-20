@@ -36,8 +36,8 @@ magasabb áteresztőképességét, és a GC futása miatti leállás minimalizá
 
 ## Spring Framework 4.0 és 4.1 verzióinak újdonságai
 
-Az előadás 2014. október 2-án hangzott el a [HOUG Szakmai
-napon](http://houg.hu/pls/apex/f?p=201:houg_szakmai_nap_2014:0).
+Az előadás 2014. október 2-án hangzott el a HOUG Szakmai
+napon.
 *(2014.)*
 
 [Diák](artifacts/2014-10_spring_4/2014-10_spring_4.html)
@@ -379,7 +379,7 @@ A cikk megjelent a CodeX 6. számában. *(2003. május, 4 oldal, 1297 szó)*
 
 ## OJB
 
-Az [ObJectRelationalBridge](http://db.apache.org/ojb/) (OJB) az Apache
+Az [ObJectRelationalBridge](https://attic.apache.org/projects/ojb.html) (OJB) az Apache
 Software Foundation támogatásával, az The Apache DB project (korábban
 Jakarta) keretein belül fejlesztett alprojekt. Alapvető célja Java
 objektumok leképzése relációs adatbázisokra. tulajdonképpen egy köztes

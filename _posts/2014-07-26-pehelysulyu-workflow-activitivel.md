@@ -64,11 +64,11 @@ magukat, és minden indok nélkül elforkoltak, és megalapították a szintén
 nyílt forráskódú Camunda Process Engine-t, melyet többen [nem néztek jó
 szemmel](http://www.jorambarrez.be/blog/2013/03/18/a-sad-day-for-open-source-camunda-decides-to-fork-activiti/).
 
-Az ezzel kapcsolatos tapasztalataimról a [2012 szeptemberi
-JUM-on](http://wiki.javaforum.hu/display/JAVAFORUM/JUM1209) előadást is
+Az ezzel kapcsolatos tapasztalataimról a 2012 szeptemberi
+JUM-on előadást is
 tartottam, melyről [videó](https://www.youtube.com/watch?v=66FavTUB7AM)
 is készült, és a diái is
-[letölthetőek](http://www.jtechlog.hu/artifacts/2012-09_workflow.pdf).
+[letölthetőek](/artifacts/2012-09_workflow.pdf).
 
 {% include github-callout.html url="https://github.com/vicziani/jtechlog-activiti" %}
 

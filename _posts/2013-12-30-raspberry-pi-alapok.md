@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Raspberry PI alapok
+title: Raspberry Pi alapok
 date: '2013-12-30'
 author: István Viczián
 tags:
-- Raspberry PI
+- Raspberry Pi
 last_modified_at: '2018-02-17'
 ---
 
 ### Mi is ez?
 
-A [Raspberry PI](http://www.raspberrypi.org/) egy oktatási célra
+A [Raspberry Pi](http://www.raspberrypi.org/) egy oktatási célra
 létrehozott bankkártya méretű nagyon olcsó számítógép. A nagyon olcsó
 azt jelenti, hogy a többet tudó B verzió kb. 13 000 Ft itthon (én most
 erről fogok írni).
@@ -34,7 +34,7 @@ dolgokat lehet kötni, mint ledek, nyomógombok, hőmérséklet/légnyomás
 érzékelők, szervómotorok, stb.
 
 <a href="/artifacts/posts/2013-12-30-raspberry-pi-alapok/800px-RaspberryPi.jpg" class="glightbox">
-![Raspberry PI](/artifacts/posts/2013-12-30-raspberry-pi-alapok/800px-RaspberryPi_600.jpg)
+![Raspberry Pi](/artifacts/posts/2013-12-30-raspberry-pi-alapok/800px-RaspberryPi_600.jpg)
 </a>
 
 Többféle Linux disztribúciót is rá lehet tenni, legelterjedtebb a Debian
@@ -46,7 +46,7 @@ Oracle is nagyon nyomja, hogy a Javat portolja rá, jelenleg pl.
 alapértelmezetten része a Raspbian OS-nek is. 2013 novemberében volt
 hír, hogy már kétmillió darabot adtak el belőle. Nekem a nevének eredete
 is újdonság volt, azért lett gyümölcs, mert szerencsét hoz a
-hardvergyártás terén, és a PI a Pythonra utal, mely az első számú
+hardvergyártás terén, és a Pi a Pythonra utal, mely az első számú
 programozási nyelv.
 
 ### Mire akarom használni?
@@ -94,7 +94,7 @@ tapasztalhatunk. Kell egy SD kártya, minimum 4 gigás, állítólag a class
 monitor/tv nekem csak addig kellett, míg be nem állítottam az ssh
 elérést. Mivel nincs közelben Ethernet kábel, vettem egy [Edimax
 EW-7811UN Wireless N 150Mbps USB Nano
-Adaptert](http://www.edimax.com/en/produce_detail.php?pd_id=347&pl1_id=1),
+Adaptert](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/in/wireless_adapters_n150/ew-7811un/),
 mely az eBay-ről 2400 Ft-ból meg volt, könnyen telepíthető (csak egy
 [konfig fájlban kellett három sort
 módosítani](http://pi.rook.hu/raspberry-pi-konfiguracio-a-halozat-2013-06.html)),
@@ -120,11 +120,10 @@ választhattam és beállíthattam az SSH távoli elérést.
 A [Raspberry Pi User
 Guide-ot](http://www.amazon.co.uk/Raspberry-User-Guide-Eben-Upton/dp/111846446X)
 lapoztam végig gyakorlatilag két nap alatt. Mivel az egyik írója a
-Raspberry PI egyik kitalálója, érdekes volt a bevezetést olvasni. Már
+Raspberry Pi egyik kitalálója, érdekes volt a bevezetést olvasni. Már
 ebben is vannak elavult információk, tehát a neten érdemes keresgélni.
-Amúgy ezen kívül is már egy rakat könyv van. Érdekes olvasmány a [The
-MagPI](http://www.themagpi.com/) magazin, mely havonta jelenik meg, és
-érdekes cikkeket közöl a PI világából.
+Amúgy ezen kívül is már egy rakat könyv van. Érdekes olvasmány a [Raspberry Pi Official Magazine](https://magazine.raspberrypi.com/) magazin, mely havonta jelenik meg, és
+érdekes cikkeket közöl a Pi világából.
 
 ### Tippek és trükkök
 

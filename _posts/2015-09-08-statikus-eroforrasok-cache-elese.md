@@ -72,7 +72,7 @@ A következő HTML részlet generálódik:
 <link href="/css/1.0/jtechlog.css" rel="stylesheet" type="text/css" />
 {% endhighlight %}
 
-A verziószámot több helyről is vehetjük, egy pár példát említ egy korábbi, [Verziószám megjelenítése az alkalmazásban](/2011/09/13/verzioszam-megjelenitese.html) című posztom.
+A verziószámot több helyről is vehetjük, egy pár példát említ egy korábbi, [Verziószám megjelenítése az alkalmazásban](/2011/09/14/verzioszam-megjelenitese.html) című posztom.
 
 A böngésző Web Developer tooljában (Firefox esetén), vagy Developer tools (Chrome esetén) azt látjuk, hogy az első kérés `200 OK` státuszkódot ad vissza, míg a másodikat már cache-ből szolgálja ki. Ne zavarjon meg minket, hogy refresh esetén (F5 billentyű) újra lekéri, ekkor már `304 Not Modified` státuszt kapunk. A böngészőt kérhetjük arra, hogy ne használjon cache-t, és mindenképpen kérje le a tartalmat a szerverről, erre Shift+Refresh (Ctrl + F5 billentyűkombináció) megnyomásával utasíthatjuk.
 

@@ -115,7 +115,7 @@ a példát elbonyolítani felhasználói felület implementálásával.
 {% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-oauth2" %}
 
 A Spring berkein belül az OAuth 2.0 támogatás elég megosztott, ugyanis támogatja a 
-[Spring Security OAuth 2.3+](https://spring.io/projects/spring-security-oauth) projekt,
+Spring Security OAuth 2.3+ projekt,
 valamint kisebb részek megtalálhatóak a Spring Cloud Security 1.2+ és a Spring Boot 1.5.x
 projektekben is. Azonban 2018 januárjában [bejelentették](https://spring.io/blog/2018/01/30/next-generation-oauth-2-0-support-with-spring-security), hogy a teljes OAuth 2.0 támogatás
 a Spring Security 5 projekt keretében lesz megvalósítva. Az 5.2-es verzió már 

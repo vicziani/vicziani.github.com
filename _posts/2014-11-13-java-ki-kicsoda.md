@@ -41,7 +41,6 @@ NetBeans Platform API-jának kialakítása közben szerzett tapasztalatokat
 mely használatával Javaban írt alkalmazásokat lehet több mobil
 platformon, vastag kliensként és böngészőben is futtatni.
 
-[Blog](https://www.java.net/blogs/jst)
 [Twitter](https://twitter.com/JaroslavTulach)
 
 ### Geertjan Wielenga
@@ -56,7 +55,7 @@ mint technical writer. Aki NetBeansszel kicsit is komolyan foglalkozik,
 biztos futott már bele cikkébe, tutorialjába, ha máshol nem, akkor a
 helpben.
 
-[Blog](https://blogs.oracle.com/geertjan/)
+[Blog](https://foojay.io/today/author/geertjan-wielenga/)
 [Twitter](https://twitter.com/GeertjanW)
 
 ### Simon Ritter
@@ -111,8 +110,6 @@ Process](https://jcp.org) tagjaként vezetője volt a [JSR 166:
 Concurrency Utilities](https://www.jcp.org/en/jsr/detail?id=166)
 szabványnak, mely a Java 5 egyik legnagyobb újdonsága.
 
-[Homepage](http://g.oswego.edu/)
-
 <div style="clear: both;"></div>
 
 ### Adam Bien
@@ -157,7 +154,7 @@ Több könyvet írt Java EE témában.
 Most
 menjünk el kicsit a keretrendszerek irányába. Ő a Spring Framework
 megalkotója. Ő írta a [Expert One-on-One J2EE Design and
-Development](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764543857.html)
+Development](https://www.amazon.com/Expert-One-One-Design-Development/dp/0764543857)
 könyvet, mely arra fókuszál, hogy milyen hibákat követtünk el a J2EE
 technológia használatakor, és gyakorlati megoldásokat adott, hogyan
 kellett volna ezeket elkerülni. Következő könyvében, [Expert One-on-One
@@ -209,7 +206,7 @@ mely teljesen lecseréli a meglévő Maven core plugineket.
 Független
 fejlesztő, az The Apache Software Foundation tagja, a Log4j, SLF4J és a
 Logback megalkotója, valamint írója a [The complete log4j
-manual](http://www.qos.ch/shop/products/log4jManual) könyvnek.
+manual](https://www.amazon.com/Complete-Log4j-Manual-Ceki-Gulcu/dp/2970036908) könyvnek.
 
 <div style="clear: both;"></div>
 
@@ -228,7 +225,7 @@ Power Tools](http://shop.oreilly.com/product/9780596527938.do), mind
 rettentő gyakorlatias jellegű. Ezekben a témákban rengeteget publikál,
 és konferenciákon beszél.
 
-[Blog](https://www.java.net/blog/johnsmart)
+[Blog](https://johnfergusonsmart.com/blog/)
 [Twitter](https://twitter.com/wakaleo)
 
 ### Bruce Eckel
@@ -238,7 +235,7 @@ Igazi
 polyglot programozó, otthonosan mozog Scala, Python, Java, C++, stb.
 nyelvek területén. Azért jegyzem meg itt, mert ő írta a Thinking in Java
 című könyvet, mely sokáig kötelező olvasmány volt, és ingyenesen
-letölthető. A [4. kiadást](http://mindview.net/Books/TIJ4) azonban már
+letölthető. A [4. kiadást](https://www.amazon.com/Thinking-Java-4th-Bruce-Eckel/dp/0131872486) azonban már
 meg kell vásárolni.
 
 [Blog](http://www.artima.com/weblogs/index.jsp?blogger=beckel)

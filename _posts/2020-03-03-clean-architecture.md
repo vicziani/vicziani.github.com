@@ -53,9 +53,7 @@ elhalasztásával biztosíthatjuk, hogy még több információt tudunk addig be
 Nyilván az objektumorientált tervezésből indul ki, és szerinte az oo egyik
 legnagyobb újdonsága a polimorfizmus. Ugyanis ez teszi lehetővé a
 dependency inversiont (SOLID elvek utolsó eleme). Vigyázzunk, ez nem azonos
-a dependency injectionnel, amit sajnos a Wikipedia magyar
-[szócikke](https://hu.wikipedia.org/wiki/F%C3%BCgg%C5%91s%C3%A9g_befecskendez%C3%A9s%C3%A9nek_elve)
-is összekever.
+a dependency injectionnel.
 
 A dependency inversion architektúra szempontjából azért kiemelten fontos, ugyanis
 használatával meg lehet fordítani a függőség irányát. Nézzük a következő

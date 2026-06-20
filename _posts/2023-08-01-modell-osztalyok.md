@@ -9,7 +9,7 @@ description: Hogyan osztjuk meg vagy mappeljük a különböző rétegek modell 
 Nagyon szeretem azokat az írásokat, melyek különböző területekről származó fogalmakat
 próbálnak valamilyen egységes rendszerbe foglalni, a fogalmaknak egységes elnevezést 
 adni. Ilyen volt a 
-[Tom Hombergs - Get Your Hands Dirty on Clean Architecture (2nd edition)](https://reflectoring.io/book/)
+[Tom Hombergs - Get Your Hands Dirty on Clean Architecture (2nd edition)](https://www.amazon.com/Your-Hands-Dirty-Clean-Architecture-dp-180512837X/dp/180512837X)
 könyv, mely a modell osztályokkal próbálta ezt tenni. Különösen tetszett, hogy nem egy megoldást
 fogad el igaznak, hanem ismerteti a különböző megoldásokat, összehasonlítva azok előnyeit és hátrányait.
 

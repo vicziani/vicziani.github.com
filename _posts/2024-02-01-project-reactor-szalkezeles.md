@@ -258,5 +258,4 @@ Ez grafikusan is igen jól ábrázolható.
 * [Flight of the Flux 1 - Assembly vs Subscription](https://spring.io/blog/2019/03/06/flight-of-the-flux-1-assembly-vs-subscription)
 * [Reactor 3 Reference Guide](https://projectreactor.io/docs/core/release/reference/index.html)
 * [Flight of the Flux 3 - Hopping Threads and Schedulers](https://spring.io/blog/2019/12/13/flight-of-the-flux-3-hopping-threads-and-schedulers)
-* [Project Reactor - publishOn vs subscribeOn Difference](https://www.woolha.com/tutorials/project-reactor-publishon-vs-subscribeon-difference)
 * [Unraveling Project Reactor](https://eherrera.net/project-reactor-course/)

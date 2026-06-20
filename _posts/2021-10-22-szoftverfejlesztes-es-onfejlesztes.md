@@ -6,7 +6,7 @@ author: István Viczián
 description: Szerepeltem a Szoftverfejlesztés és Önfejlesztés podcastban, hallgasd meg te is!
 ---
 
-A [Szoftverfejlesztés és Önfejlesztés podcastban](https://careercompass.hu/podcast/)
+A [Szoftverfejlesztés és Önfejlesztés podcastban](https://www.szoftveronfejlesztes.hu/podcast)
 Marhefka István meghívott egy kötetlen beszélgetésre.
 Szó esett a folyamatos tanulásról, oktatásról, technológiákról, microservice-ekről,
 szakmai életutamról.

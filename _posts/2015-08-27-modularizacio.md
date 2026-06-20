@@ -35,7 +35,7 @@ Egy hasonlattal tudok élni. Gyakran látom, hogy egy projekt indításakor kial
 
 Simon Brown, a [Coding The Architecture](http://www.codingthearchitecture.com/) blog írója, aki a magyarországi [Craft konferencián](http://craft-conf.com) is adott elő arra ösztönöz minket, hogy az architektúrának a kódban is meg kell jelennie. Azaz ha ránézünk a Java csomagokra, azonnal tükrözze az architektúrát. Ugyanez a helyzet a Maven projektekkel is.
 
-Amennyiben modulok nélküli monolitikus alkalmazásokkal dolgozunk, és csak csomagokat használunk a szeparálásra, a [JDepend](http://www.clarkware.com/software/JDepend.html) segíthet az architektúrának betartásában, segítségével ugyanis  tesztesetként definiálhatók a csomagok közti függőségek, lásd a következő forráskódot.
+Amennyiben modulok nélküli monolitikus alkalmazásokkal dolgozunk, és csak csomagokat használunk a szeparálásra, a [JDepend](https://github.com/clarkware/jdepend) segíthet az architektúrának betartásában, segítségével ugyanis  tesztesetként definiálhatók a csomagok közti függőségek, lásd a következő forráskódot.
 
 {% highlight java %}
 DependencyConstraint constraint = new DependencyConstraint();

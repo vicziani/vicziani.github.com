@@ -7,7 +7,7 @@ description: Hogyan kössünk be egy hőmérséklet szenzort a Prometheus/Grafan
 ---
 
 Nagyon régóta érdekel az IoT (Internet of Things, azaz Internetre köthető kütyük) világa, ugyanis ezek azok az eszközök,
-melyek összekötik a virtuális világót a való világgal. Már régóta [rendelkezem egy Raspberry PI számítógéppel](2013/12/30/raspberry-pi-alapok.html),
+melyek összekötik a virtuális világót a való világgal. Már régóta [rendelkezem egy Raspberry PI számítógéppel](/2013/12/30/raspberry-pi-alapok.html),
 melyet azóta is lelkesen használok egy alacsony fogyasztású home serverként. Telepítve van rá a Prometheus és Grafana, mely
 a DevOps világban egy kvázi standard monitorozó eszköz. Mindkettő ingyenesen használható, nyílt forráskódú eszköz.
 A Prometheus különösen alkalmas idősorok hatékony tárolására, gyors lekérdezésére, aggregált műveletek végrehajtására. Az idősorok

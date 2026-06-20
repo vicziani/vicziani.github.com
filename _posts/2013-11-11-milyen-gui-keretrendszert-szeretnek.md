@@ -16,8 +16,7 @@ Java nyelvet nem tartom alkalmasnak arra, hogy üzleti alkalmazások
 grafikus felületét fejlesszünk vele. De akkor mi lehet a megfelelő
 technológia? Sok cikk hasonlítja össze a jelenlegi keretrendszereket,
 kihangsúlyozva azok erősségeit. Ezek közül a legjobbak közé tartozik a
-JRebelt gyártó [RebelLabs
-cikke](http://zeroturnaround.com/rebellabs/the-curious-coders-java-web-frameworks-comparison-spring-mvc-grails-vaadin-gwt-wicket-play-struts-and-jsf/),
+JRebelt gyártó RebelLabs,
 valamint Matt Raible [sorozatosan ad
 ki](http://raibledesigns.com/rd/page/publications) ilyen cikkeket és
 prezentációkat, és Martin Fowler cégének, a ThoughtWorks-nek a [Tech

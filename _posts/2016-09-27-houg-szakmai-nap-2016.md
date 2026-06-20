@@ -13,7 +13,6 @@ A program 9:00-kor kezdődik Dr. Magyar Gábor, a HOUG elnökének megnyitójáv
 "My Life and Cloud" címmel.
 
 Utána a program három szekcióban folytatódik, mint Java & Middleware, BI & Applications, valamint DB & Infrastructure.
-A részletes programról [itt tájékozódhatsz](http://konferenciak.advalorem.hu/houg-szakmai-nap-2016#program).
 Lesz szó Oracle Middleware megoldásokról, Oracle Commerce Platformról, WebLogic Serverről, microservice-ekről, 
 JSON-ről, Dockerről, cloudról. Sőt lesz egy Java Coding Workshop is.
 
@@ -39,4 +38,4 @@ JSON-ről, Dockerről, cloudról. Sőt lesz egy Java Coding Workshop is.
 > webszolgáltatásokról,
 > Spring Bootról, Metricsről, parancssorról, stb.
 
-[Regisztrálj te is](http://konferenciak.advalorem.hu/houg-szakmai-nap-2016/jelentkezes), és gyere el!
+Regisztrálj te is, és gyere el!

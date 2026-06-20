@@ -207,7 +207,7 @@ pl. OpenTelemetry Collectorhoz kötni.
 
 ![Micrometer OpenTelemetry](/artifacts/posts/2024-06-11-telemetria-es-java/micrometer-otel.drawio.png)
 
-Ide tartozik még a [Micrometer Observation](https://micrometer.io/docs/observation) is. Itt az ötlet az,
+Ide tartozik még a [Micrometer Observation](https://docs.micrometer.io/micrometer/reference/observation.html) is. Itt az ötlet az,
 hogy egy helyen instrumentáljuk a kódot, egy közös absztrakciót használunk, és az ezzel nyert adatok megjelenthetnek a metrikák, trace-ek és logok
 között is.
 

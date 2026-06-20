@@ -15,7 +15,7 @@ blogger_orig_url: http://www.jtechlog.hu/2013/11/web-component-developer.html
 ---
 
 Ebben a hónapban tettem le a 
-[Java EE 6 Web Component Developer Certified Expert Exam (1Z0-899)](http://education.oracle.com/pls/web_prod-plq-dad/db_pages.getpage?page_id=5001&get_params=p_exam_id:1Z0-899&p_org_id=⟨=)
+Java EE 6 Web Component Developer Certified Expert Exam (1Z0-899)
 vizsgát, mely alapvetően a Java EE 6 szabványon belül a Servlet és JSP
 technológiára koncentrált. Ahhoz képest, hogy napi életben ezt használom
 a legtöbbet, ez volt az eddigiek közül (Java SE, EJB, JPA, Web Services)
@@ -71,10 +71,9 @@ kapcsolatban kérdéseket.
 A kiinduló oldal, ahonnan még érdemes információkat beszerezni, az a
 JavaRanch [OCEJWCD](http://www.coderanch.com/how-to/java/ScwcdLinks)
 vizsgával kapcsolatos oldala, valamint egy csomó példa kérdéssor
-található mock examra keresve [itt](http://nikojava.wordpress.com),
+található mock examra keresve
 [itt](http://exam.piotrnowicki.com/viewQuestion.xhtml?q=Q67),
-[itt](http://www.javaranch.com/carl/scwcd/scwcd_mock_logo.jsp) és
-[itt](http://www.cafe4java.com/mockexams/scwcd/mock1/q1.php). Sokan
+[itt](http://www.javaranch.com/carl/scwcd/scwcd_mock_logo.jsp). Sokan
 javasolják a
 [Enthuware](http://enthuware.com/index.php/mock-exams/oracle-certified-expert/oce-jsp-servlet-mock-questions)
 programját is, én erre nem költöttem, de ma már másképp tennék.

@@ -101,7 +101,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 		<dt>2005 - 2007</dt>
 		<dd>
 			<p>
-				<a href="https://ugyfelkapu.magyarorszag.hu/">Ügyfélkapu</a>, egységes beléptetés az elektronikus
+				Ügyfélkapu, egységes beléptetés az elektronikus
                         közigazgatási ügyintézéshez - tesztelő, integrátor, alkalmazásüzemeltető
 			</p>
 		</dd>
