@@ -2,12 +2,16 @@
 layout: post
 title: JWT és Spring Security
 date: '2019-03-18'
-last_modified_at: '2023-07-16'
+last_modified_at: '2026-06-20'
 author: István Viczián
 description: Ez a poszt leírja, mi a JWT és hogyan használjuk Spring Security-vel.
+tags:
+- spring-boot
+- spring-security
+- jwt
 ---
 
-Technológiák: Spring Boot 3, Spring Security 6, Java JWT
+Technológiák: Spring Boot 4, Spring Security 7, JWT
 
 Manapság a felhő alapú alkalmazások elterjedésével egyre fontosabb, hogy
 azok állapotmentesek legyenek, hiszen ezáltal könnyebben skálázhatóak.
@@ -97,10 +101,10 @@ lehet hozzáférni JavaScriptből, kizárólag a böngésző küldi mindig vissz
 A bejelentkezés folyamata a következő lehet:
 
 * A felhasználó a böngészőben megadja a felhasználónevét és jelszavát
-* A böngésző elküldi a felhasználónevet és jelszót
+* A böngésző elküldi a felhasználónevet és jelszót a http post kérés törzsében 
 * Az alkalmazás ezt ellenőrzi, és sikeres belépés esetén kiállít egy tokent, melyet elektronikusan aláírt, és szerepel benne
 a felhasználónév
-* Az alkalmazás visszaküldi a tokent a böngészőnek, cookie-ként
+* Az alkalmazás visszaküldi a tokent a böngészőnek, http only cookie-ként
 * A böngésző a következő kérésben már elküldi a cookie-t, mely tartalmazza a tokent
 * Az alkalmazás kiolvassa a tokent, ellenőrzi az elektronikus aláírást, majd a tokenben lévő felhasználónév alapján 
 azonosítja a felhasználót és kiszolgálja a kérést
@@ -111,224 +115,211 @@ autentikációt implementálni.
 A Spring Security mélyebb megismeréséhez érdemes elolvasni a [Spring Security és Spring Boot posztomat](/2023/03/28/spring-security-spring-boot.html)
 is.
 
+A `pom.xml`-be a függőségek közé fel kell venni a következőt:
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+</dependency>
+```
+
 A Spring Security a konfigurációja a `WebSecurityConfig` osztályban található.
 
 ```java
 @Bean
-public SecurityFilterChain filterChain(HttpSecurity http, SecurityProperties securityProperties) throws Exception {
-    String secret = securityProperties.getJwtSecret();
-    JwtCookieStore jwtCookieStore = new JwtCookieStore(secret.getBytes());
+public SecurityFilterChain securityFilterChain(
+        HttpSecurity http, 
+        BearerTokenResolver bearerTokenResolver) {
     http
-            .csrf(AbstractHttpConfigurer::disable)
-            .sessionManagement(configurer ->
-                    configurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // 1
-            .exceptionHandling(configurer ->
-                    configurer.authenticationEntryPoint(WebSecurityConfig::handleException)) // 2
-            .addFilter(
-                    new JwtUsernameAndPasswordAuthenticationFilter(jwtCookieStore, authenticationManager())) // 3
-            .addFilterAfter(
-                    new JwtTokenAuthenticationFilter(jwtCookieStore), UsernamePasswordAuthenticationFilter.class) // 4
-            .authorizeHttpRequests(auth ->
-                    auth
-                            .anyRequest().authenticated()
-            ) // 5
-    ;
+            .csrf(AbstractHttpConfigurer::disable) // 1
+            .sessionManagement(session -> 
+                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // 2
+            .authorizeHttpRequests(auth -> auth
+                    .requestMatchers("/api/auth")
+                    .permitAll()
+                    .anyRequest()
+                    .authenticated()) // 3
+            .oauth2ResourceServer(conf -> conf
+                    .bearerTokenResolver(bearerTokenResolver)
+                    .jwt(Customizer.withDefaults())); // 4
     return http.build();
 }
 ```
 
-Nézzük, hogy ebben a konfigurációban mi mit jelent.
+A lépések:
 
-Az `1`-essel jelölt sorban beállítjuk, hogy ne legyen session, így az alkalmazásunk
+1. Beállítjuk, hogy ne legyen CSRF token ellenőrzés.
+2. Beállítjuk, hogy ne legyen session, így az alkalmazásunk
 állapotmentes, nem oda történik a felhasználó mentése.
+3. Beállítjuk, hogy a `/api/auth` URL ne legyen védett, az 
+összes többi bejelentkezéshez kötött.
+4. Beállítjuk, hogy JWT token alapú bejelentkezés legyen,
+és a feloldása a cookie-ból történjen, és ne az alapértelmezett beállításból, az `Authorization` headerből.
 
-Az `5`-össel jelölt sorban beállítjuk, hogy az összes címhez autentikáció szükséges.
-
-A `2`-essel jelölt sor, az `exceptionHandling()` után mondja meg, hogy pontosan mi történjen,
-ha védett cím kerül lekérésre, és nincs bejelentkezve. Ez a következőképp implementáltam:
+A 4. ponthoz kell a következő kódrészlet is, ahol a `bearerTokenResolver`-t hozzuk létre:
 
 ```java
-private static void handleException(HttpServletRequest req, HttpServletResponse rsp, 
-        AuthenticationException e) throws IOException {
-    PrintWriter writer = rsp.getWriter();
-    writer.println(new ObjectMapper().writeValueAsString(
-        new AuthorizationResponse("error", "Unauthorized")));
-    rsp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+@Bean
+public BearerTokenResolver bearerTokenResolver() {
+    return request -> {
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies == null) {
+            return null;
+        }
+
+        return Arrays.stream(cookies)
+                .filter(cookie -> "access_token".equals(cookie.getName()))
+                .map(Cookie::getValue)
+                .findFirst()
+                .orElse(null);
+    };
 }
 ```
 
-Itt egy saját `AuthorizationResponse` objektum kerül JSON-né alakításra, és kerül visszaküldésre
-`401`-es státuszkóddal.
-
-Valahogy így:
-
-```javascript
-{"status":"error","message":"Unauthorized"}
-```
-
-A `3`-assal jelölt sor egy saját filtert ad hozzá, mely feladata, hogy amennyiben a `/api/auth`
-címre kérés érkezik, annak tartalmából kiolvassa a felhasználónevet és jelszót, autentikálja
-a felhasználót, és sikeres esetben elhelyezi a JWT tokent HttpOnly cookie-ban.
-
-Az a legegyszerűbb, ha kiterjesztjük a `UsernamePasswordAuthenticationFilter` osztályt. A
-konstruktorában meghívjuk az ős konstruktorát a `/api/auth` címmel, hogy itt kell várnia a
-bejelentkezési adatokat.
+A konfigurációban még meg kell adni, hogy honnan kell betölteni a felhasználókat.
+Jelen esetben a memóriából.
 
 ```java
-@Override
-public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)  {
-    UserCredentials credentials = readUserCredentials(request);
-
-    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-        credentials.getUsername(), credentials.getPassword(), 
-        Collections.emptyList());
-
-    return authenticationManager.authenticate(authToken);
+@Bean
+public UserDetailsService userDetailsService() {
+    return new InMemoryUserDetailsManager(
+            User
+                    .withUsername("user")
+                    .password("{noop}user")
+                    .roles("USER")
+                    .build()
+    );
 }
 ```
 
-A `UserCredentials` saját osztály, melyet a kérésben átadott JSON-ből deszerializáljuk a `readUserCredentials`
-metódusból. A kérésnek tehát így kell kinéznie:
+Valamint ahhoz, hogy token generálásnál be tudjuk jelentkeztetni a felhasználót, szükséges, hogy legyen
+egy `AuthenticationManager` az application contextben.
 
-```javascript
+```java
+@Bean
+public AuthenticationManager authenticationManager(
+        AuthenticationConfiguration configuration) {
+    return configuration.getAuthenticationManager();
+}
+```
+
+A token generáláshoz kell egy titkos kulcs, amivel aláírjuk a tokent, és
+kell egy encoder és decoder is a contextbe.
+
+```java
+private final OctetSequenceKey jwk = new OctetSequenceKey.Builder(
+        Base64URL.from("eQHD2h293EzWJtGdZ3cb2KmLV3gTxSyna-NeHKCwZ4s"))
+        .build();
+
+@Bean
+public JwtEncoder jwtEncoder() {
+    JWKSource<SecurityContext> source = new ImmutableJWKSet<>(new JWKSet(jwk));
+    return new NimbusJwtEncoder(source);
+}
+
+@Bean
+public JwtDecoder jwtDecoder() {
+    return NimbusJwtDecoder.withSecretKey(jwk.toSecretKey()).build();
+}
+```
+
+Utána kell megírni a controllert, ami kiadja a tokent. Ehhez először kell egy
+dto, ami a felhasználónevet és a jelszót tartalmazza, ez a POST http kérés
+törzséből kerül példányosításra.
+
+```java
+public record TokenRequest(String username, String password) {
+}
+```
+
+Majd álljon itt a controller kódja:
+
+```java
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/auth")
+public class TokenController {
+
+    private final AuthenticationManager authenticationManager;
+
+    private final JwtEncoder jwtEncoder;
+
+    @PostMapping
+    public ResponseEntity<Void> token(@RequestBody TokenRequest request) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.username(), request.password())); // 1
+        
+        String scope = authentication.getAuthorities()
+                .stream().map(GrantedAuthority::getAuthority)
+                .collect(Collectors.joining(" ")); // 2
+
+        Instant now = Instant.now();
+        JwtClaimsSet claims =
+                JwtClaimsSet.builder()
+                        .issuer("self")
+                        .issuedAt(now)
+                        .expiresAt(now.plus(30, ChronoUnit.MINUTES))
+                        .subject(authentication.getName())
+                        .claim("scope", scope)
+                        .build(); // 3
+
+        JwsHeader header = JwsHeader.with(MacAlgorithm.HS256).build(); // 4
+
+        String token = jwtEncoder.encode(JwtEncoderParameters.from(header, claims)).getTokenValue(); // 5
+
+        ResponseCookie cookie = ResponseCookie.from("access_token", token)
+                .httpOnly(true)
+                .secure(true)
+                .sameSite("Lax")
+                .path("/")
+                .maxAge(0)
+                .build(); // 6
+
+        return ResponseEntity.noContent()
+                .header(HttpHeaders.SET_COOKIE, cookie.toString())
+                .build(); // 7
+    }
+
+}
+```
+
+A lépések:
+
+1. Bejelentkeztetjük a felhasználót a felhasználónévvel és jelszóval, hogy le tudjuk kérdezni a tulajdonságait.
+2. Lekérdezzük a felhasználó szerepköreit.
+3. Létrehozzuk a JWT token mezőit, és feltöltjük értékekkel.
+4. Beállítjuk a JWT token fejlécét.
+5. Megtörténik a JWT token kódolása, előáll az headerben is szállítható Base64-gyel kódolt érték.
+6. Létrehozzuk a különböző támadási módoknak ellenálló cookie-t.
+7. Visszatérünk egy üres válasszal és beállított cookie-val.
+
+Ekkor ha elmegy a következő kérés:
+
+```plain
+POST http://localhost:8080/token
+Content-Type: application/json
+
 {
-	"username": "user",
-	"password": "user"
+    "username": "user",
+    "password": "user"
 }
 ```
 
-Sikeres esetben a `successfulAuthentication()` metódus fut le, mely egyrészt elhelyezi a JWT tokent cookie-ként a válaszban,
-majd visszaad egy JSON választ.
+Akkor visszakapunk egy http választ, ahol beállításra kerül a cookie:
 
-```java
-@Override
-protected void successfulAuthentication(HttpServletRequest request, 
-        HttpServletResponse response, 
-        FilterChain chain, Authentication auth) throws IOException {
-    jwtCookieStore.storeToken(response, auth);
-
-    writeResponse(response);
-}
+```plain
+HTTP/1.1 204 
+Set-Cookie: access_token=aaa.bbb.ccc; Path=/; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Secure; HttpOnly; SameSite=Lax
 ```
 
-A válasz JSON tartalma:
+És a következő kéréssel már lekérhetünk egy védett oldalt:
 
-```javascript
-{"status":"ok","message":"Successful authentication"}
+```plain
+GET http://localhost:8080/api/hello
+Cookie: access_token=aaa.bbb.ccc
 ```
-
-A JWT token elhelyezésének a kódja:
-
-```java
-public void storeToken(HttpServletResponse response, Authentication auth) {
-    String token = generateToken(auth);
-    storeTokenInCookie(response, token);
-}
-
-private String generateToken(Authentication auth) {
-    long now = System.currentTimeMillis();
-
-    return Jwts.builder()
-                .setSubject(auth.getName())
-                .claim("authorities", auth.getAuthorities().stream()
-                        .map(GrantedAuthority::getAuthority).toList())
-                .setIssuedAt(new Date(now))
-                .setExpiration(new Date(now + EXPIRATION))
-                .signWith(SignatureAlgorithm.HS512, secret)
-                .compact();
-}
-
-private void storeTokenInCookie(HttpServletResponse response, String token) {
-    Cookie cookie = new Cookie(COOKIE_NAME, token);
-    cookie.setMaxAge(EXPIRATION);
-    cookie.setPath("/api");
-    cookie.setHttpOnly(true);
-    response.addCookie(cookie);
-}
-```
-
-Látható, hogy a token a [Java JWT](https://github.com/jwtk/jjwt) library-vel kerül
-legenerálásra, ehhez a következő függőséget kellett elhelyezni a `pom.xml` fájlban.
-
-```xml
-<dependency>
-  <groupId>io.jsonwebtoken</groupId>
-  <artifactId>jjwt</artifactId>
-  <version>0.9.1</version>
-</dependency>
-```
-
-Egyrészt beállítom a standard `sub` (Subject) mezőt, valamint saját mezőt is adok hozzá
-`authorities` névvel, valamint beállítom a létrehozás dátumát, valamint a lejárat dátumát.
-Legvégül HS512 algoritmussal aláírom, megadva a titkos kulcsot.
-
-A metódus második részében beállítom a HttpOnly cookie-t, ugyanazzal a lejárattal.
-
-Eztán már csak a `4`-es pontban megadott `JwtTokenAuthenticationFilter` osztályt kell megnézni.
-Ennek feladata, hogyha a böngésző cookie-t küld, ezt kicsomagolja, ellenőrzi, majd ez
-alapján bejelentkezteti a felhasználót.
-
-Ennek kódja valami hasonló:
-
-```java
-@Override
-protected void doFilterInternal(HttpServletRequest request,
-                                HttpServletResponse response,
-                                FilterChain chain) throws ServletException, IOException {
-    try {
-        jwtCookieStore.retrieveToken(request)
-                .ifPresent(auth -> SecurityContextHolder.getContext()
-                .setAuthentication(auth));
-    } catch (Exception e) {
-        SecurityContextHolder.clearContext();
-    }
-
-    chain.doFilter(request, response);
-}
-```
-
-Ez lekéri a tokent, és ha megtalálható, bejelentkezteti a felhasználót. Nézzük meg,
-hogy lehet lekérni a tokent.
-
-```java
-public Optional<Authentication> retrieveToken(HttpServletRequest request) {
-    Optional<Cookie> cookie = findCookie(request);
-    if (cookie.isEmpty()) {
-        return Optional.empty();
-    }
-    String token = cookie.get().getValue();
-
-    Claims claims = Jwts.parser()
-            .setSigningKey(secret)
-            .parseClaimsJws(token)
-            .getBody();
-
-    String username = claims.getSubject();
-    if (username != null) {
-        @SuppressWarnings("unchecked")
-        List<String> authorities = (List<String>) claims.get("authorities");
-
-        UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
-                username, null, 
-                authorities.stream().map(SimpleGrantedAuthority::new)
-                    .toList());
-
-        return Optional.of(auth);
-    }
-    return Optional.empty();
-}
-
-private Optional<Cookie> findCookie(HttpServletRequest request) {
-    return Optional.ofNullable(request.getCookies())
-            .stream()
-            .flatMap(Arrays::stream)
-            .filter(c -> c.getName().equals(COOKIE_NAME))
-            .findAny();
-}
-```
-
-Itt csak lekérésre kerül a cookie, majd a Java JWT ellenőrzi azt, ezért kellett megadni
-a titkos kulcsot is. Majd a felhasználónév és a jogosultságok is lekérésre kerülnek.
 
 És végül álljon itt egy gif animáció (a képre kattintva elérhető), mely bemutatja, hogy működik a bejelentkezés
 Postmannel.
