@@ -178,8 +178,8 @@ majd adjuk ki a
 Hozzuk létre egy Maven projektet `com.umlet:umlet-swing:14.3.0-SNAPSHOT`
 függőséggel, és hozzunk létre egy osztályt a `Default.java` alapján. A
 Custom Code közé írni a saját kódot, és ezt másolgatni az UMLet-be.
-Egy példa projekt megtalálható a https://github.com/vicziani/umlet-components
-címen.
+
+{% include github-callout.html url="https://github.com/vicziani/umlet-components" %}
 
 Hasznos metódus még a `int textWidth(String)` metódus is, nézzük meg pl, ha a szöveget
 nem középre, hanem lépcsőzetesen akarjuk elhelyezni:

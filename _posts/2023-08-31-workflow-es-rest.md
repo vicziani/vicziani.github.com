@@ -140,7 +140,9 @@ megoldás bevezetése. Ha ilyet használunk, miért döntöttünk a REST mellett
 Mi lehet tehát egy jó megoldás?
 
 Ahhoz, hogy megoldást találjunk, lépjünk egyet vissza, és nézzük meg, hogy hogy nézne
-ki ez objektumorientált oldalon. A teljes forráskód [megtalálható GitHubon](https://github.com/vicziani/jtechlog-rest-workflow).
+ki ez objektumorientált oldalon. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-rest-workflow" %}
 
 Először vessük el azt a megoldást, hogy lenne egy `Issue` osztály, mely 
 az adatokat tárolja, és egy `IssueService`, mely az `Issue` státuszát

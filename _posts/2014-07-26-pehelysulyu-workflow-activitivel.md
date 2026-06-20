@@ -70,8 +70,9 @@ tartottam, melyről [videó](https://www.youtube.com/watch?v=66FavTUB7AM)
 is készült, és a diái is
 [letölthetőek](http://www.jtechlog.hu/artifacts/2012-09_workflow.pdf).
 
-A poszthoz szokás szerint [példaprojektet is találsz a
-GitHub-on](https://github.com/vicziani/jtechlog-activiti). Egy egyszerű
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-activiti" %}
+
+Egy egyszerű
 munkafolyamatot implementáltam, mely során egy szabadságigényt kell
 jóváhagyni. Ezt először ábrázoljuk UML activity diagramon.
 

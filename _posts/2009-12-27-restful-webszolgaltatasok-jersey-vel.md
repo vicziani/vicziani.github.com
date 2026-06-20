@@ -56,9 +56,9 @@ is választható.
 A JAX-RS a JAX-WS-hez hasonlóan egyszerű POJO-kkal dolgozik, melyekre
 annotációkat kell használni.
 
-Használatának demonstrálására egy példa projektet készítettem, mely
-könyvjelzők nyilvántartását végzi, és [elérhető a
-GitHub-on.](https://github.com/vicziani/jtechlog-rest) A következő
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-rest" %}
+
+A következő
 URL-eket definiáltam:
 
 -   `/bookmarks`: GET esetén XML vagy JSON formátumban adja vissza az

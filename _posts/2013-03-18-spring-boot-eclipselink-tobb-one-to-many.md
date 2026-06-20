@@ -19,8 +19,7 @@ mi van akkor, ha egy entitásnak több one-to-many kapcsolata van.
 A Spring Boot alapesetben a Hibernate JPA providert használja.
 Azonban be lehet állítani az EclipseLinket is. Nézzük meg, ez hogy viselkedik.
 
-A posthoz tartozó példaprogram [letölthető a
-GitHub-ról](https://github.com/vicziani/jtechlog-jpa-descartes).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-jpa-descartes" %}
 
 Ehhez először a `pom.xml`-ben kell a Hibernate-et exlude-olni,
 és az EclipseLinket felvenni.

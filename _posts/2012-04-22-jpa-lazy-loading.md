@@ -65,8 +65,9 @@ bemutatott esetet használok, kicsit módosítva.
 
 ![Osztálydiagram](/artifacts/posts/2012-04-22-jpa-lazy-loading/jpa-lazy.png)
 
-A példaprogram letölthető a
-[GitHub-ról](https://github.com/vicziani/jtechlog-lazy). A példaprogram
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-lazy" %}
+
+A példaprogram
 a `mvn test` parancs kiadásával már futtathatók a tesztesetek, `mvn jetty:run`
 parancs hatására pedig elindul a webes alkalmazás. (Azért webes alkalmazás, mert
 demonstrálni szeretném az "Open EntityManager in View" tervezési mintát is.)

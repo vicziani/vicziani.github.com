@@ -171,6 +171,35 @@ blockquote {
 }
 
 /*
+  * GitHub callout
+  */
+.post-github-callout {
+  background-color: #2c3e50;
+  border-color: #2c3e50;
+  color: #ffffff;
+  padding: 2px 20px;
+}
+
+.post-github-callout-icon {
+  color: #f39c12;
+  font-size: 2em;
+}
+
+.post-github-callout-content {
+  padding: 5px;
+}
+
+.post-github-callout a {
+  color: #f39c12;
+  font-weight: 700;
+}
+
+.post-github-callout a:hover,
+.post-github-callout a:focus {
+  color: #f39c12;
+}
+
+/*
  * YouTube
  */
 

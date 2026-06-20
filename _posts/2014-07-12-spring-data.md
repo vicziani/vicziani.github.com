@@ -20,10 +20,10 @@ találsz olyan (absztrakt) ősosztály(oka)t, melyek feladata tipikus CRUD
 műveletek végrehajtása, esetleg típusbiztosan, hogy ne kelljen azokat
 újra implementálni, akkor a Spring Data neked is tetszeni fog.
 
-A poszthoz egyszerű
-[példaprojektet](https://github.com/vicziani/jtechlog-spring-data) is
-találsz a GitHub-on, valamint egy
-[prezentációt](http://www.jtechlog.hu/artifacts/2014-06_spring_data/2014-06_spring_data.html),
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-data" %}
+
+A GitHubon találsz egy
+[prezentációt](http://www.jtechlog.hu/artifacts/2014-06_spring_data/2014-06_spring_data.html) is,
 amit nyugodtan felhasználhatsz arra, hogy meggyőzz másokat is.
 
 A Spring Data alapvetően egy Spring Frameworkre épülő projekt, és segít

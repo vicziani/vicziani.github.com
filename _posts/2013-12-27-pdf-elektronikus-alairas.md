@@ -93,8 +93,9 @@ mely autentikációt nem igényel. Ezúton köszönöm Varga Viktornak, a
 NetLock Kft. Üzemeltetési és Vevőszolgálati Vezetőjének a cikk
 megírásához nyújtott segítséget.
 
-Eztán elkészítettem a példaprogramot, mely [elérhető a
-GitHub-on](https://github.com/vicziani/jtechlog-signpdf). Itt
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-signpdf" %}
+
+Itt
 megtalálható az iText-es megoldás is, mely [láthatóan sokkal
 egyszerűbb](https://github.com/vicziani/jtechlog-signpdf/blob/master/jtechlog-signpdf-itext/src/main/java/jtechlog/signpdf/PdfSigner.java),
 mint a [PDFBox-os

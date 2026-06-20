@@ -38,8 +38,9 @@ melyek kellően elterjedtek.
 <!-- more -->
 
 A FizzBuzz feladatot megoldó függvénnyel, valamint egy tesztesettel illusztrálom egy
-projekt felépítését. A példa fenn van a GitHubon is [jtechlog-python](https://github.com/vicziani/jtechlog-python)
-néven.
+projekt felépítését. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-python" %}
 
 Azért, hogy struktúráltabb legyen, és jobban hasonlítson egy valódi projektre, a `fizzbuzz.py`
 modul (fájl) a `jtechlog` csomagba került.

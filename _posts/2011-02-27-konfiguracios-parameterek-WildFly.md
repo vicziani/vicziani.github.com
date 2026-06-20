@@ -157,8 +157,9 @@ Nem ad választ minden kérdésre, a
 cikkben kizárólag a WildFly egy-két ezirányú képességét szeretném
 bemutatni.
 
-A poszthoz a példa alkalmazás fenn van a
-[GitHubon](https://github.com/vicziani/jtechlog-earconfig). A
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-earconfig" %}
+
+A
 projekt Mavennel fordul, és szépen szemlélteti egy Java EE projekt
 felépítését Maven környezetben, ahol a build terméke egy EAR állomány.
 Az alkalmazás négy részből áll. Egy parent project, mely a közös

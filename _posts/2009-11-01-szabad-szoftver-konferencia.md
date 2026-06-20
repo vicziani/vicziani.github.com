@@ -99,7 +99,7 @@ Hypertable
 Dynamo
 :   Az Amazon kulcs-érték adatbázisa.
 
-[Dynomite](http://github.com/cliffmoon/dynomite/tree/master)
+[Dynomite](https://github.com/cliffmoon/dynomite/tree/master)
 :   Dynamo klón, nyílt forráskóddal, Erlangban megvalósítva.
 
 [Apache Hadoop](http://hadoop.apache.org/)

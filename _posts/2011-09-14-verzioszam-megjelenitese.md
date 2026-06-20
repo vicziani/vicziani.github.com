@@ -54,7 +54,8 @@ Ahhoz, hogy a `MANIFEST.MF` állományban is szerepeljen a verziószám, a köve
 Ekkor a [Apache Maven Archiver](http://maven.apache.org/shared/maven-archiver/index.html) oldalon leírtaknak megfelelően elhelyezi a `MANIFEST.MF` állományban a megfelelő bejegyzéseket, köztük az `Implementation-Version` bejegyzést a projekt verziószámával.
 
 Ezt a következőképp tudjuk kiolvasni, pl. JAR futtatása esetén a classpath-ról a `getResourceAsStream()` metódussal.
-Egy példa alkalmazás [elérhető a GitHubon](https://github.com/vicziani/jtechlog-versioninfo).
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-versioninfo" %}
 
 {% highlight java %}
 try (InputStream is = VersionInfo.class.getResourceAsStream("/META-INF/MANIFEST.MF")) {

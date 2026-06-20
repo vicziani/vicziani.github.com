@@ -34,8 +34,9 @@ esett szó, valamint a [Keycloak](https://www.keycloak.org/) szerverről,
 mely leveszi a vállunkról a felhasználókezeléssel és bejelentkezéssel kapcsolatos
 nehézségeket.
 
-Az előadáshoz példakód is elérhető a [GitHubon](https://github.com/vicziani/oauth2-spring-security-2024-06-20),
-sőt a [slide-ok tartalma](https://github.com/vicziani/oauth2-spring-security-2024-06-20/blob/master/slides/slides.md) is
+{% include github-callout.html url="https://github.com/vicziani/oauth2-spring-security-2024-06-20" %}
+
+A [slide-ok tartalma](https://github.com/vicziani/oauth2-spring-security-2024-06-20/blob/master/slides/slides.md) is
 megtekinthető.
 
 Az Authorization Code Grant Grant Type-hoz egy ábrát is készítettem, melyen szerepelnek a kommunikáció során átadott adatok is.

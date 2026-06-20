@@ -185,8 +185,9 @@ Remekül látszik, hogy egyrészt delegálja a hívást az eredeti `Statement` p
 hívja az `after()` metódust.
 
 És most nézzük is meg, hogyan implementáltam a Hackerrank használatához egy
-saját `HackerrankRule` rule-t, valamint hogyan kell használni. A forráskódja
-elérhető a [Gitub-on](https://github.com/vicziani/junit-rule).
+saját `HackerrankRule` rule-t, valamint hogyan kell használni. 
+
+{% include github-callout.html url="https://github.com/vicziani/junit-rule" %}
 
 A Hackerranken a legegyszerűbb feladat a
 [Java Stdin and Stdout I](https://www.hackerrank.com/challenges/java-stdin-and-stdout-1/problem),

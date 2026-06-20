@@ -50,7 +50,9 @@ Vannak erre külön libraryk, pl. a [Zalando Problem](https://github.com/zalando
 és ennek Spring illesztése a [Problems for Spring MVC and Spring WebFlux](https://github.com/zalando/problem-spring-web). 
 Azonban a Spring Boot 3-as verziótól kezdve ezekre nincs szükség, ugyanis a Problem Details szabványt a Spring Boot beépítve támogatja.
 
-A példaprojekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-employees-sb3). MariaDB adatbázist használ és REST-en CRUD műveleteket biztosít.
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-employees-sb3" %}
+
+MariaDB adatbázist használ és REST-en CRUD műveleteket biztosít.
 
 Abban az esetben, ha az `application.properties` állományban felvesszük a 
 `spring.mvc.problemdetails.enabled = true` értéket, akkor a következő

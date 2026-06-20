@@ -31,7 +31,8 @@ aggatni, pl. bejelentkezés, így könnyen megoldható pl. audit naplózás.
 Az alkalmazáson belül szerepkörökhöz lehet kötni bizonyos url-eket, valamint metódus szinten is
 meg lehet adni, hogy milyen szerepkörrel rendelkező felhasználó hívhatja meg.
 
-A poszthoz egy példa projekt is tartozik, mely [elérhető a GitHub-on](https://github.com/vicziani/jtechlog-boot-security). 
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-boot-security" %}
+
 Egyszerű Spring Boot webes alkalmazás, Spring Data JPA perzisztens réteggel, Thymeleaf template engine-nel.
 
 <!-- more -->

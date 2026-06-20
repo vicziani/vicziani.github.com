@@ -31,7 +31,7 @@ bukjuk a platformfüggetlenséget.
 
 Van viszont egy másik ábrázolási forma, a [Nested set model](https://en.wikipedia.org/wiki/Nested_set_model).
 
-A poszthoz tartozó példaprogram elérhető a [GitHubon](https://github.com/vicziani/jtechlog-tree).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-tree" %}
 
 <!-- more -->
 

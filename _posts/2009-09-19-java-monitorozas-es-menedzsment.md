@@ -68,8 +68,11 @@ pl. egy servlet betöltési ideje, meghívásának száma, legkisebb és
 legnagyobb lefutási idő, összes idő, mennyit hibázott, stb
 (Catalina/Servlet folder).
 
-Nézzünk is egy példát, írjunk egy egyszerű webes alkalmazást. Letölthető
-a <https://github.com/vicziani/jtechlog-jmx> címről. Jettyn is megy,
+Nézzünk is egy példát, írjunk egy egyszerű webes alkalmazást. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-jmx" %}
+
+Jettyn is megy,
 Maven-nel build-elhető, és a letöltést követően a 'mvn jetty:run'
 paranccsal futtatható. Az alkalmazás egy servletből áll, mely egy
 számlálót növel minden egyes meghívásakor. Ezt szeretnénk kiajánlani

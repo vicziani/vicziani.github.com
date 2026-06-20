@@ -76,7 +76,8 @@ alkalmazást AWS Lambda függvényként futtatni.
 
 Először elkészítek egy Java 21 alkalmazást az [AWS Lambda Java Support Libraries](https://github.com/aws/aws-lambda-java-libs) segítségével.
 Itt egy egyszerű [AWS Lambda function handlert](https://docs.aws.amazon.com/lambda/latest/dg/java-handler.html) fogok implementálni.
-Az alkalmazás teljes forráskódja megtalálható a [GitHubon](https://github.com/vicziani/hello-aws-lambda).
+
+{% include github-callout.html url="https://github.com/vicziani/hello-aws-lambda" %}
 
  A `pom.xml` fájlba a következő függőségeket kell felvenni:
 

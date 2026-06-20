@@ -48,7 +48,7 @@ e-mailben kiküldhető, melyben egy link paraméterként tartalmazza a tokent.
 Ebben a posztban nézzük meg, hogyan is működhet egy JWT alapú autentikáció, és
 hogyan kell azt Spring Security-val implementálni.
 
-A poszthoz egy példa [projekt is elérhető a GitHubon](https://github.com/vicziani/jtechlog-springsec-jwt).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-springsec-jwt" %}
 
 <!-- more -->
 

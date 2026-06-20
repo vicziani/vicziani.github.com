@@ -13,7 +13,7 @@ Ebben a posztban megmutatom, hogy lehet implementálni egy Spring Boot alkalmaz�
 
 <!-- more -->
 
-A példa projekt megtalálható a GitHub-on, [vicziani/jtechlog-config](https://github.com/vicziani/jtechlog-config) néven.
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-config" %}
 
 A kliensként induljunk ki egy üres Spring Boot alkalmazásból, melyet [Spring Initializr](http://start.spring.io/) webes szolgáltatással legenerálhatunk. Válasszuk ki a Web, Actuator és Config Client függőségeket. Látható, hogy a generált projekt szülő projektje a `org.springframework.boot:spring-boot-starter-parent` mely a Spring Boot verzió számát definiálja, függőségként szerepel a `org.springframework.boot:spring-boot-starter-web`, `org.springframework.boot:spring-boot-starter-actuator` és a `org.springframework.cloud:spring-cloud-starter-config`. A `dependencyManagement` részben pedig a `org.springframework.cloud:spring-cloud-dependencies`, mely a Spring Cloud függőségek verzió számait tartalmazza.
 

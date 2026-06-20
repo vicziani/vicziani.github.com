@@ -36,9 +36,11 @@ JProfiler), debug módban indítás IDE-ből, valamint az alkalmazásban
 várakozás elhelyezése (sleep, Console input).
 
 Gondoltam, ez egy megfelelő alkalom az instrumentation és a Javassist
-kipróbálására. Így készítettem egy egyszerű példaprogramot, mely
-elérhető a
-[GitHub](https://github.com/vicziani/jtechlog-wait4signal)-on. A program
+kipróbálására. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-wait4signal" %}
+
+A program
 egy Java agent, melynek segítségével egy Java alkalmazás adott szálának
 futása a megadott metódusnál felfüggeszthető, és vagy konzolon bevitt,
 vagy JMX-en feladott jelre vár. Mindezt az alkalmazás forráskódjának

@@ -113,7 +113,7 @@ forráskódú keresőmotor (az Apache Software Licence alatt).
 
 A Lucene-ről már már letölthető egy [cikkem](/artifacts/lucene.pdf).
 
-A [példaalkalmazás](https://github.com/vicziani/jtechlog-lucene) megtalálható a GitHubon.
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-lucene" %}
 
 A következő forráskód megmutatja, hogyan kell
 egy JavaMail API részét képző üzenetet indexelni (nem teljes

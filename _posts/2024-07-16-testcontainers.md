@@ -12,7 +12,7 @@ Megjelent az első videóm, melynek témája, hogy hogyan lehet használni a Tes
 <iframe src="https://www.youtube.com/embed/p7oy3VCGBbo?si=ya31H8N8AlXAFXRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-A videóhoz a forráskód is elérhető a [GitHubon](https://github.com/vicziani/jtechlog-testcontainers).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-testcontainers" %}
 
 Ha valaki mégis a szöveges tartalomhoz ragaszkodik, olvasson tovább.
 

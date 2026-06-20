@@ -12,9 +12,9 @@ Használt technológiák: Spring Framework 4.0.4, Joda-Time 2.3, Hamcrest
 Date 1.0.1
 
 Ebben a posztban három library három apró de érdekes képességét
-szeretném bemutatni, és hogy hogyan tudnak ezek együttműködni. A
-poszthoz tartozó mintakód megtalálható a
-[GitHubon](https://github.com/vicziani/jtechlog-spring-listener).
+szeretném bemutatni, és hogy hogyan tudnak ezek együttműködni. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-listener" %}
 
 Nálunk gyakran van szükség arra, hogy a teszt esetek különböző
 dátumokkal dolgozzanak. Mivel van, hogy a tesztelendő funkció a mai

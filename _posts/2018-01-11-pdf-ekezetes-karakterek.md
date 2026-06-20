@@ -18,7 +18,7 @@ kódolás, és milyen kódolást kell használni.
 
 <!-- more -->
 
-A poszthoz több példa projekt is tartozik, mely elérhető a [GitHub-on](https://github.com/vicziani/jtechlog-pdf-font).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-pdf-font" %}
 
 ## Betűtípusok
 

@@ -45,7 +45,8 @@ ezt használja a Turbine web framework Torque ORM része SQL és a mapping
 file kigenerálására. De generálhatunk vele XML-t, Java forráskódot, így
 akár egy MDA keretrendszerbe is beilleszthető lenne, stb.
 
-[Példa projekt](https://github.com/vicziani/jtechlog-texen) megtalálható a GitHub-on.
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-texen" %}
+
 Ez nem Ant projekt, hanem Maven projekt, mely Antot hív.
 
 A Texent egy control template irányítja, amiben a Velocity nyelvén kell

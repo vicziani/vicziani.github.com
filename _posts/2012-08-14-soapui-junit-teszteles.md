@@ -34,8 +34,9 @@ használhatjuk őket. Ezekkel lehet pl. megoldani, hogy az első
 webszolgáltatás kérés visszaad egy sessionid-t, és később azt akarjuk
 küldeni a további webszolgáltatás kérésekben.
 
-Írtam is erre egy apró projektet, mely [elérhető a
-GitHub-on](https://github.com/vicziani/jtechlog-soapui-testing). Az
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-soapui-testing" %}
+
+Az
 ötletet a [w3schools.com](https://www.w3schools.com/) oldalról vettem, ahol ki van ajánlva egy
 [TempConvert](https://www.w3schools.com/xml/tempconvert.asmx)
 webszolgáltatás Celsius és Fahrenheit közötti váltásra. Ezt

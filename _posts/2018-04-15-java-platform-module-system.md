@@ -10,7 +10,9 @@ Nagy rajongója vagyok a modularizálás témakörének, mint ezt több korábbi
 
 A Java 9-ben jelent meg egy megoldás a fentebb vázolt problémákra, Java Platform Module System néven. Elég régóta húzódik ennek kiadása, egészen a Java 7-től kezdve ígérgették, akkor még Jigsaw néven. Figyelembe kell venni azonban azt is, hogy nem csak a lehetőségét adták meg a modularizációnak, hanem a teljes JDK-t is modularizálták. Már nem egy `rt.jar` állományban van a teljes osztálykönyvtár, hanem a `jmods` könytárban van majdnem száz `jmod` kiterjesztésű állomány, mely a modulokat tartalmazza.
 
-Ebben a posztban egy példa alkalmazás implementációja közben szerzett tapasztalatokat szeretném megosztani. A projekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-modulesystem).
+Ebben a posztban egy példa alkalmazás implementációja közben szerzett tapasztalatokat szeretném megosztani. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-modulesystem" %}
 
 <!-- more -->
 

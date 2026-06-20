@@ -23,9 +23,9 @@ státuszt küld vissza a böngészőnek. Ekkor a böngésző a tartalmat a
 cache-ből fogja kiszolgálni. Amennyiben az erőforrás változott, és a két
 verziószám eltér, a szerver visszaküldi az erőforrás teljes tartalmát.
 
-A GitHubon lévő 
-[példakód](https://github.com/vicziani/jtechlog-spring-cache)
-szemlélteti, hogy hogyan használhatjuk az ETaget Springes controller
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-cache" %}
+
+A példakód szemlélteti, hogy hogyan használhatjuk az ETaget Springes controller
 osztályból.
 
 <!-- more -->

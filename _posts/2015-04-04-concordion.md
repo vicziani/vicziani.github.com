@@ -75,9 +75,11 @@ Nem kell benne kötött nyelvtant használni, szabad szöveget írhatunk html fo
 nem kell a természetes nyelvi szöveget Java kódba injektálni (pl. annotációk segítségével). A kimenete szépen html-ben
 formázott természetes nyelvi szöveg.
 
-Talán a legegyszerűbb, ha egy példán mutatom be, ráadásul egy elképzelt agilis team munkájába illesztve. A GitHubon
-már van egy [jtechlog-activiti](https://github.com/vicziani/jtechlog-activiti) projekt, mely az Activiti workflow
-motort mutatja be, valamint olvasható róla [poszt](http://www.jtechlog.hu/2014/07/25/pehelysulyu-workflow-activitivel.html) is. Ez a projekt lett kiegészítve Concordion tesztekkel.
+Talán a legegyszerűbb, ha egy példán mutatom be, ráadásul egy elképzelt agilis team munkájába illesztve. 
+Egy Activiti workflow motort bemutató projektet egészítettem ki Concordion tesztekkel. A róla szóló
+[poszt megtalálható itt](/2014/07/25/pehelysulyu-workflow-activitivel.html).
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-activiti" %}
 
 Első körben a csapat kiválaszt egy sztorit, és az üzleti elemző vezetésével definiálja a feladatot immár
 html formátumban (`Workflow.html`).

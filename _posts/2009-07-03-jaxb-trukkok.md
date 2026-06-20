@@ -10,8 +10,7 @@ last_modified_at: '2017-11-18'
 ---
 Felhasznált technológiák: JAXB
 
-A poszthoz tartozó példaprogram elérhető a
-[GitHubon](https://github.com/vicziani/jtechlog-xml).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-xml" %}
 
 ### Körkörös referencia
 

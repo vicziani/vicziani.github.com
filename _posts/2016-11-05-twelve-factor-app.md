@@ -24,8 +24,7 @@ implementációs vetületeit Java, Spring, de főleg Spring Boot környezetben,
 sőt személyes tapasztalataimat is megosztom. Ettől függetlenül érdemes
 elolvasnia, azoknak is, akik más környezetben fejlesztenek.
 
-A szakmai napra egy kis példa alkalmazás is készült, mely
-[elérhető GitHubon](https://github.com/vicziani/jtechlog-houg-2016).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-houg-2016" %}
 
 ![Viczián István a HOUG konferencián](/artifacts/posts/2016-11-05-twelve-factor-app/houg-2016-osz.jpg)
 

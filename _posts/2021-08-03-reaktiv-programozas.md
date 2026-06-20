@@ -36,7 +36,7 @@ Valamint megóvhatja a komponenseket a túlzott terheléstől.
 Ebben a posztban szó lesz a reaktív programozás kialakulásáról, tulajdonságairól, irányvonalairól, különböző
 eszközökről, szabványosításáról, valamint hogyan használhatjuk Springen belül. 
 
-A példaprojekt elérhető [GitHubon](https://github.com/vicziani/employees-webflux-r2dbc).
+{% include github-callout.html url="https://github.com/vicziani/employees-webflux-r2dbc" %}
 
 <!-- more -->
 

@@ -119,7 +119,9 @@ Hello World!
 ## Maven build
 
 Persze van Maven és Gradle plugin is. 
-A projekt [elérhető a GitHubon](https://github.com/vicziani/jtechlog-graalvm).
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-graalvm" %}
+
 A következő kódrészletet illesztettem a `pom.xml` fájlba:
 
 ```xml

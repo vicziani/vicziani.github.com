@@ -81,9 +81,11 @@ Használható WebSockettal, valamint Spring WebFlux-szal.
 A Spring Security komplex támogatást nyújt a teszteléshez.
 
 Ebben a posztban egy egyszerű webes alkalmazásba
-illesztését fogom bemutatni. A poszthoz egy példa projekt is tartozik,
-mely [elérhető a
-GitHub-on](https://github.com/vicziani/jtechlog-spring-security). Egyszerű Spring MVC-s
+illesztését fogom bemutatni. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-security" %}
+
+Egyszerű Spring MVC-s
 webes alkalmazás, Spring Data JPA perzisztens réteggel, Thymeleaf template engine-nel.
 
 <!-- more -->

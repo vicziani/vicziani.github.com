@@ -112,7 +112,7 @@ hogy az alkalmazottak milyen szakértelmekkel rendelkeznek.
 
 ![Alkalmazás felépítése](/artifacts/posts/images/mentoring-app.drawio.png)
 
-A példa alkalmazás forráskódja megtalálható a [GitHubon](https://github.com/vicziani/jtechlog-spring-modulith).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-modulith" %}
 
 A csomagszerkezet a következő legyen:
 

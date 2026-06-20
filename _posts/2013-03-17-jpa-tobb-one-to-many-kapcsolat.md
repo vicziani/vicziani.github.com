@@ -26,8 +26,9 @@ példányhoz több `Phone` és több `Address` példány kapcsolódik.
 
 ![Osztálydiagram](/artifacts/posts/2013-03-17-jpa-tobb-one-to-many-kapcsolat/jpa-onetomany.png)
 
-A posthoz tartozó példaprogram [letölthető a
-GitHub-ról](https://github.com/vicziani/jtechlog-jpa-descartes). A
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-jpa-descartes" %}
+
+A
 projekt letöltése után az `mvnw test` paranccsal futtathatóak a teszt esetek.
 A projekt ebben a
 posztban bemutatott legutolsó megoldást tartalmazza, de megjegyzésben

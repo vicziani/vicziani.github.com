@@ -29,7 +29,9 @@ Azonban a statikus erőforrások esetén ez az eszköztár számunkra nem megfel
 http://localhost:8080/css/1.0/jtechlog.css
 ```
 
-Szerencsére a Spring ezeket alapból támogatja. A poszthoz szokás szerint megtalálható [példa projekt a GitHub-on](https://github.com/vicziani/jtechlog-spring-cache).
+Szerencsére a Spring ezeket alapból támogatja. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-cache" %}
 
 Kezdjük először a statikus erőforrások cache-elésével. Ehhez a következő XML konfigurációt kell használni, melynek természetesen van Java konfigurációs párja is.
 

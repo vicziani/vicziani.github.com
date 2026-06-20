@@ -46,9 +46,11 @@ akár dátum alapján visszakeresnünk az entitásaink régebbi állapotait.
 
 Használata rendkívül egyszerű, [jól
 dokumentált](http://docs.jboss.org/hibernate/orm/4.2/devguide/en-US/html/ch15.html)
-mutatja be a lehetőségeit. Én is készítettem egy egyszerű Maven-es
-projektet, mely [letölthető a
-GitHubról](https://github.com/vicziani/jtechlog-hibernate-envers). Ez a
+mutatja be a lehetőségeit. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-hibernate-envers" %}
+
+Ez a
 tipikus `Employee`, `Phone` entitásokból áll, valamint az ezen CRUD
 műveleteket végző `EmployeeService` osztályból, mely JPA-t használ. Az
 `EmployeeServiceTest` teszt eset mutatja az Envers képességeit. A teszt

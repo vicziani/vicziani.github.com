@@ -20,8 +20,9 @@ posztban leírtam, hogyan lehet WildFly-ban konfigurációs paramétereket
 felvenni, JNDI segítségével. Ebben a posztban leírom, hogy történik
 mindez Glassfish alatt.
 
-A példaprojekt [GitHubon
-megtalálható.](https://github.com/vicziani/jtechlog-earconfig) Ahhoz,
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-earconfig" %}
+
+Ahhoz,
 hogy lefordítsuk, adjuk ki az `mvn package` parancsot a főkönyvtárban.
 Futtatáshoz az `earconfig-ear/target` könyvtárban előállt
 `earconfig-ear-1.0-SNAPSHOT.ear` fájlt kell a Glassfishre telepítenünk.

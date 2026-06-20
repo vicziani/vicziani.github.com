@@ -32,8 +32,9 @@ beállításai is megzavarhatják az előre tervezett munkafolyamatot. A
 probléma a webes technológia, a http(s) protokoll, valamint a böngészők
 adta lehetőségek miatt jelentkezik.
 
-A cikk egy jtechlog-repost példa projektre hivatkozik, mely [letölthető
-a GitHub-ról](https://github.com/vicziani/jtechlog-repost). Egyszerű
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-repost" %}
+
+Egyszerű
 webes alkalmazás, servlet controller és JSP view réteggel. Mavennel
 buildelhető, és a letöltést követően a `mvn jetty:run` paranccsal
 futtatható.
@@ -64,8 +65,10 @@ a megfelelő tag-ek ismeretében. A DocBook XML állományból a Maven
 azt fordítja az [Apache FOP](http://xmlgraphics.apache.org/fop/) PDF-fé.
 
 A DocBook forrást tartalmazó, és a PDF-fé build-elést elvégző Maven
-projekt szintén [elérhető a
-GitHub-on](https://github.com/vicziani/jtechlog-repost-doc).
+projekt szintén elérhető a
+GitHub-on.
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-repost-doc" %}
 
 Ezzel kapcsolatban csak egy probléma merült fel, méghozzá az ékezetes
 karakterek problémája, melyről egy külön

@@ -19,7 +19,9 @@ Ebben az esetben az alkalmazásszerver végzi a bejelentkeztetést, esetleg még
 
 A Spring Security használata azért lehet hasznos ebben az esetben is, mert a Servlet API-hoz képest rengeteg plusz funkciót ad, mint pl. URL-ek védelme, amihez a jogosultságokat bonyolult kifejezésekkel adhatjuk meg. Vagy pl. az annotáció alapú deklaratív jogosultságkezelés, stb. A Spring Security-ről bővebben egy [előző posztomban](/2010/01/10/spring-security.html) olvashatsz, melyet ismét frissítettem, hogy a legfrissebb verziókat tartalmazza. 
 
-Jelenlegi poszthoz egy példaprogram is [letölthető a GitHub-ról](https://github.com/vicziani/jtechlog-spring-security-container). Az `mvn jetty:run` paranccsal indítható. Bejelentkezni az `admin1`/`admin1` és a `user1`/`user1` felhasználónév jelszó párosokkal lehetséges. és Egy Jetty beépített webkonténert tartalmaz, melybe fel vannak véve a felhasználók, és a hozzá tartozó szerepkörök. Első körben a Jetty Maven pluginnak kell megmondani, hogy hol található a Jetty-hez tartozó konfigurációs állomány.
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-security-container" %}
+
+Az `mvn jetty:run` paranccsal indítható. Bejelentkezni az `admin1`/`admin1` és a `user1`/`user1` felhasználónév jelszó párosokkal lehetséges. és Egy Jetty beépített webkonténert tartalmaz, melybe fel vannak véve a felhasználók, és a hozzá tartozó szerepkörök. Első körben a Jetty Maven pluginnak kell megmondani, hogy hol található a Jetty-hez tartozó konfigurációs állomány.
 
 {% highlight xml %}
 <plugin>

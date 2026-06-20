@@ -60,8 +60,9 @@ tudja értesíteni. Több megoldást is meg fogok mutatni, melyek közül az
 igényeknek megfelelően lehet választani, és tetszőlegesen személyre
 szabni.
 
-Példaprogram is született, mely [itt elérhető a
-GitHub-on.](https://github.com/vicziani/jtechlog-event) A következő
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-event" %}
+
+A következő
 három példát lehet itt találni:
 
 * `jtechlog-event-eo`: `java.util.EventObject` használatával

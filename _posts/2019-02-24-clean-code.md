@@ -38,7 +38,7 @@ A legfrissebb technológiákat használtam, mint a Java 11, JUnit 5 és Maven.
 mind magamnak, mind nektek, hogy többen tanulni tudjunk belőle. Mindenkinek
 javaslom, hogy a feladat leírása alapján próbálja meg maga is implementálni.
 
-A megoldásom megtalálható a [GitHubon](https://github.com/vicziani/jtechlog-cc-args).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-cc-args" %}
 
 <!-- more -->
 

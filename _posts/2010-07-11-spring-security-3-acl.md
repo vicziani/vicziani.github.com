@@ -202,9 +202,9 @@ felhasználók vagy szerepkörök neveit.
 
 Bár a disztribúció tartalmaz egy [példa
 alkalmazást](https://github.com/spring-projects/spring-security/tree/master/samples/contacts-xml/),
-készítettem én is egyet, mely talán egy kicsit egyszerűbb, és
-[megtalálható a
-GitHub-on](https://github.com/vicziani/jtechlog-spring-security-acl).
+készítettem én is egyet, mely talán egy kicsit egyszerűbb.
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-security-acl" %}
 
 Az alkalmazás Maven-nel buildelhető. A különböző funkciókat JUnit teszt
 esetek tesztelik, szóval a `mvnw integration-test` parancs kiadásával fordítható és

@@ -28,7 +28,7 @@ Akit nem hoz lázba a JSF, annak is érdemes a posztot elolvasnia, mert
 szó esik majd a JSF néhány furcsa tulajdonságáról, a tesztelésről (, ami
 mostanában a szívügyem) és még Demeter törvényéről is.
 
-A poszthoz természetesen a GitHubon működő [példaprojekt](https://github.com/vicziani/jtechlog-jsf) érhető el.
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-jsf" %}
 
 <!-- more -->
 

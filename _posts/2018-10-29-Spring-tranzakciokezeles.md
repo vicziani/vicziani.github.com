@@ -28,7 +28,9 @@ A kivetelkezeléssel kapcsolatba belefutottam a Spring Boot egy érdekes tulajdo
 
 <!-- more -->
 
-A poszthoz létezik példaprogram a GitHubon, [vicziani/spring-transaction](https://github.com/vicziani/spring-transaction) néven. Ebben szereplő hívásokat mutatja az alábbi UML szekvenciadiagram.
+{% include github-callout.html url="https://github.com/vicziani/spring-transaction" %}
+
+Ebben szereplő hívásokat mutatja az alábbi UML szekvenciadiagram.
 
 ![szekvenciadiagram](/artifacts/posts/2018-10-29-Spring-tranzakciokezeles/seq-diagram.png)
 

@@ -23,7 +23,9 @@ A rendezvényre készült [diák elérhetőek itt](/artifacts/2019-10-meetup/mee
 A posztban végigveszem a tesztpiramist, és az ezzel kapcsolatos fogalmakat,
 sőt fenntartásaimat is. Majd megvizsgálok egy alternatív megközelítést,
 mely különösen alkalmazható microservice-ekre. Közben példákat is hozok egy egyszerű
-Spring Boot alkalmazás tesztelésére. A példa projekt elérhető a [GitHubon](https://github.com/vicziani/jtechlog-cities).
+Spring Boot alkalmazás tesztelésére. 
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-cities" %}
 
 <!-- more -->
 

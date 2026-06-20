@@ -15,9 +15,7 @@ Van pár régebbi anyagom, melyet szeretnék publikálni, mielőtt új témákba
 kezdenék bele. Ebből egyik a Java XML kezeléséről szól, ami ugyan nem a
 legforróbb terület manapság, azonban mégsem árthat egy kis összefoglaló.
 
-Ehhez poszthoz is található egy [projekt a
-GitHub-on](https://github.com/vicziani/jtechlog-xml), melyben rengeteg
-példa van.
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-xml" %}
 
 Java SE-n belül a The Java™ API For XML Processing (JAXP) API, specifikáció
 felelős az XML feldolgozásért.

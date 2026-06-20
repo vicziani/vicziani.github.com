@@ -18,9 +18,9 @@ a Domain-Driven Design könyvben is megemlítették.
 <!-- more -->
 
 A példában egy meetupra lehet jelentkezni, amíg van szabad hely. Van egy `Meetup` osztály, entitás,
-valamint egy `MeetupService`, ami a felhasználói felület felől fogadja a hívásokat. A példaprojekt
-elérhető a [GitHubon](https://github.com/vicziani/jtechlog-dbc).
+valamint egy `MeetupService`, ami a felhasználói felület felől fogadja a hívásokat.
 
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-dbc" %}
 
 A `Meetup`
 osztály tartalma a következő.

@@ -238,8 +238,9 @@ működik. Szerencsére a [Weld JUnit 5 Extensions](https://github.com/weld/weld
 ezt is támogatja a [Mock injection services](https://github.com/weld/weld-junit/tree/master/junit5#mock-injection-services)
 használatával.
 
-A [https://github.com/vicziani/javaee-testing](https://github.com/vicziani/javaee-testing) címen tehát egy olyan példa projekt található,
-ami tartalmaz egy DAO-t (, ami egy CDI bean), mely JPA-val van implementálva, az `EntityManager` a `@PersistenceContext`
+{% include github-callout.html url="https://github.com/vicziani/javaee-testing" %}
+
+A példaprojekt tartalmaz egy DAO-t (, ami egy CDI bean), mely JPA-val van implementálva, az `EntityManager` a `@PersistenceContext`
 annotációval van injektálva. Természetesen egy entitást kezel. Valamint van egy service, mely szintén
 egy CDI bean, és a DAO-t `@Inject`annotációval injektálja, és ő indítja a tranzakciót 
 a `@javax.transaction.Transactional` annotáció használatával.

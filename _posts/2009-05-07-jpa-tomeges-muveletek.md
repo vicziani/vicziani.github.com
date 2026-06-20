@@ -69,7 +69,7 @@ nézett ki:
 -   Assert - entitások visszatöltése, update ellenőrzése
 -   Tranzakció rollback
 
-A poszthoz tartozó forráskód elérhető a [GitHubon](https://github.com/vicziani/jtechlog-jpa-bulk).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-jpa-bulk" %}
 
 A teszt eset kódja:
 

@@ -18,7 +18,7 @@ Valamint nem támogat olyan hatékony SQL megoldásokat, mint a Window Functions
 Ezeken egyrészt próbál segíteni a konkrét implementáció, mint pl. a Hibernate. (Ekkor persze elszakadunk a szabványtól.)
 Valamint a Spring Data JPA-val is több problémát próbál orvosolni. Vagy választhatjuk a mindkét előbbi technológiához jól illeszkedő Blaze-Persistence-t is kiegészítésül, mely további lehetőségeket rejt.
 
-A példa alkalmazás forráskódja megtalálható a [GitHubon](https://github.com/vicziani/jtechlog-blaze).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-blaze" %}
 
 <!-- more -->
 

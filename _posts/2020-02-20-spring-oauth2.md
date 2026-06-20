@@ -111,7 +111,8 @@ A token alapesetben nem feltétlen titkosított, hiszen a felhasználó a saját
 Spring Security lesz felelős az OAuth 2.0 használatáért. Szándékosan nem Google vagy Facebook integrációt szeretnék bemutatni,
 hanem saját Authorization Servert szeretnék használni. Az alkalmazás kizárólag REST API interfésszel rendelkezik, nem akarom
 a példát elbonyolítani felhasználói felület implementálásával.
-[Az alkalmazás letölthető GitHubról](https://github.com/vicziani/jtechlog-spring-oauth2).
+
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-spring-oauth2" %}
 
 A Spring berkein belül az OAuth 2.0 támogatás elég megosztott, ugyanis támogatja a 
 [Spring Security OAuth 2.3+](https://spring.io/projects/spring-security-oauth) projekt,

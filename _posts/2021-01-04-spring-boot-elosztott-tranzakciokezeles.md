@@ -64,8 +64,9 @@ is jelzi.
 </dependency>
 ```
 
-A [https://github.com/vicziani/jtechlog-jms-transaction](https://github.com/vicziani/jtechlog-jms-transaction)
-címen található egy példa projekt. Ez Testcontainers segítségével elindít egy
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-jms-transaction" %}
+
+Ez Testcontainers segítségével elindít egy
 PostgreSQL adatbázist, melyhez Spring Data JPA-val fér hozzá. Ennek `max_prepared_transactions` paraméterét át kellett állítani nullánál nagyobb értékre.
 Valamint elindít
 egy beágyazott Apache ActiveMQ Artemis JMS providert.

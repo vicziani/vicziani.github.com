@@ -259,8 +259,11 @@ látható, hogy van egy `name="workroom"` értékpár és egy `address="A4:C1:38
 
 Találtam olyan projektet, mely képes arra, hogy lekérdezze a hőmérsékleti értékeket, és azokat exportálja OpenMetrics
 formátumban, [blexy](https://github.com/rostrovsky/blexy) néven. Ez azonban folyamatosan nyitva tartotta a kapcsolatot, és félő, hogy ez
-több energiát használ. Docker image sem volt belőle. Valamint ennek használatával nem élhettem volna át az alkotás örömét. Ezért saját 
-projektet hoztam létre [xiaomi-sensor-exporter](https://github.com/vicziani/xiaomi-sensor-exporter) néven. Ez futtat egy http
+több energiát használ. Docker image sem volt belőle. Valamint ennek használatával nem élhettem volna át az alkotás örömét.
+
+{% include github-callout.html url="https://github.com/vicziani/xiaomi-sensor-exporter" %}
+
+Ez futtat egy http
 szervert, és kérésre csatlakozik a szenzorhoz, lekérdezi az értékeket és OpenMetrics formátumban visszaadja.
 
 Én az egyszerűség kedvéért Dockerben futtatom, melyhez az image megtalálható a [Docker Hubon](https://hub.docker.com/r/vicziani/xiaomi-sensor-exporter).

@@ -126,7 +126,7 @@ Ezek csak a tipikus fejlécek, ezen kívül más fejlécek is előfordulnak.
 És mit is ér az egész, ha nem próbáljuk ki egy Python szkripttel, hogy mi van,
 ha kiküldünk egy `M-SEARCH` kérést a hálózatra.
 
-A Python példaprogramok megtalálhatóak a [GitHubon](https://github.com/vicziani/jtechlog-dlna-python).
+{% include github-callout.html url="https://github.com/vicziani/jtechlog-dlna-python" %}
 
 ```python
 import socket
