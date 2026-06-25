@@ -138,8 +138,8 @@ címen érhető el, és a következőt kell kiírnia:
     System Property!
         * Context lookup (JNDI) EJB rétegben (JNDI nevek: earconfig/string, \
      earconfig/url, earconfig/properties): [Hello JNDI!, \
-    http://jtechlog.blogspot.com, {key=value, key2=value2, key1=value1}]
+    https://www.jtechlog.hu, {key=value, key2=value2, key1=value1}]
         * System property web rétegben (kulcs: earconfig.system.property): Hello System Property!
         * Context lookup (JNDI) web rétegben (JNDI nevek: earconfig/string, \
      earconfig/url, earconfig/properties): [Hello JNDI!, \
-    http://www.jtechlog.hu, {key=value, key2=value2, key1=value1}]
+    https://www.jtechlog.hu, {key=value, key2=value2, key1=value1}]

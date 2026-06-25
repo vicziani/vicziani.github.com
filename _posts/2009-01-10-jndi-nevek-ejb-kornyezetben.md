@@ -210,7 +210,7 @@ használjuk a `mappedName` attribútumot. Ekkor persze ne felejtsük el, hogy
 ezek már alkalmazásszerver függő nevek. Pl. JBoss esetén teljes EAR
 deploy-kor `[EAR név]/[osztály neve]/[interfész típusa]`, pl.
 `JTechLogEarName/JTechLogBean/remote`, Glassfish esetén csak az osztály
-minősített neve, azaz `com.blogspot.jtechlog.JTechLogBean`.
+minősített neve, azaz `jtechlog.JTechLogBean`.
 
 Ezek alapján használjunk mindenütt ENC nevet, és nem globális nevet a
 hordozhatóság miatt. De hogyan tudunk egy kliens alkalmazásban ilyeneket

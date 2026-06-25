@@ -10,8 +10,7 @@ Már régóta dédelgetem az ötletet, hogy az egész blogot átállítom a GitH
 Pagesre, ezzel is konszolidálva minden tartalmat, melyet megosztok. Ez most egy
 sikeres migrációval megtörtént, így kétszázhúsz posztot böngészhettek az 
 [archívumban](/archivum.html), kb. tíz másik oldal vált elérhetővé, valamint az összes
-írásom megnézhető a [cikkeknél](/cikkek.html). Bármi hibát találsz, akkor kérlek 
-jelezd a viczian.istvan címen a gmailen. 
+írásom megnézhető a [cikkeknél](/cikkek.html).
 
 Eddig a Bloggeren írtam a posztokat, ahol egy szövegbeviteli mezőben lehetett html 
 tartalmat írni, és bizonyos formázási lehetőségeket is adott, valamint pl.
@@ -100,5 +99,5 @@ projekt, mely rengeteg előre gyártott és paraméterezhető sablont tartalmaz.
 egészet magam kialakítani, azonban rengeteg támpontot nyújtott. A statikus htmlben lévő archívumot is áthoztam, valamint több
 átalakítást is elvégeztem, magam által írt pár soros Python szkriptekkel.
 
-Ennek eredményeképp a blog és az összes oldalam elérhető egységes szerkezetben és stílusban a [http://www.jtechlog.hu](http://www.jtechlog.hu) címen.
-A régi Blogger oldal még megmarad egy darabig a [http://jtechlog.blogspot.com](http://jtechlog.blogspot.com) címen, majd törlöm.
+Ennek eredményeképp a blog és az összes oldalam elérhető egységes szerkezetben és stílusban a [https://www.jtechlog.hu](https://www.jtechlog.hu) címen.
+

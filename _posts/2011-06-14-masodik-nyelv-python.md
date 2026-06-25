@@ -7,9 +7,6 @@ tags:
 
 ---
 
-Remélem ezzel a cikkel is sikerül annyi gondolatot megmozgatni, mint az
-előbbivel, ha valami eszetekbe jut, ne legyetek rest hozzászólni!
-
 Mostanában divat második/sokadik nyelvet keresni, egy kicsit kiszakadni
 a mindennapi munka egyhangúságából, és egy másik világot megismerni, egy
 másik programozási nyelvben is jártasságot szerezni.
@@ -167,7 +164,7 @@ szerver, ftp), formátumok (xml, html), I18N, GUI, stb.
 Néhány kódrészlet, futtatható, ha bemásolod egy állományba és `python
 [fájlnév.py]`:
 
-{% highlight python %}
+```python
 # Hello World
 print "Hello World"
 
@@ -198,7 +195,7 @@ print add.__doc__
 # Egy weboldal letöltése, és a linkek kigyűjtése
 import httplib, re
 
-conn = httplib.HTTPConnection("jtechlog.blogspot.com")
+conn = httplib.HTTPConnection("https://www.jtechlog.hu")
 conn.request("GET", "/")
 r = conn.getresponse()
 d = r.read()
@@ -220,9 +217,7 @@ document = """
 dom = xml.dom.minidom.parseString(document)
 for book in dom.getElementsByTagName("book"):
  print book.getAttribute("title")
-{% endhighlight %}
-
-Ha kedvet kaptál, lájkolj!
+```
 
 Azért nem szabad letagadni, hogy azért álltam egyből pozitívan a
 nyelvhez, mert létezik a Jython, ami egy JVM-en futó Python
@@ -235,7 +230,7 @@ Java forráskódot tudja elemezni, és API-t biztosít annak bejárására. Egy
 könyvtárban lévő forráskódok beolvasása, majd az osztályok és azok
 metódusainak bejárása a következőképp történik Java-ban:
 
-{% highlight java %}
+```java
 import com.thoughtworks.qdox.*;
 import com.thoughtworks.qdox.model.*;
 import java.io.File;
@@ -254,12 +249,12 @@ public static void main(String args[]) {
 }
 
 }
-{% endhighlight %}
+```
 
 Ugyanez Pythonban (Jythonban), figyeljük, milyen elegánsan történik a
 külső függőség használata:
 
-{% highlight python %}
+```python
 import sys
 
 sys.path.append("qdox-1.12.jar")
@@ -273,7 +268,7 @@ for clazz in builder.getClasses():
   print "Class: " + clazz.getName()
   for method in clazz.getMethods():
     print "Method: " + method.getName()
-{% endhighlight %}
+```
 
 Mivel nem kell mindig fordítgatnunk, hanem azonnal futtatható a
 scriptünk, tényleg gyorsabb lehet a fejlesztés. Pont emiatt, ha valamit
@@ -322,6 +317,3 @@ Ne értsetek félre, a Java továbbra is az elsődleges nyelv és platform,
 melyet használok, és javaslok, de a Python remek kiegészítő tud lenni a
 mindennapi munkában, hiszen általános célú nyelv, és bizonyos
 feladatokat könnyebben és gyorsabban lehet megvalósítani.
-
-Ti mit használtok Java-n kívül önszántatokból, és nem kötelező
-jelleggel, és miért?

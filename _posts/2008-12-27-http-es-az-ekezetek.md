@@ -39,14 +39,14 @@ HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616.html) szabvány
 tartalmaz. A lekérdendő erőforrást meg lehet adni abszolút URI-val, mely
 egy http sémájú URL.
 
-    GET http://jtechlog.blogspot.com/2008/13/servlet.html HTTP/1.1
+    GET http://www.jtechlog.hu/2008/13/servlet.html HTTP/1.1
 
 Ennél gyakoribb megoldás, mikor a böngésző a HTTP kérés első sorában
 csak a host-hoz tartozó abszolút path-t adja meg, és Host nevű HTTP
 fejlécben adja meg a host-ot, pl.:
 
     GET /2008/13/servlet.html HTTP/1.1
-    Host: jtechlog.blogspot.com
+    Host: www.jtechlog.hu
 
 Ezen definíciókat átfordítva a Servlet API működésére az URL tartalmazza
 a teljes címet, sémával (protokollal), szervernévvel és porttal, míg az
@@ -54,27 +54,27 @@ URI csak a szerveren belüli erőforrást azonosítja egyedileg. Mint azt
 láttuk, a teljes URL ugyan megjelenik a böngésző címsorában, de azt a
 böngésző általában nem küldi el egyben a webes alkalmazásnak, így nincs
 olyan metódus, mellyel ezt le lehet kérdezni. A HTTP kérés első sorában
-lévő értéket a HttpServletRequest interfész getRequestURI() metódusával
+lévő értéket a `HttpServletRequest` interfész `getRequestURI()` metódusával
 lehet lekérni, mely a legtöbb esetben nem adja vissza a sémát, a
-szervernevet és a portot. Ezen értékeket rendben a ServletRequest
-interfész getScheme(), getServerName() és getServerPort() metódusaival
-lehet lekérdeni. A teljes URL előállítására a HttpServletRequest
-interfész getRequestURL() metódusa való, mely a háttérben az előbb
+szervernevet és a portot. Ezen értékeket rendben a `ServletRequest`
+interfész `getScheme()`, `getServerName()` és `getServerPort()` metódusaival
+lehet lekérdeni. A teljes URL előállítására a `HttpServletRequest`
+interfész `getRequestURL()` metódusa való, mely a háttérben az előbb
 említett metódusokat hívja meg, és így állítja össze a végeredményt.
 Összegezve:
 
     requestURL = scheme + serverName + serverPort + requestURI
 
 Dokumentáció szerint a tényleges, böngészőben megjelenő, és az
-összeállított URL-ek között minimális különbségek lehetnek, nevezetese,
-hogy a szóköz %20 helyett + (pluszjel) karakterként jelenik meg. Ezt
-Tomcat-nél nem tapasztaltam.
+összeállított URL-ek között minimális különbségek lehetnek, nevezetesen,
+hogy a szóköz `%20` helyett `+` (pluszjel) karakterként jelenik meg. Ezt
+Tomcatnél nem tapasztaltam.
 
 Ahogy a requestURI sem, így a requestURL sem tartalmazza a HTTP kérés
 paramétereit. A kliens oldalról paraméterek két féleképpen jöhetnek.
-Egyrészt a HTTP kérés törzsében név = érték formátumban, egymástól &
+Egyrészt a HTTP kérés törzsében név = érték formátumban, egymástól `&`
 karakterrel elválasztva. Másrészt jöhetnek az URL-hez hozzáfűzve is
-ugyanezen formátumban, ? karakter után. Ha űrlapot használunk POST
+ugyanezen formátumban, `?` karakter után. Ha űrlapot használunk POST
 metódussal, akkor a HTTP kérés törzsében jönnek a paraméterek, GET
 metódus esetén az URL-ben.
 
@@ -89,9 +89,9 @@ servlet-et jelöli (egy servlet több path-t is kiszolgálhat). Valamint az
 un. extra útinformációból (pathInfo), mely még a CGI-s időkből maradt
 ránk. A Servlet API-ból úgy kezelhetjük ezt, ha a servlet-ünket nem egy
 konkrét URL-re map-peljük rá, hanem wildcard karaktert alkalmazunk. Pl.,
-nézzük a következő web.xml részletet.
+nézzük a következő `web.xml` részletet.
 
-```
+```xml
 <servlet>
   <servlet-name>MyServlet</servlet-name>
   <servlet-class>jtechlog.MyServlet</servlet-class>
@@ -102,27 +102,27 @@ nézzük a következő web.xml részletet.
 </servlet-mapping>
 ```
 
-Ekkor a MyServlet nem csak a /MyServlet kérést fogja megkapni, hanem pl.
-a /MyServlet/jtechlog/servlet.html-re vonatkozó kérést is, és ebben az
-esetben a servletPath a /MyServlet lesz, míg a pathInfo a
-/jtechlog/servlet.html. A három érték lekérdezhető a HttpServletRequest
-interfész getContextPath, getServletPath és getPathInfo metódusaival. A
+Ekkor a `MyServlet` nem csak a `/MyServlet` kérést fogja megkapni, hanem pl.
+a `/MyServlet/jtechlog/servlet.html`-re vonatkozó kérést is, és ebben az
+esetben a servletPath a `/MyServlet` lesz, míg a pathInfo a
+`/jtechlog/servlet.html`. A három érték lekérdezhető a `HttpServletRequest`
+interfész `getContextPath`, `getServletPath` és `getPathInfo` metódusaival. A
 pathInfo eredetileg arra volt használatos, hogy a fájlrendszerben lévő
-állományokat egy servlet szolgálja ki, így meghívva a getPathTranslated
+állományokat egy servlet szolgálja ki, így meghívva a `getPathTranslated`
 metódust visszaad egy abszolút fájl elérést, a pathInfo-t, mint relatív
 útvonalat véve a web alkalmazásunk főkönyvtárához képest. Amennyiben ez
 utóbbi nem érhető el, pl. az alkalmazás WAR-ból fut, null-t ad vissza.
 
 Milyen kódolásokat kell használnunk ilyen környezetben?
 
-Az első, és legegyszerűbb kódolás a HttpServletResponse
-encodeRedirectURL és encodeURL metódusa. Ezen metódusok valók arra, hogy
+Az első, és legegyszerűbb kódolás a `HttpServletResponse`
+`encodeRedirectURL` és `encodeURL` metódusa. Ezen metódusok valók arra, hogy
 a paraméterként megadott URL-hez abban az esetben, ha a kliens böngésző
 nem támogatja a sütik használatát (nem képes, vagy ki van kapcsolva),
 hozzáfűzze a session azonosítót. Így ilyen böngésző esetén a session
 követés csak abban az esetben fog működni, ha az URL-t így kódoljuk. Az
-encodeRedirectURL metódust csak akkor használjuk, ha a
-response.sendRedirect metódust akarjuk alkalmazni, ugyanis ebben az
+`encodeRedirectURL` metódust csak akkor használjuk, ha a
+`response.sendRedirect` metódust akarjuk alkalmazni, ugyanis ebben az
 esetben a kódolás lehet, hogy másképp történik. Ha JSP-ben használunk
 URL-eket, akkor a JSTL core taglib-jének url tag-jét használjuk erre a
 célra.
@@ -141,7 +141,7 @@ kódolását a Content-Type HTTP fejlécben kell megadni. Ennek beállítása
 történhet servlet-ből, vagy JSP direktívával, mint ahogy a következő
 sorok mutatják.
 
-``` {.brush: .java}
+```java
 response.setContentType("text/html;charset=UTF-8");
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -149,7 +149,7 @@ response.setContentType("text/html;charset=UTF-8");
 
 Régebbi böngészők közül sok úgy értelmezte, ha nem volt küldve character
 set, hogy akkor azt a böngészőnek kell kitalálnia. Ez kivédhető, hogy
-ISO-8859-1 character set esetén is küldjük azt a Content-Type fejlécben.
+ISO-8859-1 character set esetén is küldjük azt a `Content-Type` fejlécben.
 
 Ékezetes karaktereket lehetőleg adatbázisból, properties állományból,
 vagy külső erőforrásból vegyünk csak.
@@ -157,17 +157,17 @@ vagy külső erőforrásból vegyünk csak.
 Itt jegyzem meg, hogy egy Properties objektumot az 1.4-es Java-ig
 bezárólag csak egyszerű properties állományból lehetett betölteni, ami
 csak ISO 8859-1 kódolású lehet. Más kódolású állományból ilyent
-készíteni a native2ascii programmal lehetséges, ahol a speciális
+készíteni a `native2ascii` programmal lehetséges, ahol a speciális
 karakterek unicode escape szekvenciával lesznek kódolva. Az 5.0-ás
 Java-ban megjelent, hogy a Properties objektumot már XML állományból is
 be lehet tölteni, itt bármilyen kódolás használható. A 6-os Java-ban a
-Properties osztálynak megjelent a load(Reader) metódusa is, melyel
+`Properties` osztálynak megjelent a `load(Reader)` metódusa is, melyel
 bármilyen kódolású properties állományt be lehet tölteni.
 
 Nagyon távol tartanék mindenkit attól, hogy a forráskódban ékezetes
 karaktereket használjon. Amennyiben mégis, itt is javasolt az UTF-8
 használata, de ekkor a fordítónak meg kell mondani, hogy a forrás
-állományok kódolása milyen. Ezt a -encoding utf8 parancssori
+állományok kódolása milyen. Ezt a `-encoding utf8` parancssori
 paraméterrel kell megadni. Fontos, hogy ilyenkor figyeljünk oda, hogy a
 szövegszerkesztőnk nehogy odaírja a BOM (byte order mark) karaktereket a
 szöveges állományunk elejére, mert a fordító hibát fog jelezni (a
@@ -182,7 +182,7 @@ kódolás néven is (ez utóbbit fogom használni). Ezt is az említett RFC
 3986 írja le. Lényege, hogy bizonyos karaktereket változatlanul hagy,
 bizonyos speciális karaktereket pedig egy százalékjellel és egy kétjegyű
 hexadecimális számmal ír le. Később alkalmassá tették bináris adatok
-átvitelére is, ahol egy bájtot a % jel utánis hexadecimális értékével
+átvitelére is, ahol egy bájtot a `%` jel utánis hexadecimális értékével
 reprezentálnak.
 
 Amennyiben mi állítunk elő olyan linket, mely ilyen karaktereket
@@ -197,16 +197,16 @@ figyelnünk, hogy URL esetén manuálisan kódoljuk, form esetén ne kódoljuk
 az átküldendő karaktereket. (A legjobb persze, ha nem akarunk speciális
 karaktereket átvinni.)
 
-A manuális kódolást az URLEncoder.encode és a manuális dekódolást az
-URLDecoder.decode metódusokkal tudunk végezni. Ez elvégzi a kódolást
-application/x-www-form-urlencoded MIME formátumra, és vissza, melyet a
+A manuális kódolást az `URLEncoder.encode` és a manuális dekódolást az
+`URLDecoder.decode` metódusokkal tudunk végezni. Ez elvégzi a kódolást
+`application/x-www-form-urlencoded` MIME formátumra, és vissza, melyet a
 [HTML szabvány](http://www.w3.org/TR/html4/) tartalmaz. Ennek külön
 érdekessége, hogy ez különbözik az URL kódolás szabványától, ami azt
-írja, hogy a szóköz karaktert %20 karaktersorra kell leképezni, nem
-pedig + (plusz) jelre (ezt az magyarázza, hogy az
-application/x-www-form-urlencoded az URL kódolás egy korai verziójából
-származott le). Amennyiben szabályos kódolást akarunk, használjuk az URI
-osztályt, és annak toURL() metódusát.
+írja, hogy a szóköz karaktert `%20` karaktersorra kell leképezni, nem
+pedig `+` (plusz) jelre (ezt az magyarázza, hogy az
+`application/x-www-form-urlencoded` az URL kódolás egy korai verziójából
+származott le). Amennyiben szabályos kódolást akarunk, használjuk az `URI`
+osztályt, és annak `toURL()` metódusát.
 
 Az ékezetes karaktereknek a bájt kódja kerül átküldésre, viszont a
 nehézség az, hogy a böngésző nem küldi át, hogy az adott bájt sorozat
@@ -224,8 +224,8 @@ alkalmazásainkat, hogy a böngésző felé küldött szövegek, és a böngész
 felől érkező szövegek is UTF-8 character set-ben legyenek.
 
 Az URL-ben érkező szöveget a konténer dekódolja. Tomcat esetén ez a
-server.xml-ben konfigurálható a connector-nál kell beírni a
-URIEncoding="utf-8" paramétert. Amennyiben ilyent nem adunk meg, a
+`server.xml`-ben konfigurálható a connector-nál kell beírni a
+`URIEncoding="utf-8"` paramétert. Amennyiben ilyent nem adunk meg, a
 dekódolás a ISO-8859-1 karakter set-tel történik.
 
 Bizonyos metódusok elvégzik a dekódolást, de bizonyos metódusok nem.
@@ -245,45 +245,45 @@ A paramétereket két csoportra oszthatjuk: az URL-ben és a HTTP törzsben
 
 Az URL-ben érkező paramétereket lekérdezni a HttpServletRequest
 interfész getQueryString metódusával lehet, mely nem végez dekódolást,
-gyakorlatilag a kérdőjel utáni szöveget kapjuk vissza. A getParameter és
+gyakorlatilag a kérdőjel utáni szöveget kapjuk vissza. A `getParameter` és
 hasonló metódusok meghívásakor ezt dekódolja a konténer a connector
 beállításai alapján.
 
 A HTTP törzsben érkező paramétereket is alapértelmezetten a ISO-8859-1
 karakter set-tel dekódolja, és ha ezt módosítani akarjuk, akkor be kell
-állítanunk a HTTP kérés karakter set-jét a HttpServletRequest
-setCharacterEncoding metódusával. Megjegyzendő, hogy ez csak Servlet
+állítanunk a HTTP kérés karakter set-jét a `HttpServletRequest`
+`setCharacterEncoding` metódusával. Megjegyzendő, hogy ez csak Servlet
 2.4+ konténereknél használható. Valamint az első paraméter kiolvasás,
-vagy a getReader által visszaadott Reader-ből való olvasás előtt kell
+vagy a `getReader` által visszaadott `Reader`-ből való olvasás előtt kell
 meghívni, különben nem lesz hatása.
 
 Hogy ezt ne kelljen minden egyes servlet elejére beírni, gyakran
 alkalmazott módszer egy servlet filter alkalmazása, mely minden kérésre
 meghívja az előbb említett metódust. A Spring alapban tartalmazza ezt az
-osztályt org.springframework.web.filter.CharacterEncodingFilter néven,
+osztályt `org.springframework.web.filter.CharacterEncodingFilter` néven,
 melynek encoding init paraméterben kell megadni a kódolást. Ez az
-osztály az org.springframework.web.filter.OncePerRequestFilter
+osztály az `org.springframework.web.filter.OncePerRequestFilter`
 leszármazottja, mely a request scope-ban egy változó elhelyezésével
 biztosítja, hogy kérésenként csak egyszer legyen meghívva.
 
-A HttpServletRequest setCharacterEncoding metódusával biztosítjuk tehát
-azt, hogy a dekódolás a getParameter és társai metódusok segítségével
+A `HttpServletRequest` `setCharacterEncoding` metódusával biztosítjuk tehát
+azt, hogy a dekódolás a `getParameter` és társai metódusok segítségével
 milyen character set-tel történjen.
 
-A org.apache.catalina.util.RequestUtil osztályt érdemes olvasgatni az
+A `org.apache.catalina.util.RequestUtil` osztályt érdemes olvasgatni az
 URL dekódolással, valamint a paraméterek feldolgozásával kapcsolatban.
 
 Összefoglalásképp:
 
--   Ha mi magunk állítunk össze link-et használjuk az encodeRedirectURL
-    és encodeURL metódusokat a session követés érdekében.
+-   Ha mi magunk állítunk össze link-et használjuk az `encodeRedirectURL`
+    és `encodeURL` metódusokat a session követés érdekében.
 -   Ha mi magunk állítunk össze paramétert, akkor URL-ben mi
     gondoskodjunk annak kódolásáról, form esetén a böngésző elvégzi
     helyettünk.
 -   Állítsuk be, hogy a konténer milyen kódolás alapján dekódolja az
-    URL-eket. Tomcat esetén URIEncoding paramétere a Connector
+    URL-eket. Tomcat esetén `URIEncoding` paramétere a Connector
     konfigurációnak.
--   Használjunk CharacterEncodingFilter-t a form-ról érkező ékezetes
+-   Használjunk `CharacterEncodingFilter`-t a form-ról érkező ékezetes
     szövegek helyes dekódolásához.
 
 Amennyiben bináris adatot szeretnénk URL-ben, vagy form-ban átvinni,
@@ -293,5 +293,5 @@ kódolást](http://mindprod.com/jgloss/armouring.html) alkalmazunk,
 melynek kimenete nem tartalmaz speciális karaktereket. Sajnos a Base64
 nem alkalmas erre, mivel a kódolt szöveg tartalmaz olyan karaktert,
 melynek URL-ben speciális jelentése lehet. Alkalmazhatjuk ehelyett egy
-speciális típusát, a Base64u-t, mely kimenetében nem szerepelhet + / és
-= jel.
+speciális típusát, a Base64u-t, mely kimenetében nem szerepelhet `+`, `/` és
+`=` jel.

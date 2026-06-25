@@ -69,26 +69,26 @@ URL-eket definiáltam:
 
 Első esetben a visszaadott XML:
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <bookmarks>
  <bookmark>
   <id>1</id>
-  <url>http://jtechlog.blogspot.hu</url>
+  <url>https://www.jtechlog.hu</url>
   <title>JTechLog</title>
  </bookmark>
 </bookmarks>
-{% endhighlight %}
+```
 
 Ugyanez JSON-ben:
 
-{% highlight javascript %}
+```javascript
 [{
  "id": 1,
- "url": "http://jtechlog.blogspot.hu",
+ "url": "https://www.jtechlog.hu",
  "title": "JTechLog"
 }]
-{% endhighlight %}
+```
 
 Amennyiben egy könyvjelzőt szeretnénk lekérdezni, vagy felküldeni, csak
 a `bookmark` tag tartalma használandó. Amennyiben nem XML-lel akarunk
@@ -97,7 +97,7 @@ dolgozni, használható az `application/xml` helyett pl. az
 
 Először készítsük el az eseményt reprezentáló osztályt:
 
-{% highlight java %}
+```java
 @XmlRootElement
 public class Bookmark {
  private Long id;
@@ -108,12 +108,12 @@ public class Bookmark {
 
  // konstruktorok, getter/setter metódusok
 }
-{% endhighlight %}
+```
 
 Figyeljük meg a `@XmlRootElement` annotációt! Utána készítsük el az
 erőforrást reprezentáló osztályt:
 
-{% highlight java %}
+```java
 @Path("/bookmarks")
 public class BookmarkResource {
 
@@ -144,7 +144,7 @@ public class BookmarkResource {
         return Response.status(Response.Status.CREATED).entity(createdBookmark).build();
     }
 }
-{% endhighlight %}
+```
 
 Látható, hogy az erőforrásban három metódust definiáltunk, rendre a
 következő funkciókkal: könyvjelzők betöltése, könyvjelző betöltése,
@@ -159,7 +159,7 @@ figyeljük meg, hogy az URL-ben megadhatók változók is, melyre később a
 Ahhoz, hogy a kérés ki is legyen szolgálva, elegendő egy
 `@ApplicationPath` annotációval ellátott osztályt készíteni:
 
-{% highlight java %}
+```java
 @ApplicationPath("resources")
 public class JtechlogRestApplication extends ResourceConfig {
 
@@ -168,18 +168,18 @@ public class JtechlogRestApplication extends ResourceConfig {
         packages("jtechlog.rest");
     }
 }
-{% endhighlight %}
+```
 
 És most nézzük a tesztesetet, mondjuk az események lekérdezését.
 Érdekessége, hogy elindít egy inmemory konténert, és azon keresztül
 történik a hívás.
 
-{% highlight java %}
+```java
 @Test
 public void testListBookmark() {
  // Given
  BookmarkDao.getBookmarkDao()
-  .createBookmark(createBookmark("http://jtechlog.blogspot.hu", "JTechLog"));
+  .createBookmark(createBookmark("https://www.jtechlog.hu", "JTechLog"));
  BookmarkDao.getBookmarkDao()
   .createBookmark(createBookmark("https://github.com/vicziani", "GitHub"));
 
@@ -193,7 +193,7 @@ public void testListBookmark() {
  assertEquals(2, bookmarks.size());
  assertEquals("JTechLog", bookmarks.get(0).getTitle());
 }
-{% endhighlight %}
+```
 
 Látható, hogy ez a RESTful web szolgáltatások használata nem csak az API
 ismeretét igényli, hanem egy másfajta gondolkodásmódot is.

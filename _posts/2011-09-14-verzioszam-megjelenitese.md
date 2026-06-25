@@ -36,7 +36,7 @@ onnan kiolvasni.
 Ahhoz, hogy a `MANIFEST.MF` állományban is szerepeljen a verziószám, a következővel egészítsük ki a
 `pom.xml`-t.
 
-{% highlight xml %}
+```xml
 <plugin>
  <groupId>org.apache.maven.plugins</groupId>
  <artifactId>maven-jar-plugin</artifactId>
@@ -49,7 +49,7 @@ Ahhoz, hogy a `MANIFEST.MF` állományban is szerepeljen a verziószám, a köve
   </archive>
  </configuration>
 </plugin>
-{% endhighlight %}
+```
 
 Ekkor a [Apache Maven Archiver](http://maven.apache.org/shared/maven-archiver/index.html) oldalon leírtaknak megfelelően elhelyezi a `MANIFEST.MF` állományban a megfelelő bejegyzéseket, köztük az `Implementation-Version` bejegyzést a projekt verziószámával.
 
@@ -57,7 +57,7 @@ Ezt a következőképp tudjuk kiolvasni, pl. JAR futtatása esetén a classpath-
 
 {% include github-callout.html url="https://github.com/vicziani/jtechlog-versioninfo" %}
 
-{% highlight java %}
+```java
 try (InputStream is = VersionInfo.class.getResourceAsStream("/META-INF/MANIFEST.MF")) {
     Manifest manifest = new Manifest(is);
     Attributes attributes = manifest.getMainAttributes();
@@ -67,7 +67,7 @@ try (InputStream is = VersionInfo.class.getResourceAsStream("/META-INF/MANIFEST.
 catch (IOException e) {
     throw new RuntimeException("Error loading META-INF/MANIFEST.MF file from classpath", e);
 }
-{% endhighlight %}
+```
 
 Ez fejlesztőeszközből indítva nem fog működni, csak ha JAR-ból futtatjuk. Ha web konténerben (pl. Tomcat) vagyunk,
 és a `META-INF` könyvtár nincs a classpath-on, akkor a `ServletContext.getRealPath()` metódusát használjuk.
@@ -81,7 +81,7 @@ verzió információk kinyerésére. A `buildNumber` property-be tárolja a comm
 feltölti a `timestamp` és `buildScmBranch` property-ket is. Ehhez a háttérben egy Git parancsot ad ki.
 Ehhez azonban kötelezően ki kell töltenünk az `scm` tag-et a `pom.xml` fájlban.
 
-{% highlight xml %}
+```xml
 <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>buildnumber-maven-plugin</artifactId>
@@ -96,12 +96,12 @@ Ehhez azonban kötelezően ki kell töltenünk az `scm` tag-et a `pom.xml` fájl
         </execution>
     </executions>
 </plugin>
-{% endhighlight %}
+```
 
 Ha pl. környezeti változóból is szeretnénk értéket kinyerni, akkor a következő konfigurációval
 egészítsük ki:
 
-{% highlight xml %}
+```xml
 <execution>
     <id>jenkinsBuildNumber</id>
     <phase>validate</phase>
@@ -116,7 +116,7 @@ egészítsük ki:
         </items>
     </configuration>
 </execution>
-{% endhighlight %}
+```
 
 Ekkor a `jenkinsBuildNumber` property értékét tölti fel a `BUILD_NUMBER` környezeti változó
 értékével.
@@ -124,7 +124,7 @@ Ekkor a `jenkinsBuildNumber` property értékét tölti fel a `BUILD_NUMBER` kö
 Amennyiben ezeket az értékeket a `MANIFEST.MF`-ben is szerepeltetni akarjuk, a következőt kell a `pom-xml`-be írni
 a `maven-jar-plugin` konfigurációjánál:
 
-{% highlight xml %}
+```xml
 <archive>
   ...
   <manifestEntries>
@@ -132,4 +132,4 @@ a `maven-jar-plugin` konfigurációjánál:
   </manifestEntries>
   ...
 </archive>
-{% endhighlight %}
+```

@@ -11,8 +11,7 @@ tags:
 
 A rövidebb, nem kidolgozott és nem feltétlenül Javaval kapcsolatos
 posztokat eddig a Tumblren írtam, de most átköltöztettem a Bloggerre
-(Blogspot), melyen a [JTechLog](http://jtechlog.blogspot.com/) blog is
-van.
+(Blogspot), melyen a JTechLog blog is van.
 
 -   A Tumblr többször áll, csak a migráció során, mely két éjszaka
     tartott, mind a kétszer leállt
@@ -23,7 +22,7 @@ van.
 -   Nem támogatja a hosszú bejegyzések szerkesztését (nincs automatikus
     mentés)
 -   Mikor a
-    [Lightbox](http://www.huddletogether.com/projects/lightbox2/)-szal
+    Lightbox 2-vel
     akartam integrálni, eltávolította a HTML `rel` attribútumokat, így
     gyakorlatilag kivitelezhetetlen volt a célom.
 -   Nem lehet megjegyzéseket fűzni a bejegyzésekhez
