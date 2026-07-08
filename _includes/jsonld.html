@@ -4,7 +4,7 @@
   "@type": "BlogPosting",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: site.description | jsonify }},
-  "image": {{ page.image | default: site.default_image | absolute_url }},
+  "image": "{{ page.image | default: site.default_image | absolute_url }}",
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
 
