@@ -26,7 +26,7 @@ Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.
 
 ![Kép leírása](/img.png)
 
-<a href="img.png" class="glightbox">![Kép leírása](/img_750.png)</a>
+<a href="/artifacts/posts/slug/img.png" class="glightbox">![Kép leírása](/artifacts/posts/slug/img_750.png)</a>
 
 ```java
 public class HelloWorld {
@@ -34,12 +34,22 @@ public class HelloWorld {
 }
 ```
 
+## Méretek
+
+A fő div 856 pixel.
+
+Jelenleg 99 karakter fér ki a forráskódból.
+
+Az OG kép mérete 1200 × 630 pixel.
+
+LinkedIn-re javasolt kép 1200 × 1200 pixel.
+
 ### Képek
 
-A képek beszúrása úgy történik, hogy amennyiben 750 pixelnél keskenyebb,
+A képek beszúrása úgy történik, hogy amennyiben a fő div-nél keskenyebb,
 Markdown formátumban beszúrható.
 
-Amennyiben 750 pixelnél szélesebb, át kell méretezni a következő
+Amennyiben szélesebb, át kell méretezni a következő
 paranccsal:
 
     convert -resize 750x img.png img_750.png
