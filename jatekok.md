@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Játékok
-description: Játékok
-keywords: Játékok
+description: Java játékok forráskóddal.
 ---
 
 # Játékok

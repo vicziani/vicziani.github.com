@@ -4,6 +4,8 @@ title: Java, Spring Boot natív fordítás
 date: "2026-01-03"
 author: István Viczián
 description: Hogy kell egy Java, akár webes alkalmazást natívra fordítani GraalVM segítségével? Milyen buktatók lehetnek, és mi a megoldásuk?
+tags:
+- Spring
 ---
 
 Cloudban egy viszonylag kevés erőforrással rendelkező virtuális gépen futtatok egy Spring Boot alkalmazást.

@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Falling Gems játék
-description: Falling Gems, Java logikai és ügyességi játék
-keywords: Java, logikai és ügyességi játék
+description: Falling Gems, Java logikai és ügyességi játék.
 ---
 
 # Falling Gems

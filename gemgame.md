@@ -2,7 +2,7 @@
 layout: default
 title: Gem Game játék
 description: Gem Game, Java ügyességi és logikai játék
-keywords: Java, logikai játék
+
 ---
 
 # Gem Game

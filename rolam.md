@@ -1,13 +1,12 @@
 ---
 layout: default
-title: Rólam
-description: Rólam
-keywords: programtervező matematikus, programozó, szoftverfejlesztő, architect, önéletrajz, Java, JTechLog, IBM, Websphere, MQ, MQSeries, EAI, SOA
+title: Viczián István, Java fejlesztő
+description: Viczián István, Java programozó, architect, oktató, fejlesztési vezető, JTechLog szerzője.
 ---
 
 # Rólam
 
-Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, rendezvényeket szervezek és konferenciákra járok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg a [Training360-nál](https://training360.com/) tartok oktatásokat. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Java EE alkalmazásfejlesztés. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben. Szakmai blogot is írok [JTechLog](https://www.jtechlog.hu/) néven. Szabadidőmben sokat túrázok, próbálom felfedezni Magyarország rejtett kincseit.
+Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok. A Debreceni Egyetemen végeztem programtervező matematikusként, jelenleg a [Training360-nál](https://training360.com/) fejlesztési vezetője vagyok és tartok oktatásokat. 1998 óta foglalkozom objektumorientált programozással és szoftverfejlesztéssel, kiemelt szakterületem a Java és Spring alkalmazásfejlesztés. Vezető fejlesztőként, architektként dolgoztam/dolgozom kormányzati, banki, telekommunikációs és energetikai fejlesztési projektekben. Szakmai blogot is írok [JTechLog](https://www.jtechlog.hu/) néven.
 
 [Letölthető magyar nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_HU.pdf), [Letölthető angol nyelvű önéletrajz](/artifacts/Viczian_Istvan_CV_EN.pdf)
 
@@ -16,7 +15,7 @@ Viczián István vagyok, Java fanatikusként fejlesztek, oktatok, blogot írok, 
 <dl class="dl-horizontal">
 		<dt>2012 - </dt>
 		<dd>
-			<p><a href="https://www.training360.com">Training360</a>, vezető oktató, mentor</p>
+			<p><a href="https://www.training360.com">Training360</a>, vezető oktató, mentor, fejlesztési vezető</p>
 		</dd>
 		<dt>2012 - 2016</dt>
 		<dd>

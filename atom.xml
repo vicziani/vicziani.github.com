@@ -6,7 +6,7 @@ title : Atom Feed
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>{{ site.title }} - {{ site.lead }}</title>
- <subtitle>Kötetlen hangvételű blog a Java világából</subtitle>
+ <subtitle>{{site.description}}</subtitle>
  <icon>{{ site.url }}/favicon.ico</icon>
  <link href="{{ site.url }}/atom.xml" rel="self"/>
  <link href="{{ site.url }}" rel="alternate"/>
