@@ -6,6 +6,21 @@ description: A JTechLog blog archívuma, a régebbi bejegyzések listája.
 
 <h1>Archívum</h1>
 
+<nav class="archive-tags" aria-label="Cikkek szűrése címke alapján">
+    <button type="button" class="archive-tag is-active" data-filter-tag="Összes">Összes</button>
+    <button type="button" class="archive-tag" data-filter-tag="Java">Java</button>
+    <button type="button" class="archive-tag" data-filter-tag="Spring">Spring</button>
+    <button type="button" class="archive-tag" data-filter-tag="Architektúra">Architektúra</button>
+    <button type="button" class="archive-tag" data-filter-tag="Tesztelés">Tesztelés</button>
+    <button type="button" class="archive-tag" data-filter-tag="Adatkezelés">Adatkezelés</button>
+    <button type="button" class="archive-tag" data-filter-tag="DevOps">DevOps</button>
+    <button type="button" class="archive-tag" data-filter-tag="Biztonság">Biztonság</button>
+    <button type="button" class="archive-tag" data-filter-tag="Egyéb nyelvek">Egyéb nyelvek</button>
+    <button type="button" class="archive-tag" data-filter-tag="Hardver és labor">Hardver és labor</button>
+    <button type="button" class="archive-tag" data-filter-tag="Módszertan">Módszertan</button>
+    <button type="button" class="archive-tag" data-filter-tag="Szakmai élet">Szakmai élet</button>
+</nav>
+
 {% for post in site.posts  %}
     {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
     {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
@@ -17,7 +32,7 @@ description: A JTechLog blog archívuma, a régebbi bejegyzések listája.
         <ul>
     {% endif %}
 
-    <li>
+    <li class="archive-post-item" data-tags="{% if post.tags %}{{ post.tags | join: "," }}{% endif %}">
         <span>{% assign date = post.date %} {% include date.html %}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
         {% if post.last_modified_at != nil %}
             <span class="updated-badge"> (Frissítve: {% assign date = post.last_modified_at %} {% include date.html %})</span>

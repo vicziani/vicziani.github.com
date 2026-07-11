@@ -12,6 +12,13 @@ layout: default
 				{% if page.last_modified_at != nil %}
 					<span class="updated-badge"> (Frissítve: {% assign date = page.last_modified_at %} {% include date.html %})</span>
 				{% endif %}
+				{% if page.tags and page.tags.size > 0 %}
+					<span class="post-meta-tags" aria-label="Címkék">
+						{% for tag in page.tags %}
+							<span class="archive-tag">{{ tag }}</span>
+						{% endfor %}
+					</span>
+				{% endif %}
 			</p>
 		</header>
 

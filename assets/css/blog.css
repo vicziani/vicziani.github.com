@@ -155,6 +155,51 @@ blockquote {
  * Archive
  */
 
+.archive-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 14px;
+}
+
+.archive-tag {
+  border: 1px solid #d7dce8;
+  background-color: #ffffff;
+  color: #2c3e50;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 9px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.archive-tag:hover,
+.archive-tag:focus {
+  color: #ffffff;
+  background-color: #f39c12;
+  border-color: #f39c12;
+}
+
+.archive-tag.is-active {
+  color: #ffffff;
+  background-color: #2c3e50;
+  border-color: #2c3e50;
+}
+
+.archive-tag.is-active:hover,
+.archive-tag.is-active:focus {
+  background-color: #1f2f40;
+  border-color: #1f2f40;
+}
+
+.archive-post-item {
+  margin-bottom: 10px;
+}
+
 .updated-badge {
   display: inline-block;
   margin-left: 0.45rem;
@@ -168,6 +213,25 @@ blockquote {
   line-height: 1.35;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.post-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.45rem;
+  vertical-align: middle;
+}
+
+.post-meta-tags .archive-tag {
+  cursor: default;
+}
+
+.post-meta-tags .archive-tag:hover,
+.post-meta-tags .archive-tag:focus {
+  color: #2c3e50;
+  background-color: #ffffff;
+  border-color: #d7dce8;
 }
 
 /*
