@@ -9,11 +9,11 @@ tags:
 - Szakmai élet
 ---
 
-2009\. március 18-án tartottuk a 9. [JUM](http://jum.hu/?q=node/15)
+2009\. március 18-án tartottuk a 9. JUM
 rendezvényt a SZÁMALK egyik termében. A JUM célja lehetőséget teremteni
-arra, hogy a magyarországi Java-val foglalkozó szakembereknek, hogy
+arra, hogy a magyarországi Javaval foglalkozó szakembereknek, hogy
 technológiai tudásukat karbantartsák, tapasztalataikat megosszák
-egymással. Ezért alkalmi session-okat szervezzünk, ahol különböző
+egymással. Ezért alkalmi sessionöket szervezzünk, ahol különböző
 témakörökben előadásokat tartunk egymásnak.
 
 Első előadást Verhás István tartotta a "Maven2 a gyakorlatban" címmel.
@@ -40,10 +40,26 @@ megjelenik a felületen.
 
 A harmadik előadást én tartottam "Adattárház és jelentéskészítés
 OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök
-használatával" címmel. Ahogy ígértem, az előadásról [cikket írok és itt
-közlöm.](/artifacts/Java_OLAP.pdf)
+használatával" címmel. 
 
-A [Prezi](http://prezi.com/) online prezentációkészítő szolgáltatást
+Ahogy ígértem, az előadásról [cikket írok és itt
+közlöm](/artifacts/Java_OLAP.pdf).
+
+A cikk
+betekintést ad az adattárházak és a többdimenziós adatmodell
+alapfogalmaiba, valamint konkrét példát is mutat az ingyenes, nyílt
+forráskódú Pentaho Mondrian Java nyelven implementált OLAP szerver,
+valamint a JPivot JSP custom tag library felhasználásával, mely OLAP
+táblát jelenít meg interaktív formában, mellyel a legtöbb OLAP művelet
+elvégezhető. A cikknek nem célja a fogalmak és technológiák alapos,
+precíz ismertetése, inkább egy bevezetőt nyújt ezen eszközök
+használatába, egy gyakorlati példán keresztül.
+
+A prezentáció Prezi formátumban is megtekinthető.
+
+<iframe id="iframe_container" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://prezi.com/embed/5hqg4hd6jahb/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI0M3VYVDYrZjR2RTh5dVRNZFdOa25aWW13PT0&amp;landing_sign=TchpnCF6CMVtE79Okc6PWwwRCro3pyq_aynWDC0LOjc" width="550" height="400" frameborder="0"></iframe>
+
+A [Prezi](https://prezi.com/) online prezentációkészítő szolgáltatást
 mindenkinek javaslom kipróbálásra, hiszen nagyon látványos bemutatókat
 lehet vele készíteni. Szakít a "slide" fogalmával, és az egész
 prezentációt egy kicsinyíthető, nagyítható térben kell elhelyezni.

@@ -9,7 +9,10 @@ tags:
 - Architektúra
 ---
 
-Lezajlott a HWSW free! meetup, melyen a modularizációról tartottam egy tizenöt perces előadást. Ezen idő alatt csak a fogalmakat sikerült áttekinteni, álljon itt az előadás anyaga egy kicsit kifejtve, gyakorlati példákkal megfűszerezve. A slide-ok külön [megnézhetőek](http://www.jtechlog.hu/artifacts/2015-08-modularization/modularization.html).
+Lezajlott a HWSW free! meetup, melyen a modularizációról tartottam egy tizenöt perces előadást. Ezen idő alatt csak a fogalmakat sikerült áttekinteni, álljon itt az előadás anyaga egy kicsit kifejtve, gyakorlati példákkal megfűszerezve. A slide-ok külön [megnézhetőek](/artifacts/2015-08-modularization/modularization.html).
+
+A meetup 2015. augusztus 26-án 18:00-kor volt az AnKERT-ben (1061. Budapest, Paulay Ede utca 33.), kezdésként Auth Gábor beszélt a Java 20 évéről, majd Ferencz Endre adott elő a Java
+bugokról és érdekességekről. Utána jöttem én. Ezt követte Veres Péter előadása arról, hogy hogyan dolgozzunk más kódjával.
 
 Az objektumorientált programozás megjelenése óta az alkalmazásaink alap építőkövei az interfészek és osztályok, melyek az igen finom szemcsézettséget képviselik, azaz a sok és apró komponens együttműködése biztosítja a funkcionalitást. Újrafelhasználhatóságuk nagyon magas, gondoljunk csak a `List` interfészre vagy a `String` osztályra, azonban felhasználásuk magas szaktudást igényel. A skála másik oldalán az alkalmazások helyezkednek el, melyek a SOA elterjedésével szolgáltatásokat biztosítanak. Ezek szemcsézettsége durva, kevésbé újrafelhasználhatóak, viszont jól definiált és viszonylag egyszerű interfészein keresztül könnyen használhatóak, akár fejlesztői tudás nélkül is. Minél jobban arra törekszünk, hogy komponenseink újrafelhasználhatóak legyenek, annál lesznek azok komplexebbek, annál több tudás kell a használatukhoz.
 

@@ -6,9 +6,7 @@ author: István Viczián
 tags:
 - Java
 - Spring
-- Architektúra
 - DevOps
-
 ---
 
 Technológiák: Servlet 3.0, JMX
@@ -26,6 +24,8 @@ Az előadás során végigvettem egy fejlesztési életciklust, valamint egy
 tipikus n-rétegű alkalmazás architektúrát, és elemeztem a fejlesztők és
 az üzemeltetők feladatait, valamint a lehetséges konfliktus forrásokat.
 
+<iframe id="iframe_container" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://prezi.com/embed/gmyp8jz3v3aw/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5KzYxeUhOOVMxVEdqcVhTdnM2MlRSdDVBPT0&amp;landing_sign=Lp3-adHbQu8nCGOY-PL4gNaTESQH067DNwaC-FYUYw4" width="550" height="400" frameborder="0"></iframe>
+
 Konklúzióként levonható, hogy a technológia már nagyon jó eszközöket ad
 a kezünkbe, a probléma mindig emberi oldalon szokott jelentkezni.
 
@@ -40,7 +40,7 @@ Java szempontjából talán a következőket érdemes kiemelni:
     könnyen üzemeltethető alkalmazásokat tudunk készíteni.
 
 A JMX a Java SE 5.0-tól a platform része, olyan szabványos programozói
-interfész ([JSR 3](http://jcp.org/en/jsr/detail?id=3)), melyel
+interfész ([JSR 3](https://jcp.org/en/jsr/detail?id=3)), melyel
 monitorozható és menedzselhető alkalmazásokat tudunk készíteni. A JMX
 alapját egy vagy több Java objektum, ún. managed bean (MBean) képviseli.
 Az MBean-eket az MBean szerverbe kell regisztrálni, hogy a kliensek el
@@ -50,7 +50,7 @@ hívni, valamint bizonyos értesítéseket küldhetnek. Ezáltal az MBean-eken
 keresztül megfigyelhető egy alkalmazás állapota, közbe lehet avatkozni,
 és bizonyos eseményekről is értesítést kaphat az üzemeltető. Az MBean-ek
 lokálisan, de távolról is elérhetőek ([JSR 160, Java Management
-Extensions Remote API](http://jcp.org/en/jsr/detail?id=160)).
+Extensions Remote API](https://jcp.org/en/jsr/detail?id=160)).
 
 Amennyiben elindítunk egy Java programot, és elindítjuk a JConsole
 alkalmazást, információt kaphatunk a memóriafogyasztásról, futó
@@ -76,37 +76,36 @@ Nézzünk is egy példát, írjunk egy egyszerű webes alkalmazást.
 {% include github-callout.html url="https://github.com/vicziani/jtechlog-jmx" %}
 
 Jettyn is megy,
-Maven-nel build-elhető, és a letöltést követően a 'mvn jetty:run'
+Maven-nel build-elhető, és a letöltést követően a `mvn jetty:run`
 paranccsal futtatható. Az alkalmazás egy servletből áll, mely egy
 számlálót növel minden egyes meghívásakor. Ezt szeretnénk kiajánlani
 JMX-en. A számlálóhoz készítsünk egy külön osztályt Counter néven.
 
 ```java
-public class Counter
-    implements CounterMBean {
+public class Counter implements CounterMBean {
 
-private long value;
+    private long value;
 
-public long getValue() {
-    return value;
-}
+    public long getValue() {
+        return value;
+    }
 
-public void setValue(long value) {
-    this.value = value;
-}
+    public void setValue(long value) {
+        this.value = value;
+    }
 
-public void storno() {
-    value = 0;
-}
+    public void storno() {
+        value = 0;
+    }
 
-synchronized public void incrementCounter() {
-    value++;
-}
+    synchronized public void incrementCounter() {
+        value++;
+    }
 }
 ```
 
-Ennek incrementCounter metódusát hívja a szerver. Ahogy látható,
-implementálja a CounterMBean interfészt, melyen keresztül a JMX-en ki
+Ennek `incrementCounter` metódusát hívja a szerver. Ahogy látható,
+implementálja a `CounterMBean` interfészt, melyen keresztül a JMX-en ki
 lesz ajánlva.
 
 ```java
@@ -117,45 +116,45 @@ public void storno();
 }
 ```
 
-Eztán már csak egy ServletContextListener-t kell implementálni, mely az
+Eztán már csak egy `ServletContextListener`-t kell implementálni, mely az
 induláskor regisztrálja az MBean-t, leálláskor meg megszünteti a
 regisztrációt.
 
 ```java
 @WebListener
 public class InitServletListener implements ServletContextListener {
-public void contextInitialized(ServletContextEvent sce) {
-    try {
+    public void contextInitialized(ServletContextEvent sce) {
+        try {
+            MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+            CounterMBean counter = new Counter();
+            mbs.registerMBean(counter,
+        new ObjectName("jtechlog:type=Counter"));
+
+            sce.getServletContext().setAttribute("counter", counter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void contextDestroyed(ServletContextEvent sce) {
+        try {
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        CounterMBean counter = new Counter();
-        mbs.registerMBean(counter,
-    new ObjectName("jtechlog:type=Counter"));
-
-        sce.getServletContext().setAttribute("counter", counter);
-    } catch (Exception e) {
-        e.printStackTrace();
+        mbs.unregisterMBean(new ObjectName("jtechlog:type=Counter"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-}
-
-public void contextDestroyed(ServletContextEvent sce) {
-    try {
-     MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-     mbs.unregisterMBean(new ObjectName("jtechlog:type=Counter"));
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
 }
 ```
 
 A web alkalmazást, majd a JConsole-t elindítva láthatjuk, hogy megjelent
-a jtechlog folder, és azon belül a Conter MBean. Lekérdezhetjük vagy
-beállíthatjuk a value értékét, vagy meghívhatjuk a storno műveletet.
+a `jtechlog` folder, és azon belül a `Counter` MBean. Lekérdezhetjük vagy
+beállíthatjuk a `value` értékét, vagy meghívhatjuk a `storno` műveletet.
 
 Amennyiben értesítést is szeretnénk kapni a számláló értékének
-változásáról, a NotificationBroadcasterSupport osztályból kell
-származtatni, implementálni kell a getNotificationInfo metódust, majd
-meghívni a sendNotification metódust.
+változásáról, a `NotificationBroadcasterSupport` osztályból kell
+származtatni, implementálni kell a `getNotificationInfo` metódust, majd
+meghívni a `sendNotification` metódust.
 
 ```java
 ...
@@ -190,9 +189,9 @@ public MBeanNotificationInfo[] getNotificationInfo() {
 
 A legjobb, hogy ezeket az értékeket nem csak JConsole-ról tudjuk
 lekérdezni, hanem parancssorból is, a Tomcat Ant task-okat definiál
-erre. (Használatához a catalina-ant.jar-t kell a \$CATALINA\_HOME/lib
-könyvtárból az \$ANT\_HOME/lib könyvtárba másolni.) A következő
-build.xml részlettel lehet lekérni a számláló értékét.
+erre. (Használatához a `catalina-ant.jar`-t kell a `$CATALINA_HOME/lib`
+könyvtárból az `$ANT_HOME/lib` könyvtárba másolni.) A következő
+`build.xml` részlettel lehet lekérni a számláló értékét.
 
 ```xml
 <jmx:open
