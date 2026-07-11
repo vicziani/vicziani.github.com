@@ -10,6 +10,38 @@ Az idén rendezett HOUG 2016 szakmai napon is előadhattam, előadásomat
 Twelve-factor app és a Cloud native volt. Az előadás diái
 [itt megtekinthetőek](/artifacts/2016-houg-12factor/2016-houg-12factor.html).
 
+A rendezvény időpontja 2016. október 11. volt, a helyszín
+Magyar Telekom Székház, 1013 Budapest, Krisztina körút 55.
+
+A program 9:00-kor kezdődött Dr. Magyar Gábor, a HOUG elnökének megnyitójával, majd Molnár Balázs tartott egy előadást
+"My Life and Cloud" címmel.
+
+Utána a program három szekcióban folytatódott, mint Java & Middleware, BI & Applications, valamint DB & Infrastructure.
+Volt szó Oracle Middleware megoldásokról, Oracle Commerce Platformról, WebLogic Serverről, microservice-ekről, 
+JSON-ről, Dockerről, cloudról. Sőt volt egy Java Coding Workshop is.
+
+Álljon itt az előadásom bevezetője!
+
+> Manapság a microservices architektúrák elterjedésével, a felhős megoldások
+> térnyerésével és a DevOps gondolkodásmód divatba jöttével egyre nagyobb az
+> igény arra, hogy a Java alkalmazások könnyen üzemeltethetők legyenek. Bár
+> régóta válasz erre a JMX, nem terjedt el annyira, és az igények túlnőttek rajta.
+>
+> Az üzemeltetők (különösen, ha az üzemeltetésben fejlesztők is részt vesznek) nem
+> fekete dobozként akarnak tekinteni az alkalmazásra, hanem megfigyelni, sőt,
+> beavatkozni is szeretnének. Látni akarják, hogy az alkalmazás külső kapcsolatai
+> (pl. adatbázis, cache, sorok, webszolgáltatások, stb.) rendben
+> vannak-e. Az alkalmazás
+> milyen paraméterekkel lett elindítva. Különböző értékeket,
+> statisztikákat akarnak
+> kinyerni. Ezeket már meglévő monitoring eszközökbe akarják bekötni. Sőt, support
+> keretében akár éleseben futó alkalmazás működésébe beavatkozni.
+>
+> Lássuk, hogy erre milyen eszközök vannak, milyen elvárásaink lehetnek, és hogyan
+> tudunk akár saját metrikákat, eseményeket definiálni. Lesz szó RESTful
+> webszolgáltatásokról,
+> Spring Bootról, Metricsről, parancssorról, stb.
+
 Az előadás húsz perce alatt csak ízelítőt tudtam adni a
 [Twelve-factor app](https://12factor.net/)
 állításaiból, és azok implementációs kérdéseiről Java és főleg Spring Boot

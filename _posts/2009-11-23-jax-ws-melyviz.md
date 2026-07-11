@@ -11,10 +11,9 @@ tags:
 last_modified_at: '2017-11-18'
 ---
 
-JAX-WS mélyvíz címmel tartottam előadást a [JUM XII.
-alkalmán](http://wiki.javaforum.hu/display/JAVAFORUM/JUM0911), mely a
-ustream.tv-nek köszönhetően [utólag is
-megnézhető](http://www.ustream.tv/flash/video/2585433), és a [diák is
+JAX-WS mélyvíz címmel tartottam előadást a JUM XII.
+alkalmán, mely a
+ustream.tv-re is felkerült, és a [diák is
 letölthetőek](/artifacts/JUM12-Viczian-Istvan-JAX-WS-melyviz.pdf).
 
 Az előadás kapcsán beszéltem a JAXB és JAX-WS referencia

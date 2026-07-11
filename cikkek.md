@@ -1,97 +1,10 @@
 ---
 layout: default
-title: Viczián István cikkei és prezentációi
-description: Viczián István, a JTechLog szerzőjének cikkei és prezentációi.
+title: Viczián István cikkei
+description: Viczián István, a JTechLog szerzőjének cikkei.
 ---
 
-# Cikkek és prezentációk
-
-## Üzemeltethető Java alkalmazások
-
-A 2016 októberében megrendezett HOUG Szakmai Nap keretében tartottam előadást. Bűvszavak: Twelve-factor app, cloud native, Spring Boot.
-
-[Diák](/artifacts/2016-houg-12factor/2016-houg-12factor.html)
-
-## Modern unit és integrációs tesztelés
-
-Április 4-én a HOUG-on tartottam előadást. Olyan technológiákról esett szó, mint JUnit, Mockito, Hamcrest, Spring MockMvc és Concordion.
-
-[Diák](/artifacts/2016-04-teszteles/teszteles.html)
-
-## Modularizáció Servlet 3, Spring és Maven környezetben
-
-A HWSW free! Java meetupon adtam elő a modularizációról. Szó esett a modularizáció alapfogalmairól, tervezési mintákról és azok technológiai megvalósításairól.
-*(2015. augusztus 26.)*
-
-[Diák](/artifacts/2015-08-modularization/modularization.html)
-
-## G1 szemétgyűjtő
-
-A G1 szemétgyűjtő algoritmus a legfiatalabb a HotSpot JVM-ben. A már ismert fogalmakra
-épít, azonban pár trükkel próbál a többiek felé kerekedni, biztosítva az alkalmazás
-magasabb áteresztőképességét, és a GC futása miatti leállás minimalizálását.
-
-[Diák](artifacts/2015-07_G1/2015-07_G1.html)
-
-## Spring Framework 4.0 és 4.1 verzióinak újdonságai
-
-Az előadás 2014. október 2-án hangzott el a HOUG Szakmai
-napon.
-*(2014.)*
-
-[Diák](artifacts/2014-10_spring_4/2014-10_spring_4.html)
-
-## Spring Data
-
-A Spring Data alapvetően egy Spring Frameworkre épülő projekt, és segít
-abban, hogy egyszerűbben implementálhassuk alkalmazásaink perzisztens
-rétegét. Egy olyan projekt, mely több projektet is tartalmaz, ugyanis
-különböző perzisztens technológiákra implementálták, úgymint JPA, JDBC,
-REST, de olyan NoSQL megoldásokra is van implementációja, mint MongoDB,
-Neo4j, Redis, Hadoop, stb. *(2014.)*
-
-[Diák](artifacts/2014-06_spring_data/2014-06_spring_data.html)
-
-## Maven
-
-Az előadás 2014. július 1-én hangzott el
-[budapest.scala](http://www.meetup.com/budapest-scala/events/191380332/)
-meetupon.
-
-Hogyan buildeljünk Java/Scala hibrid projektet Mavennel, avagy,
-csempéssz scala kódot a Javás projektbe :) Szó lesz a Maven alapjairól,
-fogalmairól, valamint arról, hogy miért szeretjük. Elhangzik, hogy
-mennyire illeszthető a Continuous Integrationbe, Continuous Deliverybe.
-Hallhattok az alternatív lehetőségekről, sőt a Maven árnyoldalairól is.
-*(2014.)*
-
-[Diák](artifacts/2014-06_maven/2014-06_maven.html)
-
-## Continuous Delivery: Problémák és megoldások
-
-A Continuous Delivery bevezetése nagyvállalati Java környezetben
-fejlesztett, több modulból álló alkalmazás esetén nagy kihívást
-jelenthet. Gondoljunk csak a branchek használatára, az Ant korlátolt
-képességeire, a Maven SNAPSHOT és repository kezelésére, a release
-pluginra, az adatbázis séma verziózására, vagy akár az integrációs teszt
-esetek sebességére. Előadásomban ezen problémás részeket igyekszem
-azonosítani, és alternatív megoldási javaslatokat adni. Nincsenek
-általános igazságok, a Continuous Delivery egy szemléletmód, folyamatos
-tanulás és fejlődés. *(2006 - 2011, 947 szó)*
-
-[Letöltés](artifacts/HOUG.j_2014_Viczian_Istvan_Continuous_Delivery.pdf)
-
-## Workflow esettanulmányok
-
-Az előadás keretében két projekt tapasztalatait mutattam be. Mindkét
-esetben munkafolyamatokat kellett implementálni. Teljesen ellentétes
-eszközöket választottunk, az egyiket Anttal, a másikat Activitivel
-valósítottuk meg. Főleg a gyakorlati tapasztalatokra, best practice-ekre
-helyeztem a hangsúlyt. *(2012., 16 dia)*
-
-<iframe width="420" height="315" src="https://www.youtube.com/embed/66FavTUB7AM?rel=0" frameborder="0" allowfullscreen></iframe>
-
-[Letöltés](artifacts/2012-09_workflow.pdf)
+# Cikkek
 
 ## Szabad navigáció okozta problémák webes környezetben
 
@@ -118,39 +31,6 @@ vagy Synchronizer Token. *(2006 - 2011, 2951 szó)*
 
 [Letöltés](artifacts/repost.pdf)
 
-## JAX-WS mélyvíz
-
-A SOA már nem olyan divatos fogalom, mint rég volt. Több éve létezik,
-csakúgy mint az ezzel kapcsolatos platformfüggetlen szabványok, mint a
-SOAP vagy a WSDL, valamint a hozzá kapcsolódó Java standard API-k, mint
-a JAXB és JAX-WS. Ezen JSR-ek megfogalmazásánál elsődleges szempont volt
-az egyszerűség, és a széleskörű használat és az eltelt idő miatt,
-elvárható lenne tőlük, hogy kiforrott, stabil megoldások legyenek.
-Előadásomban éles projektben szerzett tapasztalatok alapján bemutatom,
-hogy ez nem teljesen így van. *(2009. november, 27 dia)*
-
-[Letöltés](artifacts/JUM12-Viczian-Istvan-JAX-WS-melyviz.pdf)
-
-## Hol a határ? Java alkalmazások üzemeltetéséről fejlesztőknek és üzemeltetőknek
-
-Napjaink egyik égető problémája, hogy egyre több és egyre bonyolultabb
-alkalmazás készül Java platformon, melyeket évekig kell üzemeltetni, és
-nem teljesen különül el egymástól, hogy meddig tart a fejlesztő
-hatásköre, és hol kezdődik az üzemeltető felelőssége. A két csoport
-között általában egy szakadék tátong, hiszen vannak olyan területek,
-melyet egyik fél sem vállal magára. Az előadás egyaránt szól
-fejlesztőknek és üzemeltetőknek, hiszen bemutatja a gyakran alkalmazott
-Java nyílt forráskódú szoftver komponenseket, architektúrákat, valamint
-azt, hogy hogyan lehet egyszerűen üzemeltethető alkalmazásokat
-fejleszteni, mit várhatunk el a fejlesztőtől, hogy az alkalmazás az
-üzemeltetést támogassa, valamint hogyan üzemeltethetünk Java alapú
-alkalmazásokat. Az előadás megemlíti az ezzel kapcsolatos szabványokat,
-technológiákat, ajánlásokat, nyílt forráskódú eszközöket, valamint a
-témával kapcsolatos tapasztalatokat. Az előadásnak csak a prezentációja
-érhető el, cikk hozzá nem készült.
-
-<iframe id="iframe_container" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://prezi.com/embed/gmyp8jz3v3aw/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5KzYxeUhOOVMxVEdqcVhTdnM2MlRSdDVBPT0&amp;landing_sign=Lp3-adHbQu8nCGOY-PL4gNaTESQH067DNwaC-FYUYw4" width="550" height="400" frameborder="0"></iframe>
-
 ## Adattárház és jelentéskészítés OLAP-pal a Pentaho Mondrian és JPivot nyílt forráskódú eszközök használatával
 
 Jelen cikk
@@ -164,29 +44,7 @@ precíz ismertetése, inkább egy bevezetőt nyújt ezen eszközök
 használatába, egy gyakorlati példán keresztül. *(2009. március, 13
 oldal, 3277 szó)*
 
-<iframe id="iframe_container" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://prezi.com/embed/5hqg4hd6jahb/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI0M3VYVDYrZjR2RTh5dVRNZFdOa25aWW13PT0&amp;landing_sign=TchpnCF6CMVtE79Okc6PWwwRCro3pyq_aynWDC0LOjc" width="550" height="400" frameborder="0"></iframe>
-
 [Letöltés](artifacts/Java_OLAP.pdf)
-
-## Ariadné fonala a Java technológiák útvesztőjében
-
-Java, Web 2.0, AJAX, SOA, szemantikus web. Bűvös, eltérően értelmezett
-és gyakran ismételgetett fogalmak az informatika világában. Több száz
-technológia, szabvány, nyílt forráskódú és kereskedelmi termék áll
-kapcsolatban a Java platformmal. Az idei JavaOne konferencián – mely a
-Java fejlesztők legnagyobb eseménye – majdnem négyszáz előadást
-tartanak. A Java Community Process-en - mely a Java technológiához
-kapcsolódó szabványokkal, referencia implementációkkal foglalkozó
-program - kb. 350 specifikáció publikált. A Google a Java szóra 363
-millió találatot hoz, melynek töredéke foglalkozik Java szigetével. Az
-előadás az emberi gondolkodáshoz hasonló, élenjáró módszerek
-segítségével kíván utat vágni ezen fogalmak dzsungelében, és egy
-konkrét, Web 2.0-ás alkalmazás fejlesztésén keresztül mutatja be, hogy
-lehet a legmodernebb eszközöket is megszelídíteni, és hogy képes a
-Számalk Továbbképzés ezt a tudást hatékonyan továbbadni. *(2008.
-április, 15 dia)*
-
-[Letöltés](artifacts/2008_szamalk_eloadas_vi.pdf)
 
 ## Alkalmazásintegrációs megoldás
 
