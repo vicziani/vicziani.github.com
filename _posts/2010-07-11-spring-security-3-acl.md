@@ -457,5 +457,5 @@ ACL alatt, hiszen a cache miatt az adatbázis módosítás nem fog látszani.
 
 További olvasnivalók:
 
-[Heraclitus on software blog: Simple web application with Spring
+- [Heraclitus on software blog: Simple web application with Spring
 Security](http://heraclitusonsoftware.wordpress.com/software-development/spring/simple-web-application-with-spring-security-specification/)
