@@ -4,7 +4,8 @@ title: Maven legjobb gyakorlatok
 date: '2011-09-27'
 author: István Viczián
 tags:
-- Maven
+- Java
+- Módszertan
 last_modified_at: '2021-12-20'
 ---
 

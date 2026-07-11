@@ -4,7 +4,8 @@ title: Könyvespolcom
 date: '2009-05-07'
 author: István Viczián
 tags:
-- Oktatás
+- Java
+- Szakmai élet
 
 ---
 

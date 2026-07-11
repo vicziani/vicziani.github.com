@@ -4,9 +4,9 @@ title: Oracle táblanév hossz
 date: '2009-11-09'
 author: István Viczián
 tags:
-- jpa
-- oracle
-- java
+- Java
+- Adatkezelés
+- Módszertan
 
 ---
 

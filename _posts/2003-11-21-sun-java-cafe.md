@@ -4,7 +4,8 @@ title: Sun Java Café
 date: 2003-11-21
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 2003\. december 9-én 9-től 10.30-ig ismét Sun Java Café rendezvény lesz a

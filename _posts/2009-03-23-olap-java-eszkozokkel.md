@@ -4,9 +4,9 @@ title: OLAP Java eszközökkel
 date: '2009-03-23'
 author: István Viczián
 tags:
-- BI
-- Community
-
+- Java
+- Adatkezelés
+- Szakmai élet
 ---
 
 2009\. március 18-án tartottuk a 9. [JUM](http://jum.hu/?q=node/15)

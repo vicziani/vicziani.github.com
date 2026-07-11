@@ -4,8 +4,9 @@ title: JBoss Application Server biztonságossá tétele
 date: '2012-01-27'
 author: István Viczián
 tags:
-- jboss
-- java
+- Biztonság
+- Java
+- DevOps
 
 ---
 
@@ -79,10 +80,10 @@ tulajdonságot. Vigyázzunk, ez nem lehet üres String, hanem legalább egy
 karakter hosszúnak lennie kell. Tehát használjuk pl. az alábbi
 beállítást.
 
-{% highlight xml %}
+```xml
 <Connector protocol="HTTP/1.1" port="8080" address="${jboss.bind.address}"
     connectionTimeout="20000" redirectPort="8443" server=" " />
-{% endhighlight %}
+```
 
 Néhány cikk a neten azt írja, hogy itt kell használni a xpoweredBy
 tulajdonságot is, de ez csak a JBoss-4.x alkalmazásszerverekre volt
@@ -91,7 +92,7 @@ megfelelő. Ehelyett a
 állományban kell a CommonHeadersFilter-ben a X-Powered-By paramétert
 beállítani, lásd az alábbi példát.
 
-{% highlight xml %}
+```xml
 <filter>
   <filter-name>CommonHeadersFilter</filter-name>
   <filter-class>org.jboss.web.tomcat.filters.ReplyHeaderFilter</filter-class>
@@ -100,7 +101,7 @@ beállítani, lásd az alábbi példát.
     <param-value></param-value>
   </init-param>
 </filter>
-{% endhighlight %}
+```
 
 Az OWASP-IG-005 teszt eset az alkalmazás felderítését írja le. Ennek
 során több minden kerül kivizsgálásra, ide tartoznak az admin felületek
@@ -169,7 +170,7 @@ konfigurációk megtalálhatók ezekben az állományokban
 `$JBOSS_HOME\server\[config]\deploy\management\console-mgr.sar\web-console.war\WEB-INF\web.xml`),
 csak megjegyzésben.
 
-{% highlight xml %}
+```xml
 <security-constraint>
  <web-resource-collection>
    <web-resource-name>HtmlAdaptor</web-resource-name>
@@ -184,7 +185,7 @@ csak megjegyzésben.
    <role-name>JBossAdmin</role-name>
  </auth-constraint>
 </security-constraint>
-{% endhighlight %}
+```
 
 Ez a részlet definiálja, hogy mely erőforrásokhoz milyen szerepkör
 szükséges, valamint az autentikáció formája Basic Authentication. Az
@@ -193,9 +194,9 @@ esetén a `web.xml` mellett lévő `jboss-web.xml` írja le (JNDI névvel), hogy
 milyen security domainben kell keresni a felhasználókat. Ez szintén
 megjegyzésben van. Pl. JMX Console esetén a `jmx-console` security domain.
 
-{% highlight xml %}
+```xml
 <security-domain>java:/jaas/jmx-console</security-domain>
-{% endhighlight %}
+```
 
 Ez az előbb említett `login-config.xml` állományban van definiálva. A
 JBoss Web Console esetén a `web-console` a security domain, amely a

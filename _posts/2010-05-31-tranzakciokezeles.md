@@ -4,9 +4,11 @@ title: Tranzakciókezelés EJB 3 és Spring környezetben
 date: '2010-05-31'
 author: István Viczián
 tags:
-- Java EE
-- EJB
+- Java
 - Spring
+- Architektúra
+- Tesztelés
+- Adatkezelés
 last_modified_at: '2021-01-04'
 ---
 

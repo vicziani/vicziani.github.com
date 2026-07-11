@@ -4,6 +4,9 @@ title: Project Reactor és a szálkezelés
 date: '2024-02-01'
 author: István Viczián
 description: Hogyan hat a szálakra a Project Reactor publishOn és subscribeOn metódusa.
+tags:
+- Java
+- Spring
 ---
 
 A Project Reactor egy Springhez közel álló reaktív könyvtár. Erre épül a Spring Framework 5-ben megjelent WebFlux webes keretrendszer

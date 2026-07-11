@@ -4,7 +4,8 @@ title: Egyszerű fájlmegosztás kikapcsolása
 date: '2009-09-13'
 author: István Viczián
 tags:
-- windows
+- Biztonság
+- Egyéb nyelvek
 
 ---
 

@@ -4,10 +4,11 @@ title: Konfigurációs paraméterek EJB és web rétegben WildFly alkalmazássze
 date: '2011-02-27'
 author: István Viczián
 tags:
-- EJB
-- Maven
-- WildFly
-- Java EE
+- Java
+- Spring
+- Architektúra
+- Adatkezelés
+- Módszertan
 last_modified_at: '2015-02-04'
 ---
 
@@ -189,14 +190,14 @@ ejb modulban az `EarConfigBean` EJB Bean, a war modulban a
 Az első metódus system property-t olvas be a következő Java SE-ben is
 működő módon:
 
-{% highlight java %}
+```java
 System.getProperty("earconfig.system.property");
-{% endhighlight %}
+```
 
 A második metódus context lookuppal lekérdezi a globális JNDI-ben lévő
 értékeket:
 
-{% highlight java %}
+```java
 Context context = new InitialContext();
 String[] NAMES = new String[]{"earconfig/string", "earconfig/url",
 	"earconfig/inetaddress", "earconfig/properties"};
@@ -204,7 +205,7 @@ for (String name: NAMES) {
    Object entry = context.lookup(name);
    System.out.println(entry.getClass().getName() + " " + entry);
 }
-{% endhighlight %}
+```
 
 Nagyon sokat kínlódtam azzal, hogy a paramétereket globálisan
 definiáljam a JNDI-ben, majd azokat elérhetővé tegyem a bean, vagy a web
@@ -278,11 +279,11 @@ De előbb nézzük, hogyan lehet értéket adni egy system property-nek? Vagy
 parancssorból a Java virtuális gépnek a `-D` paraméterrel, vagy a
 `standalone/configuration/standalone.xml`-ben írjuk be a következőt az `extensions` lezáró tag után.
 
-{% highlight xml %}
+```xml
 <system-properties>
         <property name="earconfig.system.property" value="Hello System Property!"/>
 </system-properties>
-{% endhighlight %}
+```
 
 Indítsuk újra az alkalmazásszervert.
 
@@ -290,7 +291,7 @@ Hogyan tehetünk értéket a JNDI-be? Megtehetjük parancssori eszközzel,
 kódból, vagy a fentebb említett `stanadlone.xml` állományban, a
 `<subsystem xmlns="urn:jboss:domain:naming:2.0">` tagen belül.
 
-{% highlight xml %}
+```xml
 <subsystem xmlns="urn:jboss:domain:naming:2.0">
     <bindings>
         <simple name="java:/earconfig/string" value="Hello, JNDI!" type="java.lang.String" />
@@ -299,7 +300,7 @@ kódból, vagy a fentebb említett `stanadlone.xml` állományban, a
     </bindings>
     <remote-naming/>
 </subsystem>
-{% endhighlight %}
+```
 
 A példa a következő értékeket illeszti be a JNDI-be:
 

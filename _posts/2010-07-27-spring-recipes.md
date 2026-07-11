@@ -5,7 +5,7 @@ date: '2010-07-27'
 author: István Viczián
 tags:
 - Spring
-- könyv
+- Módszertan
 
 ---
 

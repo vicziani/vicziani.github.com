@@ -4,7 +4,8 @@ title: Session megszűnés
 date: '2009-10-23'
 author: István Viczián
 tags:
-- java
+- Java
+- Architektúra
 
 ---
 

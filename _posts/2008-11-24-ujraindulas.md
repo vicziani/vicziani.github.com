@@ -4,7 +4,8 @@ title: Újraindulás
 date: '2008-11-24'
 author: István Viczián
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Ezennel újra elindítom a kb. öt éve szunnyadó blogomat, JTechLog névvel,

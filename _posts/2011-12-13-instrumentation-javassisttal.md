@@ -4,9 +4,10 @@ title: Instrumentation Javassisttal
 date: '2011-12-13'
 author: István Viczián
 tags:
-- instrumentation
-- Java SE
-- JMX
+- Java
+- Spring
+- Architektúra
+- Egyéb nyelvek
 
 ---
 
@@ -77,13 +78,13 @@ metódusa fut le a saját alkalmazásunk main metódusa előtt. Ahhoz, hogy a
 -javaagent megadásakor ehhez az osztályhoz kerüljön a vezérlés, a
 anifest.mf fájlban a Agent-Class bejegyzésnek rá kell hivatkoznia.
 
-{% highlight java %}
+```java
 public static void premain(String agentArgs, Instrumentation inst) {
  System.out.println("Initializing Wait4Signal Java agent.");
  Wait4SignalMain wait4SignalMain = new Wait4SignalMain();
  wait4SignalMain.doInstrumentation(agentArgs, inst);
 }
-{% endhighlight %}
+```
 
 A `doInstrumentation` metódus feldolgozza a parancssori paramétereket (a
 JAR neve és egy egyenlőségjel után megadott String), ezek konvenció
@@ -95,9 +96,9 @@ JMX), és timeout (másodpercben, alapértelmezett értéke 5). Majd a
 következő utasítás megadásával egy új `ClassFileTransformer`
 implementációt regisztrál:
 
-{% highlight java %}
+```java
 inst.addTransformer(new WaitTransformer(entryPoint, waiting));
-{% endhighlight %}
+```
 
 Egy ötlet volt az is, hogy a `premain` metódusban állítom meg a program
 futását, azonban ez nem volt megfelelő, hiszen a JVM ilyenkor olyannyira
@@ -108,11 +109,11 @@ A `WaitTransformer` a `transform` metódust definiálja felül, és
 vizsgálja, hogy az osztály neve megegyezik-e a parancssori kapcsolóként
 megadottal.
 
-{% highlight java %}
+```java
 public byte[] transform(ClassLoader loader, String className,
  Class<?> classBeingRedefined, ProtectionDomain protectionDomain,
  byte[] classfileBuffer) throws IllegalClassFormatException
-{% endhighlight %}
+```
 
 A transform metódus számunkra érdekes paraméterei az osztály
 osztálybetöltője (null, ha bootstrap osztálybetöltő), az osztály neve
@@ -137,7 +138,7 @@ is van hozzá.
 A következő részben a Javassist érdekesebb kódrészleteit emelem ki,
 melyek a bytecode-ot módosítják.
 
-{% highlight java %}
+```java
 ClassPool pool = ClassPool.getDefault();
 CtClass cl = pool.makeClass(new java.io.ByteArrayInputStream(classfileBuffer));
 
@@ -152,7 +153,7 @@ if (cl.isInterface() == false) {
  classfileBuffer = cl.toBytecode();
 }
 cl.detach();
-{% endhighlight %}
+```
 
 A fenti kódrészlet először lekér egy ClassPool-t, ez a Javassist-ban
 lévő osztályok tárolására szolgáló konténer. Ebbe definiál egy CtClass
@@ -170,7 +171,7 @@ függvényében más és más String-et ad vissza. Pl. CONSOLE mode esetén
 példányosít egy `ConsoleWaiting` objektumot, majd beállítja a timeout
 property-jét, majd meghívja a `wait4signal()` metódusát.
 
-{% highlight java %}
+```java
 public String insertBeforeMethod() {
  StringBuilder sb = new StringBuilder();
  sb.append("jtechlog.wait4signal.Waiting waiting = new jtechlog.wait4signal.ConsoleWaiting();");
@@ -178,7 +179,7 @@ public String insertBeforeMethod() {
  sb.append("waiting.wait4signal();");
  return sb.toString();
 }
-{% endhighlight %}
+```
 
 Érdekessége, hogy a wait4signal() metódus a `ConsoleInput` és
 `ConsoleInputReadTask` osztályokat használja a konzolról való

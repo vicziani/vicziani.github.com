@@ -4,8 +4,8 @@ title: SSH bejelentkezés kulcspárral
 date: '2011-01-26'
 author: István Viczián
 tags:
-- ssh
-- Linux
+- Biztonság
+- Egyéb nyelvek
 
 ---
 

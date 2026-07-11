@@ -6,9 +6,10 @@ last_modified_at: '2026-06-20'
 author: István Viczián
 description: Ez a poszt leírja, mi a JWT és hogyan használjuk Spring Security-vel.
 tags:
-- spring-boot
-- spring-security
-- jwt
+- Java
+- Spring
+- Architektúra
+- Biztonság
 ---
 
 Technológiák: Spring Boot 4, Spring Security 7, JWT

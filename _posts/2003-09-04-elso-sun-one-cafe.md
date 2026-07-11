@@ -4,7 +4,8 @@ title: Első Sun ONE Cafe
 date: 2003-09-04
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Kaptam egy meghívót az első Sun ONE Cafe-ra, mely 2003 szeptember 23-án
@@ -13,5 +14,4 @@ Kaptam egy meghívót az első Sun ONE Cafe-ra, mely 2003 szeptember 23-án
 integrált licszenszelési formája, majd természetesen a webszolgáltatások
 kiépítésének elősegítésére a Sun ONE Web Server 6.1-ről és a Sun ONE
 Application Server 7 EE-ről lesz szó. A rendezvény ingyenes, a
-jelentkezési szándékot szeptember 22-ig kell [Boróczfy
-Katalinnak](mailto:katalin.boroczfy@sun.com) jelenteni.
+jelentkezési szándékot szeptember 22-ig kell jelezni.

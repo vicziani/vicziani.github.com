@@ -3,7 +3,10 @@ layout: post
 title: HOUG Szakmai nap 2014
 date: '2014-09-28'
 author: István Viczián
-tags: 
+tags:
+- Java
+- Spring
+- Szakmai élet
 last_modified_at: '2018-06-01'
 ---
 

@@ -4,8 +4,9 @@ title: Windows TCP/IP beállítások paranccsorból
 date: '2010-06-30'
 author: István Viczián
 tags:
-- Windows
-- hálózat
+- Egyéb nyelvek
+- Hardver és labor
+- Módszertan
 
 ---
 

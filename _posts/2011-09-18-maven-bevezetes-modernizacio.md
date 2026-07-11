@@ -4,7 +4,11 @@ title: Maven bevezetés, modernizáció
 date: '2011-09-18'
 author: István Viczián
 tags:
-- Maven
+- Java
+- Módszertan
+- Tesztelés
+- DevOps
+- Architektúra
 
 ---
 

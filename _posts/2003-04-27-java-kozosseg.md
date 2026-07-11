@@ -4,7 +4,8 @@ title: Java közösség
 date: 2003-04-27
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Némi kiesés után folytatnám.
@@ -35,7 +36,7 @@ virtuálisan is) a tapasztalataik, ötleteik megosztása céljából,
 problémáik megoldására.
 
 [Magyarországon](http://servlet.java.sun.com/jugs/europe/hun) is van
-három JUG, kettő a Debreceni Egyetem keretin belül (Java Fun Club, JFC
+három JUG, kettő a Debreceni Egyetem keretein belül (Java Fun Club, JFC
 ENTERPRISE - JFCE) melyeknek végzős koromban én is tagja voltam, illetve
 Budapesten a Hungarian Java Users' Group (Java Felhasználók Társasága),
 mely keretében jelentkeztem a nagyköveti programra. 1996-ban alakult,

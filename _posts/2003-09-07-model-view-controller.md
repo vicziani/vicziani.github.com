@@ -4,7 +4,8 @@ title: Model-View-Controller
 date: 2003-09-07
 author: Viczián István
 tags:
-
+- Java
+- Architektúra
 ---
 
 Többször is szó esett az MVC technikáról, így most kifejtem, mit is

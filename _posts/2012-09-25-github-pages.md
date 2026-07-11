@@ -4,7 +4,9 @@ title: GitHub Pages
 date: '2012-09-25'
 author: István Viczián
 tags:
-- GitHub
+- Java
+- DevOps
+- Egyéb nyelvek
 
 ---
 
@@ -75,7 +77,7 @@ szintakszissal használandóak), míg a \_layouts könyvtár az oldal
 sablonokat. A \_layouts könyvtárba helyezzük el ennek alapján a
 default.html állományt:
 
-{% highlight xml %}
+```xml
 <html>
 <head>
 </head>
@@ -85,15 +87,15 @@ default.html állományt:
 
 </body>
 </html>
-{% endhighlight %}
+```
 
 Valamint a főkönyvtárba az index.html állományt:
 
-{% highlight xml %}
+```xml
 layout: default
 
 Hello GitHub Pages!
-{% endhighlight %}
+```
 
 Ahogy az várható, a Jekyll végigmegy azokon az állományokon, mely elején
 a három kötőjelet találja (vigyázzunk, ne szerepeljen a file elején a
@@ -102,20 +104,20 @@ a három kötőjelet találja (vigyázzunk, ne szerepeljen a file elején a
 bonyolíthatjuk, ha pl. oldalanként külön címet akarunk, akkor
 definiáljunk egy változót a sablonban (default.html):
 
-{% highlight xml %}
+```xml
 ...
 <title>{{ "{{" }} page.title }}</title>
 ...
-{% endhighlight %}
+```
 
 Majd állítsuk be az értékét a konkrét oldalon (index.html):
 
-{% highlight xml %}
+```xml
 layout: default
 title: GitHub pages
 
 Hello GitHub Pages!
-{% endhighlight %}
+```
 
 A Jekyll a [Liquid](http://liquidmarkup.org/) template engine-t
 használja. A standard Liquid
@@ -127,9 +129,9 @@ Date html meta tag-be. Ráadásul nem is akárhogyan, henm a HTML szabvány
 által ajánlott ISO 8601 formátumban (pl. 2012-09-25). Ehhez a következőt
 kellett csinálni:
 
-{% highlight xml %}
+```xml
 <meta name="Date" lang="hu" content="{{ "{{" }} site.time | date: '%Y-%m-%d' }}"/>
-{% endhighlight %}
+```
 
 A Jekyll [adja](https://github.com/mojombo/jekyll/wiki/template-data) a
 site.time adatot, és ez a date filterrel formázott.
@@ -143,9 +145,9 @@ kettőspontot elhelyezni. Ekkor a következő hibaüzenet fogadott:
 
 Megoldásként a címet idézőjelek közé kell tenni:
 
-{% highlight xml %}
+```xml
 title: "GitHub: pages"
-{% endhighlight %}
+```
 
 Ahhoz, hogy ne csak élesben tudjam kipróbálni a generálást, fel
 szerettem volna tenni a Jekyllt saját gépre is. (Van olyan lehetőség is,

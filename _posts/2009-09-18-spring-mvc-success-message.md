@@ -4,8 +4,9 @@ title: Spring MVC success message
 date: '2009-09-18'
 author: István Viczián
 tags:
-- spring mvc
-- java
+- Spring
+- Java
+- Módszertan
 
 ---
 

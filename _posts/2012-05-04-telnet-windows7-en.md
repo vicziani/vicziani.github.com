@@ -4,7 +4,7 @@ title: Telnet Windows7-en
 date: '2012-05-04'
 author: István Viczián
 tags:
-- windows
+- Egyéb nyelvek
 
 ---
 

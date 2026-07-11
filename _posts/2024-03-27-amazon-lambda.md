@@ -4,6 +4,11 @@ title: AWS Lambda és a Spring Cloud Function
 date: '2024-05-10'
 author: István Viczián
 description: AWS Lambda függvények megvalósítása Spring Cloud Function használatával.
+tags:
+- Java
+- Spring
+- Architektúra
+- DevOps
 ---
 
 Az AWS Lambda egy AWS szolgáltatás, mely lehetővé teszi, hogy a különböző programozási nyelven

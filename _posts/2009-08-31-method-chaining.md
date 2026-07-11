@@ -4,8 +4,9 @@ title: Method Chaining
 date: '2009-08-31'
 author: István Viczián
 tags:
-- java se
-- java
+- Java
+- Spring
+- Módszertan
 
 ---
 

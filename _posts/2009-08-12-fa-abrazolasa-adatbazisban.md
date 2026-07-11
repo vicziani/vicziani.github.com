@@ -4,8 +4,9 @@ title: Fa ábrázolása adatbázisban
 date: '2009-08-12'
 author: István Viczián
 tags:
-- algoritmus
-- JPA
+- Java
+- Adatkezelés
+- Módszertan
 last_modified_at: '2026-03-26'
 ---
 

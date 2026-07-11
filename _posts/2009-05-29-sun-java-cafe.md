@@ -4,9 +4,8 @@ title: Sun Java Café
 date: '2009-05-29'
 author: István Viczián
 tags:
-- SOA
-- Community
-
+- Java
+- Szakmai élet
 ---
 
 Ma reggel voltam a kis szünet után első Java Cafén, melyet már az előző

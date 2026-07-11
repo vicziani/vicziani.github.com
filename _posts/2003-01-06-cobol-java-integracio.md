@@ -4,7 +4,9 @@ title: Cobol és Java integráció
 date: 2003-01-06
 author: Viczián István
 tags:
-
+- Java
+- Egyéb nyelvek
+- Szakmai élet
 ---
 
 Mostanában kénytelen vagyok Cobollal foglalkozni, és érdekességképpen

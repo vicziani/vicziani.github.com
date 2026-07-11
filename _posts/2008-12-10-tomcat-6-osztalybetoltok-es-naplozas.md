@@ -4,8 +4,8 @@ title: Tomcat 6 osztálybetöltők és naplózás
 date: '2008-12-10'
 author: István Viczián
 tags:
-- Naplózás
-
+- Java
+- DevOps
 ---
 Az [Apache Tomcat](http://tomcat.apache.org/) 6.0 implementálja a
 Servlet 2.5 and JavaServer Pages 2.1 specifikációkat. További újítások:

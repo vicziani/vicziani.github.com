@@ -4,11 +4,11 @@ title: Web Component Developer
 date: '2013-11-17'
 author: István Viczián
 tags:
-- Servlet
-- JSP
-- vizsga
-- Java EE
-- könyv
+- Java
+- Spring
+- Tesztelés
+- Biztonság
+- Módszertan
 last_modified_at: '2013-12-25'
 blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-8235707600371192448
 blogger_orig_url: http://www.jtechlog.hu/2013/11/web-component-developer.html

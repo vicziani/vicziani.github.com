@@ -4,6 +4,11 @@ title: Training360 Fejlesztői Meetup
 date: '2019-09-27'
 author: István Viczián
 description: 2019. október 17-én Training360 Fejlesztői Meetup, melyen én is előadok.
+tags:
+- Tesztelés
+- Java
+- Egyéb nyelvek
+- Szakmai élet
 ---
 
 A [Training360](https://training360.com/) oktatóközpont, ahol jelenleg is oktatok,
@@ -37,9 +42,7 @@ azért próbálok a realitás talaján maradni, és olyan
 megoldásokat bemutatni, ami akár kötöttebb környezetben, kevesebb
 szakemberrel és ismerettel is megoldható.
 
-A részvétel ingyenes, de regisztrációhoz kötött, amit a 
-[https://www.training360.com/meetup](https://www.training360.com/meetup)
-címen tehetsz meg. 
+A részvétel ingyenes, de regisztrációhoz kötött. 
 
 A meetup [elérhető a Meetup.com](https://www.meetup.com/Training360/events/265087514/)
 oldalon vagy van [Facebook esemény is](https://www.facebook.com/events/425097588119458/).

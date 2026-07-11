@@ -4,7 +4,8 @@ title: File.setWritable
 date: '2009-08-28'
 author: István Viczián
 tags:
-- java
+- Java
+- Egyéb nyelvek
 
 ---
 

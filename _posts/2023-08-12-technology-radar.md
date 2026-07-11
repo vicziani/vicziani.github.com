@@ -4,6 +4,10 @@ title: JTechLog Technology Radar
 date: '2023-08-12'
 author: István Viczián
 description: Mely technológiákat használnám, és melyeket csak fenntartásokkal?
+tags:
+- Java
+- Architektúra
+- Módszertan
 ---
 
 Emlékszem régebben mennyire nagy esemény volt mindig, mikor kijött a Thoughtworks

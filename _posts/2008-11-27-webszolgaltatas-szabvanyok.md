@@ -4,7 +4,9 @@ title: Webszolgáltatásokkal kapcsolatos szabványok
 date: '2008-11-27'
 author: István Viczián
 tags:
-- SOA
+- Java
+- Architektúra
+- Egyéb nyelvek
 last_modified_at: '2017-11-18'
 ---
 

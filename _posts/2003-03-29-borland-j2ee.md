@@ -4,7 +4,8 @@ title: Borland J2EE megoldása
 date: 2003-03-29
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 A Borland kiadta a J2EE szoftver platform elnevezésű komplett megoldását

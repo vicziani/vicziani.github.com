@@ -4,9 +4,11 @@ title: JPA lazy loading
 date: '2012-04-22'
 author: István Viczián
 tags:
-- EclipseLink
-- Hibernate
-- JPA
+- Java
+- Spring
+- Architektúra
+- Tesztelés
+- Adatkezelés
 last_modified_at: '2018-02-08'
 ---
 
@@ -111,31 +113,31 @@ Alapértelmezetten az EclipseLink cache be van kapcsolva, ezért a
 `persistence.xml`-ben kikapcsoltam azért, hogy követni lehessen, hogy
 milyen SQL utasításokat ad ki.
 
-{% highlight xml %}
+```xml
 <property name="eclipselink.cache.shared.default" value="false"/>
-{% endhighlight %}
+```
 
 Első körben azt az alapértelmezett esetet vizsgáltam, mikor nem tettem
 semmilyen annotációt a CV mezőre. A listázó képernyőn a következőt
 kaptuk:
 
-{% highlight sql %}
+```sql
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE
 -- Persistence context lezárása
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
-{% endhighlight %}
+```
 
 Az adott alkalmazott kilistázásakor hasonlóképp működik.
 
-{% highlight sql %}
+```sql
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 -- Persistence context lezárása
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
-{% endhighlight %}
+```
 
 Először vizsgáljuk csak a `cv` mezőt. Azt kaptuk, amit vártunk, minden
 mezőt lekérdezett mindkét képernyőn. Aztán a `cv` mezőre rátettem a `@Lob`
@@ -144,7 +146,7 @@ annotációt, a helyzet változatlan volt. Amennyiben rátettem a
 megváltozott a helyzet (, függetlenül attól, hogy a `@Lob` rajta volt-e
 vagy sem).
 
-{% highlight sql %}
+```sql
 SELECT ID, EMP_NAME FROM EMPLOYEE
 -- Persistence context lezárása
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
@@ -156,18 +158,18 @@ SELECT ID, CV, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
-{% endhighlight %}
+```
 
 Valamint egy entitást lekérdezésekor:
 
-{% highlight sql %}
+```sql
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 -- Persistence context lezárása
 SELECT ID, CV, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
   WHERE (EMPLOYEE_ID = ?)
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
-{% endhighlight %}
+```
 
 Az addig rendben van, hogy az első selectben ezek után nem kérdezte le
 a `cv` mezőt. Láthatjuk, hogy a persistence context lezárása után
@@ -213,11 +215,11 @@ Viszont a p eredmény értékét egyszerűen nem használja fel, hanem
 eldobja. A distinct használata tehát szükséges ilyenkor, ekkor az
 alkalmazottak listázásakor a következő select futott le:
 
-{% highlight sql %}
+```sql
 SELECT DISTINCT t1.ID, t1.CV, t1.EMP_NAME, t0.ID, t0.PHONE_NUMBER,
   t0.PHONE_TYPE, t0.EMPLOYEE_ID
   FROM PHONE t0, EMPLOYEE t1 WHERE (t0.EMPLOYEE_ID = t1.ID)
-{% endhighlight %}
+```
 
 Különösen érdekes lehet még a lazy loaddal bejelölt, és nem betöltött
 entitások kezelése cascade merge esetén. Ennek tesztelésére készítettem
@@ -233,18 +235,18 @@ telefonszámot is. Az EclipseLink betöltötte a telefonszámokat, elvégezte
 az update-et az employee táblán, majd történt egy insert a phone
 táblába.
 
-{% highlight java %}
+```java
 employee.addPhone(new Phone("home", "123"));
-{% endhighlight %}
+```
 
 Van egy metódus arra, hogy megvizsgáljuk, hogy az adott kapcsolatok,
 melyek lazyvel vannak jelölve, betöltésre kerültek-e. A következőképpen
 használhatjuk:
 
-{% highlight java %}
+```java
 Persistence.getPersistenceUtil().isLoaded(
             em.find(Employee.class, 42), "phoneNumbers");
-{% endhighlight %}
+```
 
 ### Hibernate
 
@@ -311,7 +313,7 @@ Azonban a Hibernate az `EntityManager.find` metódus használatakor már
 okosabb, mint az EclipseLink, egy left outer joint is tartalmazó
 lekérdezést futtat:
 
-{% highlight sql %}
+```sql
 select employee0_.id as id0_1_, employee0_.cv as cv0_1_,
   employee0_.EMP_NAME as EMP3_0_1_, phones1_.employee_id
   as employee4_0_3_, phones1_.id as id3_, phones1_.id as id1_0_,
@@ -321,7 +323,7 @@ select employee0_.id as id0_1_, employee0_.cv as cv0_1_,
   from Employee employee0_
   left outer join Phone phones1_
   on employee0_.id=phones1_.employee_id where employee0_.id=?
-{% endhighlight %}
+```
 
 Amennyiben a getter metódusokkal akarjuk az entitást inicializálni,
 vigyázzunk, nem mindegy, hogy mit hívunk meg, mert pl. a `getPhones()`,
@@ -340,7 +342,7 @@ A join fetch-es lekérdezés ugyanúgy működik itt is, mint az EclipseLink
 esetén, itt a legenerált SQL kicsit másképp néz ki, a Hibernate az inner
 join kulcsszót használja.
 
-{% highlight sql %}
+```sql
 select distinct employee0_.id as id0_0_, phones1_.id as id1_1_,
   employee0_.cv as cv0_0_, employee0_.EMP_NAME as EMP3_0_0_,
   phones1_.employee_id as employee4_1_1_,
@@ -351,23 +353,23 @@ select distinct employee0_.id as id0_0_, phones1_.id as id1_1_,
   from Employee employee0_
   inner join Phone phones1_
   on employee0_.id=phones1_.employee_id
-{% endhighlight %}
+```
 
 Persze a ebben az esetben az `findEmployeeById` metódust is át kellett
 írni, hogy ne az `EntityManager.find` metódusát használja, hanem szintén
 fetch join-os lekérdezést:
 
-{% highlight sql %}
+```sql
 return em.createNamedQuery("findEmployeeById", Employee.class)
   .setParameter("id", id).getSingleResult();
-{% endhighlight %}
+```
 
 Valamint a NamedQuery:
 
-{% highlight sql %}
+```sql
 @NamedQuery(name = "findEmployeeById",
   query = "select distinct e from Employee e join fetch e.phones where e.id = :id")
-{% endhighlight %}
+```
 
 Megoldás lehet az is, hogy ha a persistence context tranzakciónyi, akkor
 a view rétegben kell a tranzakciót nyitni és zárni. Ezt nevezik
@@ -377,7 +379,7 @@ EntityManager in View" minta használata, és kb. ugyanazon előnyökkel és
 hátrányokkal rendelkezik. Ehhez a következőt kell hozzáadni a
 `web.xml`-hez:
 
-{% highlight xml %}
+```xml
 <filter>
     <filter-name>openEntityManagerInViewFilter</filter-name>
     <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
@@ -387,7 +389,7 @@ hátrányokkal rendelkezik. Ehhez a következőt kell hozzáadni a
     <filter-name>openEntityManagerInViewFilter</filter-name>
     <url-pattern>*.html</url-pattern>
 </filter-mapping>
-{% endhighlight %}
+```
 
 Itt az történik, hogy a http kérés beérkeztekor a filter nyit egy
 persistence contextet, és az adott szálhoz
@@ -407,7 +409,7 @@ jön létre, így hozzáfér az abban lévő bean-ekhez.
 
 Itt még figyeljük meg a lekérdezéseket:
 
-{% highlight sql %}
+```sql
 select employee0_.id as id0_, employee0_.cv as cv0_,
   employee0_.EMP_NAME as EMP3_0_ from Employee employee0_
 -- Persistence context lezárása
@@ -423,7 +425,7 @@ select phones0_.employee_id as employee4_0_1_,
   phones0_.PHONE_NUMBER as PHONE2_1_0_,
   phones0_.PHONE_TYPE as PHONE3_1_0_
   from Phone phones0_ where phones0_.employee_id=?
-{% endhighlight %}
+```
 
 Gyakorlatilag ugyanaz, mint az EclipseLink esetén, azzal a különbséggel,
 hogy a Hibernate mindenütt aliasokat használ.

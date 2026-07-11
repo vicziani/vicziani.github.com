@@ -4,8 +4,7 @@ title: A Hashtable már nem menő
 date: '2009-01-19'
 author: István Viczián
 tags:
-- Java SE
-
+- Java
 ---
 
 Kedves kollégáim ihletésére született ez a poszt, nem az első, akiket
@@ -68,7 +67,7 @@ az Iterator-tól, hogy hosszabbak a metódusnevei, valamint nem
 rendelkezik egy remove() metódussal. Ezt viszont már megemlíti a
 JavaDoc, hogy az Iterator-t használjuk.
 
-```
+```java
 import java.util.ConcurrentModificationException;
 import java.util.Enumeration;
 import java.util.Hashtable;

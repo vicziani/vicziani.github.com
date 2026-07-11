@@ -5,7 +5,7 @@ date: '2014-07-12'
 author: István Viczián
 tags:
 - Spring
-- JPA
+- Adatkezelés
 last_modified_at: '2024-01-16'
 description: Repository réteg létrehozása Spring Data használatával.
 ---

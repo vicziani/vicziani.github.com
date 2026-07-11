@@ -4,11 +4,10 @@ title: Oracle Certified Expert, Java EE 6 Web Services Developer
 date: '2012-12-22'
 author: István Viczián
 tags:
-- SOA
-- JAX-WS
-- vizsga
-- JAX-RS
-- könyv
+- Java
+- Spring
+- Tesztelés
+- Egyéb nyelvek
 last_modified_at: '2012-12-23'
 ---
 

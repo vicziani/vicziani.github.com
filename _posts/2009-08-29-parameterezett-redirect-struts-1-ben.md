@@ -4,8 +4,8 @@ title: Paraméterezett redirect Struts 1-ben
 date: '2009-08-29T17:41:00.000'
 author: István Viczián
 tags:
-- struts
-- java
+- Java
+- Egyéb nyelvek
 
 ---
 

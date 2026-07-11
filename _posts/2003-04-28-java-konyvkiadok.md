@@ -4,7 +4,8 @@ title: Java könyvkiadók
 date: 2003-04-28
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Az O'Reilly könyvek sokunknak okoztak már kellemes perceket, és a kiadó

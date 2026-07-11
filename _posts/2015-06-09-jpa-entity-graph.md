@@ -3,6 +3,10 @@ layout: post
 title: JPA Entity Graph
 date: '2015-06-09'
 author: István Viczián
+tags:
+- Java
+- Spring
+- Adatkezelés
 ---
 
 Használt technológiák: EclipseLink 2.6.0, Hibernate 4.3.9.Final
@@ -25,23 +29,23 @@ A poszthoz nem írtam külön példaprogramot, hanem az előző posztokban haszn
 
 Először nézzük meg a konfigurációt annotációkkal. Adott az `Employee` entitás, hozzá a `Phone` entitás, a `phones` mezővel, `@OneToMany` annotációval ellátva. A hozzá tartozó annotáció:
 
-{% highlight java %}
+```java
 @NamedEntityGraph(name = "graph.Employee.phones",
     attributeNodes = @NamedAttributeNode("phones"),
     subgraphs = {
         @NamedSubgraph(name = "phones",
             attributeNodes = {@NamedAttributeNode("type")})
 })
-{% endhighlight %}
+```
 
 Ezt a `find` metódus esetén a következőképp tudjuk használni.
 
-{% highlight java %}
+```java
 Map hints = new HashMap();
 hints.put("javax.persistence.fetchgraph",
     em.getEntityGraph("graph.Employee.phones"));
 return em.find(Employee.class, id, hints);
-{% endhighlight %}
+```
 
 EclipseLink esetén azonnal kivételt kaptam.
 
@@ -55,20 +59,20 @@ Mint kiderült, kizárólag akkor volt hajlandó működni, ha lefuttattam a wea
 
 Az EclipseLink a `javax.persistence.fetchgraph` hatására a következő három lekérdezést futtatta le:
 
-{% highlight java %}
+```java
 SELECT ID FROM EMPLOYEE WHERE (ID = ?)
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
     WHERE (EMPLOYEE_ID = ?)
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
-{% endhighlight %}
+```
 
 Az EclipseLink a `javax.persistence.loadgraph` hatására a következő két lekérdezést:
 
-{% highlight java %}
+```java
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
     WHERE (EMPLOYEE_ID = ?)
-{% endhighlight %}
+```
 
 Figyeljük meg, hogy join műveletet nem használ, legalább két lekérdezést futtat. Ami viszont pozitív, hogy az `Employee` osztály `cv` attribútumát nem kérdezi le, mikor `@Basic(fetch = FetchType.LAZY)` annotációval láttam el. Az is látható, hogy habár a `Phone` osztálynál csak a `type` attribútumot adtam meg, mindig lekérdezte `number` attribútumhoz tartozó oszlopot is.
 
@@ -76,7 +80,7 @@ Hibernate esetében ekkor ugyanúgy egy outer joinos lekérdezés fut le, mint j
 
 Programozottan a következőképp hozhatunk létre gráfot:
 
-{% highlight java %}
+```java
 EntityGraph<Employee> graph = em.createEntityGraph(Employee.class);
 graph.addAttributeNodes("name");
 Subgraph<Phone> subgraph = graph.addSubgraph("phones", Phone.class);
@@ -85,11 +89,11 @@ List<Employee> employees =
     em.createNamedQuery("listEmployees", Employee.class)
         .setHint("javax.persistence.fetchgraph", graph)
         .getResultList();
-{% endhighlight %}
+```
 
 EclipseLink esetén két `Employee`, és hozzá tartozó két-két `Phone` esetén a következő indokolatlan számú SQL fut le:
 
-{% highlight sql %}
+```sql
 SELECT ID, EMP_NAME FROM EMPLOYEE
 SELECT ID FROM PHONE WHERE (EMPLOYEE_ID = ?)
 SELECT ID FROM PHONE WHERE (EMPLOYEE_ID = ?)
@@ -99,17 +103,17 @@ SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE WHERE (ID = ?)
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE WHERE (ID = ?)
 SELECT ID, EMP_NAME FROM EMPLOYEE WHERE (ID = ?)
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE WHERE (ID = ?)
-{% endhighlight %}
+```
 
 A `javax.persistence.loadgraph` hatására kicsit jobb a helyzet.
 
-{% highlight sql %}
+```sql
 SELECT ID, EMP_NAME FROM EMPLOYEE
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
     WHERE (EMPLOYEE_ID = ?)
 SELECT ID, PHONE_NUMBER, PHONE_TYPE, EMPLOYEE_ID FROM PHONE
     WHERE (EMPLOYEE_ID = ?)
-{% endhighlight %}
+```
 
 Mivel nincs join, `distinct` kulcsszót sem kell alkalmaznunk a lekérdezésben. Az `Employee` osztály `cv` attribútumát sem tölti be. A `Phone` osztálynál mindig betöltésre került a `type` és a `number` értéke is.
 
@@ -119,11 +123,11 @@ Hibernate esetében ugyanúgy egy outer joinos lekérdezés fut le, mintha join 
 
 Végül a [jtechlog-jpa-descartes](https://github.com/vicziani/jtechlog-jpa-descartes) projekten próbálkoztam. Itt az a trükk, hogy az `Employee` entitásnak két `@OneToMany` kapcsolata van, egy `Address` és egy `Phone` entitás felé. Az Entity Graph viszonylag egyszerű lett:
 
-{% highlight java %}
+```java
 @NamedEntityGraph(name = "graph.Employee.phonesAndAddresses",
         attributeNodes = {@NamedAttributeNode("phones"),
             @NamedAttributeNode("addresses")})
-{% endhighlight %}
+```
 
 Sajnos a Hibernate itt is egy lekérdezést adott ki, két join művelettel, meg is lett az eredménye, a Descartes-szorzat, a teszt elbukott. Így itt is azt a trükköt kell alkalmazni, hogy két lekérdezést kell kiadnunk.
 

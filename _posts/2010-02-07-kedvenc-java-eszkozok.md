@@ -4,8 +4,10 @@ title: Kedvenc Java eszközök
 date: '2010-02-07'
 author: István Viczián
 tags:
-- Utils
-- infrastruktúra
+- Java
+- Tesztelés
+- DevOps
+- Módszertan
 
 ---
 

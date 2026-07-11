@@ -4,7 +4,8 @@ title: Java Product Versioning
 date: '2010-09-30T16:00:00.000'
 author: István Viczián
 tags:
-- java
+- Java
+- Architektúra
 
 ---
 
@@ -31,7 +32,7 @@ Pl:
 
 Utána ezt le is lehet kérdezni a `Package` osztály metódusaival, pl.:
 
-{% highlight java %}
+```java
 package java.util;
 
 public class Test {
@@ -39,7 +40,7 @@ public class Test {
     System.out.println(Test.class.getPackage().getSpecificationTitle() );
   }
 }
-{% endhighlight %}
+```
 
 A különleges az egészben, hogy ez kicsomagolva nem működik, kizárólag
 JAR-ból futtatva, valamint nem működik WAR állományoknál sem, bárhova is

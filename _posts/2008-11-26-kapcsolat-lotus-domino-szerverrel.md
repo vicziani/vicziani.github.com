@@ -4,8 +4,10 @@ title: Kapcsolat Lotus Domino szerverrel
 date: '2008-11-26'
 author: István Viczián
 tags:
-- SOA
-
+- Java
+- Adatkezelés
+- Architektúra
+- Egyéb nyelvek
 ---
 
 Egy integrációs projekt során kell egy Lotus Domino 7.0.1 

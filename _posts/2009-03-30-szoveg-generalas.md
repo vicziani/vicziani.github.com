@@ -4,7 +4,7 @@ title: Szöveg generálás
 date: '2009-03-30'
 author: István Viczián
 tags:
-- Utils
+- Java
 last_modified_at: '2018-02-19'
 ---
 
@@ -84,7 +84,7 @@ riport lesz, mely ezen vezérlő állomány alapján keletkezik.
 A Texent futtatni Anttal lehetséges, melynek egy példa `build.xml`
 állománya:
 
-{% highlight xml %}
+```xml
 <project name="generator" default="gen" basedir=".">
 
  <path id="classpath">
@@ -103,7 +103,7 @@ A Texent futtatni Anttal lehetséges, melynek egy példa `build.xml`
           outputEncoding="UTF-8" inputEncoding="UTF-8"/>
  </target>
 </project>
-{% endhighlight %}
+```
 
 Ekkor a Texenhez szükséges JAR-okat a lib könyvtárban helyezzük el
 (`commons-collections`, `commons-lang`, `texen`, `velocity`). A templates
@@ -113,14 +113,14 @@ is. Az állományokat, és a riportot tartalmazó (`generation.report`)
 adható meg a kódolás is. A következő példa egy egyszerű sablon állományt
 mutat, mely beemeli a fejlécet és láblécet:
 
-{% highlight xml %}
+```xml
 <html>
  <body>
    #parse('header.vm')
    Content.
  </body>
 </html>
-{% endhighlight %}
+```
 
 Amennyiben személyre akarjuk szabni a Texent, a
 `org.apache.texen.ant.TexenTask` Ant taskot kell leszármaztatnunk, és a
@@ -130,7 +130,7 @@ konstruálásától kezdve adatbázisból való lekérdezéséig bármit
 implementálhatunk. Példánkban írjuk ki magyar formátumban a generálás
 dátumát. A szükséges Java osztályt a következő kódrészlet mutatja:
 
-{% highlight java %}
+```java
 package jtechlog.mytexentask;
 
 import java.util.Date;
@@ -153,7 +153,7 @@ private static final Locale HU = new Locale("hu", "HU");
    }
 
 }
-{% endhighlight %}
+```
 
 Ez a `dateOfGeneration` névvel fog betenni egy String objektumot a
 contextbe. Ahhoz, hogy ebből egy Ant task legyen, használjuk az Ant
@@ -162,19 +162,19 @@ package-ben hozzunk létre egy `antlib.xml` állományt, majd csomagoljuk a
 lefordított class, valamint az xml állományt egy `mytexentask.jar`
 állományba. Az `antlib.xml` tartalma:
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" ?>
 <antlib>
  <typedef name="MyTexenTask"
   classname="jtechlog.mytexentask.MyTexenTask" />
 </antlib>
-{% endhighlight %}
+```
 
 Hogy ezt felhasználhassuk, az `mytexentask.jar` állományt tegyük az
 eredeti projektünk `lib` könyvtárába, és a `build.xml` állományba módosítsuk
 a `project`, `taskdef` és a `texen` tageket.
 
-{% highlight xml %}
+```xml
 <project name="name="generator" " default="gen" basedir="."
   xmlns:mytexentask="antlib:jtechlog.mytexentask">
 ...
@@ -188,15 +188,15 @@ a `project`, `taskdef` és a `texen` tageket.
  templatePath="templates"
  outputFile="generation.report"
  outputEncoding="UTF-8" inputEncoding="UTF-8"/>
-{% endhighlight %}
+```
 
 Eztán máris használhatjuk a `dateOfGeneration` változót a sablonunkban:
 
-{% highlight xml %}
+```xml
 <html>
  <body>
    #parse('header.vm')
    Content. $dateOfGeneration
  </body>
 </html>
-{% endhighlight %}
+```

@@ -4,7 +4,8 @@ title: Thinking in Java
 date: 2002-12-14
 author: Viczián István
 tags:
-
+- Java
+- Módszertan
 ---
 
 Valószínűleg sokaknak ismerős a Bruce Eckel név, esetleg a

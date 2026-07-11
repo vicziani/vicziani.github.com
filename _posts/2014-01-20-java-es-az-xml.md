@@ -4,7 +4,7 @@ title: Java és az XML
 date: '2014-01-20'
 author: István Viczián
 tags:
-- xml
+- Java
 - Tesztelés
 last_modified_at: '2019-07-27'
 ---

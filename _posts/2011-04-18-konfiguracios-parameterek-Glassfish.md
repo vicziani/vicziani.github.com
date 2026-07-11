@@ -4,11 +4,10 @@ title: Konfigurációs paraméterek EJB és web rétegben Glassfish alkalmazáss
 date: '2011-04-18'
 author: István Viczián
 tags:
-- Servlet
-- JNDI
-- EJB
-- Maven
-- Java EE
+- Java
+- Spring
+- Architektúra
+- Egyéb nyelvek
 last_modified_at: '2015-02-03'
 ---
 

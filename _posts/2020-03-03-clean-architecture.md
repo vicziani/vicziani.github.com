@@ -4,6 +4,11 @@ title: Clean Architecture
 date: '2020-03-03'
 author: István Viczián
 description: Szemelvények a Clean Architecture könyvből.
+tags:
+- Architektúra
+- Tesztelés
+- Java
+- Egyéb nyelvek
 ---
 
 Robert C. Martin erőteljes hatást gyakorolt napjaink szoftverfejlesztésre.

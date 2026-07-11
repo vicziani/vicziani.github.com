@@ -4,12 +4,10 @@ title: JBoss in Action
 date: '2010-07-01'
 author: István Viczián
 tags:
-- open source
-- ha
-- biztonság
-- cluster
-- Java EE
-- könyv
+- Java
+- Biztonság
+- Architektúra
+- DevOps
 
 ---
 

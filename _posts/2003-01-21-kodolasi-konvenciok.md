@@ -4,7 +4,9 @@ title: Kódolási konvenciók
 date: 2003-01-21
 author: Viczián István
 tags:
-
+- Java
+- Módszertan
+- Egyéb nyelvek
 ---
 
 Nagyon szeretem a szép, elegáns Java kódot, amit például bizonyos

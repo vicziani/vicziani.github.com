@@ -4,7 +4,8 @@ title: JExcelAPI kivétel
 date: '2009-10-07T17:04:00.000'
 author: István Viczián
 tags:
-- java
+- Java
+- Egyéb nyelvek
 
 ---
 
@@ -23,8 +24,8 @@ at jxl.write.biff.WritableWorkbookImpl.write(WritableWorkbookImpl.java:726)
 A nyomozás azt derítette ki, hogy a write access hossza túl nagy volt,
 bármit jelentsen is ez. Megoldás:
 
-{% highlight java %}
+```java
 WorkbookSettings workbookSettings = new WorkbookSettings();
 workbookSettings.setWriteAccess("rövidnév");
 WritableWorkbook w = Workbook.createWorkbook(out, template, workbookSettings);
-{% endhighlight %}
+```

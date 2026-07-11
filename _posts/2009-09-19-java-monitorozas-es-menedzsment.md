@@ -4,7 +4,10 @@ title: Java monitorozás és menedzsment
 date: '2009-09-19'
 author: István Viczián
 tags:
-- Java SE
+- Java
+- Spring
+- Architektúra
+- DevOps
 
 ---
 
@@ -78,7 +81,7 @@ paranccsal futtatható. Az alkalmazás egy servletből áll, mely egy
 számlálót növel minden egyes meghívásakor. Ezt szeretnénk kiajánlani
 JMX-en. A számlálóhoz készítsünk egy külön osztályt Counter néven.
 
-{% highlight java %}
+```java
 public class Counter
     implements CounterMBean {
 
@@ -100,25 +103,25 @@ synchronized public void incrementCounter() {
     value++;
 }
 }
-{% endhighlight %}
+```
 
 Ennek incrementCounter metódusát hívja a szerver. Ahogy látható,
 implementálja a CounterMBean interfészt, melyen keresztül a JMX-en ki
 lesz ajánlva.
 
-{% highlight java %}
+```java
 public interface CounterMBean {
 public long getValue();
 public void setValue(long counter);
 public void storno();
 }
-{% endhighlight %}
+```
 
 Eztán már csak egy ServletContextListener-t kell implementálni, mely az
 induláskor regisztrálja az MBean-t, leálláskor meg megszünteti a
 regisztrációt.
 
-{% highlight java %}
+```java
 @WebListener
 public class InitServletListener implements ServletContextListener {
 public void contextInitialized(ServletContextEvent sce) {
@@ -143,7 +146,7 @@ public void contextDestroyed(ServletContextEvent sce) {
     }
 }
 }
-{% endhighlight %}
+```
 
 A web alkalmazást, majd a JConsole-t elindítva láthatjuk, hogy megjelent
 a jtechlog folder, és azon belül a Conter MBean. Lekérdezhetjük vagy
@@ -154,7 +157,7 @@ változásáról, a NotificationBroadcasterSupport osztályból kell
 származtatni, implementálni kell a getNotificationInfo metódust, majd
 meghívni a sendNotification metódust.
 
-{% highlight java %}
+```java
 ...
 synchronized public void incrementCounter() {
     value++;
@@ -183,7 +186,7 @@ public MBeanNotificationInfo[] getNotificationInfo() {
     return new MBeanNotificationInfo[]{info};
 }
 ...
-{% endhighlight %}
+```
 
 A legjobb, hogy ezeket az értékeket nem csak JConsole-ról tudjuk
 lekérdezni, hanem parancssorból is, a Tomcat Ant task-okat definiál
@@ -191,7 +194,7 @@ erre. (Használatához a catalina-ant.jar-t kell a \$CATALINA\_HOME/lib
 könyvtárból az \$ANT\_HOME/lib könyvtárba másolni.) A következő
 build.xml részlettel lehet lekérni a számláló értékét.
 
-{% highlight xml %}
+```xml
 <jmx:open
 host="${jmx.server.name}"
 port="${jmx.server.port}"/>
@@ -202,7 +205,7 @@ resultproperty="value"
 echo="false"
 />
 <echo message="${value}" />
-{% endhighlight %}
+```
 
 Ez azért nagyszerű, mert így bármilyen monitorozó vagy menedzsment
 eszközbe (pl. Munin, Nagios) könnyen be tudjuk kötni.

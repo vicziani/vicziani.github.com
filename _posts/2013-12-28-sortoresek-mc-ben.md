@@ -4,7 +4,8 @@ title: Sortörések MC-ben
 date: '2013-12-28'
 author: István Viczián
 tags:
-- Linux
+- Egyéb nyelvek
+- Módszertan
 
 ---
 

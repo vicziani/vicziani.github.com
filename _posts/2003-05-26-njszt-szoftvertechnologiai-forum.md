@@ -4,7 +4,8 @@ title: NJSZT Szoftvertechnológiai Fórum
 date: 2003-05-26
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Az NJSZT Újklub (IEEE CS-NJSZT Fórum) [Szoftvertechnológiai
@@ -19,6 +20,4 @@ míg az utóbbi a a Java alapú perzisztencia megvalósításokról szól,
 érintve a Data Access Objects (DAO), Java Data Objects (JDO), Entity
 Enterprise Java Beans (EJB) with Container and Bean Managed Persistence
 (CMP and BMP, respectively), Object-Relational Mapping, stb.
-technológiákat. Jelentkezni a
-[biro.agnes@kfki.hu](mailto:biro.agnes@kfki.com) címen lehet 2003 május
-31-ig. A részvétel díjtalan.
+technológiákat. Jelentkezni 2003. május 31-ig lehet. A részvétel díjtalan.

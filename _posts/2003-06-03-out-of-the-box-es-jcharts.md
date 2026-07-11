@@ -4,7 +4,7 @@ title: Out-of-the-Box és jCharts
 date: 2003-06-03
 author: Viczián István
 tags:
-
+- Java
 ---
 
 Találtam egy érdekes terméket az [EJB Solutions
@@ -34,7 +34,8 @@ virtual frame buffer) nélkül is képek generálását, ekkor a java-t a
 következő paraméterrel kell indítani, `-Djava.awt.headless=true`, vagy a
 kódban kell elhelyeni a következő sort:
 
-
-    System.setProperty("java.awt.headless","true");
+```java
+System.setProperty("java.awt.headless","true");
+```
 
 Régebbi környezeteknél virtual frame buffer ajánlott.

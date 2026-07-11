@@ -4,8 +4,10 @@ title: Tomcat JMX tűzfalon keresztül
 date: '2010-07-30'
 author: István Viczián
 tags:
-- JMX
-- Tomcat
+- Java
+- Spring
+- Architektúra
+- DevOps
 
 ---
 
@@ -62,7 +64,7 @@ kell indítanunk egy RMI registry-t, majd létre kell hoznunk egy
 JMXServiceURL példányt, valamint egy JMXConnectorServer-t, melynek
 átadjuk ezt. A környezeti változókat nem írva, ez kb. így néz ki:
 
-{% highlight java %}
+```java
 LocateRegistry.createRegistry(3000);
 MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
 JMXServiceURL url =
@@ -70,7 +72,7 @@ JMXServiceURL url =
 JMXConnectorServer cs = JMXConnectorServerFactory
   .newJMXConnectorServer(url, env, mbs);
 cs.start();
-{% endhighlight %}
+```
 
 Ekkor a 3000-es porton indul el az RMI registry, és a 3001-esen az RMI
 server.
@@ -84,12 +86,12 @@ könyvtárból le kell töltenünk a catalina-jmx-remote.jar állományt, és
 elhelyeznünk a \$CATALINA\_HOME/lib könyvtárunkban. Ha ez megvan, akkor
 a következő konfigurációt kell beillesztenünk a server.xml állományba:
 
-{% highlight xml %}
+```xml
 <Listener
   className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener"
   rmiRegistryPortPlatform="3000"
   rmiServerPortPlatform="3001" />
-{% endhighlight %}
+```
 
 Amennyiben ez megvan, az RMI registry a 3000-es, az RMI server a 3001-es
 port-on fog elindulni, hasonlóan az előző példához. Innentől kezdve ha a

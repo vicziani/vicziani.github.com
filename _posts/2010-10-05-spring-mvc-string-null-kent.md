@@ -4,8 +4,9 @@ title: Spring MVC String null-ként
 date: '2010-10-05'
 author: István Viczián
 tags:
-- spring
-- java
+- Spring
+- Java
+- Módszertan
 
 ---
 
@@ -14,9 +15,9 @@ ki egy beviteli mezőt, ne üres Stringet (`""`), hanem `null` értéket állít
 a megfelelő form objektum attribútumának, a
 [StringTrimmerEditor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/propertyeditors/StringTrimmerEditor.html)-t kell használnunk.
 
-{% highlight java %}
+```java
 @InitBinder
 public void initBinder(WebDataBinder binder) {
   binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
 }
-{% endhighlight %}
+```

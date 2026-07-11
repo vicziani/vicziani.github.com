@@ -4,7 +4,9 @@ title: IBM Crossworlds
 date: 2002-11-28
 author: Viczián István
 tags:
-
+- Java
+- Architektúra
+- Szakmai élet
 ---
 
 Ma volt az IBM-nél egy Szoftver Partner Klub

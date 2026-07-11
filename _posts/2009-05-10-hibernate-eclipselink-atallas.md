@@ -4,9 +4,9 @@ title: Hibernate EclipseLink átállás
 date: '2009-05-10'
 author: István Viczián
 tags:
-- Java SE
-- JPA
-
+- Java
+- Spring
+- Adatkezelés
 ---
 
 Egy JPA-t használó Spring-es alkalmazásban tesztképpen ideiglenesen

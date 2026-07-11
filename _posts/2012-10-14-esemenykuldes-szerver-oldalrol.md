@@ -4,9 +4,9 @@ title: Eseményküldés szerver oldalról
 date: '2012-10-14'
 author: István Viczián
 tags:
-- Design Patterns
-- Ajax
 - Spring
+- Architektúra
+- Módszertan
 last_modified_at: '2018-02-13'
 ---
 
@@ -92,7 +92,7 @@ mely a `java.util.EventListener` leszármazottja. Ezt implementálja webes
 rétegben a `StatusEventSender` osztály, mely a böngészőnek továbbítja az
 eseményt, az implementált `onStatusEvent` metódusban:
 
-{% highlight java %}
+```java
 @Service
 public class StatusEventSender implements StatusEventListener {
 
@@ -101,14 +101,14 @@ public class StatusEventSender implements StatusEventListener {
         // Küldés a böngésző felé, lásd később
     }
 }
-{% endhighlight %}
+```
 
 A `StatusService` ilyen listenereket képes regisztrálni, és
 állapotváltozás esetén hívni. Először egy Springes trükköt próbáltam
 elkövetni, méghozzá az `@Autowired` annotációval automatikusan beállítani
 ezeket a listenereket:
 
-{% highlight java %}
+```java
 @Service
 public class StatusService {
 
@@ -129,7 +129,7 @@ public class StatusService {
     this.statusEventListeners = statusEventListeners;
   }
 }
-{% endhighlight %}
+```
 
 A Spring ezt alapból tudná, ugyanis amennyiben az `@Autowired` annotáció
 rajta van a metóduson, próbálja begyűjteni az összes `StatusEventListener`
@@ -146,7 +146,7 @@ probléma megoldódik. De amennyiben a klasszikus modellnél akarunk
 maradni, nekünk kell gondoskodnunk a listenerek regisztrációjáról.
 Egyrészt így módosul a `StatusService`:
 
-{% highlight java %}
+```java
 @Service
 public class StatusService {
 
@@ -165,13 +165,13 @@ public class StatusService {
     statusEventListeners.add(statusEventListener);
   }
 }
-{% endhighlight %}
+```
 
 Másrészt a `StatusEventSendert` kell kiegészíteni a regisztráció
 hívásával. Gyakorlatilag a bean elkészítése után értesítjük a
 `StatusServicet` a meglétéről.
 
-{% highlight java %}
+```java
 @Service
 public class StatusEventSender implements StatusEventListener {
 
@@ -188,7 +188,7 @@ public class StatusEventSender implements StatusEventListener {
    // Kliens értesítése
     }
 }
-{% endhighlight %}
+```
 
 <a href="/artifacts/posts/2012-10-14-esemenykuldes-szerver-oldalrol/event-osztalydiagram.png" class="glightbox">
   ![Osztálydiagram](/artifacts/posts/2012-10-14-esemenykuldes-szerver-oldalrol/event-osztalydiagram_600.png)
@@ -204,7 +204,7 @@ eseményt lehet küldeni, amit más beanek fogadni tudnak. Először
 megcsináljuk az eventünket, mely a
 `org.springframework.context.ApplicationEvent` leszármazottja.
 
-{% highlight java %}
+```java
 public class StatusEvent extends ApplicationEvent {
 
     private String status;
@@ -218,14 +218,14 @@ public class StatusEvent extends ApplicationEvent {
         return status;
     }
 }
-{% endhighlight %}
+```
 
 Utána a `StatusService`-t implementáljuk, mely az eseményt elküldi. Ehhez
 egy `ApplicationEventPublisher`-re van szükségünk, melyhez a
 `ApplicationEventPublisherAware` használatával lehet hozzáférni. Aztán a
 `publishEvent` metódussal tudunk eseményt küldeni.
 
-{% highlight java %}
+```java
 @Service
 public class StatusService implements ApplicationEventPublisherAware {
 
@@ -241,13 +241,13 @@ public class StatusService implements ApplicationEventPublisherAware {
     this.applicationEventPublisher = applicationEventPublisher;
   }
 }
-{% endhighlight %}
+```
 
 Utána a `StatusEventSender`-t írjuk meg, mely fogadja az eseményt, és
 értesíti a böngészőt. Implementálja az `ApplicationListener` interfészt,
 az `onApplicationEvent` metódussal.
 
-{% highlight java %}
+```java
 @Service
 public class StatusEventSender implements
     ApplicationListener<StatusEvent> {
@@ -257,7 +257,7 @@ public class StatusEventSender implements
     // Böngésző hívása
   }
 }
-{% endhighlight %}
+```
 
 A megoldással pontosan az a baj, melybe az előbbi esetben is
 belefutottunk, méghozzá a service contextben lévő beanek nem dobhatnak
@@ -279,7 +279,7 @@ Először a Springben definiálni kell az `EventBus`-t, majd definiálni kell
 egy POJO eseményt. Az `EventBus`-hoz dependency injectionnel hozzá lehet
 férni.
 
-{% highlight java %}
+```java
 @Service
 public class StatusService {
 
@@ -290,12 +290,12 @@ public class StatusService {
         eventBus.post(new StatusEvent(status));
     }
 }
-{% endhighlight %}
+```
 
 Az `EventBus`-ra regisztrálni kell, és eseményt fogadni a `@Subscribe`
 annotáció használatával lehet.
 
-{% highlight java %}
+```java
 @Service
 public class StatusEventSender {
 
@@ -312,7 +312,7 @@ public class StatusEventSender {
    // Küldés kliens felé
     }
 }
-{% endhighlight %}
+```
 
 A Spring integrációhoz jól jöhet a
 [`guava-eventbus-spring`](https://github.com/armsargis/guava-eventbus-spring)
@@ -342,7 +342,7 @@ Reverse Ajax bekapcsolásához.
 
 Nézzük a JavaScript oldalt:
 
-{% highlight javascript %}
+```javascript
 // http://docs.jquery.com/Using_jQuery_with_Other_Libraries
 $j(function () {
 dwr.engine.setActiveReverseAjax(true);
@@ -355,7 +355,7 @@ $j("#statusForm").submit(function () {
 function showStatus(status) {
   $j("#statusDiv").html(status);
 }
-{% endhighlight %}
+```
 
 Egyrészt bekapcsolja a Reverse Ajaxot. Valamint a statusForm HTML form
 kitöltésekor meghívja a szerver oldali postStatus metódust. Valamint
@@ -364,7 +364,7 @@ oldalról érező üzenet. Mindez JQuery használatával.
 
 A szerver oldali hívás a következőképp néz ki:
 
-{% highlight java %}
+```java
 public void onStatusEvent(StatusEvent statusEvent) {
     ScriptBuffer scriptBuffer = new ScriptBuffer();
     scriptBuffer.appendCall("showStatus", statusEvent.getStatus());
@@ -377,6 +377,6 @@ public void onStatusEvent(StatusEvent statusEvent) {
         session.addScript(scriptBuffer);
     }
 }
-{% endhighlight %}
+```
 
 Ez hívja meg a kliens oldalon a `showStatus` JavaScript metódust.

@@ -4,7 +4,8 @@ title: MySQL ip cím szabályozás
 date: '2010-11-15'
 author: István Viczián
 tags:
-- mysql
+- Adatkezelés
+- Egyéb nyelvek
 
 ---
 

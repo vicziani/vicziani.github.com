@@ -4,6 +4,10 @@ title: Entitások auditálása Hibernate Envers-szel
 date: '2010-09-10'
 author: István Viczián
 tags:
+- Java
+- Spring
+- Adatkezelés
+- Tesztelés
 last_modified_at: '2018-02-08'
 ---
 
@@ -62,13 +66,13 @@ nem szükséges, memóriában futó HSQLDB-t használ.
 Az Envers használatához szükséges, hogy a classpath-ban legyen, ehhez a
 Mavenben a következő függőséget kell felvennünk:
 
-{% highlight xml %}
+```xml
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-envers</artifactId>
     <version>${hibernate.version}</version>
 </dependency>
-{% endhighlight %}
+```
 
 Előző verziókban még konfigurálunk kellett a `persistence.xml`-ben a
 listenereket, most már elég, ha a jar a classpath-on van.
@@ -78,13 +82,13 @@ Ahhoz, hogy egy entitást az Envers auditáljon, el kell helyezni rajta az
 elhelyezhetjük az annotációt a mezőkön is. A példában az `Employee` és a
 `Phone` entitáson is elhelyeztük az annotációt.
 
-{% highlight java %}
+```java
 @Entity
 @Audited
 public class Employee implements Serializable {
 ...
 }
-{% endhighlight %}
+```
 
 Az Envers használatához semmi több nem szükséges, a standard JPA
 műveleteket használva automatikusan megtörténik az auditálás. Ez annyit
@@ -106,11 +110,11 @@ a teszteset `testForRevisionsOfEntity` és `testForEntitiesAtRevision`
 metódusai mutatnak példákat. A legegyszerűbb lekérdezni egy revisionhöz
 tartozó entitást:
 
-{% highlight java %}
+```java
 AuditReader auditReader = AuditReaderFactory.get(em);
 Employee revision = (Employee) auditReader.createQuery()
     .forEntitiesAtRevision(Employee.class, 1).getSingleResult();
-{% endhighlight %}
+```
 
 Látható, hogy az audit entitások kezelésére az `AuditReader` való. Ennek
 is vannak hasznos metódusai, mint a `findRevision`, `getCurrentRevision`,
@@ -120,10 +124,10 @@ sokkal rugalmasabb a Criteria API-hoz hasonlatos lekérdezési lehetőség a
 további feltételeket tudunk megadni. Pl. nézzük meg az összes revision
 lekérdezését az Employee osztályhoz:
 
-{% highlight java %}
+```java
 List revisions = auditReader.createQuery()
     .forRevisionsOfEntity(Employee.class, false, true).getResultList();
-{% endhighlight %}
+```
 
 Ez egy `List<Object>` példánnyal fog visszatérni. A lista elemei
 tartalmazzák a revisionöket. Egy elem három objektumot tartalmaz. Az
@@ -163,7 +167,7 @@ Commons DbUtilsra esett a választásom, mellyel egyszerűen lehet
 adatbázis műveleteket futtatni. Nézzünk is néhány példát, melyek
 magukért beszélnek:
 
-{% highlight java %}
+```java
 QueryRunner runner = new QueryRunner();
 runner.update(conn, "delete from Employee");
 
@@ -175,4 +179,4 @@ List<Map><String, Object[]> results = runner.query(conn,
 "select * from Employee_AUD order by rev", new MapListHandler());
 assertEquals(1, results.size());
 assertEquals("name1", results.get(0).get("name"));
-{% endhighlight %}
+```

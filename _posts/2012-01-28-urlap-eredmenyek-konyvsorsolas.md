@@ -4,7 +4,9 @@ title: Űrlap eredmények, könyvsorsolás
 date: '2012-01-28'
 author: István Viczián
 tags:
-- Community
+- Java
+- Tesztelés
+- Módszertan
 
 ---
 [Visszatekintés 2011-re](/2012/01/14/visszatekintes-2011-re.html)

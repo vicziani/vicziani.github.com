@@ -4,7 +4,8 @@ title: Borland szakmai nap
 date: 2002-11-27
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Nem tudom, miért vagyok mostanában úgy oda a Borlandért, de mindig

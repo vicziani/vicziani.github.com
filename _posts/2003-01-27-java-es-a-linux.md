@@ -4,11 +4,12 @@ title: Java és a Linux
 date: 2003-01-27
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Tudom, hogy kicsit le vagyok maradva, de most találtam egy cikket
-(sajnos már eltávolították azóta) a Linuxvilág (Linux Journal
+a Linuxvilág (Linux Journal
 magyarországi társlapja, havonkénti megjelenéssel) oldalán egy cikket
 Michael Hirsch-től, amiben összehasonlítja a Java Linuxos megoldásait,
 magyarul egy csomó VM-et. Írt is rá egy egyszerű példaprogramot a

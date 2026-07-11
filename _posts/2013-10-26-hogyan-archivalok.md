@@ -4,8 +4,9 @@ title: Hogyan archiválok?
 date: '2013-10-26'
 author: István Viczián
 tags:
-- windows
-- archiválás
+- Adatkezelés
+- Biztonság
+- Módszertan
 
 ---
 

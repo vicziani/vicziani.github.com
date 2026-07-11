@@ -4,8 +4,8 @@ title: SQLDeveloper
 date: '2009-10-07T15:39:00.000'
 author: István Viczián
 tags:
-- utils
-- oracle
+- Adatkezelés
+- Egyéb nyelvek
 
 ---
 

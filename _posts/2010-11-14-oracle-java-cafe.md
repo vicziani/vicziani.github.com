@@ -4,9 +4,12 @@ title: Oracle Java Cafe
 date: '2010-11-14'
 author: István Viczián
 tags:
-- Oracle
-- Java EE
-- Community
+- Java
+- Spring
+- Architektúra
+- Tesztelés
+- Adatkezelés
+- Módszertan
 
 ---
 

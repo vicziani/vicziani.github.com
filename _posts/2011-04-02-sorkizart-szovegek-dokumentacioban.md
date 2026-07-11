@@ -4,8 +4,9 @@ title: Sorkizárt szövegek dokumentációban
 date: '2011-04-02'
 author: István Viczián
 tags:
-- design
-- dokumentáció
+- Egyéb nyelvek
+- Módszertan
+- Szakmai élet
 
 ---
 könyvek, cikkek és tanárok is mást mondanak. Amikben viszont meg lehet

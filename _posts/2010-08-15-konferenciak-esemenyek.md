@@ -4,7 +4,9 @@ title: Konferenciák, események
 date: '2010-08-15'
 author: István Viczián
 tags:
-- Community
+- Java
+- Szakmai élet
+- Módszertan
 
 ---
 

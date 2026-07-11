@@ -4,7 +4,9 @@ title: Python build és Continuous Integration
 date: '2018-11-04'
 author: István Viczián
 tags:
--
+- Egyéb nyelvek
+- DevOps
+- Tesztelés
 description: Hogyan álljunk neki egy Python projektnek, amit aztán Continuous Integrationbe szeretnénk kötni.
 last_modified_at: '2025-01-10'
 ---
@@ -53,10 +55,10 @@ jtechlog-python/
 
 Maga a modul egyetlen `fizzbuzz` függvényt definiál:
 
-{% highlight python3 %}
+```python
 def fizzbuzz(to_number):
     # ...
-{% endhighlight %}
+```
 
 Ez első probléma, amibe belefutottam, hogy amennyiben a Pythont globálisan telepítjük
 az operációs rendszerünkre, valamint abba installáljuk a különböző függőségeinket, akkor
@@ -172,13 +174,13 @@ pytest==4.0.1
 
 A teszt így néz ki, és a `tests/jtechlog/fizzbuzz_test.py` állományban kapott helyet:
 
-{% highlight python3 %}
+```python
 from jtechlog.fizzbuzz import fizzbuzz
 
 
 def test_for_many():
     assert fizzbuzz(16) == "1 2 fizz 4 buzz fizz 7 8 fizz buzz 11 fizz 13 14 fizzbuzz 16"
-{% endhighlight %}
+```
 
 Látható, hogy a `jtechlog` csomag `fizzbuzz` moduljából importáljuk a `fizzbuzz` függvényt, amit meg is hívunk.
 
@@ -194,7 +196,7 @@ A `-e` kapcsoló az ún. *editable mode*, vagy setuptools terminológiában *dev
 
 Az, hogy ez a parancs le tudjon futni, el kell készíteni a projekt leíró állományát is, mely a `setup.py` állományban történik, tartalma:
 
-{% highlight python3 %}
+```python
 #env/bin python
 
 from distutils.core import setup
@@ -204,7 +206,7 @@ setup(name='jtechlog',
       packages=['jtechlog'],
      )
 
-{% endhighlight %}
+```
 
 A `make` parancsot futtatva már installálva lesz a modulunk:
 

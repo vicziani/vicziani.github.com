@@ -4,7 +4,8 @@ title: Apache Ant
 date: 2003-02-09
 author: Viczián István
 tags:
-
+- Java
+- DevOps
 ---
 
 Furcsa, hogy többször említettem már az Ant-ot, de még

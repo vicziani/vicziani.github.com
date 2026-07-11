@@ -7,7 +7,7 @@ description: Előadok a Magyarországi Web Konferencián Java és Spring témak�
 tags:
 - Java
 - Spring
-- konferencia
+- Szakmai élet
 image: /artifacts/posts/magyarorszagi-web-konferencia-2026/og.png
 ---
 
@@ -26,6 +26,8 @@ Ha érdekel a téma, gyere el — és ha ott leszel, szívesen beszélgetek vele
 Álljon itt az előadásom rövid összefoglalója:
 
 A Java továbbra is az egyik leggyorsabban fejlődő platform: félévente érkeznek az új verziók, legutóbb 2026 márciusában a Java 26. Az elmúlt kiadások alapján jól kirajzolódik, merre tart az ökoszisztéma. Az előadásban áttekintem a legfontosabb irányokat: performancia, párhuzamosság (virtual threads, structured concurrency), Data Oriented Programming, egyszerűbb tanulhatóság, integrálhatóság (Project Detroit), és természetesen az elmaradhatatlan AI. A Spring is megállíthatatlanul zakatol, a Boot már lassan a 4.1, a Framework a 7-es verziónál, és... az AI. Az előadás célja, hogy segítsen eligazodni a trendek között, és megmutassa, mely technológiákra érdemes már most felkészülni.
+
+A prezentáció [itt megnézhető](/artifacts/2026-webkonf/index.html).
 
 
 

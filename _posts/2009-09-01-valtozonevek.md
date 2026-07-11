@@ -4,8 +4,8 @@ title: Változónevek
 date: '2009-09-01'
 author: István Viczián
 tags:
-- konvenciók
-- java
+- Java
+- Módszertan
 
 ---
 

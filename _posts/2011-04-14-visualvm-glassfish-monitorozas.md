@@ -4,10 +4,10 @@ title: VisualVM Glassfish monitorozás
 date: '2011-04-14'
 author: István Viczián
 tags:
-- monitorozás
-- VisualVM
-- glassfish
-- JMX
+- Java
+- Spring
+- DevOps
+- Tesztelés
 
 ---
 

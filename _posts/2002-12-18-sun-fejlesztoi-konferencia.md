@@ -4,7 +4,8 @@ title: Sun fejlesztői konferencia
 date: 2002-12-18
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Most kaptam a meghívót A Sun-tól a 3. Sun Fejlesztői Konferenciára,

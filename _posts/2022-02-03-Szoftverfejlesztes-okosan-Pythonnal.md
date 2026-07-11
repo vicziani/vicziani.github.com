@@ -4,6 +4,9 @@ title: Szoftverfejlesztés okosan Pythonnal
 date: '2022-02-03'
 author: István Viczián
 description: Szoftverfejlesztés okosan Pythonnal könyvbemutató.
+tags:
+- Egyéb nyelvek
+- Szakmai élet
 ---
 
 Bár egyetértek azzal, hogy a programozással kapcsolatos szakirodalom nyelve

@@ -4,7 +4,8 @@ title: VirtualBox image egyedi azonosító
 date: '2011-10-11'
 author: István Viczián
 tags:
-- virtualization
+- Egyéb nyelvek
+- Hardver és labor
 
 ---
 

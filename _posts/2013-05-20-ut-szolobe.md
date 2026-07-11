@@ -4,7 +4,8 @@ title: Út a szőlőbe
 date: '2013-05-20'
 author: István Viczián
 tags:
-- Community
+- Egyéb nyelvek
+- Szakmai élet
 
 ---
 Biztosan sokan voltatok már úgy egy-egy éjszakába nyúló debugolás

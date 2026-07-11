@@ -5,6 +5,11 @@ date: '2020-02-19'
 last_modified_at: '2023-12-15'
 author: István Viczián
 description: Mi az az OAuth 2.0, és hogyan használjuk vállalati környezetben Spring Boot és Spring Security keretrendszerekkel.
+tags:
+- Spring
+- Java
+- Biztonság
+- Architektúra
 ---
 
 Használt technológiák: Spring Boot 3, Spring Security 6, Keycloak 16

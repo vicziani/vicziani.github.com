@@ -4,7 +4,8 @@ title: Apache Lucene keresőmotor
 date: '2009-01-25'
 author: István Viczián
 tags:
-- Library
+- Java
+- Szakmai élet
 last_modified_at: '2022-08-31'
 ---
 

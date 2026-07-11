@@ -3,6 +3,10 @@ layout: post
 title: SonarQube
 date: '2017-03-21'
 author: István Viczián
+tags:
+- Java
+- Tesztelés
+- Biztonság
 ---
 
 Bár a SonarQube (korábban egyszerűen csak Sonar) a Java fejlesztés alap eszköztárába tartozik, mégsem írtam még róla, így ezzel a poszttal ezt

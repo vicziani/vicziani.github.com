@@ -4,8 +4,10 @@ title: Oracle Fusion Middleware
 date: '2008-11-28'
 author: István Viczián
 tags:
-- Oracle
-
+- Java
+- Egyéb nyelvek
+- Szakmai élet
+- Architektúra
 ---
 
 A felvásárlások miatt lassan a legtöbb Java termék mögött (akár ingyenes

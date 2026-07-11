@@ -4,7 +4,8 @@ title: Oracle szekvencia növelés
 date: '2010-09-14'
 author: István Viczián
 tags:
-- oracle
+- Adatkezelés
+- Egyéb nyelvek
 
 ---
 

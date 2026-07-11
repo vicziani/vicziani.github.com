@@ -4,7 +4,8 @@ title: Javalist archívum
 date: 2002-11-30
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Érdekes, nemrég írtam, hogy legyen már kereső a Java levelező listához,

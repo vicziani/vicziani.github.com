@@ -4,7 +4,8 @@ title: 3. Sun Fejlesztői Konferencia
 date: 2003-01-28
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Szóval megvolt a nagy esemény, és lezajlott a 3. Sun Fejlesztői

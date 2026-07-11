@@ -3,6 +3,10 @@ layout: post
 title: Modularizáció Servlet 3, Spring és Maven környezetben
 date: '2015-08-27'
 author: István Viczián
+tags:
+- Java
+- Spring
+- Architektúra
 ---
 
 Lezajlott a HWSW free! meetup, melyen a modularizációról tartottam egy tizenöt perces előadást. Ezen idő alatt csak a fogalmakat sikerült áttekinteni, álljon itt az előadás anyaga egy kicsit kifejtve, gyakorlati példákkal megfűszerezve. A slide-ok külön [megnézhetőek](http://www.jtechlog.hu/artifacts/2015-08-modularization/modularization.html).
@@ -37,7 +41,7 @@ Simon Brown, a [Coding The Architecture](http://www.codingthearchitecture.com/) 
 
 Amennyiben modulok nélküli monolitikus alkalmazásokkal dolgozunk, és csak csomagokat használunk a szeparálásra, a [JDepend](https://github.com/clarkware/jdepend) segíthet az architektúrának betartásában, segítségével ugyanis  tesztesetként definiálhatók a csomagok közti függőségek, lásd a következő forráskódot.
 
-{% highlight java %}
+```java
 DependencyConstraint constraint = new DependencyConstraint();
 
 JavaPackage repository = 
@@ -54,7 +58,7 @@ jdepend.analyze();
 
 assertEquals("Dependency mismatch",
   true, jdepend.dependencyMatch(constraint));
-{% endhighlight %}
+```
 
 Amennyiben továbblépünk, és Maven projektekbe szervezzük moduljainkat, a [Dependency Plugin](https://maven.apache.org/plugins/maven-dependency-plugin/) `analyze` és
 `tree` goaljai lehetnek a segítségünkre.
@@ -69,7 +73,7 @@ Legfelső szint lehet az üzleti modulokat összefogó konténer modul. A Servle
 
 A modulok automatikus feltérképezéséhez nagyon jól használható a Spring azon tulajdonsága, hogy amennyiben dependency injection során egy collectiont adunk meg, a konténer az összes implementációt átadja, lásd kódrészlet.
 
-{% highlight java %}
+```java
 public interface Module {
   
   public String getName();
@@ -77,9 +81,9 @@ public interface Module {
   public String getVersion();
 
 }
-{% endhighlight %}
+```
 
-{% highlight java %}
+```java
 @Component
 public ModuleContainer {
 
@@ -91,7 +95,7 @@ public ModuleContainer {
   }
 
 }
-{% endhighlight %}
+```
 
 A fizikai rétegek alapján történő modularizálást erősen ellenjavallom. Amennyiben vágni kell, mindig üzleti funkciónként vágjunk, és csak azon belül fizikai rétegenként. Ugyanis az egy implementációs részlet, igazából az API felől lényegtelen. Egyedül a technológia kényszeríthet arra, hogy külön Maven projektbe szervezzük, ugyanis más pluginekkel és életciklussal buildelhető egy Java backend és egy JavaScript frontend. Ha ilyen az alkalmazásunk, akkor is multimodule Maven projektként érdemes definiálni, nem érdemes külön buildelhetővé és release-elhetővé tenni. Amennyiben a moduljaink felépítése azonos, és nem akarunk a `pom.xml` állományokban a függőségeket másolni, prototype szülő projekteket alkalmazhatunk, melyek csak a függőségeket sorolják fel.
 
@@ -101,13 +105,13 @@ A fizikai layerek szerinti vágást a Spring úgy támogatja, hogy külön lehet
 
 Minden modul saját adatbázis táblákkal rendelkezik, melyeket érdemes prefixelni, egymással nem osztják meg ezeket. A JPA-ban probléma lehet azzal, hogy modulonként több `persistence.xml` van, ezt a Spring olyan elegánsan áthidalja, hogy ezen xml megadása nem kötelező, ha az entitásokat a következő módon deklaráljuk.
 
-{% highlight java %}
+```java
 entityManagerFactoryBean.setPackagesToScan("jtechlog");
-{% endhighlight %}
+```
 
 Amennyiben a modulok saját maguk hozzák létre a sémájukat, kitűnő választás lehet a [Flyway](http://flywaydb.org/). Ez alapból ugyan elszáll, ha nem üres a sémája, de a `setInitOnMigrate` metódussal ez felülbírálható. Az előző módszert alkalmazva implementálható a modulok séma inicializálása.
 
-{% highlight java %}
+```java
 for (Module module: modules) {
   Flyway flyway = new Flyway();
   flyway.setDataSource(dataSource);
@@ -117,34 +121,34 @@ for (Module module: modules) {
   flyway.setInitOnMigrate(true);
   flyway.migrate();
 }
-{% endhighlight %}
+```
 
 A Spring lehetővé teszi a konténerfüggetlenséget is, non-invasive, azaz a forráskódban meg sem kell jelennie Spring Framework részeként definiált interfészeknek, annotációknak vagy osztályoknak. Használható ugyanis mind az XML-alapú, mind a Java config.
 
 Azt is megadhatjuk, hogy minden modul saját maga konfigurálja fel magát, pl. a következő módon XML-ben.
 
-{% highlight xml %}
+```xml
 <context-param>
   <param-name>contextConfigLocation</param-name>
   <param-value>
     classpath*:conf/**/appContext.xml
   </param-value>
 </context-param>
-{% endhighlight %}
+```
 
 Vagy Javaban component scannel.
 
-{% highlight java %}
+```java
 @ComponentScan("jtechlog.**.config")`
-{% endhighlight %}
+```
 
 De amennyiben a convention over configuration hívei vagyunk, és moduljainkat ugyanúgy építjük fel, megadható globális konfiguráció is (wildcard karakterek használata a funkciónkénti csomagolás miatt).
 
-{% highlight java %}
+```java
 @ComponentScan({"jtechlog.**.repository",
   "jtechlog.**.service",
   "jtechlog.**.controller"})
-{% endhighlight %}
+```
 
 A konfigurációkat sose tartsuk az alkalmazáson belül (default konfigurációt kivéve), mindig a környezet részét képezze. Erre egy remek megoldást biztosít a Spring Boot [Externalized Configuration néven](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html). A háttérben a Spring 3.1-ben bevezetett [Unified Property Management](http://spring.io/blog/2011/02/15/spring-3-1-m1-unified-property-management/) áll.
 
@@ -152,7 +156,7 @@ A modulok közötti interfészek kialakítása történhet szinkron metódushív
 
 Az interfészeket külön modulba is lehet tenni. Lehet például a már előbb említett módon a core modulba. Valamint a funkcionális modul multimodule projektjének külön almoduljába is tehetjük. De Maven project attached artifactjaként is megjelenhet, ekkor a Jar Plugint a következőféleképpen kell konfigurálni.
 
-{% highlight xml %}
+```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-jar-plugin</artifactId>
@@ -172,18 +176,18 @@ Az interfészeket külön modulba is lehet tenni. Lehet például a már előbb 
       </execution>
     </executions>
 </plugin>
-{% endhighlight %}
+```
 
 Az OSGi megkülönbözteti a service interface-t és implementationt (`Manifest.mf` állományban `Export-Package`). A régóta húzott Project Jigsaw a `module-info.java` állományban képes ezeket definiálni. 
 
-{% highlight java %}
+```java
 module com.greetings @ 0.1 {
   requires jdk.base; // default to the highest available version
   requires org.astro @ 1.2;
   class com.greetings.Hello;
   exports com.greetings;
 }
-{% endhighlight %}
+```
 
 Érdekes, hogy a Springre épülő megoldások sorra megbuktak. Kezdetben a Spring Dynamic Modulest adta át a Pivotal az Eclipse-nek, mely Impala néven született újjá, és 2013 óta áll. A SpringSource dm Server ugyanígy járt, 2014 júliusában került kiadásra utoljára Eclipse Virgo néven.
 

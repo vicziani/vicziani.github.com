@@ -4,11 +4,8 @@ title: Java Performance
 date: '2012-03-31'
 author: István Viczián
 tags:
-- performance
-- monitorozás
+- Java
 - Módszertan
-- scalability
-- könyv
 
 ---
 

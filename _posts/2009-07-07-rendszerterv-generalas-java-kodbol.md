@@ -4,8 +4,9 @@ title: Fizikai rendszerterv generálás Java forráskódból
 date: '2009-07-07'
 author: István Viczián
 tags:
+- Java
 - Módszertan
-- Community
+- DevOps
 last_modified_at: '2018-01-12'
 ---
 
@@ -136,7 +137,7 @@ kerül. Mivel Hibernate JPA provider-t használunk, az képes arra, hogy a
 belőlük generálandó táblákat és mezőket, mint meta-adatot el lehet kérni
 (ezt használja a séma generálás is). Ezt mutatja a következő kód:
 
-{% highlight java %}
+```java
 // Első paraméter a Presistence Context neve a persistence.xml-ben
 Ejb3Configuration cfg = new Ejb3Configuration().configure("FooPU", new HashMap());
 Configuration hbmcfg = cfg.getHibernateConfiguration();
@@ -150,7 +151,7 @@ for (Iterator i = hbmcfg.getTableMappings(); i.hasNext(); ) {
     System.out.println("Column: " + c.getName() + " " + c.getSqlType(dialect, mapping));
   }
 }
-{% endhighlight %}
+```
 
 Ebből már az adatbázis dokumentáció is kigenerálható. Ahhoz, hogy ez
 bekerüljön a Velocity Contextbe, kiegészítettem a VelocityDocletet az

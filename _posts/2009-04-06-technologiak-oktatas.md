@@ -4,8 +4,8 @@ title: Java technologiák és az oktatas
 date: '2009-04-06'
 author: István Viczián
 tags:
-- Oktatás
-
+- Java
+- Szakmai élet
 ---
 
 A SZÁMALK Továbbképzés 2008. április 24-én tartott egy Aktuális 2008

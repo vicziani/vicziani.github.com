@@ -4,7 +4,8 @@ title: D programozási nyelv
 date: 2003-02-08
 author: Viczián István
 tags:
-
+- Szakmai élet
+- Egyéb nyelvek
 ---
 
 No, egy hosszabb szünet után ismét itt vagyok, ugyanis sítáborban voltam

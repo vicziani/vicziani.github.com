@@ -4,9 +4,11 @@ title: IBM WebSphere MQ
 date: '2009-09-27'
 author: István Viczián
 tags:
-- JMS
-- Java EE
-- EAI
+- Java
+- Spring
+- Architektúra
+- Adatkezelés
+- Módszertan
 
 ---
 
@@ -289,7 +291,7 @@ com.ibm.mqjms.jar, connector.jar, jms.jar. Ezen kívül a server.xml-be
 fel kell venni a Connection Factory-t és a Destination-öket a
 GlobalNamingResources tag alá.
 
-{% highlight xml %}
+```xml
 <Resource
 name="MyConnectionFactory"
 auth="Container"
@@ -302,14 +304,14 @@ TRAN="1"
 QMGR="MY_QM"        
 CCS="437"
 />
-{% endhighlight %}
+```
 
 A TRAN a TRANSPORT, ami lehet BIND, CLIENT és DIRECT a dokumentáció
 szerint. A dokumentációval ellentétben itt azonban csak számot lehet
 megadni, az 1 a CLIENT transport-ot adja meg. A CSS a character code
 set.
 
-{% highlight xml %}
+```xml
 <Resource
 name="MyQueue"
 auth="Container"
@@ -318,7 +320,7 @@ factory="com.ibm.mq.jms.MQQueueFactory"
 description="JMS Queue"
 QU="MY_Q"
 TC="1"/>
-{% endhighlight %}
+```
 
 A TC a TARGCLIENT, ami megadja, hogy JMS-sel kapcsolódó kliensnek, vagy
 egyéb kliensnek akarunk üzenetet küldeni. A TC=1 azt mondja, hogy nem
@@ -326,10 +328,10 @@ JMS-es kliensnek, így nem rak az üzenetbe JMS fejléc információkat.
 
 Ekkor a context.xml-ben vegyük fel az erőforrás linkeket.
 
-{% highlight xml %}
+```xml
 <ResourceLink global="MyConnectionFactory" name="jms/MyConnectionFactory" type="javax.jms.QueueConnectionFactory"/>
 <ResourceLink global="MyQueue" name="jms/MyQueue" type="javax.jms.Queue"/>
-{% endhighlight %}
+```
 
 Ezek után az alkalmazásból egyszerű JNDI lookup-pal lekérhető a
 java:/comp/env/jms/MyConnectionFactory és java:/comp/env/jms/MyQueue

@@ -4,6 +4,9 @@ title: Szoftverfejlesztés és Önfejlesztés podcast
 date: '2021-10-22'
 author: István Viczián
 description: Szerepeltem a Szoftverfejlesztés és Önfejlesztés podcastban, hallgasd meg te is!
+tags:
+- Szakmai élet
+- Módszertan
 ---
 
 A [Szoftverfejlesztés és Önfejlesztés podcastban](https://www.szoftveronfejlesztes.hu/podcast)

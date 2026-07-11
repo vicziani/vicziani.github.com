@@ -5,6 +5,7 @@ date: '2018-10-29'
 author: István Viczián
 tags:
 - Spring
+- Adatkezelés
 description: A Spring tranzakciókezelésének részletes bemutatása.
 ---
 
@@ -40,7 +41,7 @@ mely hívja a `LoggerDao` osztály `saveLog(String message)` metódusát.
 Az `EmployeeDao` egy `Employee` entitást ment el, melynek egy automatikusan generált `id` és egy `name` attribútuma van. A `LoggerDao`
 egy `LogEntry` entitást ment el, melynek egy automatikusan generált `id` és egy `message` attribútuma van.
 
-{% highlight java %}
+```java
 @Repository
 public class EmployeeDao {
 
@@ -52,9 +53,9 @@ public class EmployeeDao {
   }
 
 }
-{% endhighlight %}
+```
 
-{% highlight java %}
+```java
 @Repository
 public class LoggerDao {
 
@@ -65,7 +66,7 @@ public class LoggerDao {
   }
 
 }
-{% endhighlight %}
+```
 
 Látható, hogy a kódban még nem helyeztünk el a tranzakciókra vonatkozó utasításokat, így a következő kivételt kapjuk:
 
@@ -140,7 +141,7 @@ Ami még egy érdekes jelenség, hogy mi történik akkor, ha kivétel van a hí
 metódusáról távolítsuk el az annotációt, ne felejtsük el a fejlécben deklarálni, hogy `IllegalArgumentException` kivételt dob, és
 dobjunk is egyet.
 
-{% highlight java %}
+```java
 @Transactional
 public void saveEmployee(String name) throws IllegalArgumentException {
     entityManager.persist(new Employee(name));
@@ -151,15 +152,15 @@ public void saveEmployee(String name) throws IllegalArgumentException {
         LOGGER.error("Error by logging", iae);
     }
 }
-{% endhighlight %}
+```
 
-{% highlight java %}
+```java
 public void saveLog(String message) throws IllegalArgumentException {
     entityManager.persist(new LogEntry(message));
 
     throw new IllegalArgumentException("Message is too short");    
 }
-{% endhighlight %}
+```
 
 Ebben az esetben sikeresen lefut a teszteset, és mindkét táblába bekerül az adott rekord.
 

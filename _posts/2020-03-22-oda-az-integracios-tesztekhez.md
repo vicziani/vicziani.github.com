@@ -4,6 +4,11 @@ title: Óda az integrációs tesztekhez
 date: '2020-03-22'
 author: István Viczián
 description: Változik-e az integrációs tesztek szerepe microservices környezetben?
+tags:
+- Java
+- Spring
+- Tesztelés
+- Architektúra
 ---
 
 Megrendezésre került 2019. október 17-én a [Training360](https://training360.com/)

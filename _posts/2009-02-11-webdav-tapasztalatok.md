@@ -4,8 +4,9 @@ title: WebDAV tapasztalatok
 date: '2009-02-11'
 author: István Viczián
 tags:
-- Subversion
-
+- Java
+- Hardver és labor
+- Módszertan
 ---
 
 Nem kifejezetten Java téma, de szerintem minden fejlesztőnek hasznos

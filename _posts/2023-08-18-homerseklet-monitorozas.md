@@ -4,6 +4,8 @@ title: Hőmérséklet monitorozása
 date: '2023-08-18'
 author: István Viczián
 description: Hogyan kössünk be egy hőmérséklet szenzort a Prometheus/Grafana alapú monitorozó eszközbe?
+tags:
+- Hardver és labor
 ---
 
 Nagyon régóta érdekel az IoT (Internet of Things, azaz Internetre köthető kütyük) világa, ugyanis ezek azok az eszközök,

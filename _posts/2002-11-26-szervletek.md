@@ -4,7 +4,7 @@ title: Szervletek
 date: 2002-11-26
 author: Viczián István
 tags:
-
+- Java
 ---
 
 Lassan végzek az O'Reilly-Kossuth kiadású [Java szervletek

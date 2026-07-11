@@ -4,6 +4,11 @@ title: Docker Layers Spring Boot alkalmazásnál
 date: '2020-10-18'
 author: István Viczián
 description: Mire figyeljünk, ha a Spring Boot alkalmazásunkat dockerizáljuk.
+tags:
+- Java
+- Spring
+- DevOps
+- Architektúra
 ---
 
 Amennyiben dockerizáljuk a Spring Bootos alkalmazásunkat, oda kell

@@ -4,8 +4,10 @@ title: Tomcat Windows szolgáltatásként több példányban
 date: '2010-06-14'
 author: István Viczián
 tags:
-- java
-- tomcat
+- Java
+- Spring
+- DevOps
+- Módszertan
 
 ---
 

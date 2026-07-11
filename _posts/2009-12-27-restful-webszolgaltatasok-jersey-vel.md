@@ -4,8 +4,11 @@ title: RESTful webszolgáltatások Jersey-vel
 date: '2009-12-27'
 author: István Viczián
 tags:
-- SOA
-- JAX-RS
+- Java
+- Spring
+- Architektúra
+- Tesztelés
+- Adatkezelés
 last_modified_at: '2017-11-18'
 ---
 

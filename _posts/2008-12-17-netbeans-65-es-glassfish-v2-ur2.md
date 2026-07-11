@@ -4,9 +4,9 @@ title: NetBeans 6.5 és GlassFish v2 ur2
 date: '2008-12-17'
 author: István Viczián
 tags:
-- IDE
-- Java EE
-
+- Java
+- DevOps
+- Adatkezelés
 ---
 
 A Számalk Továbbképzés keretein belül JP-05 - Alkalmazásfejlesztés Java

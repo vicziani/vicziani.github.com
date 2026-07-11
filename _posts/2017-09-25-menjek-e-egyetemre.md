@@ -4,6 +4,8 @@ title: Programozó szeretnék lenni, menjek-e egyetemre?
 date: '2017-09-25'
 author: István Viczián
 description: Egyre többször hangzik el a kérdés, hogy érdemes-e egyetemre mennie annak, aki programozó szeretne lenni. Ez a poszt próbálja összefoglalni az előnyöket és hátrányokat.
+tags:
+- Szakmai élet
 ---
 
 Ez a poszt, a címéből is következik, egy könnyedebb témával foglalkozik. Manapság különböző fórumokon jön elő a kérdés, hogy érdemes-e egyetemre mennie annak, aki programozó szeretne lenni. Most itt próbálom részletesen összefoglalni, hogy később tudjak hivatkozni rá.

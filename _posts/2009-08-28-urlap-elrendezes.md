@@ -4,7 +4,8 @@ title: Űrlap elrendezés
 date: '2009-08-28'
 author: István Viczián
 tags:
-- ui
+- Módszertan
+- Egyéb nyelvek
 
 ---
 

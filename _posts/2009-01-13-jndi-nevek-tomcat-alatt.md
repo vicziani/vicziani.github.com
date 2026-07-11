@@ -4,11 +4,9 @@ title: JNDI nevek Tomcat alatt
 date: '2009-01-13'
 author: István Viczián
 tags:
-- Servlet
-- IDE
-- Java EE
-- Tomcat
-
+- Java
+- DevOps
+- Adatkezelés
 ---
 
 Egy új projekt létrehozásakor a következő irányelveket próbálom

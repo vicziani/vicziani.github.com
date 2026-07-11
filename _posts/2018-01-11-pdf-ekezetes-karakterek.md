@@ -4,6 +4,8 @@ title: Ékezetes karakterek PDF állományban
 date: '2018-01-11'
 author: István Viczián
 description: Egy poszt arról, hogyan lehet Javaban generált PDF dokumentumokban ékezetes karaktereket használni.
+tags:
+- Java
 ---
 
 Ismét egy régi tartozásomat pótolom. Aki próbált már magyar nyelvű PDF dokumentumot generálni, akár Java, akár más
@@ -90,7 +92,7 @@ Látható, hogy az alapértelmezett betűtípus a Helvetica (WinAnsi kódolássa
 
 A `ttf` kiterjesztésű állományokat helyezzük el a classpath-on, majd PDF generálásakor használjuk a következő kódrészletet:
 
-{% highlight java %}
+```java
 PDDocument document = new PDDocument();
 PDPage page = new PDPage();
 document.addPage(page);
@@ -110,7 +112,7 @@ content.close();
 
 document.save(stream);
 document.close();
-{% endhighlight %}
+```
 
 A tesztesetet lefuttatva létrejön egy PDF állomány, mely már helyesen tartalmazza az ékezetes karaktereket.
 
@@ -126,7 +128,7 @@ Az iText 7 esetén is hasonlóképp kell eljárni. Amennyiben nem ágyazunk be b
 nem jelennek meg az ékezetes karakterek. Az alapértelmezett betűtípus itt is a Helvetica.
 A beágyazáshoz használjuk a következő kódrészletet:
 
-{% highlight java %}
+```java
 PdfWriter writer = new PdfWriter(stream);
 
 PdfFont sans = PdfFontFactory.createFont(
@@ -138,7 +140,7 @@ document.add(new Paragraph()
         .add(s)
         );
 document.close();
-{% endhighlight %}
+```
 
 ## DocBook
 
@@ -153,7 +155,7 @@ hibaüzenetet írja ki:
 Egyrészt meg kell adnunk a beágyazandó betűtípusokat. Azonban a FOP-nak át kell adni egy ún. metrics állományt is. Ezeket
 szerencsére a `docbkx-fop-support` Maven plugin le tudja generálni a TTF állományok alapján.
 
-{% highlight xml %}
+```xml
 <plugin>
     <groupId>com.agilejava.docbkx</groupId>
     <artifactId>docbkx-fop-support</artifactId>
@@ -170,7 +172,7 @@ szerencsére a `docbkx-fop-support` Maven plugin le tudja generálni a TTF állo
         </execution>
     </executions>
 </plugin>
-{% endhighlight %}
+```
 
 Az `ansi` tag értéke mondja meg, hogy itt Identity-H kódolás lesz.
 
@@ -178,7 +180,7 @@ A következő kódrészlet egyrészt beágyazza a betűkészleteket, valamint be
 alapértelmezett betűtípusa DejaVuLGCSans legyen, a bekezdések szövege DejaVuLGCSerif betűtípussal kerüljön
 kiírásra.
 
-{% highlight xml %}
+```xml
 <plugin>
     <groupId>com.agilejava.docbkx</groupId>
     <artifactId>docbkx-maven-plugin</artifactId>
@@ -214,4 +216,4 @@ kiírásra.
         </fonts>
     </configuration>
 </plugin>
-{% endhighlight %}
+```

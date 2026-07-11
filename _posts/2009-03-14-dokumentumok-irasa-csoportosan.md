@@ -5,7 +5,6 @@ date: '2009-03-14'
 author: István Viczián
 tags:
 - Módszertan
-
 ---
 
 A Java fanatikusokat el kell most keserítsem, ugyanis nem technikai

@@ -4,11 +4,9 @@ title: Pehelysúlyú workflow Activitivel
 date: '2014-07-26'
 author: István Viczián
 tags:
-- open source
-- Library
-- Módszertan
-- Workflow
 - Spring
+- Módszertan
+- Architektúra
 last_modified_at: '2018-02-11'
 ---
 
@@ -109,7 +107,7 @@ egyszerű IDEA plugin is létezik már.)
 Ennek XML ábrázolása is nagyon egyszerű, semmi rémisztő nincs benne,
 akár kézzel is szerkeszthető.
 
-{% highlight xml %}
+```xml
 <definitions>
   <process id="timeoffrequest" name="Time off request" isExecutable="true">
     <startEvent id="startevent" name="Start"></startEvent>
@@ -125,24 +123,24 @@ akár kézzel is szerkeszthető.
          koordinátáival. -->
   </bpmndi:BPMNDiagram>
 </definitions>
-{% endhighlight %}
+```
 
 Ha ez megvan, akkor ezt tegyük a classpath-ra, hogy egyszerű legyen
 betölteni. A következő lépés az Activiti függőség deklarálása a
 `pom.xml`-ben, szerencsére fenn van a central repository-ban.
 
-{% highlight xml %}
+```xml
 <dependency>
     <groupId>org.activiti</groupId>
     <artifactId>activiti-spring</artifactId>
     <version>5.15.1</version>
 </dependency>
-{% endhighlight %}
+```
 
 Amennyiben Springben deklarálva van `dataSource` és
 `transactionManager`, definiálhatjuk az ún. *process engine*-t.
 
-{% highlight xml %}
+```xml
 <bean id="processEngineConfiguration"
         class="org.activiti.spring.SpringProcessEngineConfiguration">
     <property name="dataSource" ref="dataSource" />
@@ -155,7 +153,7 @@ Amennyiben Springben deklarálva van `dataSource` és
     <property name="processEngineConfiguration"
             ref="processEngineConfiguration" />
 </bean>
-{% endhighlight %}
+```
 
 Azt is beállítjuk, hogy a tábláit maga hozza létre. Itt lehetne megadni
 a deploy-olandó workflow-t, azonban egy trükk miatt nem itt teszem.
@@ -176,14 +174,14 @@ Van még egy pár, úgymint `managementService`, `identityService`,
 
 Definiáljuk tehát őket.
 
-{% highlight xml %}
+```xml
 <bean id="repositoryService" factory-bean="processEngine"
         factory-method="getRepositoryService" />
 <bean id="runtimeService" factory-bean="processEngine"
         factory-method="getRuntimeService" />
 <bean id="taskService" factory-bean="processEngine"
         factory-method="getTaskService" />
-{% endhighlight %}
+```
 
 Implementáljuk tehát a metódusokat. A `requestTimeOff` indít egy új
 process instance-t. Érdekessége, hogy lehet neki megadni ún.
@@ -191,21 +189,21 @@ paramétereket, melyeket lement. (Komplex objektumok esetén blobba az
 adatbázisba, szerializálva, ezért ezt nem is javaslom, elégedjünk meg az
 egyszerű típusokkal.)
 
-{% highlight java %}
+```java
 public void requestTimeOff(TimeOffRequest timeOffRequest) {
     Map<String, Object> parameters = new HashMap<>();
     parameters.put(PROCESS_VARIABLE_TIME_OFF_REQUEST, timeOffRequest);
     runtimeService.startProcessInstanceByKey(DEPLOYMENT_NAME,
         timeOffRequest.getId(), parameters);
 }
-{% endhighlight %}
+```
 
 A feladatok lekérdezése nagyon egyszerű. Látható, hogy az Activiti a
 lekérdezésre fluent API-t bocsájt a rendelkezésünkre. A trükk az, hogy
 lekérdezzük a feladatokat, és a feladatokhoz tartozó process
 instance-okban futó ún. *process variable*-öket is.
 
-{% highlight java %}
+```java
 public List<TimeOffRequest> listTimeOffRequests() {
     List<TimeOffRequest> requests = new ArrayList<>();
     List<Task> tasks = taskService.createTaskQuery()
@@ -217,7 +215,7 @@ public List<TimeOffRequest> listTimeOffRequests() {
     }
     return requests;
 }
-{% endhighlight %}
+```
 
 A jóváhagyás a `taskService` `complete` metódusával történik. Minden
 egyes process instance-nak kell egy egyedi azonosítót adni, amivel
@@ -225,13 +223,13 @@ később hivatkozhatunk rá. Most én az e-mail cím, és a kezdő dátumot
 adtam. Mindenképpen érdemes valami olvashatót választani, és nem egy
 generált számot.
 
-{% highlight java %}
+```java
 public void approve(TimeOffRequest timeOffRequest) {
     List<Task> tasks = taskService.createTaskQuery()
         .processInstanceBusinessKey(timeOffRequest.getId()).list();
     taskService.complete(tasks.iterator().next().getId());
 }
-{% endhighlight %}
+```
 
 Ezt lehet két lépésben is csinálni, mikor a feladatot először a
 felhasználó magához rendeli (`claim`), dolgozik rajta, és csak később
@@ -240,7 +238,7 @@ fejezi be. Ekkor más már nem tudja a feladatot magához rendelni.
 Nézzük, hogy a teszteléskor hogyan adjuk meg a deploy-olandó BPMN 2.0
 fájlt.
 
-{% highlight java %}
+```java
 private void deploy() {
     repositoryService.createDeployment()
         .name("timeoffrequest")
@@ -248,7 +246,7 @@ private void deploy() {
         .getResourceAsStream("/timeoff.bpmn"))
         .deploy();
 }
-{% endhighlight %}
+```
 
 Utána nincs más dolgunk, mint az interfészünkön keresztül tesztelni a
 folyamatunkat. A példa érdekessége, hogy nem is használtunk saját
@@ -277,9 +275,9 @@ metódussal.
 A BPMN állományba egy *service taskot* kell tenni, ahol expressionnek
 megadható a hívás.
 
-{% highlight xml %}
+```xml
 #{workflowSupport.shouldApprove()}
-{% endhighlight %}
+```
 
 Ekkor a Spring application contextben lévő `workflowSupport` bean
 `shouldApprove()` metódusát fogja meghívni. Ha van visszatérési értéke,
@@ -287,9 +285,9 @@ megadható, hogy milyen változóba tegye, legyen ez a
 `shouldApproveResult`. Az elágazás egy *exclusive gateway*, melyből
 kivezető élnek a következő feltételt adhatjuk meg:
 
-{% highlight xml %}
+```xml
 ${!shouldApproveResult}
-{% endhighlight %}
+```
 
 Az Activiti ennél sokkal többet tud, pl. felhasználókezelés, teljeskörű
 audit naplózás, listenerek kezelése (, melyek különböző workflow

@@ -4,9 +4,8 @@ title: JExcelAPI dátum formátum
 date: '2010-08-13'
 author: István Viczián
 tags:
-- jexcelapi
-- i18n
-- java
+- Java
+- Egyéb nyelvek
 
 ---
 

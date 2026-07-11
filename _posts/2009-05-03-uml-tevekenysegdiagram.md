@@ -4,11 +4,9 @@ title: UML tevékenységdiagram
 date: '2009-05-03'
 author: István Viczián
 tags:
-- UML
-- Utils
 - Módszertan
-
 ---
+
 Ahogy már említettem, az elmúlt hetekben inkább tervezéssel, mint Java
 programozással foglalkoztam. A logikai rendszerterv elkészítéséhez az
 UML-t használatuk modellező nyelvként.

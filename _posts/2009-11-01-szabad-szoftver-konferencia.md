@@ -4,9 +4,9 @@ title: Szabad Szoftver Konferencia
 date: '2009-11-01'
 author: István Viczián
 tags:
-- open source
-- infrastruktúra
-- Community
+- Architektúra
+- Adatkezelés
+- Egyéb nyelvek
 
 ---
 

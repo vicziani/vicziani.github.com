@@ -4,6 +4,10 @@ title: Java Technology Roadmap
 date: '2019-07-28'
 author: István Viczián
 description: Java térkép a tanulásról, a legfontosabb szabványokról, technológiákról és eszközökről.
+tags:
+- Java
+- Módszertan
+- Szakmai élet
 ---
 
 Manapság divatosak az ún. _roadmapek_, térképek, melyek grafikusan ábrázolják, hogy miket kell megtanulni ahhoz, hogy

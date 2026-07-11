@@ -3,6 +3,11 @@ layout: post
 title: Spring Cloud Config
 date: '2016-09-05'
 author: István Viczián
+tags:
+- Java
+- Spring
+- Architektúra
+- DevOps
 ---
 
 Aki régebb óta követi a blogomat, tudhatja, hogy az alkalmazások konfigurációjának kezelése, tárolása és betöltése mindig érdekelt. Mivel manapság Spring környezetben dolgozom, adta magát a [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/). A Pivotal (a Spring mögött álló cég) célja a [Spring Boot](http://projects.spring.io/spring-boot/) és a [Spring Cloud](http://projects.spring.io/spring-cloud/) fejlesztésével az, hogy egy olyan egységes, pehelysúlyú, könnyen használható környezetet adjon a microservices architektúra és a cloud kihívásaira, melyet a Spring Frameworkkel adott a nagyvállalati Java fejlesztés megkönnyítésére, valós alternatívát nyújtva a Java EE helyett. A koncepció ugyanaz, főleg létező eszközök egységes keretbe foglalása, elosztott környezetben elterjedt minták alkalmazása.

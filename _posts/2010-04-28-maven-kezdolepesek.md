@@ -4,6 +4,9 @@ title: Maven kezdőlépések
 date: '2010-04-28'
 author: István Viczián
 tags:
+- Java
+- Módszertan
+- DevOps
 last_modified_at: '2021-12-20'
 ---
 

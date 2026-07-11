@@ -4,8 +4,8 @@ title: JAXB hibák
 date: '2009-09-28'
 author: István Viczián
 tags:
-- jaxb
-- java
+- Java
+- Egyéb nyelvek
 
 ---
 

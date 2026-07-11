@@ -4,9 +4,10 @@ title: Elosztott tranzakciókezelés Spring Boottal
 date: '2021-01-04'
 author: István Viczián
 tags:
+- Java
 - Spring
-- JTA
-- Atomikos
+- Tesztelés
+- Adatkezelés
 last_modified_at: '2025-01-10'
 description: Egy tranzakcióban egy adatbázis beszúrás és egy JMS üzenetküldés.
 ---

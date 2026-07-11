@@ -4,7 +4,8 @@ title: Microsoft Java VM
 date: 2003-02-17
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Persze a kiszivárgott Sun-os Java pocskondiázásnak :) is

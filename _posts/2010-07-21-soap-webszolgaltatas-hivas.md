@@ -4,7 +4,8 @@ title: SOAP webszolgáltatás hívás parancssorból
 date: '2010-07-21'
 author: István Viczián
 tags:
-- SOAP
+- Egyéb nyelvek
+- Módszertan
 
 ---
 

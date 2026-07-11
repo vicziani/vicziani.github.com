@@ -4,8 +4,9 @@ title: Kedvenc Java library-k
 date: '2010-01-27'
 author: István Viczián
 tags:
-- open source
-- Library
+- Java
+- Spring
+- Módszertan
 
 ---
 

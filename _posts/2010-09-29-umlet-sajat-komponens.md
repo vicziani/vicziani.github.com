@@ -4,7 +4,10 @@ title: UMLet saját komponens
 date: '2010-09-29'
 author: István Viczián
 tags:
-- UML
+- Java
+- Spring
+- Architektúra
+- Egyéb nyelvek
 last_modified_at: '2017-03-24'
 ---
 
@@ -42,7 +45,7 @@ egy előnézeti képet.
 
 A példában a következő forráskód szerepel:
 
-{% highlight java %}
+```java
 int y=textHeight();
 
 drawRectangle(0,0,width,height);
@@ -50,7 +53,7 @@ drawRectangle(0,0,width,height);
 for(String textline : textlines) {
 	y += printCenter(textline,y);
 }
-{% endhighlight %}
+```
 
 
 Gyakorlatilag a kód kirajzol egy téglalapot, és beleírja a szöveget. A
@@ -59,7 +62,7 @@ Gyakorlatilag a kód kirajzol egy téglalapot, és beleírja a szöveget. A
 
 Ha valami szebb megjelenítést akarunk, akkor írjuk ide következő kódot:
 
-{% highlight java %}
+```java
 // Változó inicializációk
 int dontHideBorder = 1;
 int roundedCorner = 5;
@@ -86,7 +89,7 @@ for (String textline : textlines) {
   y = y + textHeight();
  }
 }
-{% endhighlight %}
+```
 
 A komponensünket elmenteni a képernyő jobb alsó sarkában elbújó Add to diargram and close editor gombbal lehet.
 
@@ -113,7 +116,7 @@ lefordítja az [Eclipse Java development tools
 `com.baselet.element.old.custom.CustomElementCompiler` csomagban található. A
 `Default.java` forráskódja a következő:
 
-{% highlight java %}
+```java
 import java.awt.*;
 import java.util.*;
 
@@ -151,7 +154,7 @@ for(String textline : textlines) {
 		/****CUSTOM_CODE END****/
 	}
 }
-{% endhighlight %}
+```
 
 Ebből a következő dolgok következnek. Az új komponens a
 `com.baselet.element.old.custom.CustomElement` osztály leszármazottja, mely a
@@ -184,7 +187,7 @@ Custom Code közé írni a saját kódot, és ezt másolgatni az UMLet-be.
 Hasznos metódus még a `int textWidth(String)` metódus is, nézzük meg pl, ha a szöveget
 nem középre, hanem lépcsőzetesen akarjuk elhelyezni:
 
-{% highlight java %}
+```java
 int x = 0;
 int y = textHeight();
 for (String textLine : textlines) {
@@ -192,7 +195,7 @@ for (String textLine : textlines) {
     y = y + textHeight();
     x = x + textWidth(textLine);
 }
-{% endhighlight %}
+```
 
 ![UMLet lépcsős komponens](/artifacts/posts/2010-09-29-umlet-sajat-komponens/umlet_custom_element_step.png)
 

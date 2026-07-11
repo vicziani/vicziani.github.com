@@ -4,7 +4,8 @@ title: Subversion revision number
 date: '2010-09-30T15:52:00.000'
 author: István Viczián
 tags:
-- subversion
+- Egyéb nyelvek
+- Módszertan
 
 ---
 

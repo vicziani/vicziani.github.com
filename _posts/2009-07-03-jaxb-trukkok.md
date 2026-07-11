@@ -4,8 +4,11 @@ title: JAXB trükkök
 date: '2009-07-03'
 author: István Viczián
 tags:
-- JAXB
-- Java SE
+- Java
+- Spring
+- Tesztelés
+- Adatkezelés
+- Módszertan
 last_modified_at: '2017-11-18'
 ---
 Felhasznált technológiák: JAXB
@@ -25,7 +28,7 @@ elkerülésére
 a visszamutató getterét `@Transient` annotációval lássuk el, és a `Book`
 objektumba vegyük fel az `afterUnmarshal` metódust.
 
-{% highlight java %}
+```java
 public class Book {
 
   private Catalog catalog;
@@ -41,7 +44,7 @@ public class Book {
 
   // ... stb...
 }
-{% endhighlight %}
+```
 
 Az `afterUnmarshal` használatakor kiderült még egy érdekes dolog. A JDK
 1.6.0\_13-asban lévő JAXB 2.1.3 a kivételt elnyeli, és a program fut
@@ -82,7 +85,7 @@ legyen (mely egy saját osztály).
 Ez könnyedén megtehető. Egyrészt kell írnunk egy adaptert, mely a
 típusok közötti konverziót elvégzi.
 
-{% highlight java %}
+```java
 public class Isbn10Adapter extends XmlAdapter<String, Isbn10> {
 
     public Isbn10 unmarshal(String value) {
@@ -93,11 +96,11 @@ public class Isbn10Adapter extends XmlAdapter<String, Isbn10> {
         return value.getValue();
     }
 }
-{% endhighlight %}
+```
 
 Másrészt használjuk az `@XmlJavaTypeAdapter` annotációt.
 
-{% highlight java %}
+```java
 public class Book {
 
     @XmlAttribute
@@ -108,4 +111,4 @@ public class Book {
 
     // stb...
 }
-{% endhighlight %}
+```

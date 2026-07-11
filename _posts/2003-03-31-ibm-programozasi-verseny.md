@@ -4,7 +4,8 @@ title: IBM programozási verseny
 date: 2003-03-31
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Megtudtam, hogy a Java platformfüggetlenségére milyen jó kis betűszót

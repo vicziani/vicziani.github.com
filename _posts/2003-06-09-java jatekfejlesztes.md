@@ -4,7 +4,8 @@ title: Java játékfejlesztés
 date: 2003-06-09
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Úgy tűnik a Sun meg akarja lovagolni a J2ME sikerét a játékgyártásban,

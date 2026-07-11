@@ -4,8 +4,8 @@ title: JPA IN clause
 date: '2009-08-26'
 author: István Viczián
 tags:
-- jpa
-- java
+- Java
+- Adatkezelés
 
 ---
 

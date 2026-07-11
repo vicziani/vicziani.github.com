@@ -4,8 +4,8 @@ title: NetBeans karakterkódolás
 date: '2010-07-16'
 author: István Viczián
 tags:
-- netbeans
-- java
+- Java
+- Egyéb nyelvek
 
 ---
 

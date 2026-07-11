@@ -4,8 +4,8 @@ title: JavaDoc karakterkódolás
 date: '2009-10-24'
 author: István Viczián
 tags:
-- javadoc
-- java
+- Java
+- Módszertan
 
 ---
 

@@ -4,8 +4,9 @@ title: JAX-WS kötelező paraméter
 date: '2009-08-27'
 author: István Viczián
 tags:
-- jax-ws
-- java
+- Java
+- Spring
+- Egyéb nyelvek
 
 ---
 

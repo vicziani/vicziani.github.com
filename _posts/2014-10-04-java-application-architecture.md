@@ -4,9 +4,9 @@ title: Java Application Architecture
 date: '2014-10-04'
 author: István Viczián
 tags:
-- Modularizáció
+- Java
+- Architektúra
 - Módszertan
-- könyv
 last_modified_at: '2018-02-13'
 ---
 

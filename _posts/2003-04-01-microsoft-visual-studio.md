@@ -4,7 +4,9 @@ title: Microsoft Visual Studio
 date: 2003-04-01
 author: Viczián István
 tags:
-
+- Java
+- Egyéb nyelvek
+- Szakmai élet
 ---
 
 A Microsoft bejelentette, hogy a Microsoft Visual Studio következő

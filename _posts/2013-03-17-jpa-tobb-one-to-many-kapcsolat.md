@@ -4,9 +4,10 @@ title: JPA több one-to-many kapcsolat
 date: '2013-03-17'
 author: István Viczián
 tags:
-- performance
-- Hibernate
-- JPA
+- Java
+- Spring
+- Tesztelés
+- Adatkezelés
 last_modified_at: '2024-03-01'
 description: Egy olyan entitás lekérdezése, melynek több one-to-many kapcsolata van.
 ---

@@ -4,7 +4,8 @@ title: Minősített elektronikus aláírás
 date: '2008-12-02'
 author: István Viczián
 tags:
-- PKI
+- Java
+- Biztonság
 last_modified_at: '2013-12-23'
 ---
 

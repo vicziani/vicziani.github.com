@@ -4,8 +4,7 @@ title: Erőforrások betöltése
 date: '2008-12-09'
 author: István Viczián
 tags:
-- Java SE
-
+- Java
 ---
 
 Az alkalmazás által használt erőforrások olyan adatok, melyek a kódban
@@ -105,6 +104,6 @@ ClassNotFoundException kivétel váltódik ki.
 
 További források:
 
-[http://java.sun.com/javase/6/docs/technotes/guides/lang/resources.html](http://java.sun.com/javase/6/docs/technotes/guides/lang/resources.html)
-[http://www.javaworld.com/javaworld/javaqa/2002-11/02-qa-1122-resources.html](http://www.javaworld.com/javaworld/javaqa/2002-11/02-qa-1122-resources.html)
-[http://java.sun.com/developer/technicalArticles/Networking/classloaders/index.html](http://java.sun.com/developer/technicalArticles/Networking/classloaders/index.html)
+- [http://java.sun.com/javase/6/docs/technotes/guides/lang/resources.html](http://java.sun.com/javase/6/docs/technotes/guides/lang/resources.html)
+- [http://www.javaworld.com/javaworld/javaqa/2002-11/02-qa-1122-resources.html](http://www.javaworld.com/javaworld/javaqa/2002-11/02-qa-1122-resources.html)
+- [http://java.sun.com/developer/technicalArticles/Networking/classloaders/index.html](http://java.sun.com/developer/technicalArticles/Networking/classloaders/index.html)

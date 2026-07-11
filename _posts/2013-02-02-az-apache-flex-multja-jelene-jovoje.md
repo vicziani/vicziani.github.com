@@ -4,10 +4,10 @@ title: Az Apache Flex múltja, jelene, jövője
 date: '2013-02-02'
 author: István Viczián
 tags:
-- open source
-- Flex
-- user interface
-- Apache
+- Java
+- Spring
+- Architektúra
+- Egyéb nyelvek
 
 ---
 

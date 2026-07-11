@@ -4,9 +4,10 @@ title: Glassfish távoli szerveren
 date: '2009-09-15'
 author: István Viczián
 tags:
-- Oktatás
-- Java EE
-- NetBeans
+- Java
+- Spring
+- Architektúra
+- Egyéb nyelvek
 
 ---
 
@@ -132,16 +133,16 @@ elérni, ahol a default felhasználónév "admin", és a default jelszó
 Az alkalmazás egy NetBeans-ben létrehozott Enterprise Application, ami a
 következőkből állt. Távoli interfész:
 
-{% highlight java %}
+```java
 @Remote
 public interface HelloEJB {
 public String sayHello(String name);
 }
-{% endhighlight %}
+```
 
 Stateless session bean:
 
-{% highlight java %}
+```java
 @Stateless
 public class HelloEJBBean implements HelloEJB {
 public String sayHello(String name) {
@@ -149,11 +150,11 @@ public String sayHello(String name) {
     return "Hello " + name;
 }
 }
-{% endhighlight %}
+```
 
 És a Message driven bean:
 
-{% highlight java %}
+```java
 @MessageDriven(mappedName = "jms/MyQueue", activationConfig = {
 @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge"),
 @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
@@ -168,7 +169,7 @@ public void onMessage(Message message) {
     }
 }
 }
-{% endhighlight %}
+```
 
 Ez utóbbihoz létre kellett hozni az adminisztrációs felületen
 (Resources/JMS Resources/Connection Factories és Destination resources)
@@ -210,7 +211,7 @@ választásom. Tehát a NetBeans-ben elegendő volt egy Java Application
 projektet létrehozni. Ehhez persze a távoli interfészt is a projektbe
 kellett másolni. A kliens alkalmazás így nézett ki:
 
-{% highlight java %}
+```java
 public class Main {
 public static void main(String[] args) throws Exception {
 Context ic = new InitialContext();
@@ -218,7 +219,7 @@ HelloEJB helloEJBBean = (HelloEJB) ic.lookup("jtechlog.HelloEJB");
 System.out.println(helloEJBBean.sayHello("jtechlog"));
 }
 }
-{% endhighlight %}
+```
 
 Ehhez persze el kellett helyezni a következő JAR állományokat is a
 CLASSPATH-ban: \$GLASSFISH\_HOME/lib/appserv-rt.jar,
@@ -240,7 +241,7 @@ kliensről tökéletesen müködött.
 A következő feladat a JMS beállítása volt. Ehhez a következővel
 egészítettem ki a kliens alkalmazást:
 
-{% highlight java %}
+```java
 ConnectionFactory connectionFactory = (ConnectionFactory) ic.lookup("jms/MyConnectionFactory");
 Queue queue = (Queue) ic.lookup("jms/MyQueue");
 Connection connection = connectionFactory.createConnection();
@@ -252,7 +253,7 @@ messageProducer.send(message);
 messageProducer.close();
 session.close();
 connection.close();
-{% endhighlight %}
+```
 
 Az import-ok és a kivételkezelés az olvasó feladata. Ezt elindítva a
 következő osztályt hiányolta: java.lang.NoClassDefFoundError:

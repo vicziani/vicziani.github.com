@@ -4,7 +4,8 @@ title: Windows trükkök-tippek
 date: '2009-09-25'
 author: István Viczián
 tags:
-- Windows
+- Egyéb nyelvek
+- Hardver és labor
 
 ---
 

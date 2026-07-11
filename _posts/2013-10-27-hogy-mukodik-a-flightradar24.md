@@ -4,10 +4,9 @@ title: Hogy működik a Flightradar24? Akár én is vehetem a repülőgépekről
 date: '2013-10-27'
 author: István Viczián
 tags:
-- Linux
-- windows
-- aircraft
-- Raspberry PI
+- Egyéb nyelvek
+- Hardver és labor
+- Módszertan
 last_modified_at: '2018-02-17'
 ---
 

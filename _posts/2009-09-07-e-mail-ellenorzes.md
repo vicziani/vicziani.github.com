@@ -4,9 +4,9 @@ title: E-mail ellenőrzés
 date: '2009-09-07'
 author: István Viczián
 tags:
-- spring
-- struts
-- java
+- Java
+- Spring
+- Tesztelés
 
 ---
 

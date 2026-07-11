@@ -3,6 +3,11 @@ layout: post
 title: Integrációs tesztelés Concordionnal
 date: '2015-04-04'
 author: István Viczián
+tags:
+- Tesztelés
+- Módszertan
+- Java
+- Spring
 ---
 
 Használt technológiák: Concordion 1.4.7
@@ -105,7 +110,7 @@ megadni, és mik azok a részletek, melyek a sztori szempontjából lényegtelen
 specifikáljuk ezeket. Ennek az egyensúlynak a megtalálása talán a legnehezebb. A példánkban a következő
 tageket helyezzük el.
 
-{% highlight html %}
+```html
 <html xmlns:concordion="http://www.concordion.org/2007/concordion">
 <body>
 <h1>Workflow</h1>
@@ -137,7 +142,7 @@ szabadságigény.</p>
 
 </body>
 </html>
-{% endhighlight %}
+```
 
 Két taget használtunk. Az egyik a `concordion:execute`, mely a Java teszt esetben egy metódust hív meg.
 Mi most egy paraméterrel deklaráltuk, ráadásul a paraméter a `span` tag tartalma, erre utal a `#TEXT` kulcsszó.
@@ -154,18 +159,18 @@ a `foo@example.org` szöveghez.
 Ez után a csapat szétszéledhet, és a fejlesztő feladata a specifikációt támogató Java kód megírása. Először a
 Concordiont kell felvenni a projektbe, Maven esetén a következő `pom.xml` részlethez:
 
-{% highlight xml %}
+```xml
 <dependency>
     <groupId>org.concordion</groupId>
     <artifactId>concordion</artifactId>
     <version>1.4.7</version>
     <scope>test</scope>
 </dependency>
-{% endhighlight %}
+```
 
 Majd a specifikációhoz tartozó Java teszt esetet kell implementálni.
 
-{% highlight java %}
+```java
 public class WorkflowTest extends ConcordionTest {
 
 	public void requestTimeOff(String mail) {
@@ -183,7 +188,7 @@ public class WorkflowTest extends ConcordionTest {
 	    return workflow.listTimeOffRequests().get(0).getMail();
 	}
 }
-{% endhighlight %}
+```
 
 Látható, hogy gyakorlatilag csak a metódusokat kellett implementálni. A `requestTimeOff` metódus
 tartalmaz pár beégetett paramétert is, mely a specifikáció szempontjából érdektelen (`new Date()`). Mivel nem egy teszt metódus van, hanem a teszt eset több jól meghatározott felelősségkörű metódusból áll, a tesztek jobb felépítésűek és olvashatóbbak.
@@ -192,7 +197,7 @@ Normál esetben a futtatáshoz elegendő a teszt esetet a `@RunWith(ConcordionRu
 Mivel a példa Springet tartalmaz, melyhez a `@RunWith(SpringJUnit4ClassRunner.class)` annotáció is szükséges,
 ezért egy trükköt kell alkalmazni. Az ősosztályban következő kódot kell elhelyezni:
 
-{% highlight java %}
+```java
 @Test
 public void runSpecification() throws IOException {
     Concordion concordion = new ConcordionBuilder().build();
@@ -208,7 +213,7 @@ public void runSpecification() throws IOException {
 
     resultSummary.assertIsSatisfied(concordion);
 }
-{% endhighlight %}
+```
 
 Amikor a teszt eset után elkészítjük a funkciót a Test Driven Developmentnek megfelelően, majd a teszt
 esetet lefuttatva a következő eredményt kapjuk:
@@ -245,7 +250,7 @@ A példában is látható, hogy a funkció más specifikációkra is hivatkozás
 
 Összehasonlításképpen idemásolom ugyanezen funkcióra írt klasszikus integrációs teszt esetet is. Látható, hogy ez egy üzleti elemző, tesztelő számára kevésbé hasznos, és egy bonyolultabbat akár egy fejlesztő is nehezebben fejt vissza.
 
-{% highlight java %}
+```java
 @Test
 public void afterRequestTimeOffShouldListIt() {
     when(workflowSupport.shouldApprove()).thenReturn(true);
@@ -257,4 +262,4 @@ public void afterRequestTimeOffShouldListIt() {
     assertThat(workflow.listTimeOffRequests().iterator().next().getMail(),
 		is(equalTo("foo@example.org")));
 }
-{% endhighlight %}
+```

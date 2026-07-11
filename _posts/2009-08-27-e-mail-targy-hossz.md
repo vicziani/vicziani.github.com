@@ -4,7 +4,7 @@ title: E-mail tárgy hossz
 date: '2009-08-27'
 author: István Viczián
 tags:
-- email
+- Egyéb nyelvek
 
 ---
 

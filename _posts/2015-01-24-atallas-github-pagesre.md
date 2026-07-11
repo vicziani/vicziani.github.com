@@ -4,6 +4,10 @@ title: Átállás GitHub Pagesre
 date: '2015-01-24'
 author: István Viczián
 last_modified_at: '2015-01-24'
+tags:
+- DevOps
+- Módszertan
+- Egyéb nyelvek
 ---
 
 Már régóta dédelgetem az ötletet, hogy az egész blogot átállítom a GitHub 

@@ -4,8 +4,9 @@ title: JPA persistence.xml entity-k
 date: '2009-08-26'
 author: István Viczián
 tags:
-- jpa
-- java
+- Java
+- Architektúra
+- Egyéb nyelvek
 
 ---
 

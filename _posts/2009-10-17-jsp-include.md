@@ -4,8 +4,9 @@ title: JSP include
 date: '2009-10-17'
 author: István Viczián
 tags:
-- jsp
-- java
+- Java
+- Spring
+- Egyéb nyelvek
 
 ---
 

@@ -4,7 +4,8 @@ title: 24 órás programozó és csapatverseny eredmény
 date: 2003-05-21
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Megint egy kissé lemaradtam. Útközben volt egy [3. nemzetközi 24 órás

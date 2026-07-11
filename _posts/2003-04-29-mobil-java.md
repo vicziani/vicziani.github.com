@@ -4,7 +4,7 @@ title: Mobil Java
 date: 2003-04-29
 author: Viczián István
 tags:
-
+- Java
 ---
 
 Egyre több MIDP 1.0-t támogató

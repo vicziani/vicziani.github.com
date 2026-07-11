@@ -4,6 +4,10 @@ title: Java Thread Dump
 date: '2020-02-11'
 author: István Viczián
 description: Hogyan elemezzünk thread dumpot?
+tags:
+- Java
+- Spring
+- Adatkezelés
 ---
 
 Mostanában úgy alakult, hogy egy webes alkalmazás belső működését kellett

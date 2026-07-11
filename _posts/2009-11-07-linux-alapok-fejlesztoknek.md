@@ -4,8 +4,9 @@ title: Linux alapok fejlesztőknek
 date: '2009-11-07'
 author: István Viczián
 tags:
-- ssh
-- Linux
+- Egyéb nyelvek
+- DevOps
+- Architektúra
 
 ---
 

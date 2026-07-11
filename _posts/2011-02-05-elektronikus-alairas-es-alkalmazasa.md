@@ -4,9 +4,9 @@ title: Elektronikus aláírás és alkalmazása Javaban, kulcskezelés
 date: '2011-02-05'
 author: István Viczián
 tags:
-- jce
-- jca
-- security
+- Java
+- Biztonság
+- Adatkezelés
 last_modified_at: '2026-01-02'
 ---
 

@@ -4,8 +4,7 @@ title: XHTML 1.0 ajánlás fordítás
 date: '2010-09-21'
 author: István Viczián
 tags:
-- xhtml
-- xml
+- Egyéb nyelvek
 
 ---
 

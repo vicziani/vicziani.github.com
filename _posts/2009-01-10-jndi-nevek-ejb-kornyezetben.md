@@ -4,9 +4,8 @@ title: JNDI nevek EJB környezetben
 date: '2009-01-10'
 author: István Viczián
 tags:
-- Java EE
-- Tomcat
-
+- Java
+- Architektúra
 ---
 
 Nagyvállalati környezetben gyakran lehet hallani a név- és
@@ -233,9 +232,12 @@ standardizálva lesznek, méghozzá a következő formátumban:
 azaz az előző példa esetén
 `JTechLogAppName/JTechLogEjbName/JTechLogBean\#JTechLog`.
 
-Linkek: [Újdonságok az EJB
-3.1-ben](http://www.theserverside.com/tt/articles/article.tss?l=NewFeaturesinEJB31-Part5),
-[Glassfish EJB
-FAQ](https://glassfish.dev.java.net/javaee5/ejb/EJB_FAQ.html), [EJB 3
+Linkek:
+
+- [Újdonságok az EJB
+3.1-ben](http://www.theserverside.com/tt/articles/article.tss?l=NewFeaturesinEJB31-Part5)
+- [Glassfish EJB
+FAQ](https://glassfish.dev.java.net/javaee5/ejb/EJB_FAQ.html)
+- [EJB 3
 portabilitási
 problémák](http://www.adam-bien.com/roller/abien/entry/ejb_3_portability_issue_why)

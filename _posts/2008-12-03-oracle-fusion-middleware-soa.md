@@ -4,9 +4,7 @@ title: Oracle Fusion Middleware - SOA
 date: '2008-12-03'
 author: István Viczián
 tags:
-- SOA
-- Oracle
-
+- Architektúra
 ---
 
 Az előző posztban áttekintettem a BEA felvásárlással kapcsolatos Oracle

@@ -4,8 +4,9 @@ title: JBoss portok
 date: '2011-03-01'
 author: István Viczián
 tags:
-- jboss
-- java
+- Java
+- Architektúra
+- DevOps
 
 ---
 

@@ -4,10 +4,11 @@ title: JAX-WS mélyvíz
 date: '2009-11-23'
 author: István Viczián
 tags:
-- JAXB
-- JAX-WS
-- Java SE
-- Java EE
+- Java
+- Spring
+- Tesztelés
+- Adatkezelés
+- Architektúra
 last_modified_at: '2017-11-18'
 ---
 
@@ -142,14 +143,14 @@ tényleg ment.
 A fejlesztés között a verziókon kívül a legtöbb problémám az `ANY`típusú
 tagekkel volt. Példaként nézzünk is egy ilyen részletet:
 
-{% highlight xml %}
+```xml
 <xs:complexType name="AnyType">
   <xs:sequence>
     <xs:any minOccurs="0" maxOccurs="unbounded"
         namespace="##any" processContents="skip" />
   </xs:sequence>
 </xs:complexType>
-{% endhighlight %}
+```
 
 Ebben az esetben a belső tartalmon nem végzi el a JAX unmarshallt, hanem
 DOM-ot kapunk. Ezt nekünk kell manuálisan unmarshallolni. A JAXB File,
@@ -233,7 +234,7 @@ WSDL-t generálják ki), akkor nem lehet több erőforrás megadni a Spring
 névteres módon, hanem trükközni kell. Álljon itt egy Spring
 `applicationContext.xml` részlet erre.
 
-{% highlight xml %}
+```xml
 <bean id="metadata" class="java.util.ArrayList" >
   <constructor-arg>
     <list>
@@ -255,7 +256,7 @@ névteres módon, hanem trükközni kell. Álljon itt egy Spring
     </ws:service>
   </wss:service>
 </wss:binding>
-{% endhighlight %}
+```
 
 A NetBeansnek nem tudtam megmagyarázni, hogy Springgel akarom használni
 a web szolgáltatást, ő mindenképp generálni akarja a szabvány JAX-WS-es

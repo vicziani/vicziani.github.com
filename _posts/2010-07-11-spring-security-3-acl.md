@@ -4,12 +4,10 @@ title: Spring Security ACL
 date: '2010-07-11'
 author: István Viczián
 tags:
-- open source
-- biztonság
-- Library
-- Tesztelés
-- Maven
 - Spring
+- Biztonság
+- Tesztelés
+- Architektúra
 last_modified_at: '2023-07-15'
 ---
 

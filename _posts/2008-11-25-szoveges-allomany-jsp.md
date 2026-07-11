@@ -4,8 +4,7 @@ title: Szöveges állomány generálása JSP-vel
 date: '2008-11-24'
 author: István Viczián
 tags:
-- JSP
-
+- Java
 ---
 
 A közelmúltban azt a feladatot kaptam, hogy szöveges állományt

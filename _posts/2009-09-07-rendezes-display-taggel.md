@@ -4,8 +4,9 @@ title: Rendezés Display taggel
 date: '2009-09-07'
 author: István Viczián
 tags:
-- jsp
-- java
+- Java
+- Spring
+- Egyéb nyelvek
 
 ---
 

@@ -4,7 +4,11 @@ title: Legjobb fejlesztő 2010 verseny tapasztalatok
 date: '2010-12-18'
 author: István Viczián
 tags:
-- Community
+- Java
+- Spring
+- Tesztelés
+- DevOps
+- Architektúra
 
 ---
 

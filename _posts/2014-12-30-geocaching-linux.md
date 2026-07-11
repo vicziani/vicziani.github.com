@@ -4,6 +4,10 @@ title: Geocaching Linuxon
 date: "2014-12-30"
 author: István Viczián
 description: Ez a poszt azoknak készült, akik geocache-elnek, és mellette Linuxot használnak.
+tags:
+- Hardver és labor
+- Egyéb nyelvek
+- Adatkezelés
 ---
 
 Ez az oldal azoknak készült, akik geocache-elnek, és mellette Linuxot használnak. Ez sajnos azért nem triviális, mert Magyarországon a legelterjedtebb túrázáshoz, geocachinghez használt készüléktípus a Garmin, mely gyártó jelenleg a [BaseCampet](https://www.garmin.com/en-US/software/basecamp/) biztosítja az eszközeihez, mely jelenleg Windows és Mac operációs rendszereken érhető csak el. A BaseCamp a régebbi [MapSource](http://www8.garmin.com/support/download_details.jsp?id=209) programot váltotta le. Sajnos a Garmin által használt formátumok sem nyíltak.

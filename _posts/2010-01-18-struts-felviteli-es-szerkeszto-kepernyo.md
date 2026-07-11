@@ -4,7 +4,9 @@ title: Struts felviteli és szerkesztő képernyő
 date: '2010-01-18'
 author: István Viczián
 tags:
-- Struts
+- Java
+- Spring
+- Módszertan
 
 ---
 
@@ -137,7 +139,7 @@ vagy létező Employee módosítására.
 
 Nézzük az Employee és ActionForm osztályokat:
 
-{% highlight java %}
+```java
 public class Employee {
 private Long id;
 
@@ -162,7 +164,7 @@ public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) 
 
 // Getter és setter metódusok
 }
-{% endhighlight %}
+```
 
 Itt azt a trükköt érdemes megfigyelni, hogy az Employee osztályt
 tartalmazó EmployeeForm-ot hoztunk létre, és ilyenkor az űrlapban a
@@ -171,7 +173,7 @@ validate metódus hibát ad vissza, ha a név üres.
 
 Majd nézzük az Action osztályunkat:
 
-{% highlight java %}
+```java
 public class EmployeeAction extends Action {
 private final static String VIEW = "view";
 private final static String ERROR = "error";
@@ -225,7 +227,7 @@ public ActionForward save(ActionMapping mapping,
  }
 }
 }
-{% endhighlight %}
+```
 
 Az EmployeeAction az Action leszármazottja, így implementálnia kell az
 execute metódust. Ennek az első sora megvizsgálja, hogy hiba ágon
@@ -247,7 +249,7 @@ session-be tesz egy üzenetet a mentés sikerességéről.
 
 Az Action-höz tartozó struts-config.xml részlet:
 
-{% highlight xml %}
+```xml
 <form-bean name="EmployeeForm" type="jtechlog.EmployeeForm" />
 ...
 <action path = "/employee"
@@ -261,7 +263,7 @@ scope = "request"
 <forward name="error" path="/employee.do" />
 <forward name="success" path="/listEmployees.do" redirect="true" />
 </action>
-{% endhighlight %}
+```
 
 Ez a konfiguráció definiálja az EmployeeAction Action-t, mely a
 /employee.do címen érhető el új felvitel esetén, és /employee.do?id=1
@@ -278,7 +280,7 @@ after post alapján, mely az üzenetet is meg fogja jeleníteni.
 
 És végül lássuk a JSP részletet:
 
-{% highlight xml %}
+```xml
 <html:form method="post" action="employee.do">
 <html:errors />
 
@@ -286,7 +288,7 @@ after post alapján, mely az üzenetet is meg fogja jeleníteni.
 <html:text property="employee.name" />
 <html:submit property="saveButton">Save</html:submit>
 </html>
-{% endhighlight %}
+```
 
 A teljes hívási láncot a következő szekvenciadiagram mutatja, mely három
 részből áll. Első az űrlap lekérése (felvitel vagy módosítás), második

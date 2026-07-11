@@ -4,7 +4,7 @@ title: Verziószámok
 date: 2003-01-19
 author: Viczián István
 tags:
-
+- Java
 ---
 
 Imádom a verziószámokat, mindig lesem az új megjelenéseket, és

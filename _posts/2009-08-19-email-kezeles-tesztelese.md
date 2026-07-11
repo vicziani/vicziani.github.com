@@ -4,9 +4,8 @@ title: E-mail kezelés tesztelése
 date: '2009-08-19'
 author: István Viczián
 tags:
-- Library
 - Tesztelés
-- Java EE
+- Java
 - Spring
 
 ---
@@ -49,23 +48,23 @@ CLASSPATH-ban.
 Ezután pontosan úgy lehet levelet küldeni, mint a standard JavaMail API
 használatakor, azaz:
 
-{% highlight java %}
+```java
 MimeMessage msg = new MimeMessage(session);
 msg.addRecipient(RecipientType.TO, new InternetAddress("foo@bar.com"));
 msg.setSubject("Foo subject");
 msg.setText("Foo body");
 Transport.send(msg);
-{% endhighlight %}
+```
 
 Valamint levelet is pontosan ugyanúgy lehet fogadni:
 
-{% highlight java %}
+```java
 Store store = session.getStore();
 store.connect("bar.com", "foo", "bar");
 Folder folder = store.getDefaultFolder();
 folder.open(Folder.READ_WRITE);
 Message[] messages = folder.getMessages();
-{% endhighlight %}
+```
 
 Ez a kód semmiben nem tér el a JavaMail API normál használatától, azaz a
 kódunkban akár változatlanul is hagyhatjuk. A különbség annyi, hogy a
@@ -78,11 +77,11 @@ tagja tárolja az e-mail címekhez tartozó Mailbox példányokat, melyeket a
 get statikus metódussal lehet elérni. Azaz pl. az Assert-nél
 használhatjuk a következő kódrészletet a levélküldés után:
 
-{% highlight java %}
+```java
 List inbox = Mailbox.get("foo@bar.com");
 assertEquals(1, inbox.size());
 assertEquals("Foo subject", inbox.get(0).getSubject());
-{% endhighlight %}
+```
 
 Egy Mailbox példányon meghívhatjuk a setError(true) metódust is, ekkor a
 Mailbox példányhoz való hozzáférés hibát fog dobni. Ezzel tesztelhetjük
@@ -99,7 +98,7 @@ példányosítani, hanem factory metódusai vannak, mint a
 getDefaultInstance. Emiatt a Spring-ben a következőképp lehet
 példányosítani:
 
-{% highlight xml %}
+```xml
 <bean id="session" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 <property name="targetClass"><value>javax.mail.Session</value></property>
 <property name="targetMethod"><value>getDefaultInstance</value></property>
@@ -113,7 +112,7 @@ példányosítani:
 </list>
 </property>
 </bean>
-{% endhighlight %}
+```
 
 Ahhoz, hogy az alkalmazásunk működjön, a JavaMail API JAR-ját is el kell
 helyeznünk a CLASSPATH-ban (jelenlegi verzió a 1.4.2, mail.jar),

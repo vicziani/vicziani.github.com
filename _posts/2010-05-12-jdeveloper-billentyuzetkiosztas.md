@@ -4,8 +4,8 @@ title: JDeveloper billentyűzetkiosztás
 date: '2010-05-12'
 author: István Viczián
 tags:
-- jdeveloper
-- java
+- Java
+- Egyéb nyelvek
 
 ---
 

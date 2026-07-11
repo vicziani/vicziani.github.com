@@ -4,9 +4,10 @@ title: SOA Using Java Web Services
 date: '2012-08-12'
 author: István Viczián
 tags:
-- JAXB
-- JAX-WS
-- könyv
+- Java
+- Spring
+- Architektúra
+- Egyéb nyelvek
 
 ---
 

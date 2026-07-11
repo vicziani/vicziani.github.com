@@ -5,6 +5,11 @@ date: '2022-09-13'
 last_modified_at: '2023-10-03'
 author: István Viczián
 description: A Spring Boot 3-as verziójának újdonságainak a bemutatása.
+tags:
+- Spring
+- Java
+- DevOps
+- Adatkezelés
 ---
 
 ## Bevezetés

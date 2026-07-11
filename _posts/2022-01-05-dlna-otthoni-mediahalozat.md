@@ -4,6 +4,9 @@ title: DLNA, az otthoni médiahálózat alapja
 date: '2022-01-05'
 author: István Viczián
 description: Így működik a DLNA, így vesz részt egy otthoni médiahálózat kialakításában, és egy kis Python, Docker.
+tags:
+- Egyéb nyelvek
+- Hardver és labor
 ---
 
 Amikor itthon elkezdtem egy médiahálózatot kialakítani, akkor azonnal belefutottam a DLNA-ba, és mindig

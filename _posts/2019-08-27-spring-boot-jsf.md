@@ -5,6 +5,9 @@ date: '2019-08-27'
 author: István Viczián
 description: Hogyan integráljuk Spring Boot projektünkbe a JSF-et.
 last_modified_at: '2023-12-14'
+tags:
+- Java
+- Spring
 ---
 
 Tudom, a mai HTML/CSS/JavaScript világban a JSF, mint felületi technológia nem

@@ -4,8 +4,8 @@ title: NetBeans JDK helye
 date: '2010-06-30'
 author: István Viczián
 tags:
-- NetBeans
-- java
+- Java
+- Egyéb nyelvek
 
 ---
 

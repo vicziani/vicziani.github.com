@@ -4,9 +4,9 @@ title: JPA tömeges műveletek
 date: '2009-05-07'
 author: István Viczián
 tags:
-- Tesztelés
 - Spring
-- JPA
+- Tesztelés
+- Adatkezelés
 last_modified_at: '2026-06-11'
 ---
 

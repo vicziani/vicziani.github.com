@@ -4,7 +4,8 @@ title: Hírek a JavaOne óta
 date: 2003-07-01
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Azon neves alkalomból, hogy

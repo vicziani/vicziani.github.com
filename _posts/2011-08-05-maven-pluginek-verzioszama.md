@@ -4,7 +4,9 @@ title: Maven pluginek verziószáma
 date: '2011-08-05'
 author: István Viczián
 tags:
-- Maven
+- Java
+- Módszertan
+- DevOps
 
 ---
 

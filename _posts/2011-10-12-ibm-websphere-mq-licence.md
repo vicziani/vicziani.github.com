@@ -4,7 +4,8 @@ title: IBM WebSphere MQ licence
 date: '2011-10-12'
 author: István Viczián
 tags:
-- mq
+- Egyéb nyelvek
+- Hardver és labor
 
 ---
 

@@ -4,8 +4,9 @@ title: Visszatekintés 2011-re
 date: '2012-01-14'
 author: István Viczián
 tags:
-- Community
-- könyv
+- Java
+- Módszertan
+- Szakmai élet
 last_modified_at: '2018-01-13'
 ---
 

@@ -4,7 +4,8 @@ title: Színes hírek
 date: 2003-02-10
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Pörögnek itt a dolgok rendesen a Java világban. Egyrészt kiszivárgott a

@@ -4,6 +4,11 @@ title: Telemetria és a Java
 date: '2024-06-11'
 author: István Viczián
 description: Telemetria, szabványok és eszközök, pl. OpenTelemetry, Micrometer.
+tags:
+- Java
+- Spring
+- Adatkezelés
+- DevOps
 ---
 
 Napjainkban a telemetria egy nagyon fejlődő terület, napról napra jelennek meg új eszközök

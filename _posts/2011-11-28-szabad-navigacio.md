@@ -4,8 +4,10 @@ title: Szabad navigáció okozta problémák webes környezetben
 date: '2011-11-28'
 author: István Viczián
 tags:
-- Maven
-- DocBook
+- Java
+- Spring
+- Egyéb nyelvek
+- Módszertan
 last_modified_at: '2018-01-12'
 ---
 

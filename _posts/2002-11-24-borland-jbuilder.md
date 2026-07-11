@@ -4,7 +4,8 @@ title: Borland JBuilder
 date: 2002-11-24
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Eseménytelenül telik a hétvége, csak a Borland JBuilder 5 szívat egy

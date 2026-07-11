@@ -4,7 +4,8 @@ title: Java blogs
 date: 2003-01-08
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Most vettem észre, hogy a Velocity honlapján kitettek egy

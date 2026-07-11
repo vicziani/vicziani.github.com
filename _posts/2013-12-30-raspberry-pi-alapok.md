@@ -4,7 +4,9 @@ title: Raspberry Pi alapok
 date: '2013-12-30'
 author: István Viczián
 tags:
-- Raspberry Pi
+- Hardver és labor
+- Egyéb nyelvek
+- Módszertan
 last_modified_at: '2018-02-17'
 ---
 

@@ -4,7 +4,8 @@ title: IBM WebSphere MQ
 date: 2003-01-05
 author: Viczián István
 tags:
-
+- Java
+- Architektúra
 ---
 
 Nemrég láttam a [WebSphere

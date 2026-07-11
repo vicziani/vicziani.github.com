@@ -4,7 +4,7 @@ title: Nyomtatás
 date: 2002-11-21
 author: Viczián István
 tags:
-
+- Java
 ---
 
 Előbb utóbb mindenki beleesik a csapdába, és Java nyelven nyomtatnia

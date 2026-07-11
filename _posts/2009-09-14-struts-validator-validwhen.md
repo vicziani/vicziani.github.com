@@ -4,8 +4,9 @@ title: Struts Validator validwhen
 date: '2009-09-14'
 author: István Viczián
 tags:
-- struts
-- java
+- Java
+- Spring
+- Tesztelés
 
 ---
 

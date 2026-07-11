@@ -4,7 +4,8 @@ title: Understand for Java
 date: 2003-01-14
 author: Viczián István
 tags:
-
+- Java
+- Egyéb nyelvek
 ---
 
 Éppen egy [Understand for Java](http://www.scitools.com/uj.html)

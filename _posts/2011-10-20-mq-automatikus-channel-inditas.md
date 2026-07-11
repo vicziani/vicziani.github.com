@@ -4,7 +4,9 @@ title: MQ automatikus channel indítás
 date: '2011-10-20'
 author: István Viczián
 tags:
-- mq
+- Java
+- DevOps
+- Egyéb nyelvek
 
 ---
 

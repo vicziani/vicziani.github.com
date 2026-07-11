@@ -4,9 +4,9 @@ title: Subversion branch, akár Maven Release pluginnal
 date: '2011-09-07'
 author: István Viczián
 tags:
-- Subversion
 - Módszertan
-- Maven
+- Java
+- Spring
 
 ---
 

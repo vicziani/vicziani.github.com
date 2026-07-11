@@ -4,8 +4,8 @@ title: Subversion kontra CVS
 date: '2010-06-10'
 author: István Viczián
 tags:
-- subversion
-- cvs
+- Egyéb nyelvek
+- Módszertan
 
 ---
 

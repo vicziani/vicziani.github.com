@@ -5,6 +5,10 @@ date: '2023-08-31'
 author: István Viczián
 description: Hogyan érdemes egy munkafolyamat lépéseihez REST API-t tervezni?
 last_modified_at: '2023-10-10'
+tags:
+- Java
+- Spring
+- Architektúra
 ---
 
 Bár kétségtelenül a REST a legelterjedtebb kommunikációs mód, akár ugyanolyan

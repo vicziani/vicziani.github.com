@@ -3,7 +3,10 @@ layout: post
 title: Legjobb fejlesztő 2010 - Java programozó verseny
 date: '2010-09-21'
 author: István Viczián
-tags: 
+tags:
+- Java
+- Tesztelés
+- Módszertan
 
 ---
 

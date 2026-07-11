@@ -5,7 +5,7 @@ date: '2014-10-02'
 author: István Viczián
 tags:
 - Spring
-- Community
+- Szakmai élet
 last_modified_at: '2018-06-01'
 ---
 

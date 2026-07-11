@@ -4,7 +4,8 @@ title: Websphere Business Integration
 date: 2003-03-12
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Ha már ennyire rákattantam az alkalmazás integrációra, nem szabad

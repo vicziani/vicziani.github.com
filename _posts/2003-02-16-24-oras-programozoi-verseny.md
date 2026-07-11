@@ -4,7 +4,7 @@ title: 24-órás programozói verseny
 date: 2003-02-16
 author: Viczián István
 tags:
-
+- Szakmai élet
 ---
 
 Idén is megrendezik a [24-órás programozói

@@ -4,8 +4,8 @@ title: Code coverage
 date: '2009-02-23'
 author: István Viczián
 tags:
+- Java
 - Tesztelés
-
 ---
 
 A code coverage (lefedettség mérés) egy olyan technika, mellyel az
@@ -128,7 +128,7 @@ nélkülözhetetlen jar állományokat (asm-3.0.jar, asm-tree-3.0.jar,
 jakarta-oro-2.0.8.jar, log4j-1.2.9.jar), valamint a következőket adtam
 hozzá a NetBeans által generált build.xml-hez.
 
-```
+```xml
 <loadproperties srcFile="build.properties"/>
 
 <path id="cobertura.classpath">

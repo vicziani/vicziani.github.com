@@ -4,8 +4,10 @@ title: Milyen GUI keretrendszert szeretnék?
 date: '2013-11-11'
 author: István Viczián
 tags:
-- web framework
-- user interface
+- Java
+- Spring
+- Architektúra
+- Módszertan
 
 ---
 

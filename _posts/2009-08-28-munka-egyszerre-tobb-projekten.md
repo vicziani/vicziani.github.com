@@ -4,9 +4,10 @@ title: Munka egyszerre több projekten
 date: '2009-08-28'
 author: István Viczián
 tags:
-- IDE
-- Tomcat
-- NetBeans
+- Java
+- Spring
+- DevOps
+- Egyéb nyelvek
 
 ---
 

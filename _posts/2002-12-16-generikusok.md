@@ -4,7 +4,7 @@ title: Generikusok
 date: 2002-12-16
 author: Viczián István
 tags:
-
+- Java
 ---
 
 A Sun-nál megjelent egy cikk a Java generikusokról, más néven

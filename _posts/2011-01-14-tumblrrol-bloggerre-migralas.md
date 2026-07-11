@@ -4,8 +4,8 @@ title: Tumblrről Bloggerre migrálás
 date: '2011-01-14'
 author: István Viczián
 tags:
-- blogger
-- tumblr
+- Egyéb nyelvek
+- Módszertan
 
 ---
 

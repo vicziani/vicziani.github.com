@@ -4,7 +4,9 @@ title: Ant listener és logger osztályok
 date: '2010-01-03'
 author: István Viczián
 tags:
-- Ant
+- Java
+- Módszertan
+- Egyéb nyelvek
 last_modified_at: '2018-02-08'
 ---
 
@@ -59,7 +61,7 @@ konstruktorban elhelyezni.
 Írjunk is meg egy egyszerű `BuildListener`-t, mely azt méri, hogy mely
 target futása mennyi ideig tartott, névvel együtt.
 
-{% highlight java %}
+```java
 package jtechlog.ant;
 
 import org.apache.tools.ant.BuildEvent;
@@ -91,7 +93,7 @@ public void taskStarted(BuildEvent be) {
 public void messageLogged(BuildEvent be) {
 }
 }
-{% endhighlight %}
+```
 
 Ahhoz, hogy ezt le is futtassuk, a saját osztályunkat el kell helyezni
 az Ant classpath-jában, melyre a legegyszerűbb megoldás a `-lib` kapcsoló

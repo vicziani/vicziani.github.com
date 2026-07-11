@@ -4,7 +4,8 @@ title: Subversion dump
 date: '2009-10-07'
 author: István Viczián
 tags:
-- subversion
+- Egyéb nyelvek
+- Módszertan
 
 ---
 

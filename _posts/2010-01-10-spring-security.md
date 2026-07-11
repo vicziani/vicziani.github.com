@@ -4,11 +4,9 @@ title: Spring Security
 date: '2010-01-10'
 author: István Viczián
 tags:
-- autentikáció
-- authorizáció
-- nyílt forráskód
-- biztonság
-- Spring Framework
+- Spring
+- Biztonság
+- Tesztelés
 last_modified_at: '2019-03-10'
 description: Egy részletes poszt a Spring Security-ról.
 ---

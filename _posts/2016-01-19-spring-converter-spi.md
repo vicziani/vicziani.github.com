@@ -3,6 +3,9 @@ layout: post
 title: Spring Converter SPI
 date: '2016-01-19'
 author: István Viczián
+tags:
+- Spring
+- Java
 ---
 
 A Spring Framework talán egyik legnagyobb előnye, hogy bizonyos gyakran használt funkcionalitásra egy frappáns megoldást biztosít, és ezt az egész keretrendszeren belül konzekvensen alkalmazza. Az egyik ilyen funkcionalitás a Spring Converter SPI.
@@ -21,7 +24,7 @@ Példának vegyünk egy gázóra (`GasHour`) osztályt. Ennek a különlegesség
 
 Ez az osztály legyen valami hasonló:
 
-{% highlight java %}
+```java
 public class GasHour {
 
     private LocalDate date;
@@ -32,12 +35,12 @@ public class GasHour {
         // Szövegből GasHour példánnyá alakítás
     }
 }
-{% endhighlight %}
+```
 
 
 Az ehhez tartozó konverter nagyon egyszerű:
 
-{% highlight java %}
+```java
 public class GasHourConverter implements Converter<String, GasHour> {
 
     @Override
@@ -45,11 +48,11 @@ public class GasHourConverter implements Converter<String, GasHour> {
         return GasHour.parse(s);
     }
 }
-{% endhighlight %}
+```
 
 A konverter használatához definiáljunk egy `ConversionService` objektumot, és regisztráljuk a konvertert.
 
-{% highlight xml %}
+```xml
 <bean id="conversionService"
         class="org.springframework.context.support.ConversionServiceFactoryBean">
     <property name="converters">
@@ -58,11 +61,11 @@ A konverter használatához definiáljunk egy `ConversionService` objektumot, é
         </set>
     </property>
 </bean>
-{% endhighlight %}
+```
 
 Vagy akár Java kódból:
 
-{% highlight java %}
+```java
 @Bean
 public ConversionService conversionService() {
     ConversionServiceFactoryBean factoryBean =
@@ -73,20 +76,20 @@ public ConversionService conversionService() {
     ConversionService conversionService = factoryBean.getObject();
     return conversionService;
 }
-{% endhighlight %}
+```
 
 Ezután az xml konfigurációban szereplő értékeket is fel tudja oldani.
 
-{% highlight xml %}
+```xml
 <bean id="fooService"
         class="jtechlog.springconverter.FooService">
     <property name="startGasHour" value="2015-11-11 5." />
 </bean>
-{% endhighlight %}
+```
 
 Ha a beanünk implementációja a következő:
 
-{% highlight java %}
+```java
 public class FooService {
 
     private GasHour startGasHour;
@@ -95,11 +98,11 @@ public class FooService {
 	    this.startGasGour = startGasHour;
     }
 }
-{% endhighlight %}
+```
 
 A konvertereket egyszerűen használhatjuk a `ConversionService` példányon keresztül is, nem kell a konkrét konverterre hivatkoznunk.
 
-{% highlight java %}
+```java
 @Autowired
 public FooService(ConversionService conversionService) {
     this.conversionService = conversionService;
@@ -109,31 +112,31 @@ public void execute() {
     GasHour gasHour =
         conversionService.convert("2011-11-11 5.", GasHour.class);
 }
-{% endhighlight %}
+```
 
 Listákra nem kell külön konvertert írnunk, ugyanis képes a Spring kezelni, ha a listák elemeire van konverter. Azonban a Java furcsa generikus kezelése miatt ez nem triviális.
 
-{% highlight java %}
+```java
 List<GasHour> gasHours = (List<GasHour>) conversionService.convert(
         Arrays.asList("2011-11-11 5.", "2011-11-11 6.", "2011-11-11 7."),
         TypeDescriptor.collection(
                 List.class, TypeDescriptor.valueOf(String.class)),
         TypeDescriptor.collection(
                 List.class, TypeDescriptor.valueOf(GasHour.class)));
-{% endhighlight %}
+```
 
 Nagyon szépen használható SpEL-ben is, az előbb említett `FooService` osztály esetén:
 
-{% highlight xml %}
+```xml
 <bean id="fooService"
         class="jtechlog.springconverter.FooService">
     <property name="startGasHour" value="#{'2015-11-11 5.'}" />
 </bean>
-{% endhighlight %}
+```
 
 De természetesen programozottan is:
 
-{% highlight java %}
+```java
 StandardEvaluationContext evaluationContext =
     new StandardEvaluationContext();
 StandardTypeConverter converter =
@@ -143,12 +146,12 @@ ExpressionParser expressionParser = new SpelExpressionParser();
 GasHour gasHour = expressionParser.parseExpression("2011-11-11 5.")
     .getValue(evaluationContext, GasHour.class);
 assertThat(gasHour, is(GasHour.parse("2011-11-11 5.")));
-{% endhighlight %}
+```
 
 Amennyiben Spring MVC-ben is használni szeretnénk, a konvertereket regisztrálhatjuk a
 `WebMvcConfigurerAdapter`-ben is.
 
-{% highlight java %}
+```java
 @Configuration
 @EnableWebMvc
 public class WebAppConfig extends WebMvcConfigurerAdapter {
@@ -157,11 +160,11 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         registry.addConverter(new GasHourConverter());
     }
 }
-{% endhighlight %}
+```
 
 Ekkor controllerben is működik az automatikus konverzió:
 
-{% highlight java %}
+```java
 @Controller
 public class GasHourController {
 
@@ -171,20 +174,20 @@ public class GasHourController {
         return gasHour.toString();
     }
 }
-{% endhighlight %}
+```
 
 Még egy érdekesség, a Spring Data JPA is tudja használni, amikor egy lekérdezés eredményét, ami entitások listája, dto listákká akarjuk konvertálni. Ez akkor működik, ha a lapozást használjuk, és ehhez a visszatérési érték `Page` típus. Ebben a `map()` metódust kell hívni, a következőképpen.
 
-{% highlight java %}
+```java
 public Page<LocationDto> listLocations(Pageable pageable) {
     return locationDao.findAllOrderById(pageable)
         .map(new LocationConverter());
 }
-{% endhighlight %}
+```
 
 Az ehhez tartozó konverter:
 
-{% highlight java %}
+```java
 public class LocationConverter implements Converter<Location, LocationVO> {
 
     @Override
@@ -196,4 +199,4 @@ public class LocationConverter implements Converter<Location, LocationVO> {
         return locationDto;
     }
 }
-{% endhighlight %}
+```

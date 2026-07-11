@@ -4,7 +4,9 @@ title: Java ki kicsoda
 date: '2014-11-13'
 author: István Viczián
 tags:
-- Community
+- Java
+- Spring
+- Szakmai élet
 last_modified_at: '2018-06-02'
 ---
 

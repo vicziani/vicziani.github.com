@@ -4,9 +4,9 @@ title: Hibernate bug blob mentésekor
 date: '2009-09-14'
 author: István Viczián
 tags:
-- jpa
-- hibernate
-- java
+- Java
+- Spring
+- Egyéb nyelvek
 
 ---
 

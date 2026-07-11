@@ -4,14 +4,11 @@ title: Clusterezés általában és Tomcaten
 date: '2010-06-20'
 author: István Viczián
 tags:
-- open source
-- ha
-- cluster
-- scalability
-- Java EE
-- Tomcat
-- könyv
-- lb
+- Java
+- Spring
+- Architektúra
+- DevOps
+- Biztonság
 
 ---
 
@@ -385,7 +382,7 @@ mind szoftver szinten teljesen egyforma példányokat, konfigurációkat
 alkalmazni. A következő részletet kell beilleszteni a server.xml-be az
 Engine tag alá.
 
-{% highlight xml %}
+```xml
 <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster">
 
 <Manager className="org.apache.catalina.ha.session.DeltaManager"
@@ -422,7 +419,7 @@ maxThreads="6"/>
 <ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/>
 
 </Cluster>
-{% endhighlight %}
+```
 
 Mindkét példánynál a Receiver tag address attribútumának értékét
 állítsuk a futtató gép ip-címére. Amennyiben ugyanazon a gépen futtatjuk

@@ -4,7 +4,8 @@ title: Java Web Start
 date: 2003-09-03
 author: Viczián István
 tags:
-
+- Java
+- DevOps
 ---
 
 Nos, egy hosszabb nyári szünet, és munkahely váltás után folytatódik,

@@ -4,7 +4,10 @@ title: MySQL előadások
 date: 2003-05-05
 author: Viczián István
 tags:
-
+- Adatkezelés
+- Java
+- Egyéb nyelvek
+- Szakmai élet
 ---
 
 Kicsit offtopic leszek, arról szeretnék beszámolni, hogy David Axmark

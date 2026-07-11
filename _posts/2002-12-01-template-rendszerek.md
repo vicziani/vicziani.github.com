@@ -4,7 +4,7 @@ title: Template rendszerek
 date: 2002-12-01
 author: Viczián István
 tags:
-
+- Java
 ---
 
 Mostanában kedvenceim a szervletek, és emlékszem, mikor kezdtem velük

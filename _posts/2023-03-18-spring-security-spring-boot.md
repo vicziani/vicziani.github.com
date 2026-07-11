@@ -5,6 +5,11 @@ date: '2023-03-28'
 author: István Viczián
 description: Spring Security és Spring Boot
 last_modified_at: '2023-11-15'
+tags:
+- Spring
+- Biztonság
+- Java
+- Tesztelés
 ---
 
 Technológiák: Spring Security 6.1, Spring Boot 3.1, Thymeleaf, Spring Data JPA, H2

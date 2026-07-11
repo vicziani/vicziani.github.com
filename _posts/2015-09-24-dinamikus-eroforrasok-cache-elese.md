@@ -3,6 +3,9 @@ layout: post
 title: Dinamikus erőforrások cache-elése Spring MVC-vel
 date: '2015-09-24'
 author: István Viczián
+tags:
+- Java
+- Spring
 ---
 
 Az előző [poszt](/2015/09/08/statikus-eroforrasok-cache-elese.html) 
@@ -33,7 +36,7 @@ osztályból.
 Az Etag beállítása a `ResponseEntity` használatával történhet, ahogy a 
 következő példa is mutatja.
 
-{% highlight java %}
+```java
 @RequestMapping(value = "/employees", method = RequestMethod.GET)
 public ResponseEntity<List<Employee>> findAll() {
     List<Employee> employees = employeeService.findAll();
@@ -42,16 +45,16 @@ public ResponseEntity<List<Employee>> findAll() {
             .eTag(hashToEtag(employees))
             .body(employees);
 }
-{% endhighlight %}
+```
 
 Itt az Etag értékét a `hashToEtag` metódus az objektum hashkódja alapján 
 számolja. Amire vigyázni kell, hogy idézőjelek között kell szerepelnie.
 
-{% highlight java %}
+```java
 private String hashToEtag(Object o) {
     return "\"" + Integer.toString(o.hashCode()) + "\"";
 }
-{% endhighlight %}
+```
 
 A példában ez azért működik, mert bár az osztályok `hashCode()` metódusát
 ugyan nem írtam felül, de egy `ConcurrentMap` alapú cache-ben eltároltam, 
@@ -125,7 +128,7 @@ letöltésre kerül új Etaggel.
 Ugyanez megfogalmazva a [Spring MVC Test Frameworkkel](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#spring-mvc-test-framework) a következőképp néz 
 ki.
 
-{% highlight java %}
+```java
 @Test
 public void getEmployeeNotModified() throws Exception {
     String etag = this.mockMvc.perform(get("/api/employees"))
@@ -149,6 +152,6 @@ public void getEmployeeModified() throws Exception {
             .header("If-none-match", etag))
             .andExpect(status().isOk());
 }
-{% endhighlight %}
+```
 
 

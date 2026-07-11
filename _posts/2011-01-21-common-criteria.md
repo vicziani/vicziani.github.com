@@ -4,7 +4,9 @@ title: Common Criteria
 date: '2011-01-21'
 author: István Viczián
 tags:
-- security
+- Biztonság
+- Architektúra
+- Módszertan
 
 ---
 

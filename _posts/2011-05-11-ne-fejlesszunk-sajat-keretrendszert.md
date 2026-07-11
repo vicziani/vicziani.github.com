@@ -5,6 +5,9 @@ date: '2011-05-11'
 author: István Viczián
 tags:
 - Módszertan
+- Java
+- Spring
+- Architektúra
 
 ---
 

@@ -4,9 +4,10 @@ title: Java források tanuláshoz
 date: '2009-10-01'
 author: István Viczián
 tags:
-- Java SE
-- Oktatás
-- Java EE
+- Java
+- Spring
+- Módszertan
+- Szakmai élet
 
 ---
 Sokan kérdezik tőlem, hogy milyen internetes dokumentáció vagy könyv alapján,

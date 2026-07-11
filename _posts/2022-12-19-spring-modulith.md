@@ -5,6 +5,10 @@ date: '2022-12-19'
 author: István Viczián
 description: Hogyan fejlesszünk modularizált alkalmazást, és mit ad ehhez a Spring Modulith?
 last_modified_at: '2024-07-23'
+tags:
+- Java
+- Spring
+- Architektúra
 ---
 
 ## Bevezetés

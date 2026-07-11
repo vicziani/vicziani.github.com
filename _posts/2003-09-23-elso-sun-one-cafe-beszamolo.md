@@ -4,7 +4,8 @@ title: Első Sun ONE Cafe beszámoló
 date: 2003-09-23
 author: Viczián István
 tags:
-
+- Java
+- Szakmai élet
 ---
 
 Reggel lezajlott az első Sun ONE Cafe, melynek első témája a Project

@@ -4,7 +4,10 @@ title: A Maven feltámadása
 date: '2014-01-22'
 author: István Viczián
 tags:
-- Maven
+- Java
+- Spring
+- DevOps
+- Módszertan
 
 ---
 

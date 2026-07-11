@@ -4,7 +4,8 @@ title: Ingyenes programozással kapcsolatos könyvek
 date: '2014-01-03'
 author: István Viczián
 tags:
-- könyv
+- Egyéb nyelvek
+- Szakmai élet
 
 ---
 

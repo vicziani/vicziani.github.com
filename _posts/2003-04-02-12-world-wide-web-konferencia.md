@@ -4,7 +4,7 @@ title: 12. World Wide Web Konferencia
 date: 2003-04-02
 author: Viczián István
 tags:
-
+- Szakmai élet
 ---
 
 Most olvastam a [hírt](http://www.hwsw.hu/hir.php3?id=20271), hogy az

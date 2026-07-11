@@ -4,7 +4,10 @@ title: Virtualizáció fejlesztői gépen
 date: '2009-09-09'
 author: István Viczián
 tags:
-- Utils
+- Architektúra
+- DevOps
+- Hardver és labor
+- Egyéb nyelvek
 
 ---
 

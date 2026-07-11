@@ -4,9 +4,9 @@ title: Hibernate bug
 date: '2009-09-01'
 author: István Viczián
 tags:
-- jpa
-- hibernate
-- java
+- Java
+- Adatkezelés
+- Egyéb nyelvek
 
 ---
 

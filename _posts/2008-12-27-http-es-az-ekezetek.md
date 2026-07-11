@@ -4,9 +4,7 @@ title: Kérés tárgyának meghatározása és kódolások/ékezetek használata
 date: '2008-12-27'
 author: István Viczián
 tags:
-- Servlet
-- Java EE
-
+- Java
 ---
 
 A cikk alapvetően a Servlet API-val kapcsolatos, de hasznos

@@ -4,7 +4,9 @@ title: budapest.scala meetup
 date: '2014-06-26'
 author: István Viczián
 tags:
-- Community
+- Módszertan
+- DevOps
+- Egyéb nyelvek
 last_modified_at: '2018-06-03'
 ---
 

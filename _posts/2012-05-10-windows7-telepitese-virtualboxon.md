@@ -4,8 +4,8 @@ title: Windows7 telepítése VirtualBoxon
 date: '2012-05-10'
 author: István Viczián
 tags:
-- windows
-- virtualization
+- Hardver és labor
+- Egyéb nyelvek
 
 ---
 

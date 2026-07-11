@@ -4,8 +4,7 @@ title: HTML default button
 date: '2009-11-05'
 author: István Viczián
 tags:
-- javascript
-- html
+- Egyéb nyelvek
 
 ---
 

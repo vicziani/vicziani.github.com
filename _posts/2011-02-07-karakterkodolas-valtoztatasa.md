@@ -4,8 +4,9 @@ title: Karakterkódolás változtatása
 date: '2011-02-07'
 author: István Viczián
 tags:
-- Linux
-- i18n
+- Java
+- Módszertan
+- Egyéb nyelvek
 
 ---
 

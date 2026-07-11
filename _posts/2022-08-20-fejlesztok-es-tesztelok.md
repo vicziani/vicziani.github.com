@@ -5,6 +5,9 @@ date: '2022-08-20'
 author: István Viczián
 description: Pár gondolat arról, hogy tudnának a fejlesztők és a tesztelők jobban együttműködni.
 last_modified_at: '2022-11-04'
+tags:
+- Tesztelés
+- Módszertan
 ---
 
 ## Bevezetés

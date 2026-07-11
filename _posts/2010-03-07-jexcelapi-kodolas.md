@@ -4,7 +4,8 @@ title: JExcelApi kódolás
 date: '2010-03-07'
 author: István Viczián
 tags:
-- jexcelapi
+- Java
+- Egyéb nyelvek
 
 ---
 

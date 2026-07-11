@@ -4,7 +4,10 @@ title: Learn webservices
 date: '2019-01-22'
 author: István Viczián
 tags:
--
+- Java
+- Egyéb nyelvek
+- Tesztelés
+- Architektúra
 description: Készítettem egy oldalt, mely segít a webszolgáltatásokkal kapcsolatos első lépésekben.
 ---
 

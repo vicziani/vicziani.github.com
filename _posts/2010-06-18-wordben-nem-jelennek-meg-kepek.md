@@ -4,9 +4,7 @@ title: Wordben nem jelennek meg a képek
 date: '2010-06-18'
 author: István Viczián
 tags:
-- Microsoft
-- Office
-- Word
+- Egyéb nyelvek
 
 ---
 

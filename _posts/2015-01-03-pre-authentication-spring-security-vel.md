@@ -4,8 +4,9 @@ title: Pre-Authentication Spring Security-vel
 date: '2015-01-03'
 author: István Viczián
 tags:
-- security
 - Spring
+- Biztonság
+- DevOps
 last_modified_at: '2015-01-03'
 blogger_id: tag:blogger.com,1999:blog-7370998606556338092.post-3454714244361191903
 blogger_orig_url: http://www.jtechlog.hu/2015/01/pre-authentication-spring-security-vel.html
@@ -23,7 +24,7 @@ A Spring Security használata azért lehet hasznos ebben az esetben is, mert a S
 
 Az `mvn jetty:run` paranccsal indítható. Bejelentkezni az `admin1`/`admin1` és a `user1`/`user1` felhasználónév jelszó párosokkal lehetséges. és Egy Jetty beépített webkonténert tartalmaz, melybe fel vannak véve a felhasználók, és a hozzá tartozó szerepkörök. Első körben a Jetty Maven pluginnak kell megmondani, hogy hol található a Jetty-hez tartozó konfigurációs állomány.
 
-{% highlight xml %}
+```xml
 <plugin>
     <groupId>org.eclipse.jetty</groupId>
     <artifactId>jetty-maven-plugin</artifactId>
@@ -32,11 +33,11 @@ Az `mvn jetty:run` paranccsal indítható. Bejelentkezni az `admin1`/`admin1` é
             <webAppXml>src/main/webapp/WEB-INF/jetty.xml</webAppXml>
     </configuration>
 </plugin>
-{% endhighlight %}
+```
 
 Amennyiben ez megvan, az `src/main/webapp/WEB-INF/jetty.xml` konfigurációs állományban kell megadni, hogy mely állomány tartalmazza a felhasználókat és szerepköröket.
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
@@ -52,18 +53,18 @@ Amennyiben ez megvan, az `src/main/webapp/WEB-INF/jetty.xml` konfigurációs ál
         <Set name="checkWelcomeFiles">true</Set>
     </Get>
 </Configure>
-{% endhighlight %}
+```
 
 A `src/main/webapp/WEB-INF/jetty-realm.properties` egy elég egyszerű állomány, elöl a felhasználónév, majd a jelszó (plain-text-ben), majd a szerepkör. Teszteléshez tökéletes.
 
-{% highlight xml %}
+```xml
 admin1: admin1,admin
 user1: user1,user
-{% endhighlight %}
+```
 
 Majd megadjuk a `web.xml`-ben, hogy Basic autentikációt használjon. Ilyenkor a böngésző feldob egy ablakot, és az autentikációs információk a HTTP kérés fejlécében utaznak, plain textben. Ez már szabványos Servlet API megoldás.
 
-{% highlight xml %}
+```xml
 <security-constraint>
     <web-resource-collection>
         <web-resource-name>allwebresource</web-resource-name>
@@ -87,11 +88,11 @@ Majd megadjuk a `web.xml`-ben, hogy Basic autentikációt használjon. Ilyenkor 
 <security-role>
     <role-name>admin</role-name>
 </security-role>
-{% endhighlight %}
+```
 
 Ezután már csak a Spring Security-t konfiguráltam be az `applicationContext-security.xml` állományban, hogy a web konténertől vegye át a felhasználót és a hozzá tartozó szerepköröket. Nézzük az ehhez tartozó konfigurációt.
 
-{% highlight xml %}
+```xml
 <http entry-point-ref="entryPoint" auto-config="false">
         <intercept-url pattern="/index.html" 
             access="IS_AUTHENTICATED_ANONYMOUSLY" />
@@ -140,13 +141,13 @@ Ezután már csak a Spring Security-t konfiguráltam be az `applicationContext-s
         </beans:bean>
     </beans:property>
 </beans:bean>
-{% endhighlight %}
+```
 
 Ez talán már igényelhet némi magyarázatot. Az `entryPoint` bean mondja meg, hogy a konténerre van bízva az autentikáció. Az `authenticationProvider` mondja meg, hogy honnan kell a felhasználót feltölteni. Itt egy `PreAuthenticatedAuthenticationProvider` példányt használunk, ami azt mondja, hogy az autentikációt már elvégezte a konténer, és ennek eredménye alapján tölthetünk be saját `User` példányt. Ezt a saját `JpaAuthenticationUserDetailsService` példányunk teszi, adatbázisból a felhasználónév alapján JPA technológiával. A `preAuthFilter` bean a `web.xml`-ben talált szerepköröket mappeli át Spring Security-sra, nagybetűsít, és alapértelmezetten hozzáfűzi a `ROLE_` prefixet. tehát az `admin` és a `user` szerepkörből csinál `ROLE_ADMIN` és `ROLE_USER` szerepköröket, vagy ahogy a Spring Security hívja, granted authority-ket.
 
 A saját `JpaAuthenticationUserDetailsService` lényeg része a következőképp néz ki.
 
-{% highlight java %}
+```java
 @Override
 public UserDetails 
         loadUserDetails(PreAuthenticatedAuthenticationToken token) 
@@ -166,6 +167,6 @@ public UserDetails
         throw new UsernameNotFoundException("A felhasználó a megadott felhasználónévvel nem található: " + token.getName(), nre);
     }
 }
-{% endhighlight %}
+```
 
 A paraméterként kapott `token` már tartalmazza az alkalmazásszerver által meghatározott felhasználónév és szerepkör információkat, ez alapján betöltjük adatbázisból a felhasználót, és beállítjuk a szintén megkapott szerepköröket.

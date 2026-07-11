@@ -4,7 +4,12 @@ title: Magyarországi Web Konferencia 2009
 date: '2009-10-06'
 author: István Viczián
 tags:
-- Community
+- Java
+- Spring
+- Architektúra
+- Adatkezelés
+- Módszertan
+- Szakmai élet
 
 ---
 

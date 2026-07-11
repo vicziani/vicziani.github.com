@@ -4,6 +4,7 @@ title: Spring TestExecutionListener
 date: '2014-08-16'
 author: István Viczián
 tags:
+- Spring
 - Tesztelés
 last_modified_at: '2018-06-01'
 ---
@@ -38,13 +39,13 @@ létrehozásakor is a `DateTimeUtils` `currentTimeMillis` metódusát
 használja, annak példányosításakor is már a módosított időt kapjuk.
 Nézzük tehát, hogy hogy lehet az időugrást elvégezni.
 
-{% highlight java %}
+```java
 private void engage(DateTime targetTime) {
     DateTime realTime = new DateTime(new Date());
     long offset = targetTime.getMillis() - realTime.getMillis();
     DateTimeUtils.setCurrentMillisOffset(offset);
 }
-{% endhighlight %}
+```
 
 Valahol láttam, és megtetszett, hogy JUnit teszt esetre vonatkozó
 állításokat deklaratív módon, annotációkkal fogalmaztak meg. Kíváncsi
@@ -60,19 +61,19 @@ leszármazott osztályunknak csak a megfelelő metódust kell felülírnia.
 Azt szeretném tehát, ha annotációval tudnám megadni, hogy a teszt eset
 futtatásakor mennyi legyen az idő. Pl. a következő kódrészlettel:
 
-{% highlight java %}
+```java
 @Test
 @TimeMachine(targetDate = "2014-01-01 10:00")
 public void travelToPast() {
     // ...
 }
-{% endhighlight %}
+```
 
 Ehhez implementáljuk a megfelelő listenert. A `beforeTestMethod`
 metódust írjuk felül, hogy minden teszt metódus futtatása előtt
 ellenőrizze, hogy a metóduson van-e `@TimeMachine` annotáció.
 
-{% highlight java %}
+```java
 public class TimeMachineTestExecutionListener
     extends AbstractTestExecutionListener {
 
@@ -91,19 +92,19 @@ public class TimeMachineTestExecutionListener
         }
     }
 }
-{% endhighlight %}
+```
 
 Ezen kívül már csak annyit kell tennünk, hogy a teszt osztályunkra rá
 kell tenni a `@TestExecutionListeners` annotációt.
 
-{% highlight java %}
+```java
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
 @TestExecutionListeners(TimeMachineTestExecutionListener.class)
 public class TimeMachineTest {
     // ...
 }
-{% endhighlight %}
+```
 
 Most már csak annyit szeretnék, hogy letesztelni, hogy működik-e az
 időgép. Írtam már a [Hamcrestről](/2014/05/26/hamcrest.html), így
@@ -114,7 +115,7 @@ hatékonyan tudunk dátumokat összehasonlítani.
 Nézzük meg, hogy hogyan is néz ki a teszt metódus, azon belül is
 koncentráljunk az assertre.
 
-{% highlight java %}
+```java
 @Test
 @TimeMachine(targetDate = "2014-01-01 10:00")
 public void travelToPast() {
@@ -126,7 +127,7 @@ public void travelToPast() {
     assertThat(now.toDate(),
         within(5, TimeUnit.SECONDS, expected.toDate()));
 }
-{% endhighlight %}
+```
 
 A `DateMatchers` `within` metódusát használva ellenőrizhetjük, hogy két
 dátum között mennyi a differencia, itt most max. 5 másodpercet adtunk

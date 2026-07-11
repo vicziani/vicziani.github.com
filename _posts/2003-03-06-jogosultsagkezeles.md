@@ -4,7 +4,9 @@ title: Jogosultságkezelés
 date: 2003-03-06
 author: Viczián István
 tags:
-
+- Java
+- Biztonság
+- Szakmai élet
 ---
 
 Hivatalosan is kihirdették, hogy meg lesz tartva a BME 3. Nemzetközi

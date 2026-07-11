@@ -3,6 +3,12 @@ layout: post
 title: HOUG 2016 szakmai nap meghívó
 date: '2016-09-27'
 author: István Viczián
+tags:
+- Java
+- Spring
+- DevOps
+- Architektúra
+- Szakmai élet
 ---
 
 A HOUG idén is megrendezi őszi szakmai napját. A rendezvény időpontja 2016. október 11., a helyszín

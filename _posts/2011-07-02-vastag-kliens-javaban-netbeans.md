@@ -4,11 +4,10 @@ title: Vastag kliens Javaban? NetBeans Platform
 date: '2011-07-02'
 author: István Viczián
 tags:
-- open source
-- IDE
-- Swing
-- könyv
-- NetBeans
+- Java
+- Spring
+- Architektúra
+- Egyéb nyelvek
 
 ---
 

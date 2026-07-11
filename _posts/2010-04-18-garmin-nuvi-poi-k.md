@@ -4,7 +4,8 @@ title: Garmin Nüvi POI-k
 date: '2010-04-18'
 author: István Viczián
 tags:
-- geocaching
+- Egyéb nyelvek
+- Hardver és labor
 
 ---
 

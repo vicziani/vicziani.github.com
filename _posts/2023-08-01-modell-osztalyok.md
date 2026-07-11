@@ -4,6 +4,11 @@ title: Gondolatok a modell osztályokról, entitásokról, DTO-król
 date: '2023-08-01'
 author: István Viczián
 description: Hogyan osztjuk meg vagy mappeljük a különböző rétegek modell osztályait?
+tags:
+- Java
+- Spring
+- Architektúra
+- Adatkezelés
 ---
 
 Nagyon szeretem azokat az írásokat, melyek különböző területekről származó fogalmakat

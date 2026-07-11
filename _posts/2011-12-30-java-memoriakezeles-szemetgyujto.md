@@ -4,8 +4,9 @@ title: Java memóriakezelés, szemétgyűjtő algoritmusok
 date: '2011-12-30'
 author: István Viczián
 tags:
-- hotspot
-- jvm
+- Java
+- Architektúra
+- Módszertan
 last_modified_at: '2014-02-02'
 ---
 

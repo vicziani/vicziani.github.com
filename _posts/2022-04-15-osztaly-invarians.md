@@ -4,6 +4,9 @@ title: Gondolatok az objektumorientált programozásról
 date: '2022-04-22'
 author: István Viczián
 description: Elő- és utófeltételek, offenzív és defenzív programozás, osztály invariáns, design by contract.
+tags:
+- Java
+- Módszertan
 ---
 
 Egy fejlesztő számára a legtöbbször öröm egy új keretrendszer vagy lib kipróbálása, és használatba vétele,

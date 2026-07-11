@@ -4,7 +4,9 @@ title: JPA XML mapping állományok
 date: '2010-05-16'
 author: István Viczián
 tags:
-- JPA
+- Java
+- Spring
+- Adatkezelés
 
 ---
 
@@ -26,7 +28,7 @@ Ekkora következő hibaüzeneteket kaptam:
 Ez azért van, mert a forráskódban az entitás id attribútumán a következő
 annotáció szerepelt:
 
-{% highlight java %}
+```java
 public class Employee {
 
   @Id
@@ -36,7 +38,7 @@ public class Employee {
 
 ...
 }
-{% endhighlight %}
+```
 
 Ez azt jelenti, hogy az id értéke automatikusan generált, az EmployeeSeq
 generátor által, mely egy Oracle szekvencia, seq\_employee néven.
@@ -77,18 +79,18 @@ is a persistence.xml állomány mellett, mapping-mysql.xml néven (a WAR
 
 Ehhez módosítsuk a persistence.xml állományt a következő módon:
 
-{% highlight xml %}
+```xml
 <persistence-unit name="jtechlogPU" transaction-type="RESOURCE_LOCAL">
       <mapping-file>META-INF/mapping-mysql.xml</mapping-file>
 </persistence-unit>
-{% endhighlight %}
+```
 
 Az állomány helyét a CLASSPATH-hoz képest kell megadni.
 
 A mapping-mysql.xml állományban definiáljuk, hogy az Employee osztály id
 attribútumának generátora identity típusú legyen:
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
@@ -104,7 +106,7 @@ attribútumának generátora identity típusú legyen:
       </attributes>
   </entity>
 </entity-mappings>
-{% endhighlight %}
+```
 
 Ezzel a beállítással az alkalmazás azonnal képes volt MySQL adatbázison
 is működni. Már csak a build folyamatot kell úgy módosítani, hogy a

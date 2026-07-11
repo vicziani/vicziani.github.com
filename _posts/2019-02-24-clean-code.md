@@ -4,7 +4,9 @@ title: Clean Code könyv Args példájának újragondolása
 date: '2019-02-24'
 author: István Viczián
 tags:
--
+- Java
+- Tesztelés
+- Módszertan
 description: Egy poszt a Clean Code könyv egyik mintapéldájáról, erősen koncentrálva a tesztelésre.
 ---
 

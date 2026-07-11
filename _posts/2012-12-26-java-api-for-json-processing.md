@@ -4,9 +4,9 @@ title: Java API for JSON processing
 date: '2012-12-26'
 author: István Viczián
 tags:
-- JSR
-- JSON
-- Java EE
+- Java
+- Spring
+- Adatkezelés
 
 ---
 

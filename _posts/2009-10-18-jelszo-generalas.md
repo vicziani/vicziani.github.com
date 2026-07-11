@@ -4,7 +4,8 @@ title: Jelszó generálás
 date: '2009-10-18'
 author: István Viczián
 tags:
-- Linux
+- Egyéb nyelvek
+- Módszertan
 
 ---
 

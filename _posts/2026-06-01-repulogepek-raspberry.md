@@ -5,8 +5,7 @@ date: "2026-06-01"
 author: István Viczián
 description: Előadok a Magyarországi Web Konferencián Java és Spring témakörben.
 tags:
-- RaspberryPi
-- IoT
+- Hardver és labor
 image: /artifacts/posts/repulogepek-raspberry/og.png
 ---
 

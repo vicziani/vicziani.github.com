@@ -4,7 +4,9 @@ title: Borland Fejlesztői Napok
 date: 2003-09-12
 author: Viczián István
 tags:
-
+- Java
+- Egyéb nyelvek
+- Szakmai élet
 ---
 
 2003 október 1-2-én lesz az idei [Borland Fejlesztői

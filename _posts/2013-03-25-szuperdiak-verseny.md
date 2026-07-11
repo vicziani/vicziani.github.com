@@ -4,7 +4,8 @@ title: Szuperdiák Verseny
 date: '2013-03-25'
 author: István Viczián
 tags:
-- Community
+- Java
+- Szakmai élet
 
 ---
 A [Mark My Professzor](http://markmyprofessor.com) oldal Szuperdiák Versenyt

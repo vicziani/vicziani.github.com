@@ -4,12 +4,13 @@ title: Oracle verziószám
 date: '2009-08-26'
 author: István Viczián
 tags:
-- Oracle
+- Egyéb nyelvek
+- Adatkezelés
 
 ---
 
 Oracle verziószámának lekérdezése:
 
-{% highlight sql %}
+```sql
 select * from product_component_version
-{% endhighlight %}
+```

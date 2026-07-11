@@ -5,7 +5,9 @@ date: '2010-05-29'
 author: István Viczián
 tags:
 - Spring
-- könyv
+- Tesztelés
+- Java
+- Architektúra
 
 ---
 

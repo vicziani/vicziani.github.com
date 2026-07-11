@@ -20,6 +20,20 @@ image: /artifacts/posts/pelda/og.png
 last_modified_at: '2023-10-10'
 ---
 
+A tag-ek a következő értékeket vehetik fel:
+
+- Java
+- Spring
+- Architektúra
+- Tesztelés
+- Adatkezelés
+- DevOps
+- Biztonság
+- Egyéb nyelvek
+- Hardver és labor
+- Módszertan
+- Szakmai élet
+
 Bevezetés, mely az első oldalon, valamint az RSS-ben jelenik meg.
 
 <!-- more -->

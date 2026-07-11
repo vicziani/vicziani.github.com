@@ -4,7 +4,9 @@ title: Oracle licence
 date: '2009-10-03'
 author: István Viczián
 tags:
-- oracle
+- Adatkezelés
+- Hardver és labor
+- Egyéb nyelvek
 
 ---
 

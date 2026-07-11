@@ -4,7 +4,8 @@ title: Otthoni radar egy dvb-t stickkel
 date: '2013-12-16'
 author: István Viczián
 tags:
-- aircraft
+- Hardver és labor
+- Egyéb nyelvek
 last_modified_at: '2018-02-17'
 ---
 

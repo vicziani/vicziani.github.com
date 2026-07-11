@@ -4,8 +4,7 @@ title: Java és a szemantikus web
 date: '2009-04-06'
 author: István Viczián
 tags:
-- szemantikus web
-
+- Java
 ---
 
 A Web 2.0 után manapság egyre divatosabb fogalom a szemantikus web,

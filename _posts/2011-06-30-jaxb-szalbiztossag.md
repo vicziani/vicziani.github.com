@@ -4,8 +4,8 @@ title: JAXB szálbiztosság
 date: '2011-06-30'
 author: István Viczián
 tags:
-- jaxb
-- java
+- Java
+- Tesztelés
 
 ---
 

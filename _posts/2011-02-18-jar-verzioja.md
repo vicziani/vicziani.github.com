@@ -4,8 +4,8 @@ title: JAR verziója
 date: '2011-02-18'
 author: István Viczián
 tags:
-- maven
-- java
+- Java
+- Módszertan
 
 ---
 

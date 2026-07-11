@@ -4,8 +4,7 @@ title: Több táblázat egy oldalon Display taggel
 date: '2008-11-30'
 author: István Viczián
 tags:
-- JSP
-
+- Java
 ---
 
 A [Display tag library](http://displaytag.sourceforge.net)
@@ -42,7 +41,7 @@ belül mivel valami műveletet szeretnénk végezni még az oszlop értékkel
 (pl. linkben használni), a column tag törzsén belül használjuk, és nem
 attribútumként adjuk meg. A megoldás lehet a következő:
 
-```
+```xml
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://displaytag.sf.net" prefix="display" %>
 ...
@@ -68,7 +67,7 @@ a sort tartalmazó változó értéke nem element lesz, hanem a \${tableId}
 EL kifejezés értéke. Így erre a következő módon kell hivatkoznunk:
 pageScope\[tableId\]. A helyes kód tehát ez lehet:
 
-```
+```xml
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://displaytag.sf.net" prefix="display" %>
 ...

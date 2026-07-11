@@ -4,7 +4,7 @@ title: Java SDK frissítés
 date: 2003-03-03
 author: Viczián István
 tags:
-
+- Java
 ---
 
 Kijött a Java 2 SDK SE Version 1.4.1\_02 Windows, Linux és Solaris

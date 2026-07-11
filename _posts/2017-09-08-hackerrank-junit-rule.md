@@ -3,6 +3,10 @@ layout: post
 title: Hackerrank megoldások JUnit Rule-lal
 date: '2017-09-08'
 author: István Viczián
+tags:
+- Java
+- Tesztelés
+- Szakmai élet
 ---
 
 A [JUnit Rule-ok](https://github.com/junit-team/junit4/wiki/rules) gyakran méltánytalanul
@@ -60,7 +64,7 @@ az `ExpectedException` rule.
 
 Nézzük is meg ennek a használatát (példa a hivatalos dokumentációból).
 
-{% highlight java %}
+```java
 public static class HasExpectedException {
   @Rule
   public final ExpectedException thrown = ExpectedException.none();
@@ -84,7 +88,7 @@ public static class HasExpectedException {
     throw new NullPointerException("What happened?");
   }
 }
-{% endhighlight %}
+```
 
 Először a `@Rule` annotációval létrehozunk egy `public` láthatóságú attribútumot.
 A JUnit keretrendszer minden egyes metódus futtatásakor példányosít egy
@@ -108,7 +112,7 @@ lefutása utána az ideiglenes állományok törlésre kerüljenek.
 A `TemporaryFolder` rule használatával mindez sokkal egyszerűbb, mint ahogy az alábbi
 példa is mutatja.
 
-{% highlight java %}
+```java
 public static class HasTempFolder {
   @Rule
   public final TemporaryFolder folder = new TemporaryFolder();
@@ -120,7 +124,7 @@ public static class HasTempFolder {
     // ...
   }
 }
-{% endhighlight %}
+```
 
 Ezzel létrehozunk egy ideiglenes könyvtárat, és ebben létrehozhatunk újabb
 könyvtárakat és fájlokat. Ezeket paraméterül beadhatjuk a tesztelendő metódusainknak.
@@ -146,26 +150,26 @@ Ha a tesztesetről további információkat szeretnénk, a `TestRule` interfész
 abban is az `apply()` metódust. Paraméterül több információt is kapunk a futtatott
 tesztesetről, pl. annak osztályát (`Description`-től kérhető le).
 
-{% highlight java %}
+```java
 public interface TestRule {
     Statement apply(Statement base, Description description);
 }
-{% endhighlight %}
+```
 
 A `Statement` egy absztrakt osztály, mely `evaluate()` metódusát kell implementálni.
 
-{% highlight java %}
+```java
 public abstract class Statement {
     public abstract void evaluate() throws Throwable;
 }
-{% endhighlight %}
+```
 
 Ezzel a megoldással nem csak hogy a rule-t tudjuk a teszt metódus "körül" futtatni,
 de a rule-okat is egymásba ágyazhatjuk.
 
 Nézzük is meg, hogy van a `ExternalResource` osztály `statement()` metódusa implementálva.
 
-{% highlight java %}
+```java
 private Statement statement(final Statement base) {
   return new Statement() {
       @Override
@@ -179,7 +183,7 @@ private Statement statement(final Statement base) {
       }
   };
 }
-{% endhighlight %}
+```
 
 Remekül látszik, hogy egyrészt delegálja a hívást az eredeti `Statement` példánynak és a finally-ágban
 hívja az `after()` metódust.
@@ -199,7 +203,7 @@ beolvasott adatokat, valamint az elvárt kimenetet tartalmazzák.
 
 Az állományokat el kell helyezni a classpath-on, valamint a következő teszt esetet kell megírni.
 
-{% highlight java %}
+```java
 public class JavaStdinAndStdoutTest {
 
     @Rule
@@ -220,7 +224,7 @@ public class JavaStdinAndStdoutTest {
         hackerrankRule.assertOutput();
     }
 }
-{% endhighlight %}
+```
 
 A streamet feldolgozó sor tartalmazza a beolvasást a standard bemenetről, és a standard kimenetre való írást (soronként).
 Látható, hogy a `System.in`-ről olvas, és a `System.out`-ra ír.
@@ -230,11 +234,11 @@ valamint a `System.out` referenciáját egy olyan `PrintStream`-re, mely egy `By
 
 Amennyiben a fejlesztőeszköz konzolján is szeretnénk látni a kimenetet, akkor hívjuk a `enableSystemOut()` metódust a következőképp.
 
-{% highlight java %}
+```java
 hackerrankRule
   .enableSystemOut()
   .activate();
-{% endhighlight %}
+```
 
 A `assertOutput()` metódus hívás leellenőrzi, hogy a `System.out`-ra írt tartalom megegyezik-e a példa fájlban lévő tartalommal.
 
@@ -242,7 +246,7 @@ A rule-nak még arról kell gondoskodni, hogy a `System.in` és `System.out` ref
 
 Nézzük meg a rule forráskódját nagyvonalakban.
 
-{% highlight java %}
+```java
 public class HackerrankRule implements TestRule {
 
     private Class testClass;
@@ -290,7 +294,7 @@ public class HackerrankRule implements TestRule {
     }
 
 }
-{% endhighlight %}
+```
 
 Látható, hogy a `activate()` metódus menti le az eredeti `System.in` és `System.out`
 értékeket.

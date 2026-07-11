@@ -4,6 +4,10 @@ title: ! 'Második nyelv: Python?'
 date: '2011-06-14'
 author: István Viczián
 tags:
+- Egyéb nyelvek
+- Java
+- Adatkezelés
+- Módszertan
 
 ---
 

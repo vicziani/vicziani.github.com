@@ -4,9 +4,8 @@ title: JPA több one-to-many kapcsolat Spring Boot és a EclipseLink esetén
 date: '2013-03-18'
 author: István Viczián
 tags:
-- performance
-- EclipseLink
-- JPA
+- Spring
+- Adatkezelés
 last_modified_at: '2026-06-13'
 description: Egy olyan entitás lekérdezése, melynek több one-to-many kapcsolata van Spring Boot alkalmazáson belül Eclipselinkkel.
 ---

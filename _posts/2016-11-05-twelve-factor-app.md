@@ -3,6 +3,12 @@ layout: post
 title: Twelve-factor app
 date: '2016-11-05'
 author: István Viczián
+tags:
+- Java
+- Spring
+- Architektúra
+- DevOps
+- Szakmai élet
 ---
 
 Az idén rendezett HOUG 2016 szakmai napon is előadhattam, előadásomat

@@ -4,7 +4,8 @@ title: Midnight Commander
 date: '2010-06-03'
 author: István Viczián
 tags:
-- unix
+- Egyéb nyelvek
+- Hardver és labor
 
 ---
 

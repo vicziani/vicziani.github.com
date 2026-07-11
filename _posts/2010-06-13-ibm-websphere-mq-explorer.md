@@ -4,7 +4,8 @@ title: IBM WebSphere MQ Explorer
 date: '2010-06-13'
 author: István Viczián
 tags:
-- mq
+- Egyéb nyelvek
+- Hardver és labor
 
 ---
 

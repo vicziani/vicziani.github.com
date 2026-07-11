@@ -4,7 +4,8 @@ title: Oracle rendezvény
 date: 2003-05-04
 author: Viczián István
 tags:
-
+- Adatkezelés
+- Szakmai élet
 ---
 
 2003\. május 13-án, 9 órától lesz a Hotel Mercure Buda szállóban az

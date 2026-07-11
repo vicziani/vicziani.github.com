@@ -4,7 +4,9 @@ title: OpenBadges
 date: '2014-03-09'
 author: István Viczián
 tags:
-- oktatás
+- Egyéb nyelvek
+- Adatkezelés
+- Módszertan
 last_modified_at: '2018-06-09'
 ---
 
