@@ -2,7 +2,7 @@
 layout: post
 title: A Java EE jelene, jövője és tesztelése
 date: '2020-12-28'
-author: István Viczián
+author: Viczián István
 description: Egy poszt, hogy merre léphetünk tovább Java EE fejlesztésekor.
 tags:
 - Java

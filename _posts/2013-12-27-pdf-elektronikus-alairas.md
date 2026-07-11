@@ -2,7 +2,7 @@
 layout: post
 title: PDF elektronikus aláírása és időbélyegzése nyílt forráskódú eszközökkel
 date: '2013-12-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - DevOps

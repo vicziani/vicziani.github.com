@@ -2,7 +2,7 @@
 layout: post
 title: Könyvespolcom
 date: '2009-05-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Szakmai élet

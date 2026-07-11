@@ -2,7 +2,7 @@
 layout: post
 title: Glassfish távoli szerveren
 date: '2009-09-15'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

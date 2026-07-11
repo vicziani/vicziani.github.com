@@ -2,7 +2,7 @@
 layout: post
 title: JBoss in Action
 date: '2010-07-01'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Biztonság

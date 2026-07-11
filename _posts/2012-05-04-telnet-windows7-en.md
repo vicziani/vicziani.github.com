@@ -2,7 +2,7 @@
 layout: post
 title: Telnet Windows7-en
 date: '2012-05-04'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 

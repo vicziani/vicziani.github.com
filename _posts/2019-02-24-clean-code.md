@@ -2,7 +2,7 @@
 layout: post
 title: Clean Code könyv Args példájának újragondolása
 date: '2019-02-24'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Tesztelés

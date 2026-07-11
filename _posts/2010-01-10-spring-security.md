@@ -2,7 +2,7 @@
 layout: post
 title: Spring Security
 date: '2010-01-10'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Biztonság

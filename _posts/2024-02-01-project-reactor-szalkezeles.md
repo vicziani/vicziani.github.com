@@ -2,7 +2,7 @@
 layout: post
 title: Project Reactor és a szálkezelés
 date: '2024-02-01'
-author: István Viczián
+author: Viczián István
 description: Hogyan hat a szálakra a Project Reactor publishOn és subscribeOn metódusa.
 tags:
 - Java

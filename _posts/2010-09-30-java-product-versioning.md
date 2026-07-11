@@ -2,7 +2,7 @@
 layout: post
 title: Java Product Versioning
 date: '2010-09-30T16:00:00.000'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

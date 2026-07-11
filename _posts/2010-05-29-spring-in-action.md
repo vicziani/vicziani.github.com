@@ -2,7 +2,7 @@
 layout: post
 title: Spring In Action
 date: '2010-05-29'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Tesztelés

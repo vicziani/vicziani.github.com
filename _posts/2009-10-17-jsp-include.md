@@ -2,7 +2,7 @@
 layout: post
 title: JSP include
 date: '2009-10-17'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: JPA több one-to-many kapcsolat
 date: '2013-03-17'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: Release Mavennel és Hudsonnel
 date: '2010-10-25'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - DevOps

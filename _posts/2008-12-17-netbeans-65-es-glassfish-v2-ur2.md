@@ -2,7 +2,7 @@
 layout: post
 title: NetBeans 6.5 és GlassFish v2 ur2
 date: '2008-12-17'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - DevOps

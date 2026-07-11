@@ -2,7 +2,7 @@
 layout: post
 title: MQ automatikus channel indítás
 date: '2011-10-20'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - DevOps

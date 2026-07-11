@@ -2,7 +2,7 @@
 layout: post
 title: AWS Lambda és a Spring Cloud Function
 date: '2024-05-10'
-author: István Viczián
+author: Viczián István
 description: AWS Lambda függvények megvalósítása Spring Cloud Function használatával.
 tags:
 - Java

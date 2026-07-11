@@ -2,7 +2,7 @@
 layout: post
 title: IBM WebSphere MQ Explorer
 date: '2010-06-13'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Hardver és labor

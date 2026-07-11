@@ -2,7 +2,7 @@
 layout: post
 title: Oracle technikai problémák
 date: '2011-06-29'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

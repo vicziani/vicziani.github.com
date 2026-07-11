@@ -2,7 +2,7 @@
 layout: post
 title: Az ideális dokumentum-előállítási eszközkészlet
 date: '2014-05-17'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 last_modified_at: '2018-06-03'

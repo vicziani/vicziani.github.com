@@ -2,7 +2,7 @@
 layout: post
 title: Milyen GUI keretrendszert szeretnék?
 date: '2013-11-11'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

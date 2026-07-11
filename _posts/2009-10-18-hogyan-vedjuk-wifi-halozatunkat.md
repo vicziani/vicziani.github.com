@@ -2,7 +2,7 @@
 layout: post
 title: Hogyan védjük wifi hálózatunkat?
 date: '2009-10-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Biztonság
 

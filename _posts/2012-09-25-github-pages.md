@@ -2,7 +2,7 @@
 layout: post
 title: GitHub Pages
 date: '2012-09-25'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - DevOps

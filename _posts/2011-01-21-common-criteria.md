@@ -2,7 +2,7 @@
 layout: post
 title: Common Criteria
 date: '2011-01-21'
-author: István Viczián
+author: Viczián István
 tags:
 - Biztonság
 - Architektúra

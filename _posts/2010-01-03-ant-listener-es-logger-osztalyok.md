@@ -2,7 +2,7 @@
 layout: post
 title: Ant listener és logger osztályok
 date: '2010-01-03'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

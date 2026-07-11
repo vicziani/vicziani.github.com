@@ -2,7 +2,7 @@
 layout: post
 title: JavaMail API
 date: '2009-08-29'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

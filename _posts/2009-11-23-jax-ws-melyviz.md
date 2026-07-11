@@ -2,7 +2,7 @@
 layout: post
 title: JAX-WS mélyvíz
 date: '2009-11-23'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: IBM WebSphere MQ licence
 date: '2011-10-12'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Hardver és labor

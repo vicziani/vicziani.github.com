@@ -2,7 +2,7 @@
 layout: post
 title: Mérgezett üzenetek
 date: '2010-04-21'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

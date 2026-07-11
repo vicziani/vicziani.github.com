@@ -2,7 +2,7 @@
 layout: post
 title: NetBeans karakterkódolás
 date: '2010-07-16'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

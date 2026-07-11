@@ -2,7 +2,7 @@
 layout: post
 title: Legjobb fejlesztő 2010 verseny tapasztalatok
 date: '2010-12-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

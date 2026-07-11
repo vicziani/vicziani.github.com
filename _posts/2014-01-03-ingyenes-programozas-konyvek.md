@@ -2,7 +2,7 @@
 layout: post
 title: Ingyenes programozással kapcsolatos könyvek
 date: '2014-01-03'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Szakmai élet

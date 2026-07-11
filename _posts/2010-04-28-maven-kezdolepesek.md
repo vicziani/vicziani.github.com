@@ -2,7 +2,7 @@
 layout: post
 title: Maven kezdőlépések
 date: '2010-04-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

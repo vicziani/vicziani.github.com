@@ -2,7 +2,7 @@
 layout: post
 title: JAXB hibák
 date: '2009-09-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

@@ -2,7 +2,7 @@
 layout: post
 title: Visszatekintés 2011-re
 date: '2012-01-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

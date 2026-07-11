@@ -2,7 +2,7 @@
 layout: post
 title: Munka egyszerre több projekten
 date: '2009-08-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

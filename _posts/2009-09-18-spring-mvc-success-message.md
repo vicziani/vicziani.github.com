@@ -2,7 +2,7 @@
 layout: post
 title: Spring MVC success message
 date: '2009-09-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Java

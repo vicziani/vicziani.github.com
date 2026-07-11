@@ -2,7 +2,7 @@
 layout: post
 title: Oracle licence
 date: '2009-10-03'
-author: István Viczián
+author: Viczián István
 tags:
 - Adatkezelés
 - Hardver és labor

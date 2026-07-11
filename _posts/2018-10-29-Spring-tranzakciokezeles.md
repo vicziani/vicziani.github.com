@@ -2,7 +2,7 @@
 layout: post
 title: Spring tranzakciókezelés
 date: '2018-10-29'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Adatkezelés

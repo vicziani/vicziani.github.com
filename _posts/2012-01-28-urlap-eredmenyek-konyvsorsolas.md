@@ -2,7 +2,7 @@
 layout: post
 title: Űrlap eredmények, könyvsorsolás
 date: '2012-01-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Tesztelés

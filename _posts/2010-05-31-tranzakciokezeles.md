@@ -2,7 +2,7 @@
 layout: post
 title: Tranzakciókezelés EJB 3 és Spring környezetben
 date: '2010-05-31'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

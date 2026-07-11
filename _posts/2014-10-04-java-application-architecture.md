@@ -2,7 +2,7 @@
 layout: post
 title: Java Application Architecture
 date: '2014-10-04'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

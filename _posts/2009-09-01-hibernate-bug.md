@@ -2,7 +2,7 @@
 layout: post
 title: Hibernate bug
 date: '2009-09-01'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Adatkezelés

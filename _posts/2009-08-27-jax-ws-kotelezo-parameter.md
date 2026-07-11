@@ -2,7 +2,7 @@
 layout: post
 title: JAX-WS kötelező paraméter
 date: '2009-08-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

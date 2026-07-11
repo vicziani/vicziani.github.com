@@ -2,7 +2,7 @@
 layout: post
 title: HOUG Szakmai nap 2014
 date: '2014-10-02'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

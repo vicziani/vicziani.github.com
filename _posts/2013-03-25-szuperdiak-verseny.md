@@ -2,7 +2,7 @@
 layout: post
 title: Szuperdiák Verseny
 date: '2013-03-25'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Szakmai élet

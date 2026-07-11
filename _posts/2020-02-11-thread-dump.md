@@ -2,7 +2,7 @@
 layout: post
 title: Java Thread Dump
 date: '2020-02-11'
-author: István Viczián
+author: Viczián István
 description: Hogyan elemezzünk thread dumpot?
 tags:
 - Java

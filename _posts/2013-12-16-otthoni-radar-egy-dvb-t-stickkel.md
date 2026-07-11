@@ -2,7 +2,7 @@
 layout: post
 title: Otthoni radar egy dvb-t stickkel
 date: '2013-12-16'
-author: István Viczián
+author: Viczián István
 tags:
 - Hardver és labor
 - Egyéb nyelvek

@@ -2,7 +2,7 @@
 layout: post
 title: JPA tömeges műveletek
 date: '2009-05-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Tesztelés

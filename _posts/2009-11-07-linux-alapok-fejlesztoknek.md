@@ -2,7 +2,7 @@
 layout: post
 title: Linux alapok fejlesztőknek
 date: '2009-11-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - DevOps

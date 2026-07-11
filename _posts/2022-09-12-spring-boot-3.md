@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot 3 újdonságai
 date: '2022-09-13'
 last_modified_at: '2023-10-03'
-author: István Viczián
+author: Viczián István
 description: A Spring Boot 3-as verziójának újdonságainak a bemutatása.
 tags:
 - Spring

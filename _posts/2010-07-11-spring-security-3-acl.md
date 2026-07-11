@@ -2,7 +2,7 @@
 layout: post
 title: Spring Security ACL
 date: '2010-07-11'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Biztonság

@@ -2,7 +2,7 @@
 layout: post
 title: JExcelApi kódolás
 date: '2010-03-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

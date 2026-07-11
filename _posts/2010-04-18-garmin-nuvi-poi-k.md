@@ -2,7 +2,7 @@
 layout: post
 title: Garmin Nüvi POI-k
 date: '2010-04-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Hardver és labor

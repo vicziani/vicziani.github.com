@@ -2,7 +2,7 @@
 layout: post
 title: JNDI nevek EJB környezetben
 date: '2009-01-10'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

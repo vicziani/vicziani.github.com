@@ -2,7 +2,7 @@
 layout: post
 title: Az Apache Flex múltja, jelene, jövője
 date: '2013-02-02'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

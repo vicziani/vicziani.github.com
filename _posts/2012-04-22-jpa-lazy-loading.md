@@ -2,7 +2,7 @@
 layout: post
 title: JPA lazy loading
 date: '2012-04-22'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

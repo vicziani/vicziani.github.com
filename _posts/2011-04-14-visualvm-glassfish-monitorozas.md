@@ -2,7 +2,7 @@
 layout: post
 title: VisualVM Glassfish monitorozás
 date: '2011-04-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

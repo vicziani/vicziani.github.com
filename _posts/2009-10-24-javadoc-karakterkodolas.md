@@ -2,7 +2,7 @@
 layout: post
 title: JavaDoc karakterkódolás
 date: '2009-10-24'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

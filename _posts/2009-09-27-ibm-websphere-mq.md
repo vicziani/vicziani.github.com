@@ -2,7 +2,7 @@
 layout: post
 title: IBM WebSphere MQ
 date: '2009-09-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

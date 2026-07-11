@@ -2,7 +2,7 @@
 layout: post
 title: EJB és JPA Developer Certified Expert
 date: '2011-02-22'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

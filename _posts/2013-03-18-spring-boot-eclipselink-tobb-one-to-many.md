@@ -2,7 +2,7 @@
 layout: post
 title: JPA több one-to-many kapcsolat Spring Boot és a EclipseLink esetén
 date: '2013-03-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Adatkezelés

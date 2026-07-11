@@ -2,7 +2,7 @@
 layout: post
 title: Subversion dump
 date: '2009-10-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Módszertan

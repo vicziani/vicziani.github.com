@@ -2,7 +2,7 @@
 layout: post
 title: Szoftverfejlesztés okosan Pythonnal
 date: '2022-02-03'
-author: István Viczián
+author: Viczián István
 description: Szoftverfejlesztés okosan Pythonnal könyvbemutató.
 tags:
 - Egyéb nyelvek

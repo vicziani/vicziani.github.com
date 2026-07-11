@@ -2,7 +2,7 @@
 layout: post
 title: Midnight Commander
 date: '2010-06-03'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Hardver és labor

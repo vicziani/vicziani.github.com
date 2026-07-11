@@ -2,7 +2,7 @@
 layout: post
 title: Kérés tárgyának meghatározása és kódolások/ékezetek használata webes alkalmazásoknál
 date: '2008-12-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 ---

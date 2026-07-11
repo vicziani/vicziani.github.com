@@ -2,7 +2,7 @@
 layout: post
 title: Workflow REST API-n
 date: '2023-08-31'
-author: István Viczián
+author: Viczián István
 description: Hogyan érdemes egy munkafolyamat lépéseihez REST API-t tervezni?
 last_modified_at: '2023-10-10'
 tags:

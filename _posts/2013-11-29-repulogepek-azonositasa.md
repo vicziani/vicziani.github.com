@@ -2,7 +2,7 @@
 layout: post
 title: Repülőgépek azonosítása
 date: '2013-11-29T15:07:00.001'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Biztonság

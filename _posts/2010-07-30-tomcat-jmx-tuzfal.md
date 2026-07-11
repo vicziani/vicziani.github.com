@@ -2,7 +2,7 @@
 layout: post
 title: Tomcat JMX tűzfalon keresztül
 date: '2010-07-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

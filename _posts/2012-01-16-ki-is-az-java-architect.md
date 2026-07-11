@@ -2,7 +2,7 @@
 layout: post
 title: Ki is az a Java architect?
 date: '2012-01-16'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

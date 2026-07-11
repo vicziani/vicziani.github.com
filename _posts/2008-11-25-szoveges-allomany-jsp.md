@@ -2,7 +2,7 @@
 layout: post
 title: Szöveges állomány generálása JSP-vel
 date: '2008-11-24'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 ---

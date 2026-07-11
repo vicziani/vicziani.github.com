@@ -2,7 +2,7 @@
 layout: post
 title: Konfigurációs paraméterek EJB és web rétegben Glassfish alkalmazásszerveren
 date: '2011-04-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

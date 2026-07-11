@@ -2,7 +2,7 @@
 layout: post
 title: Rendezés Display taggel
 date: '2009-09-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

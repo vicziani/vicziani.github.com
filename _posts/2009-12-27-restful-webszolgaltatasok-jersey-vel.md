@@ -2,7 +2,7 @@
 layout: post
 title: RESTful webszolgáltatások Jersey-vel
 date: '2009-12-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

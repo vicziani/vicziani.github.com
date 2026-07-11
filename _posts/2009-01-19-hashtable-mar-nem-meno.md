@@ -2,7 +2,7 @@
 layout: post
 title: A Hashtable már nem menő
 date: '2009-01-19'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 ---

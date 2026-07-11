@@ -2,7 +2,7 @@
 layout: post
 title: Telemetria és a Java
 date: '2024-06-11'
-author: István Viczián
+author: Viczián István
 description: Telemetria, szabványok és eszközök, pl. OpenTelemetry, Micrometer.
 tags:
 - Java

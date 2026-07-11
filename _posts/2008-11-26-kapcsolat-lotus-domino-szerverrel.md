@@ -2,7 +2,7 @@
 layout: post
 title: Kapcsolat Lotus Domino szerverrel
 date: '2008-11-26'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Adatkezelés

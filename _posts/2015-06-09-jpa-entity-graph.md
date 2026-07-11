@@ -2,7 +2,7 @@
 layout: post
 title: JPA Entity Graph
 date: '2015-06-09'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

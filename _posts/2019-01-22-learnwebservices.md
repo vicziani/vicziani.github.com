@@ -2,7 +2,7 @@
 layout: post
 title: Learn webservices
 date: '2019-01-22'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

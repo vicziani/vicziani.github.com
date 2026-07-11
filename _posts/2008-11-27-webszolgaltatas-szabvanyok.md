@@ -2,7 +2,7 @@
 layout: post
 title: Webszolgáltatásokkal kapcsolatos szabványok
 date: '2008-11-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

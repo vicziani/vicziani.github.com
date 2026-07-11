@@ -2,7 +2,7 @@
 layout: post
 title: Hibernate bug blob mentésekor
 date: '2009-09-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

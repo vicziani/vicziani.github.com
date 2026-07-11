@@ -2,7 +2,7 @@
 layout: post
 title: JPA IN clause
 date: '2009-08-26'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Adatkezelés

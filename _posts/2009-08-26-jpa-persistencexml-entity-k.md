@@ -2,7 +2,7 @@
 layout: post
 title: JPA persistence.xml entity-k
 date: '2009-08-26'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

@@ -2,7 +2,7 @@
 layout: post
 title: Webszolgáltatások integrációs tesztelése SoapUI és JUnit használatával
 date: '2012-08-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Tesztelés
 - Java

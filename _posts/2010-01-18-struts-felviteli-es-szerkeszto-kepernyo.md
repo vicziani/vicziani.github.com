@@ -2,7 +2,7 @@
 layout: post
 title: Struts felviteli és szerkesztő képernyő
 date: '2010-01-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

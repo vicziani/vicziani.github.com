@@ -2,7 +2,7 @@
 layout: post
 title: Integrációs tesztelés Concordionnal
 date: '2015-04-04'
-author: István Viczián
+author: Viczián István
 tags:
 - Tesztelés
 - Módszertan

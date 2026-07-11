@@ -2,7 +2,7 @@
 layout: post
 title: NetBeans JDK helye
 date: '2010-06-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

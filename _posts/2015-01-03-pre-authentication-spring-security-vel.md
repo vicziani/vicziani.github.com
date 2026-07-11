@@ -2,7 +2,7 @@
 layout: post
 title: Pre-Authentication Spring Security-vel
 date: '2015-01-03'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Biztonság

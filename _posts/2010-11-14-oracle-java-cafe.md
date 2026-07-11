@@ -2,7 +2,7 @@
 layout: post
 title: Oracle Java Cafe
 date: '2010-11-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

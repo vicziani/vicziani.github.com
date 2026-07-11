@@ -2,7 +2,7 @@
 layout: post
 title: SonarQube
 date: '2017-03-21'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Tesztelés

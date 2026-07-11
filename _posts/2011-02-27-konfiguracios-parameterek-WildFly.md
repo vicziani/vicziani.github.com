@@ -2,7 +2,7 @@
 layout: post
 title: Konfigurációs paraméterek EJB és web rétegben WildFly alkalmazásszerveren
 date: '2011-02-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

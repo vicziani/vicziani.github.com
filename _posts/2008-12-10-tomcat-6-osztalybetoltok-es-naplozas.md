@@ -2,7 +2,7 @@
 layout: post
 title: Tomcat 6 osztálybetöltők és naplózás
 date: '2008-12-10'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - DevOps

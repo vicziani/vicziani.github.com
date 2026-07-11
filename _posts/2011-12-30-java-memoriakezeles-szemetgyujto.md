@@ -2,7 +2,7 @@
 layout: post
 title: Java memóriakezelés, szemétgyűjtő algoritmusok
 date: '2011-12-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

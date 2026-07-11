@@ -2,7 +2,7 @@
 layout: post
 title: Konferenciák, események
 date: '2010-08-15'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Szakmai élet

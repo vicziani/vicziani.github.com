@@ -2,7 +2,7 @@
 layout: post
 title: Virtualization for Dummies
 date: '2009-10-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Hardver és labor
 - DevOps

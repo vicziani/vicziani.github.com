@@ -2,7 +2,7 @@
 layout: post
 title: Spring TestExecutionListener
 date: '2014-08-16'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Tesztelés

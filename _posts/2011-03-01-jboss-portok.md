@@ -2,7 +2,7 @@
 layout: post
 title: JBoss portok
 date: '2011-03-01'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

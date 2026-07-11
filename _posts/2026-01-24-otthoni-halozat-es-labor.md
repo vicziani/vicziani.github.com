@@ -2,7 +2,7 @@
 layout: post
 title: Otthoni hálózat és labor (home lab)
 date: "2026-01-24"
-author: István Viczián
+author: Viczián István
 description: Egy poszt arról, hogy alakítottam ki az otthoni hálózatomat és labor környezetemet. Képekkel! Egy kis nosztalgiázás és szerelés.
 tags:
 - Hardver és labor

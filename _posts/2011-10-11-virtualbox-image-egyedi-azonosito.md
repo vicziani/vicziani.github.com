@@ -2,7 +2,7 @@
 layout: post
 title: VirtualBox image egyedi azonosító
 date: '2011-10-11'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Hardver és labor

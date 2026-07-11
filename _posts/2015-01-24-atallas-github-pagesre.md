@@ -2,7 +2,7 @@
 layout: post
 title: Átállás GitHub Pagesre
 date: '2015-01-24'
-author: István Viczián
+author: Viczián István
 last_modified_at: '2015-01-24'
 tags:
 - DevOps

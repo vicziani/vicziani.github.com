@@ -2,7 +2,7 @@
 layout: post
 title: Java források tanuláshoz
 date: '2009-10-01'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: Java és az XML
 date: '2014-01-20'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Tesztelés

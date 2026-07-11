@@ -2,7 +2,7 @@
 layout: post
 title: Maven bevezetés, modernizáció
 date: '2011-09-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

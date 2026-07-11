@@ -2,7 +2,7 @@
 layout: post
 title: IBM WebSphere MQ bekötése Nagios-ba
 date: '2010-10-01'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - DevOps

@@ -2,7 +2,7 @@
 layout: post
 title: SOAP webszolgáltatás hívás parancssorból
 date: '2010-07-21'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Módszertan

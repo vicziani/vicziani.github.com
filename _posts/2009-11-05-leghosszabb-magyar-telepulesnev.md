@@ -2,7 +2,7 @@
 layout: post
 title: Leghosszabb magyar településnév
 date: '2009-11-05'
-author: István Viczián
+author: Viczián István
 tags:
 - Adatkezelés
 - Egyéb nyelvek

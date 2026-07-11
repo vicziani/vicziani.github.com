@@ -2,7 +2,7 @@
 layout: post
 title: Java API for JSON processing
 date: '2012-12-26'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

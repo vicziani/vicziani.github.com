@@ -2,7 +2,7 @@
 layout: post
 title: Java technologiák és az oktatas
 date: '2009-04-06'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Szakmai élet

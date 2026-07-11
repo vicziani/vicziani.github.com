@@ -2,7 +2,7 @@
 layout: post
 title: Gondolatok az objektumorientált programozásról
 date: '2022-04-22'
-author: István Viczián
+author: Viczián István
 description: Elő- és utófeltételek, offenzív és defenzív programozás, osztály invariáns, design by contract.
 tags:
 - Java

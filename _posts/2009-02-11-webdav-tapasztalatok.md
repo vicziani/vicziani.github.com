@@ -2,7 +2,7 @@
 layout: post
 title: WebDAV tapasztalatok
 date: '2009-02-11'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Hardver és labor

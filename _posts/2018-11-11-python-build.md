@@ -2,7 +2,7 @@
 layout: post
 title: Python build és Continuous Integration
 date: '2018-11-04'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - DevOps

@@ -2,7 +2,7 @@
 layout: post
 title: JAXB trükkök
 date: '2009-07-03'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

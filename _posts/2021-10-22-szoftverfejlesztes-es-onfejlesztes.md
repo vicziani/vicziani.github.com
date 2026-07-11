@@ -2,7 +2,7 @@
 layout: post
 title: Szoftverfejlesztés és Önfejlesztés podcast
 date: '2021-10-22'
-author: István Viczián
+author: Viczián István
 description: Szerepeltem a Szoftverfejlesztés és Önfejlesztés podcastban, hallgasd meg te is!
 tags:
 - Szakmai élet

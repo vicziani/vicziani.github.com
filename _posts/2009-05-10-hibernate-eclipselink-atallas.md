@@ -2,7 +2,7 @@
 layout: post
 title: Hibernate EclipseLink átállás
 date: '2009-05-10'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

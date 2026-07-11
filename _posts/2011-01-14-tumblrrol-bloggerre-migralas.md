@@ -2,7 +2,7 @@
 layout: post
 title: Tumblrről Bloggerre migrálás
 date: '2011-01-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Módszertan

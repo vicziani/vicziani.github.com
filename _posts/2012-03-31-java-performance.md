@@ -2,7 +2,7 @@
 layout: post
 title: Java Performance
 date: '2012-03-31'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

@@ -2,7 +2,7 @@
 layout: post
 title: JExcelAPI dátum formátum
 date: '2010-08-13'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

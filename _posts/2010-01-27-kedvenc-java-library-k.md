@@ -2,7 +2,7 @@
 layout: post
 title: Kedvenc Java library-k
 date: '2010-01-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

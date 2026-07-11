@@ -2,7 +2,7 @@
 layout: post
 title: Branch-eljünk-e vagy sem?
 date: '2011-08-09'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 - DevOps

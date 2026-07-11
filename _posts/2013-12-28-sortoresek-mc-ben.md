@@ -2,7 +2,7 @@
 layout: post
 title: Sortörések MC-ben
 date: '2013-12-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Módszertan

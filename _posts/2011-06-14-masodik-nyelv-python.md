@@ -2,7 +2,7 @@
 layout: post
 title: ! 'Második nyelv: Python?'
 date: '2011-06-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Java

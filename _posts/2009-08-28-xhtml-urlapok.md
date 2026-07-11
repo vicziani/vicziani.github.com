@@ -2,7 +2,7 @@
 layout: post
 title: XHTML űrlapok
 date: '2009-08-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Módszertan

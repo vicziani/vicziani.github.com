@@ -2,7 +2,7 @@
 layout: post
 title: Subversion kontra CVS
 date: '2010-06-10'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Módszertan

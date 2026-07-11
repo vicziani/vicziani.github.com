@@ -2,7 +2,7 @@
 layout: post
 title: OLAP Java eszközökkel
 date: '2009-03-23'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Adatkezelés

@@ -2,7 +2,7 @@
 layout: post
 title: Több táblázat egy oldalon Display taggel
 date: '2008-11-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 ---

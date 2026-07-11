@@ -2,7 +2,7 @@
 layout: post
 title: JPA XML mapping állományok
 date: '2010-05-16'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

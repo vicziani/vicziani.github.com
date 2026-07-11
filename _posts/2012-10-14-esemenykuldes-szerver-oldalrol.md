@@ -2,7 +2,7 @@
 layout: post
 title: Eseményküldés szerver oldalról
 date: '2012-10-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Architektúra

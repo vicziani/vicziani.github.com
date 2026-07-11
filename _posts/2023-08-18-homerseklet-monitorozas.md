@@ -2,7 +2,7 @@
 layout: post
 title: Hőmérséklet monitorozása
 date: '2023-08-18'
-author: István Viczián
+author: Viczián István
 description: Hogyan kössünk be egy hőmérséklet szenzort a Prometheus/Grafana alapú monitorozó eszközbe?
 tags:
 - Hardver és labor

@@ -2,7 +2,7 @@
 layout: post
 title: JAR verziója
 date: '2011-02-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

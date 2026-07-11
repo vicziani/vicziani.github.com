@@ -2,7 +2,7 @@
 layout: post
 title: Raspberry Pi alapok
 date: '2013-12-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Hardver és labor
 - Egyéb nyelvek

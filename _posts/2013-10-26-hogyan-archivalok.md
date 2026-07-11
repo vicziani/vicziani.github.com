@@ -2,7 +2,7 @@
 layout: post
 title: Hogyan archiválok?
 date: '2013-10-26'
-author: István Viczián
+author: Viczián István
 tags:
 - Adatkezelés
 - Biztonság

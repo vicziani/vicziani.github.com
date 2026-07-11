@@ -2,7 +2,7 @@
 layout: post
 title: E-mail kezelés tesztelése
 date: '2009-08-19'
-author: István Viczián
+author: Viczián István
 tags:
 - Tesztelés
 - Java

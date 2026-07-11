@@ -2,7 +2,7 @@
 layout: post
 title: Hogyan írjunk dokumentációt csoportmunkában?
 date: '2009-03-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 ---

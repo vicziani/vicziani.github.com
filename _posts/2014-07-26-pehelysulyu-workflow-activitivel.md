@@ -2,7 +2,7 @@
 layout: post
 title: Pehelysúlyú workflow Activitivel
 date: '2014-07-26'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Módszertan

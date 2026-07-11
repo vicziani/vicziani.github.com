@@ -2,7 +2,7 @@
 layout: post
 title: ! 'Matt Weisfeld: The object-oriented thought process'
 date: '2009-12-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

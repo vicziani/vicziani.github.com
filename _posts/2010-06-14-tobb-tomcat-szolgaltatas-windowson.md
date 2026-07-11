@@ -2,7 +2,7 @@
 layout: post
 title: Tomcat Windows szolgáltatásként több példányban
 date: '2010-06-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

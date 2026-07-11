@@ -2,7 +2,7 @@
 layout: post
 title: Elektronikus aláírás és alkalmazása Javaban, kulcskezelés
 date: '2011-02-05'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Biztonság

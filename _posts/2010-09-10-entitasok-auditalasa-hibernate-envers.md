@@ -2,7 +2,7 @@
 layout: post
 title: Entitások auditálása Hibernate Envers-szel
 date: '2010-09-10'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: További posztok migrálása
 date: '2018-01-16'
-author: István Viczián
+author: Viczián István
 description: Több mint kilencven cikket migráltam a blogra.
 tags:
 - Szakmai élet

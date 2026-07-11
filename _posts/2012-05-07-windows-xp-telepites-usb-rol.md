@@ -2,7 +2,7 @@
 layout: post
 title: Windows XP telepítés USB-ről
 date: '2012-05-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Hardver és labor
 - Egyéb nyelvek

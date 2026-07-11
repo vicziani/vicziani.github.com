@@ -2,7 +2,7 @@
 layout: post
 title: Események a Spring Modulith-ban
 date: '2024-07-24'
-author: István Viczián
+author: Viczián István
 description: Következő videóm arról, hogy hogyan segíti a modulok laza kapcsolódását az eseménykezelés, és hogy mit ad ehhez a Spring Modulith.
 tags:
 - Java

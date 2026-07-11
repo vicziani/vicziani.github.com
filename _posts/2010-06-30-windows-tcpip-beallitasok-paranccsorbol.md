@@ -2,7 +2,7 @@
 layout: post
 title: Windows TCP/IP beállítások paranccsorból
 date: '2010-06-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Hardver és labor

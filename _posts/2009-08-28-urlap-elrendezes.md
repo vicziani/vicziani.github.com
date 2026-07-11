@@ -2,7 +2,7 @@
 layout: post
 title: Űrlap elrendezés
 date: '2009-08-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 - Egyéb nyelvek

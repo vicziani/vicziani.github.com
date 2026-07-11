@@ -2,7 +2,7 @@
 layout: post
 title: Oracle Fusion Middleware
 date: '2008-11-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

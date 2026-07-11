@@ -2,7 +2,7 @@
 layout: post
 title: OpenBadges
 date: '2014-03-09'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Adatkezelés

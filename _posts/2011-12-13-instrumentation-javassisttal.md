@@ -2,7 +2,7 @@
 layout: post
 title: Instrumentation Javassisttal
 date: '2011-12-13'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: Spring Cloud Config
 date: '2016-09-05'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

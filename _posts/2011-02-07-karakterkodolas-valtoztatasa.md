@@ -2,7 +2,7 @@
 layout: post
 title: Karakterkódolás változtatása
 date: '2011-02-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

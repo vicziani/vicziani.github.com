@@ -2,7 +2,7 @@
 layout: post
 title: Kedvenc Java eszközök
 date: '2010-02-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Tesztelés

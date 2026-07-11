@@ -2,7 +2,7 @@
 layout: post
 title: Oracle distinct vagy union b/clob esetén
 date: '2010-09-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Adatkezelés
 - Egyéb nyelvek

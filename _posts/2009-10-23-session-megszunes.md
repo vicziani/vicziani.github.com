@@ -2,7 +2,7 @@
 layout: post
 title: Session megszűnés
 date: '2009-10-23'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

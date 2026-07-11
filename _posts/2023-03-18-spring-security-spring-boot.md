@@ -2,7 +2,7 @@
 layout: post
 title: Spring Security és Spring Boot
 date: '2023-03-28'
-author: István Viczián
+author: Viczián István
 description: Spring Security és Spring Boot
 last_modified_at: '2023-11-15'
 tags:

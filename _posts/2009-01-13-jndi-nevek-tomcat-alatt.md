@@ -2,7 +2,7 @@
 layout: post
 title: JNDI nevek Tomcat alatt
 date: '2009-01-13'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - DevOps

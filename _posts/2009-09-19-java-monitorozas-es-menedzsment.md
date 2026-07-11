@@ -2,7 +2,7 @@
 layout: post
 title: Java monitorozás és menedzsment
 date: '2009-09-19'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: HTML default button
 date: '2009-11-05'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 

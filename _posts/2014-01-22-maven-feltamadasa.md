@@ -2,7 +2,7 @@
 layout: post
 title: A Maven feltámadása
 date: '2014-01-22'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

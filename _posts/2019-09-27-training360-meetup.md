@@ -2,7 +2,7 @@
 layout: post
 title: Training360 Fejlesztői Meetup
 date: '2019-09-27'
-author: István Viczián
+author: Viczián István
 description: 2019. október 17-én Training360 Fejlesztői Meetup, melyen én is előadok.
 tags:
 - Tesztelés

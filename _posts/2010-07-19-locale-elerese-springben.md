@@ -2,7 +2,7 @@
 layout: post
 title: Locale elérése Springben
 date: '2010-07-19'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

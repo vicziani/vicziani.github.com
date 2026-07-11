@@ -2,7 +2,7 @@
 layout: post
 title: Bevezetés a Testcontainers használatába Spring Boot alkalmazásban
 date: '2024-07-16'
-author: István Viczián
+author: Viczián István
 description: Megjelent az első videóm, mely arról szól, hogyan lehet használni a Testcontainers-t Spring Boot alkalmazásban.
 tags:
 - Java

@@ -2,7 +2,7 @@
 layout: post
 title: Vastag kliens Javaban? NetBeans Platform
 date: '2011-07-02'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

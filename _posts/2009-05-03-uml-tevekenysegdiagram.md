@@ -2,7 +2,7 @@
 layout: post
 title: UML tevékenységdiagram
 date: '2009-05-03'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 ---

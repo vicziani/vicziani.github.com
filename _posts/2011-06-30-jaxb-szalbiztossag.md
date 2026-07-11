@@ -2,7 +2,7 @@
 layout: post
 title: JAXB szálbiztosság
 date: '2011-06-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Tesztelés

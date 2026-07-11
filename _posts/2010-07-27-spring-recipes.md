@@ -2,7 +2,7 @@
 layout: post
 title: ! 'Spring Recipes: A Problem-Solution Approach'
 date: '2010-07-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Módszertan

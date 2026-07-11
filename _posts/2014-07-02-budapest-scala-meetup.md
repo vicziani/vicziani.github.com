@@ -2,7 +2,7 @@
 layout: post
 title: budapest.scala meetup
 date: '2014-07-02'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 - DevOps

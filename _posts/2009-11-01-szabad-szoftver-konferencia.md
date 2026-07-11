@@ -2,7 +2,7 @@
 layout: post
 title: Szabad Szoftver Konferencia
 date: '2009-11-01'
-author: István Viczián
+author: Viczián István
 tags:
 - Architektúra
 - Adatkezelés

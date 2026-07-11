@@ -2,7 +2,7 @@
 layout: post
 title: MySQL tippek
 date: '2009-09-29'
-author: István Viczián
+author: Viczián István
 tags:
 - Adatkezelés
 - Módszertan

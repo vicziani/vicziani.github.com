@@ -2,7 +2,7 @@
 layout: post
 title: I love Maven & Python
 date: '2011-06-24'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 

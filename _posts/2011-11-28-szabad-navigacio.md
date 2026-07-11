@@ -2,7 +2,7 @@
 layout: post
 title: Szabad navigáció okozta problémák webes környezetben
 date: '2011-11-28'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: Sun Java Café
 date: '2009-05-29'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Szakmai élet

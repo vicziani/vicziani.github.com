@@ -2,7 +2,7 @@
 layout: post
 title: Statikus erőforrások cache-elése Spring MVC-vel
 date: '2015-09-08'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

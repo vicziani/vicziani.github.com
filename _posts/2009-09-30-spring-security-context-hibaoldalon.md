@@ -2,7 +2,7 @@
 layout: post
 title: Spring Security context a hibaoldalon
 date: '2009-09-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Java

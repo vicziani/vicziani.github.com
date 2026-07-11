@@ -2,7 +2,7 @@
 layout: post
 title: JBoss Application Server biztonságossá tétele
 date: '2012-01-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Biztonság
 - Java

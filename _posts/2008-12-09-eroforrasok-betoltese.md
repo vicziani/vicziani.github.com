@@ -2,7 +2,7 @@
 layout: post
 title: Erőforrások betöltése
 date: '2008-12-09'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 ---

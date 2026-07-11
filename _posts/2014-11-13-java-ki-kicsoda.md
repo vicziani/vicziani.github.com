@@ -2,7 +2,7 @@
 layout: post
 title: Java ki kicsoda
 date: '2014-11-13'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

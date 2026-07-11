@@ -2,7 +2,7 @@
 layout: post
 title: Verziószám megjelenítése az alkalmazásban
 date: '2011-09-14'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 - DevOps

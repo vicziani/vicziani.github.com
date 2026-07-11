@@ -2,7 +2,7 @@
 layout: post
 title: SSH bejelentkezés kulcspárral
 date: '2011-01-26'
-author: István Viczián
+author: Viczián István
 tags:
 - Biztonság
 - Egyéb nyelvek

@@ -3,7 +3,7 @@ layout: post
 title: JWT és Spring Security
 date: '2019-03-18'
 last_modified_at: '2026-06-20'
-author: István Viczián
+author: Viczián István
 description: Ez a poszt leírja, mi a JWT és hogyan használjuk Spring Security-vel.
 tags:
 - Java

@@ -2,7 +2,7 @@
 layout: post
 title: Oracle Fusion Middleware - SOA
 date: '2008-12-03'
-author: István Viczián
+author: Viczián István
 tags:
 - Architektúra
 ---

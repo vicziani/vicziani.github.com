@@ -2,7 +2,7 @@
 layout: post
 title: Clusterezés általában és Tomcaten
 date: '2010-06-20'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

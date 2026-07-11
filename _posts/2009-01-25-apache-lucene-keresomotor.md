@@ -2,7 +2,7 @@
 layout: post
 title: Apache Lucene keresőmotor
 date: '2009-01-25'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Szakmai élet

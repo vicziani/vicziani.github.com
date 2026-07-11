@@ -2,7 +2,7 @@
 layout: post
 title: Repülőgépek jeleinek vétele Raspberry Pivel
 date: "2026-06-01"
-author: István Viczián
+author: Viczián István
 description: Előadok a Magyarországi Web Konferencián Java és Spring témakörben.
 tags:
 - Hardver és labor

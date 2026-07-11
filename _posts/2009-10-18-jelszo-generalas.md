@@ -2,7 +2,7 @@
 layout: post
 title: Jelszó generálás
 date: '2009-10-18'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Módszertan

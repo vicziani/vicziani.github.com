@@ -2,7 +2,7 @@
 layout: post
 title: JExcelAPI kivétel
 date: '2009-10-07T17:04:00.000'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

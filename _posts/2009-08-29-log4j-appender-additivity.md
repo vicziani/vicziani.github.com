@@ -2,7 +2,7 @@
 layout: post
 title: Log4J appender additivity
 date: '2009-08-29T17:24:00.000'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

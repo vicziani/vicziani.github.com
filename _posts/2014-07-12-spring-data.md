@@ -2,7 +2,7 @@
 layout: post
 title: Spring Data
 date: '2014-07-12'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Adatkezelés

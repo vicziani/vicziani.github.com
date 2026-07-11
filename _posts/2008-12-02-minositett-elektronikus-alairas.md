@@ -2,7 +2,7 @@
 layout: post
 title: Minősített elektronikus aláírás
 date: '2008-12-02'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Biztonság

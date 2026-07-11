@@ -2,7 +2,7 @@
 layout: post
 title: Clean Architecture
 date: '2020-03-03'
-author: István Viczián
+author: Viczián István
 description: Szemelvények a Clean Architecture könyvből.
 tags:
 - Architektúra

@@ -2,7 +2,7 @@
 layout: post
 title: Maven pluginek verziószáma
 date: '2011-08-05'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

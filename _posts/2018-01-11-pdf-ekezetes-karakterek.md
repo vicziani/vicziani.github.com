@@ -2,7 +2,7 @@
 layout: post
 title: Ékezetes karakterek PDF állományban
 date: '2018-01-11'
-author: István Viczián
+author: Viczián István
 description: Egy poszt arról, hogyan lehet Javaban generált PDF dokumentumokban ékezetes karaktereket használni.
 tags:
 - Java

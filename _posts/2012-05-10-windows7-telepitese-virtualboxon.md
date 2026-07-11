@@ -2,7 +2,7 @@
 layout: post
 title: Windows7 telepítése VirtualBoxon
 date: '2012-05-10'
-author: István Viczián
+author: Viczián István
 tags:
 - Hardver és labor
 - Egyéb nyelvek

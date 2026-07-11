@@ -2,7 +2,7 @@
 layout: post
 title: Egyszerű fájlmegosztás kikapcsolása
 date: '2009-09-13'
-author: István Viczián
+author: Viczián István
 tags:
 - Biztonság
 - Egyéb nyelvek

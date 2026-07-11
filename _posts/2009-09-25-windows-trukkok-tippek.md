@@ -2,7 +2,7 @@
 layout: post
 title: Windows trükkök-tippek
 date: '2009-09-25'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Hardver és labor

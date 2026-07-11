@@ -2,7 +2,7 @@
 layout: post
 title: Subversion lock kezelés
 date: '2011-04-02'
-author: István Viczián
+author: Viczián István
 tags:
 - Egyéb nyelvek
 - Módszertan

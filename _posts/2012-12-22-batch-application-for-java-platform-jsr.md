@@ -2,7 +2,7 @@
 layout: post
 title: Batch Application for the Java Platform (JSR 352)
 date: '2012-12-22'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

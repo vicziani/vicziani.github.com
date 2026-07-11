@@ -2,7 +2,7 @@
 layout: post
 title: Twelve-factor app
 date: '2016-11-05'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

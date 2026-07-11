@@ -2,7 +2,7 @@
 layout: post
 title: Szöveg generálás
 date: '2009-03-30'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 last_modified_at: '2018-02-19'

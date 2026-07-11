@@ -2,7 +2,7 @@
 layout: post
 title: UMLet saját komponens
 date: '2010-09-29'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

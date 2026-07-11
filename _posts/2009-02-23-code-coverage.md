@@ -2,7 +2,7 @@
 layout: post
 title: Code coverage
 date: '2009-02-23'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Tesztelés

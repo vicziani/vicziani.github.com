@@ -2,7 +2,7 @@
 layout: post
 title: Subversion branch, akár Maven Release pluginnal
 date: '2011-09-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 - Java

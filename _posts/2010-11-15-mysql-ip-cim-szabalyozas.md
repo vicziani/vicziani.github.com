@@ -2,7 +2,7 @@
 layout: post
 title: MySQL ip cím szabályozás
 date: '2010-11-15'
-author: István Viczián
+author: Viczián István
 tags:
 - Adatkezelés
 - Egyéb nyelvek

@@ -2,7 +2,7 @@
 layout: post
 title: Hackerrank megoldások JUnit Rule-lal
 date: '2017-09-08'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Tesztelés

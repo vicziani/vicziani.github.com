@@ -2,7 +2,7 @@
 layout: post
 title: SOA Using Java Web Services
 date: '2012-08-12'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

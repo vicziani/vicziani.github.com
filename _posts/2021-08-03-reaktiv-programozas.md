@@ -2,7 +2,7 @@
 layout: post
 title: Reaktív programozás
 date: '2021-08-03'
-author: István Viczián
+author: Viczián István
 description: Reaktív programozás Project Reactor, Spring WebFlux és R2DBC használatával.
 tags:
 - Java

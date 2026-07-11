@@ -2,7 +2,7 @@
 layout: post
 title: Java és a szemantikus web
 date: '2009-04-06'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 ---

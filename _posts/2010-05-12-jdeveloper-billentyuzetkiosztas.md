@@ -2,7 +2,7 @@
 layout: post
 title: JDeveloper billentyűzetkiosztás
 date: '2010-05-12'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Egyéb nyelvek

@@ -2,7 +2,7 @@
 layout: post
 title: Fizikai rendszerterv generálás Java forráskódból
 date: '2009-07-07'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

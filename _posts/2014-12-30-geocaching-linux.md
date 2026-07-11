@@ -2,7 +2,7 @@
 layout: post
 title: Geocaching Linuxon
 date: "2014-12-30"
-author: István Viczián
+author: Viczián István
 description: Ez a poszt azoknak készült, akik geocache-elnek, és mellette Linuxot használnak.
 tags:
 - Hardver és labor

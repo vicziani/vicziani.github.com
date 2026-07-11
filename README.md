@@ -11,7 +11,7 @@ viczian.istvan a gmail-en
 layout: post
 title: Példa cím
 date: '2018-10-29'
-author: István Viczián
+author: Viczián István
 tags:
 - JTechLog
 - Blog

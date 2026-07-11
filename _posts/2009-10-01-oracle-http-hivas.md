@@ -2,7 +2,7 @@
 layout: post
 title: Oracle http hívás
 date: '2009-10-01T16:32:00.000'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Architektúra

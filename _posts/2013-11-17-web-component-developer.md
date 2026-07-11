@@ -2,7 +2,7 @@
 layout: post
 title: Web Component Developer
 date: '2013-11-17'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

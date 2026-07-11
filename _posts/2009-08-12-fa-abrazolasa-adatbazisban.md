@@ -2,7 +2,7 @@
 layout: post
 title: Fa ábrázolása adatbázisban
 date: '2009-08-12'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Adatkezelés

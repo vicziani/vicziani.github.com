@@ -2,7 +2,7 @@
 layout: post
 title: Branch-elés a fejlesztési munkafolyamatban
 date: '2011-09-11'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 

@@ -2,7 +2,7 @@
 layout: post
 title: JTechLog Technology Radar
 date: '2023-08-12'
-author: István Viczián
+author: Viczián István
 description: Mely technológiákat használnám, és melyeket csak fenntartásokkal?
 tags:
 - Java

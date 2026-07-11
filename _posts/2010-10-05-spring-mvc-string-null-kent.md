@@ -2,7 +2,7 @@
 layout: post
 title: Spring MVC String null-ként
 date: '2010-10-05'
-author: István Viczián
+author: Viczián István
 tags:
 - Spring
 - Java

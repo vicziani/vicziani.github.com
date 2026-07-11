@@ -2,7 +2,7 @@
 layout: post
 title: Elosztott tranzakciókezelés Spring Boottal
 date: '2021-01-04'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

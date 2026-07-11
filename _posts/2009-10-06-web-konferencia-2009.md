@@ -2,7 +2,7 @@
 layout: post
 title: Magyarországi Web Konferencia 2009
 date: '2009-10-06'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Spring

@@ -2,7 +2,7 @@
 layout: post
 title: Maven legjobb gyakorlatok
 date: '2011-09-27'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Módszertan

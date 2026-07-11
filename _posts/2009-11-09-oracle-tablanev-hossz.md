@@ -2,7 +2,7 @@
 layout: post
 title: Oracle táblanév hossz
 date: '2009-11-09'
-author: István Viczián
+author: Viczián István
 tags:
 - Java
 - Adatkezelés

@@ -2,7 +2,7 @@
 layout: post
 title: Miért ne fejlesszünk saját keretrendszert?
 date: '2011-05-11'
-author: István Viczián
+author: Viczián István
 tags:
 - Módszertan
 - Java

@@ -2,7 +2,7 @@
 layout: post
 title: Virtualizáció fejlesztői gépen
 date: '2009-09-09'
-author: István Viczián
+author: Viczián István
 tags:
 - Architektúra
 - DevOps
