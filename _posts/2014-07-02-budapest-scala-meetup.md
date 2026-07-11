@@ -4,7 +4,9 @@ title: budapest.scala meetup
 date: '2014-07-02'
 author: István Viczián
 tags:
-- Community
+- Módszertan
+- DevOps
+- Egyéb nyelvek
 ---
 
 A nyár közepén, 2014. július 1-én, kedden, 19:00-tól [budapest.scala

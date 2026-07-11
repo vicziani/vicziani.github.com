@@ -4,8 +4,9 @@ title: HOUG Szakmai nap 2014
 date: '2014-10-02'
 author: István Viczián
 tags:
+- Java
 - Spring
-- Community
+- Szakmai élet
 last_modified_at: '2018-06-01'
 ---
 
