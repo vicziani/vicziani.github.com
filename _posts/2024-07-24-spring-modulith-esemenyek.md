@@ -17,7 +17,7 @@ ezeket az eseményeket más service-ek felé is elküldeni valamilyen message br
 
 Lesz szó modularizált alkalmazásról, eseménykezelésről, Spring Modulithról, tranzakciókezelésről, Testcontainersről, Kafkáról.
 
-<div>
+<div class="video-container">
 <iframe src="https://www.youtube.com/embed/pofgNVVaoEE?si=hnf4EMP5CxhR5Bko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
