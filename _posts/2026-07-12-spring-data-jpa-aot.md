@@ -30,7 +30,7 @@ meg lehet nézni, valamint akár breakpointot is el lehet helyezni, és debuggol
 
 <!-- more -->
 
-Ahhoz, hogy lefusson az AOT, adjuk ki kell adni a következő Maven parancsot.
+Az AOT futtatásához a következő Maven parancsot kell kiadni.
 
 ```shell
 mvnw -Pnative package
