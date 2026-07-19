@@ -23,6 +23,8 @@ nagymértékben dinamikussá téve az oldalakat. Sajnos ez sem terjedt el, viszo
 meghozta a hírnevet, ugyanis a böngészőjük a Netscape Navigator képes volt apró Java programok,
 ún. appletek futtatására.
 
+![The Java Story](/artifacts/posts/the-java-story/the-java-story.jpg)
+
 <!-- more -->
 
 Közben elhangzik, hogy a C++ nyelvhez való hasonlóság tudatos stratégia eredménye. Nem akartak egy
